@@ -3,3 +3,6 @@
 *.project*
 *.settings*
 *log*
+
+.idea
+*.iml
