@@ -43,7 +43,7 @@
 			<artifactId>log4j</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring</artifactId>
@@ -56,33 +56,9 @@
 		  <scope>test</scope>
 		</dependency>
 		<dependency>
-		  <groupId>com.alipay.test.ats</groupId>
-		  <artifactId>ats-compact</artifactId>
-		  <version>3.1.1</version>
-		  <scope>test</scope>
-		</dependency>
-		<dependency>
-		  <groupId>com.alipay.test.ats</groupId>
-		  <artifactId>ats-common-driver</artifactId>
-		  <version>3.0</version>
-		  <scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.apache.ibatis</groupId>
 			<artifactId>ibatis-sqlmap</artifactId>
 			<version>2.3.4.726</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.alipay</groupId>
-			<artifactId>ats</artifactId>
-			<version>4.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet</artifactId>
-			<version>3.0.0.v201103241009</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
