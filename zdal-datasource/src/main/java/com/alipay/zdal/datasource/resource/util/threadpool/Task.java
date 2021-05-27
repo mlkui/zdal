@@ -8,8 +8,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
  * A task for a thread pool.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: Task.java, v 0.1 2014-1-6 ÏÂÎç05:44:50 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: Task.java, v 0.1 2014-1-6 ä¸‹åˆ05:44:50 Exp $
  */
 public interface Task {
     // Constants -----------------------------------------------------

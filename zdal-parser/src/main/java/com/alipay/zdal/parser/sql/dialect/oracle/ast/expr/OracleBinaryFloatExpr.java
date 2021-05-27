@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleBinaryFloatExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:43:13 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleBinaryFloatExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:43:13 Exp $
  */
 public class OracleBinaryFloatExpr extends SQLNumericLiteralExpr implements OracleExpr {
 

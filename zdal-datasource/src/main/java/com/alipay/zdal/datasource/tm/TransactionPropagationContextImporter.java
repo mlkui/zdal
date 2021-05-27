@@ -10,8 +10,8 @@ import com.alipay.zdal.datasource.transaction.Transaction;
  *  Implementations of this interface are used for importing a transaction
  *  propagation context into the transaction manager.
  *
- * @author ²®ÑÀ
- * @version $Id: TransactionPropagationContextImporter.java, v 0.1 2014-1-6 ÏÂÎç05:48:47 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TransactionPropagationContextImporter.java, v 0.1 2014-1-6 ä¸‹åˆ05:48:47 Exp $
  */
 public interface TransactionPropagationContextImporter {
     /**

@@ -18,16 +18,16 @@ import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.client.util.dispatchanalyzer.ZdalDatasourceIntrospector;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("È«»î²ßÂÔ:getAvailableGroupDB")
+@Feature("å…¨æ´»ç­–ç•¥:getAvailableGroupDB")
 public class SR954040 {
 	public TestAssertion Assert = new TestAssertion();
 	ZdalDatasourceIntrospector td =null;
 
-	@Subject("»ñÈ¡user_idµÄÖµÈ·¶¨groupnum£¬·µ»Ø¸ÃgroupÖĞ¿ÉÓÃµÄdbĞòÁĞºÅ")
+	@Subject("è·å–user_idçš„å€¼ç¡®å®šgroupnumï¼Œè¿”å›è¯¥groupä¸­å¯ç”¨çš„dbåºåˆ—å·")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC954041(){
-		Step("»ñÈ¡user_idµÄÖµÈ·¶¨groupnum£¬·µ»Ø¸ÃgroupÖĞ¿ÉÓÃµÄdbĞòÁĞºÅ");
+		Step("è·å–user_idçš„å€¼ç¡®å®šgroupnumï¼Œè¿”å›è¯¥groupä¸­å¯ç”¨çš„dbåºåˆ—å·");
 		String[] springXmlPath = {  "./shardrw/spring-available-ds.xml" };
 		ApplicationContext context = new ClassPathXmlApplicationContext(springXmlPath);
 		
@@ -36,7 +36,7 @@ public class SR954040 {
 		Map<String,String> map = new HashMap<String, String>();
 		map.put("user_id", "5");
 		String str=td.getAvailableGroupDB(map);
-		Assert.areEqual("1", str, "getAvailableGroupDBÑéÖ¤:"+str);
+		Assert.areEqual("1", str, "getAvailableGroupDBéªŒè¯:"+str);
 		
 		
 		

@@ -20,7 +20,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import static com.alipay.ats.internal.domain.ATS.Step;
 @RunWith(ATSJUnitRunner.class)
-@Feature("rwÊı¾İÔ´:insert,update,delete")
+@Feature("rwæ•°æ®æº:insert,update,delete")
 public class SR956030 {
 	String url1 = ConstantsTest.mysql12UrlZds1;
 	String psd = ConstantsTest.mysq112Psd;
@@ -31,7 +31,7 @@ public class SR956030 {
 	
 	@Before
 	public void beforeTestcase() {
-		// Êı¾İ×¼±¸
+		// æ•°æ®å‡†å¤‡
 		prepareData();
 
 		sqlMap = (SqlMapClient) ZdalSqlParserSuite.context
@@ -44,11 +44,11 @@ public class SR956030 {
 	}
 	
 	
-	@Subject("Ö´ĞĞ:insert into")
+	@Subject("æ‰§è¡Œ:insert into")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956031(){
-		Step("Ö´ĞĞ:insert into");
+		Step("æ‰§è¡Œ:insert into");
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("clum", 300);
 		params.put("colu2", "DB_C");
@@ -61,19 +61,19 @@ public class SR956030 {
 		String selectSql="select count(*) from test1 where colu2='DB_C'";
 		ResultSet rs=ZdalTestCommon.dataCheckFromJDBCOracle(selectSql,url1,psd,user);
 		try {
-			Assert.isTrue(rs.next(), "ÑéÖ¤²éÑ¯½á¹û");
-			Assert.areEqual(1, rs.getInt(1), "ÑéÖ¤insert intoÓï¾ä");
+			Assert.isTrue(rs.next(), "éªŒè¯æŸ¥è¯¢ç»“æœ");
+			Assert.areEqual(1, rs.getInt(1), "éªŒè¯insert intoè¯­å¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 	}
 	
-	@Subject("Ö´ĞĞ:update set")
+	@Subject("æ‰§è¡Œ:update set")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956032(){
-		Step("Ö´ĞĞ:update set");
+		Step("æ‰§è¡Œ:update set");
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("clum", 100);
 		params.put("colu2", "DB_G");
@@ -86,19 +86,19 @@ public class SR956030 {
 		String selectSql="select count(*) from test1 where colu2='DB_G'";
 		ResultSet rs=ZdalTestCommon.dataCheckFromJDBCOracle(selectSql,url1,psd,user);
 		try {
-			Assert.isTrue(rs.next(), "ÑéÖ¤²éÑ¯½á¹û");
-			Assert.areEqual(1, rs.getInt(1), "ÑéÖ¤updates set Óï¾ä");
+			Assert.isTrue(rs.next(), "éªŒè¯æŸ¥è¯¢ç»“æœ");
+			Assert.areEqual(1, rs.getInt(1), "éªŒè¯updates set è¯­å¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
 	
-	@Subject("Ö´ĞĞ:delete")
+	@Subject("æ‰§è¡Œ:delete")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956033(){
-		Step("Ö´ĞĞ:delete");
+		Step("æ‰§è¡Œ:delete");
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("clum", 100);
 		try {
@@ -110,8 +110,8 @@ public class SR956030 {
 		String selectSql="select count(*) from test1";
 		ResultSet rs=ZdalTestCommon.dataCheckFromJDBCOracle(selectSql,url1,psd,user);
 		try {
-			Assert.isTrue(rs.next(), "ÑéÖ¤²éÑ¯½á¹û");
-			Assert.areEqual(1, rs.getInt(1), "ÑéÖ¤deleteÓï¾ä");
+			Assert.isTrue(rs.next(), "éªŒè¯æŸ¥è¯¢ç»“æœ");
+			Assert.areEqual(1, rs.getInt(1), "éªŒè¯deleteè¯­å¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -121,7 +121,7 @@ public class SR956030 {
 	
 	
 	/**
-	 * Êı¾İ×¼±¸
+	 * æ•°æ®å‡†å¤‡
 	 */
 	private void prepareData() {
 		String insertSql1 = "insert into test1(clum,colu2) values (100,'DB_A')";
@@ -131,7 +131,7 @@ public class SR956030 {
 	}
 
 	/**
-	 * É¾³ıÊı¾İ
+	 * åˆ é™¤æ•°æ®
 	 */
 	private void deleteData() {
 		String deleteSql = "delete from test1";

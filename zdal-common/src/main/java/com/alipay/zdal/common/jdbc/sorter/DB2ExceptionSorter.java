@@ -15,9 +15,9 @@ import org.apache.log4j.Logger;
  * The code -9999 implies that the condition does not have a related code.
  * 
  * TODO DB2 CLI
- * ĞèÒª¸ù¾İDB2µÄ´íÎóÂëÅĞ¶ÏÊÇ·ñĞèÒª°Ñ¶ÔÓ¦µÄÁ¬½ÓÌßµô.
- * @author ²®ÑÀ
- * @version $Id: DB2ExceptionSorter.java, v 0.1 2014-1-1 ÏÂÎç08:29:16 Exp $
+ * éœ€è¦æ ¹æ®DB2çš„é”™è¯¯ç åˆ¤æ–­æ˜¯å¦éœ€è¦æŠŠå¯¹åº”çš„è¿æ¥è¸¢æ‰.
+ * @author ä¼¯ç‰™
+ * @version $Id: DB2ExceptionSorter.java, v 0.1 2014-1-1 ä¸‹åˆ08:29:16 Exp $
  */
 public class DB2ExceptionSorter implements ExceptionSorter, Serializable {
 

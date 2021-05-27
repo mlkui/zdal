@@ -9,7 +9,7 @@ import com.alipay.zdal.parser.sql.ast.SQLExprImpl;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLNumericLiteralExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:18:50 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLNumericLiteralExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:18:50 xiaoqing.zhouxq Exp $
  */
 public abstract class SQLNumericLiteralExpr extends SQLExprImpl implements SQLLiteralExpr {
 

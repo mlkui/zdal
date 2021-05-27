@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlShowColumnsStatement.java, v 0.1 2012-11-17 ÏÂÎç3:35:17 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlShowColumnsStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:35:17 Exp $
  */
 public class MySqlShowColumnsStatement extends MySqlStatementImpl {
 

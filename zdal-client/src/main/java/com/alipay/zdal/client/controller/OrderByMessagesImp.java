@@ -13,7 +13,7 @@ public class OrderByMessagesImp implements OrderByMessages {
     private final List<OrderByEle> orderbyList = new ArrayList<OrderByEle>();
 
     /**
-     * nullÔÚÕâÀï²»×÷´¦Àí,Òò´ËorderByList²»»á³öÏÖÎªnullµÄÇé¿ö
+     * nullåœ¨è¿™é‡Œä¸ä½œå¤„ç†,å› æ­¤orderByListä¸ä¼šå‡ºç°ä¸ºnullçš„æƒ…å†µ
      * @param orderbyList
      */
     public OrderByMessagesImp(List<OrderByEle> orderbyList) {

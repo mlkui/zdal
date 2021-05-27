@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.runtime;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: CantFindTargetVirtualNameException.java, v 0.1 2014-1-6 ÏÂÎç05:18:35 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CantFindTargetVirtualNameException.java, v 0.1 2014-1-6 ä¸‹åˆ05:18:35 Exp $
  */
 public class CantFindTargetVirtualNameException extends ZdalRunTimeException {
     /**

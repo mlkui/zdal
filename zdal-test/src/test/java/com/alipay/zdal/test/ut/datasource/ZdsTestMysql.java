@@ -11,9 +11,9 @@ import com.alipay.zdal.datasource.LocalTxDataSourceDO;
 import com.alipay.zdal.datasource.ZDataSource;
 
 /**
- * mysql db 基本使用
+ * mysql db 鍩烘湰浣跨敤
  * @author sicong.shou
- * @version $Id: ZdsTest1.java, v 0.1 2012-11-21 下午04:53:45 sicong.shou Exp $
+ * @version $Id: ZdsTest1.java, v 0.1 2012-11-21 涓嬪崍04:53:45 sicong.shou Exp $
  */
 public class ZdsTestMysql {
     protected static DataSource   dataSource = null;

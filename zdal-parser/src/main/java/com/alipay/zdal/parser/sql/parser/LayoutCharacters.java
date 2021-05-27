@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.parser;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: LayoutCharacters.java, v 0.1 2012-11-17 ÏÂÎç3:53:34 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: LayoutCharacters.java, v 0.1 2012-11-17 ä¸‹åˆ3:53:34 Exp $
  */
 public interface LayoutCharacters {
 
@@ -37,7 +37,7 @@ public interface LayoutCharacters {
     final static byte CR     = 0xD;
 
     /**
-     * QS_TODO ä¸ºä»€ä¹ˆä¸æ˜?x0ï¼?br/>
+     * QS_TODO æ¶“è½°ç²ˆæ¶”å œç¬‰é„?x0é”›?br/>
      * End of input character. Used as a sentinel to denote the character one beyond the last defined character in a
      * source file.
      */

@@ -8,14 +8,14 @@ import java.sql.SQLException;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: ZdalSQLExceptionWrapper.java, v 0.1 2014-1-6 œ¬ŒÁ05:19:12 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: ZdalSQLExceptionWrapper.java, v 0.1 2014-1-6 ‰∏ãÂçà05:19:12 Exp $
  */
 public class ZdalSQLExceptionWrapper extends SQLException {
 
     public ZdalSQLExceptionWrapper(String message, SQLException targetSQLESqlException) {
         if (targetSQLESqlException == null) {
-            throw new IllegalArgumentException("±ÿ–ÎÃÓ»ÎSQLException");
+            throw new IllegalArgumentException("ÂøÖÈ°ªÂ°´ÂÖ•SQLException");
         }
         this.targetSQLException = targetSQLESqlException;
         this.message = message;

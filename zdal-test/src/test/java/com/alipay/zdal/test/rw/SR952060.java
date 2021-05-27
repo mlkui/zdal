@@ -21,7 +21,7 @@ import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.test.common.ZdalTestBase;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("zdalµÄpreparedStatementµÄexecuteQuery()ÓëexecuteUpdate()")
+@Feature("zdalçš„preparedStatementçš„executeQuery()ä¸executeUpdate()")
 public class SR952060 extends ZdalTestBase {
 
     private Connection   connection = null;
@@ -37,7 +37,7 @@ public class SR952060 extends ZdalTestBase {
         try {
             connection = zdalDataSource.getConnection();
         } catch (Exception ex) {
-            Assert.isFalse(true, "È¡Á¬½ÓÒì³£" + ex);
+            Assert.isFalse(true, "å–è¿æ¥å¼‚å¸¸" + ex);
         }
     }
 
@@ -53,18 +53,18 @@ public class SR952060 extends ZdalTestBase {
 
     }
 
-    @Subject("preparedStatementµÄÖ´ĞĞinsertºÍselect")
+    @Subject("preparedStatementçš„æ‰§è¡Œinsertå’Œselect")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952061() {
 
-        Step("1¡¢ÑéÖ¤insertÓï¾ä");
+        Step("1ã€éªŒè¯insertè¯­å¥");
         String sql = "insert into test1(colu2) values('hello')";
         int result = 0;
         result = testExecuteUpdate(sql);
-        Assert.areEqual(1, result, "preparedStatementÖ´ĞĞinsert sqlÓï¾ä");
+        Assert.areEqual(1, result, "preparedStatementæ‰§è¡Œinsert sqlè¯­å¥");
 
-        Step("2¡¢ preparedStatement¿ªÊ¼Ö´ĞĞselectÓï¾ä");
+        Step("2ã€ preparedStatementå¼€å§‹æ‰§è¡Œselectè¯­å¥");
         String sql_2 = "select count(*) from test1 where colu2 ='hello'";
         ResultSet result_2 = null;
         PreparedStatement preparedStatement_2 = null;
@@ -86,32 +86,32 @@ public class SR952060 extends ZdalTestBase {
             }
         }
 
-        Step("3¡¢ preparedStatement¿ªÊ¼Ö´ĞĞupdateÓï¾ä");
+        Step("3ã€ preparedStatementå¼€å§‹æ‰§è¡Œupdateè¯­å¥");
         int result_3 = 0;
         String sql_3 = "update test1 set colu2 = 'world' ";
         result_3 = testExecuteUpdate(sql_3);
-        Assert.areEqual(1, result_3, "preparedStatementÖ´ĞĞudpate sqlÓï¾ä");
+        Assert.areEqual(1, result_3, "preparedStatementæ‰§è¡Œudpate sqlè¯­å¥");
 
-        Step("4¡¢ preparedStatement¿ªÊ¼Ö´ĞĞdeleteÓï¾ä");
+        Step("4ã€ preparedStatementå¼€å§‹æ‰§è¡Œdeleteè¯­å¥");
         int result_4 = 0;
         String sql_4 = "delete from test1 where colu2 ='world' ";
         result_4 = testExecuteUpdate(sql_4);
-        Assert.areEqual(1, result_4, "preparedStatementÖ´ĞĞdelete sqlÓï¾ä");
+        Assert.areEqual(1, result_4, "preparedStatementæ‰§è¡Œdelete sqlè¯­å¥");
 
     }
 
-    @Subject("preparedStatementµÄÖ´ĞĞselect")
+    @Subject("preparedStatementçš„æ‰§è¡Œselect")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952062() {
 
-        Step("1¡¢Ö´ĞĞinsert²Ù×÷");
+        Step("1ã€æ‰§è¡Œinsertæ“ä½œ");
         String sql = "insert into test1(colu2) values('world')";
         int res_1 = 0;
         res_1 = testExecute(sql);
-        Assert.areEqual(1, res_1, "ÑéÖ¤²åÈë²Ù×÷," + res_1);
+        Assert.areEqual(1, res_1, "éªŒè¯æ’å…¥æ“ä½œ," + res_1);
 
-        Step("2¡¢Ö´ĞĞselect²Ù×÷");
+        Step("2ã€æ‰§è¡Œselectæ“ä½œ");
         sql = "select count(*) from test1 where colu2 = 'world'";
         ResultSet res_2 = null;
         int res_s = 0;
@@ -139,24 +139,24 @@ public class SR952060 extends ZdalTestBase {
             }
         }
 
-        Assert.areEqual(1, res_s, "ÑéÖ¤select½á¹û");
+        Assert.areEqual(1, res_s, "éªŒè¯selectç»“æœ");
 
-        Step("3¡¢²âÊÔÖ´ĞĞupdate²Ù×÷");
+        Step("3ã€æµ‹è¯•æ‰§è¡Œupdateæ“ä½œ");
         sql = "update test1 set colu2 = 'abc' ";
         int res_4 = 0;
         res_4 = testExecute(sql);
-        Assert.areEqual(1, res_4, "Ñéupdate²Ù×÷");
+        Assert.areEqual(1, res_4, "éªŒupdateæ“ä½œ");
 
-        Step("4¡¢²âÊÔÖ´ĞĞdelete²Ù×÷");
+        Step("4ã€æµ‹è¯•æ‰§è¡Œdeleteæ“ä½œ");
         sql = "delete from test1 where colu2 = 'abc'";
         int res_3 = 0;
         res_3 = testExecute(sql);
-        Assert.areEqual(1, res_3, "ÑéÖ¤É¾³ı²Ù×÷");
+        Assert.areEqual(1, res_3, "éªŒè¯åˆ é™¤æ“ä½œ");
 
     }
 
     /**
-     * ²âÊÔ·½·¨executeUpdate
+     * æµ‹è¯•æ–¹æ³•executeUpdate
      * 
      * @param sqlStr
      * @return
@@ -186,7 +186,7 @@ public class SR952060 extends ZdalTestBase {
     }
 
     /**
-     * ²âÊÔ·½·¨execute
+     * æµ‹è¯•æ–¹æ³•execute
      * 
      * @param sqlStr
      * @return

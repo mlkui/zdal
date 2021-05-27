@@ -20,8 +20,8 @@ import com.alipay.zdal.client.util.ThreadLocalMap;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: TestShardDataSource.java, v 0.1 2013-12-26 ÏÂÎç03:28:58 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TestShardDataSource.java, v 0.1 2013-12-26 ä¸‹åˆ03:28:58 Exp $
  */
 public class TestShardDataSource extends BaseTest {
 

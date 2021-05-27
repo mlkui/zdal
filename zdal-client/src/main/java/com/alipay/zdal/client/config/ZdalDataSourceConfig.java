@@ -13,42 +13,42 @@ import com.alipay.zdal.common.DBType;
 import com.alipay.zdal.common.lang.StringUtil;
 
 /**
- * mysql/oracle/db2¸÷ÖÖÊı¾İÔ´µÄÅäÖÃ¼ÓÔØ.
+ * mysql/oracle/db2å„ç§æ•°æ®æºçš„é…ç½®åŠ è½½.
  * 
- * @author ²®ÑÀ
- * @version $Id: ZdalDataSourceConfig.java, v 0.1 2013-1-18 ÏÂÎç03:48:28 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalDataSourceConfig.java, v 0.1 2013-1-18 ä¸‹åˆ03:48:28 Exp $
  */
 public abstract class ZdalDataSourceConfig {
 
-    /** ×¨ÃÅ´òÓ¡ÍÆËÍ½á¹ûµÄlogĞÅÏ¢. */
+    /** ä¸“é—¨æ‰“å°æ¨é€ç»“æœçš„logä¿¡æ¯. */
     protected static final Logger  CONFIG_LOGGER = Logger
                                                      .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
-    /** appÃû³Æ */
+    /** appåç§° */
     protected String               appName;
 
-    /** Êı¾İÔ´µÄÃû³Æ. */
+    /** æ•°æ®æºçš„åç§°. */
     protected String               appDsName     = null;
 
-    /** Á¬½ÓÊı¾İ¿âµÄ»·¾³,¿ª·¢,²âÊÔ,ÏßÉÏ»·¾³µÈ. */
+    /** è¿æ¥æ•°æ®åº“çš„ç¯å¢ƒ,å¼€å‘,æµ‹è¯•,çº¿ä¸Šç¯å¢ƒç­‰. */
     protected String               dbmode;
 
-    /** ±¾µØÅäÖÃÎÄ¼ş´æ·ÅµÄÂ·¾¶. */
+    /** æœ¬åœ°é…ç½®æ–‡ä»¶å­˜æ”¾çš„è·¯å¾„. */
     protected String               configPath;
 
-    /** Êı¾İÔ´µÄÅäÖÃĞÅÏ¢. */
+    /** æ•°æ®æºçš„é…ç½®ä¿¡æ¯. */
     protected ZdalConfig           zdalConfig    = null;
 
-    /** ÓÃÓÚ±êÊ¾ZdalDataSourceÊÇ·ñ³õÊ¼»¯Íê³É. */
+    /** ç”¨äºæ ‡ç¤ºZdalDataSourceæ˜¯å¦åˆå§‹åŒ–å®Œæˆ. */
     protected AtomicBoolean        inited        = new AtomicBoolean(false);
 
     protected DataSourceConfigType dbConfigType  = null;
 
-    /** Êı¾İ¿âÀàĞÍ. */
+    /** æ•°æ®åº“ç±»å‹. */
     protected DBType               dbType;
 
     /**
-     * ¼ìÑéÅäÖÃÏî.
+     * æ£€éªŒé…ç½®é¡¹.
      */
     protected void checkParameters() {
         if (StringUtil.isBlank(appName)) {
@@ -73,7 +73,7 @@ public abstract class ZdalDataSourceConfig {
     }
 
     /**
-     * Ó¦ÓÃÊ¹ÓÃÊ±£¬±ØĞëÏÈµ÷ÓÃinitZdalDataSource·½·¨À´³õÊ¼»¯.
+     * åº”ç”¨ä½¿ç”¨æ—¶ï¼Œå¿…é¡»å…ˆè°ƒç”¨initZdalDataSourceæ–¹æ³•æ¥åˆå§‹åŒ–.
      */
     protected void initZdalDataSource() {
         long startInit = System.currentTimeMillis();
@@ -88,7 +88,7 @@ public abstract class ZdalDataSourceConfig {
     }
 
     /**
-     * ³õÊ¼»¯mysql/oracle/db2µÄÊı¾İÔ´.
+     * åˆå§‹åŒ–mysql/oracle/db2çš„æ•°æ®æº.
      */
     protected abstract void initDataSources(ZdalConfig zdalConfig);
 
@@ -104,7 +104,7 @@ public abstract class ZdalDataSourceConfig {
         return dbType;
     }
 
-    // ÏÂÃæµÄget/set¶ÔÓ¦µÄ²ÎÊıĞèÒªÔÚ³õÊ¼»¯µÄÊ±ºòÉèÖÃ.
+    // ä¸‹é¢çš„get/setå¯¹åº”çš„å‚æ•°éœ€è¦åœ¨åˆå§‹åŒ–çš„æ—¶å€™è®¾ç½®.
     public String getAppName() {
         return appName;
     }

@@ -8,8 +8,8 @@ package com.alipay.zdal.datasource.resource.util;
  * Thrown to indicate that a string was empty (aka. <code>""</code>)
  * where it must <b>not</b> be.
  *
- * @author ≤Æ—¿
- * @version $Id: EmptyStringException.java, v 0.1 2014-1-6 œ¬ŒÁ05:38:48 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: EmptyStringException.java, v 0.1 2014-1-6 ‰∏ãÂçà05:38:48 Exp $
  */
 public class EmptyStringException extends IllegalArgumentException {
     /**

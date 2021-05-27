@@ -26,7 +26,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleOutputVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: CallTest.java, v 0.1 2012-5-17 …œŒÁ10:12:31 xiaoqing.zhouxq Exp $
+ * @version $Id: CallTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:12:31 xiaoqing.zhouxq Exp $
  */
 public class CallTest extends TestCase {
 

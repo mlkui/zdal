@@ -10,8 +10,8 @@ package com.alipay.zdal.datasource.resource.util;
  * <p>This exception is used to help stub out implementations.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: NotImplementedException.java, v 0.1 2014-1-6 ÏÂÎç05:39:53 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: NotImplementedException.java, v 0.1 2014-1-6 ä¸‹åˆ05:39:53 Exp $
  */
 public class NotImplementedException extends RuntimeException {
     /**

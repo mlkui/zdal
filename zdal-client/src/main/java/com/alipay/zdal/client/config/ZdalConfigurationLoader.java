@@ -39,7 +39,7 @@ public class ZdalConfigurationLoader {
 
     private static final ZdalConfigurationLoader instance     = new ZdalConfigurationLoader();
 
-    /** 存放app的所有数据源的配置信息，key=appName  value=(key = appDsName,value = zdalconfig )*/
+    /** 瀛樻斁app鐨勬墍鏈夋暟鎹簮鐨勯厤缃俊鎭紝key=appName  value=(key = appDsName,value = zdalconfig )*/
     private Map<String, Map<String, ZdalConfig>> appDsConfigs = new HashMap<String, Map<String, ZdalConfig>>();
 
     public static ZdalConfigurationLoader getInstance() {

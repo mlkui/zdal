@@ -12,8 +12,8 @@ import java.sql.SQLException;
  * Does not check the connection. Used if instantiation of named connection checker fails.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: NullValidConnectionChecker.java, v 0.1 2014-1-6 ÏÂÎç05:29:21 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: NullValidConnectionChecker.java, v 0.1 2014-1-6 ä¸‹åˆ05:29:21 Exp $
  */
 public class NullValidConnectionChecker implements ValidConnectionChecker, Serializable {
 

@@ -15,7 +15,7 @@ import com.alipay.zdal.parser.visitor.ZdalSchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: MysqlSqlParserResult.java, v 0.1 2012-5-21 ÏÂÎç03:12:20 xiaoqing.zhouxq Exp $
+ * @version $Id: MysqlSqlParserResult.java, v 0.1 2012-5-21 ä¸‹åˆ03:12:20 xiaoqing.zhouxq Exp $
  */
 public class MysqlSqlParserResult extends DefaultSqlParserResult {
 
@@ -24,7 +24,7 @@ public class MysqlSqlParserResult extends DefaultSqlParserResult {
     }
 
     /**
-     * ÅĞ¶ÏmaxÊÇ·ñÊÇ°ó¶¨±äÁ¿.
+     * åˆ¤æ–­maxæ˜¯å¦æ˜¯ç»‘å®šå˜é‡.
      * @return
      */
     public int isRowCountBind() {
@@ -57,10 +57,10 @@ public class MysqlSqlParserResult extends DefaultSqlParserResult {
         }
         if (skip == DEFAULT_SKIP_MAX) {
             if (rowCount == DEFAULT_SKIP_MAX) {
-                //Èç¹ûskipºÍrowcount¶¼²»´æÔÚ¾Í·µ»ØÄ¬ÈÏÖµ.
+                //å¦‚æœskipå’Œrowcountéƒ½ä¸å­˜åœ¨å°±è¿”å›é»˜è®¤å€¼.
                 return DEFAULT_SKIP_MAX;
             } else {
-                //Èç¹ûskip²»´æÔÚ£¬¾Í·µ»Ørowcount.
+                //å¦‚æœskipä¸å­˜åœ¨ï¼Œå°±è¿”å›rowcount.
                 return rowCount;
             }
         } else {
@@ -74,7 +74,7 @@ public class MysqlSqlParserResult extends DefaultSqlParserResult {
     }
 
     /**
-     * ÅĞ¶ÏskipÊÇ·ñÊÇ°ó¶¨±äÁ¿µÄ.
+     * åˆ¤æ–­skipæ˜¯å¦æ˜¯ç»‘å®šå˜é‡çš„.
      * @return
      */
     public int isSkipBind() {
@@ -102,10 +102,10 @@ public class MysqlSqlParserResult extends DefaultSqlParserResult {
             return DEFAULT_SKIP_MAX;
         }
         int result = DEFAULT_SKIP_MAX;
-        //Èç¹ûÒ»ÌõsqlÓï¾äÖĞ°üº¬¶à¸ölimitÌõ¼ş£¬¿ÉÄÜ»áÓĞÎÊÌâ.
+        //å¦‚æœä¸€æ¡sqlè¯­å¥ä¸­åŒ…å«å¤šä¸ªlimitæ¡ä»¶ï¼Œå¯èƒ½ä¼šæœ‰é—®é¢˜.
         for (BindVarCondition limit : limits) {
             if (ZdalSchemaStatVisitor.OFFSET.equals(limit.getColumnName())) {
-                //Èç¹ûÊÇ°ó¶¨²ÎÊı£¬¾Í´Ó²ÎÊıÁĞ±íÖĞ»ñÈ¡offsetµÄÖµ.
+                //å¦‚æœæ˜¯ç»‘å®šå‚æ•°ï¼Œå°±ä»å‚æ•°åˆ—è¡¨ä¸­è·å–offsetçš„å€¼.
                 if (limit.getValue() == null) {
                     Object obj = arguments.get(limit.getIndex());
                     if (obj instanceof Long) {
@@ -120,7 +120,7 @@ public class MysqlSqlParserResult extends DefaultSqlParserResult {
                                                      + obj + " is not a int value");
                     }
                 } else {
-                    //´ÓsqlÓï¾äÖĞ»ñÈ¡offsetµÄÖµ.
+                    //ä»sqlè¯­å¥ä¸­è·å–offsetçš„å€¼.
                     Comparable<?> tmp = limit.getValue();
                     if (tmp instanceof Number) {
                         int skip = ((Integer) tmp).intValue();
@@ -138,7 +138,7 @@ public class MysqlSqlParserResult extends DefaultSqlParserResult {
     }
 
     /**
-     * »ñÈ¡mysqlÖĞµÄlimit m,nÖĞµÄn°ó¶¨²ÎÊıÖµ.
+     * è·å–mysqlä¸­çš„limit m,nä¸­çš„nç»‘å®šå‚æ•°å€¼.
      * @param args
      * @return
      */
@@ -149,10 +149,10 @@ public class MysqlSqlParserResult extends DefaultSqlParserResult {
             return DEFAULT_SKIP_MAX;
         }
         int result = DEFAULT_SKIP_MAX;
-        //Èç¹ûÒ»ÌõsqlÓï¾äÖĞ°üº¬¶à¸ölimitÌõ¼ş£¬¿ÉÄÜ»áÓĞÎÊÌâ.
+        //å¦‚æœä¸€æ¡sqlè¯­å¥ä¸­åŒ…å«å¤šä¸ªlimitæ¡ä»¶ï¼Œå¯èƒ½ä¼šæœ‰é—®é¢˜.
         for (BindVarCondition limit : limits) {
             if (ZdalSchemaStatVisitor.ROWCOUNT.equals(limit.getColumnName())) {
-                //Èç¹ûÊÇ°ó¶¨²ÎÊı£¬¾Í´Ó²ÎÊıÁĞ±íÖĞ»ñÈ¡rowcountµÄÖµ.
+                //å¦‚æœæ˜¯ç»‘å®šå‚æ•°ï¼Œå°±ä»å‚æ•°åˆ—è¡¨ä¸­è·å–rowcountçš„å€¼.
                 if (limit.getValue() == null) {
                     Object obj = args.get(limit.getIndex());
                     if (obj instanceof Long) {
@@ -166,7 +166,7 @@ public class MysqlSqlParserResult extends DefaultSqlParserResult {
                         throw new SqlParserException("ERROR ## bind rowcount var has an error , "
                                                      + obj + " is not a int value");
                     }
-                } else {//´ÓsqlÓï¾äÖĞ»ñÈ¡rowcountµÄÖµ.
+                } else {//ä»sqlè¯­å¥ä¸­è·å–rowcountçš„å€¼.
                     Comparable<?> tmp = limit.getValue();
                     if (tmp instanceof Number) {
                         int skip = ((Integer) tmp).intValue();

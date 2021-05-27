@@ -83,12 +83,12 @@ public class IntegerPartDiscontinousRangeEnumerator extends PartDiscontinousRang
                                                Comparable<?> atomicIncreationValue) {
         if (cumulativeTimes == null) {
             throw new IllegalStateException(
-                "ÔÚÃ»ÓÐÌá¹©µþ¼Ó´ÎÊýµÄÇ°ÌáÏÂ£¬²»ÄÜ¹»¸ù¾Ýµ±Ç°·¶Î§Ìõ¼þÑ¡³ö¶ÔÓ¦µÄ¶¨ÒåÓòµÄÃ¶¾ÙÖµ£¬sqlÖÐ²»Òª³öÏÖ> < >= <=");
+                "åœ¨æ²¡æœ‰æä¾›å åŠ æ¬¡æ•°çš„å‰æä¸‹ï¼Œä¸èƒ½å¤Ÿæ ¹æ®å½“å‰èŒƒå›´æ¡ä»¶é€‰å‡ºå¯¹åº”çš„å®šä¹‰åŸŸçš„æžšä¸¾å€¼ï¼Œsqlä¸­ä¸è¦å‡ºçŽ°> < >= <=");
         }
         if (atomicIncreationValue == null) {
             atomicIncreationValue = DEFAULT_ATOMIC_VALUE;
         }
-        //°Ñ> < Ìæ»»Îª>= <=
+        //æŠŠ> < æ›¿æ¢ä¸º>= <=
         begin = changeGreater2GreaterOrEq(begin);
         begin = changeLess2LessOrEq(begin);
 

@@ -36,28 +36,28 @@ import com.alipay.zdal.rule.bean.ZdalRoot;
 import com.alipay.zdal.rule.ruleengine.entities.retvalue.TargetDB;
 
 /**
- * Ö÷Òª¸ºÔğrootÖĞÄÃµ½ĞèÒªµÄĞÅÏ¢¡£È»ºóÓÃmatcher½øĞĞÆ¥Åä¡£
+ * ä¸»è¦è´Ÿè´£rootä¸­æ‹¿åˆ°éœ€è¦çš„ä¿¡æ¯ã€‚ç„¶åç”¨matcherè¿›è¡ŒåŒ¹é…ã€‚
  * 
- * ×îºó·µ»ØĞèÒªµÄ½á¹û
+ * æœ€åè¿”å›éœ€è¦çš„ç»“æœ
  * 
  * @author xiaoqing.zhouxq
  * 
  */
 public class SpringBasedDispatcherImpl implements SqlDispatcher {
     /**
-     * ĞèÒª×¢ÈëµÄsql ½âÎöÆ÷¶ÔÏó
+     * éœ€è¦æ³¨å…¥çš„sql è§£æå™¨å¯¹è±¡
      */
     private SQLParser                        parser  = null;
 
     /**
-     * ZdalµÄ¸ù½Úµã
+     * Zdalçš„æ ¹èŠ‚ç‚¹
      */
     ZdalRoot                                 root;
 
     private final Matcher                    matcher = new SpringBasedRuleMatcherImpl();
 
     /**
-     * ·´ÏòÊä³öµÄÀàĞÍ¶ÔÏó
+     * åå‘è¾“å‡ºçš„ç±»å‹å¯¹è±¡
      */
     public final static OutputHandlerConsist consist = new OutputHandlerConsist();
 
@@ -69,18 +69,18 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
 
         DBType dbType = getDBType();
         SqlParserResult sqlParserResult = parser.parse(sql, dbType);
-        // TODO: ·´Ïò²éÕÒ£¬Ò²¾ÍÊÇÏÈÄÃsqlÀïÃæµÄÒ»ÁĞ±íÃû£¬È»ºóÈ¥¹æÔòÀï
-        // ²é¿´ÄÄ¸ö±íÃûmatch£¬Èç¹ûÓĞÒ»¸ö±íÊ¾µ¥±í²Ù×÷¡£
-        // Èç¹ûÓĞ¶à¸ö±íÊ¾Òªjoin£¬joinÀïÓĞÁ½ÖÖÇé¿öÊÇ¿ÉÒÔÖ§³Öµ«Ã»ÓĞÖ§³ÖµÄ
+        // TODO: åå‘æŸ¥æ‰¾ï¼Œä¹Ÿå°±æ˜¯å…ˆæ‹¿sqlé‡Œé¢çš„ä¸€åˆ—è¡¨åï¼Œç„¶åå»è§„åˆ™é‡Œ
+        // æŸ¥çœ‹å“ªä¸ªè¡¨åmatchï¼Œå¦‚æœæœ‰ä¸€ä¸ªè¡¨ç¤ºå•è¡¨æ“ä½œã€‚
+        // å¦‚æœæœ‰å¤šä¸ªè¡¨ç¤ºè¦joinï¼Œjoiné‡Œæœ‰ä¸¤ç§æƒ…å†µæ˜¯å¯ä»¥æ”¯æŒä½†æ²¡æœ‰æ”¯æŒçš„
         String logicTableName = sqlParserResult.getTableName();
         int index = logicTableName.indexOf(".");
         if (index >= 0) {
             logicTableName = logicTableName.substring(index + 1);
         }
-        // ´Óroot¶ÔÏóÖĞÄÃµ½Âß¼­±í
+        // ä»rootå¯¹è±¡ä¸­æ‹¿åˆ°é€»è¾‘è¡¨
         LogicTableRule rule = root.getLogicTableMap(logicTableName);
         if (rule == null) {
-            throw new IllegalArgumentException("Î´ÄÜÕÒµ½¶ÔÓ¦¹æÔò,Âß¼­±í:" + logicTableName);
+            throw new IllegalArgumentException("æœªèƒ½æ‰¾åˆ°å¯¹åº”è§„åˆ™,é€»è¾‘è¡¨:" + logicTableName);
         }
 
         boolean isAllowReverseOutput = rule.isAllowReverseOutput();
@@ -91,12 +91,12 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
 
     }
 
-    //TODO:ÒÔºó¿¼ÂÇ¼ÓÒ»¸ösqlµÄ×´Ì¬£¬¾Í±íÃûÕâÌõsqlµÄÖ´ĞĞÊôĞÔ£¬ÕâÑù¾Í²»ÓÃËùÓĞµØ·½¶¼¸ãÒ»´ÎÁË
+    //TODO:ä»¥åè€ƒè™‘åŠ ä¸€ä¸ªsqlçš„çŠ¶æ€ï¼Œå°±è¡¨åè¿™æ¡sqlçš„æ‰§è¡Œå±æ€§ï¼Œè¿™æ ·å°±ä¸ç”¨æ‰€æœ‰åœ°æ–¹éƒ½æä¸€æ¬¡äº†
     //	private boolean validIsSingleDBandSingleTable(List<TargetDB> targetDB){
     //		
     //	}
     /**
-     * ¸ù¾İÆ¥Åä½á¹û£¬½øĞĞ×îÖÕ¸øTStatementµÄ½á¹ûµÄÆ´×°,²»Í¬µÄmatcher¿ÉÒÔ¹²ÓÃ
+     * æ ¹æ®åŒ¹é…ç»“æœï¼Œè¿›è¡Œæœ€ç»ˆç»™TStatementçš„ç»“æœçš„æ‹¼è£…,ä¸åŒçš„matcherå¯ä»¥å…±ç”¨
      * 
      * @param matcherResult
      * @return
@@ -109,16 +109,16 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
         DispatcherResultImp dispatcherResult = getTargetDatabaseMetaDataBydatabaseGroups(
             matcherResult.getCalculationResult(), sqlParserResult, args, isAllowReverseOutput);
 
-        //ËäÈ»ÅĞ¶ÏsqlÊäÈëÊä³öµÄÂß¼­Ó¦¸Ã·Åµ½¹æÔòÀï£¬µ«ÒòÎª¾õµÃÃ»±ØÒªÔÚ×ßÁË¹æÔòÒÔºó¾Í·ÅÔÚTargetDBListÀïÃæ¶à´«µİÒ»´Î
-        //ÔÚÕâÀï¸ãÒ»´Î¾Í¿ÉÒÔÁË
+        //è™½ç„¶åˆ¤æ–­sqlè¾“å…¥è¾“å‡ºçš„é€»è¾‘åº”è¯¥æ”¾åˆ°è§„åˆ™é‡Œï¼Œä½†å› ä¸ºè§‰å¾—æ²¡å¿…è¦åœ¨èµ°äº†è§„åˆ™ä»¥åå°±æ”¾åœ¨TargetDBListé‡Œé¢å¤šä¼ é€’ä¸€æ¬¡
+        //åœ¨è¿™é‡Œæä¸€æ¬¡å°±å¯ä»¥äº†
 
         ControllerUtils.buildExecutePlan(dispatcherResult, matcherResult.getCalculationResult());
 
         validGroupByFunction(sqlParserResult, dispatcherResult);
 
-        //TODO:reverseoutputÒ²¿ÉÒÔÊ¹ÓÃÉÏÃæµÄ½á¹û
+        //TODO:reverseoutputä¹Ÿå¯ä»¥ä½¿ç”¨ä¸Šé¢çš„ç»“æœ
         if (isSqlParser) {
-            //×ö¹ısql parse²ÅÓĞ¿ÉÄÜ×ö·´ÏòÊä³ö
+            //åšè¿‡sql parseæ‰æœ‰å¯èƒ½åšåå‘è¾“å‡º
             ControllerUtils.buildReverseOutput(args, sqlParserResult, dispatcherResult.getMax(),
                 dispatcherResult.getSkip(), dispatcherResult, DBType.MYSQL.equals(dbType));
         }
@@ -127,8 +127,8 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
     }
 
     /**
-     * Èç¹ûÓĞgroupbyº¯Êı²¢ÇÒÖ´ĞĞ¼Æ»®²»Îªµ¥¿âµ¥±í»òµ¥¿âÎŞ±í»òÎŞ¿âÎŞ±í
-     * ÔòÔÊĞíÍ¨¹ı
+     * å¦‚æœæœ‰groupbyå‡½æ•°å¹¶ä¸”æ‰§è¡Œè®¡åˆ’ä¸ä¸ºå•åº“å•è¡¨æˆ–å•åº“æ— è¡¨æˆ–æ— åº“æ— è¡¨
+     * åˆ™å…è®¸é€šè¿‡
      * @param sqlParserResult
      * @param dispatcherResult
      */
@@ -137,10 +137,10 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
         List<OrderByEle> groupByElement = sqlParserResult.getGroupByEles();
         if (groupByElement.size() != 0) {
             if (dispatcherResult.getDatabaseExecutePlan() == EXECUTE_PLAN.MULTIPLE) {
-                throw new IllegalArgumentException("¶à¿âµÄÇé¿öÏÂ£¬²»ÔÊĞíÊ¹ÓÃgroup by º¯Êı");
+                throw new IllegalArgumentException("å¤šåº“çš„æƒ…å†µä¸‹ï¼Œä¸å…è®¸ä½¿ç”¨group by å‡½æ•°");
             }
             if (dispatcherResult.getTableExecutePlan() == EXECUTE_PLAN.MULTIPLE) {
-                throw new IllegalArgumentException("¶à±íµÄÇé¿öÏÂ£¬²»ÔÊĞíÊ¹ÓÃgroup byº¯Êı");
+                throw new IllegalArgumentException("å¤šè¡¨çš„æƒ…å†µä¸‹ï¼Œä¸å…è®¸ä½¿ç”¨group byå‡½æ•°");
             }
         }
     }
@@ -165,7 +165,7 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
         List<String> uniqueColumns = Collections.emptyList();
         SqlParserResult sqlParserResult = null;
         if (rc instanceof RuleRouteCondition) {
-            //ĞèÒªÄ£Äâsqlparser×ß¹æÔòµÄ condition
+            //éœ€è¦æ¨¡æ‹Ÿsqlparserèµ°è§„åˆ™çš„ condition
             sqlParserResult = ((RuleRouteCondition) rc).getSqlParserResult();
             try {
                 LogicTableRule rule = root.getLogicTableMap(logicTableName);
@@ -175,7 +175,7 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
 
                 DispatcherResult result = getDispatcherResult(matcherResult, sqlParserResult,
                     Collections.emptyList(), null, rule.getUniqueColumns(), false, false);
-                //Èç¹ûÊÇJoinCondition ÄÇÃ´ÒªÔÚDispatcherResultÖĞÌí¼Ójoin±íµÄĞéÄâ±íÃû;
+                //å¦‚æœæ˜¯JoinCondition é‚£ä¹ˆè¦åœ¨DispatcherResultä¸­æ·»åŠ joinè¡¨çš„è™šæ‹Ÿè¡¨å;
                 if (rc instanceof JoinCondition) {
                     result
                         .setVirtualJoinTableNames(((JoinCondition) rc).getVirtualJoinTableNames());
@@ -201,7 +201,7 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
                     return Collections.emptyMap();
                 }
             };
-            //½¨Á¢Î±×°Àà
+            //å»ºç«‹ä¼ªè£…ç±»
             sqlParserResult = new DummySqlParcerResult(choicer, logicTableName);
             MatcherResult matcherResult = matcher.buildMatcherResult(Collections.EMPTY_MAP,
                 Collections.EMPTY_MAP, targetDBs);
@@ -217,14 +217,14 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
     public Result getAllDatabasesAndTables(String logicTableName) {
         LogicTable logicTable = root.getLogicTable((logicTableName.toLowerCase()));
         if (logicTable == null) {
-            throw new IllegalArgumentException("Âß¼­±íÃûÎ´ÕÒµ½");
+            throw new IllegalArgumentException("é€»è¾‘è¡¨åæœªæ‰¾åˆ°");
         }
         return new DatabaseAndTablesDispatcherResultImp(logicTable.getAllTargetDBList(),
             logicTableName);
     }
 
     /**
-     * ÎŞÂß¼­µÄgetter/setter
+     * æ— é€»è¾‘çš„getter/setter
      */
     public SQLParser getParser() {
         return parser;

@@ -14,9 +14,9 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.apache.log4j.Logger;
 
 /**
- * 回旋的并发HashMap.
- * @author 伯牙
- * @version $Id: BoundedConcurrentHashMap.java, v 0.1 2014-1-6 下午05:21:39 Exp $
+ * 鍥炴棆鐨勫苟鍙慔ashMap.
+ * @author 浼墮
+ * @version $Id: BoundedConcurrentHashMap.java, v 0.1 2014-1-6 涓嬪崍05:21:39 Exp $
  */
 public class BoundedConcurrentHashMap<K, V> extends LinkedHashMap<K, V> {
 

@@ -18,8 +18,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 
- * @author 伯牙
- * @version $Id: UniqId.java, v 0.1 2014-1-6 下午05:15:47 Exp $
+ * @author 浼墮
+ * @version $Id: UniqId.java, v 0.1 2014-1-6 涓嬪崍05:15:47 Exp $
  */
 public class UniqId {
     private static char[]                  digits  = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
@@ -61,7 +61,7 @@ public class UniqId {
     }
 
     /**
-     * 获取UniqID实例
+     * 鑾峰彇UniqID瀹炰緥
      * @return UniqId
      */
     public static UniqId getInstance() {
@@ -69,7 +69,7 @@ public class UniqId {
     }
 
     /**
-     * 获得不会重复的毫秒数
+     * 鑾峰緱涓嶄細閲嶅鐨勬绉掓暟
      * @return
      */
     public long getUniqTime() {
@@ -77,7 +77,7 @@ public class UniqId {
     }
 
     /**
-     * 获得UniqId
+     * 鑾峰緱UniqId
      * @return uniqTime-randomNum-hostAddr-threadId
      */
     public String getUniqID() {
@@ -100,7 +100,7 @@ public class UniqId {
     }
 
     /**
-     * 获取MD5之后的uniqId string
+     * 鑾峰彇MD5涔嬪悗鐨剈niqId string
      * @return uniqId md5 string
      */
     public String getUniqIDHashString() {
@@ -108,7 +108,7 @@ public class UniqId {
     }
 
     /**
-     * 获取MD5之后的uniqId
+     * 鑾峰彇MD5涔嬪悗鐨剈niqId
      * @return byte[16]
      */
     public byte[] getUniqIDHash() {
@@ -116,7 +116,7 @@ public class UniqId {
     }
 
     /**
-     * 对字符串进行md5
+     * 瀵瑰瓧绗︿覆杩涜md5
      * @param str
      * @return md5 byte[16]
      */
@@ -136,7 +136,7 @@ public class UniqId {
     }
 
     /**
-     * 对二进制数据进行md5
+     * 瀵逛簩杩涘埗鏁版嵁杩涜md5
      * @param str
      * @return md5 byte[16]
      */
@@ -154,7 +154,7 @@ public class UniqId {
     }
 
     /**
-     * 对字符串进行md5 string
+     * 瀵瑰瓧绗︿覆杩涜md5 string
      * @param str
      * @return md5 string
      */
@@ -164,7 +164,7 @@ public class UniqId {
     }
 
     /**
-     * 对字节流进行md5 string
+     * 瀵瑰瓧鑺傛祦杩涜md5 string
      * @param str
      * @return md5 string
      */
@@ -174,7 +174,7 @@ public class UniqId {
     }
 
     /**
-     * 将一个字节数组转化为可见的字符串
+     * 灏嗕竴涓瓧鑺傛暟缁勮浆鍖栦负鍙鐨勫瓧绗︿覆
      * @param bt
      * @return
      */
@@ -192,16 +192,16 @@ public class UniqId {
     }
 
     /**
-     * 将字符串转换为bytes
+     * 灏嗗瓧绗︿覆杞崲涓篵ytes
      * @param str
      * @return byte[]
      */
     public byte[] string2bytes(String str) {
         if (null == str) {
-            throw new IllegalArgumentException("参数不能为空");
+            throw new IllegalArgumentException("鍙傛暟涓嶈兘涓虹┖");
         }
         if (str.length() != 32) {
-            throw new IllegalArgumentException("字符串长度必须是32");
+            throw new IllegalArgumentException("瀛楃涓查暱搴﹀繀椤绘槸32");
         }
         byte[] data = new byte[16];
         char[] chs = str.toCharArray();
@@ -214,7 +214,7 @@ public class UniqId {
     }
 
     /**
-     * 实现不重复的时间
+     * 瀹炵幇涓嶉噸澶嶇殑鏃堕棿
      * @author dogun
      */
     private static class UniqTimer {

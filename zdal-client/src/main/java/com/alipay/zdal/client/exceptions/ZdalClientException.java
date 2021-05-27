@@ -5,9 +5,9 @@
 package com.alipay.zdal.client.exceptions;
 
 /**
- * ZdalClient的异常处理类.
+ * ZdalClient鐨勫紓甯稿鐞嗙被.
  * @author xiaoqing.zhouxq
- * @version $Id: ZdalClientException.java, v 0.1 2012-7-31 下午07:01:16 xiaoqing.zhouxq Exp $
+ * @version $Id: ZdalClientException.java, v 0.1 2012-7-31 涓嬪崍07:01:16 xiaoqing.zhouxq Exp $
  */
 public class ZdalClientException extends RuntimeException {
     /**

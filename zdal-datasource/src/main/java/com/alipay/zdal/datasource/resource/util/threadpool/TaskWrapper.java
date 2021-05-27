@@ -7,8 +7,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
 /**
  * A task wrapper for a thread pool.
  *
- * @author ²®ÑÀ
- * @version $Id: TaskWrapper.java, v 0.1 2014-1-6 ÏÂÎç05:45:09 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TaskWrapper.java, v 0.1 2014-1-6 ä¸‹åˆ05:45:09 Exp $
  */
 public interface TaskWrapper extends Runnable {
     // Constants -----------------------------------------------------

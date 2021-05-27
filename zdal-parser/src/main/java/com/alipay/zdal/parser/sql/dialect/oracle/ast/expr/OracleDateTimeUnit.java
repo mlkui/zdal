@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.dialect.oracle.ast.expr;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleDateTimeUnit.java, v 0.1 2012-11-17 œ¬ŒÁ3:43:36 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleDateTimeUnit.java, v 0.1 2012-11-17 ‰∏ãÂçà3:43:36 Exp $
  */
 public enum OracleDateTimeUnit {
     YEAR, MONTH, DAY, HOUR, MINUTE, SECOND, TIMEZONE_HOURE, TIMEZONE_MINUTE, TIMEZONE_REGION, TIMEZONE_ABBR;

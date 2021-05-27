@@ -17,8 +17,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: JBossTransactionManager.java, v 0.1 2014-1-6 ÏÂÎç05:46:55 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: JBossTransactionManager.java, v 0.1 2014-1-6 ä¸‹åˆ05:46:55 Exp $
  */
 public class JBossTransactionManager implements TransactionManager {
 

@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlBinaryExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:29:58 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlBinaryExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:29:58 Exp $
  */
 public class MySqlBinaryExpr extends MySqlExprImpl implements MySqlExpr, SQLLiteralExpr {
 

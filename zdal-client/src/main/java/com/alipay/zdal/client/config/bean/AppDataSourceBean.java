@@ -23,31 +23,31 @@ import com.alipay.zdal.rule.config.beans.AppRule;
  */
 public class AppDataSourceBean implements InitializingBean {
 
-    /** Êı¾İÔ´Ãû³Æ */
+    /** æ•°æ®æºåç§° */
     private String                      appDataSourceName;
 
-    /** Êı¾İ¿âÀàĞÍ */
+    /** æ•°æ®åº“ç±»å‹ */
     private String                      dataBaseType;
 
-    /** ÅäÖÃ×ª»¯ºóµÄµÄdbtype. */
+    /** é…ç½®è½¬åŒ–åçš„çš„dbtype. */
     private DBType                      dbType;
 
-    /** Êı¾İÔ´ÅäÖÃÀàĞÍ */
+    /** æ•°æ®æºé…ç½®ç±»å‹ */
     private String                      configType;
 
-    /** ÅäÖÃ×ª»¯ºóµÄdataSourceConfigType. */
+    /** é…ç½®è½¬åŒ–åçš„dataSourceConfigType. */
     private DataSourceConfigType        dataSourceConfigType;
 
-    /** ÎïÀíÊı¾İÔ´ÁĞ±í. */
+    /** ç‰©ç†æ•°æ®æºåˆ—è¡¨. */
     private Set<PhysicalDataSourceBean> physicalDataSourceSet  = new HashSet<PhysicalDataSourceBean>();
 
-    /** shard+groupÀàĞÍÖĞµÄgroup·Ö×é¶¨Òå. */
+    /** shard+groupç±»å‹ä¸­çš„groupåˆ†ç»„å®šä¹‰. */
     private Map<String, String>         groupDataSourceRuleMap = new HashMap<String, String>();
 
-    /** shard+failoverÀàĞÍÖĞµÄgroup·Ö×é¶¨Òå. */
+    /** shard+failoverç±»å‹ä¸­çš„groupåˆ†ç»„å®šä¹‰. */
     private Map<String, String>         failOverGroupRuleMap   = new HashMap<String, String>();
 
-    /**  ·Ö¿â·Ö±íµÄ¹æÔò.*/
+    /**  åˆ†åº“åˆ†è¡¨çš„è§„åˆ™.*/
     private AppRule                     appRule;
 
     /**

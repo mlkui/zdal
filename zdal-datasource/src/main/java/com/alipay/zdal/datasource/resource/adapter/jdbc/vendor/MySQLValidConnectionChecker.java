@@ -21,8 +21,8 @@ import com.alipay.zdal.datasource.resource.adapter.jdbc.ValidConnectionChecker;
  * only be "fast" on version 3.22.1 and later. Prior to that version it just
  * does "SELECT 1" anyhow.
  * 
- * @author ≤Æ—¿
- * @version $Id: MySQLValidConnectionChecker.java, v 0.1 2014-1-6 œ¬ŒÁ05:32:36 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySQLValidConnectionChecker.java, v 0.1 2014-1-6 ‰∏ãÂçà05:32:36 Exp $
  */
 public class MySQLValidConnectionChecker implements ValidConnectionChecker, Serializable {
     private static final long   serialVersionUID    = -2227528634302168878L;

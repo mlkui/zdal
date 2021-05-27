@@ -15,8 +15,8 @@ import org.apache.log4j.Logger;
 /**
  * IdleRemover
  *
- * @author ²®ÑÀ
- * @version $Id: IdleRemover.java, v 0.1 2014-1-6 ÏÂÎç05:34:35 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: IdleRemover.java, v 0.1 2014-1-6 ä¸‹åˆ05:34:35 Exp $
  */
 public class IdleRemover {
     private final Logger             log      = Logger.getLogger(getClass());

@@ -15,7 +15,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLAggregateExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:14:24 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLAggregateExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:14:24 xiaoqing.zhouxq Exp $
  */
 public class SQLAggregateExpr extends SQLExprImpl implements Serializable {
 

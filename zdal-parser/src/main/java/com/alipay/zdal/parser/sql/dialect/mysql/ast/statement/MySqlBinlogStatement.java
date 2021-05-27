@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlBinlogStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:31:49 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlBinlogStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:31:49 Exp $
  */
 public class MySqlBinlogStatement extends MySqlStatementImpl {
     private static final long serialVersionUID = 1L;

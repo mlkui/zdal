@@ -11,8 +11,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
 /**
  * A factory for connection event listeners
  *
- * @author ²®ÑÀ
- * @version $Id: ConnectionListenerFactory.java, v 0.1 2014-1-6 ÏÂÎç05:33:48 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ConnectionListenerFactory.java, v 0.1 2014-1-6 ä¸‹åˆ05:33:48 Exp $
  */
 public interface ConnectionListenerFactory {
     /**

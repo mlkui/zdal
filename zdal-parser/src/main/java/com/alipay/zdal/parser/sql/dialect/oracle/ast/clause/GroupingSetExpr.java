@@ -14,8 +14,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: GroupingSetExpr.java, v 0.1 2012-11-17 ÏÂÎç3:41:47 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: GroupingSetExpr.java, v 0.1 2012-11-17 ä¸‹åˆ3:41:47 Exp $
  */
 public class GroupingSetExpr extends SQLExprImpl {
 

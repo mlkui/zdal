@@ -39,8 +39,8 @@ import com.alipay.zdal.datasource.transaction.Transaction;
  *  @see TxManager
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: TransactionImpl.java, v 0.1 2014-1-6 ÏÂÎç05:47:58 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TransactionImpl.java, v 0.1 2014-1-6 ä¸‹åˆ05:47:58 Exp $
  */
 public class TransactionImpl implements Transaction, TimeoutTarget {
     // Constants -----------------------------------------------------

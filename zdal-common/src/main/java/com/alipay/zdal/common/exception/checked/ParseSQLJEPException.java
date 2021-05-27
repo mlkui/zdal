@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.checked;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ParseSQLJEPException.java, v 0.1 2014-1-6 ÏÂÎç05:18:09 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ParseSQLJEPException.java, v 0.1 2014-1-6 ä¸‹åˆ05:18:09 Exp $
  */
 public class ParseSQLJEPException extends ZdalCheckedExcption {
 
@@ -17,7 +17,7 @@ public class ParseSQLJEPException extends ZdalCheckedExcption {
     private static final long serialVersionUID = 7724677712426352259L;
 
     public ParseSQLJEPException(Throwable th) {
-        super("µ÷ÓÃsqlJepµÄparseExpressionµÄÊ±ºò·¢Éú´íÎó" + th.getMessage());
+        super("è°ƒç”¨sqlJepçš„parseExpressionçš„æ—¶å€™å‘ç”Ÿé”™è¯¯" + th.getMessage());
     }
 
 }

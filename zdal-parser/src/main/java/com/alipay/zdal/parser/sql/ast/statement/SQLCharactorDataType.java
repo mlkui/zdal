@@ -9,7 +9,7 @@ import com.alipay.zdal.parser.sql.ast.SQLDataTypeImpl;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLCharactorDataType.java, v 0.1 2012-11-17 œ¬ŒÁ3:20:37 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLCharactorDataType.java, v 0.1 2012-11-17 ‰∏ãÂçà3:20:37 xiaoqing.zhouxq Exp $
  */
 @SuppressWarnings("serial")
 public class SQLCharactorDataType extends SQLDataTypeImpl {

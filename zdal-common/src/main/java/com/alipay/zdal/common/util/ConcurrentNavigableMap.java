@@ -17,8 +17,8 @@ import java.util.concurrent.ConcurrentMap;
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  *
- * @author ²®ÑÀ
- * @version $Id: ConcurrentNavigableMap.java, v 0.1 2014-1-6 ÏÂÎç05:22:10 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ConcurrentNavigableMap.java, v 0.1 2014-1-6 ä¸‹åˆ05:22:10 Exp $
  */
 public interface ConcurrentNavigableMap<K, V> extends ConcurrentMap<K, V>, NavigableMap<K, V> {
     /**

@@ -16,8 +16,8 @@ import com.alipay.zdal.rule.ruleengine.entities.retvalue.TargetDBMetaData;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: DirectlyRouteCondition.java, v 0.1 2014-1-6 ÏÂÎç05:16:21 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: DirectlyRouteCondition.java, v 0.1 2014-1-6 ä¸‹åˆ05:16:21 Exp $
  */
 public class DirectlyRouteCondition implements RouteCondition {
     DBType      dbType;
@@ -30,7 +30,7 @@ public class DirectlyRouteCondition implements RouteCondition {
         if (tables.size() != 0) {
             return tables;
         } else {
-            //Èç¹ûÃ»ÓĞÖ¸¶¨Ìæ»»ºó±íÃû£¬ÔòÄ¬ÈÏÊ¹ÓÃĞéÄâ±íÃû
+            //å¦‚æœæ²¡æœ‰æŒ‡å®šæ›¿æ¢åè¡¨åï¼Œåˆ™é»˜è®¤ä½¿ç”¨è™šæ‹Ÿè¡¨å
             tables.add(virtualTableName);
             return tables;
         }
@@ -61,7 +61,7 @@ public class DirectlyRouteCondition implements RouteCondition {
     }
 
     /**
-     * ĞéÄâ±íÃû
+     * è™šæ‹Ÿè¡¨å
      * @param virtualTableName
      */
     public void setVirtualTableName(String virtualTableName) {
@@ -73,7 +73,7 @@ public class DirectlyRouteCondition implements RouteCondition {
     }
 
     /**
-     * ¶ÔÓ¦ÄãÔÚ¹æÔòÎÄ¼şÖĞÃ¿Ò»¸örule¶¼»áÒªÇóÖ¸¶¨µÄÄÇ¸öid
+     * å¯¹åº”ä½ åœ¨è§„åˆ™æ–‡ä»¶ä¸­æ¯ä¸€ä¸ªruleéƒ½ä¼šè¦æ±‚æŒ‡å®šçš„é‚£ä¸ªid
      * @param dbRuleID
      */
     public void setDbRuleID(String dbRuleID) {

@@ -12,7 +12,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleSchemaStatVisitor
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleAlterProcedureTest2.java, v 0.1 2012-5-17 …œŒÁ10:13:03 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleAlterProcedureTest2.java, v 0.1 2012-5-17 ‰∏äÂçà10:13:03 xiaoqing.zhouxq Exp $
  */
 public class OracleAlterProcedureTest2 extends OracleTest {
 

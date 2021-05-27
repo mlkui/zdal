@@ -22,33 +22,33 @@ public class SpringBasedRuleMatcherImpl implements Matcher {
 
     public MatcherResult match(ComparativeMapChoicer comparativeMapChoicer, List<Object> args,
                                LogicTableRule rule) throws ZdalCheckedExcption {
-        //¹æÔòÁ´¶ù¼¯ºÏ£¬°üº¬ÁË¹æÔòÖĞËùÓĞ¹æÔòÁ´
+        //è§„åˆ™é“¾å„¿é›†åˆï¼ŒåŒ…å«äº†è§„åˆ™ä¸­æ‰€æœ‰è§„åˆ™é“¾
         Set<RuleChain> ruleChainSet = rule.getRuleChainSet();
-        //·ûºÏÒªÇóµÄÊı¾İ¿â·Ö¿â×Ö¶ÎºÍ¶ÔÓ¦µÄÖµ£¬Èç¹ûÓĞ¶à¸öÄÇÃ´¶¼»á·ÅÔÚÒ»Æğ
+        //ç¬¦åˆè¦æ±‚çš„æ•°æ®åº“åˆ†åº“å­—æ®µå’Œå¯¹åº”çš„å€¼ï¼Œå¦‚æœæœ‰å¤šä¸ªé‚£ä¹ˆéƒ½ä¼šæ”¾åœ¨ä¸€èµ·
         Map<String, Comparative> comparativeMapDatabase = new HashMap<String, Comparative>(2);
-        //·ûºÏÒªÇóµÄtalbe·Ö±í×Ö¶ÎºÍ¶ÔÓ¦µÄÖµ£¬Èç¹ûÓĞ¶à¸öÄÇÃ´¶¼»á·ÅÔÚÒ»Æğ
+        //ç¬¦åˆè¦æ±‚çš„talbeåˆ†è¡¨å­—æ®µå’Œå¯¹åº”çš„å€¼ï¼Œå¦‚æœæœ‰å¤šä¸ªé‚£ä¹ˆéƒ½ä¼šæ”¾åœ¨ä¸€èµ·
         Map<String, Comparative> comparativeTable = new HashMap<String, Comparative>(2);
 
-        Map<RuleChain, CalculationContextInternal/*´ı¼ÆËãµÄ½á¹û*/> resultMap = new HashMap<RuleChain, CalculationContextInternal>(
+        Map<RuleChain, CalculationContextInternal/*å¾…è®¡ç®—çš„ç»“æœ*/> resultMap = new HashMap<RuleChain, CalculationContextInternal>(
             ruleChainSet.size());
 
         for (RuleChain ruleChain : ruleChainSet) {
 
-            // Õë¶ÔÃ¿Ò»¸ö¹æÔòÁ´
-            List<Set<String>/*Ã¿Ò»Ìõ¹æÔòĞèÒªµÄ²ÎÊı*/> requiredArgumentSortByLevel = ruleChain
+            // é’ˆå¯¹æ¯ä¸€ä¸ªè§„åˆ™é“¾
+            List<Set<String>/*æ¯ä¸€æ¡è§„åˆ™éœ€è¦çš„å‚æ•°*/> requiredArgumentSortByLevel = ruleChain
                 .getRequiredArgumentSortByLevel();
             /*
-             * ÒòÎªruleChain±¾ÉíµÄ¸öÊıÊÇÒ»¶¨µÄ£¬¸öÊıÓëgetRequiredArgumentSortByLevel listµÄsizeÒ»Ñù¶à£¬Òò´Ë²»»áÔ½½ç
+             * å› ä¸ºruleChainæœ¬èº«çš„ä¸ªæ•°æ˜¯ä¸€å®šçš„ï¼Œä¸ªæ•°ä¸getRequiredArgumentSortByLevel listçš„sizeä¸€æ ·å¤šï¼Œå› æ­¤ä¸ä¼šè¶Šç•Œ
              */
             int index = 0;
 
             for (Set<String> oneLevelArgument : requiredArgumentSortByLevel) {
-                // Õë¶ÔÃ¿Ò»¸ö¹æÔòÁ´ÖĞµÄÒ»¸ö¼¶±ğ£¬¼¶±ğÊÇ´ÓµÍµ½¸ßµÄÊ×ÏÈ²é¿´ÊÇ·ñÂú×ã¹æÔòÒªÇó£¬Èç¹ûÂú×ãÔò½øĞĞÔËËã
-                /*µ±Ç°²ÎÊıÒªÇóµÄÁĞÃû*/
+                // é’ˆå¯¹æ¯ä¸€ä¸ªè§„åˆ™é“¾ä¸­çš„ä¸€ä¸ªçº§åˆ«ï¼Œçº§åˆ«æ˜¯ä»ä½åˆ°é«˜çš„é¦–å…ˆæŸ¥çœ‹æ˜¯å¦æ»¡è¶³è§„åˆ™è¦æ±‚ï¼Œå¦‚æœæ»¡è¶³åˆ™è¿›è¡Œè¿ç®—
+                /*å½“å‰å‚æ•°è¦æ±‚çš„åˆ—å*/
                 Map<String, Comparative> sqlArgs = comparativeMapChoicer.getColumnsMap(args,
                     oneLevelArgument);
                 if (sqlArgs.size() == oneLevelArgument.size()) {
-                    // ±íÊ¾Æ¥Åä,¹æÔòÁ´×÷Îªkey,valueÎª½á¹û
+                    // è¡¨ç¤ºåŒ¹é…,è§„åˆ™é“¾ä½œä¸ºkey,valueä¸ºç»“æœ
                     resultMap.put(ruleChain, new CalculationContextInternal(ruleChain, index,
                         sqlArgs));
                     if (ruleChain.isDatabaseRuleChain()) {
@@ -63,11 +63,11 @@ public class SpringBasedRuleMatcherImpl implements Matcher {
                 }
 
             }
-            /*Èç¹ûÒ»¸ö¹æÔòÁ´ÔÚsqlÖĞ¶¼Ã»ÓĞ±»Æ¥Åäµ½£¬ÄÇÃ´Õâ¸ö¹æÔòÁ´¾Í²»»á³öÏÖÔÚresultMapÖĞ£¬ÕâÑùµ±Ò»¸öÒ»¶Ô¶à½Úµã
-             * µÄ¹æÔòÔÚsqlÖĞÃ»·¨½øĞĞ¼ÆËãµÄÊ±ºò£¬»áÄÃµ½Ò»¸ö¿ÕµÄList index.ÕâÊ±ºò¾Í»áÊ¹ÓÃÄ¬ÈÏ¹æÔò»ònullÀ´Íê³ÉÏÂÊö¼ÆËã¡£
+            /*å¦‚æœä¸€ä¸ªè§„åˆ™é“¾åœ¨sqlä¸­éƒ½æ²¡æœ‰è¢«åŒ¹é…åˆ°ï¼Œé‚£ä¹ˆè¿™ä¸ªè§„åˆ™é“¾å°±ä¸ä¼šå‡ºç°åœ¨resultMapä¸­ï¼Œè¿™æ ·å½“ä¸€ä¸ªä¸€å¯¹å¤šèŠ‚ç‚¹
+             * çš„è§„åˆ™åœ¨sqlä¸­æ²¡æ³•è¿›è¡Œè®¡ç®—çš„æ—¶å€™ï¼Œä¼šæ‹¿åˆ°ä¸€ä¸ªç©ºçš„List index.è¿™æ—¶å€™å°±ä¼šä½¿ç”¨é»˜è®¤è§„åˆ™æˆ–nullæ¥å®Œæˆä¸‹è¿°è®¡ç®—ã€‚
             */
         }
-        //not null.È·±£ÔÚÃ¿´Î¹æÔò½áÊøºó£¬Çå¿Õ
+        //not null.ç¡®ä¿åœ¨æ¯æ¬¡è§„åˆ™ç»“æŸåï¼Œæ¸…ç©º
         List<TargetDB> calc = rule.calculate(resultMap);
         return buildMatcherResult(comparativeMapDatabase, comparativeTable, calc);
 

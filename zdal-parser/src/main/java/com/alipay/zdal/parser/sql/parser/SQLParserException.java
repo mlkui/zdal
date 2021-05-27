@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.SqlParserRuntimeException;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLParserException.java, v 0.1 2012-11-17 ÏÂÎç3:54:25 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLParserException.java, v 0.1 2012-11-17 ä¸‹åˆ3:54:25 Exp $
  */
 public class SQLParserException extends SqlParserRuntimeException {
 

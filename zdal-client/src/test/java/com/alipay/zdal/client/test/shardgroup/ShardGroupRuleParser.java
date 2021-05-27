@@ -8,8 +8,8 @@ import com.alipay.zdal.common.lang.StringUtil;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ShardGroupRuleParser.java, v 0.1 2014-1-2 ÉÏÎç09:46:46 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ShardGroupRuleParser.java, v 0.1 2014-1-2 ä¸Šåˆ09:46:46 Exp $
  */
 public class ShardGroupRuleParser {
 

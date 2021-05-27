@@ -12,26 +12,26 @@ import com.alipay.zdal.parser.GroupFunctionType;
 import com.alipay.zdal.parser.sqlobjecttree.ComparativeMapChoicer;
 import com.alipay.zdal.parser.visitor.OrderByEle;
 /**
- * sql-parser½âÎöºóµÄ½á¹û.
+ * sql-parserè§£æåçš„ç»“æœ.
  * @author xiaoqing.zhouxq
- * @version $Id: SqlParserResult.java, v 0.1 2012-5-21 ÏÂÎç03:29:18 xiaoqing.zhouxq Exp $
+ * @version $Id: SqlParserResult.java, v 0.1 2012-5-21 ä¸‹åˆ03:29:18 xiaoqing.zhouxq Exp $
  */
 public interface SqlParserResult {
 
     /**
-     * »ñÈ¡µ±Ç°±íÃû,Èç¹ûsqlÖĞ°üº¬¶àÕÅ±í£¬Ä¬ÈÏÖ»·µ»ØµÚÒ»ÕÅ±í.
+     * è·å–å½“å‰è¡¨å,å¦‚æœsqlä¸­åŒ…å«å¤šå¼ è¡¨ï¼Œé»˜è®¤åªè¿”å›ç¬¬ä¸€å¼ è¡¨.
      * @return
      */
     String getTableName();
 
     /**
-     * »ñÈ¡order by µÄĞÅÏ¢
+     * è·å–order by çš„ä¿¡æ¯
      * @return
      */
     List<OrderByEle> getOrderByEles();
 
     /**
-     * »ñÈ¡group by ĞÅÏ¢
+     * è·å–group by ä¿¡æ¯
      * @return
      */
     List<OrderByEle> getGroupByEles();
@@ -43,41 +43,41 @@ public interface SqlParserResult {
     boolean isDML();
 
     /**
-     * »ñÈ¡sqlµÄSKIPÖµÈç¹ûÓĞµÄ»°£¬Ã»ÓĞµÄÇé¿öÏÂ»á·µ»ØDEFAULTÖµ
-     * @param arguments ²ÎÊıÖµÁĞ±í.
+     * è·å–sqlçš„SKIPå€¼å¦‚æœæœ‰çš„è¯ï¼Œæ²¡æœ‰çš„æƒ…å†µä¸‹ä¼šè¿”å›DEFAULTå€¼
+     * @param arguments å‚æ•°å€¼åˆ—è¡¨.
      * @return
      */
     int getSkip(List<Object> arguments);
 
     /**
-     * ·µ»Øskip°ó¶¨±äÁ¿µÄÏÂ±ê,Èç¹ûÃ»ÓĞ¾Í·µ»Ø-1.
+     * è¿”å›skipç»‘å®šå˜é‡çš„ä¸‹æ ‡,å¦‚æœæ²¡æœ‰å°±è¿”å›-1.
      * @return
      */
     int isSkipBind();
 
     /**
-     * »ñÈ¡sqlµÄmaxÖµÈç¹ûÓĞµÄ»°£¬Ã»ÓĞµÄ»°»á·µ»ØDEFAULTÖµ
-     * @param arguments ²ÎÊıÖµÁĞ±í.
+     * è·å–sqlçš„maxå€¼å¦‚æœæœ‰çš„è¯ï¼Œæ²¡æœ‰çš„è¯ä¼šè¿”å›DEFAULTå€¼
+     * @param arguments å‚æ•°å€¼åˆ—è¡¨.
      * @return
      */
     int getMax(List<Object> arguments);
 
     /**
-     * ·µ»ØrowCount°ó¶¨±äÁ¿µÄÏÂ±ê,Èç¹ûÃ»ÓĞ¾Í·µ»Ø-1.
+     * è¿”å›rowCountç»‘å®šå˜é‡çš„ä¸‹æ ‡,å¦‚æœæ²¡æœ‰å°±è¿”å›-1.
      * @return
      */
     int isRowCountBind();
 
     /**
-     * »òĞíµ±Ç°sqlµÄ×îÍâ²ãµÄgroup function.Èç¹ûÓĞÇÒ½öÓĞÒ»¸ögroup function,ÄÇÃ´Ê¹ÓÃ¸Ãfunction
-     * Èç¹ûÃ»ÓĞgroup function»òÕßÓĞ¶à¸ögroup function.Ôò·µ»ØNORMAL
+     * æˆ–è®¸å½“å‰sqlçš„æœ€å¤–å±‚çš„group function.å¦‚æœæœ‰ä¸”ä»…æœ‰ä¸€ä¸ªgroup function,é‚£ä¹ˆä½¿ç”¨è¯¥function
+     * å¦‚æœæ²¡æœ‰group functionæˆ–è€…æœ‰å¤šä¸ªgroup function.åˆ™è¿”å›NORMAL
      * 
      * @return
      */
     GroupFunctionType getGroupFuncType();
 
     /**
-     * ·´ÏòÊä³öµÄ½Ó¿Ú
+     * åå‘è¾“å‡ºçš„æ¥å£
      * @param tables
      * @param args
      * @param skip
@@ -93,7 +93,7 @@ public interface SqlParserResult {
 
 
     /**
-     * »ñÈ¡½á¹û¼¯É¸Ñ¡Æ÷
+     * è·å–ç»“æœé›†ç­›é€‰å™¨
     * @return
     */
     ComparativeMapChoicer getComparativeMapChoicer();

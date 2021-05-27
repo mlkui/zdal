@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.ast.OracleSQLObject;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleStatement.java, v 0.1 2012-11-17 ÏÂÎç3:50:39 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:50:39 Exp $
  */
 public interface OracleStatement extends SQLStatement, OracleSQLObject {
 

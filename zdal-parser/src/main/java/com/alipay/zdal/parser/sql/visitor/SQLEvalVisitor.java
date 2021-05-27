@@ -8,8 +8,8 @@ import java.util.List;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLEvalVisitor.java, v 0.1 2012-11-17 ÏÂÎç3:56:41 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLEvalVisitor.java, v 0.1 2012-11-17 ä¸‹åˆ3:56:41 Exp $
  */
 public interface SQLEvalVisitor extends SQLASTVisitor {
 

@@ -13,7 +13,7 @@ import com.alipay.zdal.parser.sql.ast.SQLStatementImpl;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLAlterTableStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:20:17 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLAlterTableStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:20:17 xiaoqing.zhouxq Exp $
  */
 public class SQLAlterTableStatement extends SQLStatementImpl implements SQLDDLStatement {
 

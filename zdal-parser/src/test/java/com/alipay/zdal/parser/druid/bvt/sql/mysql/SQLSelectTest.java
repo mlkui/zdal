@@ -27,7 +27,7 @@ import com.alipay.zdal.parser.sql.parser.SQLStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLSelectTest.java, v 0.1 2012-5-17 …œŒÁ10:08:11 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLSelectTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:08:11 xiaoqing.zhouxq Exp $
  */
 public class SQLSelectTest extends TestCase {
 

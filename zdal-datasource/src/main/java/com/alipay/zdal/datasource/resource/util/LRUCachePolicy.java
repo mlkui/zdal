@@ -10,8 +10,8 @@ import java.util.HashMap;
  * Implementation of a Least Recently Used cache policy.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: LRUCachePolicy.java, v 0.1 2014-1-6 ÏÂÎç05:39:09 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: LRUCachePolicy.java, v 0.1 2014-1-6 ä¸‹åˆ05:39:09 Exp $
  */
 public class LRUCachePolicy implements CachePolicy {
     // Constants -----------------------------------------------------

@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlShowRelayLogEventsStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:38:00 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlShowRelayLogEventsStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:38:00 Exp $
  */
 public class MySqlShowRelayLogEventsStatement extends MySqlStatementImpl {
 

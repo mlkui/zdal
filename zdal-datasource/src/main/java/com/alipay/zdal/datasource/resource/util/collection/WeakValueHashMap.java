@@ -16,8 +16,8 @@ import java.util.Set;
  * cleaned from garbage collection
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: WeakValueHashMap.java, v 0.1 2014-1-6 ÏÂÎç05:41:08 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: WeakValueHashMap.java, v 0.1 2014-1-6 ä¸‹åˆ05:41:08 Exp $
  */
 public class WeakValueHashMap extends AbstractMap implements Map {
     private static class WeakValueRef extends WeakReference {

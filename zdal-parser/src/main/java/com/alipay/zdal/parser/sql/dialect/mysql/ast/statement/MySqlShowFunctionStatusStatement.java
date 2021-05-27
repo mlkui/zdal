@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlShowFunctionStatusStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:36:41 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlShowFunctionStatusStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:36:41 Exp $
  */
 public class MySqlShowFunctionStatusStatement extends MySqlStatementImpl {
 

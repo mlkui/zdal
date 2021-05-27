@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSelectHierachicalQueryClause.java, v 0.1 2012-11-17 œ¬ŒÁ3:49:34 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSelectHierachicalQueryClause.java, v 0.1 2012-11-17 ‰∏ãÂçà3:49:34 Exp $
  */
 public class OracleSelectHierachicalQueryClause extends OracleSQLObjectImpl {
 

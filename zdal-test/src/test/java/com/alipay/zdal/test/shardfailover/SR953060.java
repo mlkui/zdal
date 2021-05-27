@@ -23,7 +23,7 @@ import com.alipay.zdal.test.common.ConstantsTest;
 
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+Failover ,zoneError=Exception£¬¿çzone·ÃÎÊ")
+@Feature("shard+Failover ,zoneError=Exceptionï¼Œè·¨zoneè®¿é—®")
 public class SR953060  {
 	public TestAssertion Assert  = new TestAssertion();;
 	private SqlMapClient sqlMap;
@@ -48,11 +48,11 @@ public class SR953060  {
 		ZdalTestCommon.dataUpdateJDBC(delSql2, dburl2, dbpsd, dbuser);						
 	}
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=master_0,zoneError=Exception.Ğ´¿â master_0¿âµÄusers_0±í£¬ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=master_0,zoneError=Exception.å†™åº“ master_0åº“çš„users_0è¡¨ï¼Œå…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953061() throws SQLException{
-		Step("¿çzone·ÃÎÊ£º zoneDs=master_0,zoneError=Exception.Ğ´¿â master_0¿âµÄusers_0±í£¬ÔÊĞí·ÃÎÊ");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=master_0,zoneError=Exception.å†™åº“ master_0åº“çš„users_0è¡¨ï¼Œå…è®¸è®¿é—®");
 		String querySql="select user_id,name,address from users_0 where user_id = 10";
 		sqlMap=(SqlMapClient)ZdalShardfailoverSuite.context.getBean("zdalZoneDsZoneErrorRight");
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -76,11 +76,11 @@ public class SR953060  {
 	}
 	
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=master_0,zoneError=Exception.Ğ´¿â master_1µÄ±í users_1£¬±¨Òì³£")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=master_0,zoneError=Exception.å†™åº“ master_1çš„è¡¨ users_1ï¼ŒæŠ¥å¼‚å¸¸")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953062() throws SQLException{
-		Step("¿çzone·ÃÎÊ£º zoneDs=master_0,zoneError=Exception.Ğ´¿â master_1µÄ±í users_1£¬±¨Òì³£");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=master_0,zoneError=Exception.å†™åº“ master_1çš„è¡¨ users_1ï¼ŒæŠ¥å¼‚å¸¸");
 		sqlMap=(SqlMapClient)ZdalShardfailoverSuite.context.getBean("zdalZoneDsZoneErrorRight");
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("user_id", Integer.valueOf("11"));
@@ -98,11 +98,11 @@ public class SR953060  {
 	
 	
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=master_0,master_1,zoneError=Exception.·ÃÎÊ¿â master_1µÄ±í users_1£¬ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=master_0,master_1,zoneError=Exception.è®¿é—®åº“ master_1çš„è¡¨ users_1ï¼Œå…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953063() throws SQLException{
-		Step("¿çzone·ÃÎÊ£º zoneDs=master_0,master_1,zoneError=Exception.·ÃÎÊ¿â master_1µÄ±í users_1£¬ÔÊĞí·ÃÎÊ");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=master_0,master_1,zoneError=Exception.è®¿é—®åº“ master_1çš„è¡¨ users_1ï¼Œå…è®¸è®¿é—®");
 		String querySql="select user_id,name,address from users_1 where user_id = 11";
 		sqlMap=(SqlMapClient)ZdalShardfailoverSuite.context.getBean("zdalZoneDsZoneErrorRight2");
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -126,11 +126,11 @@ public class SR953060  {
 	
 	}
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=master_0,abc,zoneError=Exception.·ÃÎÊ master_0µÄ users_0£¬ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=master_0,abc,zoneError=Exception.è®¿é—® master_0çš„ users_0ï¼Œå…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953064() throws SQLException{
-		Step("¿çzone·ÃÎÊ£º zoneDs=master_0,abc,zoneError=Exception.·ÃÎÊ master_0µÄ users_0£¬ÔÊĞí·ÃÎÊ");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=master_0,abc,zoneError=Exception.è®¿é—® master_0çš„ users_0ï¼Œå…è®¸è®¿é—®");
 		String querySql="select user_id,name,address from users_0 where user_id = 10";
 		sqlMap=(SqlMapClient)ZdalShardfailoverSuite.context.getBean("zdalZoneDsZoneErrorRight3");
 		Map<String, Object> params = new HashMap<String, Object>();

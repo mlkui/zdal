@@ -14,7 +14,7 @@ import com.alipay.zdal.parser.visitor.ZdalMySqlSchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: MySqlSelectTest_0.java, v 0.1 2012-5-17 …œŒÁ10:06:54 xiaoqing.zhouxq Exp $
+ * @version $Id: MySqlSelectTest_0.java, v 0.1 2012-5-17 ‰∏äÂçà10:06:54 xiaoqing.zhouxq Exp $
  */
 public class MySqlSelectTest_0 extends MysqlTest {
 

@@ -13,8 +13,8 @@ import javax.transaction.xa.Xid;
  *  It is similar to an Xid, but holds only the GlobalId part.
  *  This implementation is immutable and always serializable at runtime.
  *
- * @author ²®ÑÀ
- * @version $Id: GlobalId.java, v 0.1 2014-1-6 ÏÂÎç05:46:36 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: GlobalId.java, v 0.1 2014-1-6 ä¸‹åˆ05:46:36 Exp $
  */
 public class GlobalId implements java.io.Externalizable {
     static final long serialVersionUID = 6879509375433435464L;

@@ -12,7 +12,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleOutputVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleSQLParserTest.java, v 0.1 2012-5-17 …œŒÁ10:22:18 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleSQLParserTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:22:18 xiaoqing.zhouxq Exp $
  */
 public class OracleSQLParserTest extends TestCase {
 

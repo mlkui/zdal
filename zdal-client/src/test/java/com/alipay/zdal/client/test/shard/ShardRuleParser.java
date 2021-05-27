@@ -8,15 +8,15 @@ import com.alipay.zdal.common.lang.StringUtil;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ShardRuleParser.java, v 0.1 2013-12-26 ÏÂÎç04:10:06 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ShardRuleParser.java, v 0.1 2013-12-26 ä¸‹åˆ04:10:06 Exp $
  */
 public class ShardRuleParser {
 
     private static final int USERID_LENGTH = 18;
 
     /**
-     * ¸ù¾İuid½âÎö·Ö¿âÎ».
+     * æ ¹æ®uidè§£æåˆ†åº“ä½.
      * @param userId
      * @return
      */
@@ -25,7 +25,7 @@ public class ShardRuleParser {
     }
 
     /**
-     * ¸ù¾İuid½âÎö·Ö±íÎ».
+     * æ ¹æ®uidè§£æåˆ†è¡¨ä½.
      * @param userId
      * @return
      */

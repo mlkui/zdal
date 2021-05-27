@@ -7,7 +7,7 @@ package com.alipay.zdal.parser.sql.ast;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLSetQuantifier.java, v 0.1 2012-11-17 ÏÂÎç3:13:59 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLSetQuantifier.java, v 0.1 2012-11-17 ä¸‹åˆ3:13:59 xiaoqing.zhouxq Exp $
  */
 public interface SQLSetQuantifier {
 

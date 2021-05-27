@@ -5,9 +5,9 @@
 package com.alipay.zdal.parser.exceptions;
 
 /**
- * sqlparser的异常类.
+ * sqlparser鐨勫紓甯哥被.
  * @author xiaoqing.zhouxq
- * @version $Id: SqlParserException.java, v 0.1 2012-5-29 上午09:34:44 xiaoqing.zhouxq Exp $
+ * @version $Id: SqlParserException.java, v 0.1 2012-5-29 涓婂崍09:34:44 xiaoqing.zhouxq Exp $
  */
 public class SqlParserException extends RuntimeException {
 

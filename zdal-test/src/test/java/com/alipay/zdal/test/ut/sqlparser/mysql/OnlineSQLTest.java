@@ -26,12 +26,12 @@ public class OnlineSQLTest extends TestCase {
 	    public void test_list_sql() throws Exception {
 	        // reset();
 
-	        // ÕâĞ©ÖĞÎÄÀ¨ºÅ
+	        // è¿™äº›ä¸­æ–‡æ‹¬å·
 	        // update(7216, "", 4);
 	        // update(7223, "", 4);
 	        // update(8387, "", 4);
 
-	        // Óï·¨´íÎó
+	        // è¯­æ³•é”™è¯¯
 	        // update(17018, "", 4); //alarm_type&?
 	        // update(17841, "", 4); //alarm_type&?
 	        // update(17845, "", 4); //alarm_type&?
@@ -56,7 +56,7 @@ public class OnlineSQLTest extends TestCase {
 	            int id = rs.getInt(1);
 	            String value = rs.getString(2);
 
-	            if (value.indexOf('£¨') != -1) {
+	            if (value.indexOf('ï¼ˆ') != -1) {
 	                update(id, "", 4);
 	                continue;
 	            }

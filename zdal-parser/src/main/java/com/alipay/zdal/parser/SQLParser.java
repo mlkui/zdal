@@ -8,15 +8,15 @@ import com.alipay.zdal.common.DBType;
 import com.alipay.zdal.parser.result.SqlParserResult;
 
 /**
- * SQL½âÎöÆ÷»ùÀà
+ * SQLè§£æå™¨åŸºç±»
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLParser.java, v 0.1 2012-5-22 ÉÏÎç09:59:15 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLParser.java, v 0.1 2012-5-22 ä¸Šåˆ09:59:15 xiaoqing.zhouxq Exp $
  */
 public interface SQLParser {
 
     /**
-     * ½âÎösqlÓï¾ä,¶ÔÓÚ²»Í¬dbType²ÉÓÃ²»Í¬µÄsql½âÎöÆ÷.
+     * è§£æsqlè¯­å¥,å¯¹äºä¸åŒdbTypeé‡‡ç”¨ä¸åŒçš„sqlè§£æå™¨.
      * @param sql
      * @param dbType
      * @return

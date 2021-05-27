@@ -9,7 +9,7 @@ create database shardgroup_7;
 create database shardgroup_8;
 create database shardgroup_9;
 
-//Ö÷¿â
+//ä¸»åº“
 CREATE TABLE shardgroup_0.user_00(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 CREATE TABLE shardgroup_0.user_01(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 CREATE TABLE shardgroup_2.user_02(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;
@@ -20,7 +20,7 @@ CREATE TABLE shardgroup_6.user_06(user_id varchar(20) DEFAULT NULL,name varchar(
 CREATE TABLE shardgroup_6.user_07(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 CREATE TABLE shardgroup_8.user_08(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 CREATE TABLE shardgroup_8.user_09(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;
-//±¸¿â
+//å¤‡åº“
 CREATE TABLE shardgroup_1.user_00(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 CREATE TABLE shardgroup_1.user_01(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 CREATE TABLE shardgroup_3.user_02(user_id varchar(20) DEFAULT NULL,name varchar(20) DEFAULT NULL,address varchar(255) DEFAULT NULL) ENGINE=InnoDB DEFAULT CHARSET=gbk;

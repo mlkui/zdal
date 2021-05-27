@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlShowWarningsStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:38:47 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlShowWarningsStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:38:47 Exp $
  */
 public class MySqlShowWarningsStatement extends MySqlStatementImpl {
 

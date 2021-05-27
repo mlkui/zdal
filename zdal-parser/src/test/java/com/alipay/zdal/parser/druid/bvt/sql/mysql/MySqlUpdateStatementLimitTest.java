@@ -12,7 +12,7 @@ import com.alipay.zdal.parser.visitor.ZdalMySqlSchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: MySqlUpdateStatementLimitTest.java, v 0.1 2012-5-17 …œŒÁ10:07:20 xiaoqing.zhouxq Exp $
+ * @version $Id: MySqlUpdateStatementLimitTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:07:20 xiaoqing.zhouxq Exp $
  */
 public class MySqlUpdateStatementLimitTest extends MysqlTest {
     public void test_limit() {

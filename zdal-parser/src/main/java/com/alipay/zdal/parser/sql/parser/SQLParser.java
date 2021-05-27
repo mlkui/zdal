@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.parser;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLParser.java, v 0.1 2012-11-17 ÏÂÎç3:54:20 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLParser.java, v 0.1 2012-11-17 ä¸‹åˆ3:54:20 Exp $
  */
 public class SQLParser {
 

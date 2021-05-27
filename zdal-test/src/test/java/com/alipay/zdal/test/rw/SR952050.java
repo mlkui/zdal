@@ -27,7 +27,7 @@ import com.ibatis.common.jdbc.exception.NestedSQLException;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rw ¶¯Ì¬Ö¸¶¨¿â")
+@Feature("rw åŠ¨æ€æŒ‡å®šåº“")
 public class SR952050 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
@@ -53,40 +53,40 @@ public class SR952050 {
 		ThreadLocalMap.reset();
 	}
 
-	@Subject("¶¯Ì¬Ö¸¶¨¿â£¬rw Ğ´¿â ds0:r2w1p0,ds1:r1w2p1")
+	@Subject("åŠ¨æ€æŒ‡å®šåº“ï¼Œrw å†™åº“ ds0:r2w1p0,ds1:r1w2p1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952051() {
-		Step("¶¯Ì¬Ö¸¶¨¿â£¬rw Ğ´¿â ds0:r2w1p0,ds1:r1w2p1");
+		Step("åŠ¨æ€æŒ‡å®šåº“ï¼Œrw å†™åº“ ds0:r2w1p0,ds1:r1w2p1");
 		HashMap<String, Integer> mp = writeRwMysqlDBByIndex(
 				"zdalrwmysqlDBIndex", "insertRwSql", 1);
 		int count1 = mp.get("count1");
 		int count2 = mp.get("count2");
-		Step("»ñÈ¡¸öÊı");
+		Step("è·å–ä¸ªæ•°");
 		Assert.areEqual(true, count1 == 0, "the count1 value:"+count1);
 		Assert.areEqual(true, count2 == 30, "the count2 value:"+count2);
 
 	}
 
 	
-	@Subject("¶¯Ì¬Ö¸¶¨¿â£¬rw ¶Á¿â ds0:r2w1p0,ds1:r1w2p1")
+	@Subject("åŠ¨æ€æŒ‡å®šåº“ï¼Œrw è¯»åº“ ds0:r2w1p0,ds1:r1w2p1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952052() {
-		Step("¶¯Ì¬Ö¸¶¨¿â£¬rw ¶Á¿â ds0:r2w1p0,ds1:r1w2p1");
+		Step("åŠ¨æ€æŒ‡å®šåº“ï¼Œrw è¯»åº“ ds0:r2w1p0,ds1:r1w2p1");
 		HashMap<String, Integer> mp = readRwMysqlDBByIndex(
 				"zdalrwmysqlDBIndex", "queryRwSql", 1);
 
 		int countA = mp.get("countA");
 		int countB = mp.get("countB");
-		Step("»ñÈ¡¸öÊı");
+		Step("è·å–ä¸ªæ•°");
 
 		Assert.areEqual(true, countA == 0, "the countA value");
 		Assert.areEqual(true, countB == 30, "the countA value");
 
 	}
 
-	@Subject("¶¯Ì¬Ö¸¶¨¿â,Ô½½ç£¬rw Ğ´¿â ds0:r2w1p0,ds1:r1w2p1")
+	@Subject("åŠ¨æ€æŒ‡å®šåº“,è¶Šç•Œï¼Œrw å†™åº“ ds0:r2w1p0,ds1:r1w2p1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952053() {
@@ -101,13 +101,13 @@ public class SR952050 {
 			sqlMap.insert("insertRwSql", params);
 		} catch (Exception e) { //
 			// TODO Auto-generated catch block
-			Assert.areEqual(NestedSQLException.class, e.getClass(), "ÑéÖ¤ÊÇ·ñÅ×³öÒì³£");
+			Assert.areEqual(NestedSQLException.class, e.getClass(), "éªŒè¯æ˜¯å¦æŠ›å‡ºå¼‚å¸¸");
 		}
 	}
 	
 
 	/**
-	@Subject("¶¯Ì¬Ö¸¶¨¿â,Ô½½ç£¬rw ¶Á¿â ds0:r2w1p0,ds1:r1w2p1")
+	@Subject("åŠ¨æ€æŒ‡å®šåº“,è¶Šç•Œï¼Œrw è¯»åº“ ds0:r2w1p0,ds1:r1w2p1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void testcase04() {
@@ -118,38 +118,38 @@ public class SR952050 {
 		try {
 			 sqlMap.queryForList("queryRwSql");
 		} catch (Exception e) { // TODO Auto-generated catch block
-			Assert.areEqual(NestedSQLException.class, e.getClass(), "ÑéÖ¤ÊÇ·ñÅ×³öÒì³£");
+			Assert.areEqual(NestedSQLException.class, e.getClass(), "éªŒè¯æ˜¯å¦æŠ›å‡ºå¼‚å¸¸");
 		}
 	}
 	*/
 
 	
-	@Subject("¶¯Ì¬Ö¸¶¨¿â,¿âÈ¨ÖØÎª0£¬rw ¶Á¿â ds0:r0w1p0,ds1:r1w2p1")
+	@Subject("åŠ¨æ€æŒ‡å®šåº“,åº“æƒé‡ä¸º0ï¼Œrw è¯»åº“ ds0:r0w1p0,ds1:r1w2p1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952055() {
-		Step("¶¯Ì¬Ö¸¶¨¿â,¿âÈ¨ÖØÎª0£¬rw ¶Á¿â ds0:r0w1p0,ds1:r1w2p1");
+		Step("åŠ¨æ€æŒ‡å®šåº“,åº“æƒé‡ä¸º0ï¼Œrw è¯»åº“ ds0:r0w1p0,ds1:r1w2p1");
 		HashMap<String, Integer> mp = readRwMysqlDBByIndex(
 				"zdalrwmysqlDBIndex2", "queryRwSql", 0);
 
 		int countA = mp.get("countA");
 		int countB = mp.get("countB");
-		Step("»ñÈ¡¸öÊı");
+		Step("è·å–ä¸ªæ•°");
 		Assert.areEqual(true, countA == 30, "the countA value");
 		Assert.areEqual(true, countB == 0, "the countA value");
 
 	}
 
-	@Subject("¶¯Ì¬Ö¸¶¨¿â£¬rw Ğ´¿â ds0:r1w1p0,ds1:r1w0p1")
+	@Subject("åŠ¨æ€æŒ‡å®šåº“ï¼Œrw å†™åº“ ds0:r1w1p0,ds1:r1w0p1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952056() {
-		Step("¶¯Ì¬Ö¸¶¨¿â£¬rw Ğ´¿â ds0:r1w1p0,ds1:r1w0p1");
+		Step("åŠ¨æ€æŒ‡å®šåº“ï¼Œrw å†™åº“ ds0:r1w1p0,ds1:r1w0p1");
 		HashMap<String, Integer> mp = writeRwMysqlDBByIndex(
 				"zdalrwmysqlDBIndex3", "insertRwSql", 1);
 		int count1 = mp.get("count1");
 		int count2 = mp.get("count2");
-		Step("»ñÈ¡¸öÊı");
+		Step("è·å–ä¸ªæ•°");
 		Assert.areEqual(true, count1 == 0, "the count1 value");
 		Assert.areEqual(true, count2 == 30, "the count2 value");
 
@@ -157,7 +157,7 @@ public class SR952050 {
 
 
 	/**
-	 * ¶¯Ì¬Ö¸¶¨¿â Ğ´¿â
+	 * åŠ¨æ€æŒ‡å®šåº“ å†™åº“
 	 * 
 	 * @param beanName
 	 * @param sqlName
@@ -184,7 +184,7 @@ public class SR952050 {
 				e.printStackTrace();
 			}
 		}
-		// ½øĞ´ÈëµÄÊı¾İcount£¬½øĞĞÑéÖ¤
+		// è¿›å†™å…¥çš„æ•°æ®countï¼Œè¿›è¡ŒéªŒè¯
 		String querySql = "select count(*) from test1 where colu2 = 'DB_G'";
 		ResultSet rs = ZdalTestCommon.dataCheckFromJDBC(querySql, url1, psd,
 				user);
@@ -205,7 +205,7 @@ public class SR952050 {
 	}
 
 	/**
-	 * ¶¯Ì¬Ö¸Ğ´¿â¶Á
+	 * åŠ¨æ€æŒ‡å†™åº“è¯»
 	 * 
 	 * @param beanName
 	 * @param sqlName
@@ -218,12 +218,12 @@ public class SR952050 {
 		HashMap<String, Integer> hp = new HashMap<String, Integer>();
 		int countA = 0;
 		int countB = 0;
-		// ×¼±¸Êı¾İ
+		// å‡†å¤‡æ•°æ®
 		ZdalTestCommon.dataPrepareForZds();
 
 		ThreadLocalMap.put(ThreadLocalString.DATABASE_INDEX, dbIndex);
 
-		// ¶ÁÈ¡Êı¾İ£¬²¢¼ÆËã´ÓÃ¿¸ö¿âÀïÃæ¶ÁÊıµÄ´ÎÊı
+		// è¯»å–æ•°æ®ï¼Œå¹¶è®¡ç®—ä»æ¯ä¸ªåº“é‡Œé¢è¯»æ•°çš„æ¬¡æ•°
 		sqlMap = (SqlMapClient)ZdalRwSuite.context.getBean(beanName);
 		String sqlStr1 = sqlName;
 		for (int countnum = 0; countnum < 30; countnum++) {

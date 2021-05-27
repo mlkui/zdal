@@ -33,8 +33,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * Our TransactionManager implementation.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: TxManager.java, v 0.1 2014-1-6 ÏÂÎç05:49:07 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TxManager.java, v 0.1 2014-1-6 ä¸‹åˆ05:49:07 Exp $
  */
 public class TxManager implements TransactionManager, TransactionPropagationContextImporter,
                       TransactionPropagationContextFactory, TransactionLocalDelegate,

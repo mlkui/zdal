@@ -222,7 +222,7 @@ try {
 	
 	/**
 	 * 
-	 * @param index ¶ÔÓ¦zDataSources[]µÄÏÂ±ê
+	 * @param index å¯¹åº”zDataSources[]çš„ä¸‹æ ‡
 	 * @return
 	 */
 	public ZDataSource getZdataSouceByIndex(int index){

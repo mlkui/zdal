@@ -24,7 +24,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rw数据源获取dbid：正常场景，有两个group,非事务执行sql操作")
+@Feature("shard+rw鏁版嵁婧愯幏鍙杁bid锛氭甯稿満鏅紝鏈変袱涓猤roup,闈炰簨鍔℃墽琛宻ql鎿嶄綔")
 public class SR954080 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
@@ -35,11 +35,11 @@ public class SR954080 {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Subject("zoneDs=group_0_r,group_0_w,zoneError=Exception.读库，获取当前dbId")
+	@Subject("zoneDs=group_0_r,group_0_w,zoneError=Exception.璇诲簱锛岃幏鍙栧綋鍓峝bId")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954081() {
-		Step("zoneDs=group_0_r,group_0_w,zoneError=Exception.读库，获取当前dbId");
+		Step("zoneDs=group_0_r,group_0_w,zoneError=Exception.璇诲簱锛岃幏鍙栧綋鍓峝bId");
 		sqlMap = (SqlMapClient) ZdalShardrwSuite.context
 				.getBean("zdalShardrwMysql");
 
@@ -49,21 +49,21 @@ public class SR954080 {
 					.get(ThreadLocalString.GET_ID_AND_DATABASE);
 			for (Map.Entry<String, DataSource> entry : map.entrySet()) {
 				String dbId = entry.getKey();
-				Assert.areEqual("MysqlShardrwDs1.group_0_r_1", dbId, "验证dbid");
+				Assert.areEqual("MysqlShardrwDs1.group_0_r_1", dbId, "楠岃瘉dbid");
 			
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			Assert.areEqual(1, 2, "出现不该有的异常");
+			Assert.areEqual(1, 2, "鍑虹幇涓嶈鏈夌殑寮傚父");
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	@Subject("zoneDs=group_0_r,group_0_w,zoneError=Exception.写库，获取当前dbId")
+	@Subject("zoneDs=group_0_r,group_0_w,zoneError=Exception.鍐欏簱锛岃幏鍙栧綋鍓峝bId")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954082() {
-		Step("zoneDs=group_0_r,group_0_w,zoneError=Exception.写库，获取当前dbId");
+		Step("zoneDs=group_0_r,group_0_w,zoneError=Exception.鍐欏簱锛岃幏鍙栧綋鍓峝bId");
 		sqlMap = (SqlMapClient) ZdalShardrwSuite.context
 				.getBean("zdalShardrwMysql");
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -80,7 +80,7 @@ public class SR954080 {
 		for (Map.Entry<String, DataSource> entry : map.entrySet()) {
 
 			String dbId = entry.getKey();
-			Assert.areEqual("MysqlShardrwDs1.group_0_w_0", dbId, "验证dbid");
+			Assert.areEqual("MysqlShardrwDs1.group_0_w_0", dbId, "楠岃瘉dbid");
 		
 		}
 		String dburl0=ConstantsTest.mysql12UrlTranation0;

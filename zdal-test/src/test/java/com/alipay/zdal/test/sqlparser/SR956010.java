@@ -20,7 +20,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rwÊı¾İÔ´:table.cloum,in(),betweeen and,<>,not in (?,?)")
+@Feature("rwæ•°æ®æº:table.cloum,in(),betweeen and,<>,not in (?,?)")
 public class SR956010 {
     String               url1   = ConstantsTest.mysql12UrlZds1;
     String               psd    = ConstantsTest.mysq112Psd;
@@ -32,7 +32,7 @@ public class SR956010 {
 
     @Before
     public void beforeTestcase() {
-        // Êı¾İ×¼±¸
+        // æ•°æ®å‡†å¤‡
         prepareData();
 
         sqlMap = (SqlMapClient) ZdalSqlParserSuite.context.getBean("zdalsqlParserMysql01");
@@ -40,11 +40,11 @@ public class SR956010 {
 
     @After
     public void afterTestcase() {
-        // Êı¾İÇå³ı
+        // æ•°æ®æ¸…é™¤
         deleteData();
     }
 
-    @Subject("Ö´ĞĞ:select colu2 from test1 where test1.clum = #clum#")
+    @Subject("æ‰§è¡Œ:select colu2 from test1 where test1.clum = #clum#")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956011() {
@@ -56,10 +56,10 @@ public class SR956010 {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        Assert.areEqual(1, rs.size(), "select colu2 from table whre table.id µÄ¶ÏÑÔ");
+        Assert.areEqual(1, rs.size(), "select colu2 from table whre table.id çš„æ–­è¨€");
     }
 
-    @Subject("Ö´ĞĞ:select colu2 from test1 where test1.clum in (#clum1#,#clum2#)")
+    @Subject("æ‰§è¡Œ:select colu2 from test1 where test1.clum in (#clum1#,#clum2#)")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956012() {
@@ -72,10 +72,10 @@ public class SR956010 {
             ex.printStackTrace();
         }
         Assert.areEqual(2, rs.size(),
-            "select colu2 from test1 where test1.clum in (#clum1#,#clum2#) µÄ¶ÏÑÔ");
+            "select colu2 from test1 where test1.clum in (#clum1#,#clum2#) çš„æ–­è¨€");
     }
 
-    @Subject("Ö´ĞĞ:select colu2 from table whre table.id between ? and ?")
+    @Subject("æ‰§è¡Œ:select colu2 from table whre table.id between ? and ?")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956013() {
@@ -87,10 +87,10 @@ public class SR956010 {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        Assert.areEqual(2, rs.size(), "select colu2 from table whre table.id between ? and ?µÄ¶ÏÑÔ");
+        Assert.areEqual(2, rs.size(), "select colu2 from table whre table.id between ? and ?çš„æ–­è¨€");
     }
 
-    @Subject("Ö´ĞĞ:select colu2 from table whre table.id <> ?")
+    @Subject("æ‰§è¡Œ:select colu2 from table whre table.id <> ?")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956014() {
@@ -101,10 +101,10 @@ public class SR956010 {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        Assert.areEqual(1, rs.size(), "select colu2 from table whre table.id <> ?µÄ¶ÏÑÔ");
+        Assert.areEqual(1, rs.size(), "select colu2 from table whre table.id <> ?çš„æ–­è¨€");
     }
 
-    @Subject("Ö´ĞĞ:select colu2 from test1 where test1.clum not in (#clum1#)")
+    @Subject("æ‰§è¡Œ:select colu2 from test1 where test1.clum not in (#clum1#)")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956015() {
@@ -116,10 +116,10 @@ public class SR956010 {
             ex.printStackTrace();
         }
         Assert.areEqual(1, rs.size(),
-            "select colu2 from test1 where test1.clum not in (#clum1#)µÄ¶ÏÑÔ");
+            "select colu2 from test1 where test1.clum not in (#clum1#)çš„æ–­è¨€");
     }
 
-    @Subject("Ö´ĞĞ:select count(*) from test1 where test1.clum = #clum1#")
+    @Subject("æ‰§è¡Œ:select count(*) from test1 where test1.clum = #clum1#")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956016() {
@@ -132,11 +132,11 @@ public class SR956010 {
         }
         HashMap hs = (HashMap) rs.get(0);
         Assert.areEqual("1", hs.get("count").toString(),
-            "select count(*) from test1 where test1.clum = #clum1#µÄ¶ÏÑÔ");
+            "select count(*) from test1 where test1.clum = #clum1#çš„æ–­è¨€");
 
     }
 
-    @Subject("Ö´ĞĞ:select count(1) from test1 where test1.clum = #clum1#")
+    @Subject("æ‰§è¡Œ:select count(1) from test1 where test1.clum = #clum1#")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956017() {
@@ -149,11 +149,11 @@ public class SR956010 {
         }
         HashMap hs = (HashMap) rs.get(0);
         Assert.areEqual("1", hs.get("count").toString(),
-            "select count(1) from test1 where test1.clum = #clum1#µÄ¶ÏÑÔ");
+            "select count(1) from test1 where test1.clum = #clum1#çš„æ–­è¨€");
 
     }
 
-    @Subject("Ö´ĞĞ:select count(1) as count from test1 where (test1.colu2 is not null) and test1.clum = #clum1#")
+    @Subject("æ‰§è¡Œ:select count(1) as count from test1 where (test1.colu2 is not null) and test1.clum = #clum1#")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956018() {
@@ -171,7 +171,7 @@ public class SR956010 {
 
     }
 
-    @Subject("Ö´ĞĞ:select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1#")
+    @Subject("æ‰§è¡Œ:select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1#")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956019() {
@@ -190,7 +190,7 @@ public class SR956010 {
                 "select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1#");
     }
 
-    @Subject("Ö´ĞĞ:select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1# order by test1.clum")
+    @Subject("æ‰§è¡Œ:select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1# order by test1.clum")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601a() {
@@ -209,7 +209,7 @@ public class SR956010 {
                 "select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1# order by test1.clum");
     }
 
-    @Subject("Ö´ĞĞ:select count(1) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ")
+    @Subject("æ‰§è¡Œ:select count(1) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601b() {
@@ -228,7 +228,7 @@ public class SR956010 {
                 "select count(1) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ");
     }
 
-    @Subject("Ö´ĞĞ:select distinct(colu2) as colu2 from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ")
+    @Subject("æ‰§è¡Œ:select distinct(colu2) as colu2 from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601c() {
@@ -247,7 +247,7 @@ public class SR956010 {
                 "select distinct(colu2) as colu2 from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ");
     }
 
-    @Subject("Ö´ĞĞ:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.colu2 like '%DB%' ")
+    @Subject("æ‰§è¡Œ:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.colu2 like '%DB%' ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601d() {
@@ -266,7 +266,7 @@ public class SR956010 {
                 "select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.colu2 like '%DB%' ");
     }
 
-    @Subject("Ö´ĞĞ:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) limit 0,1 ")
+    @Subject("æ‰§è¡Œ:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) limit 0,1 ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601e() {
@@ -281,7 +281,7 @@ public class SR956010 {
                 "select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) limit 0,1 ");
     }
 
-    @Subject("Ö´ĞĞ:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and 1=1 ")
+    @Subject("æ‰§è¡Œ:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and 1=1 ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601f() {
@@ -296,7 +296,7 @@ public class SR956010 {
                 "select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and 1=1 ");
     }
 
-    @Subject("Ö´ĞĞ:select count(*) as count from test1 where test1.clum > 101 ")
+    @Subject("æ‰§è¡Œ:select count(*) as count from test1 where test1.clum > 101 ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601g() {
@@ -310,7 +310,7 @@ public class SR956010 {
             "select count(*) as count from test1 where test1.clum > 101 ");
     }
 
-    @Subject("Ö´ĞĞ:select count(*) as count from test1 where test1.clum <= 199 ")
+    @Subject("æ‰§è¡Œ:select count(*) as count from test1 where test1.clum <= 199 ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601h() {
@@ -324,7 +324,7 @@ public class SR956010 {
             "select count(*) as count from test1 where test1.clum <= 199 ");
     }
 
-    @Subject("Ö´ĞĞ:select sum(clum) as sumvalue from test1 where test1.clum <= 201 ")
+    @Subject("æ‰§è¡Œ:select sum(clum) as sumvalue from test1 where test1.clum <= 201 ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601j() {
@@ -339,7 +339,7 @@ public class SR956010 {
             "select sum(clum) as sumvalue from test1 where test1.clum <= 201");
     }
 
-    @Subject("Ö´ĞĞ:select min(clum) as minvalue from test1 where test1.clum <= 201 ")
+    @Subject("æ‰§è¡Œ:select min(clum) as minvalue from test1 where test1.clum <= 201 ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601k() {
@@ -355,7 +355,7 @@ public class SR956010 {
 
     }
 
-    @Subject("Ö´ĞĞ:select max(clum) as maxvalue from test1 where test1.clum <= 201 ")
+    @Subject("æ‰§è¡Œ:select max(clum) as maxvalue from test1 where test1.clum <= 201 ")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601l() {
@@ -372,7 +372,7 @@ public class SR956010 {
     }
 
     /**
-     * Êı¾İ×¼±¸
+     * æ•°æ®å‡†å¤‡
      */
     private void prepareData() {
         String insertSql1 = "insert into test1(clum,colu2) values (100,'DB_A')";
@@ -382,7 +382,7 @@ public class SR956010 {
     }
 
     /**
-     * É¾³ıÊı¾İ
+     * åˆ é™¤æ•°æ®
      */
     private void deleteData() {
         String deleteSql = "delete from test1";

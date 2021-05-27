@@ -11,8 +11,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlOutFileExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:30:54 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlOutFileExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:30:54 Exp $
  */
 public class MySqlOutFileExpr extends MySqlObjectImpl implements SQLExpr {
 

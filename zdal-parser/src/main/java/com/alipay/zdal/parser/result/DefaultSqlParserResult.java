@@ -31,14 +31,14 @@ import com.alipay.zdal.parser.visitor.ZdalSchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: AbstractSqlParserResult.java, v 0.1 2012-5-21 ÏÂÎç03:11:27 xiaoqing.zhouxq Exp $
+ * @version $Id: AbstractSqlParserResult.java, v 0.1 2012-5-21 ä¸‹åˆ03:11:27 xiaoqing.zhouxq Exp $
  */
 public abstract class DefaultSqlParserResult implements SqlParserResult, ComparativeMapChoicer {
 
     protected ZdalSchemaStatVisitor visitor;
 
     /**
-     * Èç¹ûÃ»ÓĞskipºÍmax»á·µ»Ø´ËÖµ
+     * å¦‚æœæ²¡æœ‰skipå’Œmaxä¼šè¿”å›æ­¤å€¼
      */
     public final static int         DEFAULT_SKIP_MAX = -1000;
 
@@ -92,7 +92,7 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
     }
 
     /**
-     * »ñÈ¡±íÃû
+     * è·å–è¡¨å
      * @return
      * @see com.alipay.zdal.parser.result.SqlParserResult#getTableName()
      */
@@ -109,8 +109,8 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
                     }
                 } else {
                     if (temp != null && !tableName.equals(entry.getKey().getName().toLowerCase())) {
-                        throw new IllegalArgumentException("sqlÓï¾äÖĞµÄ±íÃû²»Í¬£¬Çë±£Ö¤ËùÓĞsqlÓï¾äµÄ±íÃû"
-                                                           + "ÒÔ¼°ËûÃÇµÄschemaNameÏàÍ¬£¬°üÀ¨ÄÚÇ¶sql");
+                        throw new IllegalArgumentException("sqlè¯­å¥ä¸­çš„è¡¨åä¸åŒï¼Œè¯·ä¿è¯æ‰€æœ‰sqlè¯­å¥çš„è¡¨å"
+                                                           + "ä»¥åŠä»–ä»¬çš„schemaNameç›¸åŒï¼ŒåŒ…æ‹¬å†…åµŒsql");
                     }
                 }
             }
@@ -119,15 +119,15 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
     }
 
     /**
-     * »ñÈ¡ComparativeMap.
-     * mapµÄkey ÊÇÁĞÃû valueÊÇ°ó¶¨±äÁ¿ºóµÄ{@link Comparative}
-     * Èç¹ûÊÇ¸ö²»¿É¸³ÖµµÄ±äÁ¿£¬Ôò²»»á·µ»Ø¡£
-     * ²»¿É¸³ÖµÖ¸µÄÊÇ£¬ËäÈ»¿ÉÒÔ½âÎö£¬µ«½âÎöÒÔºóµÄ½á¹û²»ÄÜ½øĞĞ¼ÆËã¡£
-     * Èçwhere col = concat(str,str);
-     * ÕâÖÖSQLËäÈ»¿ÉÒÔ½âÎö£¬µ«ÒòÎª¶ÔÓ¦µÄ´¦Àíº¯ÊıÃ»ÓĞÍê³É£¬ËùÒÔÊÇ²»ÄÜ¸³ÖµµÄ¡£ÕâÖÖÇé¿öÏÂcol
-     * ÊÇ²»»á±»·Åµ½·µ»ØµÄmapÖĞµÄ¡£
-     * @param arguments ²ÎÊıÖµÁĞ±í.
-     * @param partnationSet ²ğ·Ö×Ö¶ÎÁĞ±í.
+     * è·å–ComparativeMap.
+     * mapçš„key æ˜¯åˆ—å valueæ˜¯ç»‘å®šå˜é‡åçš„{@link Comparative}
+     * å¦‚æœæ˜¯ä¸ªä¸å¯èµ‹å€¼çš„å˜é‡ï¼Œåˆ™ä¸ä¼šè¿”å›ã€‚
+     * ä¸å¯èµ‹å€¼æŒ‡çš„æ˜¯ï¼Œè™½ç„¶å¯ä»¥è§£æï¼Œä½†è§£æä»¥åçš„ç»“æœä¸èƒ½è¿›è¡Œè®¡ç®—ã€‚
+     * å¦‚where col = concat(str,str);
+     * è¿™ç§SQLè™½ç„¶å¯ä»¥è§£æï¼Œä½†å› ä¸ºå¯¹åº”çš„å¤„ç†å‡½æ•°æ²¡æœ‰å®Œæˆï¼Œæ‰€ä»¥æ˜¯ä¸èƒ½èµ‹å€¼çš„ã€‚è¿™ç§æƒ…å†µä¸‹col
+     * æ˜¯ä¸ä¼šè¢«æ”¾åˆ°è¿”å›çš„mapä¸­çš„ã€‚
+     * @param arguments å‚æ•°å€¼åˆ—è¡¨.
+     * @param partnationSet æ‹†åˆ†å­—æ®µåˆ—è¡¨.
      * @return
      */
     public Map<String, Comparative> getColumnsMap(List<Object> arguments, Set<String> partnationSet) {
@@ -142,7 +142,7 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
     }
 
     /**
-     * ¸ù¾İ²ğ·Ö×Ö¶Î´ÓsqlµÄ×Ö¶ÎÖĞ»ñÈ¡¶ÔÓ¦µÄÁĞÃûºÍÁĞÖµ.
+     * æ ¹æ®æ‹†åˆ†å­—æ®µä»sqlçš„å­—æ®µä¸­è·å–å¯¹åº”çš„åˆ—åå’Œåˆ—å€¼.
      * @param partinationKey
      * @param arguments
      * @return
@@ -156,13 +156,13 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
                 conditions.add(tmp);
             }
         }
-        if (!conditions.isEmpty()) { //ÏÈ´Ó°ó¶¨²ÎÊıÁĞ±íÖĞ²éÕÒ.
+        if (!conditions.isEmpty()) { //å…ˆä»ç»‘å®šå‚æ•°åˆ—è¡¨ä¸­æŸ¥æ‰¾.
             Comparative comparative = null;
             int index = 1;
             for (BindVarCondition bindVarCondition : conditions) {
                 String op = bindVarCondition.getOperator();
                 int function = Comparative.getComparisonByIdent(op);
-                if (function == Comparative.NotSupport || op.trim().equalsIgnoreCase("in")) {//Ö§³Ö²ğ·Ö×Ö¶ÎÊÇinµÄÄ£Ê½.
+                if (function == Comparative.NotSupport || op.trim().equalsIgnoreCase("in")) {//æ”¯æŒæ‹†åˆ†å­—æ®µæ˜¯inçš„æ¨¡å¼.
                     Object arg = arguments.get(bindVarCondition.getIndex());
                     Comparable<?> value = null;
                     if (arg instanceof Comparable<?>) {
@@ -206,7 +206,7 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
                     index = condition.getIndex();
                 } else {
                     Comparative next = new Comparative(function, value);
-                    if (index == condition.getIndex()) {//ÔÚ×Ó²éÑ¯ÖĞ£¬´æÔÚ²ğ·Ö×Ö¶ÎµÄindexÏàÍ¬µÄÇé¿ö£¬Èç¹ûÏàÍ¬¾Í²»ĞèÒªand/or ½øĞĞÆ¥ÅäÁË.
+                    if (index == condition.getIndex()) {//åœ¨å­æŸ¥è¯¢ä¸­ï¼Œå­˜åœ¨æ‹†åˆ†å­—æ®µçš„indexç›¸åŒçš„æƒ…å†µï¼Œå¦‚æœç›¸åŒå°±ä¸éœ€è¦and/or è¿›è¡ŒåŒ¹é…äº†.
                         return comparative;
                     }
                     if (condition.getOp() == 1) {
@@ -294,18 +294,18 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
      * @param tables
      * @param args
      * @param skip
-     *            ±ÕÇø¼ä£¬´ÓÄÄ¿ªÊ¼
+     *            é—­åŒºé—´ï¼Œä»å“ªå¼€å§‹
      * @param max
-     *            ¿ªÇø¼ä£¬ÖÁÄÄ
+     *            å¼€åŒºé—´ï¼Œè‡³å“ª
      * @return
      */
     public void getSqlReadyToRun(Set<String> tables, List<Object> args, Number skip, Number max,
                                  Map<Integer, Object> modifiedMap) {
         if (tables == null) {
-            throw new IllegalArgumentException("´ıÌæ»»±íÃûÎª¿Õ");
+            throw new IllegalArgumentException("å¾…æ›¿æ¢è¡¨åä¸ºç©º");
         }
 
-        //Èç¹ûÊÇskip ºÍ max ¶¼´æÔÚ£¬²¢ÇÒÊÇ°ó¶¨±äÁ¿µÄÇé¿ö£¬Ôò½øĞĞ²ÎÊıµÄÌæ»»
+        //å¦‚æœæ˜¯skip å’Œ max éƒ½å­˜åœ¨ï¼Œå¹¶ä¸”æ˜¯ç»‘å®šå˜é‡çš„æƒ…å†µï¼Œåˆ™è¿›è¡Œå‚æ•°çš„æ›¿æ¢
         if (this.isSkipBind() < 0 && this.isRowCountBind() < 0) {
             throw new IllegalArgumentException("The limit skip or rowCount set error!");
         }
@@ -321,7 +321,7 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
         } else if (num instanceof Integer) {
             obj = (Integer) num;
         } else {
-            throw new IllegalArgumentException("Ö»Ö§³Öint longµÄÇé¿ö");
+            throw new IllegalArgumentException("åªæ”¯æŒint longçš„æƒ…å†µ");
         }
         changeParam.put(index, obj);
     }

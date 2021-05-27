@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.checked;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ZdalCheckedExcption.java, v 0.1 2014-1-6 ÏÂÎç05:18:14 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalCheckedExcption.java, v 0.1 2014-1-6 ä¸‹åˆ05:18:14 Exp $
  */
 public class ZdalCheckedExcption extends Exception {
     /**

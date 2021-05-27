@@ -9,8 +9,8 @@ import com.alipay.zdal.datasource.resource.spi.ConnectionRequestInfo;
 /**
  * WrappedConnectionRequestInfo
  *
- * @author ≤Æ—¿
- * @version $Id: WrappedConnectionRequestInfo.java, v 0.1 2014-1-6 œ¬ŒÁ05:30:46 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: WrappedConnectionRequestInfo.java, v 0.1 2014-1-6 ‰∏ãÂçà05:30:46 Exp $
  */
 public class WrappedConnectionRequestInfo implements ConnectionRequestInfo {
     private final String user;

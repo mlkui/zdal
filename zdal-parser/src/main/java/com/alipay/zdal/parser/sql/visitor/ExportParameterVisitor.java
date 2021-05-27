@@ -8,8 +8,8 @@ import java.util.List;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ExportParameterVisitor.java, v 0.1 2012-11-17 ÏÂÎç3:55:54 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ExportParameterVisitor.java, v 0.1 2012-11-17 ä¸‹åˆ3:55:54 Exp $
  */
 public interface ExportParameterVisitor extends SQLASTVisitor {
     List<Object> getParameters();

@@ -7,8 +7,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
 /**
  * The thread pool was stopped.
  *
- * @author ²®ÑÀ
- * @version $Id: ThreadPoolStoppedException.java, v 0.1 2014-1-6 ÏÂÎç05:45:54 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ThreadPoolStoppedException.java, v 0.1 2014-1-6 ä¸‹åˆ05:45:54 Exp $
  */
 public class ThreadPoolStoppedException extends RuntimeException {
     // Constants -----------------------------------------------------

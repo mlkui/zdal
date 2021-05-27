@@ -10,8 +10,8 @@ import java.sql.SQLException;
 /**
  * Checks that a connection is valid
  *
- * @author ²®ÑÀ
- * @version $Id: ValidConnectionChecker.java, v 0.1 2014-1-6 ÏÂÎç05:29:59 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ValidConnectionChecker.java, v 0.1 2014-1-6 ä¸‹åˆ05:29:59 Exp $
  */
 public interface ValidConnectionChecker {
     /**

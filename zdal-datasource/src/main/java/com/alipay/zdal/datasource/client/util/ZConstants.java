@@ -5,20 +5,20 @@
 package com.alipay.zdal.datasource.client.util;
 
 /**
- * ZdatasourceµÄ³£Á¿ÉèÖÃÀà
+ * Zdatasourceçš„å¸¸é‡è®¾ç½®ç±»
  * 
  * @author liangjie.li
  * @version $Id: ZConstants.java, v 0.1 May 11, 2012 5:33:12 PM liangjie.li Exp $
  */
 public class ZConstants {
 
-    /** Òì³£Âë£¬±íÊ¾Êı¾İ¿â´¦ÓÚ²»¿ÉÓÃ×´Ì¬*/
+    /** å¼‚å¸¸ç ï¼Œè¡¨ç¤ºæ•°æ®åº“å¤„äºä¸å¯ç”¨çŠ¶æ€*/
     public static final String ERROR_CODE_DB_NOT_AVAILABLE         = "100";
-    /** Òì³£Âë£¬±íÊ¾Ã»ÓĞ¿ÉÓÃÁ¬½Ó*/
+    /** å¼‚å¸¸ç ï¼Œè¡¨ç¤ºæ²¡æœ‰å¯ç”¨è¿æ¥*/
     public static final String ERROR_CODE_CONNECTION_NOT_AVAILABLE = "101";
-    /** Òì³£Âë£¬±íÊ¾³¬Ê±*/
+    /** å¼‚å¸¸ç ï¼Œè¡¨ç¤ºè¶…æ—¶*/
     public static final String ERROR_CODE_CONNECTION_TIMEOUT       = "102";
-    /**  ´òÓ¡Á¬½Ó³Ø×´Ì¬µÄ¼ä¸ô */
+    /**  æ‰“å°è¿æ¥æ± çŠ¶æ€çš„é—´éš” */
     public static final int    LOGGER_DELAY                        = 30;
 
 }

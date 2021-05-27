@@ -6,8 +6,8 @@ package com.alipay.zdal.common.util;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: TableSuffixTypeEnum.java, v 0.1 2014-1-6 œ¬ŒÁ05:23:35 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: TableSuffixTypeEnum.java, v 0.1 2014-1-6 ‰∏ãÂçà05:23:35 Exp $
  */
 public enum TableSuffixTypeEnum {
     twoColumnForEachDB("twoColumnForEachDB"), dbIndexForEachDB("dbIndexForEachDB"), groovyTableList(

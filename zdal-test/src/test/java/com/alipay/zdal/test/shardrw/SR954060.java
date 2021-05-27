@@ -15,16 +15,16 @@ import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.client.util.dispatchanalyzer.ZdalDatasourceIntrospector;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("全活策略:isDataBaseAvailable")
+@Feature("鍏ㄦ椿绛栫暐:isDataBaseAvailable")
 public class SR954060 {
 	public TestAssertion Assert = new TestAssertion();
 	ZdalDatasourceIntrospector td =null;
 	
-	@Subject("根据组号与序列号，判断该db是否可用")
+	@Subject("鏍规嵁缁勫彿涓庡簭鍒楀彿锛屽垽鏂db鏄惁鍙敤")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC954061(){
-		Step("根据组号与序列号，判断该db是否可用");
+		Step("鏍规嵁缁勫彿涓庡簭鍒楀彿锛屽垽鏂db鏄惁鍙敤");
 		String[] springXmlPath = {  "./shardrw/spring-available-ds.xml" };
 		ApplicationContext context = new ClassPathXmlApplicationContext(springXmlPath);
 		
@@ -32,7 +32,7 @@ public class SR954060 {
 		.getBean("isDataBaseAvailableTest");
 		boolean b1=td.isDataBaseAvailable(0, 1);		
 		boolean b2=td.isDataBaseAvailable(1, 1);
-		Assert.areEqual(true, b1==false&&b2==true, "isDataBaseAvailable验证,b1="+b1+",b2="+b2);
+		Assert.areEqual(true, b1==false&&b2==true, "isDataBaseAvailable楠岃瘉,b1="+b1+",b2="+b2);
 	
 		
 	}

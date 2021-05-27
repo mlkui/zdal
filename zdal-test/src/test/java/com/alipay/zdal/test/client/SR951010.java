@@ -15,7 +15,7 @@ import com.alipay.zdal.client.exceptions.ZdalClientException;
 import com.alipay.zdal.test.common.ZdalTestBase;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("zdal ³õÊ¼»¯")
+@Feature("zdal åˆå§‹åŒ–")
 public class SR951010 extends ZdalTestBase {
 
     @Before
@@ -26,58 +26,58 @@ public class SR951010 extends ZdalTestBase {
         zdalDataSource.setConfigPath(localFile);
     }
 
-    @Subject("appdsName Îªnull£¬½øĞĞ³õÊ¼»¯")
+    @Subject("appdsName ä¸ºnullï¼Œè¿›è¡Œåˆå§‹åŒ–")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951011() throws Throwable {
         try {
-            Step("appDsName is null ,½øĞĞ³õÊ¼»¯");
+            Step("appDsName is null ,è¿›è¡Œåˆå§‹åŒ–");
             zdalDataSource.init();
         } catch (IllegalArgumentException e) {
-            Assert.areEqual(IllegalArgumentException.class, e.getClass(), "appDSName ÊÇ null£¬½øĞĞ³õÊ¼»¯");
+            Assert.areEqual(IllegalArgumentException.class, e.getClass(), "appDSName æ˜¯ nullï¼Œè¿›è¡Œåˆå§‹åŒ–");
 
         }
     }
 
-    @Subject("appdsName Îª¿ÕÖµ£¬½øĞĞ³õÊ¼»¯")
+    @Subject("appdsName ä¸ºç©ºå€¼ï¼Œè¿›è¡Œåˆå§‹åŒ–")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951012() throws Throwable {
         appDsName = "";
         zdalDataSource.setAppDsName(appDsName);
-        Step("appName Îª '',½øĞĞ³õÊ¼»¯");
+        Step("appName ä¸º '',è¿›è¡Œåˆå§‹åŒ–");
         try {
-            Step("appDsName Îª '',½øĞĞ³õÊ¼»¯");
+            Step("appDsName ä¸º '',è¿›è¡Œåˆå§‹åŒ–");
             zdalDataSource.init();
         } catch (IllegalArgumentException e) {
-            Assert.areEqual(IllegalArgumentException.class, e.getClass(), "appDSName Îª ''£¬½øĞĞ³õÊ¼»¯");
+            Assert.areEqual(IllegalArgumentException.class, e.getClass(), "appDSName ä¸º ''ï¼Œè¿›è¡Œåˆå§‹åŒ–");
 
         }
     }
 
-    @Subject(" ZdataconsoleUrl Îª¿ÕÖµ,zdalconfigLocal Îª false")
+    @Subject(" ZdataconsoleUrl ä¸ºç©ºå€¼,zdalconfigLocal ä¸º false")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951013() throws Throwable {
         appDsName = "zdataconsoleUrlIsNull";
         zdalDataSource.setAppDsName(appDsName);
-        Step("ZdataconsoleUrl Îª¿ÕÖµ,zdalconfigLocal Îª false£¬½øĞĞ³õÊ¼»¯");
+        Step("ZdataconsoleUrl ä¸ºç©ºå€¼,zdalconfigLocal ä¸º falseï¼Œè¿›è¡Œåˆå§‹åŒ–");
         try {
             zdalDataSource.init();
         } catch (IllegalArgumentException e) {
             Assert.areEqual(IllegalArgumentException.class, e.getClass(),
-                "zdataconsoleUrl Îª ''£¬zdalconfigLocal Îª false,½øĞĞ³õÊ¼»¯");
+                "zdataconsoleUrl ä¸º ''ï¼ŒzdalconfigLocal ä¸º false,è¿›è¡Œåˆå§‹åŒ–");
         }
     }
 
-    @Subject("the ZdataconsoleUrl Îª '',µ« zdalconfigLocal Îª true")
+    @Subject("the ZdataconsoleUrl ä¸º '',ä½† zdalconfigLocal ä¸º true")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951014() throws Throwable {
         int notException = 0;
         appDsName = "zdataconsoleUrlIsNull";
         zdalDataSource.setAppDsName(appDsName);
-        Step("the ZdataconsoleUrl Îª '',µ« zdalconfigLocal Îª true,½øĞĞ³õÊ¼»¯");
+        Step("the ZdataconsoleUrl ä¸º '',ä½† zdalconfigLocal ä¸º true,è¿›è¡Œåˆå§‹åŒ–");
         try {
             zdalDataSource.init();
         } catch (IllegalArgumentException e) {
@@ -87,63 +87,63 @@ public class SR951010 extends ZdalTestBase {
 
     }
 
-    @Subject(" ZdataconsoleUrl Îª null, zdalconfigLocal Îª false")
+    @Subject(" ZdataconsoleUrl ä¸º null, zdalconfigLocal ä¸º false")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951015() throws Throwable {
         appDsName = "zdataconsoleUrlIsNull";
         zdalDataSource.setAppDsName(appDsName);
-        Step("ZdataconsoleUrl Îª null, zdalconfigLocal Îª false,½øĞĞ³õÊ¼»¯");
+        Step("ZdataconsoleUrl ä¸º null, zdalconfigLocal ä¸º false,è¿›è¡Œåˆå§‹åŒ–");
         try {
             zdalDataSource.init();
         } catch (IllegalArgumentException e) {
             Assert.areEqual(IllegalArgumentException.class, e.getClass(),
-                "zdataconsoleUrl Îª null£¬zdalconfigLocal Îª false,½øĞĞ³õÊ¼»¯");
+                "zdataconsoleUrl ä¸º nullï¼ŒzdalconfigLocal ä¸º false,è¿›è¡Œåˆå§‹åŒ–");
         }
     }
 
-    @Subject(" configPath Îª ''")
+    @Subject(" configPath ä¸º ''")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951016() throws Throwable {
         appDsName = "configPathisnull";
         zdalDataSource.setAppDsName(appDsName);
         zdalDataSource.setConfigPath("");
-        Step("configPath Îª ¿ÕÖµ,½øĞĞ³õÊ¼»¯");
+        Step("configPath ä¸º ç©ºå€¼,è¿›è¡Œåˆå§‹åŒ–");
         try {
             zdalDataSource.init();
         } catch (IllegalArgumentException e) {
-            Assert.areEqual(IllegalArgumentException.class, e.getClass(), "configPath Îª '',½øĞĞ³õÊ¼»¯");
+            Assert.areEqual(IllegalArgumentException.class, e.getClass(), "configPath ä¸º '',è¿›è¡Œåˆå§‹åŒ–");
         }
     }
 
-    @Subject(" dbmode Îª nullÖµ")
+    @Subject(" dbmode ä¸º nullå€¼")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951017() throws Throwable {
         appDsName = "configPathisnull";
         zdalDataSource.setAppDsName(appDsName);
         //zdalDataSource.setDbmode(null);
-        Step("dbmode Îª nullÖµ,½øĞĞ³õÊ¼»¯");
+        Step("dbmode ä¸º nullå€¼,è¿›è¡Œåˆå§‹åŒ–");
         try {
             zdalDataSource.init();
         } catch (ZdalClientException e) {
-            Assert.areEqual(ZdalClientException.class, e.getClass(), "dbmode Îª nullÖµ,½øĞĞ³õÊ¼»¯");
+            Assert.areEqual(ZdalClientException.class, e.getClass(), "dbmode ä¸º nullå€¼,è¿›è¡Œåˆå§‹åŒ–");
         }
     }
 
-    @Subject("ZdataconsoleUrl Îª OK,µ« localFileÎÄ¼ş²»´æÔÚ")
+    @Subject("ZdataconsoleUrl ä¸º OK,ä½† localFileæ–‡ä»¶ä¸å­˜åœ¨")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951018() throws Throwable {
         appDsName = "testDsNotExist";
         zdalDataSource.setAppDsName(appDsName);
-        Step("ZdataconsoleUrl Îª OK,µ« localFileÎÄ¼ş²»´æÔÚ£¬½øĞĞ³õÊ¼»¯");
+        Step("ZdataconsoleUrl ä¸º OK,ä½† localFileæ–‡ä»¶ä¸å­˜åœ¨ï¼Œè¿›è¡Œåˆå§‹åŒ–");
         try {
             zdalDataSource.init();
         } catch (ZdalClientException e) {
             Assert.areEqual(ZdalClientException.class, e.getClass(),
-                "ZdataconsoleUrl Îª OK,µ« localFileÎÄ¼ş²»´æÔÚ£¬½øĞĞ³õÊ¼»¯");
+                "ZdataconsoleUrl ä¸º OK,ä½† localFileæ–‡ä»¶ä¸å­˜åœ¨ï¼Œè¿›è¡Œåˆå§‹åŒ–");
         }
     }
 

@@ -17,26 +17,26 @@ import com.alipay.zdal.datasource.resource.adapter.jdbc.local.LocalTxDataSource;
  * 
  * 
  * @author liangjie.li
- * @version $Id: ZDataSourceChanger.java, v 0.1 2012-8-20 ÏÂÎç8:08:03 liangjie.li Exp $
+ * @version $Id: ZDataSourceChanger.java, v 0.1 2012-8-20 ä¸‹åˆ8:08:03 liangjie.li Exp $
  */
 public class ZDataSourceChanger {
     private static final Logger logger = Logger.getLogger(ZDataSourceChanger.class);
 
     public static boolean configChange(Map<String, String> properties, ZDataSource zds) {
-        boolean urlChange = ZDataSourceUtil.isChanged(properties, Parameter.JDBC_URL); //urlÊÇ·ñ¸Ä±ä
-        boolean driverChange = ZDataSourceUtil.isChanged(properties, Parameter.DRIVER_CLASS);//driverclass ÊÇ·ñ¸Ä±ä
+        boolean urlChange = ZDataSourceUtil.isChanged(properties, Parameter.JDBC_URL); //urlæ˜¯å¦æ”¹å˜
+        boolean driverChange = ZDataSourceUtil.isChanged(properties, Parameter.DRIVER_CLASS);//driverclass æ˜¯å¦æ”¹å˜
 
-        //ÏÈ¸´ÖÆÒ»·İ,ÔÚÓÃÍÆËÍµÄĞÂÖµ¸²¸Ç
+        //å…ˆå¤åˆ¶ä¸€ä»½,åœ¨ç”¨æ¨é€çš„æ–°å€¼è¦†ç›–
         LocalTxDataSourceDO newDO = new LocalTxDataSourceDO();
         newDO.setDsName(zds.getDsName());
         ZDataSourceUtil.copyDS2DO(zds.getLocalTxDataSource(), newDO);
         ZDataSourceUtil.replaceValueFromMap(newDO, properties);
 
-        if (driverChange && !urlChange) {//jboss»áÎªurl»º´ædriver
-            logger.error("driverClass·¢ÉúÍÆËÍ²Ù×÷Ê±£¬connectionUrlÒ²ĞèÍÆËÍ£¬±¾´ÎÍÆËÍºöÂÔ");
+        if (driverChange && !urlChange) {//jbossä¼šä¸ºurlç¼“å­˜driver
+            logger.error("driverClasså‘ç”Ÿæ¨é€æ“ä½œæ—¶ï¼ŒconnectionUrlä¹Ÿéœ€æ¨é€ï¼Œæœ¬æ¬¡æ¨é€å¿½ç•¥");
             return false;
         }
-        //connectionpropertiesÊÇ·ñ¸Ä±ä
+        //connectionpropertiesæ˜¯å¦æ”¹å˜
         boolean propChange = ZDataSourceUtil.solveConnectionProperties(newDO
             .getConnectionProperties(), zds.getLocalTxDataSource().getConnectionProperties());
 
@@ -50,7 +50,7 @@ public class ZDataSourceChanger {
     }
 
     /**
-     * ÖØ½¨Êı¾İÔ´Á¬½Ó³Ø£¬ÏÈ½¨Á¢Ò»¸öĞÂµÄÁ¬½Ó³Ø£¬È»ºóºÍ¾ÉµÄ½»»»£¬×îºóÏú»õ¾ÉµÄ
+     * é‡å»ºæ•°æ®æºè¿æ¥æ± ï¼Œå…ˆå»ºç«‹ä¸€ä¸ªæ–°çš„è¿æ¥æ± ï¼Œç„¶åå’Œæ—§çš„äº¤æ¢ï¼Œæœ€åé”€è´§æ—§çš„
      * 
      * @param newDO
      * @return
@@ -66,10 +66,10 @@ public class ZDataSourceChanger {
             oldDs.destroy();
             oldDs = null;
 
-            logger.warn("Á¬½Ó³ØÒÑ¾­ÖØ½¨, cost " + (System.currentTimeMillis() - t1) + " ms");
+            logger.warn("è¿æ¥æ± å·²ç»é‡å»º, cost " + (System.currentTimeMillis() - t1) + " ms");
             return true;
         } catch (Exception e) {
-            logger.error("Á¬½Ó³ØÖØ½¨Ê§°Ü", e);
+            logger.error("è¿æ¥æ± é‡å»ºå¤±è´¥", e);
             return false;
         }
 

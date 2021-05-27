@@ -7,15 +7,15 @@ package com.alipay.zdal.datasource;
 import java.util.Map;
 
 /**
- *   Êı¾İÔ´Ë¢ĞÂÆ÷£¬Í¨¹ı´«ÈëĞÂµÄÊı¾İÔ´ÊôĞÔÀ´ÖØĞÂÔØÈë
+ *   æ•°æ®æºåˆ·æ–°å™¨ï¼Œé€šè¿‡ä¼ å…¥æ–°çš„æ•°æ®æºå±æ€§æ¥é‡æ–°è½½å…¥
  * 
  * @author liangjie
- * @version $Id: Flusher.java, v 0.1 2012-7-18 ÉÏÎç10:21:19 liangjie Exp $
+ * @version $Id: Flusher.java, v 0.1 2012-7-18 ä¸Šåˆ10:21:19 liangjie Exp $
  */
 public interface Flusher {
 
     /**
-     *  ¸ù¾İ¾ßÌåÅäÖÃÊµÌåÖØĞÂË¢ĞÂÊı¾İÔ´
+     *  æ ¹æ®å…·ä½“é…ç½®å®ä½“é‡æ–°åˆ·æ–°æ•°æ®æº
      * 
      * @param localTxDataSourceDO
      * @return
@@ -23,7 +23,7 @@ public interface Flusher {
     //    public boolean flush(LocalTxDataSourceDO localTxDataSourceDO);
 
     /**
-     * ¸ù¾İÅäÖÃmapË¢ĞÂÊı¾İÔ´
+     * æ ¹æ®é…ç½®mapåˆ·æ–°æ•°æ®æº
      * 
      * @param map
      * @return

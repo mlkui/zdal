@@ -17,12 +17,12 @@ import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.datasource.LocalTxDataSourceDO;
 import com.alipay.zdal.datasource.ZDataSource;
 /**
- * ´´½¨zdatasourceÍ¬Ê±´«Èëvalve²ÎÊı
+ * åˆ›å»ºzdatasourceåŒæ—¶ä¼ å…¥valveå‚æ•°
  * @author yin.meng
  *
  */
 @RunWith(ATSJUnitRunner.class)
-@Feature("´´½¨zdatasourceÍ¬Ê±´«Èëvalve²ÎÊı")
+@Feature("åˆ›å»ºzdatasourceåŒæ—¶ä¼ å…¥valveå‚æ•°")
 public class ZDS951050 extends ZDSTest{
 	ZDataSource zDataSource = null;
 	LocalTxDataSourceDO localTxDSDo = new LocalTxDataSourceDO();
@@ -53,12 +53,12 @@ public class ZDS951050 extends ZDSTest{
 		}
 	}
 
-    /*@Subject("²»ÅäÖÃvalve²ÎÊı")
+    /*@Subject("ä¸é…ç½®valveå‚æ•°")
     @Priority(PriorityLevel.NORMAL)
     @Tester("riqiu")
     @Test
 	public void testTC951051() {		
-    	Step("´´½¨Êı¾İÔ´");
+    	Step("åˆ›å»ºæ•°æ®æº");
     	try {
 			zDataSource = new ZDataSource(localTxDSDo);
 		} catch (Exception e) {
@@ -66,7 +66,7 @@ public class ZDS951050 extends ZDSTest{
 			fail();
 		}
 		
-		Step("»ñÈ¡valve²ÎÊı");
+		Step("è·å–valveå‚æ•°");
 		Valve valve = zDataSource.getValve();
 		ThresholdAndPeriod sqlLimit=valve.getSqlValve();
 		ThresholdAndPeriod txLimit=valve.getTXValve();
@@ -75,20 +75,20 @@ public class ZDS951050 extends ZDSTest{
 	    ThresholdAndPeriod   noLimit    = new ThresholdAndPeriod(-1, -1);
 	    HashMap<String, ThresholdAndPeriod> emptyTable = new HashMap<String, ThresholdAndPeriod>();
 	    
-	    Step("ÑéÖ¤valve²ÎÊı");
-	    Assert.isTrue(sqlLimit.equals(noLimit),"Ğ£ÑésqlÏŞÁ÷");
-	    Assert.isTrue(txLimit.equals(txLimit),"Ğ£ÑétxÏŞÁ÷");
-	    Assert.isTrue(tableLimit.equals(emptyTable),"Ğ£ÑétableÏŞÁ÷");	    
+	    Step("éªŒè¯valveå‚æ•°");
+	    Assert.isTrue(sqlLimit.equals(noLimit),"æ ¡éªŒsqlé™æµ");
+	    Assert.isTrue(txLimit.equals(txLimit),"æ ¡éªŒtxé™æµ");
+	    Assert.isTrue(tableLimit.equals(emptyTable),"æ ¡éªŒtableé™æµ");	    
 	}*/
 
-    @Subject("ÅäÖÃºÏ·¨valve²ÎÊı")
+    @Subject("é…ç½®åˆæ³•valveå‚æ•°")
     @Priority(PriorityLevel.NORMAL)
     @Tester("riqiu")
     @Test
 	public void testTC951052() {
-		Step("×¼±¸valve²ÎÊı");
+		Step("å‡†å¤‡valveå‚æ•°");
 		
-		Step("´´½¨Êı¾İÔ´");
+		Step("åˆ›å»ºæ•°æ®æº");
 		try {
 			zDataSource = new ZDataSource(localTxDSDo);
 		} catch (Exception e) {
@@ -96,7 +96,7 @@ public class ZDS951050 extends ZDSTest{
 			fail();
 		}
 		
-		Step("»ñÈ¡valve²ÎÊı");
+		Step("è·å–valveå‚æ•°");
 		/*Valve valve = zDataSource.getValve();
 		ThresholdAndPeriod sqlLimit=valve.getSqlValve();
 		ThresholdAndPeriod txLimit=valve.getTXValve();
@@ -108,20 +108,20 @@ public class ZDS951050 extends ZDSTest{
 	    Limit3.put("t1",Limit1);
 	    Limit3.put("t2", Limit2);
 	    
-		Step("ÑéÖ¤valve²ÎÊı");
-        Assert.isTrue(sqlLimit.equals(Limit1),"Ğ£ÑésqlÏŞÁ÷");
-	    Assert.isTrue(txLimit.equals(Limit2),"Ğ£ÑétxÏŞÁ÷");
-	    Assert.isTrue(tableLimit.equals(Limit3),"Ğ£ÑétableÏŞÁ÷");*/
+		Step("éªŒè¯valveå‚æ•°");
+        Assert.isTrue(sqlLimit.equals(Limit1),"æ ¡éªŒsqlé™æµ");
+	    Assert.isTrue(txLimit.equals(Limit2),"æ ¡éªŒtxé™æµ");
+	    Assert.isTrue(tableLimit.equals(Limit3),"æ ¡éªŒtableé™æµ");*/
 	}
 	
-    @Subject("ÅäÖÃ²»ºÏ·¨valve²ÎÊı")
+    @Subject("é…ç½®ä¸åˆæ³•valveå‚æ•°")
     @Priority(PriorityLevel.NORMAL)
     @Tester("riqiu")
     @Test
 	public void testTC951053() {		
-		Step("×¼±¸valve²ÎÊı");
+		Step("å‡†å¤‡valveå‚æ•°");
 		
-		Step("´´½¨Êı¾İÔ´");
+		Step("åˆ›å»ºæ•°æ®æº");
 		try {
 			zDataSource = new ZDataSource(localTxDSDo);
 		} catch (Exception e) {
@@ -129,7 +129,7 @@ public class ZDS951050 extends ZDSTest{
 			fail();
 		}
 		
-		Step("»ñÈ¡valve²ÎÊı");
+		Step("è·å–valveå‚æ•°");
 		/*Valve valve = zDataSource.getValve();
 		ThresholdAndPeriod sqlLimit=valve.getSqlValve();
 		ThresholdAndPeriod txLimit=valve.getTXValve();
@@ -138,9 +138,9 @@ public class ZDS951050 extends ZDSTest{
 	    ThresholdAndPeriod   noLimit    = new ThresholdAndPeriod(-1, -1);
 	    HashMap<String, ThresholdAndPeriod> emptyTable = new HashMap<String, ThresholdAndPeriod>();
 	    
-		Step("ÑéÖ¤valve²ÎÊı");
-	    Assert.isTrue(sqlLimit.equals(noLimit),"Ğ£ÑésqlÏŞÁ÷");
-	    Assert.isTrue(txLimit.equals(txLimit),"Ğ£ÑétxÏŞÁ÷");
-	    Assert.isTrue(tableLimit.equals(emptyTable),"Ğ£ÑétableÏŞÁ÷");	    */
+		Step("éªŒè¯valveå‚æ•°");
+	    Assert.isTrue(sqlLimit.equals(noLimit),"æ ¡éªŒsqlé™æµ");
+	    Assert.isTrue(txLimit.equals(txLimit),"æ ¡éªŒtxé™æµ");
+	    Assert.isTrue(tableLimit.equals(emptyTable),"æ ¡éªŒtableé™æµ");	    */
 	}
 }

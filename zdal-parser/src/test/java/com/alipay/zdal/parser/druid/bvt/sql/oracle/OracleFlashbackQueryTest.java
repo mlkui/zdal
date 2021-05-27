@@ -10,7 +10,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleFlashbackQueryTest.java, v 0.1 2012-5-17 …œŒÁ10:16:50 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleFlashbackQueryTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:16:50 xiaoqing.zhouxq Exp $
  */
 public class OracleFlashbackQueryTest extends TestCase {
 

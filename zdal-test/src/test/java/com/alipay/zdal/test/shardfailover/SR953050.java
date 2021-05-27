@@ -23,17 +23,17 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+failoverÊÂÎñµÄ·ÃÎÊ")
+@Feature("shard+failoveräº‹åŠ¡çš„è®¿é—®")
 public class SR953050 {
 	public TestAssertion Assert = new TestAssertion();
 	private TransactionTemplate tt;
 	private SqlMapClient sqlMap;
 
-	@Subject("shard+rw:zdalÊÂÎñ½øĞĞÊäÈë£¬Ô¤ÆÚĞ´Èëmaster_1¿â1±íµÄ²âÊÔ")
+	@Subject("shard+rw:zdaläº‹åŠ¡è¿›è¡Œè¾“å…¥ï¼Œé¢„æœŸå†™å…¥master_1åº“1è¡¨çš„æµ‹è¯•")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953051() {
-		Step("shard+rw:zdalÊÂÎñ½øĞĞÊäÈë£¬Ô¤ÆÚĞ´Èëmaster_1¿â1±íµÄ²âÊÔ");
+		Step("shard+rw:zdaläº‹åŠ¡è¿›è¡Œè¾“å…¥ï¼Œé¢„æœŸå†™å…¥master_1åº“1è¡¨çš„æµ‹è¯•");
 		sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 				.getBean("zdalShardfailoverShardDbShardTable");
 		tt = (TransactionTemplate) ZdalShardfailoverSuite.context
@@ -41,12 +41,12 @@ public class SR953050 {
         
 		testTransactionInsertSelect();
 		
-		Step("ÑéÖ¤Êı¾İ£¬Çå³ıÊı¾İ");
+		Step("éªŒè¯æ•°æ®ï¼Œæ¸…é™¤æ•°æ®");
 		testCheckData();
 	}
 	
 	/**
-	 * ÏÈinsertºóselectµÄÊÂÎñ
+	 * å…ˆinsertåselectçš„äº‹åŠ¡
 	 */
 	private void testTransactionInsertSelect(){
 		try {
@@ -64,7 +64,7 @@ public class SR953050 {
 					try {
 						 sqlMap.insert(insertSql,params);
 						 List<Object> res_1 =sqlMap.queryForList(selectSql,params2);
-						 Assert.areEqual(1, res_1.size(), "ÑéÖ¤select½á¹û·Ç¿Õ");						
+						 Assert.areEqual(1, res_1.size(), "éªŒè¯selectç»“æœéç©º");						
 					} catch (SQLException e) {
 						status.setRollbackOnly();
 						e.printStackTrace();
@@ -78,7 +78,7 @@ public class SR953050 {
 	}
 	
 	/**
-	 * ¼ì²éÊı¾İÊıÁ¿,Ö®ºóÉ¾³ıÊı¾İ
+	 * æ£€æŸ¥æ•°æ®æ•°é‡,ä¹‹ååˆ é™¤æ•°æ®
 	 * 
 	 * 
 	 */
@@ -91,7 +91,7 @@ public class SR953050 {
 				dbuser);
 		try {
 			rs.next();
-			Assert.areEqual(1, rs.getInt(1), "Êı¾İ¼ì²é");
+			Assert.areEqual(1, rs.getInt(1), "æ•°æ®æ£€æŸ¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

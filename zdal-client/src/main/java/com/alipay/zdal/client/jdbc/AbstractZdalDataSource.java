@@ -62,8 +62,8 @@ import com.alipay.zdal.rule.ruleengine.entities.abstractentities.ListSharedEleme
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: AbstractZdalDataSource.java, v 0.1 2013-1-30 ÉÏÎç09:56:01 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: AbstractZdalDataSource.java, v 0.1 2013-1-30 ä¸Šåˆ09:56:01 Exp $
  */
 public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implements DataSource,
                                                                          Closable,
@@ -82,19 +82,19 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     private AppRule                                    appRule;
 
     /**
-     * Êı¾İÔ´¼¯ºÏ£¬keyÊÇÊı¾İÔ´±êÊ¶£¬value ÊÇDataSource¶ÔÏó£¬Ä¿Ç°²ÉÓÃµÄÊÇ ZdataSource
+     * æ•°æ®æºé›†åˆï¼Œkeyæ˜¯æ•°æ®æºæ ‡è¯†ï¼Œvalue æ˜¯DataSourceå¯¹è±¡ï¼Œç›®å‰é‡‡ç”¨çš„æ˜¯ ZdataSource
      */
     protected Map<String, ZDataSource>                 dataSourcesMap      = new HashMap<String, ZDataSource>();
 
     private ZdalSignalResource                         zdalSignalResource  = null;
 
     /**
-     * È¨ÖØÂëÒÔrwp·Ö±ğ´ú±í¶ÁÈ¨ÖØ¡¢Ğ´È¨ÖØ¡¢¶Á¼¶±ğ3Ïî¡£²»Çø·Ö´óĞ¡ºÍË³Ğò£¬ºóÃæ¿ÉÒÔ¸úÒ»¸öÊı×Ö¡£
-     * Èô×ÖÄ¸²»³öÏÖ£¬¶ÔÓ¦ÏîµÄÖµÄ¬ÈÏÎª0£»Èô×ÖÄ¸³öÏÖÊı×Ö²»³öÏÖ£¬¶ÔÓ¦ÏîµÄÄ¬ÈÏÖµ¼ûreturnËµÃ÷
+     * æƒé‡ç ä»¥rwpåˆ†åˆ«ä»£è¡¨è¯»æƒé‡ã€å†™æƒé‡ã€è¯»çº§åˆ«3é¡¹ã€‚ä¸åŒºåˆ†å¤§å°å’Œé¡ºåºï¼Œåé¢å¯ä»¥è·Ÿä¸€ä¸ªæ•°å­—ã€‚
+     * è‹¥å­—æ¯ä¸å‡ºç°ï¼Œå¯¹åº”é¡¹çš„å€¼é»˜è®¤ä¸º0ï¼›è‹¥å­—æ¯å‡ºç°æ•°å­—ä¸å‡ºç°ï¼Œå¯¹åº”é¡¹çš„é»˜è®¤å€¼è§returnè¯´æ˜
      * 
      * @param weight
-     *            ¸ñÊ½
-     * @return int[0] RºóÃæµÄÊı×Ö(Ä¬ÈÏ10), int[1] WºóÃæµÄÊı×Ö(Ä¬ÈÏ10), int[2] PºóÃæµÄÊı×Ö(Ä¬ÈÏ0);
+     *            æ ¼å¼
+     * @return int[0] Råé¢çš„æ•°å­—(é»˜è®¤10), int[1] Wåé¢çš„æ•°å­—(é»˜è®¤10), int[2] Påé¢çš„æ•°å­—(é»˜è®¤0);
      *         R20W10 --> int[]{20,10,0} rp2w30 --> int[]{10,30,2}
      */
     private static final Pattern                       weightPattern_r     = Pattern
@@ -120,7 +120,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * Ïú»ÙÊı¾İÔ´.
+     * é”€æ¯æ•°æ®æº.
      */
     /**
      * @see com.alipay.zdal.common.Closable#close()
@@ -178,13 +178,13 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
         }
         if (dbConfigType.isShard()) {
             this.dataSourcePoolConfig = getFailoverDataSourcePoolConfig(zdalConfig
-                .getLogicPhysicsDsNames());//½¨Á¢Âß¼­ºÍÎïÀíµÄ¶ÔÓ¦¹ØÏµ.
+                .getLogicPhysicsDsNames());//å»ºç«‹é€»è¾‘å’Œç‰©ç†çš„å¯¹åº”å…³ç³».
             this.appRule = zdalConfig.getAppRootRule();
             this.appRule.init();
             initForAppRule(appRule);
         } else if (dbConfigType.isShardFailover()) {
             this.dataSourcePoolConfig = getFailoverDataSourcePoolConfig(zdalConfig
-                .getLogicPhysicsDsNames());//½¨Á¢Âß¼­ºÍÎïÀíµÄ¶ÔÓ¦¹ØÏµ.
+                .getLogicPhysicsDsNames());//å»ºç«‹é€»è¾‘å’Œç‰©ç†çš„å¯¹åº”å…³ç³».
             this.keyWeightConfig = zdalConfig.getFailoverRules();
             this.appRule = zdalConfig.getAppRootRule();
             this.appRule.init();
@@ -209,7 +209,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * ÓÃÓÚfailover¶¯Ì¬ÇĞ»»µÄ¹¦ÄÜ,ĞèÒªÔÚ·Ö²¼Ê½»·¾³ÏÂ¿ÉÒÔ¶¯Ì¬¹ÜÀí£¬±ÈÈçzookeeper.
+     * ç”¨äºfailoveråŠ¨æ€åˆ‡æ¢çš„åŠŸèƒ½,éœ€è¦åœ¨åˆ†å¸ƒå¼ç¯å¢ƒä¸‹å¯ä»¥åŠ¨æ€ç®¡ç†ï¼Œæ¯”å¦‚zookeeper.
      */
     private void initConfigListener() {
         zdalSignalResource = new ZdalSignalResource(this);
@@ -222,7 +222,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * ½¨Á¢failoverµÄÂß¼­Êı¾İÔ´ÓëÎïÀíÊı¾İÔ´µÄ¶ÔÓ¦¹ØÏµ.
+     * å»ºç«‹failoverçš„é€»è¾‘æ•°æ®æºä¸ç‰©ç†æ•°æ®æºçš„å¯¹åº”å…³ç³».
      * @param logicPhysicsDsNames
      * @return
      */
@@ -242,15 +242,15 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
             : this.buildRwDbSelectors(this.rwDataSourcePoolConfig);
         this.runtimeConfigHolder.set(new ZdalRuntime(dsSelectors));
 
-        // Ìí¼Ó°´Êı¾İÔ´key·Ö×éµÄÈ¨ÖØÅäÖÃÊôĞÔ
+        // æ·»åŠ æŒ‰æ•°æ®æºkeyåˆ†ç»„çš„æƒé‡é…ç½®å±æ€§
         if (keyWeightConfig != null && !keyWeightConfig.isEmpty()) {
-            // ½âÎö¸÷¸ö·Ö×éÄÚÊı¾İÔ´µÄÈ¨ÖØĞÅÏ¢
+            // è§£æå„ä¸ªåˆ†ç»„å†…æ•°æ®æºçš„æƒé‡ä¿¡æ¯
             Map<String, ? extends Object> dataSourceKeyConfig = this.rwDataSourcePoolConfig == null ? this.dataSourcePoolConfig
                 : this.rwDataSourcePoolConfig;
             keyWeightMapConfig = ZdalDataSourceKeyWeightRumtime.buildKeyWeightConfig(
                 keyWeightConfig, dataSourceKeyConfig);
             if (keyWeightMapConfig == null) {
-                throw new IllegalStateException("Êı¾İÔ´key°´·Ö×éÈ¨ÖØÅäÖÃ´íÎó,zdal³õÊ¼»¯Ê§°Ü£¡");
+                throw new IllegalStateException("æ•°æ®æºkeyæŒ‰åˆ†ç»„æƒé‡é…ç½®é”™è¯¯,zdalåˆå§‹åŒ–å¤±è´¥ï¼");
             }
         }
         this.initForDispatcher(appRule);
@@ -270,12 +270,12 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
         zdalRoot.setDBType(this.dbType);
         Map<String/* key */, LogicTable> logicTableMap = new HashMap<String, LogicTable>();
         if (shardRule.getTableRules() != null) {
-            for (Map.Entry<String/* Âß¼­±íÃû */, TableRule> e : shardRule.getTableRules().entrySet()) {
+            for (Map.Entry<String/* é€»è¾‘è¡¨å */, TableRule> e : shardRule.getTableRules().entrySet()) {
                 setDbTypeForDbIndex(this.dbType, e.getValue().getDbIndexArray());
                 LogicTable logicTable = toLogicTable(e.getValue());
                 logicTable.setLogicTableName(e.getKey());
                 logicTable.setDBType(this.dbType);
-                // logicTable.init(); //ZdalRoot.init()°üº¬ÁËlogicTable.init()
+                // logicTable.init(); //ZdalRoot.init()åŒ…å«äº†logicTable.init()
                 logicTableMap.put(e.getKey(), logicTable);
             }
         }
@@ -293,19 +293,19 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
         for (String dbIndex : dbIndexes) {
             DBSelector dbs = dbSelectors.get(dbIndex);
             if (dbs == null) {
-                throw new IllegalArgumentException("¹æÔòÅäÖÃ´íÎó£º[" + dbIndex + "]ÔÚdataSourcePoolÖĞÃ»ÓĞÅäÖÃ");
+                throw new IllegalArgumentException("è§„åˆ™é…ç½®é”™è¯¯ï¼š[" + dbIndex + "]åœ¨dataSourcePoolä¸­æ²¡æœ‰é…ç½®");
             }
             dbs.setDbType(dbType);
-            // bug fixed by fanzeng. ÒòÎªzdalÄ¬ÈÏµÄdbType ÊÇmysql£¬¶øÔÚ
-            // °´ÓÅÏÈ¼¶½øĞĞÑ¡ÔñdbµÄÊ±ºò£¬Èç¹ûÁ¬½Ódb³öÏÖÒì³££¬
-            // priorityDbGroupSelector»áÀûÓÃÄÚ²¿°ü×°µÄ¶ÔµÈ¿âµÄ dbtypeÈ¥Ñ¡Ôñ
-            // excetptionSorter,Èç¹ûdbÀàĞÍÊÇoracleµÄ£¬
-            // bug fixed Ö®Ç°£¬²¢Î´³õÊ¼»¯EquityDbManagerµÄdbtype£¬µ¼ÖÂ»áÓÃÄ¬ÈÏµÄ mysqlÀàĞÍÈ¥Ñ¡Ôñ£»
+            // bug fixed by fanzeng. å› ä¸ºzdalé»˜è®¤çš„dbType æ˜¯mysqlï¼Œè€Œåœ¨
+            // æŒ‰ä¼˜å…ˆçº§è¿›è¡Œé€‰æ‹©dbçš„æ—¶å€™ï¼Œå¦‚æœè¿æ¥dbå‡ºç°å¼‚å¸¸ï¼Œ
+            // priorityDbGroupSelectorä¼šåˆ©ç”¨å†…éƒ¨åŒ…è£…çš„å¯¹ç­‰åº“çš„ dbtypeå»é€‰æ‹©
+            // excetptionSorter,å¦‚æœdbç±»å‹æ˜¯oracleçš„ï¼Œ
+            // bug fixed ä¹‹å‰ï¼Œå¹¶æœªåˆå§‹åŒ–EquityDbManagerçš„dbtypeï¼Œå¯¼è‡´ä¼šç”¨é»˜è®¤çš„ mysqlç±»å‹å»é€‰æ‹©ï¼›
             if (dbs instanceof PriorityDbGroupSelector) {
                 EquityDbManager[] equityDbmanager = ((PriorityDbGroupSelector) dbs)
                     .getPriorityGroups();
                 if (equityDbmanager == null) {
-                    throw new IllegalArgumentException("ÓÅÏÈ¼¶µÄ¶ÔµÈ¿â²¢Î´³õÊ¼»¯£¬Çë¼ì²éÅäÖÃ£¡");
+                    throw new IllegalArgumentException("ä¼˜å…ˆçº§çš„å¯¹ç­‰åº“å¹¶æœªåˆå§‹åŒ–ï¼Œè¯·æ£€æŸ¥é…ç½®ï¼");
                 }
                 for (int i = 0; i < equityDbmanager.length; i++) {
                     equityDbmanager[i].setDbType(dbType);
@@ -316,7 +316,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * Îªload balance ÉèÖÃdbType
+     * ä¸ºload balance è®¾ç½®dbType
      * 
      * @param dbType
      */
@@ -358,10 +358,10 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
                 groovyTableDatabaseMapProvider.setTbType(suf.getTbType());
                 groovyTableDatabaseMapProvider.setExpression(suffixManager.getExpression());
                 groovyTableDatabaseMapProvider.setTbPreffix(tableRule.getTbPreffix());
-                // Éè¶¨dbµÄ¸öÊı£¬ÔÚÊµÏÖgroovyµÄ·Ö±í¾ùÔÈ·Ö²¼µÄÊ±ºò»áÓÃµ½¡£
+                // è®¾å®šdbçš„ä¸ªæ•°ï¼Œåœ¨å®ç°groovyçš„åˆ†è¡¨å‡åŒ€åˆ†å¸ƒçš„æ—¶å€™ä¼šç”¨åˆ°ã€‚
                 groovyTableDatabaseMapProvider.setDbNumber(tableRule.getDbIndexCount());
             } catch (ParseException e) {
-                throw new ZdalClientException("ERROR ## TbsuffixµÄÅäÖÃÓĞÎÊÌâ£¡£¬Çë¼ì²é", e);
+                throw new ZdalClientException("ERROR ## Tbsuffixçš„é…ç½®æœ‰é—®é¢˜ï¼ï¼Œè¯·æ£€æŸ¥", e);
             }
 
         } else {
@@ -387,12 +387,12 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
                 tbRules.add((String) obj);
             }
             st.setTableRuleStringList(tbRules);
-            // Èç¹ûÊÇ2ÁĞµÄÇé¿ö¾ÍÓÃ2ÁĞµÄÀà£¬·ñÔò°´ÒÔÇ°µÄÂß¼­×ß
+            // å¦‚æœæ˜¯2åˆ—çš„æƒ…å†µå°±ç”¨2åˆ—çš„ç±»ï¼Œå¦åˆ™æŒ‰ä»¥å‰çš„é€»è¾‘èµ°
             st.setSimpleTableMapProvider(getTableMapProvider(tableRule));
             SuffixManager suffixManager = tableRule.getSuffixManager();
             Suffix suf = suffixManager.getSuffix(0);
 
-            // ·Ö±í¹æÔò´æÔÚ£¬²ÅÉèÖÃ±íºó×ºÊôĞÔ£¬ÉèÖÃÁËÈÎºÎÒ»¸öÊôĞÔ£¬¾Í±íÊ¾ÓÃsimpleTableMapProvider
+            // åˆ†è¡¨è§„åˆ™å­˜åœ¨ï¼Œæ‰è®¾ç½®è¡¨åç¼€å±æ€§ï¼Œè®¾ç½®äº†ä»»ä½•ä¸€ä¸ªå±æ€§ï¼Œå°±è¡¨ç¤ºç”¨simpleTableMapProvider
             st.setFrom(suf.getTbSuffixFrom());
             st.setTo(suf.getTbSuffixTo());
             st.setWidth(suf.getTbSuffixWidth());
@@ -459,10 +459,10 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
             } else if (e.getValue() instanceof DBSelector) {
                 dsSelectors.put(e.getKey(), (DBSelector) e.getValue());
             } else if (e.getValue() instanceof String) {
-                String[] dbs = ((String) e.getValue()).split(","); // Ö§³ÖÒÔ¶ººÅ·Ö¸ôµÄ¶à¸öÊı¾İÔ´ID
+                String[] dbs = ((String) e.getValue()).split(","); // æ”¯æŒä»¥é€—å·åˆ†éš”çš„å¤šä¸ªæ•°æ®æºID
                 if (dbs.length == 1) {
                     int index = dbs[0].indexOf(":");
-                    String dsbeanId = index == -1 ? dbs[0] : dbs[0].substring(0, index);// µ¥¸öDSÈ¥³ı²»±ØÒªµÄÈ¨ÖØ
+                    String dsbeanId = index == -1 ? dbs[0] : dbs[0].substring(0, index);// å•ä¸ªDSå»é™¤ä¸å¿…è¦çš„æƒé‡
                     DataSource dataSource = getDataSourceObject(dsbeanId);
                     OneDBSelector selector = new OneDBSelector(e.getKey(), dataSource);
                     selector.setAppDsName(appDsName);
@@ -481,7 +481,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * »ñÈ¡ Êı¾İÔ´
+     * è·å– æ•°æ®æº
      * 
      * @return
      */
@@ -500,46 +500,46 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * ¶ÔÀÏÊ½ÅäÖÃÄ£Ê½µÄÖ§³Ö£º
-     * ·Ö¿â¹æÔò¶¨Î»µ½µÄÊÇÒ»¸ödbgroup£¬dbgroupÄÚÓÖ°üº¬¶Á¿âºÍĞ´¿â£¬ÕâÊ±¹æÔò²»·ÖmasterRule¡¢slaveRule
-     * £¬Ö»ÓĞÒ»¸öoneRule
+     * å¯¹è€å¼é…ç½®æ¨¡å¼çš„æ”¯æŒï¼š
+     * åˆ†åº“è§„åˆ™å®šä½åˆ°çš„æ˜¯ä¸€ä¸ªdbgroupï¼Œdbgroupå†…åˆåŒ…å«è¯»åº“å’Œå†™åº“ï¼Œè¿™æ—¶è§„åˆ™ä¸åˆ†masterRuleã€slaveRule
+     * ï¼Œåªæœ‰ä¸€ä¸ªoneRule
      * 
-     * Ã¿¸ökey¶ÔÓ¦dbgroupÖĞ£¬Ã¿¸ö¿â¿ÉÒÔÓĞ¶ÁĞ´ÊôĞÔ¼°È¨ÖØ£¬¸ñÊ½ÈçÏÂ <entry key="slave_0"
+     * æ¯ä¸ªkeyå¯¹åº”dbgroupä¸­ï¼Œæ¯ä¸ªåº“å¯ä»¥æœ‰è¯»å†™å±æ€§åŠæƒé‡ï¼Œæ ¼å¼å¦‚ä¸‹ <entry key="slave_0"
      * value="slaver_db1_a:RW    ,slaver_db1_b:R" /> <entry key="slave_1"
      * value="slaver_db2_a:R10W  ,slaver_db2_b:R20" /> <entry key="slave_2"
      * value="slaver_db3_a:R10W10,slaver_db3_b:R20W0" /> <entry key="slave_3"
-     * value="slaver_db4_a:R10W20,slaver_db3_b:R20W10" /> <!-- Ö÷Ö÷ --> <entry
-     * key="slave_4" value="slaver_db5_a,slaver_db5_b" /><!-- Ö÷Ö÷ --> <entry
-     * key="slave_5" value="slaver_db6" /> * ¶ÔÓ¦µÄÈ¨ÖØ£º slave_0=R10W10,R10W0
+     * value="slaver_db4_a:R10W20,slaver_db3_b:R20W10" /> <!-- ä¸»ä¸» --> <entry
+     * key="slave_4" value="slaver_db5_a,slaver_db5_b" /><!-- ä¸»ä¸» --> <entry
+     * key="slave_5" value="slaver_db6" /> * å¯¹åº”çš„æƒé‡ï¼š slave_0=R10W10,R10W0
      * slave_1=R10W10,R20W0 slave_3=R10W20,R20W10 slave_4=R10W10,R10W10
      * slave_5=RW
      * 
      * 
-     * ÊÊÅä×ö·¨ÊÇ
-     * ½«oneRule²ğ·Ö³ÉmasterRuleºÍslaveRule£»½«oneRuleÖĞµÄdbIndex·Ö±ğÔÚmasterRuleÖĞ¼Ó_wºó×º
-     * £¬ÔÚslaveRuleÖĞ¼Ó_rºó×º tabaleA: <property name="dbIndexes"
+     * é€‚é…åšæ³•æ˜¯
+     * å°†oneRuleæ‹†åˆ†æˆmasterRuleå’ŒslaveRuleï¼›å°†oneRuleä¸­çš„dbIndexåˆ†åˆ«åœ¨masterRuleä¸­åŠ _wåç¼€
+     * ï¼Œåœ¨slaveRuleä¸­åŠ _råç¼€ tabaleA: <property name="dbIndexes"
      * value="slave_0,slave_1,slave_2,slave_3" />
      * 
      * master.tabaleA: <property name="dbIndexes"
      * value="slave_0_w,slave_1_w,slave_2_w,slave_3_w" /> slaver.tabaleA:
      * <property name="dbIndexes"
      * value="slave_0_r,slave_1_r,slave_2_r,slave_3_r" />
-     * ½«dbindexÖĞÃ¿¸öÊı¾İÔ´µÄ¶ÁĞ´ÊôĞÔ£¬°´È¨ÖØ²ğ·Öµ½master_dbindex ºÍslave_dbindex
-     * masterºÍslaveµÄ¾ßÌåÊı¾İÔ´ÁĞ³öËùÓĞµÄ£¬Ö»ÊÇ <entry key="slave_0_w"
+     * å°†dbindexä¸­æ¯ä¸ªæ•°æ®æºçš„è¯»å†™å±æ€§ï¼ŒæŒ‰æƒé‡æ‹†åˆ†åˆ°master_dbindex å’Œslave_dbindex
+     * masterå’Œslaveçš„å…·ä½“æ•°æ®æºåˆ—å‡ºæ‰€æœ‰çš„ï¼Œåªæ˜¯ <entry key="slave_0_w"
      * value="slaver_db1_a:10,slaver_db1_b:0" /> <entry key="slave_0_r"
      * value="slaver_db1_a:10,slaver_db1_b:10" /> <entry key="slave_1_w"
      * value="slaver_db2_a:10,slaver_db2_b:0" /> <entry key="slave_1_r"
      * value="slaver_db2_a:10,slaver_db2_b:20" /> <entry key="slave_2_w"
      * value="slaver_db3_a:10,slaver_db3_b:0" /> <entry key="slave_2_r"
      * value="slaver_db3_a:10,slaver_db3_b:20" /> <entry key="slave_3_w"
-     * value="slaver_db4_a:20,slaver_db3_b:10" /> <!-- Ö÷Ö÷ --> <entry
-     * key="slave_3_r" value="slaver_db4_a:10,slaver_db3_b:20" /> <!-- Ö÷Ö÷ -->
-     * <entry key="slave_4_w" value="slaver_db5_a:10,slaver_db5_b:10" /><!-- Ö÷Ö÷
+     * value="slaver_db4_a:20,slaver_db3_b:10" /> <!-- ä¸»ä¸» --> <entry
+     * key="slave_3_r" value="slaver_db4_a:10,slaver_db3_b:20" /> <!-- ä¸»ä¸» -->
+     * <entry key="slave_4_w" value="slaver_db5_a:10,slaver_db5_b:10" /><!-- ä¸»ä¸»
      * --> <entry key="slave_4_r" value="slaver_db5_a:10,slaver_db5_b:10" /><!--
-     * Ö÷Ö÷ --> <entry key="slave_5_w" value="slaver_db6" /> <entry
+     * ä¸»ä¸» --> <entry key="slave_5_w" value="slaver_db6" /> <entry
      * key="slave_5_r" value="slaver_db6" />
      * 
-     * È¨ÖØÍÆËÍ£º slave_1=R10W10,R20W0 |--> slave_1_w[10,0], slave_1_r[10,20] ±äÎª£º
+     * æƒé‡æ¨é€ï¼š slave_1=R10W10,R20W0 |--> slave_1_w[10,0], slave_1_r[10,20] å˜ä¸ºï¼š
      * slave_1=R10W10,R0,W0 |--> slave_1_w[10,0], slave_1_r[10,0]
      * 
      * @param dataSourcePool
@@ -569,7 +569,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
             } else if (e.getValue() instanceof DBSelector) {
                 dsSelectors.put(rdbIndex, (DBSelector) e.getValue());
                 dsSelectors.put(wdbIndex, (DBSelector) e.getValue());
-            } else if (e.getValue() instanceof String) {//Ö»ÓĞÕâ¸öStringÀàĞÍµÄÓĞĞ§.
+            } else if (e.getValue() instanceof String) {//åªæœ‰è¿™ä¸ªStringç±»å‹çš„æœ‰æ•ˆ.
                 parse(dsSelectors, e.getKey(), (String) e.getValue());
             }
             dsSelectors.get(rdbIndex).setDbType(this.dbType);
@@ -605,10 +605,10 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * Èç¹û²»½öÒ»×é£¬ÔòÓÃÓÅÏÈ¶ÓÁĞÀ´´æ´¢Êı¾İÔ´¡£ Í¬Ò»×éÄÚËæ»úÑ¡È¡Ò»¸ö£¬²»Í¬×éÑÏ¸ñ°´ÓÅÏÈ¼¶±ğÀ´Ñ¡È¡£¬Ö»ÓĞ¸ß¼¶±ğ³ö´íÎó²Å»áÏòÏÂÑ¡È¡µÍ¼¶±ğµÄÊı¾İÔ´
+     * å¦‚æœä¸ä»…ä¸€ç»„ï¼Œåˆ™ç”¨ä¼˜å…ˆé˜Ÿåˆ—æ¥å­˜å‚¨æ•°æ®æºã€‚ åŒä¸€ç»„å†…éšæœºé€‰å–ä¸€ä¸ªï¼Œä¸åŒç»„ä¸¥æ ¼æŒ‰ä¼˜å…ˆçº§åˆ«æ¥é€‰å–ï¼Œåªæœ‰é«˜çº§åˆ«å‡ºé”™è¯¯æ‰ä¼šå‘ä¸‹é€‰å–ä½çº§åˆ«çš„æ•°æ®æº
      * 
-     * Ö»Ğ´rwÊ±£¬pr=pw=0Ä¬ÈÏÖµ£¬¼´´ó¼Ò¶¼ÔÚÍ¬Ò»×éÄÚ£¬´ó¼ÒËæ±ãÑ¡È¡,Ö»Ğ´p Ê±£¬pr=pw=p dbs =
-     * slaver_db3_a:R10W10p10,slaver_db3_b:R20W0p5 ¶Ô¶ÁºÍĞ´¶¼·Ö±ğ·Ö¼¶£¬pr pw dbs =
+     * åªå†™rwæ—¶ï¼Œpr=pw=0é»˜è®¤å€¼ï¼Œå³å¤§å®¶éƒ½åœ¨åŒä¸€ç»„å†…ï¼Œå¤§å®¶éšä¾¿é€‰å–,åªå†™p æ—¶ï¼Œpr=pw=p dbs =
+     * slaver_db3_a:R10W10p10,slaver_db3_b:R20W0p5 å¯¹è¯»å’Œå†™éƒ½åˆ†åˆ«åˆ†çº§ï¼Œpr pw dbs =
      * slaver_db3_a:R10W10pr10pw2,slaver_db3_b:R20W0pr5pw10
      * 
      * @param databaseSources
@@ -625,15 +625,15 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
             1);
 
         for (int i = 0; i < databaseSources.length; i++) {
-            // ¶ÔÓÚÃ¿¸öDataSourceºÍÈ¨ÖØ
+            // å¯¹äºæ¯ä¸ªDataSourceå’Œæƒé‡
             String dsKey = dbIndex + Constants.DBINDEX_DSKEY_CONN_CHAR + i;
             String[] beanIdAndWeight = databaseSources[i].split(":"); // dbs[i]=slaver_db3_a:R10W10
             DataSource dataSource = (DataSource) this.getDataSourceObject(super.getZdalConfig()
-                .getLogicPhysicsDsNames().get(beanIdAndWeight[0].trim()));//Âß¼­µ½ÎïÀíµÄÓ³Éä
+                .getLogicPhysicsDsNames().get(beanIdAndWeight[0].trim()));//é€»è¾‘åˆ°ç‰©ç†çš„æ˜ å°„
             int[] weightRWPQ = parseWeightRW(beanIdAndWeight.length == 2 ? beanIdAndWeight[1]
                 : null);
 
-            // »ñµÃ±¾¼¶±ğµÄÊı¾İ¿â×é£¬Ã»ÓĞÔò´´½¨
+            // è·å¾—æœ¬çº§åˆ«çš„æ•°æ®åº“ç»„ï¼Œæ²¡æœ‰åˆ™åˆ›å»º
             Map<String, DataSource> initDataSources = initDataSourceGroups
                 .get(weightRWPQ[rwPriority.value()]);
             if (initDataSources == null) {
@@ -641,7 +641,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
                 initDataSourceGroups.put(weightRWPQ[rwPriority.value()], initDataSources);
             }
 
-            // »ñµÃ±¾¼¶±ğµÄÈ¨ÖØ×é£¬Ã»ÓĞÔò´´½¨
+            // è·å¾—æœ¬çº§åˆ«çš„æƒé‡ç»„ï¼Œæ²¡æœ‰åˆ™åˆ›å»º
             Map<String, Integer> weights = weightGroups.get(weightRWPQ[rwPriority.value()]);
             if (weights == null) {
                 weights = new HashMap<String, Integer>(databaseSources.length);
@@ -689,13 +689,13 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     private void parse(Map<String, DBSelector> dsSelectors, String dbIndex, String commaDbs) {
         String rdbIndex = dbIndex + AppRule.DBINDEX_SUFFIX_READ; // "_r";
         String wdbIndex = dbIndex + AppRule.DBINDEX_SUFFIX_WRITE;// "_w";
-        String[] dbs = commaDbs.split(","); // Ö§³ÖÒÔ¶ººÅ·Ö¸ôµÄ¶à¸öÊı¾İÔ´ID
-        // Èç¹ûÖ»ÓĞÒ»¸öDataSource£¬ÔòÓÃOneDBSelector
+        String[] dbs = commaDbs.split(","); // æ”¯æŒä»¥é€—å·åˆ†éš”çš„å¤šä¸ªæ•°æ®æºID
+        // å¦‚æœåªæœ‰ä¸€ä¸ªDataSourceï¼Œåˆ™ç”¨OneDBSelector
         if (dbs.length == 1) {
             int index = dbs[0].indexOf(":");
-            String dsbeanId = index == -1 ? dbs[0] : dbs[0].substring(0, index);// µ¥¸öDSÈ¥³ı²»±ØÒªµÄÈ¨ÖØ
+            String dsbeanId = index == -1 ? dbs[0] : dbs[0].substring(0, index);// å•ä¸ªDSå»é™¤ä¸å¿…è¦çš„æƒé‡
             DataSource ds = this.getDataSourceObject(super.getZdalConfig().getLogicPhysicsDsNames()
-                .get(dsbeanId.trim()));//Âß¼­µ½ÎïÀíµÄÓ³Éä
+                .get(dsbeanId.trim()));//é€»è¾‘åˆ°ç‰©ç†çš„æ˜ å°„
             OneDBSelector selectorRead = new OneDBSelector(rdbIndex, ds);
             selectorRead.setAppDsName(appDsName);
             OneDBSelector selectorWrite = new OneDBSelector(wdbIndex, ds);
@@ -703,7 +703,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
             dsSelectors.put(rdbIndex, selectorRead);
             dsSelectors.put(wdbIndex, selectorWrite);
         } else {
-            // ·Ö±ğ·ÖÎöĞ´¶ÁÊı¾İÔ´
+            // åˆ†åˆ«åˆ†æå†™è¯»æ•°æ®æº
             parseDbSelector(dbs, wdbIndex, dsSelectors, WeightRWPQEnum.writePriority);
             parseDbSelector(dbs, rdbIndex, dsSelectors, WeightRWPQEnum.readPriority);
         }
@@ -711,10 +711,10 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     private int[] parseWeightRW(String weight) {
         if (weight == null) {
-            return new int[] { 10, 10, 0, 0 }; // Ä¬ÈÏ¶ÁĞ´¶¼´ò¿ª£¬¶ÁĞ´¾ùÎªP0¼¶
+            return new int[] { 10, 10, 0, 0 }; // é»˜è®¤è¯»å†™éƒ½æ‰“å¼€ï¼Œè¯»å†™å‡ä¸ºP0çº§
         }
         int r, w, p, q;
-        weight = weight.trim().toLowerCase(); // Í³¼Æµ½Ğ¡Ğ´·½±ãºóĞø´¦Àí
+        weight = weight.trim().toLowerCase(); // ç»Ÿè®¡åˆ°å°å†™æ–¹ä¾¿åç»­å¤„ç†
         if (weight.indexOf('R') == -1 && weight.indexOf('r') == -1) {
             r = 0;
         } else {
@@ -743,9 +743,9 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     private int parseNumber(Pattern p, String weight, int defaultValue) {
         Matcher m = p.matcher(weight);
-        if (!m.find()) {// ÕâÀïÓÃmatches()¾Í²»ĞĞ£¿
+        if (!m.find()) {// è¿™é‡Œç”¨matches()å°±ä¸è¡Œï¼Ÿ
             throw new IllegalArgumentException(
-                "È¨ÖØÅäÖÃ²»·ûºÏÕıÔòÊ½[Rr](\\d*)[Ww](\\d*)[Pp](\\d*)[Qq](\\d*)£º" + weight);
+                "æƒé‡é…ç½®ä¸ç¬¦åˆæ­£åˆ™å¼[Rr](\\d*)[Ww](\\d*)[Pp](\\d*)[Qq](\\d*)ï¼š" + weight);
         }
         if (m.group(1).length() == 0) {
             return defaultValue;
@@ -755,7 +755,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * reset zdatasource£¬failoverRule£¬readWriteRule,Ä¿Ç°tairÊı¾İÔ´²»Ö§³ÖÖØ½¨.
+     * reset zdatasourceï¼ŒfailoverRuleï¼ŒreadWriteRule,ç›®å‰tairæ•°æ®æºä¸æ”¯æŒé‡å»º.
      * 
      * @param zdalConfig
      */
@@ -765,7 +765,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
             if (keyWeightConfig != null && !keyWeightConfig.isEmpty()) {
                 this.resetKeyWeightConfig(keyWeights);
                 String resetKeyWeightResults = getReceivDataStr(keyWeights);
-                // µ±ËùÓĞµÄÈ¨ÖØµ÷ÕûÍê±ÏºóÔÙ´òÓ¡¸ÃÈÕÖ¾
+                // å½“æ‰€æœ‰çš„æƒé‡è°ƒæ•´å®Œæ¯•åå†æ‰“å°è¯¥æ—¥å¿—
                 CONFIG_LOGGER.warn("WARN ## resetKeyWeightConfig[" + appDsName + "]:"
                                    + resetKeyWeightResults);
                 CONFIG_LOGGER.warn("WARN ## reset the config success,cost "
@@ -775,7 +775,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
             } else if (rwDataSourcePoolConfig != null && !rwDataSourcePoolConfig.isEmpty()) {
                 this.resetDbWeight(keyWeights);
                 String dbWeightConfigs = getReceivDataStr(keyWeights);
-                // µ±ËùÓĞµÄÈ¨ÖØµ÷ÕûÍê±ÏºóÔÙ´òÓ¡¸ÃÈÕÖ¾
+                // å½“æ‰€æœ‰çš„æƒé‡è°ƒæ•´å®Œæ¯•åå†æ‰“å°è¯¥æ—¥å¿—
                 CONFIG_LOGGER.warn("WARN ## resetRwDataSourceConfig[" + appDsName + "]:"
                                    + dbWeightConfigs);
                 CONFIG_LOGGER.warn("WARN ## reset the config success,cost "
@@ -806,7 +806,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
             if (this.rwDataSourcePoolConfig != null
                 && this.rwDataSourcePoolConfig.get(dbIndex) != null) {
-                // readwriteRule·½Ê½µÄweight
+                // readwriteRuleæ–¹å¼çš„weight
                 resetRwDbWeight(dbIndex, dbSelectors, commaWeights);
             } else if (this.dataSourcePoolConfig != null
                        && dataSourcePoolConfig.get(dbIndex) != null) {
@@ -822,7 +822,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * @param commaWeights
-     *            : R10W10,R10W0 ¸ñÊ½£ºdskey0=r10w10,r10w0
+     *            : R10W10,R10W0 æ ¼å¼ï¼šdskey0=r10w10,r10w0
      */
     private void resetRwDbWeight(String dbIndex, Map<String, DBSelector> dbSelectors,
                                  String commaWeights) {
@@ -852,11 +852,11 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * added by fanzeng. changed by boya. ²ÎÊıp¸ñÊ½ÈçÏÂ group_00=ds0:10,ds1:0
-     * group_01=ds2:10,ds3:0 group_02=ds4:0,ds5:10 Ò»×éÖ»ÓĞÒ»¸ö¿âµÄÊ±ºò²»ÓÃµ÷ÕûÆäÈ¨ÖØ£¬Ä¬ÈÏÎª10
+     * added by fanzeng. changed by boya. å‚æ•°pæ ¼å¼å¦‚ä¸‹ group_00=ds0:10,ds1:0
+     * group_01=ds2:10,ds3:0 group_02=ds4:0,ds5:10 ä¸€ç»„åªæœ‰ä¸€ä¸ªåº“çš„æ—¶å€™ä¸ç”¨è°ƒæ•´å…¶æƒé‡ï¼Œé»˜è®¤ä¸º10
      * 
      * @param p
-     *            ÍÆËÍ¹ıÀ´µÄÄÚÈİ
+     *            æ¨é€è¿‡æ¥çš„å†…å®¹
      */
     protected void resetKeyWeightConfig(Map<String, String> p) {
         // Map<String, ZdalDataSourceKeyWeightRandom> keyWeightMapHolder =
@@ -867,57 +867,57 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
             String groupKey = entrySet.getKey();
             String value = entrySet.getValue();
             if (StringUtil.isBlank(groupKey) || StringUtil.isBlank(value)) {
-                throw new ZdalClientException("ERROR ## Êı¾İÔ´groupKey=" + groupKey
-                                              + "·Ö×éÈ¨ÖØÅäÖÃĞÅÏ¢²»ÄÜÎª¿Õ,value=" + value);
+                throw new ZdalClientException("ERROR ## æ•°æ®æºgroupKey=" + groupKey
+                                              + "åˆ†ç»„æƒé‡é…ç½®ä¿¡æ¯ä¸èƒ½ä¸ºç©º,value=" + value);
             }
             String[] keyWeightStr = value.split(",");
             String[] weightKeys = new String[keyWeightStr.length];
             int[] weights = new int[keyWeightStr.length];
             for (int i = 0; i < keyWeightStr.length; i++) {
                 if (StringUtil.isBlank(keyWeightStr[i])) {
-                    throw new ZdalClientException("ERROR ## Êı¾İÔ´keyWeightStr[" + i
-                                                  + "]·Ö×éÈ¨ÖØÅäÖÃĞÅÏ¢²»ÄÜÎª¿Õ.");
+                    throw new ZdalClientException("ERROR ## æ•°æ®æºkeyWeightStr[" + i
+                                                  + "]åˆ†ç»„æƒé‡é…ç½®ä¿¡æ¯ä¸èƒ½ä¸ºç©º.");
                 }
                 String[] keyAndWeight = keyWeightStr[i].split(":");
                 if (keyAndWeight.length != 2) {
-                    throw new ZdalClientException("ERROR ## Êı¾İÔ´key°´×éÅäÖÃÈ¨ÖØ´íÎó,keyWeightStr[" + i
+                    throw new ZdalClientException("ERROR ## æ•°æ®æºkeyæŒ‰ç»„é…ç½®æƒé‡é”™è¯¯,keyWeightStr[" + i
                                                   + "]=" + keyWeightStr[i] + ".");
                 }
                 String key = keyAndWeight[0];
                 String weightStr = keyAndWeight[1];
                 if (StringUtil.isBlank(key) || StringUtil.isBlank(weightStr)) {
-                    CONFIG_LOGGER.error("ERROR ## Êı¾İÔ´·Ö×éÈ¨ÖØÅäÖÃĞÅÏ¢²»ÄÜÎª¿Õ,key=" + key + ",weightStr="
+                    CONFIG_LOGGER.error("ERROR ## æ•°æ®æºåˆ†ç»„æƒé‡é…ç½®ä¿¡æ¯ä¸èƒ½ä¸ºç©º,key=" + key + ",weightStr="
                                         + weightStr);
                     return;
                 }
                 weightKeys[i] = key.trim();
                 weights[i] = Integer.parseInt(weightStr.trim());
             }
-            // ¸ù¾İ groupKeyÒÔ¼°¶ÔÓ¦µÄkeyAndWeightMapÈ¥²éÑ¯
+            // æ ¹æ® groupKeyä»¥åŠå¯¹åº”çš„keyAndWeightMapå»æŸ¥è¯¢
             ZdalDataSourceKeyWeightRandom weightRandom = keyWeightMapHolder.get(groupKey);
             if (weightRandom == null) {
-                throw new ZdalClientException("ERROR ## ĞÂÍÆËÍµÄ°´Êı¾İÔ´key·Ö×éÈ¨ÖØÅäÖÃÖĞµÄkey²»¶Ô,·Ç·¨µÄgroupKey="
+                throw new ZdalClientException("ERROR ## æ–°æ¨é€çš„æŒ‰æ•°æ®æºkeyåˆ†ç»„æƒé‡é…ç½®ä¸­çš„keyä¸å¯¹,éæ³•çš„groupKey="
                                               + groupKey);
             }
             for (String newKey : weightKeys) {
                 if (weightRandom.getWeightConfig() == null
                     || !weightRandom.getWeightConfig().containsKey(newKey)) {
-                    throw new ZdalClientException("ĞÂÍÆËÍµÄÊı¾İÔ´·Ö×é" + groupKey
-                                                  + "È¨ÖØÅäÖÃÖĞ°üº¬²»ÊôÓÚ¸Ã×éµÄÊı¾İÔ´±êÊ¶,key=" + newKey);
+                    throw new ZdalClientException("æ–°æ¨é€çš„æ•°æ®æºåˆ†ç»„" + groupKey
+                                                  + "æƒé‡é…ç½®ä¸­åŒ…å«ä¸å±äºè¯¥ç»„çš„æ•°æ®æºæ ‡è¯†,key=" + newKey);
                 }
             }
             if (weightKeys.length != weightRandom.getDataSourceNumberInGroup()) {
-                throw new ZdalClientException("ĞÂÍÆËÍµÄ°´Êı¾İÔ´key·Ö×éÈ¨ÖØÅäÖÃÖĞ£¬·Ö×égroupKey=" + groupKey
-                                              + "°üº¬µÄÊı¾İÔ´¸öÊı²»¶Ô ,size=" + weightKeys.length
+                throw new ZdalClientException("æ–°æ¨é€çš„æŒ‰æ•°æ®æºkeyåˆ†ç»„æƒé‡é…ç½®ä¸­ï¼Œåˆ†ç»„groupKey=" + groupKey
+                                              + "åŒ…å«çš„æ•°æ®æºä¸ªæ•°ä¸å¯¹ ,size=" + weightKeys.length
                                               + ",the size should be "
                                               + weightRandom.getDataSourceNumberInGroup());
             }
-            // ¸ù¾İ¸Ã×éµÄgroupKeyÒÔ¼°¶ÔÓ¦µÄkeyAndWeightMapÉú³ÉTDataSourceKeyWeightRandom
+            // æ ¹æ®è¯¥ç»„çš„groupKeyä»¥åŠå¯¹åº”çš„keyAndWeightMapç”ŸæˆTDataSourceKeyWeightRandom
             ZdalDataSourceKeyWeightRandom TDataSourceKeyWeightRandom = new ZdalDataSourceKeyWeightRandom(
                 weightKeys, weights);
             keyWeightMapHolder.put(groupKey, TDataSourceKeyWeightRandom);
         }
-        // ÉèÖÃ±¾µØµÄkeyWeightMapCofigÊôĞÔ£¬È«»î²ßÂÔ»áÒÀÀµÓÚ¸ÃÅäÖÃ
+        // è®¾ç½®æœ¬åœ°çš„keyWeightMapCofigå±æ€§ï¼Œå…¨æ´»ç­–ç•¥ä¼šä¾èµ–äºè¯¥é…ç½®
         this.keyWeightMapConfig = keyWeightMapHolder;
     }
 
@@ -942,7 +942,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * zdataconsoleÖĞµÄÅäÖÃĞÅÏ¢×ª»¯³ÉZdataSourceµÄÅäÖÃĞÅÏ¢ .
+     * zdataconsoleä¸­çš„é…ç½®ä¿¡æ¯è½¬åŒ–æˆZdataSourceçš„é…ç½®ä¿¡æ¯ .
      * 
      * @param parameter
      * @return
@@ -954,7 +954,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
         dsDo.setConnectionURL(parameter.getJdbcUrl());
         dsDo.setUserName(parameter.getUserName());
         //        dsDo.setEncPassword(parameter.getPassword());
-        dsDo.setPassWord(parameter.getPassword());//ÉèÖÃÃ÷ÎÄµÄÃÜÂë.
+        dsDo.setPassWord(parameter.getPassword());//è®¾ç½®æ˜æ–‡çš„å¯†ç .
         dsDo.setMinPoolSize(parameter.getMinConn());
         dsDo.setMaxPoolSize(parameter.getMaxConn());
         dsDo.setDriverClass(parameter.getDriverClass());
@@ -979,7 +979,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * Êı¾İÔ´¶ÔconnectionµÄ·â×°.
+     * æ•°æ®æºå¯¹connectionçš„å°è£….
      * 
      * @see javax.sql.DataSource#getConnection()
      */
@@ -1006,7 +1006,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * ´´½¨Á¬½Ó£¬½«±ØÒªµÄ²ÎÊıÉèÖÃµ½ZdalConnectionÀïÈ¥£¬È»ºóÉèÖÃ¸ø ZdalStatement ¶ÔÏó
+     * åˆ›å»ºè¿æ¥ï¼Œå°†å¿…è¦çš„å‚æ•°è®¾ç½®åˆ°ZdalConnectioné‡Œå»ï¼Œç„¶åè®¾ç½®ç»™ ZdalStatement å¯¹è±¡
      * 
      * @param connection
      */

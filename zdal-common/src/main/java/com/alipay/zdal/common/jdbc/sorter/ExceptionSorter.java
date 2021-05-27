@@ -12,8 +12,8 @@ import java.sql.SQLException;
  *
  * 
  * 
- * @author 伯牙
- * @version $Id: ExceptionSorter.java, v 0.1 2014-1-6 下午05:20:01 Exp $
+ * @author 浼墮
+ * @version $Id: ExceptionSorter.java, v 0.1 2014-1-6 涓嬪崍05:20:01 Exp $
  */
 public interface ExceptionSorter {
 
@@ -27,6 +27,6 @@ public interface ExceptionSorter {
      */
     boolean isExceptionFatal(SQLException e);
 
-    /** rollback失败的时候直接抛出这个errorcode，zdal-datasource对于这个异常直接剔出连接. */
+    /** rollback澶辫触鐨勬椂鍊欑洿鎺ユ姏鍑鸿繖涓猠rrorcode锛寊dal-datasource瀵逛簬杩欎釜寮傚父鐩存帴鍓斿嚭杩炴帴. */
     public static final int ROLLBACK_ERRORCODE = 999999;
 }

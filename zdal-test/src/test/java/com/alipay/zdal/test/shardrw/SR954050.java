@@ -18,16 +18,16 @@ import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.client.util.dispatchanalyzer.ZdalDatasourceIntrospector;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("È«»î²ßÂÔ: GetAvailableGroupDBAndTable")
+@Feature("å…¨æ´»ç­–ç•¥: GetAvailableGroupDBAndTable")
 public class SR954050 {
 	public TestAssertion Assert = new TestAssertion();
 	ZdalDatasourceIntrospector td;
     
-	@Subject("»ñÈ¡user_idµÄÖµÈ·¶¨groupnum£¬È»ºóÂß¼­±íÃû¶ÔÓ¦µÄ¿ÉÓÃÎïÀí±í")
+	@Subject("èŽ·å–user_idçš„å€¼ç¡®å®šgroupnumï¼Œç„¶åŽé€»è¾‘è¡¨åå¯¹åº”çš„å¯ç”¨ç‰©ç†è¡¨")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC954052() {
-		Step("»ñÈ¡user_idµÄÖµÈ·¶¨groupnum£¬È»ºóÂß¼­±íÃû¶ÔÓ¦µÄ¿ÉÓÃÎïÀí±í");
+		Step("èŽ·å–user_idçš„å€¼ç¡®å®šgroupnumï¼Œç„¶åŽé€»è¾‘è¡¨åå¯¹åº”çš„å¯ç”¨ç‰©ç†è¡¨");
 		String[] springXmlPath = {  "./shardrw/spring-available-ds.xml" };
 		ApplicationContext context = new ClassPathXmlApplicationContext(springXmlPath);
 		
@@ -38,13 +38,13 @@ public class SR954050 {
 		String[] re = td.getAvailableGroupDBAndTable("users", map, true);
 		Assert.areEqual(true,
 				Integer.parseInt(re[0]) == 0 || Integer.parseInt(re[0]) == 1,
-				"»ñÈ¡¿ÉÓÃ±íÃû");
+				"èŽ·å–å¯ç”¨è¡¨å");
 		Assert.areEqual(
 				true,
 				re[1].equalsIgnoreCase("users_0")
 						|| re[1].equalsIgnoreCase("users_1")
 						|| re[1].equalsIgnoreCase("users_2")
 						|| re[1].equalsIgnoreCase("users_3")
-						|| re[1].equalsIgnoreCase("users_4"), "»ñÈ¡¿ÉÓÃ±íÃû");
+						|| re[1].equalsIgnoreCase("users_4"), "èŽ·å–å¯ç”¨è¡¨å");
 	}
 }

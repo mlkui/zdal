@@ -21,8 +21,8 @@ import org.apache.log4j.Logger;
  * explicitly set in jboss-4.0.2 which is what
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: SerialVersion.java, v 0.1 2014-1-6 ÏÂÎç05:43:01 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SerialVersion.java, v 0.1 2014-1-6 ä¸‹åˆ05:43:01 Exp $
  */
 public class SerialVersion {
     private static final Logger logger    = Logger.getLogger(SerialVersion.class);

@@ -6,8 +6,8 @@ package com.alipay.zdal.common;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: SqlType.java, v 0.1 2014-1-6 œ¬ŒÁ05:17:36 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: SqlType.java, v 0.1 2014-1-6 ‰∏ãÂçà05:17:36 Exp $
  */
 public enum SqlType {
     SELECT(0), INSERT(1), UPDATE(2), DELETE(3), SELECT_FOR_UPDATE(4), SELECT_FROM_DUAL(5), SELECT_FROM_SYSTEMIBM(

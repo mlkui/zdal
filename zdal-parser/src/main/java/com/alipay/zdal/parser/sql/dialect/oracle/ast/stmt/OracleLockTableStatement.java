@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleLockTableStatement.java, v 0.1 2012-11-17 ÏÂÎç3:48:38 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleLockTableStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:48:38 Exp $
  */
 public class OracleLockTableStatement extends OracleStatementImpl {
 

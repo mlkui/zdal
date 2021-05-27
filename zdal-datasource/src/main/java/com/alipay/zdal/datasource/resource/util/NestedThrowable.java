@@ -16,8 +16,8 @@ import com.alipay.zdal.datasource.resource.util.platform.Java;
  * Interface which is implemented by all the nested throwable flavors.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: NestedThrowable.java, v 0.1 2014-1-6 ÏÂÎç05:39:40 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: NestedThrowable.java, v 0.1 2014-1-6 ä¸‹åˆ05:39:40 Exp $
  */
 public interface NestedThrowable extends Serializable {
     /**

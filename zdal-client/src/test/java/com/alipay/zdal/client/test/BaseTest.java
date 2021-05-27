@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: BaseTest.java, v 0.1 2013-12-25 ÏÂÎç06:10:12 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: BaseTest.java, v 0.1 2013-12-25 ä¸‹åˆ06:10:12 Exp $
  */
 public class BaseTest {
 

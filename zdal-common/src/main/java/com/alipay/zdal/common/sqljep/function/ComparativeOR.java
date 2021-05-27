@@ -5,14 +5,14 @@
 package com.alipay.zdal.common.sqljep.function;
 
 /**
- * AND½Úµã
- * ÔÚÊµ¼ÊµÄSQLÖĞ£¬Êµ¼ÊÉÏÊÇÀàËÆ
+ * ANDèŠ‚ç‚¹
+ * åœ¨å®é™…çš„SQLä¸­ï¼Œå®é™…ä¸Šæ˜¯ç±»ä¼¼
  * [Comparative]              [comparative]
  * 			\                  /
  * 			  \				  /
  *             [ComparativeOR]
  *             
- * ÀàËÆÕâÑùµÄ½Úµã³öÏÖ
+ * ç±»ä¼¼è¿™æ ·çš„èŠ‚ç‚¹å‡ºç°
  * 
  *
  */

@@ -4,10 +4,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * com.alipay.zdatasource.resource.adapter.jdbc.vendor package ÏÂËùÓĞÀàµÄ²âÊÔÌ×¼ş
+ * com.alipay.zdatasource.resource.adapter.jdbc.vendor package ä¸‹æ‰€æœ‰ç±»çš„æµ‹è¯•å¥—ä»¶
  * 
  * @author liangjie.li
- * @version $Id: RunAllSorterTestsSuite.java, v 0.1 2012-8-15 ÏÂÎç3:06:49 liangjie.li Exp $
+ * @version $Id: RunAllSorterTestsSuite.java, v 0.1 2012-8-15 ä¸‹åˆ3:06:49 liangjie.li Exp $
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ MySQLExceptionSorterTest.class, OracleExceptionSorterTest.class })

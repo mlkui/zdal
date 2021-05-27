@@ -8,8 +8,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
  * The task was stopped.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: TaskStoppedException.java, v 0.1 2014-1-6 ÏÂÎç05:45:00 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TaskStoppedException.java, v 0.1 2014-1-6 ä¸‹åˆ05:45:00 Exp $
  */
 public class TaskStoppedException extends RuntimeException {
     // Constants -----------------------------------------------------

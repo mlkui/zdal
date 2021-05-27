@@ -9,22 +9,22 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * �����ѿ������Ժ��һ��ֵ����Ϊ�ж��������ÿ��������������з�Χ������£�
- * Ҫ�����������ֻ�н��еѿ�������ö�ٳ����п��ܵ�ֵ���������㡣
- * �������ö��ֵ�е�һ����
- * columns�ǹ������С�����samplingField���Ƽ��Σ����Ṳ��ͬһ��������
- * ��enumFields���ʾ����������˳��ͨ���ѿ���������ʽö�ٳ���һ��ֵ��
+ * 经过笛卡尔积以后的一组值，因为有多个参数，每个参数如果都是有范围的情况下，
+ * 要覆盖所有情况只有进行笛卡尔积，枚举出所有可能的值，进行运算。
+ * 这个就是枚举值中的一个。
+ * columns是共享的列。无论samplingField复制几次，都会共享同一组列名。
+ * 而enumFields则表示按照列名的顺序通过笛卡尔积的形式枚举出的一组值。
  * 
  *
  */
 public class SamplingField {
     /**
-     * ��ʾ����������˳��ͨ���ѿ���������ʽö�ٳ���һ��ֵ
+     * 表示按照列名的顺序通过笛卡尔积的形式枚举出的一组值
      */
     final List<Object>         enumFields;
 
     /**
-     * һ������
+     * 一组列名
      */
     private final List<String> columns;
 

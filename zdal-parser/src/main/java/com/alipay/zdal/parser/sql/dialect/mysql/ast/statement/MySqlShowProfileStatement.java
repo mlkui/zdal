@@ -13,8 +13,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlShowProfileStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:37:54 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlShowProfileStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:37:54 Exp $
  */
 public class MySqlShowProfileStatement extends MySqlStatementImpl {
 

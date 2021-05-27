@@ -28,7 +28,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+Failover ,Ö±½ÓÈÆ¹ı·Ö¿â·Ö±í¹æÔòµÄÂ·ÓÉ")
+@Feature("shard+Failover ,ç›´æ¥ç»•è¿‡åˆ†åº“åˆ†è¡¨è§„åˆ™çš„è·¯ç”±")
 public class SR953020 {
 	public TestAssertion Assert = new TestAssertion();;
 	private SqlMapClient sqlMap;
@@ -53,18 +53,18 @@ public class SR953020 {
 		ThreadLocalMap.reset();
 	}
 
-	@Subject("shard+failover£¬ÈÆ¹ı·Ö¿â·Ö±í¹æÔòµÄÂ·ÓÉ")
+	@Subject("shard+failoverï¼Œç»•è¿‡åˆ†åº“åˆ†è¡¨è§„åˆ™çš„è·¯ç”±")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953021() {
 		insertData();
-		Step("Êı¾İÑéÖ¤");
+		Step("æ•°æ®éªŒè¯");
 		testCheckData(dburl1);
-		Step("Ïû³ıÊıËù");
+		Step("æ¶ˆé™¤æ•°æ‰€");
 		testDeleData(dburl1);
 	}
 
-	@Subject("shard+failover£¬ÈÆ¹ı·Ö¿â·Ö±í¹æÔòµÄÂ·ÓÉ,Âß¼­±íÃû³ö´í£¬Å×Òì³£")
+	@Subject("shard+failoverï¼Œç»•è¿‡åˆ†åº“åˆ†è¡¨è§„åˆ™çš„è·¯ç”±,é€»è¾‘è¡¨åå‡ºé”™ï¼ŒæŠ›å¼‚å¸¸")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953022() {
@@ -72,7 +72,7 @@ public class SR953020 {
 		params.put("user_id", Integer.valueOf("11"));
 		params.put("name", "test_ROUTE_CONDITION");
 		params.put("address", "test_ROUTE_CONDITION");
-		Step("¸Ä±äÂ·ÓÉ");
+		Step("æ”¹å˜è·¯ç”±");
 		SimpleCondition simpleCondition = new SimpleCondition();
 		simpleCondition.setVirtualTableName("users001");
 		simpleCondition.put("user_id", 10);
@@ -82,11 +82,11 @@ public class SR953020 {
 			sqlMap.insert("insertShardfailoverMysql", params);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			Assert.areEqual(NestedSQLException.class, ex.getClass(), "Òì³£ĞÅÏ¢");
+			Assert.areEqual(NestedSQLException.class, ex.getClass(), "å¼‚å¸¸ä¿¡æ¯");
 		}
 	}
 
-	@Subject("shard+failoverÊÂÎñ£¬ÈÆ¹ı·Ö¿â·Ö±í¹æÔòµÄÂ·ÓÉ")
+	@Subject("shard+failoveräº‹åŠ¡ï¼Œç»•è¿‡åˆ†åº“åˆ†è¡¨è§„åˆ™çš„è·¯ç”±")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953023(){
@@ -100,21 +100,21 @@ public class SR953020 {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		Step("Êı¾İÑéÖ¤");
+		Step("æ•°æ®éªŒè¯");
 		testCheckData(dburl1);
-		Step("Ïû³ıÊı¾İ");
+		Step("æ¶ˆé™¤æ•°æ®");
 		testDeleData(dburl1);
 		
 	}
 	/**
-	 * ²åÈëÊı¾İ
+	 * æ’å…¥æ•°æ®
 	 */
 	private void insertData() {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("user_id", Integer.valueOf("11"));
 		params.put("name", "test_ROUTE_CONDITION");
 		params.put("address", "test_ROUTE_CONDITION");
-		// ¸Ä±äÂ·ÓÉ
+		// æ”¹å˜è·¯ç”±
 		SimpleCondition simpleCondition = new SimpleCondition();
 		simpleCondition.setVirtualTableName("users");
 		simpleCondition.put("user_id", 10);
@@ -128,7 +128,7 @@ public class SR953020 {
 	}
 
 	/**
-	 * ¼ì²éÊı¾İÊıÁ¿
+	 * æ£€æŸ¥æ•°æ®æ•°é‡
 	 * 
 	 * @param dburl
 	 */
@@ -138,7 +138,7 @@ public class SR953020 {
 				dbuser);
 		try {
 			rs.next();
-			Assert.areEqual(1, rs.getInt(1), "Êı¾İ¼ì²é");
+			Assert.areEqual(1, rs.getInt(1), "æ•°æ®æ£€æŸ¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -146,7 +146,7 @@ public class SR953020 {
 	}
 
 	/**
-	 * Ïû³ıÊı¾İ
+	 * æ¶ˆé™¤æ•°æ®
 	 */
 	private void testDeleData(String dburl) {
 		String delStr = "delete from users_0";

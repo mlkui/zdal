@@ -13,8 +13,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlCreateUserStatement.java, v 0.1 2012-11-17 ÏÂÎç3:32:18 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlCreateUserStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:32:18 Exp $
  */
 public class MySqlCreateUserStatement extends MySqlStatementImpl {
 

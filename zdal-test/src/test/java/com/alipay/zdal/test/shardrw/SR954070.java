@@ -22,13 +22,13 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rw ¶¯Ì¬Ö¸¶¨¿â")
+@Feature("shard+rw åŠ¨æ€æŒ‡å®šåº“")
 public class SR954070 {
 
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
 	
-	@Subject("¶¯Ì¬Ö¸¶¨¿â£¬rw Ğ´¿â ¡£ÓĞÁ½¸ögroup:group_0,group_1.ÆäÖĞgroup_0Îªds0:r0w10,ds2:r10w0,group_1Îªds1:r0w10,ds3:r10w0")
+	@Subject("åŠ¨æ€æŒ‡å®šåº“ï¼Œrw å†™åº“ ã€‚æœ‰ä¸¤ä¸ªgroup:group_0,group_1.å…¶ä¸­group_0ä¸ºds0:r0w10,ds2:r10w0,group_1ä¸ºds1:r0w10,ds3:r10w0")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954071(){
@@ -41,13 +41,13 @@ public class SR954070 {
 		params.put("age", 10);
 		params.put("name", "testOnly");
 		try {
-			Step("±¾À´ÊÇÓ¦¸ÃĞ´µ½group_0¿âµÄds0±í£¬ÏÖÔÚÖ¸¶¨±íµ½1ÁË¡£ËùÒÔÒªĞ´µ½group_0¿âµÄds2±í¡£");
+			Step("æœ¬æ¥æ˜¯åº”è¯¥å†™åˆ°group_0åº“çš„ds0è¡¨ï¼Œç°åœ¨æŒ‡å®šè¡¨åˆ°1äº†ã€‚æ‰€ä»¥è¦å†™åˆ°group_0åº“çš„ds2è¡¨ã€‚");
 			sqlMap.insert("insertShardrwMysql", params);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Step("Êı¾İÑéÖ¤");
+		Step("æ•°æ®éªŒè¯");
 		 String  dburl1=ConstantsTest.mysql12UrlTranation0_bac ;
 		 String   dbuser=ConstantsTest.mysq112User;
 		 String   dbpsd=ConstantsTest.mysq112Psd;
@@ -55,12 +55,12 @@ public class SR954070 {
 		ResultSet se=ZdalTestCommon.dataCheckFromJDBC(sqlStr, dburl1, dbpsd,dbuser);
 		try {
 			se.next();
-			Assert.areEqual(1, se.getInt(1), "Êı¾İÑéÖ¤");
+			Assert.areEqual(1, se.getInt(1), "æ•°æ®éªŒè¯");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Step("É¾³ıÊı¾İ");
+		Step("åˆ é™¤æ•°æ®");
 		String delStr="delete from user_0";
 		ZdalTestCommon.dataUpdateJDBC(delStr, dburl1, dbpsd, dbuser);
 		

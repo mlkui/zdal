@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.runtime;
 
 /**
  * 
- * @author 伯牙
- * @version $Id: CantFindTargetTabRuleTypeHandlerException.java, v 0.1 2014-1-6 下午05:18:30 Exp $
+ * @author 浼墮
+ * @version $Id: CantFindTargetTabRuleTypeHandlerException.java, v 0.1 2014-1-6 涓嬪崍05:18:30 Exp $
  */
 public class CantFindTargetTabRuleTypeHandlerException extends ZdalRunTimeException {
 
@@ -17,6 +17,6 @@ public class CantFindTargetTabRuleTypeHandlerException extends ZdalRunTimeExcept
     private static final long serialVersionUID = -4073830327289870566L;
 
     public CantFindTargetTabRuleTypeHandlerException(String msg) {
-        super("无法找到" + msg + "对应的处理器");
+        super("鏃犳硶鎵惧埌" + msg + "瀵瑰簲鐨勫鐞嗗櫒");
     }
 }

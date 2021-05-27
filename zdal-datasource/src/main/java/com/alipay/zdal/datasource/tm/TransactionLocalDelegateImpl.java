@@ -24,8 +24,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  *
  * There is one of these per transaction local
  *
- * @author ²®ÑÀ
- * @version $Id: TransactionLocalDelegateImpl.java, v 0.1 2014-1-6 ÏÂÎç05:48:27 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TransactionLocalDelegateImpl.java, v 0.1 2014-1-6 ä¸‹åˆ05:48:27 Exp $
  */
 public class TransactionLocalDelegateImpl implements TransactionLocalDelegate {
     // Attributes ----------------------------------------------------

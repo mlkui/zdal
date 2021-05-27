@@ -24,7 +24,7 @@ import com.alipay.zdal.rule.ruleengine.enumerator.EnumeratorImp;
 import com.alipay.zdal.rule.ruleengine.util.RuleUtils;
 
 /**
- * ½á¹û¼¯ÊÇÒ»ÁĞÊıµÄ¹æÔò
+ * ç»“æœé›†æ˜¯ä¸€åˆ—æ•°çš„è§„åˆ™
  * 
  * 
  */
@@ -35,24 +35,24 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     Enumerator                  enumerator = new EnumeratorImp();
 
     /**
-     * ÊÇ·ñĞèÒª¶Ô½»¼¯ÄÚµÄÊı¾İÈ¡³éÑùµã
+     * æ˜¯å¦éœ€è¦å¯¹äº¤é›†å†…çš„æ•°æ®å–æŠ½æ ·ç‚¹
      *
      * @see com.alipay.zdal.rule.ruleengine.rule.ListAbstractResultRule#eval(java.util.Map)
      */
-    public Map<String/*½á¹ûµÄÖµ£¬ÈçdbµÄindex»òtableµÄindex */, Field> eval(
+    public Map<String/*ç»“æœçš„å€¼ï¼Œå¦‚dbçš„indexæˆ–tableçš„index */, Field> eval(
 
     Map<String, Comparative> argumentsMap) {
-        Map<String, Set<Object>> enumeratedMap = prepareEnumeratedMap(argumentsMap);//Éú³ÉÃèµã¼¯ºÏ
+        Map<String, Set<Object>> enumeratedMap = prepareEnumeratedMap(argumentsMap);//ç”Ÿæˆæç‚¹é›†åˆ
         if (log.isDebugEnabled()) {
             log.debug("Sampling filed message : " + enumeratedMap);
         }
         Map<String, Field> map = evalElement(enumeratedMap);
-        decideWhetherOrNotToThrowSpecEmptySetRuntimeException(map);//¾ö¶¨ÊÇ·ñÅ×³öruntimeException
+        decideWhetherOrNotToThrowSpecEmptySetRuntimeException(map);//å†³å®šæ˜¯å¦æŠ›å‡ºruntimeException
         return map;
     }
 
     /**
-     * ¾ö¶¨ÊÇ·ñÅ×³öruntimeException
+     * å†³å®šæ˜¯å¦æŠ›å‡ºruntimeException
      * 
      * @param map
      */
@@ -63,7 +63,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     }
 
     /**
-     * TODO:Õâ¸öÒªÌáµ½¸¸Àà·½·¨ÖĞ
+     * TODO:è¿™ä¸ªè¦æåˆ°çˆ¶ç±»æ–¹æ³•ä¸­
      * @param argumentsMap
      * @return
      */
@@ -72,7 +72,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
             log.debug("eval at CartesianProductRule ,param is " + argumentsMap);
         }
 
-        Map<String/* column */, Set<Object>/* Ãèµã */> enumeratedMap = RuleUtils.getSamplingField(
+        Map<String/* column */, Set<Object>/* æç‚¹ */> enumeratedMap = RuleUtils.getSamplingField(
             argumentsMap, parameters);
         return enumeratedMap;
     }
@@ -101,16 +101,16 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
                                                     Set<Object> mappingKeys) {
         Set<String> set;
         if (mappingTargetColumn != null || mappingKeys != null) {
-            throw new IllegalArgumentException("¶àÁĞÃ¶¾Ù²»Ö§³ÖÊ¹ÓÃÓ³Éä¹æÔò");
+            throw new IllegalArgumentException("å¤šåˆ—æšä¸¾ä¸æ”¯æŒä½¿ç”¨æ˜ å°„è§„åˆ™");
         }
 
-        // TODO:ÓÃµ½¶à¸öÖµ¹²Í¬¾ö¶¨·Ö¿â»ò·Ö±íµÄÊ±ºòĞèÒªreview
-        // ¶àÓÚÒ»¸öÖµ£¬ĞèÒª½øĞĞµÑ¿¨¶û»ı
+        // TODO:ç”¨åˆ°å¤šä¸ªå€¼å…±åŒå†³å®šåˆ†åº“æˆ–åˆ†è¡¨çš„æ—¶å€™éœ€è¦review
+        // å¤šäºä¸€ä¸ªå€¼ï¼Œéœ€è¦è¿›è¡Œç¬›å¡å°”ç§¯
         CartesianProductCalculator cartiesianProductCalculator = new CartesianProductCalculator(
             enumeratedMap);
         /*
-         * È·ÊµºÜÄÑÈ·¶¨setµÄ´óĞ¡£¬µ«Ò»°ãÀ´Ëµ·Ö¿âÊÇ16¸ö£¬ËùÒÔÕâÀï¾Í¶¨16¸öÔİÊ±¡£»¹ÓĞÒ»ÖÖ¿ÉÄÜµÄ¿¼ÂÇÊÇ½«
-         * capacityÉèÖÃÎª×î´ó¿ÉÄÜ³öÏÖµÄ½á¹û¡£
+         * ç¡®å®å¾ˆéš¾ç¡®å®šsetçš„å¤§å°ï¼Œä½†ä¸€èˆ¬æ¥è¯´åˆ†åº“æ˜¯16ä¸ªï¼Œæ‰€ä»¥è¿™é‡Œå°±å®š16ä¸ªæš‚æ—¶ã€‚è¿˜æœ‰ä¸€ç§å¯èƒ½çš„è€ƒè™‘æ˜¯å°†
+         * capacityè®¾ç½®ä¸ºæœ€å¤§å¯èƒ½å‡ºç°çš„ç»“æœã€‚
          */
         set = new HashSet<String>(16);
         for (SamplingField samplingField : cartiesianProductCalculator) {
@@ -121,7 +121,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     }
 
     /**
-     * Ã»ÓĞ²ÎÊıµÄÇé¿ö£¬²ÎÊıÓÃcontextÓ¦ÓÃÖĞĞ´Èë
+     * æ²¡æœ‰å‚æ•°çš„æƒ…å†µï¼Œå‚æ•°ç”¨contextåº”ç”¨ä¸­å†™å…¥
      * @param enumeratedMap
      * @param mappingTargetColumn
      * @param mappingKeys
@@ -129,16 +129,16 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
      */
     private Set<String> evalZeroArgumentExpression() {
         Set<String> set;
-        // µÈÓÚÒ»¸öÖµ²»ĞèÒª½øĞĞµÑ¿¨¶û»ı
+        // ç­‰äºä¸€ä¸ªå€¼ä¸éœ€è¦è¿›è¡Œç¬›å¡å°”ç§¯
         List<String> columns = new ArrayList<String>(1);
 
         SamplingField samplingField = new SamplingField(columns, 1);
 
-        // ·µ»ØÖµ×î¶àÒ²¾ÍÊÇÓëº¯ÊıµÄxµÄ¸öÊıÏà¶ÔÓ¦
+        // è¿”å›å€¼æœ€å¤šä¹Ÿå°±æ˜¯ä¸å‡½æ•°çš„xçš„ä¸ªæ•°ç›¸å¯¹åº”
         set = new HashSet<String>();
 
         /*
-         * Èç¹ûÃ»ÓĞÇ°¶Ë´«À´µÄÒÑ¾­Ó³ÉäµÄ½á¹û£¬ÄÇÃ´Ê¹ÓÃsqlÖĞ»ñµÃµÄ½á¹ûÀ´½øĞĞÔËËã
+         * å¦‚æœæ²¡æœ‰å‰ç«¯ä¼ æ¥çš„å·²ç»æ˜ å°„çš„ç»“æœï¼Œé‚£ä¹ˆä½¿ç”¨sqlä¸­è·å¾—çš„ç»“æœæ¥è¿›è¡Œè¿ç®—
          */
         evalOnceAndAddToReturnSet(set, samplingField, 0);
 
@@ -152,7 +152,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
                                                   String mappingTargetColumn,
                                                   Set<Object> mappingKeys) {
         Set<String> set;
-        // µÈÓÚÒ»¸öÖµ²»ĞèÒª½øĞĞµÑ¿¨¶û»ı
+        // ç­‰äºä¸€ä¸ªå€¼ä¸éœ€è¦è¿›è¡Œç¬›å¡å°”ç§¯
         List<String> columns = new ArrayList<String>(1);
         Set<Object> enumeratedValues = null;
         for (Entry<String, Set<Object>> entry : enumeratedMap.entrySet()) {
@@ -162,17 +162,17 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
 
         SamplingField samplingField = new SamplingField(columns, 1);
 
-        // ·µ»ØÖµ×î¶àÒ²¾ÍÊÇÓëº¯ÊıµÄxµÄ¸öÊıÏà¶ÔÓ¦
+        // è¿”å›å€¼æœ€å¤šä¹Ÿå°±æ˜¯ä¸å‡½æ•°çš„xçš„ä¸ªæ•°ç›¸å¯¹åº”
         set = new HashSet<String>(enumeratedValues.size());
 
         if (mappingKeys == null) {
             /*
-             * Èç¹ûÃ»ÓĞÇ°¶Ë´«À´µÄÒÑ¾­Ó³ÉäµÄ½á¹û£¬ÄÇÃ´Ê¹ÓÃsqlÖĞ»ñµÃµÄ½á¹ûÀ´½øĞĞÔËËã
+             * å¦‚æœæ²¡æœ‰å‰ç«¯ä¼ æ¥çš„å·²ç»æ˜ å°„çš„ç»“æœï¼Œé‚£ä¹ˆä½¿ç”¨sqlä¸­è·å¾—çš„ç»“æœæ¥è¿›è¡Œè¿ç®—
              */
             evalNormal(set, enumeratedValues, samplingField);
         } else {
-            //mappingKeys ²»Îª¿Õ£¬ÄÇÃ´Ö¤Ã÷·Ö¿âÊ±ÒÑ¾­¾­¹ıÁËÓ³Éä¹æÔò£¬ÄÇÃ´ÏÈÅĞ¶ÏÓ³ÉäÊıÖµÊÇ·ñÕıÈ·¡£
-            //È»ºóÒª¾ö¶¨µ½µ×ÊÇÊ¹ÓÃÓ³Éä¹æÔò»¹ÊÇÊ¹ÓÃsql´«ÈëµÄÊı¾İ£¬Õâ¸ö¹¤×÷½»¸ø×ÓÀàÈ¥×ö
+            //mappingKeys ä¸ä¸ºç©ºï¼Œé‚£ä¹ˆè¯æ˜åˆ†åº“æ—¶å·²ç»ç»è¿‡äº†æ˜ å°„è§„åˆ™ï¼Œé‚£ä¹ˆå…ˆåˆ¤æ–­æ˜ å°„æ•°å€¼æ˜¯å¦æ­£ç¡®ã€‚
+            //ç„¶åè¦å†³å®šåˆ°åº•æ˜¯ä½¿ç”¨æ˜ å°„è§„åˆ™è¿˜æ˜¯ä½¿ç”¨sqlä¼ å…¥çš„æ•°æ®ï¼Œè¿™ä¸ªå·¥ä½œäº¤ç»™å­ç±»å»åš
             evalWithMappingKey(mappingTargetColumn, mappingKeys, set, enumeratedValues,
                 samplingField);
         }
@@ -184,10 +184,10 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     }
 
     /**
-     * ·½·¨µÄÖ÷Òª×÷ÓÃÊÇÈç¹û·Ö¿âÊ±ÒÑ¾­²éµ½Ó³ÉäºóÊı¾İ£¬
-     * ÔòÊ¹ÓÃÓ³ÉäºóÊı¾İ¡£
+     * æ–¹æ³•çš„ä¸»è¦ä½œç”¨æ˜¯å¦‚æœåˆ†åº“æ—¶å·²ç»æŸ¥åˆ°æ˜ å°„åæ•°æ®ï¼Œ
+     * åˆ™ä½¿ç”¨æ˜ å°„åæ•°æ®ã€‚
      * 
-     * ÅĞ±ğµÄ±êÖ¾ÊÇmappingKeys²»Îª¿Õ¡£
+     * åˆ¤åˆ«çš„æ ‡å¿—æ˜¯mappingKeysä¸ä¸ºç©ºã€‚
      * 
      * @param mappingTargetColumn
      * @param mappingKeys
@@ -200,7 +200,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     private void evalWithMappingKey(String mappingTargetColumn, Set<Object> mappingKeys,
                                     Set<String> set, Set<Object> enumeratedValues,
                                     SamplingField samplingField) {
-        //·ÅÈëtargetKey,×ÓÀà¿ÉÒÔÓÃÕâ¸ötargetKeyºÍ×Ô¼ºµÄtargetKey±È¶Ô£¬µÃÖªÊÇ·ñºÍ·Ö¿âÊ¹ÓÃÁËÍ¬ÑùµÄtargetKey
+        //æ”¾å…¥targetKey,å­ç±»å¯ä»¥ç”¨è¿™ä¸ªtargetKeyå’Œè‡ªå·±çš„targetKeyæ¯”å¯¹ï¼Œå¾—çŸ¥æ˜¯å¦å’Œåˆ†åº“ä½¿ç”¨äº†åŒæ ·çš„targetKey
         samplingField.setMappingTargetKey(mappingTargetColumn);
         if (mappingKeys.size() == enumeratedValues.size()) {
             Iterator<Object> itr = mappingKeys.iterator();
@@ -212,7 +212,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
                 evalOnceAndAddToReturnSet(set, samplingField, enumeratedValues.size());
             }
         } else {
-            throw new IllegalArgumentException("mappingÓ³ÉäºóµÄtargetKeysºÍÊäÈëµÄ²ÎÊı¸öÊı²»µÈ,mapping :"
+            throw new IllegalArgumentException("mappingæ˜ å°„åçš„targetKeyså’Œè¾“å…¥çš„å‚æ•°ä¸ªæ•°ä¸ç­‰,mapping :"
                                                + mappingKeys + " " + "enumeratedValues is :"
                                                + enumeratedValues);
         }
@@ -228,15 +228,15 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     }
 
     /** 
-     * ÕæÕıµÄ¼ÆËã¹ı³Ì£¬½«ÁĞ->Ãèµã´øÈë¹æÔòÒıÇæ½øĞĞ¼ÆËã£¬»ñÈ¡×îÖÕ½á¹û¡£
+     * çœŸæ­£çš„è®¡ç®—è¿‡ç¨‹ï¼Œå°†åˆ—->æç‚¹å¸¦å…¥è§„åˆ™å¼•æ“è¿›è¡Œè®¡ç®—ï¼Œè·å–æœ€ç»ˆç»“æœã€‚
      * 
      * @param enumeratedMap
-     * @return ·µ»ØµÄmap²»»áÎªnull,µ«ÓĞ¿ÉÄÜÎª¿ÕµÄmap£¬Èç¹ûmap²»Îª¿Õ£¬ÔòÄÚ²¿µÄ×Ómap±Ø¶¨²»Îª¿Õ¡£×îÉÙ»áÓĞÒ»¸öÖµ
+     * @return è¿”å›çš„mapä¸ä¼šä¸ºnull,ä½†æœ‰å¯èƒ½ä¸ºç©ºçš„mapï¼Œå¦‚æœmapä¸ä¸ºç©ºï¼Œåˆ™å†…éƒ¨çš„å­mapå¿…å®šä¸ä¸ºç©ºã€‚æœ€å°‘ä¼šæœ‰ä¸€ä¸ªå€¼
      */
-    public Map<String/* ½á¹ûµÄÖµ */, Field> evalElement(Map<String, Set<Object>> enumeratedMap) {
-        Map<String/* ½á¹ûµÄÖµ */, Field> map;
+    public Map<String/* ç»“æœçš„å€¼ */, Field> evalElement(Map<String, Set<Object>> enumeratedMap) {
+        Map<String/* ç»“æœçš„å€¼ */, Field> map;
         if (enumeratedMap.size() == 1) {
-            // ÁĞ¸öÊıµÈÓÚÒ»¸öÖµ²»ĞèÒª½øĞĞµÑ¿¨¶û»ı
+            // åˆ—ä¸ªæ•°ç­‰äºä¸€ä¸ªå€¼ä¸éœ€è¦è¿›è¡Œç¬›å¡å°”ç§¯
             List<String> columns = new ArrayList<String>(1);
             Set<Object> enumeratedValues = null;
             for (Entry<String, Set<Object>> entry : enumeratedMap.entrySet()) {
@@ -245,9 +245,9 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
             }
 
             SamplingField samplingField = new SamplingField(columns, 1);
-            // ·µ»ØÖµ×î¶àÒ²¾ÍÊÇÓëº¯ÊıµÄxµÄ¸öÊıÏà¶ÔÓ¦
+            // è¿”å›å€¼æœ€å¤šä¹Ÿå°±æ˜¯ä¸å‡½æ•°çš„xçš„ä¸ªæ•°ç›¸å¯¹åº”
             map = new HashMap<String, Field>(enumeratedValues.size());
-            // Îª¼ÆËãÁĞ¸³ÓèÁĞÃû×Ö¶Î
+            // ä¸ºè®¡ç®—åˆ—èµ‹äºˆåˆ—åå­—æ®µ
             for (Object value : enumeratedValues) {
                 samplingField.clear();
                 samplingField.add(0, value);
@@ -258,8 +258,8 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
 
         }
         /**
-         * µ±Ê¹ÓÃGroovyThreadLocal ·½Ê½×¢Èë²ÎÊıÊ±£¬ÒòÎªsqlÀïÃ»ÓĞ¶ÔÓ¦µÄÁĞÃû£¬¶ø×ßµ½ÕâÀï¡£
-         * µ½ÀïÃæ£¬Ö±½Ó¸ù¾İÓÃ»§ÔÚGroovyThreadLocalÀïµÄ²ÎÊı½áºÏÅäÖÃµÄ¹æÔò½øĞĞ¼ÆËã¶ø·µ»Ø·Ö±í»ò·Ö¿â½Y¹û
+         * å½“ä½¿ç”¨GroovyThreadLocal æ–¹å¼æ³¨å…¥å‚æ•°æ—¶ï¼Œå› ä¸ºsqlé‡Œæ²¡æœ‰å¯¹åº”çš„åˆ—åï¼Œè€Œèµ°åˆ°è¿™é‡Œã€‚
+         * åˆ°é‡Œé¢ï¼Œç›´æ¥æ ¹æ®ç”¨æˆ·åœ¨GroovyThreadLocalé‡Œçš„å‚æ•°ç»“åˆé…ç½®çš„è§„åˆ™è¿›è¡Œè®¡ç®—è€Œè¿”å›åˆ†è¡¨æˆ–åˆ†åº“çµæœ
          */
         else if (enumeratedMap.size() == 0) {
             List<String> columns = new ArrayList<String>(1);
@@ -269,14 +269,14 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
             return map;
 
         } else {
-            //TODO:Ä¬ÈÏ¹Ø±Õµô
-            // TODO:ÓÃµ½¶à¸öÖµ¹²Í¬¾ö¶¨·Ö¿â»ò·Ö±íµÄÊ±ºòĞèÒªreview
-            // ¶àÓÚÒ»¸öÖµ£¬ĞèÒª½øĞĞµÑ¿¨¶û»ı
+            //TODO:é»˜è®¤å…³é—­æ‰
+            // TODO:ç”¨åˆ°å¤šä¸ªå€¼å…±åŒå†³å®šåˆ†åº“æˆ–åˆ†è¡¨çš„æ—¶å€™éœ€è¦review
+            // å¤šäºä¸€ä¸ªå€¼ï¼Œéœ€è¦è¿›è¡Œç¬›å¡å°”ç§¯
             CartesianProductCalculator cartiesianProductCalculator = new CartesianProductCalculator(
                 enumeratedMap);
             /*
-             * È·ÊµºÜÄÑÈ·¶¨setµÄ´óĞ¡£¬µ«Ò»°ãÀ´Ëµ·Ö¿âÊÇ16¸ö£¬ËùÒÔÕâÀï¾Í¶¨16¸öÔİÊ±¡£»¹ÓĞÒ»ÖÖ¿ÉÄÜµÄ¿¼ÂÇÊÇ½«
-             * capacityÉèÖÃÎª×î´ó¿ÉÄÜ³öÏÖµÄ½á¹û¡£
+             * ç¡®å®å¾ˆéš¾ç¡®å®šsetçš„å¤§å°ï¼Œä½†ä¸€èˆ¬æ¥è¯´åˆ†åº“æ˜¯16ä¸ªï¼Œæ‰€ä»¥è¿™é‡Œå°±å®š16ä¸ªæš‚æ—¶ã€‚è¿˜æœ‰ä¸€ç§å¯èƒ½çš„è€ƒè™‘æ˜¯å°†
+             * capacityè®¾ç½®ä¸ºæœ€å¤§å¯èƒ½å‡ºç°çš„ç»“æœã€‚
              */
             map = new HashMap<String, Field>(16);
             for (SamplingField samplingField : cartiesianProductCalculator) {
@@ -288,7 +288,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     }
 
     /**
-     * Èç¹û×Ó¹æÔòĞèÒªÔÚ·µ»ØÖµÎªnull»òÎª¿ÕcollectionsÊ±Å×³öÒì³££¬Ôò¼Ì³Ğ´ËÀàºó½«false±äÎªtrue¼´¿É
+     * å¦‚æœå­è§„åˆ™éœ€è¦åœ¨è¿”å›å€¼ä¸ºnullæˆ–ä¸ºç©ºcollectionsæ—¶æŠ›å‡ºå¼‚å¸¸ï¼Œåˆ™ç»§æ‰¿æ­¤ç±»åå°†falseå˜ä¸ºtrueå³å¯
      * 
      * @return
      */
@@ -299,30 +299,30 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     void evalOnceAndAddToReturnSet(Set<String> set, SamplingField samplingField, int valueSetSize) {
         ResultAndMappingKey resultAndMappingKey = evalueateSamplingField(samplingField);
         String targetIndex = resultAndMappingKey.result;
-        //ODOT:ÖØ¸´ÅĞ¶Ï
+        //ODOT:é‡å¤åˆ¤æ–­
         if (targetIndex != null) {
             set.add(targetIndex);
         } else {
-            throw new IllegalArgumentException("¹æÔòÒıÇæµÄ½á¹û²»ÄÜÎªnull");
+            throw new IllegalArgumentException("è§„åˆ™å¼•æ“çš„ç»“æœä¸èƒ½ä¸ºnull");
         }
     }
 
     /**
-     * ¶ÔÒ»¸öÊı¾İ½øĞĞ¼ÆËã
-     * ×ßÒ»´Î¹æÔò£¬ÓĞ¿ÉÄÜ·µ»Ø¶à¸ö¿â£¬ÀûÓÃforÑ­»·±éÀú
-     * Ö»ÓĞÔÚÊı¾İ¼ÆËã»ñÈ¡ÁËÖµµÄÊ±ºò²Å»á½«¶ÔÓ¦¸ÃÖµ»ñÈ¡µÄÁĞºÍ¶¨ÒåÓòÄÚµÄÖµ·ÅÈëmapÖĞ¡£
+     * å¯¹ä¸€ä¸ªæ•°æ®è¿›è¡Œè®¡ç®—
+     * èµ°ä¸€æ¬¡è§„åˆ™ï¼Œæœ‰å¯èƒ½è¿”å›å¤šä¸ªåº“ï¼Œåˆ©ç”¨forå¾ªç¯éå†
+     * åªæœ‰åœ¨æ•°æ®è®¡ç®—è·å–äº†å€¼çš„æ—¶å€™æ‰ä¼šå°†å¯¹åº”è¯¥å€¼è·å–çš„åˆ—å’Œå®šä¹‰åŸŸå†…çš„å€¼æ”¾å…¥mapä¸­ã€‚
     * @param map
     * @param samplingField
     * @param valueSetSize
-    * @Test Õâ¸ö·½·¨ÔÚTairBasedMappingRuleµÄ¼¯³É²âÊÔºÍµ¥Ôª²âÊÔÀï¶¼ÓĞ
+    * @Test è¿™ä¸ªæ–¹æ³•åœ¨TairBasedMappingRuleçš„é›†æˆæµ‹è¯•å’Œå•å…ƒæµ‹è¯•é‡Œéƒ½æœ‰
     */
-    void evalOnceAndAddToReturnMap(Map<String/* ½á¹ûµÄÖµ */, Field> map, SamplingField samplingField,
+    void evalOnceAndAddToReturnMap(Map<String/* ç»“æœçš„å€¼ */, Field> map, SamplingField samplingField,
                                    int valueSetSize) {
         ResultAndMappingKey returnAndMappingKey = evalueateSamplingField(samplingField);
         if (returnAndMappingKey != null) {
             String dbIndexStr = returnAndMappingKey.result;
             if (StringUtil.isBlank(dbIndexStr)) {
-                throw new IllegalArgumentException("¸ù¾İdbRule¼ÆËã³öµÄ½á¹û²»ÄÜÎªnull");
+                throw new IllegalArgumentException("æ ¹æ®dbRuleè®¡ç®—å‡ºçš„ç»“æœä¸èƒ½ä¸ºnull");
             }
             String[] dbIndexes = dbIndexStr.split(",");
 
@@ -344,7 +344,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     }
 
     private Set<Object> prepareEnumeratedSet(int valueSetSize, Field colMap, String column) {
-        //sourcekey ³õÊ¼»¯ÒÔºó¾ÍÄÚ²¿µÄset¾ÍÒ»Ö±´æÔÚ
+        //sourcekey åˆå§‹åŒ–ä»¥åå°±å†…éƒ¨çš„setå°±ä¸€ç›´å­˜åœ¨
         Set<Object> set = colMap.sourceKeys.get(column);
         if (set == null) {
             set = new HashSet<Object>(valueSetSize);
@@ -376,17 +376,17 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
         return colMap;
     }
 
-    //	public Map<String, Set<Object>/* ³éÑùºóÃèµãµÄkeyºÍÖµµÄpair */> getSamplingField(
+    //	public Map<String, Set<Object>/* æŠ½æ ·åæç‚¹çš„keyå’Œå€¼çš„pair */> getSamplingField(
     //			Map<String, SharedValueElement> sharedValueElementMap) {
-    //		// TODO:ÏêÏ¸×¢ÊÍ,¼ÆËãµÑ¿¨¶û»ı
-    //		// Ã¶¾ÙÒÔºóµÄcolumnsÓëËûÃÇµÄÃèµãÖ®¼äµÄ¶ÔÓ¦¹ØÏµ
+    //		// TODO:è¯¦ç»†æ³¨é‡Š,è®¡ç®—ç¬›å¡å°”ç§¯
+    //		// æšä¸¾ä»¥åçš„columnsä¸ä»–ä»¬çš„æç‚¹ä¹‹é—´çš„å¯¹åº”å…³ç³»
     //		Map<String, Set<Object>> enumeratedMap = new HashMap<String, Set<Object>>(
     //				sharedValueElementMap.size());
     //		for (Entry<String, SharedValueElement> entry : sharedValueElementMap
     //				.entrySet()) {
     //			SharedValueElement sharedValueElement = entry.getValue();
     //			String key = entry.getKey();
-    //			// µ±Ç°enumeratorÖĞÖ¸¶¨µ±Ç°¹æÔòÊÇ·ñĞèÒª´¦Àí½»¼¯ÎÊÌâ¡£
+    //			// å½“å‰enumeratorä¸­æŒ‡å®šå½“å‰è§„åˆ™æ˜¯å¦éœ€è¦å¤„ç†äº¤é›†é—®é¢˜ã€‚
     //			// enumerator.setNeedMergeValueInCloseInterval();
     //
     //			try {
@@ -397,7 +397,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     //						sharedValueElement.needMergeValueInCloseInterval);
     //				enumeratedMap.put(key, samplingField);
     //			} catch (UnsupportedOperationException e) {
-    //				throw new UnsupportedOperationException("µ±Ç°ÁĞ·Ö¿â·Ö±í³öÏÖ´íÎó£¬³öÏÖ´íÎóµÄÁĞÃûÊÇ:"
+    //				throw new UnsupportedOperationException("å½“å‰åˆ—åˆ†åº“åˆ†è¡¨å‡ºç°é”™è¯¯ï¼Œå‡ºç°é”™è¯¯çš„åˆ—åæ˜¯:"
     //						+ entry.getKey(), e);
     //			}
     //
@@ -406,11 +406,11 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     //	}
 
     /**
-     * ¸ù¾İÒ»×é²ÎÊı£¬¼ÆËã³öÒ»¸ö½á¹û
+     * æ ¹æ®ä¸€ç»„å‚æ•°ï¼Œè®¡ç®—å‡ºä¸€ä¸ªç»“æœ
      * 
-     * @return Í¨¹ı¹æÔòµÄ½á¹û¿ÉÄÜÔÚÒÔÏÂÇé¿öÏÂÎªnull:
-     * 			Ó³Éä¹æÔòÔ­¹æÔò´æÔÚ£¬µ«Ó³ÉäºóµÄÄ¿±ê²»´æÔÚ£¬»á·µ»Ønull¡£
-     *          ÆäÓàÊ±¿Ì£¬»áÅ×Òì³£
+     * @return é€šè¿‡è§„åˆ™çš„ç»“æœå¯èƒ½åœ¨ä»¥ä¸‹æƒ…å†µä¸‹ä¸ºnull:
+     * 			æ˜ å°„è§„åˆ™åŸè§„åˆ™å­˜åœ¨ï¼Œä½†æ˜ å°„åçš„ç›®æ ‡ä¸å­˜åœ¨ï¼Œä¼šè¿”å›nullã€‚
+     *          å…¶ä½™æ—¶åˆ»ï¼Œä¼šæŠ›å¼‚å¸¸
      * 
      */
     public abstract ResultAndMappingKey evalueateSamplingField(SamplingField samplingField);

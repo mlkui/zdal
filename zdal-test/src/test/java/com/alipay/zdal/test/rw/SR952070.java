@@ -23,7 +23,7 @@ import com.alipay.zdal.client.util.ThreadLocalMap;
 import com.alipay.zdal.test.common.ZdalTestBase;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("zdalÕë¶ÔoracleÊı¾İÔ´µÄpreparedStatementµÄexecuteQuery()ÓëexecuteUpdate()")
+@Feature("zdalé’ˆå¯¹oracleæ•°æ®æºçš„preparedStatementçš„executeQuery()ä¸executeUpdate()")
 public class SR952070 extends ZdalTestBase {
     private Connection   connection = null;
     public TestAssertion Assert     = new TestAssertion();
@@ -42,7 +42,7 @@ public class SR952070 extends ZdalTestBase {
         ThreadLocalMap.reset();
     }
 
-    @Subject("preparedStatementµÄÖ´ĞĞinsertºÍselect")
+    @Subject("preparedStatementçš„æ‰§è¡Œinsertå’Œselect")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952071() {
@@ -53,16 +53,16 @@ public class SR952070 extends ZdalTestBase {
         int res_2 = 0;
         int res_3 = 0;
 
-        Step("1¡¢ ÑéÖ¤executeUpdateµÄinsertÓï¾ä");
+        Step("1ã€ éªŒè¯executeUpdateçš„insertè¯­å¥");
         String sql = "insert into ACM_TARGET_RECORD (id,test_varchar,test_date,int_field_1,int_field_2,var_field_1,var_field_2) values ("
                      + "99,'DB_G',to_date('2012-06-15 20:46:34','YYYY-MM-DD-HH24:MI:SS'),1,1,'a','b')";
         res_1 = testExecuteUpdate(sql);
-        Assert.areEqual(1, res_1, "oracle Êı¾İÔ´prepareStatement.executeUpdate");
+        Assert.areEqual(1, res_1, "oracle æ•°æ®æºprepareStatement.executeUpdate");
 
-        Step("2¡¢ ÑéÖ¤executeQuery()µÄselectÓï¾ä");
+        Step("2ã€ éªŒè¯executeQuery()çš„selectè¯­å¥");
         String sql1 = "select * from  ACM_TARGET_RECORD where test_varchar='DB_G' ";
         try {
-            // Ö¸¶¨²Ù×÷¿â
+            // æŒ‡å®šæ“ä½œåº“
             ThreadLocalMap.put(ThreadLocalString.DATABASE_INDEX, 1);
             connection = zdalDataSource.getConnection();
             connection.setAutoCommit(false);
@@ -70,7 +70,7 @@ public class SR952070 extends ZdalTestBase {
             rs = preparedStatement_1.executeQuery();
             connection.commit();
             connection.setAutoCommit(true);
-            Assert.isTrue(rs.next(), "oracle Êı¾İÔ´prepareStatement.executeQuery");
+            Assert.isTrue(rs.next(), "oracle æ•°æ®æºprepareStatement.executeQuery");
             preparedStatement_1.close();
             connection.close();
         } catch (SQLException e) {
@@ -78,21 +78,21 @@ public class SR952070 extends ZdalTestBase {
             e.printStackTrace();
         }
 
-        Step("3¡¢ ÑéÖ¤executeQueryµÄupdateÓï¾ä");
+        Step("3ã€ éªŒè¯executeQueryçš„updateè¯­å¥");
         String sql2 = "update ACM_TARGET_RECORD set test_varchar='DB_GG' where id=99";
         res_2 = testExecuteUpdate(sql2);
-        Assert.areEqual(1, res_2, "oracle Êı¾İÔ´prepareStatement.executeUpdate");
+        Assert.areEqual(1, res_2, "oracle æ•°æ®æºprepareStatement.executeUpdate");
 
-        Step("4¡¢ ÑéÖ¤executeQueryµÄdeleteÓï¾ä");
+        Step("4ã€ éªŒè¯executeQueryçš„deleteè¯­å¥");
         String sql3 = "delete from ACM_TARGET_RECORD where id =99";
         res_3 = testExecuteUpdate(sql3);
 
-        Assert.areEqual(1, res_3, "oracle Êı¾İÔ´prepareStatement.executeUpdate");
+        Assert.areEqual(1, res_3, "oracle æ•°æ®æºprepareStatement.executeUpdate");
 
     }
 
     /**
-     * Ö´ĞĞexecuteUpdate
+     * æ‰§è¡ŒexecuteUpdate
      */
     private int testExecuteUpdate(String sqlStr) {
         int re = 0;

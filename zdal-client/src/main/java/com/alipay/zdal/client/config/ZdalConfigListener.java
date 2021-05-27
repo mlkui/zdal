@@ -7,15 +7,15 @@ package com.alipay.zdal.client.config;
 import java.util.Map;
 
 /**
- * ¶¯Ì¬µ÷ÕûfailoverµÄ×´Ì¬£¬½èÖúÓÚ·Ö²¼Ê½»·¾³ÏÂµÄ¶¯Ì¬ÍÆËÍ.
- * @author ²®ÑÀ
- * @version $Id: ZdalConfigListener.java, v 0.1 2012-11-17 ÏÂÎç4:29:22 Exp $
+ * åŠ¨æ€è°ƒæ•´failoverçš„çŠ¶æ€ï¼Œå€ŸåŠ©äºåˆ†å¸ƒå¼ç¯å¢ƒä¸‹çš„åŠ¨æ€æ¨é€.
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalConfigListener.java, v 0.1 2012-11-17 ä¸‹åˆ4:29:22 Exp $
  */
 public interface ZdalConfigListener {
 
     /**
-     * Í¨¹ıdrmÍÆËÍÇĞ»»ĞÅÏ¢.
-     * @param keyWeights ÍÆËÍµÄÖµ.
+     * é€šè¿‡drmæ¨é€åˆ‡æ¢ä¿¡æ¯.
+     * @param keyWeights æ¨é€çš„å€¼.
      */
     void resetWeight(Map<String, String> keyWeights);
 

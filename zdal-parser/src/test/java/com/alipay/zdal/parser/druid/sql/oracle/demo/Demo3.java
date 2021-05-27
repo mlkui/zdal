@@ -25,7 +25,7 @@ import com.alipay.zdal.parser.sql.parser.SQLStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: Demo3.java, v 0.1 2012-5-17 …œŒÁ10:25:13 xiaoqing.zhouxq Exp $
+ * @version $Id: Demo3.java, v 0.1 2012-5-17 ‰∏äÂçà10:25:13 xiaoqing.zhouxq Exp $
  */
 public class Demo3 extends TestCase {
 

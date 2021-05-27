@@ -14,8 +14,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleExceptionStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:47:10 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleExceptionStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:47:10 Exp $
  */
 public class OracleExceptionStatement extends OracleStatementImpl implements OracleStatement {
 

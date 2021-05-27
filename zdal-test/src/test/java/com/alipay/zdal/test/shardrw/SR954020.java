@@ -15,7 +15,7 @@ import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.client.util.dispatchanalyzer.ZdalDatasourceIntrospector;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("È«»î²ßÂÔ: getAvailableDBAndTableByWeights")
+@Feature("å…¨æ´»ç­–ç•¥: getAvailableDBAndTableByWeights")
 public class SR954020 {
 	public TestAssertion Assert = new TestAssertion();
 	ZdalDatasourceIntrospector td;
@@ -29,47 +29,47 @@ public class SR954020 {
 				.getBean("getAvailableDBAndTableByWeights");
 	}
 
-	@Subject("»ñÈ¡Ö¸¶¨groupÖĞµÄÂß¼­±íÃû¶ÔÓ¦µÄ¿ÉÓÃÎïÀí±í")
+	@Subject("è·å–æŒ‡å®šgroupä¸­çš„é€»è¾‘è¡¨åå¯¹åº”çš„å¯ç”¨ç‰©ç†è¡¨")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC954021() {
-		Step("»ñÈ¡Ö¸¶¨groupÖĞµÄÂß¼­±íÃû¶ÔÓ¦µÄ¿ÉÓÃÎïÀí±í");
+		Step("è·å–æŒ‡å®šgroupä¸­çš„é€»è¾‘è¡¨åå¯¹åº”çš„å¯ç”¨ç‰©ç†è¡¨");
 		String[] re = td.getAvailableDBAndTableByWeights("users", 0, true);
 		Assert.areEqual(true,
 				Integer.parseInt(re[0]) == 0 || Integer.parseInt(re[0]) == 1,
-				"»ñÈ¡¿ÉÓÃ±íÃû");
+				"è·å–å¯ç”¨è¡¨å");
 		Assert.areEqual(
 				true,
 				re[1].equalsIgnoreCase("users_0")
 						|| re[1].equalsIgnoreCase("users_1")
 						|| re[1].equalsIgnoreCase("users_2")
 						|| re[1].equalsIgnoreCase("users_3")
-						|| re[1].equalsIgnoreCase("users_4"), "»ñÈ¡¿ÉÓÃ±íÃû");
+						|| re[1].equalsIgnoreCase("users_4"), "è·å–å¯ç”¨è¡¨å");
 	}
 
-	@Subject("Ö¸¶¨µÄgroupNumÔ½½ç")
+	@Subject("æŒ‡å®šçš„groupNumè¶Šç•Œ")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC954022() {
 		try{
-			Step("Ö¸¶¨µÄgroupNumÔ½½ç");
+			Step("æŒ‡å®šçš„groupNumè¶Šç•Œ");
 		 td.getAvailableDBAndTableByWeights("users", 99, true);
 		}catch(Exception ex){
 			ex.printStackTrace();
-			Assert.areEqual(IllegalArgumentException.class, ex.getClass(), "³öÏÖÒì³£");
+			Assert.areEqual(IllegalArgumentException.class, ex.getClass(), "å‡ºç°å¼‚å¸¸");
 		}
 	}
 		
-	@Subject("Ö¸¶¨µÄÂß¼­±íÃû²»´æÔÚ")
+	@Subject("æŒ‡å®šçš„é€»è¾‘è¡¨åä¸å­˜åœ¨")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC954023() {
 		try{
-			Step("Ö¸¶¨µÄÂß¼­±íÃû²»´æÔÚ");
+			Step("æŒ‡å®šçš„é€»è¾‘è¡¨åä¸å­˜åœ¨");
 		 td.getAvailableDBAndTableByWeights("userstest", 0, true);
 		}catch(Exception ex){
 			ex.printStackTrace();
-			Assert.areEqual(IllegalArgumentException.class, ex.getClass(), "³öÏÖÒì³£");
+			Assert.areEqual(IllegalArgumentException.class, ex.getClass(), "å‡ºç°å¼‚å¸¸");
 		}
 	}
 	

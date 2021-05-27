@@ -35,8 +35,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * supplied, and the criteria to distinguish ManagedConnections is set in the
  * Criteria attribute.
  *
- * @author 伯牙
- * @version $Id: JBossManagedConnectionPool.java, v 0.1 2014-1-6 下午05:35:12 Exp $
+ * @author 浼墮
+ * @version $Id: JBossManagedConnectionPool.java, v 0.1 2014-1-6 涓嬪崍05:35:12 Exp $
  */
 public class JBossManagedConnectionPool implements JBossManagedConnectionPoolMBean, Service {
 
@@ -491,7 +491,7 @@ public class JBossManagedConnectionPool implements JBossManagedConnectionPoolMBe
 
                 // This is the connection for this transaction
                 cl.setTrackByTx(true);
-                // FIXME 应该是trackByTx.set(trackByTransaction, cl)吧？
+                // FIXME 搴旇鏄痶rackByTx.set(trackByTransaction, cl)鍚э紵
                 trackByTx.set(cl);
                 if (traceEnabled)
                     dump("Using connection from pool tracked by transaction " + cl + " tx="
@@ -643,7 +643,7 @@ public class JBossManagedConnectionPool implements JBossManagedConnectionPoolMBe
             for (Iterator i = subPools.values().iterator(); i.hasNext();) {
 
                 SubPoolContext subPool = (SubPoolContext) i.next();
-                // FIXME 应该是subPool.getSubPool().flush()吧？
+                // FIXME 搴旇鏄痵ubPool.getSubPool().flush()鍚э紵
                 subPool.getSubPool().shutdown();
             }
             subPools.clear();

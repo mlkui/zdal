@@ -27,18 +27,18 @@ import com.alipay.zdal.parser.sql.parser.SQLStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: Demo0.java, v 0.1 2012-5-17 ����10:24:22 xiaoqing.zhouxq Exp $
+ * @version $Id: Demo0.java, v 0.1 2012-5-17 上午10:24:22 xiaoqing.zhouxq Exp $
  */
 public class Demo0 extends TestCase {
 
     public void test_demo_0() throws Exception {
         String sql = "SELECT SYSDATE FROM DUAL";
 
-        // parser得到AST
+        // parser寰楀埌AST
         SQLStatementParser parser = new OracleStatementParser(sql);
         List<SQLStatement> stmtList = parser.parseStatementList(); //
 
-        // 将AST通过visitor输出
+        // 灏咥ST閫氳繃visitor杈撳嚭
         StringBuilder out = new StringBuilder();
         OracleOutputVisitor visitor = new OracleOutputVisitor(out);
 

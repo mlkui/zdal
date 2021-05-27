@@ -15,8 +15,8 @@ import com.alipay.zdal.datasource.resource.util.NestedThrowable;
  * JBossLocalXAException
  *
  * 
- * @author ≤Æ—¿
- * @version $Id: JBossLocalXAException.java, v 0.1 2014-1-6 œ¬ŒÁ05:34:58 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: JBossLocalXAException.java, v 0.1 2014-1-6 ‰∏ãÂçà05:34:58 Exp $
  */
 public class JBossLocalXAException extends XAException implements NestedThrowable {
     private static final long serialVersionUID = -6208145503935506281L;

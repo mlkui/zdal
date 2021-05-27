@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.ast.SQLObjectImpl;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLTableSourceImpl.java, v 0.1 2012-11-17 ÏÂÎç3:27:16 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLTableSourceImpl.java, v 0.1 2012-11-17 ä¸‹åˆ3:27:16 Exp $
  */
 public abstract class SQLTableSourceImpl extends SQLObjectImpl implements SQLTableSource {
 

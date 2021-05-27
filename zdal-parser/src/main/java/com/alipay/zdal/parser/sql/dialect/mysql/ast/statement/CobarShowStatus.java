@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: CobarShowStatus.java, v 0.1 2012-11-17 ÏÂÎç3:31:10 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CobarShowStatus.java, v 0.1 2012-11-17 ä¸‹åˆ3:31:10 Exp $
  */
 public class CobarShowStatus extends MySqlStatementImpl {
 

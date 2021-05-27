@@ -19,13 +19,13 @@ import com.alipay.zdal.common.lang.StringUtil;
  */
 public class ZdalAppBean implements InitializingBean {
 
-    /** Ó¦ÓÃÃû³Æ. */
+    /** åº”ç”¨åç§°. */
     private String                  appName;
 
-    /**Êı¾İ¿â»·¾³.  */
+    /**æ•°æ®åº“ç¯å¢ƒ.  */
     private String                  dbmode;
 
-    /** Êı¾İÔ´ÁĞ±í. */
+    /** æ•°æ®æºåˆ—è¡¨. */
     private List<AppDataSourceBean> appDataSourceList = new ArrayList<AppDataSourceBean>();
 
     public String getAppName() {
@@ -66,7 +66,7 @@ public class ZdalAppBean implements InitializingBean {
         if (appDataSourceList == null || appDataSourceList.isEmpty()) {
             throw new IllegalArgumentException("ERROR ## the appDataSource is empty of " + appName);
         } else {
-            //Ğ£ÑéÊÇ·ñÓĞÍ¬ÃûµÄappDataSourceName.
+            //æ ¡éªŒæ˜¯å¦æœ‰åŒåçš„appDataSourceName.
             Map<String, AppDataSourceBean> tmps = new HashMap<String, AppDataSourceBean>();
             for (AppDataSourceBean bean : appDataSourceList) {
                 tmps.put(bean.getAppDataSourceName(), bean);

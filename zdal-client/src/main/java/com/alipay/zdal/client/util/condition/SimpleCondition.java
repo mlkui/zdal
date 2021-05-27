@@ -20,8 +20,8 @@ import com.alipay.zdal.parser.visitor.OrderByEle;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SimpleCondition.java, v 0.1 2014-1-6 ÏÂÎç05:16:45 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SimpleCondition.java, v 0.1 2014-1-6 ä¸‹åˆ05:16:45 Exp $
  */
 public class SimpleCondition implements RuleRouteCondition, ComparativeMapChoicer {
 
@@ -70,7 +70,7 @@ public class SimpleCondition implements RuleRouteCondition, ComparativeMapChoice
         Map<String, Comparative> retMap = new HashMap<String, Comparative>(parameters.size());
         for (String str : partnationSet) {
             if (str != null) {
-                //ÒòÎªgroovyÊÇ´óĞ¡Ğ´Ãô¸ĞµÄ£¬Òò´ËÕâÀïÖ»ÊÇÔÚÆ¥ÅäµÄÊ±ºò×ªÎªĞ¡Ğ´£¬·ÅÈëmapÖĞµÄÊ±ºòÈÔÈ»Ê¹ÓÃÔ­À´µÄ´óĞ¡Ğ´
+                //å› ä¸ºgroovyæ˜¯å¤§å°å†™æ•æ„Ÿçš„ï¼Œå› æ­¤è¿™é‡Œåªæ˜¯åœ¨åŒ¹é…çš„æ—¶å€™è½¬ä¸ºå°å†™ï¼Œæ”¾å…¥mapä¸­çš„æ—¶å€™ä»ç„¶ä½¿ç”¨åŸæ¥çš„å¤§å°å†™
                 Comparative comp = parameters.get(str.toLowerCase());
                 if (comp != null) {
                     retMap.put(str, comp);
@@ -85,14 +85,14 @@ public class SimpleCondition implements RuleRouteCondition, ComparativeMapChoice
     }
 
     /**
-     * ÉèÖÃĞéÄâ±íÃû
+     * è®¾ç½®è™šæ‹Ÿè¡¨å
      * 
      * @param virtualTableName
-     *            ĞéÄâ±íÃû
+     *            è™šæ‹Ÿè¡¨å
      */
     public void setVirtualTableName(String virtualTableName) {
         if (virtualTableName == null) {
-            throw new IllegalArgumentException("ÇëÊäÈëÂß¼­±íÃû");
+            throw new IllegalArgumentException("è¯·è¾“å…¥é€»è¾‘è¡¨å");
         }
         this.virtualTableName = virtualTableName.toLowerCase();
     }
@@ -102,16 +102,16 @@ public class SimpleCondition implements RuleRouteCondition, ComparativeMapChoice
     }
 
     /**
-     * Ìí¼ÓÒ»¸öÄ¬ÈÏÎª=µÄ²ÎÊı¶Ô
+     * æ·»åŠ ä¸€ä¸ªé»˜è®¤ä¸º=çš„å‚æ•°å¯¹
      * 
      * @param str
-     *            ²ÎÊıÏîÃû×Ö
+     *            å‚æ•°é¡¹åå­—
      * @param comp
-     *            ²ÎÊıÏîÖµ£¬Ò»°ãÎª»ù±¾ÀàĞÍ»ò¿É±È½ÏÀàĞÍ
+     *            å‚æ•°é¡¹å€¼ï¼Œä¸€èˆ¬ä¸ºåŸºæœ¬ç±»å‹æˆ–å¯æ¯”è¾ƒç±»å‹
      */
     public void put(String key, Comparable<?> parameter) {
         if (key == null) {
-            throw new IllegalArgumentException("keyÎªnull");
+            throw new IllegalArgumentException("keyä¸ºnull");
         }
         if (parameter instanceof Comparative) {
             parameters.put(key.toLowerCase(), (Comparative) parameter);

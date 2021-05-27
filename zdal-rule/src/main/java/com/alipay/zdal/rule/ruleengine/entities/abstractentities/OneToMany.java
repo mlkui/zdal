@@ -6,7 +6,7 @@ package com.alipay.zdal.rule.ruleengine.entities.abstractentities;
 
 public interface OneToMany {
     /**
-     * 1¶Ô¶à´«µÝÕß
+     * 1å¯¹å¤šä¼ é€’è€…
      * @param oneToManyEntry
      */
     void put(OneToManyEntry oneToManyEntry);

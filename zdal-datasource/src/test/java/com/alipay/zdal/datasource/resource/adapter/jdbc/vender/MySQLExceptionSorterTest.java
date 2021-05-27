@@ -15,10 +15,10 @@ import com.alipay.zdal.datasource.LocalTxDataSourceDO;
 import com.alipay.zdal.datasource.ZDataSource;
 
 /**
- * MySQLExceptionSorter ²âÊÔÓÃÀı
+ * MySQLExceptionSorter æµ‹è¯•ç”¨ä¾‹
  * 
  * @author liangjie.li
- * @version $Id: MySQLExceptionSorterTest.java, v 0.1 2012-8-15 ÏÂÎç3:06:02 liangjie.li Exp $
+ * @version $Id: MySQLExceptionSorterTest.java, v 0.1 2012-8-15 ä¸‹åˆ3:06:02 liangjie.li Exp $
  */
 public class MySQLExceptionSorterTest {
 

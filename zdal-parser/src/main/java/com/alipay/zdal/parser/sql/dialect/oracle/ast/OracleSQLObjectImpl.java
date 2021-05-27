@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSQLObjectImpl.java, v 0.1 2012-11-17 œ¬ŒÁ3:41:31 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSQLObjectImpl.java, v 0.1 2012-11-17 ‰∏ãÂçà3:41:31 Exp $
  */
 public abstract class OracleSQLObjectImpl extends SQLObjectImpl implements OracleSQLObject {
 

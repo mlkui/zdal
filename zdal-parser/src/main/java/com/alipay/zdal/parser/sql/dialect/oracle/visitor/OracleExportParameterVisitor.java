@@ -19,8 +19,8 @@ import com.alipay.zdal.parser.sql.visitor.ExportParameterVisitorUtils;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleExportParameterVisitor.java, v 0.1 2012-11-17 œ¬ŒÁ3:52:52 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleExportParameterVisitor.java, v 0.1 2012-11-17 ‰∏ãÂçà3:52:52 Exp $
  */
 public class OracleExportParameterVisitor extends OracleASTVisitorAdapter implements
                                                                          ExportParameterVisitor {

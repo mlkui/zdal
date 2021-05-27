@@ -21,12 +21,12 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import static com.alipay.ats.internal.domain.ATS.Step;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rwÖØÊÔ")
+@Feature("rwé‡è¯•")
 public class SR952200 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
 
-	// Á½¿âµÄ¶ÁÓëĞ´µÄÖØÊÔ£¬¼ûRw_MysqlµÄTCSR951026ºÍTCSR951027
+	// ä¸¤åº“çš„è¯»ä¸å†™çš„é‡è¯•ï¼Œè§Rw_Mysqlçš„TCSR951026å’ŒTCSR951027
 
 	@After
 	public void afterTestCase() {
@@ -34,13 +34,13 @@ public class SR952200 {
 		ZdalTestCommon.dataDeleteForTddl();
 	}
 
-	@Subject("ÖØÊÔ¶Á£ºds0:r2w1p0,ds1:r1w1p1,ds2:r1w1p2£¬ds0ºÍds1²»¿ÉÓÃ,ds2¿ÉÓÃ")
+	@Subject("é‡è¯•è¯»ï¼šds0:r2w1p0,ds1:r1w1p1,ds2:r1w1p2ï¼Œds0å’Œds1ä¸å¯ç”¨,ds2å¯ç”¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952201() { 
-		Step("1¡¢Êı¾İ×¼±¸");
+		Step("1ã€æ•°æ®å‡†å¤‡");
 		ZdalTestCommon.dataPrepareForTddl(); 
-		Step(" zdal¶ÁÊı¾İ");
+		Step(" zdalè¯»æ•°æ®");
 		HashMap<String, Integer> mp = readRwMysqlDB("zdalRwRetry1",
 				"queryRwSqlTddl");
 		int countA = mp.get("countA");
@@ -52,11 +52,11 @@ public class SR952200 {
 
 	}
 
-	@Subject("ÖØÊÔĞ´£ºds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2£¬ds0ºÍds2²»¿ÉÓÃ,ds1¿ÉÓÃ")
+	@Subject("é‡è¯•å†™ï¼šds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2ï¼Œds0å’Œds2ä¸å¯ç”¨,ds1å¯ç”¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952202() {
-		Step("ÖØÊÔĞ´£ºds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2£¬ds0ºÍds2²»¿ÉÓÃ,ds1¿ÉÓÃ");
+		Step("é‡è¯•å†™ï¼šds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2ï¼Œds0å’Œds2ä¸å¯ç”¨,ds1å¯ç”¨");
 		HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwRetry2",
 				"insertRwSqlTddl");
 		int count0 = mp.get("count0");
@@ -67,13 +67,13 @@ public class SR952200 {
 		Assert.areEqual(true, count2 == 0, "the count2 value");
 	}
 
-	@Subject("ÖØÊÔ¶Á£ºds0:r10w1,ds1:r10w1,ds2:r1w1£¬ds0ºÍds2²»¿ÉÓÃ,ds1¿ÉÓÃ")
+	@Subject("é‡è¯•è¯»ï¼šds0:r10w1,ds1:r10w1,ds2:r1w1ï¼Œds0å’Œds2ä¸å¯ç”¨,ds1å¯ç”¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952203() {
-		Step("ÖØÊÔ¶Á£ºds0:r10w1,ds1:r10w1,ds2:r1w1£¬ds0ºÍds2²»¿ÉÓÃ,ds1¿ÉÓÃ");
+		Step("é‡è¯•è¯»ï¼šds0:r10w1,ds1:r10w1,ds2:r1w1ï¼Œds0å’Œds2ä¸å¯ç”¨,ds1å¯ç”¨");
 		ZdalTestCommon.dataPrepareForTddl(); 
-		Step("zdal¶ÁÊı¾İ");
+		Step("zdalè¯»æ•°æ®");
 		HashMap<String, Integer> mp = readRwMysqlDB("zdalRwRetry3",
 				"queryRwSqlTddl");
 		int countA = mp.get("countA");
@@ -85,11 +85,11 @@ public class SR952200 {
 
 	}
 
-	@Subject("ÖØÊÔĞ´£ºds0:r10w10,ds1:r10w10,ds2:r1w1£¬ds0ºÍds1²»¿ÉÓÃ,ds2¿ÉÓÃ")
+	@Subject("é‡è¯•å†™ï¼šds0:r10w10,ds1:r10w10,ds2:r1w1ï¼Œds0å’Œds1ä¸å¯ç”¨,ds2å¯ç”¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952204() {
-		Step("ÖØÊÔĞ´£ºds0:r10w10,ds1:r10w10,ds2:r1w1£¬ds0ºÍds1²»¿ÉÓÃ,ds2¿ÉÓÃ");
+		Step("é‡è¯•å†™ï¼šds0:r10w10,ds1:r10w10,ds2:r1w1ï¼Œds0å’Œds1ä¸å¯ç”¨,ds2å¯ç”¨");
 		HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwRetry4",
 				"insertRwSqlTddl");
 		int count0 = mp.get("count0");
@@ -100,13 +100,13 @@ public class SR952200 {
 		Assert.areEqual(true, count2 == 30, "the count2 value");
 	}
 
-	@Subject("ÖØÊÔ¶Á£ºds0:r10w1,ds1:r10w1,ds2:r1w1£¬ds0²»¿ÉÓÃ,ds1ºÍds2¿ÉÓÃ")
+	@Subject("é‡è¯•è¯»ï¼šds0:r10w1,ds1:r10w1,ds2:r1w1ï¼Œds0ä¸å¯ç”¨,ds1å’Œds2å¯ç”¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952205() {
-		Step("ÖØÊÔ¶Á£ºds0:r10w1,ds1:r10w1,ds2:r1w1£¬ds0²»¿ÉÓÃ,ds1ºÍds2¿ÉÓÃ");
+		Step("é‡è¯•è¯»ï¼šds0:r10w1,ds1:r10w1,ds2:r1w1ï¼Œds0ä¸å¯ç”¨,ds1å’Œds2å¯ç”¨");
 		ZdalTestCommon.dataPrepareForTddl(); 
-		Step("zdal¶ÁÊı¾İ");
+		Step("zdalè¯»æ•°æ®");
 		HashMap<String, Integer> mp = readRwMysqlDB("zdalRwRetry5",
 				"queryRwSqlTddl");
 		int countA = mp.get("countA");
@@ -118,11 +118,11 @@ public class SR952200 {
 
 	}
 
-	@Subject("ÖØÊÔĞ´£ºds0:r10w10,ds1:r10w10,ds2:r1w1£¬ds1²»¿ÉÓÃ,ds0ºÍds2¿ÉÓÃ")
+	@Subject("é‡è¯•å†™ï¼šds0:r10w10,ds1:r10w10,ds2:r1w1ï¼Œds1ä¸å¯ç”¨,ds0å’Œds2å¯ç”¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952206() {
-		Step("ÖØÊÔĞ´£ºds0:r10w10,ds1:r10w10,ds2:r1w1£¬ds1²»¿ÉÓÃ,ds0ºÍds2¿ÉÓÃ");
+		Step("é‡è¯•å†™ï¼šds0:r10w10,ds1:r10w10,ds2:r1w1ï¼Œds1ä¸å¯ç”¨,ds0å’Œds2å¯ç”¨");
 		HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwRetry6",
 				"insertRwSqlTddl");
 		int count0 = mp.get("count0");
@@ -133,46 +133,46 @@ public class SR952200 {
 		Assert.areEqual(true, count2 < 30, "the count2 value");
 	}
 	
-	@Subject("ÖØÊÔĞ´£ºds0:r10w10,ds1:r10w10,ds2:r1w1£¬¾ù²»¿ÉÓÃ")
+	@Subject("é‡è¯•å†™ï¼šds0:r10w10,ds1:r10w10,ds2:r1w1ï¼Œå‡ä¸å¯ç”¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952207(){
-		Step("ÖØÊÔĞ´£ºds0:r10w10,ds1:r10w10,ds2:r1w1£¬¾ù²»¿ÉÓÃ");
+		Step("é‡è¯•å†™ï¼šds0:r10w10,ds1:r10w10,ds2:r1w1ï¼Œå‡ä¸å¯ç”¨");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean("zdalRwRetry7");
 		try {
 			sqlMap.insert("insertRwSqlTddl");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Assert.areEqual(NestedSQLException.class, e.getClass(), "È«²¿Êı¾İÔ´²»¿ÉÓÃ");
+			Assert.areEqual(NestedSQLException.class, e.getClass(), "å…¨éƒ¨æ•°æ®æºä¸å¯ç”¨");
 		}	
 	}
 	
 	
-	@Subject("ÖØÊÔĞ´£ºds0:r2w1q0,ds1:r1w0q1,ds2:r1w1q2£¬ds0ºÍds2²»¿ÉÓÃ,ds1¿ÉÓÃ,µ«ds1µÄÈ¨ÖØÎª0,±¨Òì³£")
+	@Subject("é‡è¯•å†™ï¼šds0:r2w1q0,ds1:r1w0q1,ds2:r1w1q2ï¼Œds0å’Œds2ä¸å¯ç”¨,ds1å¯ç”¨,ä½†ds1çš„æƒé‡ä¸º0,æŠ¥å¼‚å¸¸")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952208() {
-		Step("ÖØÊÔĞ´£ºds0:r2w1q0,ds1:r1w0q1,ds2:r1w1q2£¬ds0ºÍds2²»¿ÉÓÃ,ds1¿ÉÓÃ,µ«ds1µÄÈ¨ÖØÎª0,±¨Òì³£");
+		Step("é‡è¯•å†™ï¼šds0:r2w1q0,ds1:r1w0q1,ds2:r1w1q2ï¼Œds0å’Œds2ä¸å¯ç”¨,ds1å¯ç”¨,ä½†ds1çš„æƒé‡ä¸º0,æŠ¥å¼‚å¸¸");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean("zdalRwRetry8");
 		try {
 			sqlMap.insert("insertRwSqlTddl");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Assert.areEqual(NestedSQLException.class, e.getClass(), "È«²¿Êı¾İÔ´²»¿ÉÓÃ");
+			Assert.areEqual(NestedSQLException.class, e.getClass(), "å…¨éƒ¨æ•°æ®æºä¸å¯ç”¨");
 		}	
 		
 	}
 	
 	
-	@Subject("ÖØÊÔ¶Á£ºds0:r2w1p0,ds1:r1w1p1,ds2:r1w1p2£¬ds0²»¿ÉÓÃ,,ds1ºÍds2¿ÉÓÃ.ÔòÈ«²¿´Óds1ÔÚ¶Á")
+	@Subject("é‡è¯•è¯»ï¼šds0:r2w1p0,ds1:r1w1p1,ds2:r1w1p2ï¼Œds0ä¸å¯ç”¨,,ds1å’Œds2å¯ç”¨.åˆ™å…¨éƒ¨ä»ds1åœ¨è¯»")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952209() { 
-		Step("1¡¢Êı¾İ×¼±¸");
+		Step("1ã€æ•°æ®å‡†å¤‡");
 		ZdalTestCommon.dataPrepareForTddl(); 
-		Step("zdal¶ÁÊı¾İ");
+		Step("zdalè¯»æ•°æ®");
 		HashMap<String, Integer> mp = readRwMysqlDB("zdalRwRetry9",
 				"queryRwSqlTddl");
 		int countA = mp.get("countA");
@@ -185,11 +185,11 @@ public class SR952200 {
 	}
 	
 	
-	@Subject("ÖØÊÔĞ´£ºds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2£¬ds2²»¿ÉÓÃ,ds0ºÍds1¿ÉÓÃ£¬ÓÉÈ«²¿Ğ´µ½ds0")
+	@Subject("é‡è¯•å†™ï¼šds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2ï¼Œds2ä¸å¯ç”¨,ds0å’Œds1å¯ç”¨ï¼Œç”±å…¨éƒ¨å†™åˆ°ds0")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC95220a() {
-		Step("ÖØÊÔĞ´£ºds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2£¬ds2²»¿ÉÓÃ,ds0ºÍds1¿ÉÓÃ£¬ÓÉÈ«²¿Ğ´µ½ds0");
+		Step("é‡è¯•å†™ï¼šds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2ï¼Œds2ä¸å¯ç”¨,ds0å’Œds1å¯ç”¨ï¼Œç”±å…¨éƒ¨å†™åˆ°ds0");
 		HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwRetry10",
 				"insertRwSqlTddl");
 		int count0 = mp.get("count0");
@@ -202,7 +202,7 @@ public class SR952200 {
 	
 
 	/**
-	 * Õë¶Ôrw mysql¿âµÄ¶Á¿âµÄ¹«¹²º¯Êı(tddl¿â£©
+	 * é’ˆå¯¹rw mysqlåº“çš„è¯»åº“çš„å…¬å…±å‡½æ•°(tddlåº“ï¼‰
 	 * 
 	 * @param beanName
 	 * @param sqlName
@@ -215,10 +215,10 @@ public class SR952200 {
 		int countA = 0;
 		int countB = 0;
 		int countC = 0;
-		Step("×¼±¸Êı¾İ");
+		Step("å‡†å¤‡æ•°æ®");
 		ZdalTestCommon.dataPrepareForZds();
 
-		Step("¶ÁÈ¡Êı¾İ£¬²¢¼ÆËã´ÓÃ¿¸ö¿âÀïÃæ¶ÁÊıµÄ´ÎÊı");
+		Step("è¯»å–æ•°æ®ï¼Œå¹¶è®¡ç®—ä»æ¯ä¸ªåº“é‡Œé¢è¯»æ•°çš„æ¬¡æ•°");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean(beanName);
 		String sqlStr1 = sqlName;
 		for (int countnum = 0; countnum < 30; countnum++) {
@@ -249,7 +249,7 @@ public class SR952200 {
 	}
 
 	/**
-	 * Õë¶Ôrw mysqlĞ´¿âµÄ¹«¹²º¯Êı£¨tddl£©
+	 * é’ˆå¯¹rw mysqlå†™åº“çš„å…¬å…±å‡½æ•°ï¼ˆtddlï¼‰
 	 * 
 	 * @param beanName
 	 * @param sqlName
@@ -276,7 +276,7 @@ public class SR952200 {
 				e.printStackTrace();
 			}
 		}
-		Step("½øĞ´ÈëµÄÊı¾İcount£¬½øĞĞÑéÖ¤");
+		Step("è¿›å†™å…¥çš„æ•°æ®countï¼Œè¿›è¡ŒéªŒè¯");
 		String querySql = "select count(*) from users where name = 'DB' and address='DB_G'";
 		ResultSet rs0 = ZdalTestCommon.dataCheckFromJDBC(querySql, url0, psd,
 				user);

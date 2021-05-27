@@ -19,7 +19,7 @@ import com.alipay.zdal.common.util.SimpleNamedMessageFormat;
 import com.alipay.zdal.common.util.TableSuffixTypeEnum;
 
 /**
- * Ò»¸öÂß¼­±íÔõÑù·Ö¿â·Ö±í
+ * ä¸€ä¸ªé€»è¾‘è¡¨æ€æ ·åˆ†åº“åˆ†è¡¨
  * 
  *
  */
@@ -38,11 +38,11 @@ public class TableRule implements Cloneable {
 
     private boolean      allowReverseOutput;
     private boolean      needRowCopy;
-    private boolean      disableFullTableScan = true;                    //ÊÇ·ñ¹Ø±ÕÈ«±íÉ¨Ãè
+    private boolean      disableFullTableScan = true;                    //æ˜¯å¦å…³é—­å…¨è¡¨æ‰«æ
 
     /**
-     * ÓÃÀ´Ìæ»»dbRules¡¢tbRulesÖĞµÄÕ¼Î»·û
-     * ÓÅÏÈÓÃdbRuleParames£¬tbRuleParamesÌæ»»£¬ÆäÎª¿ÕÊ±ÔÙÓÃruleParamesÌæ»»
+     * ç”¨æ¥æ›¿æ¢dbRulesã€tbRulesä¸­çš„å ä½ç¬¦
+     * ä¼˜å…ˆç”¨dbRuleParamesï¼ŒtbRuleParamesæ›¿æ¢ï¼Œå…¶ä¸ºç©ºæ—¶å†ç”¨ruleParamesæ›¿æ¢
      */
     private String[]     ruleParames;
     private String[]     dbRuleParames;
@@ -67,15 +67,15 @@ public class TableRule implements Cloneable {
     };
 
     /**
-     * ÃèÊö±íºó×ºÅäÖÃ¡£¸ñÊ½£º
-     * throughAllDB:[_0000-_0063] #Èç¹û3ÌØÊâµÄ£ºthroughAllDB:[_0000-_0063],3:[_00-_63]
+     * æè¿°è¡¨åç¼€é…ç½®ã€‚æ ¼å¼ï¼š
+     * throughAllDB:[_0000-_0063] #å¦‚æœ3ç‰¹æ®Šçš„ï¼šthroughAllDB:[_0000-_0063],3:[_00-_63]
      * resetForEachDB:[_0-_4]
      * twoColumnForEachDB: [_00-_99],[_00-_11]
      * dbIndexForEachDB:[_00-_09]
      */
     private SuffixManager suffixManager = new SuffixManager();
     /**
-     * ±íÃûÇ°ê¡
+     * è¡¨åå‰è¾
      */
     private Preffix       tbPreffix;
 
@@ -96,16 +96,16 @@ public class TableRule implements Cloneable {
     }
 
     /**
-     * 1.½âÎötbSuffix 2.Ìæ»»rule±í´ïÊ½ÖĞµÄÕ¼Î»·û
+     * 1.è§£ætbSuffix 2.æ›¿æ¢ruleè¡¨è¾¾å¼ä¸­çš„å ä½ç¬¦
      * @throws ParseException 
      */
     public void init() throws ParseException {
 
         if (dbIndexes == null) {
             if (dbIndexPrefix == null || dbIndexCount <= 0) {
-                throw new IllegalArgumentException("dbIndexesÃ»ÓĞÅäÖÃ");
+                throw new IllegalArgumentException("dbIndexesæ²¡æœ‰é…ç½®");
             }
-            //°´dbIndexPrefixºÍdbIndexCountÉú³ÉdbIndexes
+            //æŒ‰dbIndexPrefixå’ŒdbIndexCountç”ŸæˆdbIndexes
             int suffixLen = Integer.valueOf(dbIndexCount).toString().length();
             dbIndexes = new String[dbIndexCount];
             for (int i = 0; i < dbIndexCount; i++) {
@@ -116,7 +116,7 @@ public class TableRule implements Cloneable {
                 dbIndexes[i] = dbIndexPrefix + suffix;
             }
         }
-        //Éè¶¨dbµÄ¸öÊı
+        //è®¾å®šdbçš„ä¸ªæ•°
         setDbIndexCount(dbIndexes.length);
         replaceWithParam(this.dbRules, dbRuleParames != null ? dbRuleParames : ruleParames);
         replaceWithParam(this.tbRules, tbRuleParames != null ? tbRuleParames : ruleParames);
@@ -157,7 +157,7 @@ public class TableRule implements Cloneable {
             return template;
         }
         if (params.length != 0 && params[0].indexOf(":") != -1) {
-            //Ö»ÒªparamsµÄµÚÒ»¸ö²ÎÊıÖĞº¬ÓĞÃ°ºÅ£¬¾ÍÈÏÎªÊÇNamedParam
+            //åªè¦paramsçš„ç¬¬ä¸€ä¸ªå‚æ•°ä¸­å«æœ‰å†’å·ï¼Œå°±è®¤ä¸ºæ˜¯NamedParam
             return replaceWithNamedParam(template, params);
         }
         return new MessageFormat(template).format(params);
@@ -168,7 +168,7 @@ public class TableRule implements Cloneable {
         for (String param : params) {
             int index = param.indexOf(":");
             if (index == -1) {
-                throw new IllegalArgumentException("Ê¹ÓÃÃû×Ö»¯µÄÕ¼Î»·ûÌæ»»Ê§°Ü£¡Çë¼ì²éÅäÖÃ¡£ params:"
+                throw new IllegalArgumentException("ä½¿ç”¨åå­—åŒ–çš„å ä½ç¬¦æ›¿æ¢å¤±è´¥ï¼è¯·æ£€æŸ¥é…ç½®ã€‚ params:"
                                                    + Arrays.asList(params));
             }
             args.put(param.substring(0, index).trim(), param.substring(index + 1).trim());
@@ -190,7 +190,7 @@ public class TableRule implements Cloneable {
     }
 
     /**
-     * ÓĞÂß¼­µÄgetter/setter
+     * æœ‰é€»è¾‘çš„getter/setter
      * @throws ParseException 
      */
     @SuppressWarnings("unchecked")
@@ -273,7 +273,7 @@ public class TableRule implements Cloneable {
 
     public void setDbRules(String dbRules) {
         if (this.dbRules == null) {
-            //ÓÅÏÈ¼¶±ÈdbRuleArrayµÍ
+            //ä¼˜å…ˆçº§æ¯”dbRuleArrayä½
             this.dbRules = dbRules.split("\\|");
         }
     }
@@ -292,14 +292,14 @@ public class TableRule implements Cloneable {
 
     public void setTbRules(String tbRules) {
         if (this.tbRules == null) {
-            //ÓÅÏÈ¼¶±ÈtbRuleArrayµÍ
+            //ä¼˜å…ˆçº§æ¯”tbRuleArrayä½
             this.tbRules = tbRules.split("\\|");
         }
     }
 
     public void setRuleParames(String ruleParames) {
         if (ruleParames.indexOf('|') != -1) {
-            //ÓÅÏÈÓÃ|Ïß·Ö¸ô,ÒòÎªÓĞĞ©¹æÔò±í´ïÊ½ÖĞ»áÓĞ¶ººÅ
+            //ä¼˜å…ˆç”¨|çº¿åˆ†éš”,å› ä¸ºæœ‰äº›è§„åˆ™è¡¨è¾¾å¼ä¸­ä¼šæœ‰é€—å·
             this.ruleParames = ruleParames.split("\\|");
         } else {
             this.ruleParames = ruleParames.split(",");
@@ -327,7 +327,7 @@ public class TableRule implements Cloneable {
     }
 
     /**
-     * ÎŞÂß¼­µÄgetter/setter
+     * æ— é€»è¾‘çš„getter/setter
      */
 
     public void setTbSuffix(String tbSuffix) {
@@ -452,7 +452,7 @@ public class TableRule implements Cloneable {
         }
     }
 
-    /* //±©Â¶µÃÓĞÎÊÌâ
+    /* //æš´éœ²å¾—æœ‰é—®é¢˜
     public void setSuffixManager(SuffixManager suffixManager) {
     	this.suffixManager = suffixManager;
     }

@@ -5,14 +5,14 @@
 package com.alipay.zdal.parser;
 
 /**
- * ËùÖ§³ÖµÄsqlÓï¾ä·½·¨.
+ * æ‰€æ”¯æŒçš„sqlè¯­å¥æ–¹æ³•.
  * @author xiaoqing.zhouxq
- * @version $Id: GroupFunctionType.java, v 0.1 2012-5-21 ÏÂÎç01:59:55 xiaoqing.zhouxq Exp $
+ * @version $Id: GroupFunctionType.java, v 0.1 2012-5-21 ä¸‹åˆ01:59:55 xiaoqing.zhouxq Exp $
  */
 public enum GroupFunctionType {
     MIN, MAX, COUNT, AVG, SUM,
     /**
-     * ·ÇÒÔÉÏµÄÈÎºÎÒ»ÖÖÇé¿ö 
+     * éä»¥ä¸Šçš„ä»»ä½•ä¸€ç§æƒ…å†µ 
      */
     NORMAL
 }

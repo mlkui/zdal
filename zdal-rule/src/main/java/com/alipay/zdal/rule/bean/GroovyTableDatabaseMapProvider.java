@@ -19,7 +19,7 @@ import com.alipay.zdal.rule.config.beans.Preffix;
 import com.alipay.zdal.rule.ruleengine.entities.abstractentities.SharedElement;
 
 /**
- * ¸ù¾İÓÃ»§ÅäÖÃµÄÒ»¶Îgroove½Å±¾·µ»ØÒ»¸öList<string> Ö±½ÓÆ´³ÉÒ»¸ömap·µ»Ø
+ * æ ¹æ®ç”¨æˆ·é…ç½®çš„ä¸€æ®µgrooveè„šæœ¬è¿”å›ä¸€ä¸ªList<string> ç›´æ¥æ‹¼æˆä¸€ä¸ªmapè¿”å›
  * 
  * 
  */
@@ -30,7 +30,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
     private List<String>               tableNames;
     /**
-     * Êı¾İ¿âµÄ¸öÊı
+     * æ•°æ®åº“çš„ä¸ªæ•°
      */
     private int                        dbNumber;
 
@@ -40,18 +40,18 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
     private GroovyShell                shell               = new GroovyShell(binding);
     /**
-     * ±íÃûÇ°ê¡ Îª¿ÕÊ±£¬Ä¬ÈÏÊ¹ÓÃÂß¼­±íÃû logicTable
+     * è¡¨åå‰è¾ ä¸ºç©ºæ—¶ï¼Œé»˜è®¤ä½¿ç”¨é€»è¾‘è¡¨å logicTable
      */
     private Preffix                    tbPreffix;
     /**
-     * Âß¼­±íÃû
+     * é€»è¾‘è¡¨å
      */
     private String                     logicTable;
 
     private static Map<String, Object> tbSuffixRuleResult  = new HashMap<String, Object>();
 
     /**
-     * ·Ö±íºó×ºÅäÖÃÀàĞÍ
+     * åˆ†è¡¨åç¼€é…ç½®ç±»å‹
      */
     private String                     tbType;
 
@@ -71,7 +71,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
         }
 
         /**
-         * »ñÈ¡¿âµÄ×ÜÊı
+         * è·å–åº“çš„æ€»æ•°
          * 
          * @param dbNumber
          * @return
@@ -90,7 +90,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
         }
 
         /**
-         * »ñÈ¡±íµÄ×ÜÊı
+         * è·å–è¡¨çš„æ€»æ•°
          * 
          * @param dbNumber
          * @param tbNumber
@@ -111,7 +111,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
     }
 
     /**
-     * ¸ù¾İÓ¦ÓÃÌîĞ´µÄgroovy½Å±¾À´µÃµ½Ò»¸ö°üº¬ËùÓĞtableµÄlist
+     * æ ¹æ®åº”ç”¨å¡«å†™çš„groovyè„šæœ¬æ¥å¾—åˆ°ä¸€ä¸ªåŒ…å«æ‰€æœ‰tableçš„list
      * 
      * @param expression
      * @return tables list
@@ -136,13 +136,13 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
         }
 
         /*
-         * ¸ù¾İ½Å±¾Éú³ÉµÄºóê¡Óë±íÃûÇ°½Ïê¡Éú³É×îÖÕµÄÊµ¼Ê±íÃûÁĞ±í
+         * æ ¹æ®è„šæœ¬ç”Ÿæˆçš„åè¾ä¸è¡¨åå‰è¾ƒè¾ç”Ÿæˆæœ€ç»ˆçš„å®é™…è¡¨ååˆ—è¡¨
          */
 
         if (value instanceof List) {
             List<String> tableNameList = (List<String>) value;
             List<String> finalList = new ArrayList<String>(tableNameList.size());
-            // Ã¿¸ö¿âÀïÓĞËùÓĞµÄ±í
+            // æ¯ä¸ªåº“é‡Œæœ‰æ‰€æœ‰çš„è¡¨
             if (TableSuffixTypeEnum.groovyTableList.getValue().equals(this.tbType)) {
                 String temp = this.getPadding();
                 for (String tname : tableNameList) {
@@ -151,7 +151,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
                 }
             } else if (TableSuffixTypeEnum.groovyThroughAllDBTableList.getValue().equals(
                 this.tbType)) {
-                // ·µ»ØÊôÓÚ¸Ã·Ö¿âµÄ±íµÄºó×º
+                // è¿”å›å±äºè¯¥åˆ†åº“çš„è¡¨çš„åç¼€
                 int multiple = Integer.valueOf(super.getParentID());
                 int tableNumberForEachDB = tableNameList.size() / dbNumber;
                 int begin = multiple * tableNumberForEachDB;
@@ -163,7 +163,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
                         .toString());
                 }
             } else if (TableSuffixTypeEnum.groovyAdjustTableList.getValue().equals(this.tbType)) {
-                // check Ò»ÏÂ
+                // check ä¸€ä¸‹
                 if (this.dbAndNumberRelation.tbNumberEnds[this.dbAndNumberRelation.tbNumber.length - 1] != tableNameList
                     .size()
                     || this.dbAndNumberRelation.dbNumberEnds[this.dbAndNumberRelation.dbNumber.length - 1] != this.dbNumber) {
@@ -204,12 +204,12 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
                 log.debug("dbId=" + super.getParentID() + ",tableNameList=" + finalList);
             }
             /*
-             * //Èç¹ûÖ¸¶¨Ã¿¸ö·Ö±í¿â·Ö±íµÄ¸öÊıÎª-1£¬ËµÃ÷Ã¿¸ö¿â¶¼ÊÇ³õÊ¼»¯ËùÓĞµÄ±í if
+             * //å¦‚æœæŒ‡å®šæ¯ä¸ªåˆ†è¡¨åº“åˆ†è¡¨çš„ä¸ªæ•°ä¸º-1ï¼Œè¯´æ˜æ¯ä¸ªåº“éƒ½æ˜¯åˆå§‹åŒ–æ‰€æœ‰çš„è¡¨ if
              * (super.doesNotSetTablesNumberForEachDatabases()) { String temp =
              * this.getPadding(); for (String tname : tableNameList) {
              * finalList.add(new
              * StringBuilder(tableFactory).append(temp).append(tname)
-             * .toString()); } } else { //·µ»ØÊôÓÚ¸Ã·Ö¿âµÄ±íµÄºó×º int multiple =
+             * .toString()); } } else { //è¿”å›å±äºè¯¥åˆ†åº“çš„è¡¨çš„åç¼€ int multiple =
              * Integer.valueOf(super.getParentID()); int tableNumberForEachDB =
              * tableNameList.size() / dbNumber; int begin = multiple *
              * tableNumberForEachDB; int end = begin + tableNumberForEachDB;
@@ -220,12 +220,12 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
              */
             return finalList;
         } else {
-            throw new IllegalArgumentException("Ö´ĞĞ½Å±¾µÃµ½ÁË´íÎóµÄÀàĞÍ!Çë¼ì²é");
+            throw new IllegalArgumentException("æ‰§è¡Œè„šæœ¬å¾—åˆ°äº†é”™è¯¯çš„ç±»å‹!è¯·æ£€æŸ¥");
         }
     }
 
     /**
-     * ¸ù¾İÅäÖÃÖĞµÄgroovy½Å±¾À´Éú³ÉÒ»¸ötable map
+     * æ ¹æ®é…ç½®ä¸­çš„groovyè„šæœ¬æ¥ç”Ÿæˆä¸€ä¸ªtable map
      * 
      * @return Map<String, SharedElement>
      */
@@ -237,13 +237,13 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
             setTableFactor(logicTable);
         }
         if (getTableFactor() == null) {
-            throw new IllegalArgumentException("Ã»ÓĞ±íÃûÉú³ÉÒò×Ó");
+            throw new IllegalArgumentException("æ²¡æœ‰è¡¨åç”Ÿæˆå› å­");
         }
 
         try {
             this.tableNames = getTableNames(getTableFactor(), getExpression());
         } catch (Exception e) {
-            log.error("²»ÄÜµÃµ½tablesNames ,Ö±½Ó·µ»Ønull. ", e);
+            log.error("ä¸èƒ½å¾—åˆ°tablesNames ,ç›´æ¥è¿”å›null. ", e);
             return null;
         }
         List<Table> tables = null;
@@ -299,14 +299,14 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
     }
 
     public void setExpression(String expression) {
-        // Èç¹ûÅäÖÃÊÇÊÊÅäµÄ·½Ê½£¬½øĞĞÌØÊâ´¦Àí
+        // å¦‚æœé…ç½®æ˜¯é€‚é…çš„æ–¹å¼ï¼Œè¿›è¡Œç‰¹æ®Šå¤„ç†
         if (TableSuffixTypeEnum.groovyAdjustTableList.getValue().equals(this.tbType)) {
             String temp[] = expression.split(":");
-            // ÅĞ¶¨ÊÇ·ñ·ûºÏ[20_10,200_1]¸ñÊ½
+            // åˆ¤å®šæ˜¯å¦ç¬¦åˆ[20_10,200_1]æ ¼å¼
             if (!temp[0].startsWith("[") || !temp[0].endsWith("]")) {
                 throw new IllegalArgumentException("The tbsuffix of groovyAjustTableList error!");
             }
-            // È¥µô[]
+            // å»æ‰[]
             String part = temp[0].substring(1, temp[0].length() - 1);
             String[] part2 = part.split(",");
             int[] dbNumber = new int[part2.length];

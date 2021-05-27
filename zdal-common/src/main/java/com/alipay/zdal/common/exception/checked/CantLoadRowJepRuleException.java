@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.checked;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: CantLoadRowJepRuleException.java, v 0.1 2014-1-6 ÏÂÎç05:17:59 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CantLoadRowJepRuleException.java, v 0.1 2014-1-6 ä¸‹åˆ05:17:59 Exp $
  */
 public class CantLoadRowJepRuleException extends ZdalCheckedExcption {
 
@@ -17,8 +17,8 @@ public class CantLoadRowJepRuleException extends ZdalCheckedExcption {
     private static final long serialVersionUID = 1765363763147779906L;
 
     public CantLoadRowJepRuleException(String expression, String vtable, String parameter) {
-        super("ÎŞ·¨Í¨¹ıparam:" + parameter + "|virtualTableName:" + vtable + "|expression:"
-              + expression + "ÕÒµ½Ö¸¶¨µÄ¹æÔòÅĞ¶ÏÒıÇæ");
+        super("æ— æ³•é€šè¿‡param:" + parameter + "|virtualTableName:" + vtable + "|expression:"
+              + expression + "æ‰¾åˆ°æŒ‡å®šçš„è§„åˆ™åˆ¤æ–­å¼•æ“");
     }
 
 }

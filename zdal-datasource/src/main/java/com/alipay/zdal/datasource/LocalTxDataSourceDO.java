@@ -15,58 +15,58 @@ import com.alipay.zdal.datasource.resource.security.SecureIdentityLoginModule;
 /**
  * 
  * @author sicong.shou
- * @version $Id: LocalTxDataSourceDO.java, v 0.1 2012-11-22 ÉÏÎç10:04:48 sicong.shou Exp $
+ * @version $Id: LocalTxDataSourceDO.java, v 0.1 2012-11-22 ä¸Šåˆ10:04:48 sicong.shou Exp $
  */
 public class LocalTxDataSourceDO implements Cloneable {
 
-    /** Êı¾İÔ´Ãû³Æ,±ØÌî */
+    /** æ•°æ®æºåç§°,å¿…å¡« */
     private String              dsName                          = null;
 
-    /** Êı¾İ¿âÁ¬½ÓµÄurl,±ØÌî£¬ÓÉÍ³Ò»Êı¾İÔ´Ìá¹©. */
+    /** æ•°æ®åº“è¿æ¥çš„url,å¿…å¡«ï¼Œç”±ç»Ÿä¸€æ•°æ®æºæä¾›. */
     private String              connectionURL                   = null;
-    /**  Á¬½ÓÊı¾İ¿âµÄdriverÀàÃû£¬±ØÌî£¬Ä¿Ç°Ö»Ö§³ÖmysqlºÍoracle 
-     * mysql£ºcom.mysql.jdbc.Driver
+    /**  è¿æ¥æ•°æ®åº“çš„driverç±»åï¼Œå¿…å¡«ï¼Œç›®å‰åªæ”¯æŒmysqlå’Œoracle 
+     * mysqlï¼šcom.mysql.jdbc.Driver
      * oracle:oracle.jdbc.OracleDriver*/
     private String              driverClass                     = null;
-    /** Á¬½ÓÊı¾İ¿âµÄÓÃ»§Ãû£¬±ØÌî£¬ÓÉÍ³Ò»Êı¾İÑÛÌá¹©. */
+    /** è¿æ¥æ•°æ®åº“çš„ç”¨æˆ·åï¼Œå¿…å¡«ï¼Œç”±ç»Ÿä¸€æ•°æ®çœ¼æä¾›. */
     private String              userName                        = null;
-    /** Á¬½ÓÊı¾İ¿âµÄÃ÷ÎÄÃÜÂë£¬passwordÓëencPasswordÁ½¸ö±ØĞëÓĞÒ»¸ö. */
+    /** è¿æ¥æ•°æ®åº“çš„æ˜æ–‡å¯†ç ï¼Œpasswordä¸encPasswordä¸¤ä¸ªå¿…é¡»æœ‰ä¸€ä¸ª. */
     private String              passWord                        = null;
-    /** Á¬½ÓÊı¾İ¿âµÄÃÜÎÄÃÜÂë£¬passwordÓëencPasswordÁ½¸ö±ØĞëÓĞÒ»¸ö£¬ÓÉÍ³Ò»Êı¾İÔ´Ìá¹©. */
+    /** è¿æ¥æ•°æ®åº“çš„å¯†æ–‡å¯†ç ï¼Œpasswordä¸encPasswordä¸¤ä¸ªå¿…é¡»æœ‰ä¸€ä¸ªï¼Œç”±ç»Ÿä¸€æ•°æ®æºæä¾›. */
     private String              encPassword                     = null;
-    /** ×îĞ¡Á¬½ÓÊı  £¬±ØĞë >=0 */
+    /** æœ€å°è¿æ¥æ•°  ï¼Œå¿…é¡» >=0 */
     private int                 minPoolSize                     = 0;
-    /** ×î´óÁ¬½ÓÊı£¬±ØĞë >= 0 */
+    /** æœ€å¤§è¿æ¥æ•°ï¼Œå¿…é¡» >= 0 */
     private int                 maxPoolSize                     = 0;
-    /** ÓÃÓÚÊı¾İÔ´ÄÚ²¿Á¬½ÓÊÇ·ñĞèÒª×Ô¶¯ÌŞ³öµÄÒì³£¼ì²âÀà£¬±ØÌî£¬Ä¿Ç°Ö»Ö§³Ömysql£¬oracle
+    /** ç”¨äºæ•°æ®æºå†…éƒ¨è¿æ¥æ˜¯å¦éœ€è¦è‡ªåŠ¨å‰”å‡ºçš„å¼‚å¸¸æ£€æµ‹ç±»ï¼Œå¿…å¡«ï¼Œç›®å‰åªæ”¯æŒmysqlï¼Œoracle
      *  mysql:com.alipay.zdal.common.jdbc.sorter.MySQLExceptionSorter.class.getName()
      *  oracle:com.alipay.zdal.common.jdbc.sorter.OracleExceptionSorter.class.getName()
-     *  ÓëdriverClass¶ÔÓ¦.
+     *  ä¸driverClasså¯¹åº”.
      *  */
     private String              exceptionSorterClassName        = null;
-    /** Á¬½Ó¿ÕÏĞÊ±¼äµÄ³¤¶È£¬È·¶¨ĞèÒª±»ÌŞ³öÁ¬½Ó³Ø£¬Ô­ÔòÈçÏÂ£º
-     * (idleTimeoutMinutes*60*1000)/2(ms)¼ì²âÒ»´Î£¬³¬¹ıidleTimeoutMinutes*60*1000(ms)Ã»ÓĞÊ¹ÓÃµÄÁ¬½Ó¾ÍÊÇ¿ÕÏĞÁ¬½Ó£¬»á×Ô¶¯ÌŞ³ö£¬
-     * µ¥Î»£º·Ö  ±ØĞë > 0 */
+    /** è¿æ¥ç©ºé—²æ—¶é—´çš„é•¿åº¦ï¼Œç¡®å®šéœ€è¦è¢«å‰”å‡ºè¿æ¥æ± ï¼ŒåŸåˆ™å¦‚ä¸‹ï¼š
+     * (idleTimeoutMinutes*60*1000)/2(ms)æ£€æµ‹ä¸€æ¬¡ï¼Œè¶…è¿‡idleTimeoutMinutes*60*1000(ms)æ²¡æœ‰ä½¿ç”¨çš„è¿æ¥å°±æ˜¯ç©ºé—²è¿æ¥ï¼Œä¼šè‡ªåŠ¨å‰”å‡ºï¼Œ
+     * å•ä½ï¼šåˆ†  å¿…é¡» > 0 */
     private long                idleTimeoutMinutes              = 180;
-    /** »ñÈ¡Á¬½ÓµÄ×î´ó³¬Ê±Ê±¼ä£¬ÔÚÖ¸¶¨Ê±¼äÄÚ»ñÈ¡²»µ½Á¬½Ó£¬µÚÒ»ÖÖÇé¿öÊÇ£¬Á¬½Ó³ØµÄÁ¬½ÓÈ«²¿ÔÚÊ¹ÓÃ£¬µÚ¶şÖÖÇé¿öÊÇÊı¾İ¿â·±Ã¦»òÕßÓĞÒì³£,
-     * µ¥Î»£ººÁÃë  ±ØĞë > 0 */
+    /** è·å–è¿æ¥çš„æœ€å¤§è¶…æ—¶æ—¶é—´ï¼Œåœ¨æŒ‡å®šæ—¶é—´å†…è·å–ä¸åˆ°è¿æ¥ï¼Œç¬¬ä¸€ç§æƒ…å†µæ˜¯ï¼Œè¿æ¥æ± çš„è¿æ¥å…¨éƒ¨åœ¨ä½¿ç”¨ï¼Œç¬¬äºŒç§æƒ…å†µæ˜¯æ•°æ®åº“ç¹å¿™æˆ–è€…æœ‰å¼‚å¸¸,
+     * å•ä½ï¼šæ¯«ç§’  å¿…é¡» > 0 */
     private int                 blockingTimeoutMillis           = 180;
-    /** Ã¿¸öconnection»º´æµÄpreparedStatementµÄ´óĞ¡£¬
-     * 1£¬oracle11g-thinÄ£Ê½£¬ÇëÉèÖÃ³É0£¬²ÉÓÃoracle-driverÌá¹©µÄcache 
-     * 2£¬oracle11g-ociÄ£Ê½£¬¸ù¾İÒµÎñÇé¿öÉèÖÃ³ÉÒ»¶¨µÄ>0µÄÖµ
-     * 3£¬mysqlÄ¿Ç°²»Ö§³Ö£¬Ö±½ÓÉèÖÃ³É0¾Í¿ÉÒÔ
-     * ±ØĞë>=0*/
+    /** æ¯ä¸ªconnectionç¼“å­˜çš„preparedStatementçš„å¤§å°ï¼Œ
+     * 1ï¼Œoracle11g-thinæ¨¡å¼ï¼Œè¯·è®¾ç½®æˆ0ï¼Œé‡‡ç”¨oracle-driveræä¾›çš„cache 
+     * 2ï¼Œoracle11g-ociæ¨¡å¼ï¼Œæ ¹æ®ä¸šåŠ¡æƒ…å†µè®¾ç½®æˆä¸€å®šçš„>0çš„å€¼
+     * 3ï¼Œmysqlç›®å‰ä¸æ”¯æŒï¼Œç›´æ¥è®¾ç½®æˆ0å°±å¯ä»¥
+     * å¿…é¡»>=0*/
     private int                 preparedStatementCacheSize      = 0;
-    /** Ö´ĞĞexecute£¬executeQuery£¬executeUpdateµÄ×î´ó³¬Ê±Ê±¼ä,
-     * µ¥Î»£ºÃë  ±ØĞë>0 */
+    /** æ‰§è¡Œexecuteï¼ŒexecuteQueryï¼ŒexecuteUpdateçš„æœ€å¤§è¶…æ—¶æ—¶é—´,
+     * å•ä½ï¼šç§’  å¿…é¡»>0 */
     private int                 queryTimeout                    = 180;
-    /** ÊÂÎñ¸ôÀë¼¶±ğ. */
+    /** äº‹åŠ¡éš”ç¦»çº§åˆ«. */
     private String              transactionIsolation            = "-1";
-    /** mysql-driver,oracle-driverËùÌá¹©µÄÁ¬½Ó²ÎÊı
-     * mysql»áÄ¬ÈÏ¼ÓÉÏuseUnicode=true£»characterEncoding=gbkÕâÁ½¸öKey-Value
-     * oracle»áÄ¬ÈÏ¼ÓÉÏSetBigStringTryClob=true£»defaultRowPrefetch=50ÕâÁ½¸öKey-Value. */
+    /** mysql-driver,oracle-driveræ‰€æä¾›çš„è¿æ¥å‚æ•°
+     * mysqlä¼šé»˜è®¤åŠ ä¸ŠuseUnicode=trueï¼›characterEncoding=gbkè¿™ä¸¤ä¸ªKey-Value
+     * oracleä¼šé»˜è®¤åŠ ä¸ŠSetBigStringTryClob=trueï¼›defaultRowPrefetch=50è¿™ä¸¤ä¸ªKey-Value. */
     private Map<String, String> connectionProperties            = new HashMap<String, String>();
-    /** Êı¾İÔ´Á¬½Ó³ØÔÚ³õÊ¼»¯³É¹¦ÒÔºó£¬ÊÇ·ñ½¨Á¢×îĞ¡Á¬½ÓÊı. */
+    /** æ•°æ®æºè¿æ¥æ± åœ¨åˆå§‹åŒ–æˆåŠŸä»¥åï¼Œæ˜¯å¦å»ºç«‹æœ€å°è¿æ¥æ•°. */
     private boolean             prefill                         = false;
 
     @Deprecated
@@ -96,7 +96,7 @@ public class LocalTxDataSourceDO implements Cloneable {
     public static final int     UNSET                           = -1;
 
     /**
-     * ¹¹Ôì·½·¨£¬Ä¬ÈÏset½øÁ½¸öconProp£¬Õ¾ÄÚµÄÁ¬½Ó¶¼ĞèÒª
+     * æ„é€ æ–¹æ³•ï¼Œé»˜è®¤setè¿›ä¸¤ä¸ªconPropï¼Œç«™å†…çš„è¿æ¥éƒ½éœ€è¦
      */
     public LocalTxDataSourceDO() {
         //

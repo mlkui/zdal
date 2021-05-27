@@ -21,8 +21,8 @@ import com.alipay.zdal.datasource.resource.util.threadpool.ThreadPool;
  * no timeouts are fired, this class will eventually operate without
  * allocating anything on the heap.
  *
- * @author ²®ÑÀ
- * @version $Id: TimeoutFactory.java, v 0.1 2014-1-6 ÏÂÎç05:46:16 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TimeoutFactory.java, v 0.1 2014-1-6 ä¸‹åˆ05:46:16 Exp $
  */
 public class TimeoutFactory {
     //   private static final Logger    logger                = Logger.getLogger(TimeoutFactory.class);

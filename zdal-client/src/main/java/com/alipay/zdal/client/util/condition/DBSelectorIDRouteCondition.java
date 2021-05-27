@@ -11,8 +11,8 @@ import java.util.List;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: DBSelectorIDRouteCondition.java, v 0.1 2014-1-6 ÏÂÎç05:16:07 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: DBSelectorIDRouteCondition.java, v 0.1 2014-1-6 ä¸‹åˆ05:16:07 Exp $
  */
 public class DBSelectorIDRouteCondition implements DBSelectorRouteCondition {
     final String       dbSelectorID;
@@ -21,7 +21,7 @@ public class DBSelectorIDRouteCondition implements DBSelectorRouteCondition {
     volatile boolean   used;
 
     /**
-     * Âß¼­±íÃûºÍÄ¿±ê±íÃûÍêÈ«Ò»ÖÂµÄ¼ò»¯·½·¨
+     * é€»è¾‘è¡¨åå’Œç›®æ ‡è¡¨åå®Œå…¨ä¸€è‡´çš„ç®€åŒ–æ–¹æ³•
      * 
      * @param logicTableName
      * @param dbSelectorID
@@ -31,7 +31,7 @@ public class DBSelectorIDRouteCondition implements DBSelectorRouteCondition {
     }
 
     /**
-     * ½¨Á¢Ò»¸öÖ±½ÓÍ¨¹ıÂß¼­±íÃû£¬Êı¾İ¿âÖ´ĞĞidºÍÊµ¼Ê±íÃû£¬Ö´ĞĞSQLµÄRouteCondition
+     * å»ºç«‹ä¸€ä¸ªç›´æ¥é€šè¿‡é€»è¾‘è¡¨åï¼Œæ•°æ®åº“æ‰§è¡Œidå’Œå®é™…è¡¨åï¼Œæ‰§è¡ŒSQLçš„RouteCondition
      * 
      * @param logicTableName
      * @param dbSelectorID
@@ -45,11 +45,11 @@ public class DBSelectorIDRouteCondition implements DBSelectorRouteCondition {
     }
 
     public String getDBSelectorID() {
-        //Ã²ËÆÃ»ÓĞµØ·½set used = true;
+        //è²Œä¼¼æ²¡æœ‰åœ°æ–¹set used = true;
         if (!used) {
             return dbSelectorID;
         } else {
-            throw new IllegalArgumentException("Ò»¸öroute¶ÔÏóÖ»ÄÜ±»Ê¹ÓÃÒ»´Î£¬ÇëÖØĞÂ½¨Á¢" + "route¶ÔÏó");
+            throw new IllegalArgumentException("ä¸€ä¸ªrouteå¯¹è±¡åªèƒ½è¢«ä½¿ç”¨ä¸€æ¬¡ï¼Œè¯·é‡æ–°å»ºç«‹" + "routeå¯¹è±¡");
         }
     }
 

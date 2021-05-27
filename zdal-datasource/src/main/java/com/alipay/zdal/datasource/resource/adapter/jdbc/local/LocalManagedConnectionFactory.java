@@ -29,8 +29,8 @@ import com.alipay.zdal.datasource.resource.util.NestedRuntimeException;
  * LocalManagedConnectionFactory
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: LocalManagedConnectionFactory.java, v 0.1 2014-1-6 ÏÂÎç05:32:13 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: LocalManagedConnectionFactory.java, v 0.1 2014-1-6 ä¸‹åˆ05:32:13 Exp $
  */
 public class LocalManagedConnectionFactory extends BaseWrapperManagedConnectionFactory {
     static final long        serialVersionUID = 4698955390505160469L;
@@ -150,7 +150,7 @@ public class LocalManagedConnectionFactory extends BaseWrapperManagedConnectionF
             if (con == null) {
                 throw new JBossResourceException("Wrong driver class for this connection URL");
             }
-            String stz = copy.getProperty("sessionTimeZone");//Ö§³Öoracle-driverÖĞÉèÖÃtimestamp×Ö¶ÎµÄÊôĞÔ.
+            String stz = copy.getProperty("sessionTimeZone");//æ”¯æŒoracle-driverä¸­è®¾ç½®timestampå­—æ®µçš„å±æ€§.
             if (stz != null && stz.trim().length() > 0
                 && (con instanceof oracle.jdbc.OracleConnection)) {
                 ((oracle.jdbc.OracleConnection) con).setSessionTimeZone(stz);
@@ -264,7 +264,7 @@ public class LocalManagedConnectionFactory extends BaseWrapperManagedConnectionF
             }
             //            //We loaded the class, but either it didn't register
             //            //and is not spec compliant, or is the wrong class.
-            //            if (url.startsWith("jdbc:oracle:oci") && driverClass.equals("oracle.jdbc.OracleDriver")) {//Ö»ÓĞÔÚoracle-ociµÄÊ±ºò²ÅĞèÒª´ÓcloundengineÖĞ»ñÈ¡driver.
+            //            if (url.startsWith("jdbc:oracle:oci") && driverClass.equals("oracle.jdbc.OracleDriver")) {//åªæœ‰åœ¨oracle-ociçš„æ—¶å€™æ‰éœ€è¦ä»cloundengineä¸­è·å–driver.
             //                driver = ZDataSourceOciDriver.getDriver(driverClass, url);
             //            } else {
             Class<?> clazz = Class.forName(driverClass, true, Thread.currentThread()

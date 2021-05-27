@@ -28,11 +28,11 @@ import com.alipay.zdal.datasource.transaction.RollbackException;
 /**
  * WrapperDataSource
  *
- * @author 伯牙
- * @version $Id: WrapperDataSource.java, v 0.1 2014-1-6 下午05:31:32 Exp $
+ * @author 浼墮
+ * @version $Id: WrapperDataSource.java, v 0.1 2014-1-6 涓嬪崍05:31:32 Exp $
  */
 public class WrapperDataSource implements Referenceable, DataSource, Serializable {
-    /**  應用看到的數據源*/
+    /**  鎳夌敤鐪嬪埌鐨勬暩鎿氭簮*/
     ZDataSource                                       zdatasource      = null;
 
     static final long                                 serialVersionUID = 3570285419164793501L;

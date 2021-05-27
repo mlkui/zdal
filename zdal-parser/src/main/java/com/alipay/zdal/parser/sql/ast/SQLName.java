@@ -7,7 +7,7 @@ package com.alipay.zdal.parser.sql.ast;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLName.java, v 0.1 2012-11-17 œ¬ŒÁ3:13:05 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLName.java, v 0.1 2012-11-17 ‰∏ãÂçà3:13:05 xiaoqing.zhouxq Exp $
  */
 public interface SQLName extends SQLExpr {
     String getSimleName();

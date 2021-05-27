@@ -11,12 +11,12 @@ import com.alipay.zdal.common.sqljep.function.Comparative;
 import com.alipay.zdal.parser.result.SqlParserResult;
 
 /**
- * ×ß¹æÔòÒıÇæµÄÌõ¼ş±í´ïÊ½
+ * èµ°è§„åˆ™å¼•æ“çš„æ¡ä»¶è¡¨è¾¾å¼
  *
  */
 public interface RuleRouteCondition extends RouteCondition {
     /**
-     * ¼æÈİÀÏÊµÏÖ
+     * å…¼å®¹è€å®ç°
      * @return
      */
     public Map<String, Comparative> getParameters();

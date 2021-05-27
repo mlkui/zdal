@@ -16,8 +16,8 @@ import com.alipay.zdal.parser.sql.parser.Token;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleUpdateParser.java, v 0.1 2012-11-17 ÏÂÎç3:52:30 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleUpdateParser.java, v 0.1 2012-11-17 ä¸‹åˆ3:52:30 Exp $
  */
 public class OracleUpdateParser extends SQLStatementParser {
 

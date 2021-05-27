@@ -10,9 +10,9 @@ import java.util.Map;
 import com.alipay.zdal.client.config.bean.PhysicalDataSourceBean;
 
 /**
- * Êı¾İÔ´ÅäÖÃĞÅÏ¢µÄ¸÷ÖÖÊôĞÔ.
- * @author ²®ÑÀ
- * @version $Id: DataSourceParameter.java, v 0.1 2012-11-17 ÏÂÎç4:06:30 Exp $
+ * æ•°æ®æºé…ç½®ä¿¡æ¯çš„å„ç§å±æ€§.
+ * @author ä¼¯ç‰™
+ * @version $Id: DataSourceParameter.java, v 0.1 2012-11-17 ä¸‹åˆ4:06:30 Exp $
  */
 public class DataSourceParameter {
 
@@ -22,10 +22,10 @@ public class DataSourceParameter {
 
     private String              password              = "";
 
-    /** Á¬½Ó³ØÖĞ»î¶¯µÄ×îĞ¡Á¬½ÓÊı */
+    /** è¿æ¥æ± ä¸­æ´»åŠ¨çš„æœ€å°è¿æ¥æ•° */
     private int                 minConn;
 
-    /** Á¬½Ó³ØÖĞ»î¶¯µÄ×î´óÁ¬½ÓÊı */
+    /** è¿æ¥æ± ä¸­æ´»åŠ¨çš„æœ€å¤§è¿æ¥æ•° */
 
     private int                 maxConn;
 

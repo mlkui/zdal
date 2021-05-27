@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.checked;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: CantFindPositionByParamException.java, v 0.1 2014-1-6 ÏÂÎç05:17:50 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CantFindPositionByParamException.java, v 0.1 2014-1-6 ä¸‹åˆ05:17:50 Exp $
  */
 public class CantFindPositionByParamException extends ZdalCheckedExcption {
     /**
@@ -16,6 +16,6 @@ public class CantFindPositionByParamException extends ZdalCheckedExcption {
     private static final long serialVersionUID = 3682437768303903330L;
 
     public CantFindPositionByParamException(String param) {
-        super("²»ÄÜ¸ù¾İ" + param + "ÊôĞÔÕÒµ½Æä¶ÔÓ¦µÄÎ»ÖÃ£¬Çë×¢Òâ·Ö±í¹æÔò²»Ö§³Ö×éºÏ¹æÔò£¬Çë²»ÒªÊ¹ÓÃ×éºÏ¹æÔòÀ´½øĞĞ·Ö±í²éÑ¯");
+        super("ä¸èƒ½æ ¹æ®" + param + "å±æ€§æ‰¾åˆ°å…¶å¯¹åº”çš„ä½ç½®ï¼Œè¯·æ³¨æ„åˆ†è¡¨è§„åˆ™ä¸æ”¯æŒç»„åˆè§„åˆ™ï¼Œè¯·ä¸è¦ä½¿ç”¨ç»„åˆè§„åˆ™æ¥è¿›è¡Œåˆ†è¡¨æŸ¥è¯¢");
     }
 }

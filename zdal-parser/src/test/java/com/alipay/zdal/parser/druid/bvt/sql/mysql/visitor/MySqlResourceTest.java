@@ -18,7 +18,7 @@ import com.alipay.zdal.parser.sql.util.JdbcUtils;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: MySqlResourceTest.java, v 0.1 2012-5-17 …œŒÁ10:11:51 xiaoqing.zhouxq Exp $
+ * @version $Id: MySqlResourceTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:11:51 xiaoqing.zhouxq Exp $
  */
 public class MySqlResourceTest extends TestCase {
 

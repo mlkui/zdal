@@ -33,8 +33,8 @@ import com.alipay.zdal.datasource.resource.util.UnreachableStatementException;
 /**
  * The internal pool implementation
  *
- * @author ²®ÑÀ
- * @version $Id: InternalManagedConnectionPool.java, v 0.1 2014-1-6 ÏÂÎç05:34:47 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: InternalManagedConnectionPool.java, v 0.1 2014-1-6 ä¸‹åˆ05:34:47 Exp $
  */
 public class InternalManagedConnectionPool {
     private static final Logger             logger               = Logger
@@ -158,7 +158,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * Ç¿ÖÆÊ¹Á¬½Ó³ØµÄĞÅºÅÁ¿ÓëÊµ¼ÊµÄÊı¾İ¿â×ÜÁ¬½Ó±£³ÖÒ»ÖÂ
+     * å¼ºåˆ¶ä½¿è¿æ¥æ± çš„ä¿¡å·é‡ä¸å®é™…çš„æ•°æ®åº“æ€»è¿æ¥ä¿æŒä¸€è‡´
      */
     public void compareAndResetPermit() {
         long total = getAvailableConnections() + getConnectionInUseCount();
@@ -291,11 +291,11 @@ public class InternalManagedConnectionPool {
                     throw new UnreachableStatementException();
                 }
             } else {
-                if (this.maxSize == 0) {// Èç¹û×î´óÁ¬½ÓÊıÎª0£¬ÔòËµÃ÷db´¦ÓÚ²»¿ÉÓÃ×´Ì¬
-                    throw new ResourceException("µ±Ç°Êı¾İ¿â´¦ÓÚ²»¿ÉÓÃ×´Ì¬,poolName = " + poolName,
+                if (this.maxSize == 0) {// å¦‚æœæœ€å¤§è¿æ¥æ•°ä¸º0ï¼Œåˆ™è¯´æ˜dbå¤„äºä¸å¯ç”¨çŠ¶æ€
+                    throw new ResourceException("å½“å‰æ•°æ®åº“å¤„äºä¸å¯ç”¨çŠ¶æ€,poolName = " + poolName,
                         ZConstants.ERROR_CODE_DB_NOT_AVAILABLE);
                 } else if (this.maxSize == this.maxUsedConnections) {
-                    throw new ResourceException("Êı¾İÔ´×î´óÁ¬½ÓÊıÒÑÂú£¬²¢ÇÒÔÚ³¬Ê±Ê±¼ä·¶Î§ÄÚÃ»ÓĞĞÂµÄÁ¬½ÓÊÍ·Å,poolName = "
+                    throw new ResourceException("æ•°æ®æºæœ€å¤§è¿æ¥æ•°å·²æ»¡ï¼Œå¹¶ä¸”åœ¨è¶…æ—¶æ—¶é—´èŒƒå›´å†…æ²¡æœ‰æ–°çš„è¿æ¥é‡Šæ”¾,poolName = "
                                                 + poolName
                                                 + " blocking timeout="
                                                 + poolParams.blockingTimeout
@@ -305,7 +305,7 @@ public class InternalManagedConnectionPool {
                                                 + ((LocalManagedConnectionFactory) mcf)
                                                     .getConnectionURL(),
                         ZConstants.ERROR_CODE_CONNECTION_NOT_AVAILABLE);
-                } else {// ÊôÓÚ³¬Ê±
+                } else {// å±äºè¶…æ—¶
                     throw new ResourceException(
                         "No ManagedConnections available within configured blocking timeout ( "
                                 + poolParams.blockingTimeout + " [ms] ),the poolName = " + poolName
@@ -666,7 +666,7 @@ public class InternalManagedConnectionPool {
                         }
 
                     } finally {
-                        if (!destroyed) // FIXME: Ö»ÒªÓĞÒ»¸ö±»destroy£¬ÄÇÃ´Ö®ºóµÄËùÓĞcl¶¼²»»á±»·µ»¹¸øclsÁË
+                        if (!destroyed) // FIXME: åªè¦æœ‰ä¸€ä¸ªè¢«destroyï¼Œé‚£ä¹ˆä¹‹åçš„æ‰€æœ‰cléƒ½ä¸ä¼šè¢«è¿”è¿˜ç»™clsäº†
                         {
                             synchronized (connectionListeners) {
                                 returnForFrequencyCheck(cl);
@@ -740,7 +740,7 @@ public class InternalManagedConnectionPool {
     /**
      * 
      * @author sicong.shou
-     * @version $Id: InternalManagedConnectionPool.java, v 0.1 2012-11-23 ÉÏÎç11:49:54 sicong.shou Exp $
+     * @version $Id: InternalManagedConnectionPool.java, v 0.1 2012-11-23 ä¸Šåˆ11:49:54 sicong.shou Exp $
      */
     public static class PoolParams {
         public int     minSize            = 0;
@@ -764,7 +764,7 @@ public class InternalManagedConnectionPool {
     /**
      * 
      * @author sicong.shou
-     * @version $Id: InternalManagedConnectionPool.java, v 0.1 2012-11-23 ÉÏÎç11:49:58 sicong.shou Exp $
+     * @version $Id: InternalManagedConnectionPool.java, v 0.1 2012-11-23 ä¸Šåˆ11:49:58 sicong.shou Exp $
      */
     public static class InternalSemaphore extends Semaphore {
 

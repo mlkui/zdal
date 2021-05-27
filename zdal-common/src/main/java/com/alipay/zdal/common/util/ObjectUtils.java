@@ -8,10 +8,10 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
- * Ìá¹©»ù±¾µÄ·ÃÎÊObjectµÄ¹«¹²·½·¨.
+ * æä¾›åŸºæœ¬çš„è®¿é—®Objectçš„å…¬å…±æ–¹æ³•.
  * 
- * @author ²®ÑÀ
- * @version $Id: ObjectUtils.java, v 0.1 2012-11-17 ÏÂÎç4:56:07 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ObjectUtils.java, v 0.1 2012-11-17 ä¸‹åˆ4:56:07 Exp $
  */
 public abstract class ObjectUtils {
 

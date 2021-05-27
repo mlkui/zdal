@@ -5,10 +5,10 @@
 package com.alipay.zdal.rule.ruleengine.rule;
 
 /**
- * ר�����ڱ�ʶ��Ҫ�ڽ��ֵ����Ϊ�յ�����£���TStatement����getExecutionContextֱ�Ӻ���
- * δ�ҵ���������ؿս������һ����־���쳣��
+ * 专门用于标识需要在结果值计算为空的情况下，让TStatement里面getExecutionContext直接忽略
+ * 未找到库表，返回空结果集的一个标志性异常。
  * 
- * ������InterruptedException�е����ơ�
+ * 作用于InterruptedException有点相似。
  * 
  *
  */

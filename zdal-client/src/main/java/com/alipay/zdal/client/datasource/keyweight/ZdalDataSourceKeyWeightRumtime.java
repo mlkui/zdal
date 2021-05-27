@@ -14,7 +14,7 @@ import com.alipay.zdal.common.lang.StringUtil;
 /**
  * 
  * @author zhaofeng.wang
- * @version $Id: KeyWeightRumtime.java, v 0.1 2011-9-23 ÏÂÎç04:12:46 zhaofeng.wang Exp $
+ * @version $Id: KeyWeightRumtime.java, v 0.1 2011-9-23 ä¸‹åˆ04:12:46 zhaofeng.wang Exp $
  */
 public class ZdalDataSourceKeyWeightRumtime {
 
@@ -29,13 +29,13 @@ public class ZdalDataSourceKeyWeightRumtime {
     }
 
     /**
-     * ´¦ÀíÊı¾İÔ´µÄkeyWeightµÄÈ¨ÖØ±êÊ¶
+     * å¤„ç†æ•°æ®æºçš„keyWeightçš„æƒé‡æ ‡è¯†
      * 
-     * ²ÎÊıp¸ñÊ½ÈçÏÂ
+     * å‚æ•°pæ ¼å¼å¦‚ä¸‹
      * group_0=TradeCore00:10,TradeCore00_0:0
      * group_1=TradeCore01:10,TradeCore01_0:0
      * group_2=TradeCore02:0,TradeCore02_0:10
-     * ·ÅÔÚÔËĞĞÊ±±äÁ¿ÀïkeyWeightRuntimeConfigHoderÀï
+     * æ”¾åœ¨è¿è¡Œæ—¶å˜é‡é‡ŒkeyWeightRuntimeConfigHoderé‡Œ
      * 
      * @param keyWeightConfig
      * @return
@@ -50,59 +50,59 @@ public class ZdalDataSourceKeyWeightRumtime {
             String groupKey = (String) entry.getKey();
             String value = (String) entry.getValue();
             if (StringUtil.isBlank(groupKey) || StringUtil.isBlank(value)) {
-                logger.error("Êı¾İÔ´key=" + groupKey + "·Ö×éÈ¨ÖØÅäÖÃĞÅÏ¢²»ÄÜÎª¿Õ,value=" + value);
+                logger.error("æ•°æ®æºkey=" + groupKey + "åˆ†ç»„æƒé‡é…ç½®ä¿¡æ¯ä¸èƒ½ä¸ºç©º,value=" + value);
                 return null;
             }
             String[] keyWeightStr = value.split(",");
             String[] weightKeys = new String[keyWeightStr.length];
             int[] weights = new int[keyWeightStr.length];
-            //case:µ¥Êı¾İÔ´keyµÄÊ±ºò £¬Ê¾Àı£ºgroup_0=TradeCore00»òÕßgroup_0=TradeCore00:10
+            //case:å•æ•°æ®æºkeyçš„æ—¶å€™ ï¼Œç¤ºä¾‹ï¼šgroup_0=TradeCore00æˆ–è€…group_0=TradeCore00:10
             if (keyWeightStr.length == 1) {
                 if (StringUtil.isBlank(keyWeightStr[0])) {
-                    logger.error("µ¥Êı¾İÔ´keyWeightStr[0]·Ö×éÈ¨ÖØÅäÖÃĞÅÏ¢Îª¿Õ.");
+                    logger.error("å•æ•°æ®æºkeyWeightStr[0]åˆ†ç»„æƒé‡é…ç½®ä¿¡æ¯ä¸ºç©º.");
                     return null;
                 }
                 String[] keyAndWeight = keyWeightStr[0].split(":");
                 if (dataSourceKeyConfig.keySet() == null
                     || !dataSourceKeyConfig.keySet().contains(keyAndWeight[0].trim())) {
-                    logger.error("Êı¾İÔ´key=" + keyAndWeight[0] + "ÔÚÊı¾İÔ´ÅäÖÃÖĞ²»´æÔÚ.");
+                    logger.error("æ•°æ®æºkey=" + keyAndWeight[0] + "åœ¨æ•°æ®æºé…ç½®ä¸­ä¸å­˜åœ¨.");
                     return null;
                 }
-                weightKeys[0] = keyAndWeight[0].trim();//Êı¾İÔ´Ãû³Ækey
-                weights[0] = DEFAULT_DATASOURCE_WEIGHT;//Ä¬ÈÏÈ¨ÖØ10
+                weightKeys[0] = keyAndWeight[0].trim();//æ•°æ®æºåç§°key
+                weights[0] = DEFAULT_DATASOURCE_WEIGHT;//é»˜è®¤æƒé‡10
             } else if (keyWeightStr.length > 1) {
-                //case: ¶à¸öÊı¾İÔ´µÄÊ±ºò
-                // Ê¾Àı:group_0=TradeCore00:10,TradeCore00_0:0
+                //case: å¤šä¸ªæ•°æ®æºçš„æ—¶å€™
+                // ç¤ºä¾‹:group_0=TradeCore00:10,TradeCore00_0:0
                 for (int i = 0; i < keyWeightStr.length; i++) {
                     if (StringUtil.isBlank(keyWeightStr[i])) {
-                        logger.error("¶àÊı¾İÔ´keyWeightStr[" + i + "]·Ö×éÈ¨ÖØÅäÖÃĞÅÏ¢Îª¿Õ.");
+                        logger.error("å¤šæ•°æ®æºkeyWeightStr[" + i + "]åˆ†ç»„æƒé‡é…ç½®ä¿¡æ¯ä¸ºç©º.");
                         return null;
                     }
                     String[] keyAndWeight = keyWeightStr[i].split(":");
                     if (keyAndWeight.length != 2) {
-                        logger.error("Êı¾İÔ´key°´×éÅäÖÃÈ¨ÖØ´íÎó,keyWeightStr[" + i + "]=" + keyWeightStr[i]
+                        logger.error("æ•°æ®æºkeyæŒ‰ç»„é…ç½®æƒé‡é”™è¯¯,keyWeightStr[" + i + "]=" + keyWeightStr[i]
                                      + ".");
                         return null;
                     }
                     String key = keyAndWeight[0];
                     if (dataSourceKeyConfig.keySet() == null
                         || !dataSourceKeyConfig.keySet().contains(key)) {
-                        logger.error("Êı¾İÔ´key=" + key + "ÔÚÊı¾İÔ´dataSourcePoolÅäÖÃÖĞ²»´æÔÚ.");
+                        logger.error("æ•°æ®æºkey=" + key + "åœ¨æ•°æ®æºdataSourcePoolé…ç½®ä¸­ä¸å­˜åœ¨.");
                         return null;
                     }
                     String weightStr = keyAndWeight[1];
                     if (StringUtil.isBlank(key) || StringUtil.isBlank(weightStr)) {
-                        logger.error("Êı¾İÔ´key=" + key + "»òÆäÈ¨ÖØÅäÖÃweightStr=" + weightStr + "²»ÄÜÎª¿Õ.");
+                        logger.error("æ•°æ®æºkey=" + key + "æˆ–å…¶æƒé‡é…ç½®weightStr=" + weightStr + "ä¸èƒ½ä¸ºç©º.");
                         return null;
                     }
                     weightKeys[i] = key.trim();
                     weights[i] = Integer.parseInt(weightStr.trim());
                 }
             } else {
-                logger.error("¸Ã·Ö×égroupKey=" + groupKey + "ÖĞÊı¾İÔ´µÄ¸öÊı²»¶Ô£¬length=" + keyWeightStr.length);
+                logger.error("è¯¥åˆ†ç»„groupKey=" + groupKey + "ä¸­æ•°æ®æºçš„ä¸ªæ•°ä¸å¯¹ï¼Œlength=" + keyWeightStr.length);
                 return null;
             }
-            //¸ù¾İ¸Ã×éµÄgroupKeyÒÔ¼°¶ÔÓ¦µÄkeyAndWeightMapÉú³ÉTDataSourceKeyWeightRandom
+            //æ ¹æ®è¯¥ç»„çš„groupKeyä»¥åŠå¯¹åº”çš„keyAndWeightMapç”ŸæˆTDataSourceKeyWeightRandom
             ZdalDataSourceKeyWeightRandom TDataSourceKeyWeightRandom = new ZdalDataSourceKeyWeightRandom(
                 weightKeys, weights);
             map.put(groupKey, TDataSourceKeyWeightRandom);

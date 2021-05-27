@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.ast.statement;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: SQLUnionOperator.java, v 0.1 2012-11-17 œ¬ŒÁ3:28:17 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: SQLUnionOperator.java, v 0.1 2012-11-17 ‰∏ãÂçà3:28:17 Exp $
  */
 public enum SQLUnionOperator {
     UNION("UNION"), UNION_ALL("UNION ALL"), MINUS("MINUS"), INTERSECT("INTERSECT"), DISTINCT(

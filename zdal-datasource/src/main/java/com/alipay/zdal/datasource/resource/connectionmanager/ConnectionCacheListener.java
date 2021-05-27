@@ -14,8 +14,8 @@ import com.alipay.zdal.datasource.transaction.SystemException;
  * ConnectionCacheListener
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: ConnectionCacheListener.java, v 0.1 2014-1-6 ÏÂÎç05:33:22 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ConnectionCacheListener.java, v 0.1 2014-1-6 ä¸‹åˆ05:33:22 Exp $
  */
 public interface ConnectionCacheListener {
     /**

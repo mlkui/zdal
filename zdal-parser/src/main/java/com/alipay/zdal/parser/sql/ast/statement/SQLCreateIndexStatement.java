@@ -13,7 +13,7 @@ import com.alipay.zdal.parser.sql.ast.SQLStatementImpl;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLCreateIndexStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:21:19 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLCreateIndexStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:21:19 xiaoqing.zhouxq Exp $
  */
 public class SQLCreateIndexStatement extends SQLStatementImpl implements SQLDDLStatement {
 

@@ -13,8 +13,8 @@ import com.alipay.zdal.datasource.resource.spi.work.WorkCompletedException;
 /**
  * Extends XATerminator to include registration calls
  *
- * @author ²®ÑÀ
- * @version $Id: JBossXATerminator.java, v 0.1 2014-1-6 ÏÂÎç05:47:25 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: JBossXATerminator.java, v 0.1 2014-1-6 ä¸‹åˆ05:47:25 Exp $
  */
 public interface JBossXATerminator extends XATerminator {
     /**

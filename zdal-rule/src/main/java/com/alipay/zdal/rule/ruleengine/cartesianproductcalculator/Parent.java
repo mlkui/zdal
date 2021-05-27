@@ -5,21 +5,21 @@
 package com.alipay.zdal.rule.ruleengine.cartesianproductcalculator;
 
 /**
- * Ô­ÁÂÎÒ°É£¬ÊµÔÚ²»ÖªµÀÓÃÄÄ¸ö´Ê
+ * åŸè°…æˆ‘å§ï¼Œå®åœ¨ä¸çŸ¥é“ç”¨å“ªä¸ªè¯
  * 
- * parent ½øÎ»Ê±ºòµÄ¼àÌıÆ÷
+ * parent è¿›ä½æ—¶å€™çš„ç›‘å¬å™¨
  *
  */
 public interface Parent {
     /**
-     * Ñ¯ÎÊ¸¸ÁĞÓĞÃ»ÓĞÖµ
+     * è¯¢é—®çˆ¶åˆ—æœ‰æ²¡æœ‰å€¼
      * 
      * @return
      */
     public boolean parentHasNext();
 
     /**
-     * Í¨Öªparent½øÎ»µÄ·½·¨
+     * é€šçŸ¥parentè¿›ä½çš„æ–¹æ³•
      */
     public void add();
 }

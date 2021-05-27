@@ -63,25 +63,25 @@ import com.alipay.zdal.rule.ruleengine.rule.EmptySetRuntimeException;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ZdalStatement.java, v 0.1 2014-1-6 ÏÂÎç01:19:26 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalStatement.java, v 0.1 2014-1-6 ä¸‹åˆ01:19:26 Exp $
  */
 public class ZdalStatement implements Statement {
-    //TODO: Ìí¼ÓÒ»¸öÑ¡ÏîbooleanÖµ£¬À´¶Ôstatlog½øĞĞ¼ì²â
+    //TODO: æ·»åŠ ä¸€ä¸ªé€‰é¡¹booleanå€¼ï¼Œæ¥å¯¹statlogè¿›è¡Œæ£€æµ‹
     private static final Logger       log                            = Logger
                                                                          .getLogger(ZdalStatement.class);
     private static final Logger       sqlLog                         = Logger
                                                                          .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
     /**
-     * ÓÃÓÚÅĞ¶ÏÊÇ·ñÊÇÒ»¸öselect ... for updateµÄsql
+     * ç”¨äºåˆ¤æ–­æ˜¯å¦æ˜¯ä¸€ä¸ªselect ... for updateçš„sql
      */
     private static final Pattern      SELECT_FOR_UPDATE_PATTERN      = Pattern
                                                                          .compile(
                                                                              "^select\\s+.*\\s+for\\s+update.*$",
                                                                              Pattern.CASE_INSENSITIVE);
 
-    /**´ÓDB2µÄÏµÍ³±íÖĞ»ñÈ¡sequenceºÍÊÂ¼şµÄsql.  */
+    /**ä»DB2çš„ç³»ç»Ÿè¡¨ä¸­è·å–sequenceå’Œäº‹ä»¶çš„sql.  */
     private static final Pattern      SELECT_FROM_SYSTEMIBM          = Pattern
                                                                          .compile(
                                                                              "^select\\s+.*\\s+from\\s+sysibm.*$",
@@ -92,7 +92,7 @@ public class ZdalStatement implements Statement {
                                                                              Pattern.CASE_INSENSITIVE);
 
     /**
-     * Ä¬ÈÏµÄÃ¿¸ö±íÖ´ĞĞsqlµÄ³¬Ê±Ê±¼ä
+     * é»˜è®¤çš„æ¯ä¸ªè¡¨æ‰§è¡Œsqlçš„è¶…æ—¶æ—¶é—´
      */
     public static final long          DEFAULT_TIMEOUT_FOR_EACH_TABLE = 100;
 
@@ -104,7 +104,7 @@ public class ZdalStatement implements Statement {
     protected final SqlDispatcher     writeDispatcher;
     protected final SqlDispatcher     readDispatcher;
 
-    //¼ÇÂ¼µ±Ç°µÄ²Ù×÷ÊÇĞ´¿â²Ù×÷»¹ÊÇ¶Á¿â²Ù×÷
+    //è®°å½•å½“å‰çš„æ“ä½œæ˜¯å†™åº“æ“ä½œè¿˜æ˜¯è¯»åº“æ“ä½œ
     protected DB_OPERATION_TYPE       operation_type;
 
     public enum DB_OPERATION_TYPE {
@@ -119,15 +119,15 @@ public class ZdalStatement implements Statement {
     protected int                  updateCount;
     protected boolean              closed;
     /*
-     *  ÊÇ·ñÌæ»»hintÖĞµÄÂß¼­±íÃû£¬Ä¬ÈÏÊÇ²»Ìæ»»
+     *  æ˜¯å¦æ›¿æ¢hintä¸­çš„é€»è¾‘è¡¨åï¼Œé»˜è®¤æ˜¯ä¸æ›¿æ¢
      */
     private boolean                isHintReplaceSupport = false;
     /**
-     * ÖØÊÔ´ÎÊı£¬Íâ²¿Ö¸¶¨
+     * é‡è¯•æ¬¡æ•°ï¼Œå¤–éƒ¨æŒ‡å®š
      */
     protected int                  retryingTimes;
     /**
-     * fetchsize Ä¬ÈÏÎª10 
+     * fetchsize é»˜è®¤ä¸º10 
      */
     private int                    fetchSize            = 10;
 
@@ -138,14 +138,14 @@ public class ZdalStatement implements Statement {
     protected boolean              autoCommit           = true;
 
     /**
-     * »º´æµÄbatch²Ù×÷µÄdbId
+     * ç¼“å­˜çš„batchæ“ä½œçš„dbId
      */
     private String                 batchDataBaseId      = null;
 
     private boolean                readOnly;
 
     /**
-     * ½«Ô­À´ResultSet½Ó¿ÚÏÂ·Åµ½Dummy¼¶±ğ¡£ÕâÑù²ÅÄÜÖ§³Ö×Ô¶¨Òå·½·¨
+     * å°†åŸæ¥ResultSetæ¥å£ä¸‹æ”¾åˆ°Dummyçº§åˆ«ã€‚è¿™æ ·æ‰èƒ½æ”¯æŒè‡ªå®šä¹‰æ–¹æ³•
      */
     protected Set<ResultSet>       openResultSets       = new HashSet<ResultSet>();
 
@@ -159,7 +159,7 @@ public class ZdalStatement implements Statement {
     private int[]                  columnIndexes;
     private String[]               columnNames;
 
-    /**Êı¾İÔ´µÄÃû³Æ.  */
+    /**æ•°æ®æºçš„åç§°.  */
     protected String               appDsName            = null;
 
     protected static void dumpSql(String originalSql, Map<String, SqlAndTable[]> targets) {
@@ -192,10 +192,10 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * »ñµÃSQLÓï¾äÖÖÀà
+     * è·å¾—SQLè¯­å¥ç§ç±»
      *
-     * @param sql SQLÓï¾ä
-     * @throws SQLException µ±SQLÓï¾ä²»ÊÇSELECT¡¢INSERT¡¢UPDATE¡¢DELETEÓï¾äÊ±£¬Å×³öÒì³£¡£
+     * @param sql SQLè¯­å¥
+     * @throws SQLException å½“SQLè¯­å¥ä¸æ˜¯SELECTã€INSERTã€UPDATEã€DELETEè¯­å¥æ—¶ï¼ŒæŠ›å‡ºå¼‚å¸¸ã€‚
      */
     protected static SqlType getSqlType(String sql) throws SQLException {
         SqlType sqlType = globalCache.getSqlType(sql);
@@ -229,17 +229,17 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * Ìæ»»SQLÓï¾äÖĞĞéÄâ±íÃûÎªÊµ¼Ê±íÃû¡£ »á Ìæ»»_tableName$ Ìæ»»_tableName_ Ìæ»»tableName.
-     * Ìæ»»tableName(
-     * Ôö¼ÓÌæ»» _tableName, ,tableName, ,tableName_
+     * æ›¿æ¢SQLè¯­å¥ä¸­è™šæ‹Ÿè¡¨åä¸ºå®é™…è¡¨åã€‚ ä¼š æ›¿æ¢_tableName$ æ›¿æ¢_tableName_ æ›¿æ¢tableName.
+     * æ›¿æ¢tableName(
+     * å¢åŠ æ›¿æ¢ _tableName, ,tableName, ,tableName_
      * 
      * @param originalSql
-     *            SQLÓï¾ä
+     *            SQLè¯­å¥
      * @param virtualName
-     *            ĞéÄâ±íÃû
+     *            è™šæ‹Ÿè¡¨å
      * @param actualName
-     *            Êµ¼Ê±íÃû
-     * @return ·µ»ØÌæ»»ºóµÄSQLÓï¾ä¡£
+     *            å®é™…è¡¨å
+     * @return è¿”å›æ›¿æ¢åçš„SQLè¯­å¥ã€‚
      */
     protected String replaceTableName(String originalSql, String virtualName, String actualName) {
         if (log.isDebugEnabled()) {
@@ -259,7 +259,7 @@ public class ZdalStatement implements Statement {
 
         List<String> sqlPieces = globalCache.getTableNameReplacement(originalSql);
         if (sqlPieces == null) {
-            //Ìæ»»   tableName$ 
+            //æ›¿æ¢   tableName$ 
             Pattern pattern1 = Pattern.compile(new StringBuilder("\\s").append(virtualName).append(
                 "$").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces1 = new ArrayList<String>();
@@ -270,7 +270,7 @@ public class ZdalStatement implements Statement {
                 start1 = matcher1.end();
             }
             pieces1.add(originalSql.substring(start1));
-            //Ìæ»»   tableName  
+            //æ›¿æ¢   tableName  
             Pattern pattern2 = Pattern.compile(new StringBuilder("\\s").append(virtualName).append(
                 "\\s").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces2 = new ArrayList<String>();
@@ -284,7 +284,7 @@ public class ZdalStatement implements Statement {
                 }
                 pieces2.add(piece.substring(start2 - 1 < 0 ? 0 : start2 - 1));
             }
-            //Ìæ»»   tableName. 
+            //æ›¿æ¢   tableName. 
             Pattern pattern3 = Pattern.compile(new StringBuilder().append(virtualName)
                 .append("\\.").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces3 = new ArrayList<String>();
@@ -297,7 +297,7 @@ public class ZdalStatement implements Statement {
                 }
                 pieces3.add(piece.substring(start3 - 1 < 0 ? 0 : start3 - 1));
             }
-            //Ìæ»»  tablename(
+            //æ›¿æ¢  tablename(
             Pattern pattern4 = Pattern.compile(new StringBuilder("\\s").append(virtualName).append(
                 "\\(").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces4 = new ArrayList<String>();
@@ -312,7 +312,7 @@ public class ZdalStatement implements Statement {
                 pieces4.add(piece.substring(start4 - 1 < 0 ? 0 : start4 - 1));
             }
 
-            //Ìæ»»_tableName,
+            //æ›¿æ¢_tableName,
             Pattern pattern5 = Pattern.compile(new StringBuilder("\\s").append(virtualName).append(
                 "\\,").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces5 = new ArrayList<String>();
@@ -327,7 +327,7 @@ public class ZdalStatement implements Statement {
                 pieces5.add(piece.substring(start5 - 1 < 0 ? 0 : start5 - 1));
             }
 
-            //Ìæ»»,tableName
+            //æ›¿æ¢,tableName
             Pattern pattern6 = Pattern.compile(new StringBuilder("\\,").append(virtualName).append(
                 "\\s").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces6 = new ArrayList<String>();
@@ -341,7 +341,7 @@ public class ZdalStatement implements Statement {
                 }
                 pieces6.add(piece.substring(start6 - 1 < 0 ? 0 : start6 - 1));
             }
-            //Ìæ»» ,tableName,
+            //æ›¿æ¢ ,tableName,
             Pattern pattern7 = Pattern.compile(new StringBuilder("\\,").append(virtualName).append(
                 "\\,").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces7 = new ArrayList<String>();
@@ -360,7 +360,7 @@ public class ZdalStatement implements Statement {
 
         }
 
-        // Éú³É×îÖÕSQL
+        // ç”Ÿæˆæœ€ç»ˆSQL
         StringBuilder buffer = new StringBuilder();
         boolean first = true;
         for (String piece : sqlPieces) {
@@ -375,13 +375,13 @@ public class ZdalStatement implements Statement {
 
         /*
          * added by fanzeng
-         * Ö§¸¶±¦Ä¬ÈÏ²»Ìæ»»HINTÀïµÄ±íÃû£¬Èç¹ûĞèÒªÌæ»»£¬Ôò±ØĞëÔÚÅäÖÃÎÄ¼şÖĞÖ¸¶¨
+         * æ”¯ä»˜å®é»˜è®¤ä¸æ›¿æ¢HINTé‡Œçš„è¡¨åï¼Œå¦‚æœéœ€è¦æ›¿æ¢ï¼Œåˆ™å¿…é¡»åœ¨é…ç½®æ–‡ä»¶ä¸­æŒ‡å®š
          * <property name="isHintReplaceSupport" value="true"/>
          * */
         if (log.isDebugEnabled()) {
-            log.debug("ÊÇ·ñÖ§³ÖÌæ»»hintµÄÂß¼­±íÃû£ºisHintSupport = " + this.isHintReplaceSupport);
+            log.debug("æ˜¯å¦æ”¯æŒæ›¿æ¢hintçš„é€»è¾‘è¡¨åï¼šisHintSupport = " + this.isHintReplaceSupport);
         }
-        //Ìæ»»  hint£¬¸ñÊ½²»ÔÙ½øĞĞÏŞÖÆ 
+        //æ›¿æ¢  hintï¼Œæ ¼å¼ä¸å†è¿›è¡Œé™åˆ¶ 
         if (isHintReplaceSupport) {
             Pattern pattern8 = Pattern.compile(new StringBuilder("/\\s?\\*\\s?.*").append(
                 virtualName).append(".*\\s?\\*\\s?/").toString(), Pattern.CASE_INSENSITIVE);
@@ -403,7 +403,7 @@ public class ZdalStatement implements Statement {
         }
 
         if (log.isDebugEnabled()) {
-            log.debug("Ìæ»»±íÃûºóµÄsqlÎª£º" + sql_replace);
+            log.debug("æ›¿æ¢è¡¨ååçš„sqlä¸ºï¼š" + sql_replace);
         }
 
         return sql_replace;
@@ -413,20 +413,20 @@ public class ZdalStatement implements Statement {
                                                                                                   throws SQLException {
         SqlExecutionContext executionContext = null;
         try {
-            executionContext = getExecutionContext1(originalSql, parameters); //ĞÂ¹æÔò 
+            executionContext = getExecutionContext1(originalSql, parameters); //æ–°è§„åˆ™ 
         } catch (RuleRuntimeExceptionWrapper e) {
-            //ÒòÎªRUleRuntimeExceptionÒ²ÊÇ¸öRuntimeException,ËùÒÔÅÅÔÚºóĞøruntimeExceptionÇ°Ãæ
+            //å› ä¸ºRUleRuntimeExceptionä¹Ÿæ˜¯ä¸ªRuntimeException,æ‰€ä»¥æ’åœ¨åç»­runtimeExceptionå‰é¢
             SQLException sqlException = e.getSqlException();
             if (sqlException instanceof ZdalCommunicationException) {
-                //²»ÖØ¸´µÄ½øĞĞ°ü×°£¬Õâ¸öÒì³£ÊÇzdal²éÑ¯×ß·Ö¿âÊ±£¬·Ö¿âÖØÊÔ´ÎÊıµ½´ïÉÏÏŞÊ±£¬×Ô¼º»áÅ×³öµÄ¡£ÒµÎñĞèÒªÕâ¸öÒì³£
+                //ä¸é‡å¤çš„è¿›è¡ŒåŒ…è£…ï¼Œè¿™ä¸ªå¼‚å¸¸æ˜¯zdalæŸ¥è¯¢èµ°åˆ†åº“æ—¶ï¼Œåˆ†åº“é‡è¯•æ¬¡æ•°åˆ°è¾¾ä¸Šé™æ—¶ï¼Œè‡ªå·±ä¼šæŠ›å‡ºçš„ã€‚ä¸šåŠ¡éœ€è¦è¿™ä¸ªå¼‚å¸¸
                 throw e;
             } else {
-                //¶ÔÓÚ·Çzdal×÷Îª¹æÔòÒıÇæÖĞmapping rule µÍ²ãÊı¾İ¿â²éÑ¯µÄ³¡¾°£¬Òª¶ÔsqlException½øĞĞ°ü×°ºóÅ×³ö
+                //å¯¹äºézdalä½œä¸ºè§„åˆ™å¼•æ“ä¸­mapping rule ä½å±‚æ•°æ®åº“æŸ¥è¯¢çš„åœºæ™¯ï¼Œè¦å¯¹sqlExceptionè¿›è¡ŒåŒ…è£…åæŠ›å‡º
                 throw new ZdalCommunicationException("rule sql exceptoin.", sqlException);
             }
 
         } catch (ZdalRuleCalculateException e) {
-            log.error("¹æÔòÒıÇæ¼ÆËã´íÎó£¬sql=" + originalSql, e);
+            log.error("è§„åˆ™å¼•æ“è®¡ç®—é”™è¯¯ï¼Œsql=" + originalSql, e);
             throw e;
         } catch (RuntimeException e) {
             String context = ExceptionUtils.getErrorContext(originalSql, parameters,
@@ -449,11 +449,11 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * »ñÈ¡ĞÂµÄConnectionºÍËû¶ÔÓ¦µÄDatasource
+     * è·å–æ–°çš„Connectionå’Œä»–å¯¹åº”çš„Datasource
      * 
-     * datasourceÖ÷ÒªÊÇÓÃÓÚÔÚËæ»úÖØÊÔµÄÊ±ºòÅÅ³ıÒÑ¾­¹ÒµôµÄÊı¾İÔ´
+     * datasourceä¸»è¦æ˜¯ç”¨äºåœ¨éšæœºé‡è¯•çš„æ—¶å€™æ’é™¤å·²ç»æŒ‚æ‰çš„æ•°æ®æº
      * 
-     * ²»Ìá¹©ÖØÊÔ
+     * ä¸æä¾›é‡è¯•
      * @param ds
      * @return
      * @throws SQLException
@@ -482,7 +482,7 @@ public class ZdalStatement implements Statement {
         SqlDispatcher sqlDispatcher;
         if (sqlType != SqlType.SELECT) {
             if (this.writeDispatcher == null) {
-                throw new SQLException("·Ö¿â²»Ö§³ÖĞ´Èë¡£Çë¼ì²éÅäÖÃ»òSQL");
+                throw new SQLException("åˆ†åº“ä¸æ”¯æŒå†™å…¥ã€‚è¯·æ£€æŸ¥é…ç½®æˆ–SQL");
             }
             sqlDispatcher = this.writeDispatcher;
         } else {
@@ -500,12 +500,12 @@ public class ZdalStatement implements Statement {
             } else {
                 sqlDispatcher = this.writeDispatcher;
                 if (sqlDispatcher == null) {
-                    throw new SQLException("·Ö¿â²»Ö§³ÖĞ´Èë¡£Çë²»ÒªÊ¹ÓÃÊÂÎñ");
+                    throw new SQLException("åˆ†åº“ä¸æ”¯æŒå†™å…¥ã€‚è¯·ä¸è¦ä½¿ç”¨äº‹åŠ¡");
                 }
             }
         }
         if (sqlDispatcher == null) {
-            throw new SQLException("Ã»ÓĞ·Ö¿â¹æÔò»òsqlDispatcherÎªnull£¬Çë¼ì²éÅäÖÃ»òSQL");
+            throw new SQLException("æ²¡æœ‰åˆ†åº“è§„åˆ™æˆ–sqlDispatcherä¸ºnullï¼Œè¯·æ£€æŸ¥é…ç½®æˆ–SQL");
         }
 
         if (sqlDispatcher == this.writeDispatcher) {
@@ -513,14 +513,14 @@ public class ZdalStatement implements Statement {
         } else if (sqlDispatcher == this.readDispatcher) {
             this.setOperation_type(DB_OPERATION_TYPE.READ_FROM_DB);
         } else {
-            throw new SQLException("²Ù×÷ÀàĞÍ·¢ÉúÒì³££¬³¬³öÕı³£·¶Î§£¡");
+            throw new SQLException("æ“ä½œç±»å‹å‘ç”Ÿå¼‚å¸¸ï¼Œè¶…å‡ºæ­£å¸¸èŒƒå›´ï¼");
         }
         return sqlDispatcher;
     }
 
     /**
-     * 1. Ö»Ö§³Öµ¥¿âµÄÊÂÎñ, ÓĞÊÂÎñÍ¬Ê±Ä¿±ê¿âÎª¶à¸öÊ±±¨´í
-     * 2. Ö»Ö§³Öµ¥¿âµÄÊÂÎñ, ÓĞÊÂÎñ²¢ÇÒµ±Ç°ÊÂÎñÖĞÒÑ¾­¹ØÁªµÄ·Ö¿âºÍ±¾´Î½âÎöµÄÄ¿±ê¿â²»ÊÇÍ¬Ò»¸ö¿âÊ±±¨´í
+     * 1. åªæ”¯æŒå•åº“çš„äº‹åŠ¡, æœ‰äº‹åŠ¡åŒæ—¶ç›®æ ‡åº“ä¸ºå¤šä¸ªæ—¶æŠ¥é”™
+     * 2. åªæ”¯æŒå•åº“çš„äº‹åŠ¡, æœ‰äº‹åŠ¡å¹¶ä¸”å½“å‰äº‹åŠ¡ä¸­å·²ç»å…³è”çš„åˆ†åº“å’Œæœ¬æ¬¡è§£æçš„ç›®æ ‡åº“ä¸æ˜¯åŒä¸€ä¸ªåº“æ—¶æŠ¥é”™
      */
     protected SqlExecutionContext getExecutionContext1(String originalSql, List<Object> parameters)
                                                                                                    throws SQLException {
@@ -538,23 +538,23 @@ public class ZdalStatement implements Statement {
         SqlDispatcher sqlDispatcher = selectSqlDispatcher(autoCommit, sqlType);
 
         /*
-         * ²é¿´sqlDispatcherÊÇ·ñÎªwriteDispatcher.
+         * æŸ¥çœ‹sqlDispatcheræ˜¯å¦ä¸ºwriteDispatcher.
          * 
-         * writeDispatcherÖ÷Òª´¦Àí£ºinsert ,update ,select for update,ÊÂÎñÖĞselectÕâ
-         * 4ÖÖÇé¿ö£¬¶¼²»ĞèÒª¶ÁÖØÊÔ¡£
+         * writeDispatcherä¸»è¦å¤„ç†ï¼šinsert ,update ,select for update,äº‹åŠ¡ä¸­selectè¿™
+         * 4ç§æƒ…å†µï¼Œéƒ½ä¸éœ€è¦è¯»é‡è¯•ã€‚
          * 
-         * ²»ÎªµÄÇé¿öÓĞÁ½ÖÖ£¬µÚÒ»ÖÖÊÇÄÚ´æÖĞ¶ÔÏó×´Ì¬²»Ò»Ñù£¬ÕâÖÖÓ¦¸ÃÊÇreadDispatcher¡£
-         * ¼ÆËã³öµÄdispatcher²»»áÎª³ıÁËreadºÍwriteDispatcherÒÔÍâµÄÆäËûÇé¿ö£¬
-         * ÓÉselectSqlDispatcher·½·¨±£Ö¤¡£
+         * ä¸ä¸ºçš„æƒ…å†µæœ‰ä¸¤ç§ï¼Œç¬¬ä¸€ç§æ˜¯å†…å­˜ä¸­å¯¹è±¡çŠ¶æ€ä¸ä¸€æ ·ï¼Œè¿™ç§åº”è¯¥æ˜¯readDispatcherã€‚
+         * è®¡ç®—å‡ºçš„dispatcherä¸ä¼šä¸ºé™¤äº†readå’ŒwriteDispatcherä»¥å¤–çš„å…¶ä»–æƒ…å†µï¼Œ
+         * ç”±selectSqlDispatcheræ–¹æ³•ä¿è¯ã€‚
          * 
-         * »¹ÓĞÒ»ÖÖÊÇwriteDispatcherÎªnull ÕâÊ±ºò £¬ÓÖÒòÎª¼ÆËã³öµÄ
-         * dispatcherÖ»¿ÉÄÜÎª read»òwrite¡£ËùÒÔÒ²¿ÉÒÔ±£Ö¤ÕıÈ·µÄ½á¹û¡£
+         * è¿˜æœ‰ä¸€ç§æ˜¯writeDispatcherä¸ºnull è¿™æ—¶å€™ ï¼Œåˆå› ä¸ºè®¡ç®—å‡ºçš„
+         * dispatcheråªå¯èƒ½ä¸º readæˆ–writeã€‚æ‰€ä»¥ä¹Ÿå¯ä»¥ä¿è¯æ­£ç¡®çš„ç»“æœã€‚
          */
         boolean ruleReturnNullValue = false;
         /**
-         * ÉèÖÃÁËautoCommitÊôĞÔÖµ£¬ÓÃÓÚÔÚ¸ù¾İÊı¾İÔ´keyÈ¨ÖØÅäÖÃËæ»úÑ¡Ôñ×éÄÚdbÊ±£¬ÅĞ¶¨ÊÇ²»ÊÇÔÚÊÂÎñÖĞ
-         * Èç¹ûÔÚÊÂÎñÖĞ£¬¾Í½«´Ë´Î¼ÆËãµÄÖµ»º´æÆğÀ´£¬È»ºó¸ÃÊÂÎñÖĞµÄÆäËûsqlÖ´ĞĞËæ»úËã·¨Ê±£¬Ö±½Ó½«¸ÃÖµ·µ»Ø
-         * ÒÔ´ïµ½ÔÚÒ»¸öÊÂÎñÖĞ½ûÖ¹Á½´ÎËæ»ú¶øÓĞ¿ÉÄÜÑ¡Ôñ²»Í¬µÄdb
+         * è®¾ç½®äº†autoCommitå±æ€§å€¼ï¼Œç”¨äºåœ¨æ ¹æ®æ•°æ®æºkeyæƒé‡é…ç½®éšæœºé€‰æ‹©ç»„å†…dbæ—¶ï¼Œåˆ¤å®šæ˜¯ä¸æ˜¯åœ¨äº‹åŠ¡ä¸­
+         * å¦‚æœåœ¨äº‹åŠ¡ä¸­ï¼Œå°±å°†æ­¤æ¬¡è®¡ç®—çš„å€¼ç¼“å­˜èµ·æ¥ï¼Œç„¶åè¯¥äº‹åŠ¡ä¸­çš„å…¶ä»–sqlæ‰§è¡Œéšæœºç®—æ³•æ—¶ï¼Œç›´æ¥å°†è¯¥å€¼è¿”å›
+         * ä»¥è¾¾åˆ°åœ¨ä¸€ä¸ªäº‹åŠ¡ä¸­ç¦æ­¢ä¸¤æ¬¡éšæœºè€Œæœ‰å¯èƒ½é€‰æ‹©ä¸åŒçš„db
          */
         //        ThreadLocalMap.put(ThreadLocalString.GET_AUTOCOMMIT_PROPERTY, autoCommit);
         try {
@@ -566,10 +566,10 @@ public class ZdalStatement implements Statement {
 
         if (targets == null || targets.isEmpty()) {
             if (!ruleReturnNullValue) {
-                throw new SQLException("ÕÒ²»µ½Ä¿±ê¿â£¬Çë¼ì²éÅäÖÃ,the originalSql = " + originalSql
+                throw new SQLException("æ‰¾ä¸åˆ°ç›®æ ‡åº“ï¼Œè¯·æ£€æŸ¥é…ç½®,the originalSql = " + originalSql
                                        + " ,the parameters = " + parameters);
             } else {
-                //Èç¹ûÊÇmapping ruleÔòÔÚ¼ÆËãÖĞÈç¹û·µ»ØnullÔòÖ±½Ó·µ»ØemptyResultSet
+                //å¦‚æœæ˜¯mapping ruleåˆ™åœ¨è®¡ç®—ä¸­å¦‚æœè¿”å›nullåˆ™ç›´æ¥è¿”å›emptyResultSet
                 context.setRuleReturnNullValue(ruleReturnNullValue);
             }
         } else {
@@ -587,12 +587,12 @@ public class ZdalStatement implements Statement {
     private void buildExecutionContext(String originalSql, SqlExecutionContext context,
                                        SqlType sqlType, DispatcherResult metaData,
                                        List<TargetDB> targets) throws SQLException {
-        // Ö»Ö§³Öµ¥¿âµÄÊÂÎñ
+        // åªæ”¯æŒå•åº“çš„äº‹åŠ¡
         if (!autoCommit && targets.size() != 1 && sqlType != SqlType.SELECT) {
-            throw new SQLException("Ö»Ö§³Öµ¥¿âµÄÊÂÎñ£ºtarget.size=" + targets.size());
+            throw new SQLException("åªæ”¯æŒå•åº“çš„äº‹åŠ¡ï¼štarget.size=" + targets.size());
         }
 
-        // ÊÂÎñÆô¶¯
+        // äº‹åŠ¡å¯åŠ¨
         setTransaction(targets, originalSql);
 
         for (TargetDB target : targets) {
@@ -606,16 +606,16 @@ public class ZdalStatement implements Statement {
             }
 
             if (actualTables == null || actualTables.isEmpty()) {
-                throw new SQLException("ÕÒ²»µ½Ä¿±ê±í");
+                throw new SQLException("æ‰¾ä¸åˆ°ç›®æ ‡è¡¨");
             }
 
-            // ÖØÓÃÁ¬½Ó
-            //			ÕâÀï´¦Àí»ñÈ¡²¢ÖØÓÃÁ¬½ÓµÄÎÊÌâ
+            // é‡ç”¨è¿æ¥
+            //			è¿™é‡Œå¤„ç†è·å–å¹¶é‡ç”¨è¿æ¥çš„é—®é¢˜
             DBSelector dbselector = dbSelectors.get(dbIndex);
             if (dbselector == null) {
-                throw new IllegalStateException("Ã»ÓĞÎªdbIndex[" + dbIndex + "]ÅäÖÃÊı¾İÔ´");
+                throw new IllegalStateException("æ²¡æœ‰ä¸ºdbIndex[" + dbIndex + "]é…ç½®æ•°æ®æº");
             }
-            createConnection(dbselector, dbIndex); //ÕâÀïÈç¹ûÊÇÖØÊÔºó³É¹¦£¬ºóĞøÖØÊÔÊ±Ã»ÓĞÅÅ³ı±¾´ÎÖØÊÔ¹ıµÄds
+            createConnection(dbselector, dbIndex); //è¿™é‡Œå¦‚æœæ˜¯é‡è¯•åæˆåŠŸï¼Œåç»­é‡è¯•æ—¶æ²¡æœ‰æ’é™¤æœ¬æ¬¡é‡è¯•è¿‡çš„ds
 
             if (sqlType == SqlType.INSERT) {
                 if (actualTables.size() != 1) {
@@ -630,7 +630,7 @@ public class ZdalStatement implements Statement {
 
             if (!autoCommit && !dbIndex.equals(getConnectionProxy().getTxTarget())
                 && sqlType != SqlType.SELECT) {
-                throw new SQLException("zdalÖ»Ö§³Öµ¥¿âµÄÊÂÎñ£ºdbIndex=" + dbIndex + ",txTarget="
+                throw new SQLException("zdalåªæ”¯æŒå•åº“çš„äº‹åŠ¡ï¼šdbIndex=" + dbIndex + ",txTarget="
                                        + getConnectionProxy().getTxTarget() + ",originalSql="
                                        + originalSql);
             }
@@ -643,7 +643,7 @@ public class ZdalStatement implements Statement {
                     targetSqls[i] = sqlAndTable;
                     sqlAndTable.sql = replaceTableName(originalSql, metaData.getVirtualTableName(),
                         tab);
-                    //Èç¹ûmetaData(Ò²¾ÍÊÇDispatcherResult)ÀïÃæÓĞjoin±íÃû£¬ÄÇÃ´¾ÍÌæ»»µô;
+                    //å¦‚æœmetaData(ä¹Ÿå°±æ˜¯DispatcherResult)é‡Œé¢æœ‰joinè¡¨åï¼Œé‚£ä¹ˆå°±æ›¿æ¢æ‰;
                     sqlAndTable.sql = replaceJoinTableName(metaData.getVirtualTableName(), metaData
                         .getVirtualJoinTableNames(), tab, sqlAndTable.sql);
                     sqlAndTable.table = tab;
@@ -659,7 +659,7 @@ public class ZdalStatement implements Statement {
                     targetSqls[i] = targetSql;
                     i++;
                 }
-                // ÒòÎªËùÓĞSQL°ó¶¨²ÎÊı¶¼Ò»Ñù£¬ËùÒÔÖ»ÒªÈ¡µÚÒ»¸ö¡£
+                // å› ä¸ºæ‰€æœ‰SQLç»‘å®šå‚æ•°éƒ½ä¸€æ ·ï¼Œæ‰€ä»¥åªè¦å–ç¬¬ä¸€ä¸ªã€‚
                 context.setChangedParameters(target.getChangedParams());
             }
             context.getTargetSqls().put(dbIndex, targetSqls);
@@ -673,7 +673,7 @@ public class ZdalStatement implements Statement {
             .getMax());
         context.setGroupFunctionType(metaData.getGroupFunctionType());
         context.setVirtualTableName(metaData.getVirtualTableName());
-        //ÕâÀïĞèÒª×¢ÒâµÄ
+        //è¿™é‡Œéœ€è¦æ³¨æ„çš„
         // boolean needRetry = SqlType.SELECT.equals(sqlType) && this.autoCommit;
         boolean needRetry = this.autoCommit;
         //boolean isMySQL = sqlDispatcher.getDBType() == DBType.MYSQL?true:false;
@@ -687,8 +687,8 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * @param tab Êµ¼Ê±íÃû
-     * @param vtab ĞéÄâ±íÃû
+     * @param tab å®é™…è¡¨å
+     * @param vtab è™šæ‹Ÿè¡¨å
      * @return
      */
     private String getSuffix(String tab, String vtab) {
@@ -697,7 +697,7 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * »ñÈ¡sqlÖ´ĞĞĞÅÏ¢
+     * è·å–sqlæ‰§è¡Œä¿¡æ¯
      * @param originalSql
      * @param parameters
      * @param rc
@@ -711,10 +711,10 @@ public class ZdalStatement implements Statement {
                                                                                                    throws SQLException {
         DispatcherResult metaData;
         if (rc != null) {
-            //²»×ß½âÎöSQL£¬ÓÉThreadLocal´«ÈëµÄÖ¸¶¨¶ÔÏó£¨RouteCondition£©£¬¾ö¶¨¿â±íÄ¿µÄµØ
+            //ä¸èµ°è§£æSQLï¼Œç”±ThreadLocalä¼ å…¥çš„æŒ‡å®šå¯¹è±¡ï¼ˆRouteConditionï¼‰ï¼Œå†³å®šåº“è¡¨ç›®çš„åœ°
             metaData = sqlDispatcher.getDBAndTables(rc);
         } else {
-            // Í¨¹ı½âÎöSQLÀ´·Ö¿â·Ö±í
+            // é€šè¿‡è§£æSQLæ¥åˆ†åº“åˆ†è¡¨
             try {
                 metaData = sqlDispatcher.getDBAndTables(originalSql, parameters);
             } catch (ZdalCheckedExcption e) {
@@ -725,7 +725,7 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * ÊÂÎñÆô¶¯
+     * äº‹åŠ¡å¯åŠ¨
      * @param targets
      */
     private void setTransaction(List<TargetDB> targets, String originalSql) {
@@ -734,7 +734,7 @@ public class ZdalStatement implements Statement {
             //getConnectionProxy().setTxTarget(targets.get(0).getWritePool()[0]);
             getConnectionProxy().setTxTarget(targets.get(0).getDbIndex());
             if (log.isDebugEnabled()) {
-                log.debug("»º´æÊÂÎñÊı¾İ¿â±êÊ¶:Set the txStart property to false, and the dbIndex="
+                log.debug("ç¼“å­˜äº‹åŠ¡æ•°æ®åº“æ ‡è¯†:Set the txStart property to false, and the dbIndex="
                           + targets.get(0).getDbIndex() + ",originalSql=" + originalSql);
             }
         }
@@ -766,9 +766,9 @@ public class ZdalStatement implements Statement {
                                                                                              throw new IllegalArgumentException(
                                                                                                  "should not be here");
                                                                                          } else {
-                                                                                             //Õı³£Çé¿öÏÂµÄ´¦Àí
+                                                                                             //æ­£å¸¸æƒ…å†µä¸‹çš„å¤„ç†
                                                                                              int lastElementIndex = size - 1;
-                                                                                             //È¡×îºóÒ»¸öexception.ÅĞ¶ÏÊÇ·ñÊÇÊı¾İ¿â²»¿ÉÓÃÒì³£.Èç¹ûÊÇ£¬È¥µô×îºóÒ»¸öÒì³££¬²¢½«Í·Òì³£°ü×°ÎªZdalCommunicationExceptionÅ×³ö
+                                                                                             //å–æœ€åä¸€ä¸ªexception.åˆ¤æ–­æ˜¯å¦æ˜¯æ•°æ®åº“ä¸å¯ç”¨å¼‚å¸¸.å¦‚æœæ˜¯ï¼Œå»æ‰æœ€åä¸€ä¸ªå¼‚å¸¸ï¼Œå¹¶å°†å¤´å¼‚å¸¸åŒ…è£…ä¸ºZdalCommunicationExceptionæŠ›å‡º
                                                                                              SQLException lastSQLException = exceptions
                                                                                                  .get(lastElementIndex);
                                                                                              if (exceptionSorter
@@ -792,11 +792,11 @@ public class ZdalStatement implements Statement {
                                                                                  };
 
     /**
-     * Èç¹ûÖØÓÃÁ¬½Ó ÔòÖØĞÂÉèÖÃautoCommitÈ»ºóÍÆËÍ¡£
+     * å¦‚æœé‡ç”¨è¿æ¥ åˆ™é‡æ–°è®¾ç½®autoCommitç„¶åæ¨é€ã€‚
      * 
-     * Èç¹û²»ÖØÓÃÁ¬½Ó£¬Ôò´ÓDatasourceÀïÃæÑ¡ÔñÒ»¸öDatasourceºó½¨Á¢Á¬½Ó
+     * å¦‚æœä¸é‡ç”¨è¿æ¥ï¼Œåˆ™ä»Datasourceé‡Œé¢é€‰æ‹©ä¸€ä¸ªDatasourceåå»ºç«‹è¿æ¥
      * 
-     * È»ºó½«Á´½Ó·ÅÈëparentConnectionµÄ¿ÉÖØÓÃÁ¬½ÓmapÀï(getConnectionProxy.getAuctualConnections)
+     * ç„¶åå°†é“¾æ¥æ”¾å…¥parentConnectionçš„å¯é‡ç”¨è¿æ¥mapé‡Œ(getConnectionProxy.getAuctualConnections)
      * @param dbIndex
      * @return 
      * @throws SQLException
@@ -819,7 +819,7 @@ public class ZdalStatement implements Statement {
                 throw new SQLException(new StringBuilder("data source ").append(dbIndex).append(
                     " does not exist").toString());
             }
-            //Ã»ÓĞconnection
+            //æ²¡æœ‰connection
             //try {
             //connectionAndDatasource = getNewConnectionAndDataSource(datasource,dbSelector);
             connectionAndDatasource = dbSelector.tryExecute(failedDataSources,
@@ -832,7 +832,7 @@ public class ZdalStatement implements Statement {
             //	throw new RetrySQLException(e, datasource);
             //}
         } else {
-            //¿ÉÖØÓÃconnection
+            //å¯é‡ç”¨connection
             //datasource = connectionAndDatasource.parentDataSource;
             try {
                 connectionAndDatasource.connection.setAutoCommit(autoCommit);
@@ -847,9 +847,9 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * ÓÃµ±Ç°Á¬½Ó½¨Á¢statementd
+     * ç”¨å½“å‰è¿æ¥å»ºç«‹statementd
      * 
-     * @param connection µ±Ç°ÕıÔÚÓÃµÄconnection,±¾À´¿ÉÒÔ´ÓmapÖĞÈ¡µ«ÒòÎªĞ§ÂÊÉÏµÄ¿¼ÂÇËùÒÔ»¹ÊÇ²»ÕâÑù×ö
+     * @param connection å½“å‰æ­£åœ¨ç”¨çš„connection,æœ¬æ¥å¯ä»¥ä»mapä¸­å–ä½†å› ä¸ºæ•ˆç‡ä¸Šçš„è€ƒè™‘æ‰€ä»¥è¿˜æ˜¯ä¸è¿™æ ·åš
      * @param connections 
      * @param dbIndex
      * @param retringContext
@@ -927,13 +927,13 @@ public class ZdalStatement implements Statement {
     private ResultSet executeQuery0(String sql, SqlType sqlType) throws SQLException {
         checkClosed();
         this.setOperation_type(DB_OPERATION_TYPE.READ_FROM_DB);
-        //»ñÈ¡Á¬½Ó
+        //è·å–è¿æ¥
         DBSelector dbselector = getGroupDBSelector(sqlType);
         if (dbselector == null) {
-            throw new IllegalStateException("load balanceÊı¾İÔ´ÅäÖÃÀàĞÍ´íÎó");
+            throw new IllegalStateException("load balanceæ•°æ®æºé…ç½®ç±»å‹é”™è¯¯");
         }
 
-        //·µ»ØÖ´ĞĞ½á¹û
+        //è¿”å›æ‰§è¡Œç»“æœ
         return dbselector.tryExecute(new LinkedHashMap<DataSource, SQLException>(0),
             this.executeQueryTryer, retryingTimes, operation_type, sql, sqlType);
     }
@@ -946,7 +946,7 @@ public class ZdalStatement implements Statement {
                                                                                                                throws SQLException {
                                                                    String sql = (String) args[0];
                                                                    SqlType sqlType = (SqlType) args[1];
-                                                                   //»ñÈ¡Á¬½Ó
+                                                                   //è·å–è¿æ¥
                                                                    Connection conn = ZdalStatement.this
                                                                        .getGroupConnection(ds,
                                                                            sqlType, name);
@@ -977,7 +977,7 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * Èç¹û»º´æµÄÁ¬½Ó²»¿Õ£¬Ö±½Ó·µ»Ø¸ÃÁ¬½Ó£¬·ñÔò´´½¨ĞÂÁ¬½Ó
+     * å¦‚æœç¼“å­˜çš„è¿æ¥ä¸ç©ºï¼Œç›´æ¥è¿”å›è¯¥è¿æ¥ï¼Œå¦åˆ™åˆ›å»ºæ–°è¿æ¥
      * @param ds
      * @return
      * @throws SQLException
@@ -985,7 +985,7 @@ public class ZdalStatement implements Statement {
     public Connection getGroupConnection(DataSource ds, SqlType sqlType, String name)
                                                                                      throws SQLException {
         Connection conn = null;
-        //±ÜÃâÔÚÊÂÎñÖĞ¶à´ÎselectÊ±£¬Á¬½ÓÎŞ·¨ÊÍ·Å£¬ËùÒÔ¹«ÓÃÍ¬Ò»¸öselectµÄÁ¬½Ó.
+        //é¿å…åœ¨äº‹åŠ¡ä¸­å¤šæ¬¡selectæ—¶ï¼Œè¿æ¥æ— æ³•é‡Šæ”¾ï¼Œæ‰€ä»¥å…¬ç”¨åŒä¸€ä¸ªselectçš„è¿æ¥.
         if (this.getConnectionProxy().get(name) != null) {
             conn = this.getConnectionProxy().get(name).connection;
         } else {
@@ -1001,7 +1001,7 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * ¸ÃdbSelectorÊÇ±»loadbalanceµÄÅäÖÃµ÷ÓÃ
+     * è¯¥dbSelectoræ˜¯è¢«loadbalanceçš„é…ç½®è°ƒç”¨
      * @return
      */
     public DBSelector getGroupDBSelector(SqlType sqlType) {
@@ -1017,7 +1017,7 @@ public class ZdalStatement implements Statement {
                 throw new IllegalArgumentException("The dbSelector set error!");
             }
         }
-        //Èç¹ûÊÇÊÂÎñ£¬ÔòÖ±½Óµ½Ğ´¿â
+        //å¦‚æœæ˜¯äº‹åŠ¡ï¼Œåˆ™ç›´æ¥åˆ°å†™åº“
         if (sqlType != SqlType.SELECT) {
             return wGroupDBSelector;
         } else if (!autoCommit) {
@@ -1028,7 +1028,7 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * ¸ÃdbSelectorÊÇ±»loadbalanceµÄÅäÖÃµ÷ÓÃ
+     * è¯¥dbSelectoræ˜¯è¢«loadbalanceçš„é…ç½®è°ƒç”¨
      * @return
      */
     public String getGroupDBSelectorID(SqlType sqlType) {
@@ -1063,7 +1063,7 @@ public class ZdalStatement implements Statement {
         SqlExecutionContext context = getExecutionContext(sql, null);
         /*
          * modified by shenxun:
-         * ÕâÀïÖ÷ÒªÊÇ´¦ÀímappingRule·µ»Ø¿ÕµÄÇé¿öÏÂ£¬Ó¦¸Ã·µ»Ø¿Õ½á¹û¼¯
+         * è¿™é‡Œä¸»è¦æ˜¯å¤„ç†mappingRuleè¿”å›ç©ºçš„æƒ…å†µä¸‹ï¼Œåº”è¯¥è¿”å›ç©ºç»“æœé›†
          */
         if (context.mappingRuleReturnNullValue()) {
             ResultSet emptyResultSet = getEmptyResultSet();
@@ -1086,7 +1086,7 @@ public class ZdalStatement implements Statement {
                     String dbSelectorId = entry.getKey();
                     Statement stmt = createStatementByDataSourceSelectorID(dbSelectorId, context
                         .getFailedDataSources());
-                    //Á´½ÓÖØÓÃ
+                    //é“¾æ¥é‡ç”¨
                     actualStatements.add(stmt);
 
                     queryAndAddResultToCollection(dbSelectorId, actualResultSets, targetSql, stmt,
@@ -1094,12 +1094,12 @@ public class ZdalStatement implements Statement {
 
                 } catch (SQLException e) {
 
-                    //Òì³£´¦Àí
+                    //å¼‚å¸¸å¤„ç†
                     if (exceptions == null) {
                         exceptions = new ArrayList<SQLException>();
                     }
                     exceptions.add(e);
-                    ExceptionUtils.throwSQLException(exceptions, sql, Collections.emptyList()); //Ö±½ÓÅ×³ö
+                    ExceptionUtils.throwSQLException(exceptions, sql, Collections.emptyList()); //ç›´æ¥æŠ›å‡º
                 }
             }
         }
@@ -1122,7 +1122,7 @@ public class ZdalStatement implements Statement {
                                                  Map<DataSource, SQLException> failedDataSources)
                                                                                                  throws SQLException {
         //added by fanzeng.
-        //¸ù¾İdbSelectorId»ñÈ¡¶ÔÓ¦µÄÊı¾İÔ´µÄ±êÊ¶·ûÒÔ¼°Êı¾İÔ´£¬È»ºó·Åµ½threadlocalÀï
+        //æ ¹æ®dbSelectorIdè·å–å¯¹åº”çš„æ•°æ®æºçš„æ ‡è¯†ç¬¦ä»¥åŠæ•°æ®æºï¼Œç„¶åæ”¾åˆ°threadlocalé‡Œ
         try {
             actualResultSets.add(stmt.executeQuery(targetSql.sql));
         } finally {
@@ -1138,7 +1138,7 @@ public class ZdalStatement implements Statement {
         return conn;
     }
 
-    // »ñÈ¡ÕæÕıµÄ Êı¾İÔ´µÄ±êÊ¶ÒÔ¼°Êı¾İÔ´
+    // è·å–çœŸæ­£çš„ æ•°æ®æºçš„æ ‡è¯†ä»¥åŠæ•°æ®æº
     protected Map<String, DataSource> getActualIdAndDataSource(String key) {
         ConnectionAndDatasource connectionAndDatasource = getConnectionProxy()
             .getConnectionAndDatasourceByDBSelectorID(key);
@@ -1147,9 +1147,9 @@ public class ZdalStatement implements Statement {
             DBSelector dbSelector = connectionAndDatasource.dbSelector;
             DataSource ds = connectionAndDatasource.parentDataSource;
             if (dbSelector == null || ds == null) {
-                throw new IllegalArgumentException("Êı¾İÔ´²»ÄÜÎª¿Õ£¬Çë¼ì²é£¡");
+                throw new IllegalArgumentException("æ•°æ®æºä¸èƒ½ä¸ºç©ºï¼Œè¯·æ£€æŸ¥ï¼");
             }
-            //¼ÓÉÏÊı¾İÔ´Ãû³ÆÇ°×º£¬by±ù»ê 20130903
+            //åŠ ä¸Šæ•°æ®æºåç§°å‰ç¼€ï¼Œbyå†°é­‚ 20130903
             map.put(appDsName + "." + dbSelector.getSelectedDSName(), ds);
         }
         return map;
@@ -1205,12 +1205,12 @@ public class ZdalStatement implements Statement {
     private int executeUpdateInternal0(String sql, int autoGeneratedKeys, int[] columnIndexes,
                                        String[] columnNames) throws SQLException {
         checkClosed();
-        //»ñÈ¡Êı¾İÔ´
+        //è·å–æ•°æ®æº
         this.setOperation_type(DB_OPERATION_TYPE.WRITE_INTO_DB);
-        //»ñÈ¡Á¬½Ó
+        //è·å–è¿æ¥
         DBSelector dbselector = getGroupDBSelector(SqlType.DEFAULT_SQL_TYPE);
         if (dbselector == null) {
-            throw new IllegalStateException("load balanceÊı¾İÔ´ÅäÖÃÀàĞÍ´íÎó");
+            throw new IllegalStateException("load balanceæ•°æ®æºé…ç½®ç±»å‹é”™è¯¯");
         }
         this.autoGeneratedKeys = autoGeneratedKeys;
         this.columnIndexes = columnIndexes;
@@ -1219,7 +1219,7 @@ public class ZdalStatement implements Statement {
         Map<DataSource, SQLException> failedDataSources = needRetry ? new LinkedHashMap<DataSource, SQLException>(
             0)
             : null;
-        //·µ»ØÖ´ĞĞ½á¹û
+        //è¿”å›æ‰§è¡Œç»“æœ
         return dbselector.tryExecute(failedDataSources, this.executeUpdateTryer, retryingTimes,
             operation_type, sql, SqlType.DEFAULT_SQL_TYPE);
     }
@@ -1231,7 +1231,7 @@ public class ZdalStatement implements Statement {
                                                                                            Object... args)
                                                                                                           throws SQLException {
                                                                 SqlType sqlType = (SqlType) args[1];
-                                                                //»ñÈ¡Á¬½Ó
+                                                                //è·å–è¿æ¥
                                                                 Connection conn = ZdalStatement.this
                                                                     .getGroupConnection(ds,
                                                                         sqlType, name);
@@ -1283,7 +1283,7 @@ public class ZdalStatement implements Statement {
                         .getFailedDataSources());
                     actualStatements.add(stmt);
                     //added by fanzeng.
-                    //¸ù¾İdbSelectorId»ñÈ¡¶ÔÓ¦µÄÊı¾İÔ´µÄ±êÊ¶·ûÒÔ¼°Êı¾İÔ´£¬È»ºó·Åµ½threadlocalÀï
+                    //æ ¹æ®dbSelectorIdè·å–å¯¹åº”çš„æ•°æ®æºçš„æ ‡è¯†ç¬¦ä»¥åŠæ•°æ®æºï¼Œç„¶åæ”¾åˆ°threadlocalé‡Œ
                     Map<String, DataSource> map = getActualIdAndDataSource(dbSelectorId);
                     ThreadLocalMap.put(ThreadLocalString.GET_ID_AND_DATABASE, map);
                     if (autoGeneratedKeys == -1 && columnIndexes == null && columnNames == null) {
@@ -1357,7 +1357,7 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * @param targetSqls: key:×îÖÕÊı¾İÔ´ID; value:×îÖÕÊı¾İÔ´ÉÏÖ´ĞĞµÄÎïÀí±íÃûµÄSQL
+     * @param targetSqls: key:æœ€ç»ˆæ•°æ®æºID; value:æœ€ç»ˆæ•°æ®æºä¸Šæ‰§è¡Œçš„ç‰©ç†è¡¨åçš„SQL
      * @throws ZdalCheckedExcption
      */
     protected void sortBatch0(String originalSql, Map<String, List<String>> targetSqls)
@@ -1372,12 +1372,12 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * @param targetSqls: key:×îÖÕÊı¾İÔ´ID; value:×îÖÕÊı¾İÔ´ÉÏÖ´ĞĞµÄÎïÀí±íÃûµÄSQL
+     * @param targetSqls: key:æœ€ç»ˆæ•°æ®æºID; value:æœ€ç»ˆæ•°æ®æºä¸Šæ‰§è¡Œçš„ç‰©ç†è¡¨åçš„SQL
      * @throws ZdalCheckedExcption
      */
     protected void sortBatch(String originalSql, Map<String, List<String>> targetSqls)
                                                                                       throws SQLException {
-        //TODO:batchÖĞÈç¹ûÊ¹ÓÃÁËÓ³Éä¹æÔò£¬Ó³Éä¹æÔòÃ»ÓĞ·µ»Ø½á¹ûÊ±£¬»áÓĞ´íÎó¡£
+        //TODO:batchä¸­å¦‚æœä½¿ç”¨äº†æ˜ å°„è§„åˆ™ï¼Œæ˜ å°„è§„åˆ™æ²¡æœ‰è¿”å›ç»“æœæ—¶ï¼Œä¼šæœ‰é”™è¯¯ã€‚
         try {
             List<TargetDB> targets;
             String virtualTableName;
@@ -1397,7 +1397,7 @@ public class ZdalStatement implements Statement {
                 virtualJoinTableNames = dispatcherResult.getVirtualJoinTableNames();
             }
             for (TargetDB target : targets) {
-                //ÕâÀï×öÁËĞÂ¾É¹æÔò¼æÈİ
+                //è¿™é‡Œåšäº†æ–°æ—§è§„åˆ™å…¼å®¹
                 String targetName = ruleController != null ? target.getWritePool()[0] : target
                     .getDbIndex();
                 if (!targetSqls.containsKey(targetName)) {
@@ -1409,7 +1409,7 @@ public class ZdalStatement implements Statement {
                 Set<String> actualTables = target.getTableNames();
                 for (String tab : actualTables) {
                     String targetSql = replaceTableName(originalSql, virtualTableName, tab);
-                    //Èç¹ûmetaData(Ò²¾ÍÊÇDispatcherResult)ÀïÃæÓĞjoin±íÃû£¬ÄÇÃ´¾ÍÌæ»»µô;
+                    //å¦‚æœmetaData(ä¹Ÿå°±æ˜¯DispatcherResult)é‡Œé¢æœ‰joinè¡¨åï¼Œé‚£ä¹ˆå°±æ›¿æ¢æ‰;
                     targetSql = replaceJoinTableName(virtualTableName, virtualJoinTableNames, tab,
                         targetSql);
                     sqls.add(targetSql);
@@ -1433,7 +1433,7 @@ public class ZdalStatement implements Statement {
         if (virtualJoinTableNames.size() > 0) {
             String suffix = getSuffix(realTableName, virtualTableName);
             for (String vtab : virtualJoinTableNames) {
-                //ÕæÊµ±íÃû¿ÉÒÔÓÃ,Ö¸¶¨
+                //çœŸå®è¡¨åå¯ä»¥ç”¨,æŒ‡å®š
                 String repTab = vtab + suffix;
                 String[] tabs = vtab.split(",");
                 if (tabs.length == 2) {
@@ -1456,7 +1456,7 @@ public class ZdalStatement implements Statement {
         List<SQLException> exceptions = null;
 
         try {
-            Map<String/*Êı¾İÔ´ID*/, List<String>/*Êı¾İÔ´ÉÏÖ´ĞĞµÄSQL*/> targetSqls = new HashMap<String, List<String>>();
+            Map<String/*æ•°æ®æºID*/, List<String>/*æ•°æ®æºä¸Šæ‰§è¡Œçš„SQL*/> targetSqls = new HashMap<String, List<String>>();
 
             for (Object arg : batchedArgs) {
                 if (this.dbConfigType == DataSourceConfigType.GROUP) {
@@ -1470,11 +1470,11 @@ public class ZdalStatement implements Statement {
             //Map<String, ConnectionAndDatasource> connections = getConnectionProxy().getActualConnections();
 
             for (Entry<String, List<String>> entry : targetSqls.entrySet()) {
-                //Èç¹ûÃ»È¡µ½Êı¾İÔ´
+                //å¦‚æœæ²¡å–åˆ°æ•°æ®æº
                 String dbSelectorID = entry.getKey();
-                //Ğ£ÑéÊÇ·ñÔÊĞíbatchÊÂÎñ
+                //æ ¡éªŒæ˜¯å¦å…è®¸batchäº‹åŠ¡
                 checkBatchDataBaseID(dbSelectorID);
-                //retryContextÎªnullµÄÊ±ºò»áÖ±½ÓÅ×³öÒì³£¡£
+                //retryContextä¸ºnullçš„æ—¶å€™ä¼šç›´æ¥æŠ›å‡ºå¼‚å¸¸ã€‚
                 createConnectionByID(dbSelectorID);
                 try {
 
@@ -1486,7 +1486,7 @@ public class ZdalStatement implements Statement {
                         stmt.addBatch(targetSql);
                     }
 
-                    // TODO: ºöÂÔ·µ»ØÖµ
+                    // TODO: å¿½ç•¥è¿”å›å€¼
                     stmt.executeBatch();
 
                     stmt.clearBatch();
@@ -1503,7 +1503,7 @@ public class ZdalStatement implements Statement {
 
         ExceptionUtils.throwSQLException(exceptions, null, Collections.emptyList());
 
-        // TODO: ºöÂÔ·µ»ØÖµ
+        // TODO: å¿½ç•¥è¿”å›å€¼
         return new int[0];
     }
 
@@ -1520,7 +1520,7 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * ²»Ö§³Ö¶à½á¹û¼¯²éÑ¯£¬×ÜÊÇ·µ»Øfalse
+     * ä¸æ”¯æŒå¤šç»“æœé›†æŸ¥è¯¢ï¼Œæ€»æ˜¯è¿”å›false
      */
     public boolean getMoreResults() throws SQLException {
         return moreResults;
@@ -1562,7 +1562,7 @@ public class ZdalStatement implements Statement {
         try {
             for (ResultSet resultSet : openResultSets) {
                 try {
-                    //bug fix by shenxun :ÄÚ²¿²»ÈÃËûremove,ÔÚTStatmentÖĞÍ³Ò»clearµôËûÃÇ
+                    //bug fix by shenxun :å†…éƒ¨ä¸è®©ä»–remove,åœ¨TStatmentä¸­ç»Ÿä¸€clearæ‰ä»–ä»¬
                     ((DummyTResultSet) resultSet).closeInternal(false);
                 } catch (SQLException e) {
                     if (exceptions == null) {
@@ -1603,29 +1603,29 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * ÔÚbatchµÄÊÂÎñÀï£¬Ã¿´Î¶¼Òª¼ì²éÊÇ·ñÍ¬Ò»¸öÊı¾İÔ´±êÊ¶,Ö»½øĞĞÂß¼­¿âµÄÅĞ¶¨
-     * added by fanzeng£¬ÒÔÖ§³ÖbatchµÄµ¥¿âÊÂÎñ
-     * @param dbSelectorID  Âß¼­Êı¾İÔ´±êÊ¶
+     * åœ¨batchçš„äº‹åŠ¡é‡Œï¼Œæ¯æ¬¡éƒ½è¦æ£€æŸ¥æ˜¯å¦åŒä¸€ä¸ªæ•°æ®æºæ ‡è¯†,åªè¿›è¡Œé€»è¾‘åº“çš„åˆ¤å®š
+     * added by fanzengï¼Œä»¥æ”¯æŒbatchçš„å•åº“äº‹åŠ¡
+     * @param dbSelectorID  é€»è¾‘æ•°æ®æºæ ‡è¯†
      * @throws SQLException
      */
     public void checkBatchDataBaseID(String dbSelectorID) throws SQLException {
         if (StringUtil.isBlank(dbSelectorID)) {
             throw new SQLException("The dbSelectorID can't be null!");
         }
-        //Èç¹ûÔÚÊÂÎñÖĞ£¬µÚÒ»´Î¾ÍÉèÖÃbatchDataBaseIdµÄÖµ,È»ºóÖ±½Ó·µ»Ø
+        //å¦‚æœåœ¨äº‹åŠ¡ä¸­ï¼Œç¬¬ä¸€æ¬¡å°±è®¾ç½®batchDataBaseIdçš„å€¼,ç„¶åç›´æ¥è¿”å›
         if (!isAutoCommit() && getBatchDataBaseId() == null) {
             setBatchDataBaseId(dbSelectorID);
             return;
         }
-        //Èç¹ûÔÚÊÂÎñÖĞ£¬²¢ÇÒµ±Ç°µÄdbIdºÍ»º´æµÄdbId²»Í¬£¬¼´Å×³öÒì³££»         
+        //å¦‚æœåœ¨äº‹åŠ¡ä¸­ï¼Œå¹¶ä¸”å½“å‰çš„dbIdå’Œç¼“å­˜çš„dbIdä¸åŒï¼Œå³æŠ›å‡ºå¼‚å¸¸ï¼›         
         if (!isAutoCommit() && !dbSelectorID.equals(getBatchDataBaseId())) {
-            throw new SQLException("batch²Ù×÷Ö»Ö§³Öµ¥¿âµÄÊÂÎñ,µ±Ç°dbSelectorID=" + dbSelectorID + ",»º´æµÄdbId="
+            throw new SQLException("batchæ“ä½œåªæ”¯æŒå•åº“çš„äº‹åŠ¡,å½“å‰dbSelectorID=" + dbSelectorID + ",ç¼“å­˜çš„dbId="
                                    + getBatchDataBaseId());
         }
     }
 
     /**
-     * ÒÔÏÂÎª²»Ö§³ÖµÄ·½·¨
+     * ä»¥ä¸‹ä¸ºä¸æ”¯æŒçš„æ–¹æ³•
      */
     public int getFetchDirection() throws SQLException {
         throw new UnsupportedOperationException("getFetchDirection");
@@ -1685,7 +1685,7 @@ public class ZdalStatement implements Statement {
     }
 
     /**
-     * ÒÔÏÂÎªÎŞÂß¼­µÄgetter/setter
+     * ä»¥ä¸‹ä¸ºæ— é€»è¾‘çš„getter/setter
      */
     public int getResultSetType() throws SQLException {
         return resultSetType;

@@ -11,32 +11,32 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Ä¿±êÊı¾İ¿âÌØÕ÷
- * °üº¬¶ÁĞ´Ä¿±êdsµÄid
- * ÒÔ¼°¸ÃdsÖĞ·ûºÏÒªÇóµÄ±íÃûÁĞ±í¡£
+ * ç›®æ ‡æ•°æ®åº“ç‰¹å¾
+ * åŒ…å«è¯»å†™ç›®æ ‡dsçš„id
+ * ä»¥åŠè¯¥dsä¸­ç¬¦åˆè¦æ±‚çš„è¡¨ååˆ—è¡¨ã€‚
  *
  */
 public class TargetDB implements DatabasesAndTables {
     /**
-     * Õâ¸ö¿âÔÚTDatasourceË÷ÒıÖĞµÄË÷Òı
+     * è¿™ä¸ªåº“åœ¨TDatasourceç´¢å¼•ä¸­çš„ç´¢å¼•
      */
     private String               dbIndex;
     /**
-     * Ğ´³Ø×é
+     * å†™æ± ç»„
      */
     private String[]             writePool;
 
     /**
-     * ¶Á³Ø×é
+     * è¯»æ± ç»„
      */
     private String[]             readPool;
     /**
-     * Õâ¸ö¹æÔòÏÂµÄ·ûºÏ²éÑ¯Ìõ¼şµÄ±íÃûÁĞ±í
+     * è¿™ä¸ªè§„åˆ™ä¸‹çš„ç¬¦åˆæŸ¥è¯¢æ¡ä»¶çš„è¡¨ååˆ—è¡¨
      */
     private Set<String>          tableNames;
 
     /**
-     * »ñÈ¡·´ÏòÊä³öºóµÄ ²ÎÊı¶Ô
+     * è·å–åå‘è¾“å‡ºåçš„ å‚æ•°å¯¹
      */
     private Map<Integer, Object> changedParams = Collections.emptyMap();
 
@@ -57,10 +57,10 @@ public class TargetDB implements DatabasesAndTables {
     }
 
     /**
-     * ·µ»Ø±íÃûµÄ½á¹û¼¯
+     * è¿”å›è¡¨åçš„ç»“æœé›†
      * 
-     * @return ¿ÕSet if Ã»ÓĞ±í
-     * 		   ±íÃû½á¹û¼¯	
+     * @return ç©ºSet if æ²¡æœ‰è¡¨
+     * 		   è¡¨åç»“æœé›†	
      */
     public Set<String> getTableNames() {
         return tableNames;

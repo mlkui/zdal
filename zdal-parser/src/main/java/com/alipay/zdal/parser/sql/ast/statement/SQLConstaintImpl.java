@@ -10,7 +10,7 @@ import com.alipay.zdal.parser.sql.ast.SQLObjectImpl;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLConstaintImpl.java, v 0.1 2012-11-17 œ¬ŒÁ3:21:08 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLConstaintImpl.java, v 0.1 2012-11-17 ‰∏ãÂçà3:21:08 xiaoqing.zhouxq Exp $
  */
 @SuppressWarnings("serial")
 public abstract class SQLConstaintImpl extends SQLObjectImpl implements SQLConstaint {

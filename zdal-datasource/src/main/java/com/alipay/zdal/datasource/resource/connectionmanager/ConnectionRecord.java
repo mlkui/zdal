@@ -10,8 +10,8 @@ import com.alipay.zdal.datasource.resource.spi.ConnectionRequestInfo;
  * Information about a connection
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: ConnectionRecord.java, v 0.1 2014-1-6 ÏÂÎç05:33:59 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ConnectionRecord.java, v 0.1 2014-1-6 ä¸‹åˆ05:33:59 Exp $
  */
 public class ConnectionRecord {
     ConnectionListener          cl;

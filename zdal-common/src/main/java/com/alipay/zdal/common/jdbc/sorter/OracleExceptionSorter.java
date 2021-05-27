@@ -15,8 +15,8 @@ import org.apache.log4j.Logger;
  *
  * Created: Fri Mar 14 21:54:23 2003
  *
- * @author ²®ÑÀ
- * @version $Id: OracleExceptionSorter.java, v 0.1 2014-1-6 ÏÂÎç05:20:41 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleExceptionSorter.java, v 0.1 2014-1-6 ä¸‹åˆ05:20:41 Exp $
  */
 public class OracleExceptionSorter implements ExceptionSorter, Serializable {
 
@@ -28,7 +28,7 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
     }
 
     //    public boolean isExceptionFatal(SQLException e) {
-    //        int loopCount = 20; //·ÀÖ¹ÈËÎªÊ§Îó£¬µ±Á½¸öThrowable»¥Îª¶Ô·½µÄinitCause()Ê±£¬Ôì³ÉËÀÑ­»·
+    //        int loopCount = 20; //é˜²æ­¢äººä¸ºå¤±è¯¯ï¼Œå½“ä¸¤ä¸ªThrowableäº’ä¸ºå¯¹æ–¹çš„initCause()æ—¶ï¼Œé€ æˆæ­»å¾ªç¯
     //
     //        Throwable cause = e;
     //        while (cause != null) {
@@ -76,8 +76,8 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
             || (error_code == 28000)// the account is locked   
             || (error_code == 17410) //No more data to read from socket
             || (error_code == 17447) //OALL8 is in an inconsistent state
-            || (error_code == 17401) || (error_code == 3137)//±¨ÎÄ´íÎó
-            || (error_code == ROLLBACK_ERRORCODE)) {//rollbackÊ§°ÜÖ±½ÓÌŞ³öÁ¬½Ó.
+            || (error_code == 17401) || (error_code == 3137)//æŠ¥æ–‡é”™è¯¯
+            || (error_code == ROLLBACK_ERRORCODE)) {//rollbackå¤±è´¥ç›´æ¥å‰”å‡ºè¿æ¥.
             return true;
         }
 
@@ -92,13 +92,13 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
         if ((error_code < 20000 || error_code >= 21000)
             && (error_text.indexOf("NO DATASOURCE") > -1
                 || (error_text.indexOf("COULD NOT CREATE CONNECTION") > -1)
-                || error_text.indexOf("NO ALIVE DATASOURCE") > -1 //¼æÈİrjdbcÅ×³öµÄ´íÎó
+                || error_text.indexOf("NO ALIVE DATASOURCE") > -1 //å…¼å®¹rjdbcæŠ›å‡ºçš„é”™è¯¯
                 || (error_text.indexOf("SOCKET") > -1) //for control socket error
                 || (error_text.indexOf("CONNECTION HAS ALREADY BEEN CLOSED") > -1)
                 || (error_text.indexOf("BROKEN PIPE") > -1)
                 || (error_text.indexOf("TNS") > -1 && error_text.indexOf("ORA-") > -1)
                 || (error_text.indexOf("Closed Connection") > -1)
-                || (error_text.indexOf("¹Ø±ÕµÄÁ¬½Ó") > -1) || (error_text.indexOf("Ì×½Ó×Ö") > -1))) {
+                || (error_text.indexOf("å…³é—­çš„è¿æ¥") > -1) || (error_text.indexOf("å¥—æ¥å­—") > -1))) {
             return true;
         }
 
@@ -106,17 +106,17 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
     }
     //    public static void main(String[] args) {
     //        int error_code = 0;
-    //        String error_text = "¹Ø±ÕµÄÁ¬½Ó";
+    //        String error_text = "å…³é—­çš„è¿æ¥";
     //        boolean result = false;
     //        if ((error_code < 20000 || error_code >= 21000)
     //            && (error_text.indexOf("NO DATASOURCE") > -1
     //                || (error_text.indexOf("COULD NOT CREATE CONNECTION") > -1)
-    //                || error_text.indexOf("NO ALIVE DATASOURCE") > -1 //¼æÈİrjdbcÅ×³öµÄ´íÎó
+    //                || error_text.indexOf("NO ALIVE DATASOURCE") > -1 //å…¼å®¹rjdbcæŠ›å‡ºçš„é”™è¯¯
     //                || (error_text.indexOf("SOCKET") > -1) //for control socket error
     //                || (error_text.indexOf("CONNECTION HAS ALREADY BEEN CLOSED") > -1)
     //                || (error_text.indexOf("BROKEN PIPE") > -1)
     //                || (error_text.indexOf("TNS") > -1 && error_text.indexOf("ORA-") > -1)
-    //                || (error_text.indexOf("Closed Connection") > -1) || (error_text.indexOf("¹Ø±ÕµÄÁ¬½Ó") > -1))) {
+    //                || (error_text.indexOf("Closed Connection") > -1) || (error_text.indexOf("å…³é—­çš„è¿æ¥") > -1))) {
     //            result = true;
     //        }
     //

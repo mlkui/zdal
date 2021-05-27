@@ -18,8 +18,8 @@ import com.alipay.zdal.datasource.transaction.Transaction;
  *  Object is that we do not really know what kind of transaction
  *  propagation context is returned.
  *
- * @author ≤Æ—¿
- * @version $Id: TransactionPropagationContextFactory.java, v 0.1 2014-1-6 œ¬ŒÁ05:48:38 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: TransactionPropagationContextFactory.java, v 0.1 2014-1-6 ‰∏ãÂçà05:48:38 Exp $
  */
 public interface TransactionPropagationContextFactory {
     /**

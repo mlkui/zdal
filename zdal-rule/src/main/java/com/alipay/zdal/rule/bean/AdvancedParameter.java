@@ -5,26 +5,26 @@
 package com.alipay.zdal.rule.bean;
 
 /**
- * ¹æÔòËùÐèÒªµÄÃ¿Ò»¸ö²ÎÊýËùÓµÓÐµÄÒ»Ð©»ù±¾ÊôÐÔ£¬°üº¬Ã¶¾ÙÆ÷ËùÐèÒªµÄÒ»Ð©ÐÅÏ¢
+ * è§„åˆ™æ‰€éœ€è¦çš„æ¯ä¸€ä¸ªå‚æ•°æ‰€æ‹¥æœ‰çš„ä¸€äº›åŸºæœ¬å±žæ€§ï¼ŒåŒ…å«æžšä¸¾å™¨æ‰€éœ€è¦çš„ä¸€äº›ä¿¡æ¯
  * 
  *
  */
 public class AdvancedParameter {
     /**
-     * sqlÖÐµÄÁÐÃû£¬±ØÐëÊÇÐ¡Ð´£¬ÕâÀïÔÚsetterÏÔÊ¾µÄÉèÖÃ³ÉÐ¡Ð´ÁË
+     * sqlä¸­çš„åˆ—åï¼Œå¿…é¡»æ˜¯å°å†™ï¼Œè¿™é‡Œåœ¨setteræ˜¾ç¤ºçš„è®¾ç½®æˆå°å†™äº†
      */
     public String        key;
     /**
-     * ×ÔÔö£¬¸øÃ¶¾ÙÆ÷ÓÃµÄ
+     * è‡ªå¢žï¼Œç»™æžšä¸¾å™¨ç”¨çš„
      */
     public Comparable<?> atomicIncreateValue;
     /**
-     * µþ¼Ó´ÎÊý£¬¸øÃ¶¾ÙÆ÷ÓÃµÄ
+     * å åŠ æ¬¡æ•°ï¼Œç»™æžšä¸¾å™¨ç”¨çš„
      */
     public Integer       cumulativeTimes;
 
     /**
-     * ¾ö¶¨µ±Ç°²ÎÊýÊÇ·ñÔÊÐí·¶Î§²éÑ¯Èç>= <= ...
+     * å†³å®šå½“å‰å‚æ•°æ˜¯å¦å…è®¸èŒƒå›´æŸ¥è¯¢å¦‚>= <= ...
      */
     public boolean       needMergeValueInCloseInterval;
 

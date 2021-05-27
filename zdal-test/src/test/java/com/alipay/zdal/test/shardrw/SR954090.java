@@ -21,7 +21,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rwÊı¾İÔ´£¬¶ÁĞ´·ÖÏíµÄÓÅÏÈ¼¶,¶ÁÓÅÏÈ¼¶Îªp,Ğ´ÓÅÏÈ¼¶Îªq¡£²âÊÔĞ´")
+@Feature("shard+rwæ•°æ®æºï¼Œè¯»å†™åˆ†äº«çš„ä¼˜å…ˆçº§,è¯»ä¼˜å…ˆçº§ä¸ºp,å†™ä¼˜å…ˆçº§ä¸ºqã€‚æµ‹è¯•å†™")
 public class SR954090 {
 
 	public TestAssertion Assert = new TestAssertion();
@@ -35,7 +35,7 @@ public class SR954090 {
 		psd = ConstantsTest.mysq112Psd;
 	}
 
-	@Subject("Êı¾İÔ´ÓÅÏÈ¼¶,Ğ´¿â¡£ÓĞÁ½¸ögroup:group_0,group_1.ÆäÖĞgroup_0Îªds0:r1w2q1,ds2:r2w1q2,group_1Îªds1:r5w10p2,ds3:r10w3p3")
+	@Subject("æ•°æ®æºä¼˜å…ˆçº§,å†™åº“ã€‚æœ‰ä¸¤ä¸ªgroup:group_0,group_1.å…¶ä¸­group_0ä¸ºds0:r1w2q1,ds2:r2w1q2,group_1ä¸ºds1:r5w10p2,ds3:r10w3p3")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954091() {
@@ -43,7 +43,7 @@ public class SR954090 {
 				.getBean("zdalShardrwPriority");
 		Map<String, Object> params = new HashMap<String, Object>();	
 		try {
-			Step("¾­·Ö¿âºóÓ¦¸ÃÊÇ0¿â£¬Ò²¾ÍÊÇgroup_0£¬ds0µÄÓÅÏÈ¼¶¸ßÓÚds2£¬ËùÒÔÓ¦¸ÃÊÇĞ´ds0µÄuser_0±í");
+			Step("ç»åˆ†åº“ååº”è¯¥æ˜¯0åº“ï¼Œä¹Ÿå°±æ˜¯group_0ï¼Œds0çš„ä¼˜å…ˆçº§é«˜äºds2ï¼Œæ‰€ä»¥åº”è¯¥æ˜¯å†™ds0çš„user_0è¡¨");
 			for (int i = 0; i < 10; i++) {
 				params.put("user_id", 2*i);
 				params.put("age", 10);
@@ -54,7 +54,7 @@ public class SR954090 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Step("Êı¾İÅĞ¶Ï");
+		Step("æ•°æ®åˆ¤æ–­");
 		String sqlStr="select count(*) from user_0 where age=10";
 		String url=ConstantsTest.mysql12UrlTranation0;
 
@@ -67,20 +67,20 @@ public class SR954090 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Step("Çå³ıÊı¾İ");
+		Step("æ¸…é™¤æ•°æ®");
 		String delSqlStr="delete from user_0";
 		ZdalTestCommon.dataUpdateJDBC(delSqlStr, url, psd, user);
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Subject("Êı¾İÔ´ÓÅÏÈ¼¶,¶Á¿â¡£ÓĞÁ½¸ögroup:group_0,group_1.ÆäÖĞgroup_0Îªds0:r1w2q1,ds2:r2w1q2,group_1Îªds1:r5w10p2,ds3:r10w3p3")
+	@Subject("æ•°æ®æºä¼˜å…ˆçº§,è¯»åº“ã€‚æœ‰ä¸¤ä¸ªgroup:group_0,group_1.å…¶ä¸­group_0ä¸ºds0:r1w2q1,ds2:r2w1q2,group_1ä¸ºds1:r5w10p2,ds3:r10w3p3")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954092(){
 		int countA=0;
 		int countB=0;
 		testPrepareData();
-		Step("zdal²éÑ¯Êı¾İ");
+		Step("zdalæŸ¥è¯¢æ•°æ®");
 		sqlMap = (SqlMapClient) ZdalShardrwSuite.context
 		.getBean("zdalShardrwPriority");	
 		try {
@@ -105,17 +105,17 @@ public class SR954090 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Assert.areEqual(true, countA == 10&&countB==0, "shard+rw¶ÁÓÅÏÈ¼¶ÅĞ¶Ï,countA="+countA+",countB="+countB);
+		Assert.areEqual(true, countA == 10&&countB==0, "shard+rwè¯»ä¼˜å…ˆçº§åˆ¤æ–­,countA="+countA+",countB="+countB);
 		
 		deleteData();
 	}
 	
 	
 	/**
-	 * ¹¹ÔìÊı¾İ
+	 * æ„é€ æ•°æ®
 	 */
 	private void testPrepareData(){
-		Step("Êı¾İ×¼±¸");
+		Step("æ•°æ®å‡†å¤‡");
 		String sqlStr1="insert into user_0 (user_id,age,name,gmt_created,gmt_modified) values(11,10,'DB_A',now(),now()) ";
 		String sqlStr2="insert into user_0 (user_id,age,name,gmt_created,gmt_modified) values(11,10,'DB_B',now(),now()) ";
 		String url1=ConstantsTest.mysql12UrlTranation1;
@@ -126,7 +126,7 @@ public class SR954090 {
 	}
 	
 	/**
-	 *  É¾³ı×¼±¸µÄÊı¾İ
+	 *  åˆ é™¤å‡†å¤‡çš„æ•°æ®
 	 */
 	private void deleteData(){
 		String url1=ConstantsTest.mysql12UrlTranation1;

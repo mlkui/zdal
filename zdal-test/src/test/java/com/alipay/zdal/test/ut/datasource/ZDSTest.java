@@ -20,7 +20,7 @@ import com.alipay.zdal.datasource.ZDataSource;
 import com.alipay.zdal.datasource.resource.security.SecureIdentityLoginModule;
 
 public class ZDSTest {
-    private int                                      arrayLength               = 10;                                               //Êı×éµÄ³¤¶È
+    private int                                      arrayLength               = 10;                                               //æ•°ç»„çš„é•¿åº¦
     protected ZDSFactory                             zdsFactory                = new ZDSFactory();
     protected DataSource[]                           dataSources               = new DataSource[arrayLength];
     protected ZDataSource[]                          zDataSources              = new ZDataSource[arrayLength];
@@ -42,7 +42,7 @@ public class ZDSTest {
             "DataSource-Oracle", "DataSource-Mysql", "DataSource-MysqlChange",
             "DataSource-MysqlAPP"                                             };
 
-    //TODO assertµÄ´¦Àí
+    //TODO assertçš„å¤„ç†
     //    public TestAssertion Assert = new TestAssertion();
 
     public final static Log                          Logger                    = LogFactory
@@ -56,7 +56,7 @@ public class ZDSTest {
      * <br>4-DataSource-MysqlAPP
      * <br>5-DataSource-invalid
      * <br>6-DataSource-OracleChange<br>
-     * @return Êı¾İÔ´id
+     * @return æ•°æ®æºid
      */
     protected String getDataSourceBean(int i) {
         String bean = "";
@@ -116,7 +116,7 @@ public class ZDSTest {
     }
 
     protected void recoverEvn() {
-        System.out.println("»Ö¸´²âÊÔÓÃÀıÍ¨ÓÃ»·¾³");
+        System.out.println("æ¢å¤æµ‹è¯•ç”¨ä¾‹é€šç”¨ç¯å¢ƒ");
         try {
             for (int i = 0; i < statements.length; i++) {
                 if (statements[i] != null) {
@@ -147,7 +147,7 @@ public class ZDSTest {
                 }
             }
         } catch (Exception e) {
-            System.out.println("*************Ïú»ÙÁ¬½ÓÒì³£******************");
+            System.out.println("*************é”€æ¯è¿æ¥å¼‚å¸¸******************");
             e.printStackTrace();
         }
     }
@@ -169,8 +169,8 @@ public class ZDSTest {
             }
         }
 
-        System.out.println("»ñÈ¡Êı¾İÔ´¡¢Á¬½Ó¡¢statement¡¢»ñÈ¡DRM");
-        //µÈ´ı³õÊ¼»¯
+        System.out.println("è·å–æ•°æ®æºã€è¿æ¥ã€statementã€è·å–DRM");
+        //ç­‰å¾…åˆå§‹åŒ–
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -195,7 +195,7 @@ public class ZDSTest {
     }
 
     protected void zdsSetUp() throws Exception {
-        //×ÓÀàÊµÏÖ
+        //å­ç±»å®ç°
     }
 
     @After
@@ -210,7 +210,7 @@ public class ZDSTest {
     }
 
     protected void zdsTearDown() throws Exception {
-        //×ÓÀàÊµÏÖ
+        //å­ç±»å®ç°
     }
 
     protected void sleep(long mill) {
@@ -220,10 +220,10 @@ public class ZDSTest {
             long mil = mill % basicSec;
             for (long i = 0; i < sec; i++) {
                 Thread.sleep(basicSec);
-                System.out.println("ÒÑ¾­µÈ´ı" + i + "Ãë");
+                System.out.println("å·²ç»ç­‰å¾…" + i + "ç§’");
             }
             Thread.sleep(mil);
-            System.out.println("ÒÑ¾­µÈ´ı" + sec + "Ãë" + mil + "ºÁÃë");
+            System.out.println("å·²ç»ç­‰å¾…" + sec + "ç§’" + mil + "æ¯«ç§’");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -237,7 +237,7 @@ public class ZDSTest {
             appUsers[i].setSql(getSql(1));
             new Thread(appUsers[i]).start();
         }
-        sleep(2000 + 250 * count);//µÈ´ıËùÓĞÓÃ»§¶¼Æô¶¯³É¹¦
+        sleep(2000 + 250 * count);//ç­‰å¾…æ‰€æœ‰ç”¨æˆ·éƒ½å¯åŠ¨æˆåŠŸ
         return appUsers;
     }
 
@@ -245,7 +245,7 @@ public class ZDSTest {
         for (int i = 0; i < appUsers.length; i++) {
             appUsers[i].setStop(true);
         }
-        sleep(2000 + 250 * appUsers.length);//µÈ´ıËùÓĞÓÃ»§¶¼¹Ø±Õ³É¹¦
+        sleep(2000 + 250 * appUsers.length);//ç­‰å¾…æ‰€æœ‰ç”¨æˆ·éƒ½å…³é—­æˆåŠŸ
     }
 
     public InputStream getResourceInputStream(String resource) throws MalformedURLException,

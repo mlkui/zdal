@@ -14,8 +14,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlMatchAgainstExpr.java, v 0.1 2012-11-17 ÏÂÎç3:30:49 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlMatchAgainstExpr.java, v 0.1 2012-11-17 ä¸‹åˆ3:30:49 Exp $
  */
 public class MySqlMatchAgainstExpr extends SQLExprImpl implements MySqlExpr {
 

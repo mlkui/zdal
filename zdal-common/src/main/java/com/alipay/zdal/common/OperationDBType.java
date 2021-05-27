@@ -6,8 +6,8 @@ package com.alipay.zdal.common;
 
 /**
  * @author added by fanzeng
- * Ôö¼ÓÕâ¸öÃ¶¾ÙÀàÐÍµÄÄ¿µÄÊÇ£¬ÔÚ½øÐÐ¶ÁÐ´ÖØÊÔµÄÊ±ºò£¬¸ù¾Ýread»òÕßÊÇwriteµÄÀàÐÍÀ´½øÐÐÅÐ¶¨£¬Èç¹ûÊÇ¶Á£¬¿ÉÒÔ½øÐÐ
- * ¶ÁÖØÊÔ£¬¶øÈç¹ûÊÇÐ´£¬Ö»ÓÐPriorityDbGroupSelectorµÄÊ±ºò²Å¿ÉÒÔ½øÐÐÐ´ÖØÊÔ£¬¼´ÓÅÏÈÐ´p0£¬Èç¹ûÐ´p0Ê§°ÜºóÖØÊÔÐ´p1£»
+ * å¢žåŠ è¿™ä¸ªæžšä¸¾ç±»åž‹çš„ç›®çš„æ˜¯ï¼Œåœ¨è¿›è¡Œè¯»å†™é‡è¯•çš„æ—¶å€™ï¼Œæ ¹æ®readæˆ–è€…æ˜¯writeçš„ç±»åž‹æ¥è¿›è¡Œåˆ¤å®šï¼Œå¦‚æžœæ˜¯è¯»ï¼Œå¯ä»¥è¿›è¡Œ
+ * è¯»é‡è¯•ï¼Œè€Œå¦‚æžœæ˜¯å†™ï¼Œåªæœ‰PriorityDbGroupSelectorçš„æ—¶å€™æ‰å¯ä»¥è¿›è¡Œå†™é‡è¯•ï¼Œå³ä¼˜å…ˆå†™p0ï¼Œå¦‚æžœå†™p0å¤±è´¥åŽé‡è¯•å†™p1ï¼›
  */
 public enum OperationDBType {
     readFromDb(0), writeIntoDb(1);

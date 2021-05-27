@@ -21,12 +21,12 @@ import com.alipay.zdal.client.jdbc.ZdalStatement;
 
 /**
  * bugfix by fanzeng.
- * Èç¹û´«½øÀ´µÄÁ½¸öÖµ¶¼ÎªnullµÄÊ±ºò£¬ÈÏÎª¶şÕßÏàµÈ£»
- * Èç¹ûÆäÖĞÒ»¸öÎªnull£¬ÁíÒ»¸ö²»Îªnull£¬ÔòÈÏÎªnull½ÏĞ¡
- * Ö»ÓĞÁ½Õß¶¼²»ÎªnullµÄÊ±ºò£¬»á¸ù¾İÊı¾İ¿â¸Ã×Ö¶ÎµÄÀàĞÍÀ´Ñ¡Ôñ±È½ÏÆ÷
- * Èç¹ûÁ½ÕßÖ®Ò»Îªnull£¬ÔòsortTypeÎªnull£¬Ñ¡Ôñnull±È½ÏÆ÷À´½øĞĞ±È½Ï
+ * å¦‚æœä¼ è¿›æ¥çš„ä¸¤ä¸ªå€¼éƒ½ä¸ºnullçš„æ—¶å€™ï¼Œè®¤ä¸ºäºŒè€…ç›¸ç­‰ï¼›
+ * å¦‚æœå…¶ä¸­ä¸€ä¸ªä¸ºnullï¼Œå¦ä¸€ä¸ªä¸ä¸ºnullï¼Œåˆ™è®¤ä¸ºnullè¾ƒå°
+ * åªæœ‰ä¸¤è€…éƒ½ä¸ä¸ºnullçš„æ—¶å€™ï¼Œä¼šæ ¹æ®æ•°æ®åº“è¯¥å­—æ®µçš„ç±»å‹æ¥é€‰æ‹©æ¯”è¾ƒå™¨
+ * å¦‚æœä¸¤è€…ä¹‹ä¸€ä¸ºnullï¼Œåˆ™sortTypeä¸ºnullï¼Œé€‰æ‹©nullæ¯”è¾ƒå™¨æ¥è¿›è¡Œæ¯”è¾ƒ
  * @author zhaofeng.wang
- * @version $Id: OrderByTResultSet.java,v 0.1 2010-12-16 ÏÂÎç03:27:10 zhaofeng.wang Exp $
+ * @version $Id: OrderByTResultSet.java,v 0.1 2010-12-16 ä¸‹åˆ03:27:10 zhaofeng.wang Exp $
  */
 public class OrderByTResultSet extends BaseTResultSet {
 
@@ -316,8 +316,8 @@ public class OrderByTResultSet extends BaseTResultSet {
                 }
 
                 /*
-                 * ÓÉÓÚTreeSet²»ÔÊĞí´æÔÚÏàÍ¬µÄ¶ÔÏó£¬ËùÒÔÀûÓÃhashCode°ÑÏàÍ¬µÄ¶ÔÏóÇø·Ö¿ª
-                 * Èç¹û´æÔÚhashCodeÒ²ÏàÍ¬µÄ2¸ö¶ÔÏó£¬ÄÇËûÃÇµÄË³ĞòÊÇÎŞ¹Ø½ôÒªµÄ
+                 * ç”±äºTreeSetä¸å…è®¸å­˜åœ¨ç›¸åŒçš„å¯¹è±¡ï¼Œæ‰€ä»¥åˆ©ç”¨hashCodeæŠŠç›¸åŒçš„å¯¹è±¡åŒºåˆ†å¼€
+                 * å¦‚æœå­˜åœ¨hashCodeä¹Ÿç›¸åŒçš„2ä¸ªå¯¹è±¡ï¼Œé‚£ä»–ä»¬çš„é¡ºåºæ˜¯æ— å…³ç´§è¦çš„
                  */
                 return System.identityHashCode(resultSet1) < System.identityHashCode(resultSet2) ? -1
                     : 1;

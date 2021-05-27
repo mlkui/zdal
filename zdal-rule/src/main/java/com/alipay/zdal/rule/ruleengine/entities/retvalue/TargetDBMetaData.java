@@ -9,16 +9,16 @@ import java.util.List;
 public class TargetDBMetaData {
 
     /**
-     * ÊÇ·ñÔÊĞí·´ÏòÊä³ö
+     * æ˜¯å¦å…è®¸åå‘è¾“å‡º
      */
     private boolean              allowReverseOutput;
     /**
-     * Ä¿±ê¿â
+     * ç›®æ ‡åº“
      */
     private final List<TargetDB> target;
 
     /**
-     * ĞéÄâ±íÃû
+     * è™šæ‹Ÿè¡¨å
      */
     private final String         virtualTableName;
 

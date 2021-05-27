@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleArgumentExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:43:04 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleArgumentExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:43:04 Exp $
  */
 public class OracleArgumentExpr extends OracleSQLObjectImpl implements SQLExpr {
 

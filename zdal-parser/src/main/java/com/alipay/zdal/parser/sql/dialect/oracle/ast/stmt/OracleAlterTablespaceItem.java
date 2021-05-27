@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.ast.OracleSQLObject;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleAlterTablespaceItem.java, v 0.1 2012-11-17 ÏÂÎç3:45:43 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleAlterTablespaceItem.java, v 0.1 2012-11-17 ä¸‹åˆ3:45:43 Exp $
  */
 public interface OracleAlterTablespaceItem extends OracleSQLObject {
 

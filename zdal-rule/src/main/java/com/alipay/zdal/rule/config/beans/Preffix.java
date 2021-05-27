@@ -5,7 +5,7 @@
 package com.alipay.zdal.rule.config.beans;
 
 /**
- * һ��ǰ�
+ * 一个前辍
  *
  */
 public class Preffix {

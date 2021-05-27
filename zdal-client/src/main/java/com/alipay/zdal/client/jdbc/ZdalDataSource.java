@@ -10,9 +10,9 @@ import com.alipay.zdal.client.exceptions.ZdalClientException;
 import com.alipay.zdal.common.Closable;
 
 /**
- * Zdal ¶ÔÍâ¹«²¼µÄÊı¾İÔ´,Ö§³Ö¶¯Ì¬µ÷ÕûÊı¾İÔ´µÄÅäÖÃĞÅÏ¢£¬ÇĞ»»µÈ¹¦ÄÜ<br>
- * ×¢Òâ£º 1,Ê¹ÓÃÇ°ÇëÎñ±ØÏÈÉèÖÃappName,appDsName,dbmode,configPathµÄÖµ£¬²¢ÇÒµ÷ÓÃinit·½·¨½øĞĞ³õÊ¼»¯;
- * 2,´ÓconfigPath»ñÈ¡ÅäÖÃĞÅÏ¢: <br>
+ * Zdal å¯¹å¤–å…¬å¸ƒçš„æ•°æ®æº,æ”¯æŒåŠ¨æ€è°ƒæ•´æ•°æ®æºçš„é…ç½®ä¿¡æ¯ï¼Œåˆ‡æ¢ç­‰åŠŸèƒ½<br>
+ * æ³¨æ„ï¼š 1,ä½¿ç”¨å‰è¯·åŠ¡å¿…å…ˆè®¾ç½®appName,appDsName,dbmode,configPathçš„å€¼ï¼Œå¹¶ä¸”è°ƒç”¨initæ–¹æ³•è¿›è¡Œåˆå§‹åŒ–;
+ * 2,ä»configPathè·å–é…ç½®ä¿¡æ¯: <br>
  * <bean id="testZdalDataSource" class="com.alipay.zdal.client.jdbc.ZdalDataSource" init-method="init" destroy-method="close"> 
  *      <property name="appName" value="appName"/> 
  *      <property name="appDsName" value="appDsName"/> 
@@ -20,8 +20,8 @@ import com.alipay.zdal.common.Closable;
  *      <property name="configPath" value="/home/admin/appName-run/jboss/deploy"/> 
  * </bean>
  * 
- * @author ²®ÑÀ
- * @version $Id: ZdalDataSource.java, v 0.1 2012-11-17 ÏÂÎç4:08:43 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalDataSource.java, v 0.1 2012-11-17 ä¸‹åˆ4:08:43 Exp $
  */
 public class ZdalDataSource extends AbstractZdalDataSource implements DataSource, Closable {
 

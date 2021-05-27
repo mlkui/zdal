@@ -10,7 +10,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLDateLiteralExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:16:45 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLDateLiteralExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:16:45 xiaoqing.zhouxq Exp $
  */
 public class SQLDateLiteralExpr extends SQLExprImpl implements SQLLiteralExpr {
 

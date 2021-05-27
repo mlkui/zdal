@@ -34,13 +34,13 @@
 	</bean> 
 	 	 
 	<bean id="multipleSequenceDao1"  class="com.alipay.zdal.sequence.impl.MultipleSequenceDao" init-method="init">
-		<!-- Êı¾İÔ´ÁĞ±í£¬±êÊ¾Îª0,1,2...µÈ  -->
+		<!-- æ•°æ®æºåˆ—è¡¨ï¼Œæ ‡ç¤ºä¸º0,1,2...ç­‰  -->
 		<property  name="zdalDataSource" ref="sequenceDataSource1"/>
-		<!-- ×Ô¶¯µ÷Õû¿ª¹Ø£¬Ä¬ÈÏÎªfalse -->
+		<!-- è‡ªåŠ¨è°ƒæ•´å¼€å…³ï¼Œé»˜è®¤ä¸ºfalse -->
 		<property name="adjust">
 			<value>true</value>
 		</property>
-		<!-- tableNameÎª´æ·ÅsequenceµÄ±íÃû£¬Ä¬ÈÏÎª sequence -->
+		<!-- tableNameä¸ºå­˜æ”¾sequenceçš„è¡¨åï¼Œé»˜è®¤ä¸º sequence -->
 		<property name="tableName" value="multiple_sequence" />
 	</bean>
 	
@@ -70,13 +70,13 @@
 	</bean> 
 	 
 	<bean id="multipleSequenceDao2"  class="com.alipay.zdal.sequence.impl.MultipleSequenceDao" init-method="init" >
-		<!-- Êı¾İÔ´ÁĞ±í£¬±êÊ¾Îª0,1,2...µÈ  -->
+		<!-- æ•°æ®æºåˆ—è¡¨ï¼Œæ ‡ç¤ºä¸º0,1,2...ç­‰  -->
         <property  name="zdalDataSource" ref="sequenceDataSource2"/>
-		<!-- ×Ô¶¯µ÷Õû¿ª¹Ø£¬Ä¬ÈÏÎªtrue -->
+		<!-- è‡ªåŠ¨è°ƒæ•´å¼€å…³ï¼Œé»˜è®¤ä¸ºtrue -->
 		<property name="adjust">
 			<value>true</value>
 		</property>
-		<!-- tableNameÎª´æ·ÅsequenceµÄ±íÃû£¬Ä¬ÈÏÎª sequence -->
+		<!-- tableNameä¸ºå­˜æ”¾sequenceçš„è¡¨åï¼Œé»˜è®¤ä¸º sequence -->
 		<property name="tableName" value="multiple_sequence" />
 	</bean>
 
@@ -98,20 +98,20 @@
 			<value>50</value>
 		</property>	
 	</bean>
-	<!--Êı¾İÔ´1 -->    
+	<!--æ•°æ®æº1 -->    
     <bean id="database0" class="com.alipay.zdal.client.jdbc.ZdalDataSource"  init-method="init"
 		parent="zdal_abstract_sequence"  destroy-method="close">
 		<property name="appName" value="sequence2"/>
         <property name="appDsName" value="datasource0"/>     
 	 </bean>
 	 
-	<!--Êı¾İÔ´2-->    
+	<!--æ•°æ®æº2-->    
      <bean id="database1" class="com.alipay.zdal.client.jdbc.ZdalDataSource"  init-method="init"
 		parent="zdal_abstract_sequence"  destroy-method="close">
 		<property name="appName" value="sequence2"/>
         <property name="appDsName" value="datasource1"/>      
 	 </bean>
-  	<!--Êı¾İÔ´3-->	 
+  	<!--æ•°æ®æº3-->	 
 	<bean id="database2" class="com.alipay.zdal.client.jdbc.ZdalDataSource"  init-method="init"
 		parent="zdal_abstract_sequence"  destroy-method="close">
 		<property name="appName" value="sequence2"/>
@@ -119,7 +119,7 @@
 	 </bean> 
 	 
 	<bean id="multipleSequenceDao3"  class="com.alipay.zdal.sequence.impl.MultipleSequenceDao" init-method="init">
-		<!-- Êı¾İÔ´ÁĞ±í£¬±êÊ¾Îª0,1,2...µÈ  -->
+		<!-- æ•°æ®æºåˆ—è¡¨ï¼Œæ ‡ç¤ºä¸º0,1,2...ç­‰  -->
 		<property name="dataSourceList">
 			<list>
 				<ref bean="database0" />
@@ -127,11 +127,11 @@
 				<ref bean="database2" />
 			</list>
 		</property>
-		<!-- ×Ô¶¯µ÷Õû¿ª¹Ø£¬Ä¬ÈÏÎªfalse -->
+		<!-- è‡ªåŠ¨è°ƒæ•´å¼€å…³ï¼Œé»˜è®¤ä¸ºfalse -->
 		<property name="adjust">
 			<value>true</value>
 		</property>
-		<!-- tableNameÎª´æ·ÅsequenceµÄ±íÃû£¬Ä¬ÈÏÎª sequence -->
+		<!-- tableNameä¸ºå­˜æ”¾sequenceçš„è¡¨åï¼Œé»˜è®¤ä¸º sequence -->
 		<property name="tableName" value="multiple_sequence" />
 	</bean>
 	
@@ -161,13 +161,13 @@
 	</bean> 
 	 
 	<bean id="multipleSequenceDao6"  class="com.alipay.zdal.sequence.impl.MultipleSequenceDao" init-method="init">
-		<!-- Êı¾İÔ´ÁĞ±í£¬±êÊ¾Îª0,1,2...µÈ  -->
+		<!-- æ•°æ®æºåˆ—è¡¨ï¼Œæ ‡ç¤ºä¸º0,1,2...ç­‰  -->
         <property  name="zdalDataSource" ref="sequenceDataSource6"/>
-		<!-- ×Ô¶¯µ÷Õû¿ª¹Ø£¬Ä¬ÈÏÎªtrue -->
+		<!-- è‡ªåŠ¨è°ƒæ•´å¼€å…³ï¼Œé»˜è®¤ä¸ºtrue -->
 		<property name="adjust">
 			<value>true</value>
 		</property>
-		<!-- tableNameÎª´æ·ÅsequenceµÄ±íÃû£¬Ä¬ÈÏÎª sequence -->
+		<!-- tableNameä¸ºå­˜æ”¾sequenceçš„è¡¨åï¼Œé»˜è®¤ä¸º sequence -->
 		<property name="tableName" value="multiple_sequence" />
 	</bean>
 	
@@ -185,13 +185,13 @@
 	 </bean> 
 	 
 	<bean id="multipleSequenceDao4"  class="com.alipay.zdal.sequence.impl.MultipleSequenceDao" init-method="init">
-		<!-- Êı¾İÔ´ÁĞ±í£¬±êÊ¾Îª0,1,2...µÈ  -->
+		<!-- æ•°æ®æºåˆ—è¡¨ï¼Œæ ‡ç¤ºä¸º0,1,2...ç­‰  -->
 		<property  name="zdalDataSource" ref="sequenceDataSource4"/>
-		<!-- ×Ô¶¯µ÷Õû¿ª¹Ø£¬Ä¬ÈÏÎªfalse -->
+		<!-- è‡ªåŠ¨è°ƒæ•´å¼€å…³ï¼Œé»˜è®¤ä¸ºfalse -->
 		<property name="adjust">
 			<value>true</value>
 		</property>
-		<!-- tableNameÎª´æ·ÅsequenceµÄ±íÃû£¬Ä¬ÈÏÎª sequence -->
+		<!-- tableNameä¸ºå­˜æ”¾sequenceçš„è¡¨åï¼Œé»˜è®¤ä¸º sequence -->
 		<property name="tableName" value="multiple_sequence" />
 	</bean>	
 	
@@ -209,13 +209,13 @@
 	</bean> 
 	 
 	<bean id="multipleSequenceDao5"  class="com.alipay.zdal.sequence.impl.MultipleSequenceDao" init-method="init">
-		<!-- Êı¾İÔ´ÁĞ±í£¬±êÊ¾Îª0,1,2...µÈ  -->
+		<!-- æ•°æ®æºåˆ—è¡¨ï¼Œæ ‡ç¤ºä¸º0,1,2...ç­‰  -->
 		<property  name="zdalDataSource" ref="sequenceDataSource5"/>
-		<!-- ×Ô¶¯µ÷Õû¿ª¹Ø£¬Ä¬ÈÏÎªfalse -->
+		<!-- è‡ªåŠ¨è°ƒæ•´å¼€å…³ï¼Œé»˜è®¤ä¸ºfalse -->
 		<property name="adjust">
 			<value>true</value>
 		</property>
-		<!-- tableNameÎª´æ·ÅsequenceµÄ±íÃû£¬Ä¬ÈÏÎª sequence -->
+		<!-- tableNameä¸ºå­˜æ”¾sequenceçš„è¡¨åï¼Œé»˜è®¤ä¸º sequence -->
 		<property name="tableName" value="multiple_sequence" />
 	</bean>	
 

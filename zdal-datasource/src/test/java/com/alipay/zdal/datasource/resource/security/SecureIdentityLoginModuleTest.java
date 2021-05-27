@@ -5,10 +5,10 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * SecureIdentityLoginModule²âÊÔÓÃÀı
+ * SecureIdentityLoginModuleæµ‹è¯•ç”¨ä¾‹
  * 
  * @author liangjie.li
- * @version $Id: SecureIdentityLoginModuleTest.java, v 0.1 2012-8-8 ÏÂÎç4:34:31 liangjie.li Exp $
+ * @version $Id: SecureIdentityLoginModuleTest.java, v 0.1 2012-8-8 ä¸‹åˆ4:34:31 liangjie.li Exp $
  */
 public class SecureIdentityLoginModuleTest {
     private static final String PASSWORD     = "mysql";

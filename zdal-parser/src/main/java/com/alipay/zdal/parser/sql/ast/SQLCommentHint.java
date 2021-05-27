@@ -9,7 +9,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLCommentHint.java, v 0.1 2012-11-17 œ¬ŒÁ3:11:29 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLCommentHint.java, v 0.1 2012-11-17 ‰∏ãÂçà3:11:29 xiaoqing.zhouxq Exp $
  */
 public class SQLCommentHint extends SQLObjectImpl implements SQLHint {
 

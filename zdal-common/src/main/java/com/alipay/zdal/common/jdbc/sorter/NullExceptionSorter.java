@@ -10,8 +10,8 @@ import java.sql.SQLException;
 /**
  * Does not check the exception. Used if the named exception sorter cannot be instantiated.
  *
- * @author ≤Æ—¿
- * @version $Id: NullExceptionSorter.java, v 0.1 2014-1-6 œ¬ŒÁ05:20:17 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: NullExceptionSorter.java, v 0.1 2014-1-6 ‰∏ãÂçà05:20:17 Exp $
  */
 public class NullExceptionSorter implements ExceptionSorter, Serializable {
     /** The serialVersionUID */

@@ -9,8 +9,8 @@ import com.alipay.zdal.datasource.transaction.Transaction;
 /**
  * The interface to implementated for a transaction local implementation
  *
- * @author ²®ÑÀ
- * @version $Id: TransactionLocalDelegate.java, v 0.1 2014-1-6 ÏÂÎç05:48:18 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TransactionLocalDelegate.java, v 0.1 2014-1-6 ä¸‹åˆ05:48:18 Exp $
  */
 public interface TransactionLocalDelegate {
     /**

@@ -18,16 +18,16 @@ import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.client.util.dispatchanalyzer.ZdalDatasourceIntrospector;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("È«»î²ßÂÔ:getAllTableNames")
+@Feature("å…¨æ´»ç­–ç•¥:getAllTableNames")
 public class SR954010 {
 	public TestAssertion Assert = new TestAssertion();
 	ZdalDatasourceIntrospector td;
 	
-	@Subject("¸ù¾İÂß¼­±íÃû£¬»ñÈ¡ËùÓĞÎïÀí±íÃû")
+	@Subject("æ ¹æ®é€»è¾‘è¡¨åï¼Œè·å–æ‰€æœ‰ç‰©ç†è¡¨å")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC954011(){
-		Step("¸ù¾İÂß¼­±íÃû£¬»ñÈ¡ËùÓĞÎïÀí±íÃû");
+		Step("æ ¹æ®é€»è¾‘è¡¨åï¼Œè·å–æ‰€æœ‰ç‰©ç†è¡¨å");
 		String[] springXmlPath = {  "./shardrw/spring-available-ds.xml" };
 		ApplicationContext context = new ClassPathXmlApplicationContext(springXmlPath);
 		
@@ -35,13 +35,13 @@ public class SR954010 {
 		.getBean("getAllTableNames");
 		Map<String, List<String>> mp=td.getAllTableNames("users");
 		
-		Assert.areEqual(4, mp.size(), "ÑéÖ¤¿âµÄ¸öÊı");
+		Assert.areEqual(4, mp.size(), "éªŒè¯åº“çš„ä¸ªæ•°");
 		Iterator iter = mp.entrySet().iterator();
 		while (iter.hasNext()) {
 			Map.Entry entry = (Map.Entry) iter.next();
 			String db = (String) entry.getKey();
 			List<String> tb = (List) entry.getValue();
-            Assert.areEqual(5, tb.size(), "ÑéÖ¤±íµÄ¸öÊı");			
+            Assert.areEqual(5, tb.size(), "éªŒè¯è¡¨çš„ä¸ªæ•°");			
 		}		
 	}
 

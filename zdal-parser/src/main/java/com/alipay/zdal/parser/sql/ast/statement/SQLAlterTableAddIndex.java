@@ -14,7 +14,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLAlterTableAddIndex.java, v 0.1 2012-11-17 œ¬ŒÁ3:20:02 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLAlterTableAddIndex.java, v 0.1 2012-11-17 ‰∏ãÂçà3:20:02 xiaoqing.zhouxq Exp $
  */
 public class SQLAlterTableAddIndex extends SQLObjectImpl implements SQLAlterTableItem {
 

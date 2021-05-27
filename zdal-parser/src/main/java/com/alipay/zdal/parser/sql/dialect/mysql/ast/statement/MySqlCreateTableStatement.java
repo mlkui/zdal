@@ -18,8 +18,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlCreateTableStatement.java, v 0.1 2012-11-17 ÏÂÎç3:32:12 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlCreateTableStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:32:12 Exp $
  */
 @SuppressWarnings("serial")
 public class MySqlCreateTableStatement extends SQLCreateTableStatement implements MySqlStatement {

@@ -7,7 +7,7 @@ package com.alipay.zdal.parser.sql;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SqlParserRuntimeException.java, v 0.1 2012-11-17 œ¬ŒÁ3:11:13 xiaoqing.zhouxq Exp $
+ * @version $Id: SqlParserRuntimeException.java, v 0.1 2012-11-17 ‰∏ãÂçà3:11:13 xiaoqing.zhouxq Exp $
  */
 public class SqlParserRuntimeException extends RuntimeException {
 

@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlAlterTableAddUnique.java, v 0.1 2012-11-17 œ¬ŒÁ3:31:25 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlAlterTableAddUnique.java, v 0.1 2012-11-17 ‰∏ãÂçà3:31:25 Exp $
  */
 public class MySqlAlterTableAddUnique extends SQLAlterTableAddIndex implements SQLAlterTableItem,
                                                                    MySqlObject {

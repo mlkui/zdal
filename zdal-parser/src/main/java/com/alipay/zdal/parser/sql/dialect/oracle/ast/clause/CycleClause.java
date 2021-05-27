@@ -13,8 +13,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: CycleClause.java, v 0.1 2012-11-17 ÏÂÎç3:41:37 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CycleClause.java, v 0.1 2012-11-17 ä¸‹åˆ3:41:37 Exp $
  */
 public class CycleClause extends OracleSQLObjectImpl {
 

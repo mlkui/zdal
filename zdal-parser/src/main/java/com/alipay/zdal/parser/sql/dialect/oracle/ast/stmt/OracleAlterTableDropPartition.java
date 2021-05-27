@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleAlterTableDropPartition.java, v 0.1 2012-11-17 œ¬ŒÁ3:45:12 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleAlterTableDropPartition.java, v 0.1 2012-11-17 ‰∏ãÂçà3:45:12 Exp $
  */
 public class OracleAlterTableDropPartition extends OracleAlterTableItem {
 

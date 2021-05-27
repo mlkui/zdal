@@ -18,8 +18,8 @@ public class GroovyStaticMethod {
 
     /**
      * 
-     * Ä¬ÈÏµÄdayofweek :
-     * Èç¹ûoffset  = 0;ÄÇÃ´ÎªÄ¬ÈÏdow
+     * é»˜è®¤çš„dayofweek :
+     * å¦‚æžœoffset  = 0;é‚£ä¹ˆä¸ºé»˜è®¤dow
      * san = 1
      * sat = 7
      * 
@@ -33,8 +33,8 @@ public class GroovyStaticMethod {
     }
 
     /**
-     * ÎÒÃÇ×Ô¼ºµÄdayofweek.ÒòÎªËùÓÐindex¶¼Ä¬ÈÏ´Ó0¿ªÊ¼£¬Òò´ËÎÒÒ²±ØÐëÈÃday of week´Ó0 ¿ªÊ¼¡£
-     * Ä¬ÈÏÇé¿öÏÂ Ö±½Óoffset = -1 ½â¾ö
+     * æˆ‘ä»¬è‡ªå·±çš„dayofweek.å› ä¸ºæ‰€æœ‰indexéƒ½é»˜è®¤ä»Ž0å¼€å§‹ï¼Œå› æ­¤æˆ‘ä¹Ÿå¿…é¡»è®©day of weekä»Ž0 å¼€å§‹ã€‚
+     * é»˜è®¤æƒ…å†µä¸‹ ç›´æŽ¥offset = -1 è§£å†³
      * san = 0;
      * sat = 6;
      * @param date
@@ -55,18 +55,18 @@ public class GroovyStaticMethod {
 
     private static long getModRight(long targetID, int size, int bitNumber) {
         if (bitNumber < size) {
-            throw new IllegalArgumentException("ÊäÈëµÄÎ»Êý±ÈÒªÇóµÄsize»¹Ð¡");
+            throw new IllegalArgumentException("è¾“å…¥çš„ä½æ•°æ¯”è¦æ±‚çš„sizeè¿˜å°");
         }
         return (size == 0 ? 0 : targetID / pow10[bitNumber - size]);
     }
 
     /**
-     * ´Ó×ó¿ªÊ¼£¬È¡Ö¸¶¨¶àµÄÎ»Êý¡£
+     * ä»Žå·¦å¼€å§‹ï¼Œå–æŒ‡å®šå¤šçš„ä½æ•°ã€‚
      * 
-     * @param targetID Ä¿±êid£¬Ò²¾ÍÊÇµÈ´ý±»decodeµÄÊý¾Ý
-     * @param bitNumber Ä¿±êidÊý¾ÝµÄÎ»Êý
-     * @param st ´ÓÄÄ¶ù¿ªÊ¼È¡£¬Èç¹ûÏëÈ¡×î×ó±ßµÄÒ»Î»ÄÇÃ´¿ÉÒÔÊäÈëst = 0;ed =1;
-     * @param ed È¡µ½ÄÄ¶ù£¬Èç¹ûÏëÈ¡×î×ó±ßµÄÁ½Î»£¬ÄÇÃ´¿ÉÒÔÊäÈëst = 0;ed = 2;
+     * @param targetID ç›®æ ‡idï¼Œä¹Ÿå°±æ˜¯ç­‰å¾…è¢«decodeçš„æ•°æ®
+     * @param bitNumber ç›®æ ‡idæ•°æ®çš„ä½æ•°
+     * @param st ä»Žå“ªå„¿å¼€å§‹å–ï¼Œå¦‚æžœæƒ³å–æœ€å·¦è¾¹çš„ä¸€ä½é‚£ä¹ˆå¯ä»¥è¾“å…¥st = 0;ed =1;
+     * @param ed å–åˆ°å“ªå„¿ï¼Œå¦‚æžœæƒ³å–æœ€å·¦è¾¹çš„ä¸¤ä½ï¼Œé‚£ä¹ˆå¯ä»¥è¾“å…¥st = 0;ed = 2;
      * @return
      */
     public static long left(long targetID, int bitNumber, int st, int ed) {
@@ -75,11 +75,11 @@ public class GroovyStaticMethod {
     }
 
     /**
-     * ´Ó×ó¿ªÊ¼£¬È¡Ö¸¶¨¶àµÄÎ»Êý¡£Ä¬ÈÏÊÇÒ»¸ölongÐÎ³¤¶ÈµÄÊý¾Ý£¬Ò²¾ÍÊÇbitNumber= 19
+     * ä»Žå·¦å¼€å§‹ï¼Œå–æŒ‡å®šå¤šçš„ä½æ•°ã€‚é»˜è®¤æ˜¯ä¸€ä¸ªlongå½¢é•¿åº¦çš„æ•°æ®ï¼Œä¹Ÿå°±æ˜¯bitNumber= 19
      * 
-     * @param targetID Ä¿±êid£¬Ò²¾ÍÊÇµÈ´ý±»decodeµÄÊý¾Ý
-     * @param st ´ÓÄÄ¶ù¿ªÊ¼È¡£¬Èç¹ûÏëÈ¡×î×ó±ßµÄÒ»Î»ÄÇÃ´¿ÉÒÔÊäÈëst = 0;ed =1;
-     * @param ed È¡µ½ÄÄ¶ù£¬Èç¹ûÏëÈ¡×î×ó±ßµÄÁ½Î»£¬ÄÇÃ´¿ÉÒÔÊäÈëst = 0;ed = 2;
+     * @param targetID ç›®æ ‡idï¼Œä¹Ÿå°±æ˜¯ç­‰å¾…è¢«decodeçš„æ•°æ®
+     * @param st ä»Žå“ªå„¿å¼€å§‹å–ï¼Œå¦‚æžœæƒ³å–æœ€å·¦è¾¹çš„ä¸€ä½é‚£ä¹ˆå¯ä»¥è¾“å…¥st = 0;ed =1;
+     * @param ed å–åˆ°å“ªå„¿ï¼Œå¦‚æžœæƒ³å–æœ€å·¦è¾¹çš„ä¸¤ä½ï¼Œé‚£ä¹ˆå¯ä»¥è¾“å…¥st = 0;ed = 2;
      * @return
      */
     public static long left(long targetID, int st, int ed) {
@@ -88,11 +88,11 @@ public class GroovyStaticMethod {
     }
 
     /**
-     * ´ÓÓÒ¿ªÊ¼£¬È¡Ö¸¶¨¶àµÄÎ»Êý¡£
+     * ä»Žå³å¼€å§‹ï¼Œå–æŒ‡å®šå¤šçš„ä½æ•°ã€‚
      * 
-     * @param targetID Ä¿±êid£¬Ò²¾ÍÊÇµÈ´ý±»decodeµÄÊý¾Ý
-     * @param st ´ÓÄÄ¶ù¿ªÊ¼È¡£¬Èç¹ûÏëÈ¡×îÓÒ±ßµÄÒ»Î»ÄÇÃ´¿ÉÒÔÊäÈëst = 0;ed =1;
-     * @param ed È¡µ½ÄÄ¶ù£¬Èç¹ûÏëÈ¡×îÓÒ±ßµÄÁ½Î»£¬ÄÇÃ´¿ÉÒÔÊäÈëst = 0;ed = 2;
+     * @param targetID ç›®æ ‡idï¼Œä¹Ÿå°±æ˜¯ç­‰å¾…è¢«decodeçš„æ•°æ®
+     * @param st ä»Žå“ªå„¿å¼€å§‹å–ï¼Œå¦‚æžœæƒ³å–æœ€å³è¾¹çš„ä¸€ä½é‚£ä¹ˆå¯ä»¥è¾“å…¥st = 0;ed =1;
+     * @param ed å–åˆ°å“ªå„¿ï¼Œå¦‚æžœæƒ³å–æœ€å³è¾¹çš„ä¸¤ä½ï¼Œé‚£ä¹ˆå¯ä»¥è¾“å…¥st = 0;ed = 2;
      * @return
      */
     public static long right(long targetID, int st, int ed) {

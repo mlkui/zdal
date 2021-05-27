@@ -19,7 +19,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shardÊı¾İÔ´:¸´ÔÓµÄselectÓï¾ä")
+@Feature("shardæ•°æ®æº:å¤æ‚çš„selectè¯­å¥")
 public class SR956020 {
 	private String url0=ConstantsTest.mysq112UrlFail0;
 	private String url1=ConstantsTest.mysq112UrlFail1;
@@ -36,13 +36,13 @@ public class SR956020 {
 	
 
 	
-	@Subject("²åÈëµ½0¿â0±í£¬Ö´ĞĞ:insert into student (id,age,name,content) values (#id#,#age#,'testname','testcontent')")
+	@Subject("æ’å…¥åˆ°0åº“0è¡¨ï¼Œæ‰§è¡Œ:insert into student (id,age,name,content) values (#id#,#age#,'testname','testcontent')")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956021(){			
 		sqlMap = (SqlMapClient) ZdalSqlParserSuite.context
 		.getBean("zdalsqlParserMysql02");
-		Step("²åÈë0¿âµÄ0±í");
+		Step("æ’å…¥0åº“çš„0è¡¨");
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("id", 10);
 		params.put("age", 10);
@@ -52,28 +52,28 @@ public class SR956020 {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		Step("¶ÏÑÔ²åÈëµ½0¿â0±í");
+		Step("æ–­è¨€æ’å…¥åˆ°0åº“0è¡¨");
 		String selectSql="select count(*) from student_0 where id=10 and age=10";
 		ResultSet rs=ZdalTestCommon.dataCheckFromJDBCOracle(selectSql,url0,psd,user);
 		try {
-			Assert.isTrue(rs.next(), "ÑéÖ¤²éÑ¯½á¹û");
-			Assert.areEqual(1, rs.getInt(1), "²åÈëµ½0¿â0±í£¬Ö´ĞĞ:insert into student (id,age,name,content) values (#id#,#age#,'testname','testcontent')");
+			Assert.isTrue(rs.next(), "éªŒè¯æŸ¥è¯¢ç»“æœ");
+			Assert.areEqual(1, rs.getInt(1), "æ’å…¥åˆ°0åº“0è¡¨ï¼Œæ‰§è¡Œ:insert into student (id,age,name,content) values (#id#,#age#,'testname','testcontent')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		Step("Çå³ıÊı¾İ");
+		Step("æ¸…é™¤æ•°æ®");
 		String deleteSql="delete from student_0";
 		ZdalTestCommon.dataUpdateJDBC(deleteSql, url0, psd, user);
 	}
 	
-	@Subject("²åµ½1¿â1±í£¬Ö´ĞĞ:insert into student (id,age,name,content) values (#id#,#age#,'testname','testcontent')")
+	@Subject("æ’åˆ°1åº“1è¡¨ï¼Œæ‰§è¡Œ:insert into student (id,age,name,content) values (#id#,#age#,'testname','testcontent')")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956022(){			
 		sqlMap = (SqlMapClient) ZdalSqlParserSuite.context
 		.getBean("zdalsqlParserMysql02");
-		Step("²åÈë1¿âµÄ1±í");
+		Step("æ’å…¥1åº“çš„1è¡¨");
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("id", 11);
 		params.put("age", 11);
@@ -83,31 +83,31 @@ public class SR956020 {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		Step("¶ÏÑÔ²åÈëµ½1¿â1±í");
+		Step("æ–­è¨€æ’å…¥åˆ°1åº“1è¡¨");
 		String selectSql="select count(*) from student_1 where id=11 and age=11";
 		ResultSet rs=ZdalTestCommon.dataCheckFromJDBCOracle(selectSql,url1,psd,user);
 		try {
-			Assert.isTrue(rs.next(), "ÑéÖ¤²éÑ¯½á¹û");
-			Assert.areEqual(1, rs.getInt(1), "²åµ½1¿â1±í£¬Ö´ĞĞ:insert into student (id,age,name,content) values (#id#,#age#,'testname','testcontent')");
+			Assert.isTrue(rs.next(), "éªŒè¯æŸ¥è¯¢ç»“æœ");
+			Assert.areEqual(1, rs.getInt(1), "æ’åˆ°1åº“1è¡¨ï¼Œæ‰§è¡Œ:insert into student (id,age,name,content) values (#id#,#age#,'testname','testcontent')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Step("Çå³ıÊı¾İ");
+		Step("æ¸…é™¤æ•°æ®");
 		String deleteSql="delete from student_1";
 		ZdalTestCommon.dataUpdateJDBC(deleteSql, url1, psd, user);
 	}
 	
-	@Subject("Ö´ĞĞsqlÓï¾ä£¬¶Ô1¸ö¿âµÄ2¸ö±í£¬½øĞĞmerge")
+	@Subject("æ‰§è¡Œsqlè¯­å¥ï¼Œå¯¹1ä¸ªåº“çš„2ä¸ªè¡¨ï¼Œè¿›è¡Œmerge")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956023(){
-		Step("ÔÚ1¿âµÄ10±íºÍ09±íÖĞ·Ö±ğ²åÈëÊı¾İ");
+		Step("åœ¨1åº“çš„10è¡¨å’Œ09è¡¨ä¸­åˆ†åˆ«æ’å…¥æ•°æ®");
 		String insertSql1="insert into card_no_month_01_10(card_no,gmtTime,next_sync_time) values('2013101711','2013-11-22','2013-11-22')";
 	    String insertSql2="insert into card_no_month_01_09(card_no,gmtTime,next_sync_time) values('2013101711','2013-10-22','2013-10-22')";
 	    ZdalTestCommon.dataUpdateJDBC(insertSql1, url3, psd, user);
 	    ZdalTestCommon.dataUpdateJDBC(insertSql2, url3, psd, user);
-	    Step("²éÑ¯ÕâÁ½Ìõ¼ÇÂ¼½á¹û£¬ĞèÒª½«Á½Ìõ½á¹û½øĞĞmerge");
+	    Step("æŸ¥è¯¢è¿™ä¸¤æ¡è®°å½•ç»“æœï¼Œéœ€è¦å°†ä¸¤æ¡ç»“æœè¿›è¡Œmerge");
 	    sqlMap = (SqlMapClient) ZdalSqlParserSuite.context
 		.getBean("zdalsqlParserMysql03");
 	    HashMap<String, Object> params = new HashMap<String, Object>();
@@ -121,8 +121,8 @@ public class SR956020 {
 			e.printStackTrace();
 		}
 		HashMap hs=(HashMap)rs.get(0);		
-		Assert.areEqual("2", hs.get("count").toString(), "¶Ô1¸ö¿âµÄ2¸ö±í½øĞĞselectÓï¾ä£¬²éÑ¯½á¹ûĞèÒªmerge");
-		Step("Çå³ıÊı¾İ");
+		Assert.areEqual("2", hs.get("count").toString(), "å¯¹1ä¸ªåº“çš„2ä¸ªè¡¨è¿›è¡Œselectè¯­å¥ï¼ŒæŸ¥è¯¢ç»“æœéœ€è¦merge");
+		Step("æ¸…é™¤æ•°æ®");
 		String deleteSql="delete from card_no_month_01_09";
 		String deleteSql2="delete from card_no_month_01_10";
 		ZdalTestCommon.dataUpdateJDBC(deleteSql, url3, psd, user);

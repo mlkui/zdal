@@ -14,8 +14,8 @@ import java.text.SimpleDateFormat;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: IOUtils.java, v 0.1 2012-11-17 ÏÂÎç3:55:38 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: IOUtils.java, v 0.1 2012-11-17 ä¸‹åˆ3:55:38 Exp $
  */
 public class IOUtils {
 

@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * ²ÉÓÃÓÚOracleµÄsql½âÎöÄÚºË,Ö»ÊÇ¶ÔÓÚ·ÖÒ³µÄÂß¼­,½øĞĞÁËÌØÊâµÄ´¦Àí,ÒÔÖ§³ÖDB2µÄ·ÖÒ³Óï·¨½âÎö.
- * @author ²®ÑÀ
- * @version $Id: ZdalDB2SchemaStatVisitor.java, v 0.1 2013-12-31 ÉÏÎç09:42:39 Exp $
+ * é‡‡ç”¨äºOracleçš„sqlè§£æå†…æ ¸,åªæ˜¯å¯¹äºåˆ†é¡µçš„é€»è¾‘,è¿›è¡Œäº†ç‰¹æ®Šçš„å¤„ç†,ä»¥æ”¯æŒDB2çš„åˆ†é¡µè¯­æ³•è§£æ.
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalDB2SchemaStatVisitor.java, v 0.1 2013-12-31 ä¸Šåˆ09:42:39 Exp $
  */
 public class ZdalDB2SchemaStatVisitor extends ZdalOracleSchemaStatVisitor {
 
@@ -24,7 +24,7 @@ public class ZdalDB2SchemaStatVisitor extends ZdalOracleSchemaStatVisitor {
             return new HashSet<BindVarCondition>();
         } else {
             Set<BindVarCondition> results = new HashSet<BindVarCondition>();
-            List<BindVarCondition> bindConditions = super.getBindVarConditions();//´Ó°ó¶¨²ÎÊıÖĞ»ñÈ¡.
+            List<BindVarCondition> bindConditions = super.getBindVarConditions();//ä»ç»‘å®šå‚æ•°ä¸­è·å–.
             for (BindVarCondition bindVarCondition : bindConditions) {
                 if (bindVarCondition.getColumnName().equalsIgnoreCase(limitColumnName)) {
                     BindVarCondition tmp = new BindVarCondition();

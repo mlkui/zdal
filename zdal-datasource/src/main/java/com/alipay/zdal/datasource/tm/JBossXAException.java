@@ -18,8 +18,8 @@ import com.alipay.zdal.datasource.resource.util.NestedThrowable;
  * Properly displays linked exception (ie. nested exception)
  * when printing the stack trace.
  *
- * @author ≤Æ—¿
- * @version $Id: JBossXAException.java, v 0.1 2014-1-6 œ¬ŒÁ05:47:16 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: JBossXAException.java, v 0.1 2014-1-6 ‰∏ãÂçà05:47:16 Exp $
  */
 public class JBossXAException extends XAException implements NestedThrowable {
     /** The serial version uid*/

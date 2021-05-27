@@ -22,9 +22,9 @@ import com.alipay.zdal.parser.result.SqlParserResult;
 import com.alipay.zdal.parser.visitor.OrderByEle;
 
 /**
- * ²âÊÔmysqlµÄselectÓï¾ä.
+ * æµ‹è¯•mysqlçš„selectè¯­å¥.
  * @author xiaoqing.zhouxq
- * @version $Id: SQLParserTest.java, v 0.1 2012-5-25 ÏÂÎç04:23:41 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLParserTest.java, v 0.1 2012-5-25 ä¸‹åˆ04:23:41 xiaoqing.zhouxq Exp $
  */
 public class SQLParserOfMysqlWithSelectTest {
 
@@ -86,7 +86,7 @@ public class SQLParserOfMysqlWithSelectTest {
     }
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ïµ¥¸ö×Ö¶ÎµÄ²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­å•ä¸ªå­—æ®µçš„æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     //    @Test
     public void testParseWithPartination() {
@@ -118,7 +118,7 @@ public class SQLParserOfMysqlWithSelectTest {
     }
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊÇ£¬Èç¹û²ğ·Ö×Ö¶Î²»ÔÚsqlÓï¾äÖĞ£¬²ğ·Ö¹æÔò»á±¨´í.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ˜¯ï¼Œå¦‚æœæ‹†åˆ†å­—æ®µä¸åœ¨sqlè¯­å¥ä¸­ï¼Œæ‹†åˆ†è§„åˆ™ä¼šæŠ¥é”™.
      */
     //    @Test
     public void testParserWithoutPartination() {

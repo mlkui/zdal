@@ -25,7 +25,7 @@ public class RetryableTPreparedStatement extends ZdalPreparedStatement {
     }
 
     /*	
-     * ¹æ·¶Ã» ËµÔÊĞíupdateÊ±ÔËĞĞselectÓï¾ä¡£
+     * è§„èŒƒæ²¡ è¯´å…è®¸updateæ—¶è¿è¡Œselectè¯­å¥ã€‚
      * @Override
     	protected int executeUpdateAndCountAffectRows(String dbSelectorId,
     			String targetSql, RetringContext retringContext,
@@ -53,7 +53,7 @@ public class RetryableTPreparedStatement extends ZdalPreparedStatement {
             super.executeQueryAndAddIntoCollection(dbSelectorId, targetSql, failedDataSources,
                 connection, actualResultSets);
         } catch (SQLException e) {
-            logger.warn("zdalÓû½øÈë¶ÁÖØÊÔ×´Ì¬£¬ÖØ¸´Ö´ĞĞexecuteQueryAndAddIntoCollection()·½·¨, targetSql="
+            logger.warn("zdalæ¬²è¿›å…¥è¯»é‡è¯•çŠ¶æ€ï¼Œé‡å¤æ‰§è¡ŒexecuteQueryAndAddIntoCollection()æ–¹æ³•, targetSql="
                         + targetSql, e);
             validRetryable(dbSelectorId, e, OperationDBType.readFromDb);
             if (failedDataSources != null) {
@@ -61,12 +61,12 @@ public class RetryableTPreparedStatement extends ZdalPreparedStatement {
                     .getConnectionAndDatasourceByDBSelectorID(dbSelectorId);
                 failedDataSources.put(connectionAndDatasource.parentDataSource, e);
             } else {
-                //µ±ÔÚÊÂÎñÖĞÊ±²»ĞèÒªÖØÊÔ£¬failedDataSourcesÎªnull Öµ£¬Ö±½Ó½«Òì³£Å×³ö
+                //å½“åœ¨äº‹åŠ¡ä¸­æ—¶ä¸éœ€è¦é‡è¯•ï¼ŒfailedDataSourcesä¸ºnull å€¼ï¼Œç›´æ¥å°†å¼‚å¸¸æŠ›å‡º
                 //added by fanzeng.
-                logger.warn("ÊÂÎñÖĞfailedDataSources=null, zdal²¢Î´½øÈë¶ÁÖØÊÔ×´Ì¬,targetSql=" + targetSql);
+                logger.warn("äº‹åŠ¡ä¸­failedDataSources=null, zdalå¹¶æœªè¿›å…¥è¯»é‡è¯•çŠ¶æ€,targetSql=" + targetSql);
                 throw e;
             }
-            //ÎªÊ²Ã´²»ÏÖÔÚÅĞ¶ÏÊÇ·ñÎª·ÇfatalºóÅ×³ö£¬¶øÒªÍËºó£¬ÕâÑùÓ°ÏìÔÄ¶ÁºÍÀí½â
+            //ä¸ºä»€ä¹ˆä¸ç°åœ¨åˆ¤æ–­æ˜¯å¦ä¸ºéfatalåæŠ›å‡ºï¼Œè€Œè¦é€€åï¼Œè¿™æ ·å½±å“é˜…è¯»å’Œç†è§£
             connection = tryToConnectToOtherAvailableDataSource(dbSelectorId, failedDataSources);
             executeQueryAndAddIntoCollection(dbSelectorId, targetSql, failedDataSources,
                 connection, actualResultSets);
@@ -75,7 +75,7 @@ public class RetryableTPreparedStatement extends ZdalPreparedStatement {
     }
 
     /**
-     * Ğ´¿âÖØÊÔ
+     * å†™åº“é‡è¯•
      */
     @Override
     protected int executeUpdateAndCountAffectRows(String dbSelectorId, String targetSql,
@@ -86,7 +86,7 @@ public class RetryableTPreparedStatement extends ZdalPreparedStatement {
             rows = super.executeUpdateAndCountAffectRows(dbSelectorId, targetSql,
                 failedDataSources, connection, rows);
         } catch (SQLException e) {
-            //            logger.error("sqlÖ´ĞĞÊ§°Ü,targetSql=" + targetSql, e);
+            //            logger.error("sqlæ‰§è¡Œå¤±è´¥,targetSql=" + targetSql, e);
             throw e;
             /* validRetryable(dbSelectorId, e, operationDBType.writeIntoDb);
              if (failedDataSources != null) {
@@ -94,12 +94,12 @@ public class RetryableTPreparedStatement extends ZdalPreparedStatement {
                      .getConnectionAndDatasourceByDBSelectorID(dbSelectorId);
                  failedDataSources.put(connectionAndDatasource.parentDataSource, e);
              } else {
-                 //ÔÚÊÂÎñÖĞ²»ĞèÒªÖØÊÔ£¬failedDataSourcesÎªnullÖµ£¬Ö±½Ó½«Òì³£Å×³ö
+                 //åœ¨äº‹åŠ¡ä¸­ä¸éœ€è¦é‡è¯•ï¼ŒfailedDataSourcesä¸ºnullå€¼ï¼Œç›´æ¥å°†å¼‚å¸¸æŠ›å‡º
                  //added by fanzeng.
-                 logger.warn("ÊÂÎñÖĞfailedDataSources=null£¬ zdal²¢Î´½øÈëĞ´ÖØÊÔ×´Ì¬,targetSql=" + targetSql);
+                 logger.warn("äº‹åŠ¡ä¸­failedDataSources=nullï¼Œ zdalå¹¶æœªè¿›å…¥å†™é‡è¯•çŠ¶æ€,targetSql=" + targetSql);
                  throw e;
              }
-             //ÎªÊ²Ã´²»ÏÖÔÚÅĞ¶ÏÊÇ·ñÎª·ÇfatalºóÅ×³ö£¬¶øÒªÍËºó£¬ÕâÑùÓ°ÏìÔÄ¶ÁºÍÀí½â
+             //ä¸ºä»€ä¹ˆä¸ç°åœ¨åˆ¤æ–­æ˜¯å¦ä¸ºéfatalåæŠ›å‡ºï¼Œè€Œè¦é€€åï¼Œè¿™æ ·å½±å“é˜…è¯»å’Œç†è§£
              connection = tryToConnectToOtherAvailableDataSource(dbSelectorId, failedDataSources);
              rows = executeUpdateAndCountAffectRows(dbSelectorId, targetSql, failedDataSources,
                  connection, rows);*/

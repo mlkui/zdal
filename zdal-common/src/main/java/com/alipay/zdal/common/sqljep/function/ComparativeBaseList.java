@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Comparative List,×÷ÓÃÊÇ³ÖÓĞ¶à¸öComparative
+ * Comparative List,ä½œç”¨æ˜¯æŒæœ‰å¤šä¸ªComparative
  * 
- * ÊÇ¶Ôand ½ÚµãºÍor½ÚµãµÄÒ»ÖÖ¹«¹²³éÏó¡£
+ * æ˜¯å¯¹and èŠ‚ç‚¹å’ŒorèŠ‚ç‚¹çš„ä¸€ç§å…¬å…±æŠ½è±¡ã€‚
  * 
  *
  */

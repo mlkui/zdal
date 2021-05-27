@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.runtime;
 
 /**
  * 
- * @author 伯牙
- * @version $Id: CantIdentifyNumberExcpetion.java, v 0.1 2014-1-6 下午05:18:39 Exp $
+ * @author 浼墮
+ * @version $Id: CantIdentifyNumberExcpetion.java, v 0.1 2014-1-6 涓嬪崍05:18:39 Exp $
  */
 public class CantIdentifyNumberExcpetion extends ZdalRunTimeException {
 
@@ -17,6 +17,6 @@ public class CantIdentifyNumberExcpetion extends ZdalRunTimeException {
     private static final long serialVersionUID = 7861250013675710468L;
 
     public CantIdentifyNumberExcpetion(String input, String input1, Throwable e) {
-        super("关键字：" + input + "或：" + input1 + "不能识别为一个数，请重新设定", e);
+        super("鍏抽敭瀛楋細" + input + "鎴栵細" + input1 + "涓嶈兘璇嗗埆涓轰竴涓暟锛岃閲嶆柊璁惧畾", e);
     }
 }

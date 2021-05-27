@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.ast.expr.MySqlBooleanExpr;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySql2OracleOutputVisitor.java, v 0.1 2012-11-17 œ¬ŒÁ3:40:32 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySql2OracleOutputVisitor.java, v 0.1 2012-11-17 ‰∏ãÂçà3:40:32 Exp $
  */
 public class MySql2OracleOutputVisitor extends MySqlOutputVisitor {
 

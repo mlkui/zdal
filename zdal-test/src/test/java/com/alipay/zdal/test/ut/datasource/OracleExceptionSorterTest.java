@@ -15,10 +15,10 @@ import com.alipay.zdal.datasource.LocalTxDataSourceDO;
 import com.alipay.zdal.datasource.ZDataSource;
 
 /**
- * OracleExceptionSorter ²âÊÔÓÃÀı
+ * OracleExceptionSorter æµ‹è¯•ç”¨ä¾‹
  * 
  * @author liangjie.li
- * @version $Id: OracleExceptionSorterTest.java, v 0.1 2012-8-15 ÏÂÎç3:05:49 liangjie.li Exp $
+ * @version $Id: OracleExceptionSorterTest.java, v 0.1 2012-8-15 ä¸‹åˆ3:05:49 liangjie.li Exp $
  */
 public class OracleExceptionSorterTest {
 

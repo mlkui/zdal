@@ -9,8 +9,8 @@ package com.alipay.zdal.datasource.resource.util;
  * Implementation classes can implement a LRU policy, a random one, 
  * a MRU one, or any other suitable policy.
  * 
- * @author ²®ÑÀ
- * @version $Id: CachePolicy.java, v 0.1 2014-1-6 ÏÂÎç05:38:38 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CachePolicy.java, v 0.1 2014-1-6 ä¸‹åˆ05:38:38 Exp $
  */
 public interface CachePolicy {
     /**

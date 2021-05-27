@@ -26,7 +26,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rwÊı¾İÔ´ds0:r0w10,ds1:r10w0£ºÊ¹ÓÃÊÂÎñÄ£°å£º¶àÊı¾İÔ´ÊÂÎñ¶ÁĞ´£¬¶àÊı¾İÔ´Ö¸¶¨¿â")
+@Feature("rwæ•°æ®æºds0:r0w10,ds1:r10w0ï¼šä½¿ç”¨äº‹åŠ¡æ¨¡æ¿ï¼šå¤šæ•°æ®æºäº‹åŠ¡è¯»å†™ï¼Œå¤šæ•°æ®æºæŒ‡å®šåº“")
 public class SR952120 {
 	public TestAssertion Assert = new TestAssertion();
 	private TransactionTemplate tt;
@@ -56,19 +56,19 @@ public class SR952120 {
 		ZdalTestCommon.dataUpdateJDBC(delStr, url, psd, user);
 	}
 	
-	@Subject("Õı³£ÊÂÎñ:ÏÈinsertºóselect¡£ÊÂÎñÖĞ£¬ÊÇ´ÓĞ´¿âÀ´¶Á¡£")
+	@Subject("æ­£å¸¸äº‹åŠ¡:å…ˆinsertåselectã€‚äº‹åŠ¡ä¸­ï¼Œæ˜¯ä»å†™åº“æ¥è¯»ã€‚")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952121(){
 		
 		testTransactionInsertSelect();
 		
-		Step("ÑéÖ¤Ä¿Ç°ÓĞÊı¾İ");
+		Step("éªŒè¯ç›®å‰æœ‰æ•°æ®");
 		String sqlStr = "select count(*) from master_0 where user_id =20";
 		ResultSet rs = ZdalTestCommon.dataCheckFromJDBC(sqlStr, url, psd, user);
 		try {
-			Assert.areEqual(true, rs.next(), "Êı¾İ³É¹¦");
-			Assert.areEqual(1, rs.getInt(1), "ÑéÖ¤ÎŞÊı¾İ");
+			Assert.areEqual(true, rs.next(), "æ•°æ®æˆåŠŸ");
+			Assert.areEqual(1, rs.getInt(1), "éªŒè¯æ— æ•°æ®");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,20 +76,20 @@ public class SR952120 {
 	
 	}
 	
-	@Subject("Õı³£ÊÂÎñ:ÏÈinsertºóselect¡£Ö¸Ğ´¿âºÍ¶Á¿â²Ù×÷£¬Ğ´r10w0¿â")
+	@Subject("æ­£å¸¸äº‹åŠ¡:å…ˆinsertåselectã€‚æŒ‡å†™åº“å’Œè¯»åº“æ“ä½œï¼Œå†™r10w0åº“")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952122(){
-		Step("Ö¸¶¨¿â£¬¶Ô¶Á¿â½øĞĞĞ´");
+		Step("æŒ‡å®šåº“ï¼Œå¯¹è¯»åº“è¿›è¡Œå†™");
 		ThreadLocalMap.put(ThreadLocalString.DATABASE_INDEX, 1);
 		testTransactionInsertSelect();
 		
-		Step("ÑéÖ¤Ä¿Ç°ÓĞÊı¾İ");
+		Step("éªŒè¯ç›®å‰æœ‰æ•°æ®");
 		String sqlStr = "select count(*) from master_0 where user_id =20";
 		ResultSet rs = ZdalTestCommon.dataCheckFromJDBC(sqlStr, url2, psd, user);
 		try {
-			Assert.areEqual(true, rs.next(), "Êı¾İ³É¹¦");
-			Assert.areEqual(1, rs.getInt(1), "ÑéÖ¤ÎŞÊı¾İ");
+			Assert.areEqual(true, rs.next(), "æ•°æ®æˆåŠŸ");
+			Assert.areEqual(1, rs.getInt(1), "éªŒè¯æ— æ•°æ®");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -99,7 +99,7 @@ public class SR952120 {
 	}
 	
 	/**
-	 * ÏÈinsertºóselectµÄÊÂÎñ
+	 * å…ˆinsertåselectçš„äº‹åŠ¡
 	 */
 	private void testTransactionInsertSelect(){
 		try {
@@ -111,7 +111,7 @@ public class SR952120 {
 					try {
 						 sqlMap.insert(insertSql);
 						 List<Object> res_1 =sqlMap.queryForList(selectSql);
-						 Assert.areEqual(1, res_1.size(), "ÑéÖ¤select½á¹û·Ç¿Õ");						
+						 Assert.areEqual(1, res_1.size(), "éªŒè¯selectç»“æœéç©º");						
 					} catch (SQLException e) {
 						status.setRollbackOnly();
 						e.printStackTrace();

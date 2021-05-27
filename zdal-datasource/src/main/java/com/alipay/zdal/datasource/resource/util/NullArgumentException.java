@@ -8,8 +8,8 @@ package com.alipay.zdal.datasource.resource.util;
  * Thrown to indicate that a method argument was <tt>null</tt> and 
  * should <b>not</b> have been.
  *
- * @author ≤Æ—¿
- * @version $Id: NullArgumentException.java, v 0.1 2014-1-6 œ¬ŒÁ05:40:03 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: NullArgumentException.java, v 0.1 2014-1-6 ‰∏ãÂçà05:40:03 Exp $
  */
 public class NullArgumentException extends IllegalArgumentException {
     /** The name of the argument that was <tt>null</tt>. */

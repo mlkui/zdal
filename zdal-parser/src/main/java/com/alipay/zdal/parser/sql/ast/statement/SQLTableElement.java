@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.ast.SQLObject;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLTableElement.java, v 0.1 2012-11-17 ÏÂÎç3:27:00 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLTableElement.java, v 0.1 2012-11-17 ä¸‹åˆ3:27:00 Exp $
  */
 public interface SQLTableElement extends SQLObject {
 

@@ -5,8 +5,8 @@
 package com.alipay.zdal.rule.config.beans;
 
 /**
- * Ò»·İÍêÕûµÄ¶ÁĞ´·ÖÀëºÍ·Ö¿â·Ö±í¹æÔòÅäÖÃ
- * Ò»¸öÒµÎñÒ»·İ
+ * ä¸€ä»½å®Œæ•´çš„è¯»å†™åˆ†ç¦»å’Œåˆ†åº“åˆ†è¡¨è§„åˆ™é…ç½®
+ * ä¸€ä¸ªä¸šåŠ¡ä¸€ä»½
  *  
  */
 public class AppRule {
@@ -21,7 +21,7 @@ public class AppRule {
             return;
         }
         if (slaveRule != null || masterRule != null) {
-            throw new IllegalArgumentException("readwriteRule ²»ÄÜºÍmasterRule»òslaveRuleÍ¬Ê±ÅäÖÃ");
+            throw new IllegalArgumentException("readwriteRule ä¸èƒ½å’ŒmasterRuleæˆ–slaveRuleåŒæ—¶é…ç½®");
         }
         try {
             masterRule = (ShardRule) readwriteRule.clone();

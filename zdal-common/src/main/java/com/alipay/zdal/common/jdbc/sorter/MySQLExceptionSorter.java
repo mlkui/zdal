@@ -13,14 +13,14 @@ import java.sql.SQLException;
  * This is a basic exception sorter for the MySQL RDBMS. All error
  * codes are taken from the MySQL Connector Java 3.0.16 SQLError class. 
  *
- * @author ²®ÑÀ
- * @version $Id: MySQLExceptionSorter.java, v 0.1 2014-1-6 ÏÂÎç05:20:10 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySQLExceptionSorter.java, v 0.1 2014-1-6 ä¸‹åˆ05:20:10 Exp $
  */
 public class MySQLExceptionSorter implements ExceptionSorter, Serializable {
     private static final long serialVersionUID = 2375890129763721017L;
 
     //    public boolean isExceptionFatal(SQLException e) {
-    //        int loopCount = 20; //·ÀÖ¹ÈËÎªÊ§Îó£¬µ±Á½¸öThrowable»¥Îª¶Ô·½µÄinitCause()Ê±£¬Ôì³ÉËÀÑ­»·
+    //        int loopCount = 20; //é˜²æ­¢äººä¸ºå¤±è¯¯ï¼Œå½“ä¸¤ä¸ªThrowableäº’ä¸ºå¯¹æ–¹çš„initCause()æ—¶ï¼Œé€ æˆæ­»å¾ªç¯
     //
     //        Throwable cause = e;
     //        while (cause != null) {
@@ -68,7 +68,7 @@ public class MySQLExceptionSorter implements ExceptionSorter, Serializable {
                 // Out-of-memory errors
             case 1037: // ER_OUTOFMEMORY
             case 1038: // ER_OUT_OF_SORTMEMORY
-            case ROLLBACK_ERRORCODE:// rollbackÊ§°Ü.
+            case ROLLBACK_ERRORCODE:// rollbackå¤±è´¥.
                 return true;
         }
 
@@ -77,7 +77,7 @@ public class MySQLExceptionSorter implements ExceptionSorter, Serializable {
             || error_text.indexOf("COULD NOT CREATE CONNECTION") > -1
             || error_text.indexOf("ACCESS DENIED FOR USER") > -1
             || error_text.indexOf("NO DATASOURCE") > -1
-            || error_text.indexOf("NO ALIVE DATASOURCE") > -1) {// errorCodeºöÂÔ²¢ÇÒÒì³£ĞÅÏ¢ÎªÁ¬½Ó³ö´í
+            || error_text.indexOf("NO ALIVE DATASOURCE") > -1) {// errorCodeå¿½ç•¥å¹¶ä¸”å¼‚å¸¸ä¿¡æ¯ä¸ºè¿æ¥å‡ºé”™
             return true;
         }
 

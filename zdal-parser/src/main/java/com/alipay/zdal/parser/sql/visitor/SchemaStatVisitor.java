@@ -57,8 +57,8 @@ import com.alipay.zdal.parser.sql.stat.TableStat.SELECTMODE;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SchemaStatVisitor.java, v 0.1 2012-11-17 ÏÂÎç3:56:15 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SchemaStatVisitor.java, v 0.1 2012-11-17 ä¸‹åˆ3:56:15 Exp $
  */
 public class SchemaStatVisitor extends SQLASTVisitorAdapter {
 
@@ -84,10 +84,10 @@ public class SchemaStatVisitor extends SQLASTVisitorAdapter {
 
     private Mode                                       mode;
 
-    /** ±£Áôselect count,select min,select max,select sum¸ñÊ½µÄ²éÑ¯Óï¾ä. */
+    /** ä¿ç•™select count,select min,select max,select sumæ ¼å¼çš„æŸ¥è¯¢è¯­å¥. */
     private SELECTMODE                                 selectMode;
 
-    /**´ÓDB2µÄsqlÓï¾äÖĞÖĞ»ñÈ¡·ÖÒ³×Ö¶Î.  */
+    /**ä»DB2çš„sqlè¯­å¥ä¸­ä¸­è·å–åˆ†é¡µå­—æ®µ.  */
     protected String                                   limitColumnName = null;
 
     public SELECTMODE getSelectMode() {
@@ -566,12 +566,12 @@ public class SchemaStatVisitor extends SQLASTVisitorAdapter {
             }
             if (aggregateExprs.size() == 0) {
 
-            } else if (aggregateExprs.size() > 1) {//Ö»Ö§³Öµ¥¸ö¾ÛºÏº¯Êı.
+            } else if (aggregateExprs.size() > 1) {//åªæ”¯æŒå•ä¸ªèšåˆå‡½æ•°.
                 setSelectMode(null);
             } else {
                 SQLAggregateExpr aggregateExpr = aggregateExprs.get(0);
                 if (SELECTMODE.COUNT.toString().equalsIgnoreCase(aggregateExpr.getMethodName())) {
-                    if (getSelectMode() == null) {//Èç¹ûÍâ²ãÒÑ¾­ÓĞ¾ÛºÏº¯Êı£¬¾Í²»ĞèÒªÔÙ´ÎÉèÖÃÁË£¬ÒÔÍâ²ãµÄÎª×¼.
+                    if (getSelectMode() == null) {//å¦‚æœå¤–å±‚å·²ç»æœ‰èšåˆå‡½æ•°ï¼Œå°±ä¸éœ€è¦å†æ¬¡è®¾ç½®äº†ï¼Œä»¥å¤–å±‚çš„ä¸ºå‡†.
                         setSelectMode(SELECTMODE.COUNT);
                     }
                 } else if (SELECTMODE.MIN.toString()
@@ -638,7 +638,7 @@ public class SchemaStatVisitor extends SQLASTVisitorAdapter {
         }
 
         if (x.getFrom() != null) {
-            x.getFrom().accept(this); // æå‰æ‰§è¡Œï¼Œè·å¾—aliasMap
+            x.getFrom().accept(this); // é»æ„¬å¢ éµÑ†î”‘é”›å²ƒå¹å¯°æ¢liasMap
             String table = (String) x.getFrom().getAttribute(ATTR_TABLE);
             if (table != null) {
                 x.putAttribute(ATTR_TABLE, table);

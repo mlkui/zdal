@@ -14,8 +14,8 @@ import com.alipay.zdal.client.jdbc.ZdalStatement;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SumTResultSet.java, v 0.1 2014-1-6 ÏÂÎç05:15:05 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SumTResultSet.java, v 0.1 2014-1-6 ä¸‹åˆ05:15:05 Exp $
  */
 public class SumTResultSet extends AbstractTResultSet {
     private Object  value;

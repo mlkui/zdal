@@ -21,37 +21,37 @@ public class PriorityGroupsDataSources {
     private final EquityDbManager equityDbManager;
 
     /**
-     * ·Ç×èÈûËø£¬ÓÃÓÚ¿ØÖÆÖ»ÔÊĞíÒ»¸öÒµÎñÏß³ÌÈ¥ÖØÊÔ£»
+     * éé˜»å¡é”ï¼Œç”¨äºæ§åˆ¶åªå…è®¸ä¸€ä¸ªä¸šåŠ¡çº¿ç¨‹å»é‡è¯•ï¼›
      */
     private final ReentrantLock   lock                = new ReentrantLock();
 
     /**
-     * Êı¾İÔ´ÊÇ·ñ¿ÉÓÃ£¬Ä¬ÈÏ¿ÉÓÃ
+     * æ•°æ®æºæ˜¯å¦å¯ç”¨ï¼Œé»˜è®¤å¯ç”¨
      */
     private volatile boolean      isNotAvailable      = false;
     /**
-     * ÉÏ´ÎÖØÊÔÊ±¼ä
+     * ä¸Šæ¬¡é‡è¯•æ—¶é—´
      */
     private volatile long         lastRetryTime       = 0;
     /**
-     * Òì³£´ÎÊı
+     * å¼‚å¸¸æ¬¡æ•°
      */
     private volatile int          exceptionTimes      = 0;
     /**
-     * µÚÒ»´Î²¶»ñÒì³£µÄÊ±¼ä£¬µ¥Î»ºÁÃë
+     * ç¬¬ä¸€æ¬¡æ•è·å¼‚å¸¸çš„æ—¶é—´ï¼Œå•ä½æ¯«ç§’
      */
     private volatile long         firstExceptionTime  = 0;
     /**
-     * ÖØÊÔ¹ÊÕÏdbµÄÊ±¼ä¼ä¸ô£¬Ä¬ÈÏÖµÉèÎª2s,µ¥Î»ºÁÃë
+     * é‡è¯•æ•…éšœdbçš„æ—¶é—´é—´éš”ï¼Œé»˜è®¤å€¼è®¾ä¸º2s,å•ä½æ¯«ç§’
      */
     private final int             retryBadDbInterval  = 2000;
 
     /**
-     * µ¥Î»Ê±¼ä¶Î£¬Ä¬ÈÏÎª1·ÖÖÓ£¬ÓÃÓÚÍ³¼ÆÊ±¼ä¶ÎÄÚÄ³¸ödbÅ×Òì³£µÄ´ÎÊı£¬µ¥Î»ºÁÃë
+     * å•ä½æ—¶é—´æ®µï¼Œé»˜è®¤ä¸º1åˆ†é’Ÿï¼Œç”¨äºç»Ÿè®¡æ—¶é—´æ®µå†…æŸä¸ªdbæŠ›å¼‚å¸¸çš„æ¬¡æ•°ï¼Œå•ä½æ¯«ç§’
      */
     private final int             timeInterval        = 60000;
     /**
-     * µ¥Î»Ê±¼äÄÚÔÊĞíÒì³£µÄ´ÎÊı£¬Èç¹û³¬¹ıÕâ¸öÖµ±ã½«Êı¾İÔ´ÖÃÎª²»¿ÉÓÃ
+     * å•ä½æ—¶é—´å†…å…è®¸å¼‚å¸¸çš„æ¬¡æ•°ï¼Œå¦‚æœè¶…è¿‡è¿™ä¸ªå€¼ä¾¿å°†æ•°æ®æºç½®ä¸ºä¸å¯ç”¨
      */
     private final int             allowExceptionTimes = 20;
 
@@ -60,8 +60,8 @@ public class PriorityGroupsDataSources {
     }
 
     /**
-     * °´ÓÅÏÈ¼¶½øĞĞ·Ö×é£¬±ÈÈçp0£¬p1µÈ£¬Èç¹ûÄ³¸öÓÅÏÈ¼¶ÄÚµÄÊı¾İÔ´¾ù²»¿ÉÓÃÁË£¬»áÅ×³öNoMoreDataSourceException
-     * È»ºó¸ù¾İµ¥Î»Ê±¼äÄÚÅ×³ö¸ÃÒì³£µÄ´ÎÊıÊÇ·ñ³¬¹ıÄ³¸öãĞÖµÀ´¾ö¶¨ÊÇ·ñ½«¸ÃÓÅÏÈ¼¶·Ö×éÖÃÎª²»¿ÉÓÃ£¬¼´isNotAvailable=true
+     * æŒ‰ä¼˜å…ˆçº§è¿›è¡Œåˆ†ç»„ï¼Œæ¯”å¦‚p0ï¼Œp1ç­‰ï¼Œå¦‚æœæŸä¸ªä¼˜å…ˆçº§å†…çš„æ•°æ®æºå‡ä¸å¯ç”¨äº†ï¼Œä¼šæŠ›å‡ºNoMoreDataSourceException
+     * ç„¶åæ ¹æ®å•ä½æ—¶é—´å†…æŠ›å‡ºè¯¥å¼‚å¸¸çš„æ¬¡æ•°æ˜¯å¦è¶…è¿‡æŸä¸ªé˜ˆå€¼æ¥å†³å®šæ˜¯å¦å°†è¯¥ä¼˜å…ˆçº§åˆ†ç»„ç½®ä¸ºä¸å¯ç”¨ï¼Œå³isNotAvailable=true
      * @param <T>
      * @param failedDataSources
      * @param tryer
@@ -76,7 +76,7 @@ public class PriorityGroupsDataSources {
                             DataSourceTryer<T> tryer, int times, DB_OPERATION_TYPE operationType,
                             int i, Object... args) throws SQLException {
         T t = null;
-        //Èç¹û²»¿ÉÓÃ
+        //å¦‚æœä¸å¯ç”¨
         if (isNotAvailable) {
             t = tryOnFailedPriorityGroupDataSource(failedDataSources, tryer, times, operationType,
                 i, args);
@@ -88,9 +88,9 @@ public class PriorityGroupsDataSources {
     }
 
     /**
-     * ÔÚ²»¿ÉÓÃµÄÓÅÏÈ¼¶ÉÏ½øĞĞ²Ù×÷
-     * Ö»ÔÊĞíµ¥Ïß³Ì½øÈëµ½¸ÃÓÅÏÈ¼¶½øĞĞÖØÊÔ£¬Èç¹û³¢ÊÔ³É¹¦Ôò½«¸ÃÓÅÏÈ¼¶ÖÃÎª¿ÉÓÃ£»Èç¹ûÊ§°Ü¾ÍÅ×³öÒì³££¬ÍâÎ§²¶»ñ×¡Òì³£¼´»á³¢ÊÔÏÂÒ»¸öÓÅÏÈ¼¶£»
-     * Èç¹ûÆäËûÏß³Ì²»·ûºÏÖØÊÔ×´Ì¬£¬Ôò²»½øĞĞÖØÊÔ£¬Ö±½ÓÅ×³öÒì³££¬ÍâÎ§²¶»ñÒì³££¬Ëæ¼´³¢ÊÔÏÂÒ»¸öÓÅÏÈ¼¶£»
+     * åœ¨ä¸å¯ç”¨çš„ä¼˜å…ˆçº§ä¸Šè¿›è¡Œæ“ä½œ
+     * åªå…è®¸å•çº¿ç¨‹è¿›å…¥åˆ°è¯¥ä¼˜å…ˆçº§è¿›è¡Œé‡è¯•ï¼Œå¦‚æœå°è¯•æˆåŠŸåˆ™å°†è¯¥ä¼˜å…ˆçº§ç½®ä¸ºå¯ç”¨ï¼›å¦‚æœå¤±è´¥å°±æŠ›å‡ºå¼‚å¸¸ï¼Œå¤–å›´æ•è·ä½å¼‚å¸¸å³ä¼šå°è¯•ä¸‹ä¸€ä¸ªä¼˜å…ˆçº§ï¼›
+     * å¦‚æœå…¶ä»–çº¿ç¨‹ä¸ç¬¦åˆé‡è¯•çŠ¶æ€ï¼Œåˆ™ä¸è¿›è¡Œé‡è¯•ï¼Œç›´æ¥æŠ›å‡ºå¼‚å¸¸ï¼Œå¤–å›´æ•è·å¼‚å¸¸ï¼Œéšå³å°è¯•ä¸‹ä¸€ä¸ªä¼˜å…ˆçº§ï¼›
      * 
      * @param <T>
      * @param failedDataSources
@@ -110,38 +110,38 @@ public class PriorityGroupsDataSources {
                                                     Object... args) throws SQLException {
         T t = null;
         boolean toTry = System.currentTimeMillis() - lastRetryTime > retryBadDbInterval;
-        //Ã¿¼ä¸ôÁ½Ãë£¬Ö»»áÓĞÒ»¸öÒµÎñÏß³Ì¼ÌĞøÊ¹ÓÃÕâ¸öÓÅÏÈ¼¶µÄÊı¾İÔ´¡£
+        //æ¯é—´éš”ä¸¤ç§’ï¼Œåªä¼šæœ‰ä¸€ä¸ªä¸šåŠ¡çº¿ç¨‹ç»§ç»­ä½¿ç”¨è¿™ä¸ªä¼˜å…ˆçº§çš„æ•°æ®æºã€‚
         if (toTry && lock.tryLock()) {
             try {
-                logger.warn("Ïß³Ì" + Thread.currentThread().getName() + "ÔÚ"
-                            + getCurrentDateTime(null) + "½øÈëÓÅÏÈ¼¶" + i + "µÄµ¥Ïß³ÌÖØÊÔ×´Ì¬£¡");
+                logger.warn("çº¿ç¨‹" + Thread.currentThread().getName() + "åœ¨"
+                            + getCurrentDateTime(null) + "è¿›å…¥ä¼˜å…ˆçº§" + i + "çš„å•çº¿ç¨‹é‡è¯•çŠ¶æ€ï¼");
                 Long beginTime = System.currentTimeMillis();
                 t = equityDbManager
                     .tryExecute(failedDataSources, tryer, times, operationType, args);
-                logger.warn("µ¥Ïß³Ì" + Thread.currentThread().getName() + "È¥»ñÈ¡¸ÃÓÅÏÈ¼¶p" + i + "³É¹¦£¬ºÄÊ±Îª£º"
+                logger.warn("å•çº¿ç¨‹" + Thread.currentThread().getName() + "å»è·å–è¯¥ä¼˜å…ˆçº§p" + i + "æˆåŠŸï¼Œè€—æ—¶ä¸ºï¼š"
                             + (System.currentTimeMillis() - beginTime));
                 this.isNotAvailable = false;
                 this.exceptionTimes = 0;
-                logger.warn("Êı¾İÔ´ÓÅÏÈ¼¶p" + i + "ÔÚ" + getCurrentDateTime(null) + "ÒÑ¾­»Ö¸´£¬±ê¼ÇÎª¿ÉÓÃ£¡");
+                logger.warn("æ•°æ®æºä¼˜å…ˆçº§p" + i + "åœ¨" + getCurrentDateTime(null) + "å·²ç»æ¢å¤ï¼Œæ ‡è®°ä¸ºå¯ç”¨ï¼");
             } catch (NoMoreDataSourceException e) {
-                logger.error("µ¥Ïß³ÌÖØÊÔÓÅÏÈ¼¶ p" + i + "Ê§°Ü£¬ÏÖÔÚÈ¥Ñ°ÕÒÆäÏÂÒ»¸öÓÅÏÈ¼¶µÄÊı¾İÔ´£¡", e);
+                logger.error("å•çº¿ç¨‹é‡è¯•ä¼˜å…ˆçº§ p" + i + "å¤±è´¥ï¼Œç°åœ¨å»å¯»æ‰¾å…¶ä¸‹ä¸€ä¸ªä¼˜å…ˆçº§çš„æ•°æ®æºï¼", e);
                 throw e;
             } finally {
                 lastRetryTime = System.currentTimeMillis();
                 lock.unlock();
             }
         } else {
-            //²»·ûºÏ³¢ÊÔ¸ÃÓÅÏÈ¼¶µÄÌõ¼ş£¬Ö±½ÓÅ×³öÒì³££¬¼ÌĞøÍâÎ§forÑ­»·È¥²Ù×÷ÏÂÒ»¸öÓÅÏÈ¼¶
-            logger.warn("ÓÅÏÈ¼¶p" + i + "ÕıÔÚ±»ÆäËûÏß³Ì·ÃÎÊ£¬»òÕß²»·ûºÏ2sµÄÊ±¼ä¼ä¸ô£¡");
+            //ä¸ç¬¦åˆå°è¯•è¯¥ä¼˜å…ˆçº§çš„æ¡ä»¶ï¼Œç›´æ¥æŠ›å‡ºå¼‚å¸¸ï¼Œç»§ç»­å¤–å›´forå¾ªç¯å»æ“ä½œä¸‹ä¸€ä¸ªä¼˜å…ˆçº§
+            logger.warn("ä¼˜å…ˆçº§p" + i + "æ­£åœ¨è¢«å…¶ä»–çº¿ç¨‹è®¿é—®ï¼Œæˆ–è€…ä¸ç¬¦åˆ2sçš„æ—¶é—´é—´éš”ï¼");
             throw new NoMoreDataSourceException("No more dataSource for p" + i);
         }
         return t;
     }
 
     /**
-     * ÔÚ¿ÉÓÃµÄÓÅÏÈ¼¶ÉÏ½øĞĞ²Ù×÷£¬
-     * Èç¹û¸ÃÓÅÏÈ¼¶±¨³öÒì³££¬Ôò½øĞĞÍ³¼Æµ¥Î»Ê±¼äÄÚµÄÒì³£´ÎÊı£¬Èç¹û³¬¹ıÖ¸¶¨µÄãĞÖµ£¬Ôò½«¸ÃÓÅÏÈ¼¶ÖÃÎª²»¿ÉÓÃ
-     * Í³¼ÆÍêÒì³£´ÎÊıºó½«Òì³£Å×³ö£¬ÍâÎ§»á²¶»ñ¸ÃÒì³££¬Ëæ¼´Ñ¡ÔñÏÂÒ»¸öÓÅÏÈ¼¶µÄÊı¾İÔ´½øĞĞ²Ù×÷
+     * åœ¨å¯ç”¨çš„ä¼˜å…ˆçº§ä¸Šè¿›è¡Œæ“ä½œï¼Œ
+     * å¦‚æœè¯¥ä¼˜å…ˆçº§æŠ¥å‡ºå¼‚å¸¸ï¼Œåˆ™è¿›è¡Œç»Ÿè®¡å•ä½æ—¶é—´å†…çš„å¼‚å¸¸æ¬¡æ•°ï¼Œå¦‚æœè¶…è¿‡æŒ‡å®šçš„é˜ˆå€¼ï¼Œåˆ™å°†è¯¥ä¼˜å…ˆçº§ç½®ä¸ºä¸å¯ç”¨
+     * ç»Ÿè®¡å®Œå¼‚å¸¸æ¬¡æ•°åå°†å¼‚å¸¸æŠ›å‡ºï¼Œå¤–å›´ä¼šæ•è·è¯¥å¼‚å¸¸ï¼Œéšå³é€‰æ‹©ä¸‹ä¸€ä¸ªä¼˜å…ˆçº§çš„æ•°æ®æºè¿›è¡Œæ“ä½œ
      * @param <T>
      * @param failedDataSources
      * @param tryer
@@ -163,41 +163,41 @@ public class PriorityGroupsDataSources {
         } catch (NoMoreDataSourceException e) {
             calcFailedDSExceptionTimes(i);
             throw e;
-        } catch (IllegalStateException e) {//Èç¹ûÔÚ±¾×éÖĞÕÒ²»µ½£¬¾ÍÅ×³öNoMoreDataSourceExceptionÒì³££¬±ãÓÚ´ÓÏÂÒ»¸öEquityDbManagerÖĞ¼ÌĞøÖ´ĞĞ.
+        } catch (IllegalStateException e) {//å¦‚æœåœ¨æœ¬ç»„ä¸­æ‰¾ä¸åˆ°ï¼Œå°±æŠ›å‡ºNoMoreDataSourceExceptionå¼‚å¸¸ï¼Œä¾¿äºä»ä¸‹ä¸€ä¸ªEquityDbManagerä¸­ç»§ç»­æ‰§è¡Œ.
             throw new NoMoreDataSourceException(e.getMessage());
         }
         return t;
     }
 
     /**
-     * Í³¼ÆÓÅÏÈ¼¶piµÄÒì³£´ÎÊı
-     * Ğ¡ÓÚÖ¸¶¨Ê±¼ä¼ä¸ôÔòÀÛ¼ÓÒì³£´ÎÊı£¬Èç¹ûÒì³£´ÎÊı³¬¹ıÄ³¸öãĞÖµ¾Í¸ÃÓÅÏÈ¼¶½«ÖÃÎª²»¿ÉÓÃ£»·ñÔòÇåÁãÖØĞÂ¼ÆÊı
+     * ç»Ÿè®¡ä¼˜å…ˆçº§piçš„å¼‚å¸¸æ¬¡æ•°
+     * å°äºæŒ‡å®šæ—¶é—´é—´éš”åˆ™ç´¯åŠ å¼‚å¸¸æ¬¡æ•°ï¼Œå¦‚æœå¼‚å¸¸æ¬¡æ•°è¶…è¿‡æŸä¸ªé˜ˆå€¼å°±è¯¥ä¼˜å…ˆçº§å°†ç½®ä¸ºä¸å¯ç”¨ï¼›å¦åˆ™æ¸…é›¶é‡æ–°è®¡æ•°
      * @param i
      */
     public synchronized void calcFailedDSExceptionTimes(int i) {
-        //Í³¼Æ¸Ã·Ö×éÄÚµÄµ¥Î»Ê±¼äÄÚÒì³£µÄ´ÎÊı
+        //ç»Ÿè®¡è¯¥åˆ†ç»„å†…çš„å•ä½æ—¶é—´å†…å¼‚å¸¸çš„æ¬¡æ•°
         if (this.exceptionTimes == 0) {
             this.firstExceptionTime = System.currentTimeMillis();
         }
         long currentTime = System.currentTimeMillis();
         if (currentTime - this.firstExceptionTime <= timeInterval) {
             ++exceptionTimes;
-            logger.error("ÓÅÏÈ¼¶p" + i + "µ¥Î»Ê±¼äÄÚµÚ" + exceptionTimes + "´ÎÒì³££¬µ±Ç°Ê±¼ä£º"
-                         + getCurrentDateTime(currentTime) + "£¬Ê×´ÎÒì³£Ê±¼ä£º"
-                         + getCurrentDateTime(firstExceptionTime) + "£¬Ê±¼ä¼ä¸ôÎª£º"
+            logger.error("ä¼˜å…ˆçº§p" + i + "å•ä½æ—¶é—´å†…ç¬¬" + exceptionTimes + "æ¬¡å¼‚å¸¸ï¼Œå½“å‰æ—¶é—´ï¼š"
+                         + getCurrentDateTime(currentTime) + "ï¼Œé¦–æ¬¡å¼‚å¸¸æ—¶é—´ï¼š"
+                         + getCurrentDateTime(firstExceptionTime) + "ï¼Œæ—¶é—´é—´éš”ä¸ºï¼š"
                          + (currentTime - firstExceptionTime) + "ms.");
             if (exceptionTimes >= allowExceptionTimes) {
                 this.isNotAvailable = true;
-                logger.error("ÓÅÏÈ¼¶p" + i + "ÔÚÊ±¼ä" + getCurrentDateTime(null) + "±»Ìß³ö£¡");
+                logger.error("ä¼˜å…ˆçº§p" + i + "åœ¨æ—¶é—´" + getCurrentDateTime(null) + "è¢«è¸¢å‡ºï¼");
             }
         } else {
-            logger.warn("Í³¼ÆÒì³£´ÎÊı³¬¹ıµ¥Î»Ê±¼ä¼ä¸ô,ÉÏ´Îµ¥Î»Ê±¼ä¼ä¸ôÄÚÒì³£´ÎÊıÎª" + exceptionTimes + "´Î,ÏÖÔÚ¿ªÊ¼ÖØĞÂ¼ÆÊı£¡");
+            logger.warn("ç»Ÿè®¡å¼‚å¸¸æ¬¡æ•°è¶…è¿‡å•ä½æ—¶é—´é—´éš”,ä¸Šæ¬¡å•ä½æ—¶é—´é—´éš”å†…å¼‚å¸¸æ¬¡æ•°ä¸º" + exceptionTimes + "æ¬¡,ç°åœ¨å¼€å§‹é‡æ–°è®¡æ•°ï¼");
             this.exceptionTimes = 0;
         }
     }
 
     /**
-     * »ñÈ¡µ±Ç°µÄÊ±¼äµÄ¸ñÊ½»¯×Ö·û´®
+     * è·å–å½“å‰çš„æ—¶é—´çš„æ ¼å¼åŒ–å­—ç¬¦ä¸²
      */
     public String getCurrentDateTime(Long time) {
         java.util.Date now;

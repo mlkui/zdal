@@ -9,7 +9,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: NotNullConstraint.java, v 0.1 2012-11-17 œ¬ŒÁ3:19:50 xiaoqing.zhouxq Exp $
+ * @version $Id: NotNullConstraint.java, v 0.1 2012-11-17 ‰∏ãÂçà3:19:50 xiaoqing.zhouxq Exp $
  */
 @SuppressWarnings("serial")
 public class NotNullConstraint extends SQLConstaintImpl implements SQLColumnConstraint {

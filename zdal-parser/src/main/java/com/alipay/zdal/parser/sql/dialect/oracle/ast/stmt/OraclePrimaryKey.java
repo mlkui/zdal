@@ -16,8 +16,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OraclePrimaryKey.java, v 0.1 2012-11-17 œ¬ŒÁ3:49:11 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OraclePrimaryKey.java, v 0.1 2012-11-17 ‰∏ãÂçà3:49:11 Exp $
  */
 public class OraclePrimaryKey extends OracleSQLObjectImpl implements SQLPrimaryKey, SQLTableElement {
 

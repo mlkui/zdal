@@ -26,8 +26,8 @@ import java.math.BigInteger;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: Lexer.java, v 0.1 2012-11-17 ÏÂÎç3:53:44 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: Lexer.java, v 0.1 2012-11-17 ä¸‹åˆ3:53:44 Exp $
  */
 public class Lexer {
 

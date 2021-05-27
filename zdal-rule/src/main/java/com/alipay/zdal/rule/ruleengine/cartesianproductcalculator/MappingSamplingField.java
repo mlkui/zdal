@@ -7,7 +7,7 @@ package com.alipay.zdal.rule.ruleengine.cartesianproductcalculator;
 import java.util.List;
 
 /**
- * Ìí¼ÓÁËÓ³Éä¸½´øµÄ×Ö¶Î£¬
+ * æ·»åŠ äº†æ˜ å°„é™„å¸¦çš„å­—æ®µï¼Œ
  * 
  *
  */

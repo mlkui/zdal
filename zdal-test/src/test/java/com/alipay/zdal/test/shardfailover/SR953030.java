@@ -21,7 +21,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+Failover ,·Ö¿â·Ö±í¹æÔò")
+@Feature("shard+Failover ,åˆ†åº“åˆ†è¡¨è§„åˆ™")
 public class SR953030 {
 	public TestAssertion Assert  = new TestAssertion();;
 	private SqlMapClient sqlMap;
@@ -40,11 +40,11 @@ public class SR953030 {
 	}
 	
 	
-	@Subject("shard+failover£¬·Ö¿â·Ö±í£¬Ğ´¿â¡£Ğ´master_1¿âusers_1±í")
+	@Subject("shard+failoverï¼Œåˆ†åº“åˆ†è¡¨ï¼Œå†™åº“ã€‚å†™master_1åº“users_1è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953031(){	
-		Step("shard+failover£¬·Ö¿â·Ö±í£¬Ğ´¿â¡£Ğ´master_1¿âusers_1±í");
+		Step("shard+failoverï¼Œåˆ†åº“åˆ†è¡¨ï¼Œå†™åº“ã€‚å†™master_1åº“users_1è¡¨");
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("user_id", Integer.valueOf("11"));
 		params.put("name", "test_users");
@@ -55,37 +55,37 @@ public class SR953030 {
 		}catch(Exception ex){
 			ex.printStackTrace();	
 		}
-		Step("¶ÏÑÔ");
+		Step("æ–­è¨€");
 		testCheckData(dburl1);
-		Step("Çå³ıÊı¾İ");
+		Step("æ¸…é™¤æ•°æ®");
 		testDeleData(dburl1);
 	}
 	
 	
 	@SuppressWarnings("unchecked")
-	@Subject("shard+failover£¬·Ö¿â·Ö±í£¬¶Á¿â¡£Ğ´master_3¿âusers_3±í")
+	@Subject("shard+failoverï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚å†™master_3åº“users_3è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953032(){
-		Step("shard+failover£¬·Ö¿â·Ö±í£¬¶Á¿â¡£Ğ´master_3¿âusers_3±í");
+		Step("shard+failoverï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚å†™master_3åº“users_3è¡¨");
 		testPrepareData();
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("user_id", Integer.valueOf("13"));
 		try {
 			List<Object> rs=(List<Object>)sqlMap.queryForList("selectZoneDsZoneError",params);
-		    Assert.areEqual(1, rs.size(), "¼ì²é²éÑ¯½á¹û¼ÇÂ¼");
+		    Assert.areEqual(1, rs.size(), "æ£€æŸ¥æŸ¥è¯¢ç»“æœè®°å½•");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Assert.areEqual(1, 2, "²»¸Ã³öÏÖµÄÒì³£");
+			Assert.areEqual(1, 2, "ä¸è¯¥å‡ºç°çš„å¼‚å¸¸");
 		}
-		Step("Çå³ıÊı¾İ");
+		Step("æ¸…é™¤æ•°æ®");
 		testDeleData(dburl3);
 	}
 	
 
 	/**
-	 * ¼ì²éÊı¾İÊıÁ¿
+	 * æ£€æŸ¥æ•°æ®æ•°é‡
 	 * @param dburl
 	 */
 	private void  testCheckData(String dburl){
@@ -93,7 +93,7 @@ public class SR953030 {
 		ResultSet rs=ZdalTestCommon.dataCheckFromJDBC(sql, dburl, dbpsd, dbuser);		
 		try {
 			rs.next();
-			Assert.areEqual(1, rs.getInt(1), "Êı¾İ¼ì²é");
+			Assert.areEqual(1, rs.getInt(1), "æ•°æ®æ£€æŸ¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,7 +101,7 @@ public class SR953030 {
 	}
 	
 	/**
-	 * Ïû³ıÊı¾İ
+	 * æ¶ˆé™¤æ•°æ®
 	 */
 	private void testDeleData(String dburl){
 		String delStr="delete from users_1";
@@ -111,7 +111,7 @@ public class SR953030 {
 	}
 	
 	/**
-	 * ×¼±¸Êı¾İ
+	 * å‡†å¤‡æ•°æ®
 	 */
 	private void testPrepareData(){
 		String insertSql="insert into users_3 (user_id,name,address) values (13,'test','test') ";

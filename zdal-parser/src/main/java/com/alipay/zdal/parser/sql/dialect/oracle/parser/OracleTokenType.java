@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.dialect.oracle.parser;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleTokenType.java, v 0.1 2012-11-17 ÏÂÎç3:52:23 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleTokenType.java, v 0.1 2012-11-17 ä¸‹åˆ3:52:23 Exp $
  */
 public final class OracleTokenType {
 

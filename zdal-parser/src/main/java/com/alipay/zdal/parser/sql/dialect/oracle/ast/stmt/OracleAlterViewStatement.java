@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleAlterViewStatement.java, v 0.1 2012-11-17 ÏÂÎç3:46:12 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleAlterViewStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:46:12 Exp $
  */
 public class OracleAlterViewStatement extends OracleStatementImpl {
 

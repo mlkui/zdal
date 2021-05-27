@@ -23,18 +23,18 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+failoverÊı¾İÔ´»ñÈ¡dbid£ºÕı³£³¡¾°£¬ÓĞÁ½¸ögroup,·ÇÊÂÎñÖ´ĞĞsql²Ù×÷")
+@Feature("shard+failoveræ•°æ®æºè·å–dbidï¼šæ­£å¸¸åœºæ™¯ï¼Œæœ‰ä¸¤ä¸ªgroup,éäº‹åŠ¡æ‰§è¡Œsqlæ“ä½œ")
 public class SR953010 {
 	public TestAssertion Assert = new TestAssertion();;
 	private SqlMapClient sqlMap;
 
 	
 	@SuppressWarnings("unchecked")
-	@Subject("»ñÈ¡dbId: zoneDs=master_0,zoneError=Exception.Ğ´¿â master_0¿âµÄusers_0±í")
+	@Subject("è·å–dbId: zoneDs=master_0,zoneError=Exception.å†™åº“ master_0åº“çš„users_0è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953011() {
-		Step("»ñÈ¡dbId: zoneDs=master_0,zoneError=Exception.Ğ´¿â master_0¿âµÄusers_0±í");
+		Step("è·å–dbId: zoneDs=master_0,zoneError=Exception.å†™åº“ master_0åº“çš„users_0è¡¨");
 		sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 				.getBean("zdalZoneDsZoneErrorRight");
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -49,14 +49,14 @@ public class SR953010 {
 			for (Map.Entry<String, DataSource> entry : map.entrySet()) {
 
 				String dbId = entry.getKey();
-				Assert.areEqual("zdalZoneDsZoneErrorRight.master_0", dbId, "ÑéÖ¤dbid");
+				Assert.areEqual("zdalZoneDsZoneErrorRight.master_0", dbId, "éªŒè¯dbid");
 
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			Assert.areEqual(1, 2, "insertZoneDsZoneError Exception");
 		}
-		Step("É¾³ıÊı¾İ");
+		Step("åˆ é™¤æ•°æ®");
 		String delsqlStr = "delete from users_0";
 		String dburl = ConstantsTest.mysq112UrlTddl0;
 		String dbpsd = ConstantsTest.mysq112Psd;
@@ -66,11 +66,11 @@ public class SR953010 {
 
 	
 	@SuppressWarnings("unchecked")
-	@Subject("»ñÈ¡dbId: zoneDs=master_0,zoneError=Exception.¶Á¿â master_0¿âµÄusers_0±í")
+	@Subject("è·å–dbId: zoneDs=master_0,zoneError=Exception.è¯»åº“ master_0åº“çš„users_0è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953012() {
-		Step("»ñÈ¡dbId: zoneDs=master_0,zoneError=Exception.¶Á¿â master_0¿âµÄusers_0±í");
+		Step("è·å–dbId: zoneDs=master_0,zoneError=Exception.è¯»åº“ master_0åº“çš„users_0è¡¨");
 		sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 				.getBean("zdalZoneDsZoneErrorRight");
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -82,7 +82,7 @@ public class SR953010 {
 			for (Map.Entry<String, DataSource> entry : map.entrySet()) {
 
 				String dbId = entry.getKey();
-				Assert.areEqual("zdalZoneDsZoneErrorRight.master_0", dbId, "ÑéÖ¤dbid");
+				Assert.areEqual("zdalZoneDsZoneErrorRight.master_0", dbId, "éªŒè¯dbid");
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -21,8 +21,8 @@ import com.alipay.zdal.datasource.resource.util.JBossStringBuilder;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: HALocalManagedConnectionFactory.java, v 0.1 2014-1-6 œ¬ŒÁ05:31:48 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: HALocalManagedConnectionFactory.java, v 0.1 2014-1-6 ‰∏ãÂçà05:31:48 Exp $
  */
 public class HALocalManagedConnectionFactory extends LocalManagedConnectionFactory {
     private static final long serialVersionUID = -6506610639011749394L;
@@ -156,7 +156,7 @@ public class HALocalManagedConnectionFactory extends LocalManagedConnectionFacto
     /**
      * 
      * @author sicong.shou
-     * @version $Id: HALocalManagedConnectionFactory.java, v 0.1 2012-11-23 …œŒÁ11:38:48 sicong.shou Exp $
+     * @version $Id: HALocalManagedConnectionFactory.java, v 0.1 2012-11-23 ‰∏äÂçà11:38:48 sicong.shou Exp $
      */
     public static class URLSelector {
         private final List urls;

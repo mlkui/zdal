@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlShowCollationStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:35:09 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlShowCollationStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:35:09 Exp $
  */
 public class MySqlShowCollationStatement extends MySqlStatementImpl {
 

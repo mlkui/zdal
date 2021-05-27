@@ -13,7 +13,7 @@ import com.alipay.zdal.parser.sql.parser.Token;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: CommentTest.java, v 0.1 2012-5-17 …œŒÁ10:25:24 xiaoqing.zhouxq Exp $
+ * @version $Id: CommentTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:25:24 xiaoqing.zhouxq Exp $
  */
 public class CommentTest extends TestCase {
 

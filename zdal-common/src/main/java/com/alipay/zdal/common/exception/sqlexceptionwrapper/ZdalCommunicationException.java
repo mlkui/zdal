@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: ZdalCommunicationException.java, v 0.1 2014-1-6 œ¬ŒÁ05:19:07 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: ZdalCommunicationException.java, v 0.1 2014-1-6 ‰∏ãÂçà05:19:07 Exp $
  */
 public class ZdalCommunicationException extends ZdalSQLExceptionWrapper {
 

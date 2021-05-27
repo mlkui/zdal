@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlUserName.java, v 0.1 2012-11-17 ÏÂÎç3:30:59 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlUserName.java, v 0.1 2012-11-17 ä¸‹åˆ3:30:59 Exp $
  */
 public class MySqlUserName extends MySqlExprImpl implements SQLName {
 

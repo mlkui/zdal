@@ -5,7 +5,7 @@
 package com.alipay.zdal.rule.ruleengine.rule;
 
 /**
- * ÒòÎª¼ÆËãÒÔºó»áÄÃµ½½á¹û£¬¶ÔÓÚÓ³Éä¹æÔòÔò¿ÉÒÔ¶àÄÃµ½Ò»¸ömappingKey
+ * å› ä¸ºè®¡ç®—ä»¥åä¼šæ‹¿åˆ°ç»“æœï¼Œå¯¹äºæ˜ å°„è§„åˆ™åˆ™å¯ä»¥å¤šæ‹¿åˆ°ä¸€ä¸ªmappingKey
  * 
  *
  */
@@ -16,8 +16,8 @@ public class ResultAndMappingKey {
 
     final String result;
     /**
-     * Ò»¸ö½á¹ûÖ»ÄÜÖ§³ÖÓÉÒ»¸ömapping keyÓ³Éä²úÉú£¬²»Ö§³Ö¶à¸ö¡£
-     * Õâ¸öÊôĞÔÖ»ÓĞÔÚmappingruleµÄÊ±ºò²ÅÓĞÓÃ
+     * ä¸€ä¸ªç»“æœåªèƒ½æ”¯æŒç”±ä¸€ä¸ªmapping keyæ˜ å°„äº§ç”Ÿï¼Œä¸æ”¯æŒå¤šä¸ªã€‚
+     * è¿™ä¸ªå±æ€§åªæœ‰åœ¨mappingruleçš„æ—¶å€™æ‰æœ‰ç”¨
      */
     Object       mappingKey;
 

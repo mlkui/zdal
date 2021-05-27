@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * 
  * @author sicong.shou
- * @version $Id: CachedPreparedStatement.java, v 0.1 2012-11-23 …œŒÁ11:25:02 sicong.shou Exp $
+ * @version $Id: CachedPreparedStatement.java, v 0.1 2012-11-23 ‰∏äÂçà11:25:02 sicong.shou Exp $
  */
 public class CachedPreparedStatement implements PreparedStatement {
 

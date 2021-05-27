@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleGrantStatement.java, v 0.1 2012-11-17 ÏÂÎç3:48:13 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleGrantStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:48:13 Exp $
  */
 public class OracleGrantStatement extends OracleStatementImpl implements OracleStatement {
 

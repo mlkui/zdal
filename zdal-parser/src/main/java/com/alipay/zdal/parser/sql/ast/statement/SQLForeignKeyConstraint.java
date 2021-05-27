@@ -11,7 +11,7 @@ import com.alipay.zdal.parser.sql.ast.SQLName;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLForeignKeyConstraint.java, v 0.1 2012-11-17 ÏÂÎç3:22:21 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLForeignKeyConstraint.java, v 0.1 2012-11-17 ä¸‹åˆ3:22:21 xiaoqing.zhouxq Exp $
  */
 public interface SQLForeignKeyConstraint extends SQLConstaint {
 

@@ -11,8 +11,8 @@ import com.alipay.zdal.common.jdbc.sorter.ExceptionSorter;
 /**
  * A GenericExceptionSorter returning true for all exceptions.
  * 
- * @author ≤Æ—¿
- * @version $Id: GenericExceptionSorter.java, v 0.1 2014-1-6 œ¬ŒÁ05:28:18 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: GenericExceptionSorter.java, v 0.1 2014-1-6 ‰∏ãÂçà05:28:18 Exp $
  */
 public class GenericExceptionSorter implements ExceptionSorter {
 

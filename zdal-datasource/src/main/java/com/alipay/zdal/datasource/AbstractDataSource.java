@@ -12,16 +12,16 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 /**
- * ZDataSourcµÄ³éÏóÀà£¬½«javax.sql.DataSourceÖĞµÄ·½·¨¼¯ÖĞµ½Ò»Æğ
+ * ZDataSourcçš„æŠ½è±¡ç±»ï¼Œå°†javax.sql.DataSourceä¸­çš„æ–¹æ³•é›†ä¸­åˆ°ä¸€èµ·
  * 
  */
 public abstract class AbstractDataSource implements DataSource {
 
-    /**  ËùÓĞzds  */
+    /**  æ‰€æœ‰zds  */
     protected static final ArrayList<ZDataSource> zdatasourceList = new ArrayList<ZDataSource>();
 
     /**
-     * Æô¶¯Ê±Êı¾İÔ´¼ÓÈëÁĞ±í
+     * å¯åŠ¨æ—¶æ•°æ®æºåŠ å…¥åˆ—è¡¨
      */
     public AbstractDataSource() {
         synchronized (zdatasourceList) {

@@ -19,8 +19,8 @@ import com.alipay.zdal.datasource.resource.util.id.SerialVersion;
  */
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ResourceException.java, v 0.1 2014-1-6 ÏÂÎç05:26:57 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ResourceException.java, v 0.1 2014-1-6 ä¸‹åˆ05:26:57 Exp $
  */
 public class ResourceException extends Exception {
     /** @since 4.0.2 */

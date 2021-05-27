@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleCreateSequenceStatement.java, v 0.1 2012-11-17 ÏÂÎç3:46:49 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleCreateSequenceStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:46:49 Exp $
  */
 public class OracleCreateSequenceStatement extends OracleStatementImpl {
 

@@ -24,7 +24,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rw数据源获取dbid：正常场景，group中两个db,非事务执行sql操作")
+@Feature("rw鏁版嵁婧愯幏鍙杁bid锛氭甯稿満鏅紝group涓袱涓猟b,闈炰簨鍔℃墽琛宻ql鎿嶄綔")
 public class SR952170 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
@@ -42,20 +42,20 @@ public class SR952170 {
 	
 	
 	@SuppressWarnings("unchecked")
-	@Subject("非事务进行读操作，获取dbId")
+	@Subject("闈炰簨鍔¤繘琛岃鎿嶄綔锛岃幏鍙杁bId")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952171() {		
 		try {
 			sqlMap.queryForList("queryRwSql");
-            Step("非事务进行读操作，获取dbId");
+            Step("闈炰簨鍔¤繘琛岃鎿嶄綔锛岃幏鍙杁bId");
 			Map<String, DataSource> map = (Map<String, DataSource>) ThreadLocalMap
 					.get(ThreadLocalString.GET_ID_AND_DATABASE);
 			for (Map.Entry<String, DataSource> entry : map.entrySet()) {
 				String dbId = entry.getKey();
 				Assert.isTrue("getDbDsIndex1.group0_r_0".equalsIgnoreCase(dbId)
 						|| "getDbDsIndex1.group0_r_1".equalsIgnoreCase(dbId),
-						"验证dbid"+dbId);
+						"楠岃瘉dbid"+dbId);
 			}
 
 		} catch (SQLException e) {
@@ -66,12 +66,12 @@ public class SR952170 {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Subject("非事务进行写操作，获取dbId")
+	@Subject("闈炰簨鍔¤繘琛屽啓鎿嶄綔锛岃幏鍙杁bId")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952172() {
 
-		Step("非事务进行写操作，获取dbId");
+		Step("闈炰簨鍔¤繘琛屽啓鎿嶄綔锛岃幏鍙杁bId");
 		try {
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("num", "111");
@@ -84,7 +84,7 @@ public class SR952170 {
 				.get(ThreadLocalString.GET_ID_AND_DATABASE);
 		for (Map.Entry<String, DataSource> entry : map.entrySet()) {
 			String dbId = entry.getKey();
-			Assert.areEqual("getDbDsIndex1.group0_w_0", dbId, "验证dbid");
+			Assert.areEqual("getDbDsIndex1.group0_w_0", dbId, "楠岃瘉dbid");
 	
 		}
 	}

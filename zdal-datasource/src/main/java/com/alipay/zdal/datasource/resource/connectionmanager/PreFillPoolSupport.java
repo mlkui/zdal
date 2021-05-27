@@ -11,8 +11,8 @@ import com.alipay.zdal.datasource.resource.spi.ConnectionRequestInfo;
 /**
  * PreFillPoolSupport allows for prefilling connection pools.
  * 
- * @author ≤Æ—¿
- * @version $Id: PreFillPoolSupport.java, v 0.1 2014-1-6 œ¬ŒÁ05:36:08 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: PreFillPoolSupport.java, v 0.1 2014-1-6 ‰∏ãÂçà05:36:08 Exp $
  */
 public interface PreFillPoolSupport {
 

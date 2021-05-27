@@ -28,7 +28,7 @@ import com.alipay.zdal.rule.ruleengine.rule.ListAbstractResultRule;
 import com.alipay.zdal.rule.ruleengine.util.RuleUtils;
 
 /**
- * Ò»¸öÊı¾İ¿âµÄ³éÏó
+ * ä¸€ä¸ªæ•°æ®åº“çš„æŠ½è±¡
  * 
  * 
  */
@@ -38,15 +38,15 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     private String                       dataSourceKey;
 
     /**
-     * Âß¼­±íÃû
+     * é€»è¾‘è¡¨å
      */
     private String                       logicTableName;
     /**
-     * ±íÃûList£¬»áÔÚinitÊ±±ä³ÉruleChain
+     * è¡¨åListï¼Œä¼šåœ¨initæ—¶å˜æˆruleChain
      */
     private List<ListAbstractResultRule> tableRuleList;
     /**
-     * 1¶Ô¶àÖ¸¶¨¹ıÀ´µÄEntry
+     * 1å¯¹å¤šæŒ‡å®šè¿‡æ¥çš„Entry
      */
     private OneToManyEntry               oneToManyEntry;
 
@@ -54,14 +54,14 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
 
     /** 
      * @see com.alipay.zdal.rule.ruleengine.entities.abstractentities.ListSharedElement#init()
-     * ÕâÀïÖ÷ÒªÊÇÏÈ³õÊ¼»¯Õû¸ösubTable£¬È»ºó²ÅÄÜ×öÏàÓ¦µÄ¶¯×÷¡£
+     * è¿™é‡Œä¸»è¦æ˜¯å…ˆåˆå§‹åŒ–æ•´ä¸ªsubTableï¼Œç„¶åæ‰èƒ½åšç›¸åº”çš„åŠ¨ä½œã€‚
      */
     public void init() {
         initTableRuleChain();
         initLogicTableName();
         initTableMapProvider();
         initDefaultListResultStragety();
-        // Èç¹ûÓĞtableRuleProvider ÄÇÃ´³õÊ¼»¯×Ó±í£¬tableMapProvierÔÚtransmit·½·¨±»µ÷ÓÃÊ±ÏÈ×öµôÁË
+        // å¦‚æœæœ‰tableRuleProvider é‚£ä¹ˆåˆå§‹åŒ–å­è¡¨ï¼ŒtableMapProvieråœ¨transmitæ–¹æ³•è¢«è°ƒç”¨æ—¶å…ˆåšæ‰äº†
         if (tableMapProvider != null) {
             Map<String, SharedElement> beConstructedMap = getTableMapByTableMapProvider();
             putAutoConstructedMapIntoCurrentTagMap(beConstructedMap);
@@ -77,26 +77,26 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     }
 
     /**
-     * ¼ÆËã±í¹æÔòµÄ·½·¨
-     * 1. Èç¹û±¾Database±¾ÉíÃ»ÓĞ¹æÔò£¬¼È¶ÔÓ¦µÄ¿âÃ»ÓĞ·Ö±í¹æÔò,
-     * »òÕßËäÈ»ÓĞ¹æÔò£¬µ«ÊÇµ±Ç°µÄsqlÌõ¼şÖĞÃ»ÓĞÆ¥Åäµ½ÕâĞ©¹æÔò£¬·ÖÏÂÃæÁ½ÖÖÇé¿ö´¦Àí£º
-     *    a Èç¹ûDatabaseÓĞÇÒÖ»ÓĞÒ»¸ö±í£¬ÄÇÃ´ÎŞÂÛÄ¬ÈÏ¹æÔòÎªºÎ¶¼Ó¦¸ÃÈ¡³ö¸Ã±í¡£ÕâÖÖÇé¿öÖ÷Òª³öÏÖÔÚµ¥¿â£¨µ¥,¶à£©±í£¬»ò£¨µ¥£¬¶à£©¿â µ¥±íµÄÇé¿öÏÂ¡£
-     *    b Èç¹ûDatabaseÓĞ¶à¸ö±í£¬ÄÇÃ´Ó¦¸ÃÊ¹ÓÃÄ¬ÈÏÑ¡¿â²ßÂÔ£¨DEFAULT_LIST_RESULT_STRAGETY£©¡£ÕâÖÖÇé¿ö½«²ßÂÔÉèÎªDEFAULT_LIST_RESULT_STRAGETY.NONE±È½Ï°²È«;
+     * è®¡ç®—è¡¨è§„åˆ™çš„æ–¹æ³•
+     * 1. å¦‚æœæœ¬Databaseæœ¬èº«æ²¡æœ‰è§„åˆ™ï¼Œæ—¢å¯¹åº”çš„åº“æ²¡æœ‰åˆ†è¡¨è§„åˆ™,
+     * æˆ–è€…è™½ç„¶æœ‰è§„åˆ™ï¼Œä½†æ˜¯å½“å‰çš„sqlæ¡ä»¶ä¸­æ²¡æœ‰åŒ¹é…åˆ°è¿™äº›è§„åˆ™ï¼Œåˆ†ä¸‹é¢ä¸¤ç§æƒ…å†µå¤„ç†ï¼š
+     *    a å¦‚æœDatabaseæœ‰ä¸”åªæœ‰ä¸€ä¸ªè¡¨ï¼Œé‚£ä¹ˆæ— è®ºé»˜è®¤è§„åˆ™ä¸ºä½•éƒ½åº”è¯¥å–å‡ºè¯¥è¡¨ã€‚è¿™ç§æƒ…å†µä¸»è¦å‡ºç°åœ¨å•åº“ï¼ˆå•,å¤šï¼‰è¡¨ï¼Œæˆ–ï¼ˆå•ï¼Œå¤šï¼‰åº“ å•è¡¨çš„æƒ…å†µä¸‹ã€‚
+     *    b å¦‚æœDatabaseæœ‰å¤šä¸ªè¡¨ï¼Œé‚£ä¹ˆåº”è¯¥ä½¿ç”¨é»˜è®¤é€‰åº“ç­–ç•¥ï¼ˆDEFAULT_LIST_RESULT_STRAGETYï¼‰ã€‚è¿™ç§æƒ…å†µå°†ç­–ç•¥è®¾ä¸ºDEFAULT_LIST_RESULT_STRAGETY.NONEæ¯”è¾ƒå®‰å…¨;
      *     
-     * 2. Èç¹û¸ø¶¨ÁË¹æÔò
-     * 2.1£©¸øÁË¹æÔòµ«Database²ãÃ»ÓĞ´«µİ¶¨Î»µ½±¾databaseÊ±¼ÆËã»ñµÃµÄÁĞÃû->Ãèµã¼¯ºÏµÄmap.ÄÇÃ´±íÊ¾Ç°ĞòÊı¾İºÍµ±Ç°Êı¾İÎŞ¹Ø£¬Ö±½ÓÊ¹ÓÃµ±Ç°Êı¾İ+sqlÖĞÆ¥ÅäµÄÖµ¼´¿É¡£ 
-     * 2.2£©´«µİÁË¶¨Î»µ½±¾databaseÊ±µÄÁĞÃû->ÃèµãµÄ¼¯ºÏ
-     *   2.2.1£©´«µİµÄÃèµã¼¯ºÏÖĞµÄkey°üº¬ÁË´ÓsqlÖĞ»ñÈ¡µÄkey£¬ÄÇÃ´±íÊ¾databaseºÍtableµÄÊı¾İÊÇ»áÏà»¥²úÉúÓ°ÏìµÄ¡£
-     *     Õâ¸öÊ±ºòÓÅÏÈÊ¹ÓÃdatabaseÖĞ´«ÈëµÄ ÁĞÃû->½á¹û¼¯Ãèµã¡£
-     *   2.2.2£©´«µİµÄÃèµã¼¯ºÏÖĞµÄkey²»°üº¬´ÓsqlÖĞ»ñÈ¡µÄkey,ÄÇÃ´±íÊ¾databaseºÍtableÖ®¼äµÄÊı¾İÎŞ¹Ø
-     *     £¬Ö±½ÓÊ¹ÓÃtableµÄÊı¾İ½øĞĞ¼ÆËã¡£
+     * 2. å¦‚æœç»™å®šäº†è§„åˆ™
+     * 2.1ï¼‰ç»™äº†è§„åˆ™ä½†Databaseå±‚æ²¡æœ‰ä¼ é€’å®šä½åˆ°æœ¬databaseæ—¶è®¡ç®—è·å¾—çš„åˆ—å->æç‚¹é›†åˆçš„map.é‚£ä¹ˆè¡¨ç¤ºå‰åºæ•°æ®å’Œå½“å‰æ•°æ®æ— å…³ï¼Œç›´æ¥ä½¿ç”¨å½“å‰æ•°æ®+sqlä¸­åŒ¹é…çš„å€¼å³å¯ã€‚ 
+     * 2.2ï¼‰ä¼ é€’äº†å®šä½åˆ°æœ¬databaseæ—¶çš„åˆ—å->æç‚¹çš„é›†åˆ
+     *   2.2.1ï¼‰ä¼ é€’çš„æç‚¹é›†åˆä¸­çš„keyåŒ…å«äº†ä»sqlä¸­è·å–çš„keyï¼Œé‚£ä¹ˆè¡¨ç¤ºdatabaseå’Œtableçš„æ•°æ®æ˜¯ä¼šç›¸äº’äº§ç”Ÿå½±å“çš„ã€‚
+     *     è¿™ä¸ªæ—¶å€™ä¼˜å…ˆä½¿ç”¨databaseä¸­ä¼ å…¥çš„ åˆ—å->ç»“æœé›†æç‚¹ã€‚
+     *   2.2.2ï¼‰ä¼ é€’çš„æç‚¹é›†åˆä¸­çš„keyä¸åŒ…å«ä»sqlä¸­è·å–çš„key,é‚£ä¹ˆè¡¨ç¤ºdatabaseå’Œtableä¹‹é—´çš„æ•°æ®æ— å…³
+     *     ï¼Œç›´æ¥ä½¿ç”¨tableçš„æ•°æ®è¿›è¡Œè®¡ç®—ã€‚
      * 
      * @param targetDB
-     *            Ä¿±ê±í¶ÔÏó£¬ÔÚÕâ¸ö·½·¨ÄÚ±»°ü×°
+     *            ç›®æ ‡è¡¨å¯¹è±¡ï¼Œåœ¨è¿™ä¸ªæ–¹æ³•å†…è¢«åŒ…è£…
      * @param sourceTrace
-     *            ¼ÆËã³öµ±Ç°Êı¾İ¿âµÄÔ´±äÁ¿×·×Ù¡£
+     *            è®¡ç®—å‡ºå½“å‰æ•°æ®åº“çš„æºå˜é‡è¿½è¸ªã€‚
      * @param map
-     *            ¹æÔòºÍ¹æÔò¶ÔÓ¦µÄÉÏÏÂÎÄ¡£
+     *            è§„åˆ™å’Œè§„åˆ™å¯¹åº”çš„ä¸Šä¸‹æ–‡ã€‚
      */
     public void calculateTable(TargetDB targetDB, Field sourceTrace,
                                Map<RuleChain, CalculationContextInternal> map) {
@@ -104,28 +104,28 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
         Set<String> resultSet = null;
 
         if (calculationContext == null) {
-            // ±íÊ¾Ã»ÓĞÖ¸¶¨¹æÔò£¬°üº¬µ±Ç°¹æÔòÎªnullºÍÃ»ÓĞÆ¥Åäµ½Êı¾İ£¬ÓÃÄ¬ÈÏ
+            // è¡¨ç¤ºæ²¡æœ‰æŒ‡å®šè§„åˆ™ï¼ŒåŒ…å«å½“å‰è§„åˆ™ä¸ºnullå’Œæ²¡æœ‰åŒ¹é…åˆ°æ•°æ®ï¼Œç”¨é»˜è®¤
             if (subSharedElement != null && subSharedElement.size() == 1) {
-                // 1£©
+                // 1ï¼‰
                 resultSet = builSingleTable();
             } else {
                 //2)
                 resultSet = buildDefaultTable();
             }
         } else if (sourceTrace == null || sourceTrace.sourceKeys.isEmpty()) {
-            //2.1£©Database²ãÃ»ÓĞ´«µİ¶¨Î»µ½±¾databaseÊ±¼ÆËã»ñµÃµÄÁĞÃû->Ãèµã¼¯ºÏµÄmap
+            //2.1ï¼‰Databaseå±‚æ²¡æœ‰ä¼ é€’å®šä½åˆ°æœ¬databaseæ—¶è®¡ç®—è·å¾—çš„åˆ—å->æç‚¹é›†åˆçš„map
 
             ListAbstractResultRule rule = calculationContext.ruleChain
                 .getRuleByIndex(calculationContext.index);
             Map<String, Set<Object>> argsFromSQL = getEnumeratedSqlArgsMap(calculationContext, rule);
             resultSet = rule.evalWithoutSourceTrace(argsFromSQL, null, null);
         } else {
-            //2.2£©´«µİÁË¶¨Î»µ½±¾databaseÊ±µÄÁĞÃû->ÃèµãµÄ¼¯ºÏ
+            //2.2ï¼‰ä¼ é€’äº†å®šä½åˆ°æœ¬databaseæ—¶çš„åˆ—å->æç‚¹çš„é›†åˆ
             ListAbstractResultRule rule = calculationContext.ruleChain
                 .getRuleByIndex(calculationContext.index);
             Map<String, Set<Object>> argsFromSQL = getEnumeratedSqlArgsMap(calculationContext, rule);
-            //ÓĞ¹ØÏµµÄÊı¾İÓ¦¸ÃÓÅÏÈ¡£putAll»áÓÃ´«ÈëµÄsourceKeys£¨¶Ô±¾databaseÓĞĞ§µÄÃèµã¼¯£©¸²¸ÇÈ«²¿sqlĞÅÏ¢µÄ¼ÆËã½á¹û
-            Map<String/* ÁĞÃû */, Set<Object>/* µÃµ½¸Ã½á¹ûµÄÃèµãÖµÃû */> sourceKeys = sourceTrace.sourceKeys;
+            //æœ‰å…³ç³»çš„æ•°æ®åº”è¯¥ä¼˜å…ˆã€‚putAllä¼šç”¨ä¼ å…¥çš„sourceKeysï¼ˆå¯¹æœ¬databaseæœ‰æ•ˆçš„æç‚¹é›†ï¼‰è¦†ç›–å…¨éƒ¨sqlä¿¡æ¯çš„è®¡ç®—ç»“æœ
+            Map<String/* åˆ—å */, Set<Object>/* å¾—åˆ°è¯¥ç»“æœçš„æç‚¹å€¼å */> sourceKeys = sourceTrace.sourceKeys;
             for (Entry<String, Set<Object>> entry : sourceKeys.entrySet()) {
                 if (argsFromSQL.containsKey(entry.getKey())) {
                     argsFromSQL.put(entry.getKey(), entry.getValue());
@@ -134,7 +134,7 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
                     }
                 }
                 //				else{
-                //					//´Ó·Ö¿âÀ´µÄÁĞÖĞÃ»ÓĞ·Ö±íËùĞèÒªµÄÊı¾İµÄÊ±ºò£¬²»·Å½øÈ¥
+                //					//ä»åˆ†åº“æ¥çš„åˆ—ä¸­æ²¡æœ‰åˆ†è¡¨æ‰€éœ€è¦çš„æ•°æ®çš„æ—¶å€™ï¼Œä¸æ”¾è¿›å»
                 //				}
             }
             resultSet = rule.evalWithoutSourceTrace(argsFromSQL, sourceTrace.mappingTargetColumn,
@@ -161,7 +161,7 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
         if (rule == null) {
             throw new IllegalStateException("should not be here");
         }
-        //Ç¿×ª ĞèÒªÓÃµ½ÀïÃæµÄ·½·¨
+        //å¼ºè½¬ éœ€è¦ç”¨åˆ°é‡Œé¢çš„æ–¹æ³•
         Map<String, Set<Object>> argsFromSQL = RuleUtils.getSamplingField(
             calculationContext.sqlArgs, rule.getParameters());
         return argsFromSQL;
@@ -185,7 +185,7 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     }
 
     /**
-     * Èç¹ûµ±Ç°½ÚµãÃ»ÓĞtableMapProvider£¬ÄÇÃ´Ê¹ÓÃ1¶Ô¶à¸³¸øµÄtableMapProvider.
+     * å¦‚æœå½“å‰èŠ‚ç‚¹æ²¡æœ‰tableMapProviderï¼Œé‚£ä¹ˆä½¿ç”¨1å¯¹å¤šèµ‹ç»™çš„tableMapProvider.
      */
     void initTableMapProvider() {
         if (this.tableMapProvider == null) {
@@ -194,7 +194,7 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     }
 
     /**
-     * Èç¹ûµ±Ç°½ÚµãÃ»ÓĞlogicTableName,ÄÇÃ´Ê¹ÓÃ1¶Ô¶à¸³ÓèµÄlogictable.
+     * å¦‚æœå½“å‰èŠ‚ç‚¹æ²¡æœ‰logicTableName,é‚£ä¹ˆä½¿ç”¨1å¯¹å¤šèµ‹äºˆçš„logictable.
      */
     void initLogicTableName() {
         String logicTable = oneToManyEntry.getLogicTableName();
@@ -204,25 +204,25 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     }
 
     /**
-     * ³õÊ¼»¯tableRuleChain,Èç¹ûµ±Ç°½ÚµãµÄListRule²»Îª¿Õ,RuleChainÎª¿ÕÔòÊ¹ÓÃlistRuleĞÂ½¨Ò»¸öruleChain.
-     * Èç¹ûlistRuleÎª¿Õ£¬RuleChainÒ²Îª¿Õ£¬ÄÇÃ´Ê¹ÓÃ1¶Ô¶à¸³ÓèµÄruleChain. Èç¹ûruleChain²»Îª¿Õ£¬Ôò³õÊ¼»¯Ö®
+     * åˆå§‹åŒ–tableRuleChain,å¦‚æœå½“å‰èŠ‚ç‚¹çš„ListRuleä¸ä¸ºç©º,RuleChainä¸ºç©ºåˆ™ä½¿ç”¨listRuleæ–°å»ºä¸€ä¸ªruleChain.
+     * å¦‚æœlistRuleä¸ºç©ºï¼ŒRuleChainä¹Ÿä¸ºç©ºï¼Œé‚£ä¹ˆä½¿ç”¨1å¯¹å¤šèµ‹äºˆçš„ruleChain. å¦‚æœruleChainä¸ä¸ºç©ºï¼Œåˆ™åˆå§‹åŒ–ä¹‹
      */
     void initTableRuleChain() {
         RuleChain ruleChain = oneToManyEntry.getTableRuleChain();
-        // Èç¹ûtableRuleList ²»Îª¿Õ£¬²¢ÇÒruleChain == ¿Õ¡£ÓÃtableRuleList
-        //¼æÈİÀÏÊµÏÖ
+        // å¦‚æœtableRuleList ä¸ä¸ºç©ºï¼Œå¹¶ä¸”ruleChain == ç©ºã€‚ç”¨tableRuleList
+        //å…¼å®¹è€å®ç°
         if (this.tableRuleList != null) {
             if (listResultRule != null) {
-                throw new IllegalArgumentException("ÓĞtableRuleListµ«ÓÖÖ¸¶¨ÁËruleChain");
+                throw new IllegalArgumentException("æœ‰tableRuleListä½†åˆæŒ‡å®šäº†ruleChain");
             } else {
                 listResultRule = OneToManyEntry.getRuleChain(tableRuleList);
             }
         }
-        //Èç¹ûÀÏÊµÏÖÎ´Ö¸¶¨¸øµ±Ç°databaseÌØÊâ¹æÔò£¬ÔòÊ¹ÓÃ´«µİºóµÄ¹æÔò
+        //å¦‚æœè€å®ç°æœªæŒ‡å®šç»™å½“å‰databaseç‰¹æ®Šè§„åˆ™ï¼Œåˆ™ä½¿ç”¨ä¼ é€’åçš„è§„åˆ™
         if (listResultRule == null) {
             listResultRule = ruleChain;
         }
-        //µ±Ç°databaseÒÑ¾­ÓĞ¹æÔòµÄÇé¿öÏÂ£¬³õÊ¼»¯µ±Ç°¹æÔò¡£ÒòÎªrulechain²»»áÖØ¸´³õÊ¼»¯£¬ËùÒÔÖ»»á³õÊ¼»¯Ò»´Î¡£
+        //å½“å‰databaseå·²ç»æœ‰è§„åˆ™çš„æƒ…å†µä¸‹ï¼Œåˆå§‹åŒ–å½“å‰è§„åˆ™ã€‚å› ä¸ºrulechainä¸ä¼šé‡å¤åˆå§‹åŒ–ï¼Œæ‰€ä»¥åªä¼šåˆå§‹åŒ–ä¸€æ¬¡ã€‚
         if (ruleChain != null) {
             listResultRule.init();
         } else {
@@ -239,13 +239,13 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     }
 
     /**
-     * ½«ÀûÓÃ±ã½İ·½·¨Éú³ÉµÄ×ÓÔªËØmapÉèÖÃµ½µ±Ç°½ÚµãµÄ×ÓÔªËØmapÒıÓÃÖĞ¡£
+     * å°†åˆ©ç”¨ä¾¿æ·æ–¹æ³•ç”Ÿæˆçš„å­å…ƒç´ mapè®¾ç½®åˆ°å½“å‰èŠ‚ç‚¹çš„å­å…ƒç´ mapå¼•ç”¨ä¸­ã€‚
      * 
-     * Èç¹ûµ±Ç°×Ó½ÚµãµÄ×ÓÔªËØmapÒıÓÃÎª¿ÕÔòÖ±½ÓÉèÖÃ
+     * å¦‚æœå½“å‰å­èŠ‚ç‚¹çš„å­å…ƒç´ mapå¼•ç”¨ä¸ºç©ºåˆ™ç›´æ¥è®¾ç½®
      * 
-     * Èç¹ûµ±Ç°×Ó½Úµã²»Îª¿Õ,Ôò±íÊ¾ÒµÎñÍ¨¹ıspringµÄ·½Ê½setÁËÒ»¸öÏÖÓĞµÄmap½øÀ´
+     * å¦‚æœå½“å‰å­èŠ‚ç‚¹ä¸ä¸ºç©º,åˆ™è¡¨ç¤ºä¸šåŠ¡é€šè¿‡springçš„æ–¹å¼setäº†ä¸€ä¸ªç°æœ‰çš„mapè¿›æ¥
      * 
-     * Õâ¸ömapµÄÓÅÏÈ¼¶Òª±È×Ô¶¯Éú³ÉµÄmapµÄÓÅÏÈ¼¶Òª¸ß¡£
+     * è¿™ä¸ªmapçš„ä¼˜å…ˆçº§è¦æ¯”è‡ªåŠ¨ç”Ÿæˆçš„mapçš„ä¼˜å…ˆçº§è¦é«˜ã€‚
      * 
      * @param beingConstructedMap
      */
@@ -255,17 +255,17 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
             subSharedElement = beingConstructedMap;
         } else {
             if (beingConstructedMap != null) {
-                // ÓĞ×Ô¶¨ÒåµÄtable£¬Í¬Ê±ÓÖÓĞÍ³Ò»¹æÔò£¬ÄÇÃ´Á½¸öºÏ²¢£¬×Ô¶¨Òå¹æÔò¸²¸ÇÍ¨ÓÃÍ³Ò»¹æÔò¡£
+                // æœ‰è‡ªå®šä¹‰çš„tableï¼ŒåŒæ—¶åˆæœ‰ç»Ÿä¸€è§„åˆ™ï¼Œé‚£ä¹ˆä¸¤ä¸ªåˆå¹¶ï¼Œè‡ªå®šä¹‰è§„åˆ™è¦†ç›–é€šç”¨ç»Ÿä¸€è§„åˆ™ã€‚
                 beingConstructedMap.putAll(subSharedElement);
                 subSharedElement = beingConstructedMap;
             }
             // else
-            // Ã»ÓĞ×Ô¶¯Éú³É¹æÔò£¬Ö»ÓĞ×Ô¶¨Òå¹æÔò£¬ÄÇÃ´Ê²Ã´ÊÂÇé¶¼²»×ö
+            // æ²¡æœ‰è‡ªåŠ¨ç”Ÿæˆè§„åˆ™ï¼Œåªæœ‰è‡ªå®šä¹‰è§„åˆ™ï¼Œé‚£ä¹ˆä»€ä¹ˆäº‹æƒ…éƒ½ä¸åš
         }
     }
 
     /**
-     * 1¸ödatabse¶ÔÓ¦Ò»¸ötables
+     * 1ä¸ªdatabseå¯¹åº”ä¸€ä¸ªtables
      * 
      * @param tables
      */
@@ -294,11 +294,11 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     }
 
     /**
-     * ÔÊĞíÒµÎñÖ±½ÓÍ¨¹ıstring->stringµÄ·½Ê½À´Ö¸¶¨Êı¾İ
+     * å…è®¸ä¸šåŠ¡ç›´æ¥é€šè¿‡string->stringçš„æ–¹å¼æ¥æŒ‡å®šæ•°æ®
      * 
      * @param tablesMapString
      */
-    protected void setTablesMapString(Map<String/* ±íµÄindex */, String/* ±íµÄÊµ¼Ê±íÃû */> tablesMapString) {
+    protected void setTablesMapString(Map<String/* è¡¨çš„index */, String/* è¡¨çš„å®é™…è¡¨å */> tablesMapString) {
         Map<String, SharedElement> beingConstructedMap = new HashMap<String, SharedElement>(
             tablesMapString.size());
 
@@ -313,20 +313,20 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     @SuppressWarnings("unchecked")
     public void setTablesMapSimple(Object obj) {
         if (obj instanceof Map) {
-            setTablesMapString((Map<String/* ±íµÄindex */, String/* ±íµÄÊµ¼Ê±íÃû */>) obj);
+            setTablesMapString((Map<String/* è¡¨çš„index */, String/* è¡¨çš„å®é™…è¡¨å */>) obj);
         } else if (obj instanceof List) {
             setTablesList((List) obj);
         }
     }
 
     /**
-     * ÔÊĞíÒµÎñÊ¹ÓÃtable1,table2,table3µÄ·½Ê½À´Ö¸¶¨±íÃû£¬key=Êı×éÏÂ±ê¡£ Í¬Ê±Ò²ÔÊĞíÒµÎñÊ¹ÓÃlist.add("table1");
-     * list.add("table2");... µÄ·½Ê½À´Ö¸¶¨±í¡£Key=Êı×éÏÂ±ê
+     * å…è®¸ä¸šåŠ¡ä½¿ç”¨table1,table2,table3çš„æ–¹å¼æ¥æŒ‡å®šè¡¨åï¼Œkey=æ•°ç»„ä¸‹æ ‡ã€‚ åŒæ—¶ä¹Ÿå…è®¸ä¸šåŠ¡ä½¿ç”¨list.add("table1");
+     * list.add("table2");... çš„æ–¹å¼æ¥æŒ‡å®šè¡¨ã€‚Key=æ•°ç»„ä¸‹æ ‡
      * 
      * @param tablesString
      */
     protected void setTablesList(List<String> tablesString) {
-        // Ã»ÓĞ×ötablesStringlistµÄnot null¼ì²é£¬ÒòÎª»ùÓÚspring
+        // æ²¡æœ‰åštablesStringlistçš„not nullæ£€æŸ¥ï¼Œå› ä¸ºåŸºäºspring
         if (tablesString.size() == 1) {
             String[] tokens = tablesString.get(0).split(",");
             tablesString = new ArrayList<String>();

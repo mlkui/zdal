@@ -8,8 +8,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
  * A thread pool.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: ThreadPool.java, v 0.1 2014-1-6 ÏÂÎç05:45:20 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ThreadPool.java, v 0.1 2014-1-6 ä¸‹åˆ05:45:20 Exp $
  */
 public interface ThreadPool {
     // Constants -----------------------------------------------------

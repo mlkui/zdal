@@ -11,8 +11,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleExtractExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:43:57 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleExtractExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:43:57 Exp $
  */
 public class OracleExtractExpr extends SQLExprImpl implements OracleExpr {
 

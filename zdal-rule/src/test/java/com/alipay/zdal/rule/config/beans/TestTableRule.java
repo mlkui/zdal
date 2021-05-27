@@ -6,8 +6,8 @@ package com.alipay.zdal.rule.config.beans;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: TestTableRule.java, v 0.1 2013-3-7 ÉÏÎç10:57:48 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TestTableRule.java, v 0.1 2013-3-7 ä¸Šåˆ10:57:48 Exp $
  */
 public class TestTableRule {
 

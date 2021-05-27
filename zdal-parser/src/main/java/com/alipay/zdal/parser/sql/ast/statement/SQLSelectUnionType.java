@@ -7,7 +7,7 @@ package com.alipay.zdal.parser.sql.ast.statement;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLSelectUnionType.java, v 0.1 2012-11-17 œ¬ŒÁ3:24:03 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLSelectUnionType.java, v 0.1 2012-11-17 ‰∏ãÂçà3:24:03 xiaoqing.zhouxq Exp $
  */
 public class SQLSelectUnionType {
 

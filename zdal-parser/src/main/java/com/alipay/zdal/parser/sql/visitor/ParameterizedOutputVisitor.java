@@ -14,8 +14,8 @@ import com.alipay.zdal.parser.sql.ast.expr.SQLNumberExpr;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ParameterizedOutputVisitor.java, v 0.1 2012-11-17 ÏÂÎç3:56:05 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ParameterizedOutputVisitor.java, v 0.1 2012-11-17 ä¸‹åˆ3:56:05 Exp $
  */
 public class ParameterizedOutputVisitor extends SQLASTOutputVisitor {
     public ParameterizedOutputVisitor() {

@@ -8,11 +8,11 @@ import com.alipay.zdal.common.sqljep.function.Comparative;
 
 public class ColumnMetaData {
     /**
-     * Ö¸¶¨µÄÁĞÃû×Ö¶Î
+     * æŒ‡å®šçš„åˆ—åå­—æ®µ
      */
     public final String      key;
     /**
-     * ¸ÃÁĞÃû×Ö¶ÎµÄ¶ÔÓ¦Comparative
+     * è¯¥åˆ—åå­—æ®µçš„å¯¹åº”Comparative
      */
     public final Comparative value;
 

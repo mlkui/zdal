@@ -9,7 +9,7 @@
 		</layout>
 	</appender>
 
-	<!--zdalÊý¾ÝÔ´ÅäÖÃ¹Ü¿ØÈÕÖ¾appender-->
+	<!--zdalæ•°æ®æºé…ç½®ç®¡æŽ§æ—¥å¿—appender-->
 	<appender name="zdal.client.config"
 		class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="file" value="./logs/zdal-client-config.log" />
@@ -20,7 +20,7 @@
 				value="%d [%X{loginUserEmail}/%X{loginUserID}/%X{remoteAddr}/%X{clientId} - %X{requestURIWithQueryString}] %-5p %c{2} - %m%n" />
 		</layout>
 	</appender>
-	<!--zdal-datasourceÈÕÖ¾appender-->
+	<!--zdal-datasourceæ—¥å¿—appender-->
 	<appender name="zdal.datasource.pool"
 		class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="file" value="./logs/zdal-datasource-pool.log" />
@@ -31,15 +31,15 @@
 				value="%d [%X{loginUserEmail}/%X{loginUserID}/%X{remoteAddr}/%X{clientId} - %X{requestURIWithQueryString}] %-5p %c{2} - %m%n" />
 		</layout>
 	</appender>
-	<!--zdalÊý¾ÝÔ´ÅäÖÃ¹Ü¿ØÈÕÖ¾logger-->
+	<!--zdalæ•°æ®æºé…ç½®ç®¡æŽ§æ—¥å¿—logger-->
 	<logger name="zdal-client-config" additivity="false">
-		<level value="info" /><!--log¼¶±ðÇëÌîÐ´antxÅäÖÃÎÄ¼þÖÐÖ¸¶¨µÄÖµ-->
+		<level value="info" /><!--logçº§åˆ«è¯·å¡«å†™antxé…ç½®æ–‡ä»¶ä¸­æŒ‡å®šçš„å€¼-->
 		<appender-ref ref="zdal.client.config" />
 		<appender-ref ref="STDOUT" />
 	</logger>
-	<!--zdal-datasourceÈÕÖ¾logger-->
+	<!--zdal-datasourceæ—¥å¿—logger-->
 	<logger name="zdal-datasource-pool" additivity="false">
-		<level value="info" /><!--log¼¶±ðÇëÌîÐ´antxÅäÖÃÎÄ¼þÖÐÖ¸¶¨µÄÖµ-->
+		<level value="info" /><!--logçº§åˆ«è¯·å¡«å†™antxé…ç½®æ–‡ä»¶ä¸­æŒ‡å®šçš„å€¼-->
 		<appender-ref ref="zdal.datasource.pool" />
 		<appender-ref ref="STDOUT" />
 	</logger>

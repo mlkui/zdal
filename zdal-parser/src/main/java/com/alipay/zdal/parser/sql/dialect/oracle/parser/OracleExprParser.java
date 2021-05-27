@@ -56,8 +56,8 @@ import com.alipay.zdal.parser.sql.parser.Token;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleExprParser.java, v 0.1 2012-11-17 ÏÂÎç3:51:54 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleExprParser.java, v 0.1 2012-11-17 ä¸‹åˆ3:51:54 Exp $
  */
 public class OracleExprParser extends SQLExprParser {
     public boolean                allowStringAdditive = false;

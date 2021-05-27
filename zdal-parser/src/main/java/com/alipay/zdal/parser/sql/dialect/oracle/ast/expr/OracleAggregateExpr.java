@@ -13,8 +13,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleAggregateExpr.java, v 0.1 2012-11-17 ÏÂÎç3:42:47 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleAggregateExpr.java, v 0.1 2012-11-17 ä¸‹åˆ3:42:47 Exp $
  */
 public class OracleAggregateExpr extends SQLAggregateExpr implements Serializable, OracleExpr {
 

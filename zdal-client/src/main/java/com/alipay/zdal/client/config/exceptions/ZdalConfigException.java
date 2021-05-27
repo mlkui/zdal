@@ -5,9 +5,9 @@
 package com.alipay.zdal.client.config.exceptions;
 
 /**
- * ZdalConfig“Ï≥£¥¶¿Ì¿‡.
+ * ZdalConfigÂºÇÂ∏∏Â§ÑÁêÜÁ±ª.
  * @author xiaoqing.zhouxq
- * @version $Id: ZdalClientException.java, v 0.1 2012-7-31 œ¬ŒÁ07:01:16 xiaoqing.zhouxq Exp $
+ * @version $Id: ZdalClientException.java, v 0.1 2012-7-31 ‰∏ãÂçà07:01:16 xiaoqing.zhouxq Exp $
  */
 public class ZdalConfigException extends RuntimeException {
     /**

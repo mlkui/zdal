@@ -49,7 +49,7 @@ public class ZdsTestOracleTx {
     }
 
     /**
-     * ³É¹¦µÄÊÂÎñ update
+     * æˆåŠŸçš„äº‹åŠ¡ update
      */
     @Test
     public void test1() {
@@ -64,7 +64,7 @@ public class ZdsTestOracleTx {
     }
 
     /**
-     * ³É¹¦µÄÊÂÎñ insert
+     * æˆåŠŸçš„äº‹åŠ¡ insert
      */
     @Test
     public void test4() {
@@ -80,7 +80,7 @@ public class ZdsTestOracleTx {
     }
 
     /**
-     * ³É¹¦µÄÊÂÎñ delete
+     * æˆåŠŸçš„äº‹åŠ¡ delete
      */
     @Test
     public void test5() {
@@ -96,7 +96,7 @@ public class ZdsTestOracleTx {
     }
 
     /**
-     * Ê§°ÜµÄÊÂÎñ£¬¿´ÊÇ·ñrollback
+     * å¤±è´¥çš„äº‹åŠ¡ï¼Œçœ‹æ˜¯å¦rollback
      */
     @Test
     public void test2() {
@@ -106,7 +106,7 @@ public class ZdsTestOracleTx {
             tt.execute(new TransactionCallback() {
                 public Object doInTransaction(TransactionStatus status) {
                     jt.execute("UPDATE zdstest SET name = 'after' WHERE id = 1");
-                    System.err.print(jt.queryForList("select * from sb where id =1"));//²»´æÔÚµÄ±í
+                    System.err.print(jt.queryForList("select * from sb where id =1"));//ä¸å­˜åœ¨çš„è¡¨
                     return null;
                 }
             });

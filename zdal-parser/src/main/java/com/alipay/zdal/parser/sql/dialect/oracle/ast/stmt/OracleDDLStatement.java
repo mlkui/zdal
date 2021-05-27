@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.ast.statement.SQLDDLStatement;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleDDLStatement.java, v 0.1 2012-11-17 ÏÂÎç3:46:59 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleDDLStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:46:59 Exp $
  */
 public interface OracleDDLStatement extends SQLDDLStatement, OracleStatement {
 

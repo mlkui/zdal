@@ -107,8 +107,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitorAdapter;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlASTVisitorAdapter.java, v 0.1 2012-11-17 œ¬ŒÁ3:40:43 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlASTVisitorAdapter.java, v 0.1 2012-11-17 ‰∏ãÂçà3:40:43 Exp $
  */
 public class MySqlASTVisitorAdapter extends SQLASTVisitorAdapter implements MySqlASTVisitor {
 

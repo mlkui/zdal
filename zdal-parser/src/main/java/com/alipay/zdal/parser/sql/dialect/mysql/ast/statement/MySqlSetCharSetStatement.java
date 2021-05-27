@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlSetCharSetStatement.java, v 0.1 2012-11-17 ÏÂÎç3:34:32 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlSetCharSetStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:34:32 Exp $
  */
 public class MySqlSetCharSetStatement extends MySqlStatementImpl {
 

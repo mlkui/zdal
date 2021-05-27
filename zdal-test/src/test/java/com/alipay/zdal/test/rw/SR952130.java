@@ -15,58 +15,58 @@ import com.alipay.zdal.client.exceptions.ZdalClientException;
 import com.alipay.zdal.test.common.ZdalTestBase;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rw ReadWriteRule·Ç·¨")
+@Feature("rw ReadWriteRuleéæ³•")
 public class SR952130 extends ZdalTestBase {
     public TestAssertion Assert = new TestAssertion();
 
-    @Subject("readWriteRuleÎª''")
+    @Subject("readWriteRuleä¸º''")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952131() {
-        Step("readWriteRuleÎª''");
+        Step("readWriteRuleä¸º''");
         zdalDataSource.setAppName("zdalReadWriteRule");
         zdalDataSource.setAppDsName("readWriteRuleDs1");
         localFile = "./config/rw";
         zdalDataSource.setConfigPath(localFile);
-        Step("³õÊ¼»¯¶ÏÑÔ");
+        Step("åˆå§‹åŒ–æ–­è¨€");
         try {
             zdalDataSource.init();
         } catch (Exception e) {
-            Assert.areEqual(ZdalClientException.class, e.getClass(), "ÑéÖ¤Òì³£Àà");
+            Assert.areEqual(ZdalClientException.class, e.getClass(), "éªŒè¯å¼‚å¸¸ç±»");
         }
     }
 
-    @Subject("readWriteRuleÎª·Ç·¨×Ö·û")
+    @Subject("readWriteRuleä¸ºéæ³•å­—ç¬¦")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952132() {
-        Step("readWriteRuleÎª·Ç·¨×Ö·û");
+        Step("readWriteRuleä¸ºéæ³•å­—ç¬¦");
         zdalDataSource.setAppName("zdalReadWriteRule");
         zdalDataSource.setAppDsName("readWriteRuleDs2");
         localFile = "./config/rw";
         zdalDataSource.setConfigPath(localFile);
         try {
-            Step("³õÊ¼»¯Òì³£");
+            Step("åˆå§‹åŒ–å¼‚å¸¸");
             zdalDataSource.init();
         } catch (Exception e) {
-            Assert.areEqual(ZdalClientException.class, e.getClass(), "ÑéÖ¤Òì³£Àà");
+            Assert.areEqual(ZdalClientException.class, e.getClass(), "éªŒè¯å¼‚å¸¸ç±»");
         }
     }
 
-    @Subject("readWriteRuleÖ¸¶¨µÄds²»´æÔÚ")
+    @Subject("readWriteRuleæŒ‡å®šçš„dsä¸å­˜åœ¨")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952133() {
-        Step("readWriteRuleÖ¸¶¨µÄds²»´æÔÚ");
+        Step("readWriteRuleæŒ‡å®šçš„dsä¸å­˜åœ¨");
         zdalDataSource.setAppName("zdalReadWriteRule");
         zdalDataSource.setAppDsName("readWriteRuleDs3");
         localFile = "./config/rw";
         zdalDataSource.setConfigPath(localFile);
-        Step("³õÊ¼»¯Òì³£");
+        Step("åˆå§‹åŒ–å¼‚å¸¸");
         try {
             zdalDataSource.init();
         } catch (Exception e) {
-            Assert.areEqual(ZdalClientException.class, e.getClass(), "ÑéÖ¤Òì³£Àà");
+            Assert.areEqual(ZdalClientException.class, e.getClass(), "éªŒè¯å¼‚å¸¸ç±»");
         }
     }
 

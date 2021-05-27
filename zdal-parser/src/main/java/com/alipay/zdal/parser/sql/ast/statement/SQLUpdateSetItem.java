@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLUpdateSetItem.java, v 0.1 2012-11-17 ÏÂÎç3:28:42 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLUpdateSetItem.java, v 0.1 2012-11-17 ä¸‹åˆ3:28:42 Exp $
  */
 public class SQLUpdateSetItem extends SQLObjectImpl {
 

@@ -15,8 +15,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSelectJoin.java, v 0.1 2012-11-17 œ¬ŒÁ3:49:40 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSelectJoin.java, v 0.1 2012-11-17 ‰∏ãÂçà3:49:40 Exp $
  */
 public class OracleSelectJoin extends SQLJoinTableSource implements OracleSelectTableSource {
 

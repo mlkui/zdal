@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.checked;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ComparativeArraysOutOfBoundsException.java, v 0.1 2014-1-6 ÏÂÎç05:18:04 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ComparativeArraysOutOfBoundsException.java, v 0.1 2014-1-6 ä¸‹åˆ05:18:04 Exp $
  */
 public class ComparativeArraysOutOfBoundsException extends ZdalCheckedExcption {
     /**

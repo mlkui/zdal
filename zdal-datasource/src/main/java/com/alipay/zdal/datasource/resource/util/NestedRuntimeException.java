@@ -11,8 +11,8 @@ import java.io.PrintWriter;
  * A common superclass for <tt>RuntimeException</tt> classes that can
  * contain a nested <tt>Throwable</tt> detail object.
  *
- * @author ²®ÑÀ
- * @version $Id: NestedRuntimeException.java, v 0.1 2014-1-6 ÏÂÎç05:39:30 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: NestedRuntimeException.java, v 0.1 2014-1-6 ä¸‹åˆ05:39:30 Exp $
  */
 public class NestedRuntimeException extends RuntimeException implements NestedThrowable {
     /** The nested throwable */

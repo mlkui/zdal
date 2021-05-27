@@ -25,11 +25,11 @@ public class ControllerUtils {
     }
 
     /**
-     * ´´½¨Ö´ĞĞ¼Æ»®
+     * åˆ›å»ºæ‰§è¡Œè®¡åˆ’
      * 
-     * ÆäÖĞ±íµÄÖ´ĞĞ¼Æ»®£¬Èç¹ûÓĞ¶à¸ö¿âÀïÃæµÄ¶à¸ö±íµÄ¸öÊı²»Í¬£¬ÄÇÃ´°´ÕÕ±íµÄÊıÁ¿×î¶àµÄÄÇ¸öÖµÎª×¼¡£
-     * ¼´£ºÈçdb1~5£¬±íµÄ¸öÊı·Ö±ğÎª0,0,0,0,1:ÄÇÃ´·µ»ØµÄ±íÖ´ĞĞ¼Æ»®ÎªSINGLE
-     * Èô£¬±íµÄ¸öÊı·Ö±ğÎª0,1,2,3,4,5£ºÄÇÃ´·µ»Ø±íµÄÖ´ĞĞ¼Æ»®ÎªMULTIPLE.
+     * å…¶ä¸­è¡¨çš„æ‰§è¡Œè®¡åˆ’ï¼Œå¦‚æœæœ‰å¤šä¸ªåº“é‡Œé¢çš„å¤šä¸ªè¡¨çš„ä¸ªæ•°ä¸åŒï¼Œé‚£ä¹ˆæŒ‰ç…§è¡¨çš„æ•°é‡æœ€å¤šçš„é‚£ä¸ªå€¼ä¸ºå‡†ã€‚
+     * å³ï¼šå¦‚db1~5ï¼Œè¡¨çš„ä¸ªæ•°åˆ†åˆ«ä¸º0,0,0,0,1:é‚£ä¹ˆè¿”å›çš„è¡¨æ‰§è¡Œè®¡åˆ’ä¸ºSINGLE
+     * è‹¥ï¼Œè¡¨çš„ä¸ªæ•°åˆ†åˆ«ä¸º0,1,2,3,4,5ï¼šé‚£ä¹ˆè¿”å›è¡¨çš„æ‰§è¡Œè®¡åˆ’ä¸ºMULTIPLE.
      * @param dispatcherResult
      * @param targetDBList
      */
@@ -48,7 +48,7 @@ public class ControllerUtils {
                 TargetDB targetDB = targetDBList.get(0);
                 Set<String> set = targetDB.getTableNames();
                 dispatcherResult.setTableExecutePlan(buildTableExecutePlan(set, null));
-                //Èç¹û±íÎªnone£¬ÄÇÃ´¿âÒ²Îªnone.Èç¹û±í²»Îªnone£¬ÄÇÃ´¿âÎªsingle
+                //å¦‚æœè¡¨ä¸ºnoneï¼Œé‚£ä¹ˆåº“ä¹Ÿä¸ºnone.å¦‚æœè¡¨ä¸ä¸ºnoneï¼Œé‚£ä¹ˆåº“ä¸ºsingle
                 if (dispatcherResult.getTableExecutePlan() != EXECUTE_PLAN.NONE) {
                     dispatcherResult.setDatabaseExecutePlan(EXECUTE_PLAN.SINGLE);
                 } else {
@@ -82,7 +82,7 @@ public class ControllerUtils {
             throw new IllegalStateException("targetTab is null");
         }
         int tableSize = tableSet.size();
-        //²»¿ÉÄÜÎª¸ºÊı
+        //ä¸å¯èƒ½ä¸ºè´Ÿæ•°
         switch (tableSize) {
             case 0:
                 tempExecutePlan = EXECUTE_PLAN.NONE;
@@ -98,12 +98,12 @@ public class ControllerUtils {
     }
 
     /**
-     * ´´½¨·´ÏòÊä³öÏà¹ØµÄcontext£¬·´ÏòÊä³öÄ¿Ç°Ö÷ÒªÊÇ½â¾öÒÔÏÂÎÊÌâ
+     * åˆ›å»ºåå‘è¾“å‡ºç›¸å…³çš„contextï¼Œåå‘è¾“å‡ºç›®å‰ä¸»è¦æ˜¯è§£å†³ä»¥ä¸‹é—®é¢˜
      * 
-     * :1.Èç¹ûsqlÖĞ´øÓĞÁË·ûºÏ±íÃûÌæ»»patternµÄ×Ö¶Î£¬²¢ÇÒ²»Ïë±»Ìæ»»µô¡£
-     * 2.Èç¹ûsqlÖĞ°üº¬ÁË¿ç±íµÄlimit m,nµÄ²Ù×÷£¬
+     * :1.å¦‚æœsqlä¸­å¸¦æœ‰äº†ç¬¦åˆè¡¨åæ›¿æ¢patternçš„å­—æ®µï¼Œå¹¶ä¸”ä¸æƒ³è¢«æ›¿æ¢æ‰ã€‚
+     * 2.å¦‚æœsqlä¸­åŒ…å«äº†è·¨è¡¨çš„limit m,nçš„æ“ä½œï¼Œ
      * 
-     * ÆäÓàµÄÇé¿öÒòÎª·´ÏòÊä³ö±¾ÉíÒ²»á´øÀ´·çÏÕÒò´Ë²»½øĞĞ·´Ïò¡£
+     * å…¶ä½™çš„æƒ…å†µå› ä¸ºåå‘è¾“å‡ºæœ¬èº«ä¹Ÿä¼šå¸¦æ¥é£é™©å› æ­¤ä¸è¿›è¡Œåå‘ã€‚
      * @param args
      * @param dmlc
      * @param max
@@ -119,12 +119,12 @@ public class ControllerUtils {
         for (TargetDB targetDB : targetdbs) {
             Set<String> tabs = targetDB.getTableNames();
             Map<Integer, Object> modifiedMap = new HashMap<Integer, Object>();
-            // Èç¹ûÄ¿±êÊı¾İ¿âÎªÒ»¸öÔòÓĞ¿ÉÄÜÊÇµ¥¿âµ¥±í»òµ¥¿â¶à±í
+            // å¦‚æœç›®æ ‡æ•°æ®åº“ä¸ºä¸€ä¸ªåˆ™æœ‰å¯èƒ½æ˜¯å•åº“å•è¡¨æˆ–å•åº“å¤šè¡¨
             if (targetdbs.size() == 1) {
                 Set<String> temp_tabs = targetdbs.get(0).getTableNames();
                 if (temp_tabs.size() == 1) {
                     if (allowReverseOutput) {
-                        // µ¥±íÖ»ĞèÒª¸Ä±íÃû //TODO
+                        // å•è¡¨åªéœ€è¦æ”¹è¡¨å //TODO
                         dmlc.getSqlReadyToRun(temp_tabs, args, skip, max, modifiedMap);
                     }
                 } else {
@@ -142,7 +142,7 @@ public class ControllerUtils {
     }
 
     /**
-     * ¶à¿âµ¥±í»ò¶à¿â¶à±í»òµ¥¿â¶à±í£¬ĞèÒª¸Ä±íÃûºÍÒ³Êı
+     * å¤šåº“å•è¡¨æˆ–å¤šåº“å¤šè¡¨æˆ–å•åº“å¤šè¡¨ï¼Œéœ€è¦æ”¹è¡¨åå’Œé¡µæ•°
      */
     private static void mutiTableReverseOutput(List<Object> args, SqlParserResult dmlc, int max,
                                                int skip, DispatcherResult retMeta,
@@ -150,13 +150,13 @@ public class ControllerUtils {
 
                                                Set<String> tabs, Map<Integer, Object> modifiedMap) {
         if (allowReverseOutput) {
-            //¶à¿âµ¥±í»ò¶à¿â¶à±í£¬ĞèÒª¸Ä±íÃûºÍÒ³Êı
+            //å¤šåº“å•è¡¨æˆ–å¤šåº“å¤šè¡¨ï¼Œéœ€è¦æ”¹è¡¨åå’Œé¡µæ•°
             dmlc.getSqlReadyToRun(tabs, args, 0, max, modifiedMap);
         } else {
             if (skip != DefaultSqlParserResult.DEFAULT_SKIP_MAX
                 && max != DefaultSqlParserResult.DEFAULT_SKIP_MAX) {
-                // skip max·ÇÄ¬ÈÏÖµµÄÇé¿öÏÂ£¬²»ĞèÒªĞĞ¸´ÖÆµÄÇé¿öÏÂµÄ·´ÏòÊä³ö
-                //¶à¿âµ¥±í»ò¶à¿â¶à±í»òµ¥¿â¶à±íÇé¿öÏÂ£¬ËäÈ»²»ÔÊĞí·´ÏòÊä³ö µ«ÈÔÈ»ÒªÇ¿ÖÆ·´ÏòÊä³öÒÔÖ§³Ö¸Ã¹¦ÄÜ
+                // skip maxéé»˜è®¤å€¼çš„æƒ…å†µä¸‹ï¼Œä¸éœ€è¦è¡Œå¤åˆ¶çš„æƒ…å†µä¸‹çš„åå‘è¾“å‡º
+                //å¤šåº“å•è¡¨æˆ–å¤šåº“å¤šè¡¨æˆ–å•åº“å¤šè¡¨æƒ…å†µä¸‹ï¼Œè™½ç„¶ä¸å…è®¸åå‘è¾“å‡º ä½†ä»ç„¶è¦å¼ºåˆ¶åå‘è¾“å‡ºä»¥æ”¯æŒè¯¥åŠŸèƒ½
                 dmlc.getSqlReadyToRun(tabs, args, 0, max, modifiedMap);
                 retMeta.needAllowReverseOutput(true);
             }

@@ -14,8 +14,8 @@ import org.apache.log4j.Logger;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: ExceptionUtils.java, v 0.1 2014-1-6 œ¬ŒÁ05:15:12 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: ExceptionUtils.java, v 0.1 2014-1-6 ‰∏ãÂçà05:15:12 Exp $
  */
 public class ExceptionUtils {
     public static final String  SQL_EXECUTION_ERROR_CONTEXT_LOG     = "SQL_EXECUTION_ERROR_CONTEXT_LOG";

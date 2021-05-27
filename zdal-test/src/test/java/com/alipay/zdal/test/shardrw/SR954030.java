@@ -16,16 +16,16 @@ import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.client.util.dispatchanalyzer.ZdalDatasourceIntrospector;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("全活策略:getAvailableDBIndexes ,getNotAvailableDBIndexes")
+@Feature("鍏ㄦ椿绛栫暐:getAvailableDBIndexes ,getNotAvailableDBIndexes")
 public class SR954030 {
 	public TestAssertion Assert = new TestAssertion();
 	ZdalDatasourceIntrospector td =null;
 	
-	@Subject("获取指定group中的可用db")
+	@Subject("鑾峰彇鎸囧畾group涓殑鍙敤db")
 	@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC954032(){
-			Step("获取指定group中的可用db");
+			Step("鑾峰彇鎸囧畾group涓殑鍙敤db");
 		String[] springXmlPath = {  "./shardrw/spring-available-ds.xml" };
 		ApplicationContext context = new ClassPathXmlApplicationContext(springXmlPath);
 
@@ -35,7 +35,7 @@ public class SR954030 {
 		List<Integer> list1 =td.getAvailableDBIndexes(1);
 		List<Integer> list2=td.getNotAvailableDBIndexes(0);
 		List<Integer> list3=td.getNotAvailableDBIndexes(1);
-		Assert.areEqual(true, list.size()==0&&list1.size()==1&&list2.size()==2&&list3.size()==1, "获取getAvailableDBIndexes,getNotAvailableDBIndexes");
+		Assert.areEqual(true, list.size()==0&&list1.size()==1&&list2.size()==2&&list3.size()==1, "鑾峰彇getAvailableDBIndexes,getNotAvailableDBIndexes");
 		Assert.areEqual(true, list1.get(0)==0&&list3.get(0)==1, "getAvailableDBIndexes,getNotAvailableDBIndexes");	
 	
 	}

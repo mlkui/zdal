@@ -21,7 +21,7 @@ import com.alipay.zdal.test.common.ZdalTestBase;
 import com.alipay.zdal.test.common.ZdalTestCommon;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("zdalÕë¶ÔmysqlÊı¾İÔ´µÄÊÂÎñ²Ù×÷")
+@Feature("zdalé’ˆå¯¹mysqlæ•°æ®æºçš„äº‹åŠ¡æ“ä½œ")
 public class SR952080 extends ZdalTestBase {
 	private Connection connection = null;
 	private PreparedStatement ps=null;
@@ -53,18 +53,18 @@ public class SR952080 extends ZdalTestBase {
 		}
 	}
 
-	@Subject("µ±ÊÂÎñÖĞ¶àÌõsqlÓï¾ä£¬ÓĞÊ§°ÜÇé¿ö")
+	@Subject("å½“äº‹åŠ¡ä¸­å¤šæ¡sqlè¯­å¥ï¼Œæœ‰å¤±è´¥æƒ…å†µ")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952081() {
-		Step("µ±ÊÂÎñÖĞ¶àÌõsqlÓï¾ä£¬ÓĞÊ§°ÜÇé¿ö");
+		Step("å½“äº‹åŠ¡ä¸­å¤šæ¡sqlè¯­å¥ï¼Œæœ‰å¤±è´¥æƒ…å†µ");
 		String sqlStr = "insert into test1 value(100,'DB_G')";
 		try {
 			connection.setAutoCommit(false);
 			ps=connection.prepareStatement(sqlStr);
 			ps.execute();					
 			Thread.sleep(50);
-			Step(" ²åÈë³åÍ»µÄÊı¾İ");
+			Step(" æ’å…¥å†²çªçš„æ•°æ®");
             ps.execute();
 			connection.commit();
 		} catch (SQLException e) {
@@ -80,7 +80,7 @@ public class SR952080 extends ZdalTestBase {
 				e.printStackTrace();
 			}
 		}
-		Step("Êı¾İ½øĞĞÁË»Ø¹ö£¬¼ì²éÊı¾İ");
+		Step("æ•°æ®è¿›è¡Œäº†å›æ»šï¼Œæ£€æŸ¥æ•°æ®");
 		String sql="select count(*) from test1 where clum=100";
 		String dburl=ConstantsTest.mysql12UrlZds2;
 		String dbpsd=ConstantsTest.mysq112Psd;
@@ -88,7 +88,7 @@ public class SR952080 extends ZdalTestBase {
 		st=ZdalTestCommon.dataCheckFromJDBC(sql, dburl, dbpsd, dbuser);
 		try {
 			st.next();
-			Assert.areEqual(0, st.getInt(1), "ÑéÖ¤ÎŞÊı¾İ");
+			Assert.areEqual(0, st.getInt(1), "éªŒè¯æ— æ•°æ®");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

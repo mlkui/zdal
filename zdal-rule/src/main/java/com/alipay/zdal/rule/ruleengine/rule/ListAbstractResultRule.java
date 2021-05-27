@@ -11,21 +11,21 @@ import com.alipay.zdal.common.sqljep.function.Comparative;
 
 public abstract class ListAbstractResultRule extends AbstractRule {
     /**
-     * ÓÃ×÷·Ö¿â
+     * ç”¨ä½œåˆ†åº“
      * @param sharedValueElementMap
-     * @return ·µ»ØµÄmap²»»áÎªnull,µ«ÓĞ¿ÉÄÜÎª¿ÕµÄmap£¬Èç¹ûmap²»Îª¿Õ£¬ÔòÄÚ²¿µÄ×Ómap±Ø¶¨²»Îª¿Õ¡£×îÉÙ»áÓĞÒ»¸öÖµ
+     * @return è¿”å›çš„mapä¸ä¼šä¸ºnull,ä½†æœ‰å¯èƒ½ä¸ºç©ºçš„mapï¼Œå¦‚æœmapä¸ä¸ºç©ºï¼Œåˆ™å†…éƒ¨çš„å­mapå¿…å®šä¸ä¸ºç©ºã€‚æœ€å°‘ä¼šæœ‰ä¸€ä¸ªå€¼
      */
     public abstract Map<String/*column*/, Field> eval(
                                                        Map<String, Comparative> sharedValueElementMap);
 
     /**
-     * ÓÃ×÷·Ö±í¡£²»´øÓĞ¶Ô¼ÆËã³öµ±Ç°ÖµµÄº¯ÊıµÄÔ´µÄ×·×ÙĞÅÏ¢
+     * ç”¨ä½œåˆ†è¡¨ã€‚ä¸å¸¦æœ‰å¯¹è®¡ç®—å‡ºå½“å‰å€¼çš„å‡½æ•°çš„æºçš„è¿½è¸ªä¿¡æ¯
      * 
-     * @param enumeratedMap ÁĞÃû->Ã¶¾Ù ¶ÔÓ¦±í
-     * @param mappingTargetColumn Ó³Éä¹æÔòÁĞ
-     * @param mappingKeys Ó³Éä¹æÔòÖµ
+     * @param enumeratedMap åˆ—å->æšä¸¾ å¯¹åº”è¡¨
+     * @param mappingTargetColumn æ˜ å°„è§„åˆ™åˆ—
+     * @param mappingKeys æ˜ å°„è§„åˆ™å€¼
      * 
-     * @return ½á¹û¼¯×Ö¶Î£¬²»»áÎª¿Õ Èç¹û×ÓÀà·½·¨ÉèÖÃÁËÔÚsetÎª¿ÕÊ±Å×Òì³££¬Ôò»á×Ô¶¯Å×³ö
+     * @return ç»“æœé›†å­—æ®µï¼Œä¸ä¼šä¸ºç©º å¦‚æœå­ç±»æ–¹æ³•è®¾ç½®äº†åœ¨setä¸ºç©ºæ—¶æŠ›å¼‚å¸¸ï¼Œåˆ™ä¼šè‡ªåŠ¨æŠ›å‡º
      */
     public abstract Set<String> evalWithoutSourceTrace(Map<String, Set<Object>> enumeratedMap,
                                                        String mappingTargetColumn,

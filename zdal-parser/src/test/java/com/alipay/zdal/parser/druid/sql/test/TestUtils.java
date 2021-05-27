@@ -10,7 +10,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTOutputVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: TestUtils.java, v 0.1 2012-5-17 …œŒÁ10:25:40 xiaoqing.zhouxq Exp $
+ * @version $Id: TestUtils.java, v 0.1 2012-5-17 ‰∏äÂçà10:25:40 xiaoqing.zhouxq Exp $
  */
 public class TestUtils {
 

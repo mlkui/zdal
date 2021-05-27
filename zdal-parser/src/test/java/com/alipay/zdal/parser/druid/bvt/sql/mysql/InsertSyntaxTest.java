@@ -28,7 +28,7 @@ import com.alipay.zdal.parser.sql.parser.SQLStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: InsertSyntaxTest.java, v 0.1 2012-5-17 ÉÏÎç10:05:17 xiaoqing.zhouxq Exp $
+ * @version $Id: InsertSyntaxTest.java, v 0.1 2012-5-17 ä¸Šåˆ10:05:17 xiaoqing.zhouxq Exp $
  */
 public class InsertSyntaxTest extends TestCase {
 

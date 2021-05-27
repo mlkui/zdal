@@ -6,8 +6,8 @@ package com.alipay.zdal.common.exception.runtime;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: InputStringIsNotValidException.java, v 0.1 2014-1-6 œ¬ŒÁ05:18:45 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: InputStringIsNotValidException.java, v 0.1 2014-1-6 ‰∏ãÂçà05:18:45 Exp $
  */
 public class InputStringIsNotValidException extends ZdalRunTimeException {
 

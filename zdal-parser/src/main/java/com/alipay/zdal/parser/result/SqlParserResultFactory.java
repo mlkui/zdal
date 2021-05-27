@@ -12,9 +12,9 @@ import com.alipay.zdal.parser.visitor.ZdalOracleSchemaStatVisitor;
 import com.alipay.zdal.parser.visitor.ZdalSchemaStatVisitor;
 
 /**
- * 创建sqlparserresult的工程类.
+ * 鍒涘缓sqlparserresult鐨勫伐绋嬬被.
  * @author xiaoqing.zhouxq
- * @version $Id: SqlParserResultFactory.java, v 0.1 2012-5-21 下午03:18:34 xiaoqing.zhouxq Exp $
+ * @version $Id: SqlParserResultFactory.java, v 0.1 2012-5-21 涓嬪崍03:18:34 xiaoqing.zhouxq Exp $
  */
 public class SqlParserResultFactory {
 

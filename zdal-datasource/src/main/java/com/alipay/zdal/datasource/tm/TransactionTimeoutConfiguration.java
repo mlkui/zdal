@@ -11,8 +11,8 @@ import com.alipay.zdal.datasource.transaction.SystemException;
  * The interface to implementated by a transaction manager
  * that supports retrieving the current threads transaction timeout
  *
- * @author ²®ÑÀ
- * @version $Id: TransactionTimeoutConfiguration.java, v 0.1 2014-1-6 ÏÂÎç05:48:57 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TransactionTimeoutConfiguration.java, v 0.1 2014-1-6 ä¸‹åˆ05:48:57 Exp $
  */
 public interface TransactionTimeoutConfiguration {
     /**

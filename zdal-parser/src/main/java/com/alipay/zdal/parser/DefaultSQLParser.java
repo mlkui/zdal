@@ -26,12 +26,12 @@ import com.alipay.zdal.parser.visitor.ZdalOracleSchemaStatVisitor;
 import com.alipay.zdal.parser.visitor.ZdalSchemaStatVisitor;
 
 /**
- * SQL ½âÎöÆ÷µÄÊµÏÖÀà£¬Ö÷ÒªÊÇ½«SQL½âÎöºó´æ·Åµ½cacheÖĞ£¬
- * Èç¹ûcacheÖĞÓĞ¸ÃÌõSQL,ÔòÖ±½Ó´ÓcacheÖĞÈ¡£¬·ñÔò½øĞĞparse
+ * SQL è§£æå™¨çš„å®ç°ç±»ï¼Œä¸»è¦æ˜¯å°†SQLè§£æåå­˜æ”¾åˆ°cacheä¸­ï¼Œ
+ * å¦‚æœcacheä¸­æœ‰è¯¥æ¡SQL,åˆ™ç›´æ¥ä»cacheä¸­å–ï¼Œå¦åˆ™è¿›è¡Œparse
  * 
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLParserImp.java, v 0.1 2012-5-22 ÉÏÎç10:01:18 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLParserImp.java, v 0.1 2012-5-22 ä¸Šåˆ10:01:18 xiaoqing.zhouxq Exp $
  */
 public class DefaultSQLParser implements SQLParser {
     private static final Logger      LOG         = Logger.getLogger(DefaultSQLParser.class);
@@ -43,7 +43,7 @@ public class DefaultSQLParser implements SQLParser {
         ZdalSchemaStatVisitor visitor = getStatement(sql);
         try {
             if (visitor == null) {
-                // Èç¹ûÃ»È¡µ½£¬³¢ÊÔ·ÖÎösql²¢³õÊ¼»¯
+                // å¦‚æœæ²¡å–åˆ°ï¼Œå°è¯•åˆ†æsqlå¹¶åˆå§‹åŒ–
                 this.parseSQL(sql, dbType);
                 visitor = getStatement(sql);
 
@@ -56,11 +56,11 @@ public class DefaultSQLParser implements SQLParser {
     }
 
     /**
-     * ³¢ÊÔ´ÓcacheÖĞÈ¡¸Ãsql,Èç¹ûÎ´È¡µ½£¬Ôò·ÖÎö¸Ãsql²¢³õÊ¼»¯¡£
+     * å°è¯•ä»cacheä¸­å–è¯¥sql,å¦‚æœæœªå–åˆ°ï¼Œåˆ™åˆ†æè¯¥sqlå¹¶åˆå§‹åŒ–ã€‚
      * 
-     * ×î»µÇé¿öÊÇ¶à´Î³õÊ¼»¯£¬µ«ÒòÎªkeyÒ»ÖÂ£¬Í¬Ò»Ìõsql·ÖÎö²¢³õÊ¼»¯ÒÔºóµÄ½á¹ûÊÇÒ»ÖÂµÄ
+     * æœ€åæƒ…å†µæ˜¯å¤šæ¬¡åˆå§‹åŒ–ï¼Œä½†å› ä¸ºkeyä¸€è‡´ï¼ŒåŒä¸€æ¡sqlåˆ†æå¹¶åˆå§‹åŒ–ä»¥åçš„ç»“æœæ˜¯ä¸€è‡´çš„
      * 
-     * µ«ÓĞ¿ÉÄÜÒòÎªÂÒĞò·¢ÉúputÔÚinitÖ®Ç°µÄÎÊÌâ,Òò´ËÕû¸ö¼ÓËø¡£
+     * ä½†æœ‰å¯èƒ½å› ä¸ºä¹±åºå‘ç”Ÿputåœ¨initä¹‹å‰çš„é—®é¢˜,å› æ­¤æ•´ä¸ªåŠ é”ã€‚
      * @param sql
      */
     public void parseSQL(String sql) {
@@ -75,7 +75,7 @@ public class DefaultSQLParser implements SQLParser {
         if (sql == null) {
             throw new SqlParserException("sql must not be null");
         }
-        //ÎªÁË·ÀÖ¹¶à´ÎÖØ¸´³õÊ¼»¯£¬ËùÒÔÊ¹ÓÃÁËfuture taskÀ´È·±£³õÊ¼»¯Ö»½øĞĞÒ»´Î
+        //ä¸ºäº†é˜²æ­¢å¤šæ¬¡é‡å¤åˆå§‹åŒ–ï¼Œæ‰€ä»¥ä½¿ç”¨äº†future taskæ¥ç¡®ä¿åˆå§‹åŒ–åªè¿›è¡Œä¸€æ¬¡
         FutureTask<ZdalSchemaStatVisitor> future = GLOBALCACHE.getFutureTask(sql);
         if (future == null) {
             Callable<ZdalSchemaStatVisitor> parserHandler = new Callable<ZdalSchemaStatVisitor>() {
@@ -115,7 +115,7 @@ public class DefaultSQLParser implements SQLParser {
     }
 
     /**
-     * Êä³öparse·ÖÎö¹ıºóµÄsqlÓï¾ä.
+     * è¾“å‡ºparseåˆ†æè¿‡åçš„sqlè¯­å¥.
      * @param parserResults
      * @return
      */
@@ -135,7 +135,7 @@ public class DefaultSQLParser implements SQLParser {
     }
 
     /**
-     * Í¨¹ıparserÄ£¿é·ÖÎösqlÓï¾ä,·µ»Øjava¶ÔÏó±íÊ¾µÄsql.
+     * é€šè¿‡parseræ¨¡å—åˆ†æsqlè¯­å¥,è¿”å›javaå¯¹è±¡è¡¨ç¤ºçš„sql.
      * @param sql
      * @param isMysql
      * @return
@@ -156,9 +156,9 @@ public class DefaultSQLParser implements SQLParser {
     }
 
     /**
-     * ¸ù¾İSQL»ñÈ¡¶ÔÓ¦µÄjavaSQL¶ÔÏó
+     * æ ¹æ®SQLè·å–å¯¹åº”çš„javaSQLå¯¹è±¡
      * @param sql
-     * @return java SQL ¶ÔÏó¡£ Èç¹ûcacheÖĞÃ»ÓĞÔò·µ»Ø¿Õ
+     * @return java SQL å¯¹è±¡ã€‚ å¦‚æœcacheä¸­æ²¡æœ‰åˆ™è¿”å›ç©º
      */
     private ZdalSchemaStatVisitor getStatement(String sql) {
         try {

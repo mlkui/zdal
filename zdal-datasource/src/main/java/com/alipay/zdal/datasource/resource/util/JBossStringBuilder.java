@@ -11,8 +11,8 @@ import java.io.Serializable;
  * java5 StringBuilder, except no Appendable which is java5 specific.
  * 
  * 
- * @author ²®ÑÀ
- * @version $Id: JBossStringBuilder.java, v 0.1 2014-1-6 ÏÂÎç05:38:58 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: JBossStringBuilder.java, v 0.1 2014-1-6 ä¸‹åˆ05:38:58 Exp $
  */
 public class JBossStringBuilder implements Serializable, CharSequence {
     /** Serialization */

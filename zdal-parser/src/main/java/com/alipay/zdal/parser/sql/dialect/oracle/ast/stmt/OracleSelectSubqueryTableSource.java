@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSelectSubqueryTableSource.java, v 0.1 2012-11-17 œ¬ŒÁ3:50:10 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSelectSubqueryTableSource.java, v 0.1 2012-11-17 ‰∏ãÂçà3:50:10 Exp $
  */
 public class OracleSelectSubqueryTableSource extends SQLSubqueryTableSource implements
                                                                            OracleSelectTableSource {

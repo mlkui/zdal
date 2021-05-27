@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlObject.java, v 0.1 2012-11-17 œ¬ŒÁ3:29:33 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlObject.java, v 0.1 2012-11-17 ‰∏ãÂçà3:29:33 Exp $
  */
 public interface MySqlObject extends SQLObject {
     void accept0(MySqlASTVisitor visitor);

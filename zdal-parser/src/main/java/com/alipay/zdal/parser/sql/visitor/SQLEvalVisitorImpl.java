@@ -13,8 +13,8 @@ import com.alipay.zdal.parser.sql.ast.expr.SQLVariantRefExpr;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: SQLEvalVisitorImpl.java, v 0.1 2012-11-17 œ¬ŒÁ3:56:46 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: SQLEvalVisitorImpl.java, v 0.1 2012-11-17 ‰∏ãÂçà3:56:46 Exp $
  */
 public class SQLEvalVisitorImpl extends SQLASTVisitorAdapter implements SQLEvalVisitor {
 

@@ -170,7 +170,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
 
     private void changeParameters(Map<Integer, Object> changedParameters) {
         for (Map.Entry<Integer, Object> entry : changedParameters.entrySet()) {
-            // ×¢Òâ£ºSQL½âÎöÄÇ±ß°ó¶¨²ÎÊı´Ó0¿ªÊ¼¼ÆÊı£¬Òò´ËĞèÒª¼Ó1¡£
+            // æ³¨æ„ï¼šSQLè§£æé‚£è¾¹ç»‘å®šå‚æ•°ä»0å¼€å§‹è®¡æ•°ï¼Œå› æ­¤éœ€è¦åŠ 1ã€‚
             ParameterContext context = parameterSettings.get(entry.getKey() + 1);
             if (context.getParameterMethod() != ParameterMethod.setNull1
                 && context.getParameterMethod() != ParameterMethod.setNull2) {
@@ -209,7 +209,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
         }
 
         SqlType sqlType = getSqlType(sql);
-        // SELECT_FOR_UPDATE¡¢SELECT_FROM_DUALËäÈ»È¥Ğ´¿âÖ´ĞĞ£¬µ«ÊÇ¶¼±ØĞëÖ´ĞĞexecuteQuery()½Ó¿Ú
+        // SELECT_FOR_UPDATEã€SELECT_FROM_DUALè™½ç„¶å»å†™åº“æ‰§è¡Œï¼Œä½†æ˜¯éƒ½å¿…é¡»æ‰§è¡ŒexecuteQuery()æ¥å£
         if (sqlType == SqlType.SELECT || sqlType == SqlType.SELECT_FOR_UPDATE
             || sqlType == SqlType.SELECT_FROM_DUAL) {
             if (this.dbConfigType == DataSourceConfigType.GROUP) {
@@ -234,12 +234,12 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
     private ResultSet executeQuery0(String sql, SqlType sqlType) throws SQLException {
         checkClosed();
         this.setOperation_type(DB_OPERATION_TYPE.READ_FROM_DB);
-        // »ñÈ¡Á¬½Ó
+        // è·å–è¿æ¥
         DBSelector dbselector = getGroupDBSelector(sqlType);
         if (dbselector == null) {
-            throw new IllegalStateException("load balanceÊı¾İÔ´ÅäÖÃÀàĞÍ´íÎó");
+            throw new IllegalStateException("load balanceæ•°æ®æºé…ç½®ç±»å‹é”™è¯¯");
         }
-        // ·µ»ØÖ´ĞĞ½á¹û
+        // è¿”å›æ‰§è¡Œç»“æœ
         boolean needRetry = this.autoCommit;
         Map<DataSource, SQLException> failedDataSources = needRetry ? new LinkedHashMap<DataSource, SQLException>(
             0)
@@ -256,7 +256,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                                                                                                              throws SQLException {
                                                                  String sql = (String) args[0];
                                                                  SqlType sqlType = (SqlType) args[1];
-                                                                 // »ñÈ¡Á¬½Ó
+                                                                 // è·å–è¿æ¥
                                                                  Connection conn = getGroupConnection(
                                                                      ds, sqlType, name);
 
@@ -270,7 +270,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                                                                                                   throws SQLException {
         PreparedStatement ps = preparedAndSetParameters(null, targetSql, null, connection);
         // added by fanzeng.
-        // //¸ù¾İdbSelectorId»ñÈ¡¶ÔÓ¦µÄÊı¾İÔ´µÄ±êÊ¶·ûÒÔ¼°Êı¾İÔ´£¬È»ºó·Åµ½threadlocalÀï
+        // //æ ¹æ®dbSelectorIdè·å–å¯¹åº”çš„æ•°æ®æºçš„æ ‡è¯†ç¬¦ä»¥åŠæ•°æ®æºï¼Œç„¶åæ”¾åˆ°threadlocalé‡Œ
         // String dbSelectorId = null;
         // Map<String, DataSource> map = getActualIdAndDataSource(dbSelectorId);
         // ThreadLocalMap.put(ThreadLocalString.GET_ID_AND_DATABASE, map);
@@ -292,7 +292,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
      * 
      * @see java.sql.PreparedStatement#executeQuery()
      * 
-     * Õâ¸ö·½·¨µ±for updateÊ±»áÖ´ĞĞµ½¡£²»Ó¦¸Ã½øĞĞÖØÊÔ
+     * è¿™ä¸ªæ–¹æ³•å½“for updateæ—¶ä¼šæ‰§è¡Œåˆ°ã€‚ä¸åº”è¯¥è¿›è¡Œé‡è¯•
      */
     public ResultSet executeQuery() throws SQLException {
         if (log.isDebugEnabled()) {
@@ -331,14 +331,14 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                     executeQueryAndAddIntoCollection(dbSelectorId, targetSql.sql, context
                         .getFailedDataSources(), connection, actualResultSets);
 
-                    // TODO:Ìí¼Óµ½resultSet close()ÒÔÇ°µÄÊ±¼äÍ³¼Æ
+                    // TODO:æ·»åŠ åˆ°resultSet close()ä»¥å‰çš„æ—¶é—´ç»Ÿè®¡
                 } catch (SQLException e) {
 
                     if (exceptions == null) {
                         exceptions = new ArrayList<SQLException>();
                     }
                     exceptions.add(e);
-                    ExceptionUtils.throwSQLException(exceptions, sql, getParameters()); // Ö±½ÓÅ×³ö
+                    ExceptionUtils.throwSQLException(exceptions, sql, getParameters()); // ç›´æ¥æŠ›å‡º
                 }
             }
         }
@@ -356,10 +356,10 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
     }
 
     /**
-     * ½¨Á¢preparedStatmentÈ»ºó½«Æä·ÅÈëstatments¶ÓÁĞÖĞ£¬²¢ÉèÖÃ³õÖµ£¬È»ºó·µ»Ø¡£
-     * Ö»ÓÃÔÚexecuteUpdateºÍexecuteQueryÖĞ¡£
+     * å»ºç«‹preparedStatmentç„¶åå°†å…¶æ”¾å…¥statmentsé˜Ÿåˆ—ä¸­ï¼Œå¹¶è®¾ç½®åˆå€¼ï¼Œç„¶åè¿”å›ã€‚
+     * åªç”¨åœ¨executeUpdateå’ŒexecuteQueryä¸­ã€‚
      * 
-     * ÖØÊÔÔòÖ»Õë¶ÔÔÚexecuteUpdateºÍqueryÖĞĞèÒªÖØÊÔµÄsql.
+     * é‡è¯•åˆ™åªé’ˆå¯¹åœ¨executeUpdateå’Œqueryä¸­éœ€è¦é‡è¯•çš„sql.
      * 
      * @param dbSelectorId
      * @param targetSql
@@ -378,7 +378,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
         PreparedStatement ps = preparedAndSetParameters(dbSelectorId, targetSql, failedDataSources,
             connection);
         // added by fanzeng.
-        // ¸ù¾İdbSelectorId»ñÈ¡¶ÔÓ¦µÄÊı¾İÔ´µÄ±êÊ¶·ûÒÔ¼°Êı¾İÔ´£¬È»ºó·Åµ½threadlocalÀï
+        // æ ¹æ®dbSelectorIdè·å–å¯¹åº”çš„æ•°æ®æºçš„æ ‡è¯†ç¬¦ä»¥åŠæ•°æ®æºï¼Œç„¶åæ”¾åˆ°threadlocalé‡Œ
         Map<String, DataSource> map = getActualIdAndDataSource(dbSelectorId);
         ThreadLocalMap.put(ThreadLocalString.GET_ID_AND_DATABASE, map);
 
@@ -393,7 +393,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
             connection);
 
         // added by fanzeng.
-        // ¸ù¾İdbSelectorId»ñÈ¡¶ÔÓ¦µÄÊı¾İÔ´µÄ±êÊ¶·ûÒÔ¼°Êı¾İÔ´£¬È»ºó·Åµ½threadlocalÀï
+        // æ ¹æ®dbSelectorIdè·å–å¯¹åº”çš„æ•°æ®æºçš„æ ‡è¯†ç¬¦ä»¥åŠæ•°æ®æºï¼Œç„¶åæ”¾åˆ°threadlocalé‡Œ
         Map<String, DataSource> map = getActualIdAndDataSource(dbSelectorId);
         ThreadLocalMap.put(ThreadLocalString.GET_ID_AND_DATABASE, map);
 
@@ -409,7 +409,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
             connection);
 
         //        // added by fanzeng.
-        //        // ¸ù¾İdbSelectorId»ñÈ¡¶ÔÓ¦µÄÊı¾İÔ´µÄ±êÊ¶·ûÒÔ¼°Êı¾İÔ´£¬È»ºó·Åµ½threadlocalÀï
+        //        // æ ¹æ®dbSelectorIdè·å–å¯¹åº”çš„æ•°æ®æºçš„æ ‡è¯†ç¬¦ä»¥åŠæ•°æ®æºï¼Œç„¶åæ”¾åˆ°threadlocalé‡Œ
         //        Map<String, DataSource> map = getActualIdAndDataSource(dbSelectorId);
         //        ThreadLocalMap.put(ThreadLocalString.GET_ID_AND_DATABASE, map);
 
@@ -433,14 +433,14 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
 
     public int executeUpdate0() throws SQLException {
         checkClosed();
-        // »ñÈ¡Êı¾İÔ´
+        // è·å–æ•°æ®æº
         this.setOperation_type(DB_OPERATION_TYPE.WRITE_INTO_DB);
-        // »ñÈ¡Á¬½Ó
+        // è·å–è¿æ¥
         DBSelector dbselector = getGroupDBSelector(SqlType.DEFAULT_SQL_TYPE);
         if (dbselector == null) {
-            throw new IllegalStateException("load balanceÊı¾İÔ´ÅäÖÃÀàĞÍ´íÎó");
+            throw new IllegalStateException("load balanceæ•°æ®æºé…ç½®ç±»å‹é”™è¯¯");
         }
-        // ·µ»ØÖ´ĞĞ½á¹û
+        // è¿”å›æ‰§è¡Œç»“æœ
         boolean needRetry = this.autoCommit;
         Map<DataSource, SQLException> failedDataSources = needRetry ? new LinkedHashMap<DataSource, SQLException>(
             0)
@@ -457,7 +457,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                                                                                            Object... args)
                                                                                                           throws SQLException {
                                                                 SqlType sqlType = (SqlType) args[1];
-                                                                // »ñÈ¡Á¬½Ó
+                                                                // è·å–è¿æ¥
                                                                 Connection conn = getGroupConnection(
                                                                     ds, sqlType, name);
                                                                 String sql = (String) args[0];
@@ -692,7 +692,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
     }
 
     /*
-     * ¸¸ÀàÒÑÓĞ£¬²»ĞèÒªÖØĞÂ¶¨Òå public void addBatch(String sql) throws SQLException {
+     * çˆ¶ç±»å·²æœ‰ï¼Œä¸éœ€è¦é‡æ–°å®šä¹‰ public void addBatch(String sql) throws SQLException {
      * super.addBatch(sql); }
      */
 
@@ -715,9 +715,9 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
 
     /**
      * @param targetSqls
-     *            : key0:×îÖÕÊı¾İÔ´ID; value0:{key1:×îÖÕÊı¾İÔ´ÉÏÖ´ĞĞµÄ¾ßÌå±íÃûµÄSQL; value1:°ó¶¨²ÎÊıÁĞ±í}
-     *            key1µÄSQLÎªPreparedStatement±¾ÉíµÄsql¼ÓÉÏ²ÎÊıÁĞ±í×îÖÕÈ·¶¨µÄ¾ßÌå±íµÄsql
-     *            Í¨¹ı±¾ÀàµÄaddBatch()·½·¨£¬¼ÓÈëµ½batchedArgsÖĞµÄList<ParameterContext>
+     *            : key0:æœ€ç»ˆæ•°æ®æºID; value0:{key1:æœ€ç»ˆæ•°æ®æºä¸Šæ‰§è¡Œçš„å…·ä½“è¡¨åçš„SQL; value1:ç»‘å®šå‚æ•°åˆ—è¡¨}
+     *            key1çš„SQLä¸ºPreparedStatementæœ¬èº«çš„sqlåŠ ä¸Šå‚æ•°åˆ—è¡¨æœ€ç»ˆç¡®å®šçš„å…·ä½“è¡¨çš„sql
+     *            é€šè¿‡æœ¬ç±»çš„addBatch()æ–¹æ³•ï¼ŒåŠ å…¥åˆ°batchedArgsä¸­çš„List<ParameterContext>
      * @throws ZdalCheckedExcption
      */
     protected void sortPreparedBatch(
@@ -725,7 +725,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                                      Map<String, Map<String, List<List<ParameterContext>>>> targetSqls)
                                                                                                        throws SQLException {
         try {
-            // TODO:batchÖĞÈç¹ûÊ¹ÓÃÁËÓ³Éä¹æÔò£¬Ó³Éä¹æÔòÃ»ÓĞ·µ»Ø½á¹ûÊ±£¬»áÓĞ´íÎó¡£
+            // TODO:batchä¸­å¦‚æœä½¿ç”¨äº†æ˜ å°„è§„åˆ™ï¼Œæ˜ å°„è§„åˆ™æ²¡æœ‰è¿”å›ç»“æœæ—¶ï¼Œä¼šæœ‰é”™è¯¯ã€‚
             // List<ParameterContext> batchedParameters =
             // (List<ParameterContext>) arg;
             List<TargetDB> targets;
@@ -744,7 +744,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                 virtualTableName = dispatcherResult.getVirtualTableName();
             }
             for (TargetDB target : targets) {
-                // ÕâÀï×öÁËĞÂ¾É¼æÈİ
+                // è¿™é‡Œåšäº†æ–°æ—§å…¼å®¹
                 String targetName = ruleController != null ? target.getWritePool()[0] : target
                     .getDbIndex();
                 // String targetName = target.getWritePool()[0];
@@ -781,11 +781,11 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                                       Map<String, Map<String, List<List<ParameterContext>>>> targetSqls)
                                                                                                         throws SQLException {
 
-        // »ñÈ¡Á¬½Ó
+        // è·å–è¿æ¥
         SqlType sqlType = getSqlType(sql);
         String dbselectorID = getGroupDBSelectorID(sqlType);
         if (StringUtil.isBlank(dbselectorID)) {
-            throw new IllegalStateException("load balanceÊı¾İÔ´ÅäÖÃÀàĞÍ´íÎó");
+            throw new IllegalStateException("load balanceæ•°æ®æºé…ç½®ç±»å‹é”™è¯¯");
         }
         if (!targetSqls.containsKey(dbselectorID)) {
             targetSqls.put(dbselectorID, new HashMap<String, List<List<ParameterContext>>>());
@@ -814,14 +814,14 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
         List<SQLException> exceptions = null;
 
         /**
-         * key: ×îÖÕÊı¾İÔ´ID; value:×îÖÕÊı¾İÔ´ÉÏÖ´ĞĞµÄÊ¹ÓÃÎïÀí±íÃûµÄSQL Í¨¹ı¸¸ÀàµÄaddBatch(String
-         * sql)·½·¨£¬¼ÓÈëµ½batchedArgsÖĞµÄsql
+         * key: æœ€ç»ˆæ•°æ®æºID; value:æœ€ç»ˆæ•°æ®æºä¸Šæ‰§è¡Œçš„ä½¿ç”¨ç‰©ç†è¡¨åçš„SQL é€šè¿‡çˆ¶ç±»çš„addBatch(String
+         * sql)æ–¹æ³•ï¼ŒåŠ å…¥åˆ°batchedArgsä¸­çš„sql
          */
         Map<String, List<String>> plainTargetSqls = new HashMap<String, List<String>>();
         /**
-         * key0:×îÖÕÊı¾İÔ´ID; value0:{key1:Êı¾İÔ´ÉÏÖ´ĞĞµÄÊ¹ÓÃÎïÀí±íÃûµÄSQL; value1:°ó¶¨²ÎÊıÁĞ±í}
-         * key1µÄSQLÎªPreparedStatement±¾ÉíµÄsql¼ÓÉÏ²ÎÊıÁĞ±í×îÖÕÈ·¶¨µÄÊ¹ÓÃÎïÀí±íÃûµÄsql
-         * Í¨¹ı±¾ÀàµÄaddBatch()·½·¨£¬¼ÓÈëµ½batchedArgsÖĞµÄList<ParameterContext>
+         * key0:æœ€ç»ˆæ•°æ®æºID; value0:{key1:æ•°æ®æºä¸Šæ‰§è¡Œçš„ä½¿ç”¨ç‰©ç†è¡¨åçš„SQL; value1:ç»‘å®šå‚æ•°åˆ—è¡¨}
+         * key1çš„SQLä¸ºPreparedStatementæœ¬èº«çš„sqlåŠ ä¸Šå‚æ•°åˆ—è¡¨æœ€ç»ˆç¡®å®šçš„ä½¿ç”¨ç‰©ç†è¡¨åçš„sql
+         * é€šè¿‡æœ¬ç±»çš„addBatch()æ–¹æ³•ï¼ŒåŠ å…¥åˆ°batchedArgsä¸­çš„List<ParameterContext>
          * 
          * [ [setString(1, 0), setString(2, wangzhaofeng0), setString(3, 20)]
          * [setString(1, 1), setString(2, wangzhaofeng1), setString(3, 20)]
@@ -850,7 +850,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                 .entrySet()) {
 
                 String dbSelectorID = entry.getKey();
-                // Ğ£ÑéÊÇ·ñÔÊĞíbatchÊÂÎñ
+                // æ ¡éªŒæ˜¯å¦å…è®¸batchäº‹åŠ¡
                 checkBatchDataBaseID(dbSelectorID);
 
                 createConnectionByID(dbSelectorID);
@@ -870,7 +870,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
 
             for (Entry<String, List<String>> entry : plainTargetSqls.entrySet()) {
                 String dbSelectorID = entry.getKey();
-                // Ğ£ÑéÊÇ·ñÔÊĞíbatchÊÂÎñ
+                // æ ¡éªŒæ˜¯å¦å…è®¸batchäº‹åŠ¡
                 checkBatchDataBaseID(dbSelectorID);
                 createConnectionByID(dbSelectorID);
                 try {
@@ -882,7 +882,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                         stmt.addBatch(targetSql);
                     }
 
-                    // TODO: ºöÂÔ·µ»ØÖµ
+                    // TODO: å¿½ç•¥è¿”å›å€¼
                     stmt.executeBatch();
 
                     stmt.clearBatch();
@@ -899,7 +899,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
 
         ExceptionUtils.throwSQLException(exceptions, sql, getParameters());
 
-        // TODO: ºöÂÔ·µ»ØÖµ
+        // TODO: å¿½ç•¥è¿”å›å€¼
         return new int[0];
     }
 
@@ -908,7 +908,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
                                       Entry<String, List<List<ParameterContext>>> targetSql)
                                                                                             throws SQLException {
         Connection connection = getActualConnection(dbSelectorID);
-        // batchµÄÊ±ºòÊÇ²»ĞèÒªÖØÊÔµÄ¡£ÏÖÔÚÈç´Ë¼Ù¶¨£¬Òò´Ë²»Ê¹ÓÃ¿ÉÖØÊÔµÄstatment·½·¨
+        // batchçš„æ—¶å€™æ˜¯ä¸éœ€è¦é‡è¯•çš„ã€‚ç°åœ¨å¦‚æ­¤å‡å®šï¼Œå› æ­¤ä¸ä½¿ç”¨å¯é‡è¯•çš„statmentæ–¹æ³•
         PreparedStatement ps = prepareStatementInternal(connection, targetSql.getKey(),
             dbSelectorID, failedDataSources);
 
@@ -919,7 +919,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
             ps.addBatch();
         }
 
-        // TODO: ºöÂÔ·µ»ØÖµ
+        // TODO: å¿½ç•¥è¿”å›å€¼
         ps.executeBatch();
 
         ps.clearBatch();

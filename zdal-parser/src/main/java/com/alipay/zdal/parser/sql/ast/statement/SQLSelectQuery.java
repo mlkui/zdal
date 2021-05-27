@@ -9,7 +9,7 @@ import com.alipay.zdal.parser.sql.ast.SQLObjectImpl;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLSelectQuery.java, v 0.1 2012-11-17 œ¬ŒÁ3:23:44 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLSelectQuery.java, v 0.1 2012-11-17 ‰∏ãÂçà3:23:44 xiaoqing.zhouxq Exp $
  */
 public abstract class SQLSelectQuery extends SQLObjectImpl {
 

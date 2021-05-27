@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLTableConstaintImpl.java, v 0.1 2012-11-17 ÏÂÎç3:26:18 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLTableConstaintImpl.java, v 0.1 2012-11-17 ä¸‹åˆ3:26:18 Exp $
  */
 @SuppressWarnings("serial")
 public class SQLTableConstaintImpl extends SQLConstaintImpl implements SQLTableConstaint {

@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.ast.statement.SQLInsertStatement;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLShardingVisitor.java, v 0.1 2012-11-17 ÏÂÎç3:57:01 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLShardingVisitor.java, v 0.1 2012-11-17 ä¸‹åˆ3:57:01 Exp $
  */
 public class SQLShardingVisitor extends SQLASTVisitorAdapter {
 

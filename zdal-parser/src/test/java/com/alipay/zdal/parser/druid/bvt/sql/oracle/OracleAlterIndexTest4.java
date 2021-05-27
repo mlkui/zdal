@@ -12,7 +12,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleSchemaStatVisitor
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleAlterIndexTest4.java, v 0.1 2012-5-17 …œŒÁ10:12:56 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleAlterIndexTest4.java, v 0.1 2012-5-17 ‰∏äÂçà10:12:56 xiaoqing.zhouxq Exp $
  */
 public class OracleAlterIndexTest4 extends OracleTest {
 

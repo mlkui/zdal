@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlAlterTableOption.java, v 0.1 2012-11-17 œ¬ŒÁ3:31:39 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlAlterTableOption.java, v 0.1 2012-11-17 ‰∏ãÂçà3:31:39 Exp $
  */
 public class MySqlAlterTableOption extends MySqlObjectImpl implements SQLAlterTableItem {
 

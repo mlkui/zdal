@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.ast.OracleSQLObjectImpl;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSelectPivotBase.java, v 0.1 2012-11-17 œ¬ŒÁ3:49:52 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSelectPivotBase.java, v 0.1 2012-11-17 ‰∏ãÂçà3:49:52 Exp $
  */
 public abstract class OracleSelectPivotBase extends OracleSQLObjectImpl {
 

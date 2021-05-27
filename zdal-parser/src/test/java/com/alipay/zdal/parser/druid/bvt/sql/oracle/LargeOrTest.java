@@ -12,7 +12,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: LargeOrTest.java, v 0.1 2012-5-17 …œŒÁ10:12:38 xiaoqing.zhouxq Exp $
+ * @version $Id: LargeOrTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:12:38 xiaoqing.zhouxq Exp $
  */
 public class LargeOrTest extends TestCase {
 

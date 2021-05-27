@@ -17,7 +17,7 @@ import com.alipay.zdal.datasource.ZDataSource;
 /**
  * mysql transation test
  * @author sicong.shou
- * @version $Id: ZdsTest1.java, v 0.1 2012-11-21 ÏÂÎç04:53:45 sicong.shou Exp $
+ * @version $Id: ZdsTest1.java, v 0.1 2012-11-21 ä¸‹åˆ04:53:45 sicong.shou Exp $
  */
 public class ZdsTestMysqlTx {
     protected static DataSource         dataSource = null;
@@ -47,7 +47,7 @@ public class ZdsTestMysqlTx {
     }
 
     /**
-     * ³É¹¦µÄÊÂÎñ update
+     * æˆåŠŸçš„äº‹åŠ¡ update
      */
     @Test
     public void test1() {
@@ -62,7 +62,7 @@ public class ZdsTestMysqlTx {
     }
 
     /**
-     * ³É¹¦µÄÊÂÎñ insert
+     * æˆåŠŸçš„äº‹åŠ¡ insert
      */
     @Test
     public void test3() {
@@ -79,7 +79,7 @@ public class ZdsTestMysqlTx {
     }
 
     /**
-     * ³É¹¦µÄÊÂÎñ delete
+     * æˆåŠŸçš„äº‹åŠ¡ delete
      */
     @Test
     public void test4() {
@@ -94,7 +94,7 @@ public class ZdsTestMysqlTx {
     }
 
     /**
-     * Ê§°ÜµÄÊÂÎñ£¬¿´ÊÇ·ñrollback
+     * å¤±è´¥çš„äº‹åŠ¡ï¼Œçœ‹æ˜¯å¦rollback
      */
     @Test
     public void test2() {
@@ -104,7 +104,7 @@ public class ZdsTestMysqlTx {
             tt.execute(new TransactionCallback() {
                 public Object doInTransaction(TransactionStatus status) {
                     jt.execute("UPDATE zdstest SET name = 'after' WHERE id = 52342342352");
-                    System.err.print(jt.queryForList("select * from sb where id =52342342352"));//²»´æÔÚµÄ±í
+                    System.err.print(jt.queryForList("select * from sb where id =52342342352"));//ä¸å­˜åœ¨çš„è¡¨
                     return null;
                 }
             });

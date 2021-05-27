@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleUpdateSetListSingleColumnItem.java, v 0.1 2012-11-17 œ¬ŒÁ3:51:25 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleUpdateSetListSingleColumnItem.java, v 0.1 2012-11-17 ‰∏ãÂçà3:51:25 Exp $
  */
 public class OracleUpdateSetListSingleColumnItem extends OracleUpdateSetListItem {
 

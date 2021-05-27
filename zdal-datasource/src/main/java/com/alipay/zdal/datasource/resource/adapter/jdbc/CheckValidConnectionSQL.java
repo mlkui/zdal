@@ -12,8 +12,8 @@ import java.sql.Statement;
 /**
  * Implements check valid connection sql
  *
- * @author ²®ÑÀ
- * @version $Id: CheckValidConnectionSQL.java, v 0.1 2014-1-6 ÏÂÎç05:28:09 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CheckValidConnectionSQL.java, v 0.1 2014-1-6 ä¸‹åˆ05:28:09 Exp $
  */
 public class CheckValidConnectionSQL implements ValidConnectionChecker, Serializable {
     private static final long serialVersionUID = -222752863430216887L;

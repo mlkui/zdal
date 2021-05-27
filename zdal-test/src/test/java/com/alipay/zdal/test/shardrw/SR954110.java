@@ -22,7 +22,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rwÊı¾İÔ´µÄ ·Ö¿â·Ö±í")
+@Feature("shard+rwæ•°æ®æºçš„ åˆ†åº“åˆ†è¡¨")
 public class SR954110 {
 	public TestAssertion Assert = new TestAssertion();;
 	private SqlMapClient sqlMap;
@@ -43,11 +43,11 @@ public class SR954110 {
 				.getBean("zdalShardrwShardDbShardTable");
 	}
 
-	@Subject("shard+rw£¬·Ö¿â·Ö±í£¬Ğ´¿â¡£Ğ´group_1¿âµÄds1µÄuser_1±í")
+	@Subject("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œå†™åº“ã€‚å†™group_1åº“çš„ds1çš„user_1è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954111() {
-		Step("shard+rw£¬·Ö¿â·Ö±í£¬Ğ´¿â¡£Ğ´group_1¿âµÄds1µÄuser_1±í");
+		Step("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œå†™åº“ã€‚å†™group_1åº“çš„ds1çš„user_1è¡¨");
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("user_id", Integer.valueOf("11"));
 		params.put("age", Integer.valueOf("11"));
@@ -63,11 +63,11 @@ public class SR954110 {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Subject("shard+rw£¬·Ö¿â·Ö±í£¬¶Á¿â¡£¶Ágroup_0¿âµÄds2µÄuser_1±í")
+	@Subject("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚è¯»group_0åº“çš„ds2çš„user_1è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954112() {
-		Step("shard+rw£¬·Ö¿â·Ö±í£¬¶Á¿â¡£¶Ágroup_0¿âµÄds2µÄuser_1±í");
+		Step("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚è¯»group_0åº“çš„ds2çš„user_1è¡¨");
 		testPrepareData();
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("user_id", Integer.valueOf("2"));
@@ -75,25 +75,25 @@ public class SR954110 {
 
 		try {
 			List<Object> rs=(List<Object>)sqlMap.queryForList("selectShardrwMysqlPriority",params);
-		    Assert.areEqual(1, rs.size(), "¼ì²é²éÑ¯½á¹û¼ÇÂ¼");
+		    Assert.areEqual(1, rs.size(), "æ£€æŸ¥æŸ¥è¯¢ç»“æœè®°å½•");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Assert.areEqual(1, 2, "²»¸Ã³öÏÖµÄÒì³£");
+			Assert.areEqual(1, 2, "ä¸è¯¥å‡ºç°çš„å¼‚å¸¸");
 		}
-		Step("Çå³ıÊı¾İ");
+		Step("æ¸…é™¤æ•°æ®");
 		testDeleData(dburl0bac);
 	}
 	
 	
-	@Subject("shard+rw£¬·Ö¿â·Ö±í£¬¶Á¿â¡£¶Ágroup_0,group_1Á½¿âµÄ±í,¶Ô½á¹û½øĞĞmerge")
+	@Subject("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚è¯»group_0,group_1ä¸¤åº“çš„è¡¨,å¯¹ç»“æœè¿›è¡Œmerge")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954113(){
 		testPrepareData1();
 		try {
 			List<Object> rs=(List<Object>)sqlMap.queryForList("selectShardrwMysqlMergeResult");
-			Assert.areEqual(2, rs.size(), "¼ì²é²éÑ¯½á¹û¼ÇÂ¼");
+			Assert.areEqual(2, rs.size(), "æ£€æŸ¥æŸ¥è¯¢ç»“æœè®°å½•");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,17 +101,17 @@ public class SR954110 {
 		testDeleData1();
 	}
 	
-	@Subject("shard+rw£¬·Ö¿â·Ö±í£¬¶Á¿â¡£¶Ágroup_0,group_1Á½¿âµÄ±í,¶Ô½á¹û½øĞĞmerge,²¢ÇÒ¶Ô½á¹ûµÄsumÇóÖµ")
+	@Subject("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚è¯»group_0,group_1ä¸¤åº“çš„è¡¨,å¯¹ç»“æœè¿›è¡Œmerge,å¹¶ä¸”å¯¹ç»“æœçš„sumæ±‚å€¼")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954114(){
 		testPrepareData1();
 		try {
 			List<Object> rs=(List<Object>)sqlMap.queryForList("selectShardrwMysqlMergeResultSum");
-			Assert.areEqual(1, rs.size(), "¼ì²é²éÑ¯½á¹û¼ÇÂ¼");
+			Assert.areEqual(1, rs.size(), "æ£€æŸ¥æŸ¥è¯¢ç»“æœè®°å½•");
 			HashMap hm=(HashMap)rs.get(0);
 			String sumvalue=hm.get("sumvalue").toString();
-			Assert.areEqual("5", sumvalue, "¼ì²éSUMµÄÖµ");
+			Assert.areEqual("5", sumvalue, "æ£€æŸ¥SUMçš„å€¼");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -120,17 +120,17 @@ public class SR954110 {
 	}
 	
 	
-	@Subject("shard+rw£¬·Ö¿â·Ö±í£¬¶Á¿â¡£¶Ágroup_0,group_1Á½¿âµÄ±í,¶Ô½á¹û½øĞĞmerge,²¢ÇÒ¶Ô½á¹ûµÄminÇóÖµ")
+	@Subject("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚è¯»group_0,group_1ä¸¤åº“çš„è¡¨,å¯¹ç»“æœè¿›è¡Œmerge,å¹¶ä¸”å¯¹ç»“æœçš„minæ±‚å€¼")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954115(){
 		testPrepareData1();
 		try {
 			List<Object> rs=(List<Object>)sqlMap.queryForList("selectShardrwMysqlMergeResultMin");
-			Assert.areEqual(1, rs.size(), "¼ì²é²éÑ¯½á¹û¼ÇÂ¼");
+			Assert.areEqual(1, rs.size(), "æ£€æŸ¥æŸ¥è¯¢ç»“æœè®°å½•");
 			HashMap hm=(HashMap)rs.get(0);
 			String minvalue=hm.get("minvalue").toString();
-			Assert.areEqual("2", minvalue, "¼ì²éMINµÄÖµ");
+			Assert.areEqual("2", minvalue, "æ£€æŸ¥MINçš„å€¼");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -138,17 +138,17 @@ public class SR954110 {
 		testDeleData1();
 	}
 	
-	@Subject("shard+rw£¬·Ö¿â·Ö±í£¬¶Á¿â¡£¶Ágroup_0,group_1Á½¿âµÄ±í,¶Ô½á¹û½øĞĞmerge,²¢ÇÒ¶Ô½á¹ûµÄmaxÇóÖµ")
+	@Subject("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚è¯»group_0,group_1ä¸¤åº“çš„è¡¨,å¯¹ç»“æœè¿›è¡Œmerge,å¹¶ä¸”å¯¹ç»“æœçš„maxæ±‚å€¼")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954116(){
 		testPrepareData1();
 		try {
 			List<Object> rs=(List<Object>)sqlMap.queryForList("selectShardrwMysqlMergeResultMax");
-			Assert.areEqual(1, rs.size(), "¼ì²é²éÑ¯½á¹û¼ÇÂ¼");
+			Assert.areEqual(1, rs.size(), "æ£€æŸ¥æŸ¥è¯¢ç»“æœè®°å½•");
 			HashMap hm=(HashMap)rs.get(0);
 			String maxvalue=hm.get("maxvalue").toString();
-			Assert.areEqual("3", maxvalue, "¼ì²éMAXµÄÖµ");
+			Assert.areEqual("3", maxvalue, "æ£€æŸ¥MAXçš„å€¼");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -156,14 +156,14 @@ public class SR954110 {
 		testDeleData1();
 	}
 	
-	@Subject("shard+rw£¬·Ö¿â·Ö±í£¬¶Á¿â¡£¶Ágroup_0,group_1Á½¿âµÄuser_0ºÍuser_1Á½¸ö±í,¶Ô½á¹û½øĞĞmerge")
+	@Subject("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚è¯»group_0,group_1ä¸¤åº“çš„user_0å’Œuser_1ä¸¤ä¸ªè¡¨,å¯¹ç»“æœè¿›è¡Œmerge")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954117(){
 		testPrepareData2();
 		try {
 			List<Object> rs=(List<Object>)sqlMap.queryForList("selectShardrwMysqlTwoTablesMergeResult");
-			Assert.areEqual(4, rs.size(), "¼ì²é²éÑ¯½á¹û¼ÇÂ¼");
+			Assert.areEqual(4, rs.size(), "æ£€æŸ¥æŸ¥è¯¢ç»“æœè®°å½•");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -171,17 +171,17 @@ public class SR954110 {
 		testDeleData2();
 	}
 	
-	@Subject("shard+rw£¬·Ö¿â·Ö±í£¬¶Á¿â¡£¶Ágroup_0,group_1Á½¿âµÄuser_0ºÍuser_1Á½¸ö±í,¶Ô½á¹û½øĞĞmerge,²¢ÇósumÖµ")
+	@Subject("shard+rwï¼Œåˆ†åº“åˆ†è¡¨ï¼Œè¯»åº“ã€‚è¯»group_0,group_1ä¸¤åº“çš„user_0å’Œuser_1ä¸¤ä¸ªè¡¨,å¯¹ç»“æœè¿›è¡Œmerge,å¹¶æ±‚sumå€¼")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954118(){
 		testPrepareData2();
 		try {
 			List<Object> rs=(List<Object>)sqlMap.queryForList("selectShardrwMysqlTwoTablesMergeResultSum");
-			Assert.areEqual(1, rs.size(), "¼ì²é²éÑ¯½á¹û¼ÇÂ¼");
+			Assert.areEqual(1, rs.size(), "æ£€æŸ¥æŸ¥è¯¢ç»“æœè®°å½•");
 			HashMap hm=(HashMap)rs.get(0);
 			String sumvalue=hm.get("sumvalue").toString();
-			Assert.areEqual("10", sumvalue, "¼ì²ésumÖµ");
+			Assert.areEqual("10", sumvalue, "æ£€æŸ¥sumå€¼");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -192,7 +192,7 @@ public class SR954110 {
 	
 
 	/**
-	 * ¼ì²éÊı¾İÊıÁ¿
+	 * æ£€æŸ¥æ•°æ®æ•°é‡
 	 * 
 	 * @param dburl
 	 */
@@ -202,7 +202,7 @@ public class SR954110 {
 				dbuser);
 		try {
 			rs.next();
-			Assert.areEqual(1, rs.getInt(1), "Êı¾İ¼ì²é");
+			Assert.areEqual(1, rs.getInt(1), "æ•°æ®æ£€æŸ¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -210,7 +210,7 @@ public class SR954110 {
 	}
 
 	/**
-	 * Ïû³ıÊı¾İ
+	 * æ¶ˆé™¤æ•°æ®
 	 */
 	private void testDeleData(String dburl) {
 		String delStr = "delete from user_1";
@@ -218,7 +218,7 @@ public class SR954110 {
 	}
 
 	/**
-	 * ×¼±¸Êı¾İ
+	 * å‡†å¤‡æ•°æ®
 	 */
 	private void testPrepareData() {
 		String insertSql = "insert into user_1 (user_id,age,name,gmt_created,gmt_modified) values (2,1,'test',now(),now()) ";

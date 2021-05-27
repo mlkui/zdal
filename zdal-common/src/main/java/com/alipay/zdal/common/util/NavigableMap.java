@@ -61,7 +61,7 @@ import java.util.SortedMap;
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  *
- * @version $Id: NavigableMap.java, v 0.1 2014-1-6 ÏÂÎç05:22:29 Exp $
+ * @version $Id: NavigableMap.java, v 0.1 2014-1-6 ä¸‹åˆ05:22:29 Exp $
  */
 public interface NavigableMap<K, V> extends SortedMap<K, V> {
     /**

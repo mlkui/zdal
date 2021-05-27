@@ -153,8 +153,8 @@ import com.alipay.zdal.parser.sql.util.JdbcUtils;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ZdalOracleSchemaStatVisitor.java, v 0.1 2012-11-17 ÏÂÎç3:57:22 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalOracleSchemaStatVisitor.java, v 0.1 2012-11-17 ä¸‹åˆ3:57:22 Exp $
  */
 public class ZdalOracleSchemaStatVisitor extends ZdalSchemaStatVisitor implements OracleASTVisitor {
     private Set<BindVarCondition> rownums = new HashSet<BindVarCondition>();
@@ -374,7 +374,7 @@ public class ZdalOracleSchemaStatVisitor extends ZdalSchemaStatVisitor implement
         }
 
         accept(x.getItems());
-        //´ÓupdateµÄwhereÇ°Ãæ»ñÈ¡°ó¶¨²ÎÊı.
+        //ä»updateçš„whereå‰é¢è·å–ç»‘å®šå‚æ•°.
         acceptSQLUpdateSetItem(x.getItems());
         accept(x.getWhere());
 
@@ -1037,7 +1037,7 @@ public class ZdalOracleSchemaStatVisitor extends ZdalSchemaStatVisitor implement
         }
 
         accept(x.getColumns());
-        //´ÓinsertÖĞ»ñÈ¡°ó¶¨²ÎÊı.
+        //ä»insertä¸­è·å–ç»‘å®šå‚æ•°.
         acceptInsertValueClauses(x.getColumns(), Arrays.asList(x.getValues()));
         accept(x.getQuery());
 

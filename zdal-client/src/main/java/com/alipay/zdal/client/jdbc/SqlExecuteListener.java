@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface SqlExecuteListener {
     /**
-     * ÓÃÀ´´¦ÀíÍ³Ò»ÅäÖÃµÄ´«µİ
+     * ç”¨æ¥å¤„ç†ç»Ÿä¸€é…ç½®çš„ä¼ é€’
      */
     void init(ZdalDataSource tDataSource);
 

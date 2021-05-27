@@ -6,25 +6,25 @@ package com.alipay.zdal.common;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: Constants.java, v 0.1 2013-1-10 ÏÂÎç03:31:24 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: Constants.java, v 0.1 2013-1-10 ä¸‹åˆ03:31:24 Exp $
  */
 public interface Constants {
-    /** configĞÅÏ¢±ä¸üÊ±£¬¼ÇÂ¼µÄlogÃû³Æ. */
+    /** configä¿¡æ¯å˜æ›´æ—¶ï¼Œè®°å½•çš„logåç§°. */
     public static final String CONFIG_LOG_NAME_LOGNAME           = "zdal-client-config";
 
-    /** ´òÓ¡zdatasourceÁ¬½Ó³Ø×´Ì¬µÄlogÃû³Æ. */
+    /** æ‰“å°zdatasourceè¿æ¥æ± çŠ¶æ€çš„logåç§°. */
     public static final String ZDAL_DATASOURCE_POOL_LOGNAME      = "zdal-datasource-pool";
 
-    /**  ±¾µØÅäÖÃÎÄ¼şµÄ ÀàĞÍ£¬ DS OR¡¡RULE*/
+    /**  æœ¬åœ°é…ç½®æ–‡ä»¶çš„ ç±»å‹ï¼Œ DS ORã€€RULE*/
     public static final int    LOCAL_CONFIG_DS                   = 0;
 
     public static final int    LOCAL_CONFIG_RULE                 = 1;
 
-    /**  ±¾µØÅäÖÃÎÄ¼şµÄÃû³Æ¸ñÊ½£ºappName-dbmode-ds.xml*/
+    /**  æœ¬åœ°é…ç½®æ–‡ä»¶çš„åç§°æ ¼å¼ï¼šappName-dbmode-ds.xml*/
     public static final String LOCAL_CONFIG_FILENAME_SUFFIX      = "{0}-{1}-ds.xml";
 
-    /**  ±¾µØÅäÖÃÎÄ¼şµÄÃû³Æ¸ñÊ½£ºappName-dbmode-rule.xml*/
+    /**  æœ¬åœ°é…ç½®æ–‡ä»¶çš„åç§°æ ¼å¼ï¼šappName-dbmode-rule.xml*/
     public static final String LOCAL_RULE_CONFIG_FILENAME_SUFFIX = "{0}-{1}-rule.xml";
 
     public static final String DBINDEX_DSKEY_CONN_CHAR           = "_";

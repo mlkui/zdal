@@ -20,8 +20,8 @@ import com.alipay.zdal.datasource.resource.spi.LocalTransaction;
 /**
  * LocalManagedConnection
  *
- * @author ²®ÑÀ
- * @version $Id: LocalManagedConnection.java, v 0.1 2014-1-6 ÏÂÎç05:32:00 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: LocalManagedConnection.java, v 0.1 2014-1-6 ä¸‹åˆ05:32:00 Exp $
  */
 public class LocalManagedConnection extends BaseWrapperManagedConnection implements
                                                                         LocalTransaction {

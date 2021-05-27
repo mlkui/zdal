@@ -7,7 +7,7 @@ package com.alipay.zdal.parser.sql.ast.statement;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLColumnConstraint.java, v 0.1 2012-11-17 ÏÂÎç3:20:43 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLColumnConstraint.java, v 0.1 2012-11-17 ä¸‹åˆ3:20:43 xiaoqing.zhouxq Exp $
  */
 public interface SQLColumnConstraint extends SQLConstaint {
 

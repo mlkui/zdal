@@ -17,8 +17,8 @@ import com.alipay.zdal.datasource.resource.util.NestedThrowable;
  * Properly displays linked exception (ie. nested exception)
  * when printing the stack trace.
  *
- * @author ≤Æ—¿
- * @version $Id: JBossResourceException.java, v 0.1 2014-1-6 œ¬ŒÁ05:26:37 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: JBossResourceException.java, v 0.1 2014-1-6 ‰∏ãÂçà05:26:37 Exp $
  */
 public class JBossResourceException extends ResourceException implements NestedThrowable {
     /** The servial version uid*/

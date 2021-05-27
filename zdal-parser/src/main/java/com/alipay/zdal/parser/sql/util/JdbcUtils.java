@@ -25,8 +25,8 @@ import com.alipay.zdal.parser.sql.SqlParserRuntimeException;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: JdbcUtils.java, v 0.1 2012-11-17 ÏÂÎç3:55:44 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: JdbcUtils.java, v 0.1 2012-11-17 ä¸‹åˆ3:55:44 Exp $
  */
 public final class JdbcUtils {
 

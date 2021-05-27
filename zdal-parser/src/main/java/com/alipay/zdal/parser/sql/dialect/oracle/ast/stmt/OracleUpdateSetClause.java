@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.ast.OracleSQLObjectImpl;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleUpdateSetClause.java, v 0.1 2012-11-17 ÏÂÎç3:51:02 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleUpdateSetClause.java, v 0.1 2012-11-17 ä¸‹åˆ3:51:02 Exp $
  */
 public abstract class OracleUpdateSetClause extends OracleSQLObjectImpl {
 

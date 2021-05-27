@@ -17,7 +17,7 @@ import com.alipay.zdal.parser.sql.util.JdbcUtils;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleSQLParserResourceTest.java, v 0.1 2012-5-17 …œŒÁ10:22:10 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleSQLParserResourceTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:22:10 xiaoqing.zhouxq Exp $
  */
 public class OracleSQLParserResourceTest extends TestCase {
 

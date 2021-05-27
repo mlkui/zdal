@@ -15,13 +15,13 @@ import com.alipay.zdal.rule.LogicTableRule;
 import com.alipay.zdal.rule.ruleengine.entities.retvalue.TargetDB;
 
 /**
- * Æ¥Åä¶ÔÏóÓÃµÄ½è¿Ú£¬»á½«sql¼ÆËã³öµÄ½á¹û£¬²ÎÊıÒÔ¼°¹æÔò½øĞĞÆ¥Åä
+ * åŒ¹é…å¯¹è±¡ç”¨çš„å€Ÿå£ï¼Œä¼šå°†sqlè®¡ç®—å‡ºçš„ç»“æœï¼Œå‚æ•°ä»¥åŠè§„åˆ™è¿›è¡ŒåŒ¹é…
  *
  */
 public interface Matcher {
     /**
-     * ÕâÀïSqlParserResult pr + List<Object> args»¹ĞèÒª³éÏó³öÒ»¸ö¸üĞ¡µÄ¶ÔÏó/½Ó¿Ú
-     * ·½±ãÒµÎñÍ¨¹ıThreadLocal·½Ê½ÈÆ¹ı½âÎö£¬Ö±½ÓÖ¸¶¨
+     * è¿™é‡ŒSqlParserResult pr + List<Object> argsè¿˜éœ€è¦æŠ½è±¡å‡ºä¸€ä¸ªæ›´å°çš„å¯¹è±¡/æ¥å£
+     * æ–¹ä¾¿ä¸šåŠ¡é€šè¿‡ThreadLocalæ–¹å¼ç»•è¿‡è§£æï¼Œç›´æ¥æŒ‡å®š
      */
     MatcherResult match(ComparativeMapChoicer comparativeMapChoicer, List<Object> args,
                         LogicTableRule rule) throws ZdalCheckedExcption;

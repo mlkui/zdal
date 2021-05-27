@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.parser;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: Token.java, v 0.1 2012-11-17 œ¬ŒÁ3:55:05 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: Token.java, v 0.1 2012-11-17 ‰∏ãÂçà3:55:05 Exp $
  */
 public enum Token {
     FOR("FOR"), IF("IF"), INDEX("INDEX"), PRIMARY("PRIMARY"), KEY("KEY"), DEFAULT("DEFAULT"), CONSTRAINT(

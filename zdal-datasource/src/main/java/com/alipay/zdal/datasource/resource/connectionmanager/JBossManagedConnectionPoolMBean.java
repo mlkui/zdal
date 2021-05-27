@@ -8,8 +8,8 @@ package com.alipay.zdal.datasource.resource.connectionmanager;
  * A JBossManagedConnectionPoolMBean.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: JBossManagedConnectionPoolMBean.java, v 0.1 2014-1-6 ÏÂÎç05:35:30 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: JBossManagedConnectionPoolMBean.java, v 0.1 2014-1-6 ä¸‹åˆ05:35:30 Exp $
  */
 public interface JBossManagedConnectionPoolMBean {
 

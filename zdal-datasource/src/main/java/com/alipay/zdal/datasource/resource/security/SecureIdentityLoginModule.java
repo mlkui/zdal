@@ -15,10 +15,10 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * ¼ÓÃÜÄ£¿é
+ * åŠ å¯†æ¨¡å—
  * 
  * @author liangjie.li
- * @version $Id: SecureIdentityLoginModule.java, v 0.1 2012-8-8 ÏÂÎç5:12:38 liangjie.li Exp $
+ * @version $Id: SecureIdentityLoginModule.java, v 0.1 2012-8-8 ä¸‹åˆ5:12:38 liangjie.li Exp $
  */
 public class SecureIdentityLoginModule {
 
@@ -44,7 +44,7 @@ public class SecureIdentityLoginModule {
             kbytes = encKey.getBytes();
         }
 
-        // Ä¬ÈÏ²ÉÓÃprod key¼ÓÃÜÓë½âÃÜ,ÏßÏÂ»·¾³»áÒì³£;
+        // é»˜è®¤é‡‡ç”¨prod keyåŠ å¯†ä¸è§£å¯†,çº¿ä¸‹ç¯å¢ƒä¼šå¼‚å¸¸;
         try {
             return initEncode(kbytes, secret);
         } catch (InvalidKeyException e) {

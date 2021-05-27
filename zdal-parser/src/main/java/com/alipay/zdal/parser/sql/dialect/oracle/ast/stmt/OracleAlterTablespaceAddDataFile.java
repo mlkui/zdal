@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleAlterTablespaceAddDataFile.java, v 0.1 2012-11-17 œ¬ŒÁ3:45:37 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleAlterTablespaceAddDataFile.java, v 0.1 2012-11-17 ‰∏ãÂçà3:45:37 Exp $
  */
 public class OracleAlterTablespaceAddDataFile extends OracleSQLObjectImpl implements
                                                                          OracleAlterTablespaceItem {

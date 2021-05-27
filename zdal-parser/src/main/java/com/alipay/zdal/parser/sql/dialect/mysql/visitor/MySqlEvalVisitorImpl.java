@@ -15,8 +15,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLEvalVisitorUtils;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlEvalVisitorImpl.java, v 0.1 2012-11-17 œ¬ŒÁ3:40:48 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlEvalVisitorImpl.java, v 0.1 2012-11-17 ‰∏ãÂçà3:40:48 Exp $
  */
 public class MySqlEvalVisitorImpl extends MySqlASTVisitorAdapter implements SQLEvalVisitor {
 

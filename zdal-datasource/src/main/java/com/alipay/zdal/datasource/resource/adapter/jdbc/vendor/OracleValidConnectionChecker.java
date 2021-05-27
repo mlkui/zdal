@@ -17,8 +17,8 @@ import com.alipay.zdal.datasource.resource.util.NestedRuntimeException;
 /**
  * Implements check valid connection sql
  *
- * @author ≤Æ—¿
- * @version $Id: OracleValidConnectionChecker.java, v 0.1 2014-1-6 œ¬ŒÁ05:32:47 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleValidConnectionChecker.java, v 0.1 2014-1-6 ‰∏ãÂçà05:32:47 Exp $
  */
 public class OracleValidConnectionChecker implements ValidConnectionChecker, Serializable {
     private static final long   serialVersionUID = -2227528634302168877L;

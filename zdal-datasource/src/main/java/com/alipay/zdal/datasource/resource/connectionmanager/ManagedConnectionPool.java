@@ -15,8 +15,8 @@ import com.alipay.zdal.datasource.transaction.Transaction;
  * A managed connection pool
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: ManagedConnectionPool.java, v 0.1 2014-1-6 ÏÂÎç05:35:44 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ManagedConnectionPool.java, v 0.1 2014-1-6 ä¸‹åˆ05:35:44 Exp $
  */
 public interface ManagedConnectionPool {
     /**

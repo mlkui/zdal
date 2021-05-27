@@ -14,8 +14,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleRangeValuesClause.java, v 0.1 2012-11-17 œ¬ŒÁ3:42:11 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleRangeValuesClause.java, v 0.1 2012-11-17 ‰∏ãÂçà3:42:11 Exp $
  */
 public class OracleRangeValuesClause extends OracleSQLObjectImpl {
 

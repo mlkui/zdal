@@ -7,27 +7,27 @@ package com.alipay.zdal.client.util;
 import com.alipay.zdal.common.lang.StringUtil;
 
 /**
- * Éú³É±íºó×ºµÄÀà£¬Ö÷ÒªÊÇfailover»áÓÃµ½
+ * ç”Ÿæˆè¡¨åç¼€çš„ç±»ï¼Œä¸»è¦æ˜¯failoverä¼šç”¨åˆ°
  * @author zhaofeng.wang
- * @version $Id: TableSuffixGenerator.java,v 0.1 2013-2-25 ÏÂÎç02:40:11 zhaofeng.wang Exp $
+ * @version $Id: TableSuffixGenerator.java,v 0.1 2013-2-25 ä¸‹åˆ02:40:11 zhaofeng.wang Exp $
  */
 public class TableSuffixGenerator {
 
     /**
-     * »ñÈ¡±íºó×º£¬¿í¶ÈÔİ¶¨Îª 2
-     * @param i Èë²Î£¬±íºó×ºµÄË³ĞòºÅ
-     * @return  ²¹Æë¡°0¡±ºóµÄ±íºó×º
+     * è·å–è¡¨åç¼€ï¼Œå®½åº¦æš‚å®šä¸º 2
+     * @param i å…¥å‚ï¼Œè¡¨åç¼€çš„é¡ºåºå·
+     * @return  è¡¥é½â€œ0â€åçš„è¡¨åç¼€
      * 
      */
     public static String getTableSuffix(int i, int masterDBSize) {
-        //Ä¬ÈÏ¶¼ÊÇÁ½Î»µÄºó×º.
+        //é»˜è®¤éƒ½æ˜¯ä¸¤ä½çš„åç¼€.
         int lenth = (int) Math.ceil(Math.log10(masterDBSize));
         return StringUtil.alignRight(String.valueOf(i), lenth, '0');
     }
 
     /**
-     * Èç¹ûgroupNum<10 ½á¹û=0,11,22,33,44,55,66,77,88,99
-     * Èç¹ûgroupNum>=10&&groupNum<110£¬¹æÂÉÈçÏÂ£º
+     * å¦‚æœgroupNum<10 ç»“æœ=0,11,22,33,44,55,66,77,88,99
+     * å¦‚æœgroupNum>=10&&groupNum<110ï¼Œè§„å¾‹å¦‚ä¸‹ï¼š
      *  10-1...19-10
      *  20-12...29-21
      *  30-23...39-32

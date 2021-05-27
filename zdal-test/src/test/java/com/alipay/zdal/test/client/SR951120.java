@@ -30,11 +30,11 @@ public class SR951120 extends ZdalTestBase {
         zdalDataSource.setAppDsName(appDsName);
     }
 
-    @Subject("≥ı ºªØzdalDatasource,ªÒ»° getConnection")
+    @Subject("ÂàùÂßãÂåñzdalDatasource,Ëé∑Âèñ getConnection")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951121() {
-        Step("≥ı ºªØzdalDatasource,ªÒ»° getConnection");
+        Step("ÂàùÂßãÂåñzdalDatasource,Ëé∑Âèñ getConnection");
         int noException = 0;
         try {
             zdalDataSource.init();
@@ -42,22 +42,22 @@ public class SR951120 extends ZdalTestBase {
         } catch (SQLException ex) {
             noException = 1;
         }
-        Step("∂œ—‘connection");
+        Step("Êñ≠Ë®Äconnection");
         Assert.areEqual(0, noException, "zdalDataSource getConnection");
 
     }
 
-    @Subject("≥ı ºªØzdalDatasource,ªÒ»° getConnection2")
+    @Subject("ÂàùÂßãÂåñzdalDatasource,Ëé∑Âèñ getConnection2")
     @Priority(PriorityLevel.NORMAL)
     @Test
     public void TC951122() {
 
         try {
-            Step("≥ı ºªØ");
+            Step("ÂàùÂßãÂåñ");
             zdalDataSource.init();
             ZdalConnection zcn = (ZdalConnection) zdalDataSource.getConnection();
-            Step("∂œ—‘connection");
-            Assert.areEqual(appName, zcn.getAppDsName(), "—È÷§connection");
+            Step("Êñ≠Ë®Äconnection");
+            Assert.areEqual(appName, zcn.getAppDsName(), "È™åËØÅconnection");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

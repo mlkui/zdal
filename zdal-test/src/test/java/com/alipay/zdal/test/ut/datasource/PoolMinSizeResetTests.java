@@ -74,10 +74,10 @@ public class PoolMinSizeResetTests {
 		}
 	}
 
-	 /** mysql数据库预热连接的sql语句 */
+	 /** mysql鏁版嵁搴撻鐑繛鎺ョ殑sql璇彞 */
     private static final String MYSQL_PREFILL_SQL  = "select 1";
 
-    /** oracle数据库预热连接的sql语句 */
+    /** oracle鏁版嵁搴撻鐑繛鎺ョ殑sql璇彞 */
     private static final String ORACLE_PREFILL_SQL = "select sysdate from dual";
     
 	final static String name = "ds1" ;

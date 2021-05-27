@@ -20,8 +20,8 @@ import com.alipay.zdal.datasource.ZDataSource;
  *
  * @todo remove the org.jboss.ejb.plugins.cmp.jdbc.WrappedStatement dependency
  *
- * @author 伯牙
- * @version $Id: WrappedStatement.java, v 0.1 2014-1-6 下午05:31:18 Exp $
+ * @author 浼墮
+ * @version $Id: WrappedStatement.java, v 0.1 2014-1-6 涓嬪崍05:31:18 Exp $
  */
 public class WrappedStatement implements Statement, StatementAccess {
 
@@ -39,7 +39,7 @@ public class WrappedStatement implements Statement, StatementAccess {
     /** The state lock */
     private final Object            lock           = new Object();
 
-    /**  應用看到的數據源*/
+    /**  鎳夌敤鐪嬪埌鐨勬暩鎿氭簮*/
     protected ZDataSource           zdatasource    = null;
 
     public ZDataSource getZdatasource() {

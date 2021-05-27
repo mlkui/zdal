@@ -15,9 +15,9 @@ import com.alipay.zdal.common.SqlType;
 import com.alipay.zdal.parser.visitor.ZdalSchemaStatVisitor;
 
 /**
- * ÓÃÓÚ»º´æ½âÎö¹ıµÄsqlÓï¾ä½á¹û.
+ * ç”¨äºç¼“å­˜è§£æè¿‡çš„sqlè¯­å¥ç»“æœ.
  * @author xiaoqing.zhouxq
- * @version $Id: ParserCache.java, v 0.1 2012-5-25 ÏÂÎç03:32:41 xiaoqing.zhouxq Exp $
+ * @version $Id: ParserCache.java, v 0.1 2012-5-25 ä¸‹åˆ03:32:41 xiaoqing.zhouxq Exp $
  */
 public class ParserCache {
 
@@ -43,17 +43,17 @@ public class ParserCache {
     protected static class ItemValue {
 
         /**
-         * Êı¾İµÄCRUDÀàĞÍ
+         * æ•°æ®çš„CRUDç±»å‹
          */
         private AtomicReference<SqlType>                           sqlType              = new AtomicReference<SqlType>();
 
         /**
-         * ³ıÈ¥virtualTableNameÒÔÍâµÄÆäËûsql×Ö¶Î
+         * é™¤å»virtualTableNameä»¥å¤–çš„å…¶ä»–sqlå­—æ®µ
          */
         private AtomicReference<List<String>>                      tableNameReplacement = new AtomicReference<List<String>>();
 
         /**
-         * »º´æµÄÕû¸ösql
+         * ç¼“å­˜çš„æ•´ä¸ªsql
          */
         private AtomicReference<FutureTask<ZdalSchemaStatVisitor>> futureVisitor        = new AtomicReference<FutureTask<ZdalSchemaStatVisitor>>();
 
@@ -62,11 +62,11 @@ public class ParserCache {
         }
 
         public SqlType setSqlTypeIfAbsent(SqlType sqlTypeinput) {
-            //Èç¹ûÔ­ÖµÎªnullÔò»áÔ­×ÓµÄÉèÖÃĞÂÖµ½øÈ¥¡£²¢ÇÒ·µ»ØĞÂÖµ
+            //å¦‚æœåŸå€¼ä¸ºnullåˆ™ä¼šåŸå­çš„è®¾ç½®æ–°å€¼è¿›å»ã€‚å¹¶ä¸”è¿”å›æ–°å€¼
             if (sqlType.compareAndSet(null, sqlTypeinput)) {
                 return sqlTypeinput;
             } else {
-                //Èç¹ûÀïÃæµÄÖµÒÑ¾­²»Îªnull£¬Ôò¶ÁÈ¡¸ÃÖµ
+                //å¦‚æœé‡Œé¢çš„å€¼å·²ç»ä¸ä¸ºnullï¼Œåˆ™è¯»å–è¯¥å€¼
                 return sqlType.get();
             }
         }
@@ -76,11 +76,11 @@ public class ParserCache {
         }
 
         public List<String> setTableNameReplacementIfAbsent(List<String> tableNameReplacementList) {
-            //Èç¹ûÔ­ÖµÎªnullÔò»áÔ­×ÓµÄÉèÖÃĞÂÖµ½øÈ¥¡£²¢ÇÒ·µ»ØĞÂÖµ
+            //å¦‚æœåŸå€¼ä¸ºnullåˆ™ä¼šåŸå­çš„è®¾ç½®æ–°å€¼è¿›å»ã€‚å¹¶ä¸”è¿”å›æ–°å€¼
             if (tableNameReplacement.compareAndSet(null, tableNameReplacementList)) {
                 return tableNameReplacementList;
             } else {
-                //Èç¹ûÀïÃæµÄÖµÒÑ¾­²»Îªnull£¬Ôò¶ÁÈ¡¸ÃÖµ
+                //å¦‚æœé‡Œé¢çš„å€¼å·²ç»ä¸ä¸ºnullï¼Œåˆ™è¯»å–è¯¥å€¼
                 return tableNameReplacement.get();
             }
 
@@ -91,11 +91,11 @@ public class ParserCache {
         }
 
         public FutureTask<ZdalSchemaStatVisitor> setFutureVisitorIfAbsent(FutureTask<ZdalSchemaStatVisitor> future) {
-            //Èç¹ûÔ­ÖµÎªnullÔò»áÔ­×ÓµÄÉèÖÃĞÂÖµ½øÈ¥¡£²¢ÇÒ·µ»ØĞÂÖµ
+            //å¦‚æœåŸå€¼ä¸ºnullåˆ™ä¼šåŸå­çš„è®¾ç½®æ–°å€¼è¿›å»ã€‚å¹¶ä¸”è¿”å›æ–°å€¼
             if (futureVisitor.compareAndSet(null, future)) {
                 return future;
             } else {
-                //Èç¹ûÀïÃæµÄÖµÒÑ¾­²»Îªnull£¬Ôò¶ÁÈ¡¸ÃÖµ
+                //å¦‚æœé‡Œé¢çš„å€¼å·²ç»ä¸ä¸ºnullï¼Œåˆ™è¯»å–è¯¥å€¼
                 return futureVisitor.get();
             }
         }
@@ -119,10 +119,10 @@ public class ParserCache {
         ItemValue itemValue = get(sql);
         SqlType returnSqlType = null;
         if (itemValue == null) {
-            //ÍêÈ«Ã»ÓĞµÄÇé¿ö£¬ÔÚÕâÖÖÇé¿öÏÂ£¬¿Ï¶¨ÊÇÒòÎª»¹Ã»ÓĞÏß³ÌÇëÇó¹ı½âÎöÄ³Ìõsql
+            //å®Œå…¨æ²¡æœ‰çš„æƒ…å†µï¼Œåœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œè‚¯å®šæ˜¯å› ä¸ºè¿˜æ²¡æœ‰çº¿ç¨‹è¯·æ±‚è¿‡è§£ææŸæ¡sql
             lock.lock();
             try {
-                // Ë«¼ì²élock
+                // åŒæ£€æŸ¥lock
                 itemValue = get(sql);
                 if (itemValue == null) {
 
@@ -134,11 +134,11 @@ public class ParserCache {
 
                 lock.unlock();
             }
-            //cas ¸üĞÂItemValueÖĞµÄSqlType¶ÔÏó
+            //cas æ›´æ–°ItemValueä¸­çš„SqlTypeå¯¹è±¡
             returnSqlType = itemValue.setSqlTypeIfAbsent(sqlType);
 
         } else if (itemValue.getFutureVisitor() == null) {
-            //cas ¸üĞÂItemValueÖĞµÄSqlType¶ÔÏó
+            //cas æ›´æ–°ItemValueä¸­çš„SqlTypeå¯¹è±¡
             returnSqlType = itemValue.setSqlTypeIfAbsent(sqlType);
 
         } else {
@@ -172,10 +172,10 @@ public class ParserCache {
         ItemValue itemValue = get(sql);
         List<String> returnList = null;
         if (itemValue == null) {
-            //ÍêÈ«Ã»ÓĞµÄÇé¿ö£¬ÔÚÕâÖÖÇé¿öÏÂ£¬¿Ï¶¨ÊÇÒòÎª»¹Ã»ÓĞÏÖ³ÉÇëÇó¹ı½âÎöÄ³Ìõsql
+            //å®Œå…¨æ²¡æœ‰çš„æƒ…å†µï¼Œåœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œè‚¯å®šæ˜¯å› ä¸ºè¿˜æ²¡æœ‰ç°æˆè¯·æ±‚è¿‡è§£ææŸæ¡sql
             lock.lock();
             try {
-                // Ë«¼ì²élock
+                // åŒæ£€æŸ¥lock
                 itemValue = get(sql);
                 if (itemValue == null) {
 
@@ -187,11 +187,11 @@ public class ParserCache {
 
                 lock.unlock();
             }
-            //cas ¸üĞÂItemValueÖĞµÄTableNameReplacement¶ÔÏó
+            //cas æ›´æ–°ItemValueä¸­çš„TableNameReplacementå¯¹è±¡
             returnList = itemValue.setTableNameReplacementIfAbsent(tablenameReplacement);
 
         } else if (itemValue.getTableNameReplacement() == null) {
-            //cas ¸üĞÂItemValueÖĞµÄTableNameReplacement¶ÔÏó
+            //cas æ›´æ–°ItemValueä¸­çš„TableNameReplacementå¯¹è±¡
             returnList = itemValue.setTableNameReplacementIfAbsent(tablenameReplacement);
 
         } else {
@@ -207,10 +207,10 @@ public class ParserCache {
         ItemValue itemValue = get(sql);
         FutureTask<ZdalSchemaStatVisitor> returnFutureTask = null;
         if (itemValue == null) {
-            //ÍêÈ«Ã»ÓĞµÄÇé¿ö£¬ÔÚÕâÖÖÇé¿öÏÂ£¬¿Ï¶¨ÊÇÒòÎª»¹Ã»ÓĞÏÖ³ÉÇëÇó¹ı½âÎöÄ³Ìõsql
+            //å®Œå…¨æ²¡æœ‰çš„æƒ…å†µï¼Œåœ¨è¿™ç§æƒ…å†µä¸‹ï¼Œè‚¯å®šæ˜¯å› ä¸ºè¿˜æ²¡æœ‰ç°æˆè¯·æ±‚è¿‡è§£ææŸæ¡sql
             lock.lock();
             try {
-                // Ë«¼ì²élock
+                // åŒæ£€æŸ¥lock
                 itemValue = get(sql);
                 if (itemValue == null) {
 
@@ -222,11 +222,11 @@ public class ParserCache {
 
                 lock.unlock();
             }
-            //cas ¸üĞÂItemValueÖĞµÄVisitor¶ÔÏó
+            //cas æ›´æ–°ItemValueä¸­çš„Visitorå¯¹è±¡
             returnFutureTask = itemValue.setFutureVisitorIfAbsent(future);
 
         } else if (itemValue.getFutureVisitor() == null) {
-            //cas ¸üĞÂItemValueÖĞµÄVisitor¶ÔÏó
+            //cas æ›´æ–°ItemValueä¸­çš„Visitorå¯¹è±¡
             returnFutureTask = itemValue.setFutureVisitorIfAbsent(future);
         } else {
             returnFutureTask = itemValue.getFutureVisitor();

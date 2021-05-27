@@ -126,8 +126,8 @@ import com.alipay.zdal.parser.sql.util.JdbcUtils;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ZdalMySqlSchemaStatVisitor.java, v 0.1 2012-11-17 ÏÂÎç3:57:17 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalMySqlSchemaStatVisitor.java, v 0.1 2012-11-17 ä¸‹åˆ3:57:17 Exp $
  */
 public class ZdalMySqlSchemaStatVisitor extends ZdalSchemaStatVisitor implements MySqlASTVisitor {
     private Set<BindVarCondition> limits = new HashSet<BindVarCondition>();
@@ -304,7 +304,7 @@ public class ZdalMySqlSchemaStatVisitor extends ZdalSchemaStatVisitor implements
 
         accept(x.getColumns());
         accept(x.getValuesList());
-        //´ÓinsertÖĞ»ñÈ¡°ó¶¨²ÎÊı.
+        //ä»insertä¸­è·å–ç»‘å®šå‚æ•°.
         acceptInsertValueClauses(x.getColumns(), x.getValuesList());
         accept(x.getQuery());
         accept(x.getDuplicateKeyUpdate());

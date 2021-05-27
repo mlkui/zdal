@@ -15,8 +15,8 @@ import com.alipay.zdal.parser.visitor.ZdalMySqlSchemaStatVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MysqlSqlSelectTest_2.java, v 0.1 2013-3-8 œ¬ŒÁ09:17:01 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MysqlSqlSelectTest_2.java, v 0.1 2013-3-8 ‰∏ãÂçà09:17:01 Exp $
  */
 public class MysqlSqlSelectTest_2 extends MysqlTest {
     public static final String SELECT_DS_VER_BY_APPID_SQL          = "select app_id,node_id,current_version,creator,create_time from app_ds_ver "

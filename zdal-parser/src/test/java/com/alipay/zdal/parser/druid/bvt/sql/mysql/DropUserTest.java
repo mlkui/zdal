@@ -12,7 +12,7 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlSchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: DropUserTest.java, v 0.1 2012-5-17 …œŒÁ10:04:57 xiaoqing.zhouxq Exp $
+ * @version $Id: DropUserTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:04:57 xiaoqing.zhouxq Exp $
  */
 public class DropUserTest extends MysqlTest {
 

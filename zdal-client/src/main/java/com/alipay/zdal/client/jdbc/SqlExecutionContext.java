@@ -16,21 +16,21 @@ import com.alipay.zdal.parser.GroupFunctionType;
 import com.alipay.zdal.parser.visitor.OrderByEle;
 
 /**
- * sqlÖ´ĞĞµÄÉÏÏÂÎÄ.
- * @author ²®ÑÀ
- * @version $Id: SqlExecutionContext.java, v 0.1 2014-1-6 ÏÂÎç04:54:59 Exp $
+ * sqlæ‰§è¡Œçš„ä¸Šä¸‹æ–‡.
+ * @author ä¼¯ç‰™
+ * @version $Id: SqlExecutionContext.java, v 0.1 2014-1-6 ä¸‹åˆ04:54:59 Exp $
  */
 public class SqlExecutionContext {
-    private Map<String/*Êı¾İÔ´ID*/, SqlAndTable[]/*Êı¾İÔ´ÉÏÒªÖ´ĞĞµÄSQL*/> targetSqls                 = new HashMap<String, SqlAndTable[]>();
-    private Map<Integer/*°ó¶¨²ÎÊı±àºÅ£¬´Ó0¿ªÊ¼*/, Object/*°ó¶¨²ÎÊı*/>        changedParameters          = Collections
+    private Map<String/*æ•°æ®æºID*/, SqlAndTable[]/*æ•°æ®æºä¸Šè¦æ‰§è¡Œçš„SQL*/> targetSqls                 = new HashMap<String, SqlAndTable[]>();
+    private Map<Integer/*ç»‘å®šå‚æ•°ç¼–å·ï¼Œä»0å¼€å§‹*/, Object/*ç»‘å®šå‚æ•°*/>        changedParameters          = Collections
                                                                                                 .emptyMap();
     private List<OrderByEle>                                     orderByColumns;
     private int                                                  skip;
     private int                                                  max;
     private GroupFunctionType                                    groupFunctionType;
     /**
-     * ¾ö¶¨ÊÇ·ñÊ¹ÓÃ¿Õ½á¹û¼¯£¬Ö÷ÒªÊÇÎªÁËmappring ruleÈç¹ûsqlÖĞËäÈ»ÓĞ¿ÉÒÔ±»mappingruleÊ¹ÓÃµÄ·Ö¿â·Ö±íÊı¾İ
-     * µ«Êı¾İ¿âÄÚÃ»ÓĞÊı¾İµÄÊ±ºò£¬ÒµÎñ·½ÒªÇó·µ»Ø¿ÕµÄ½á¹û¼¯¡£
+     * å†³å®šæ˜¯å¦ä½¿ç”¨ç©ºç»“æœé›†ï¼Œä¸»è¦æ˜¯ä¸ºäº†mappring ruleå¦‚æœsqlä¸­è™½ç„¶æœ‰å¯ä»¥è¢«mappingruleä½¿ç”¨çš„åˆ†åº“åˆ†è¡¨æ•°æ®
+     * ä½†æ•°æ®åº“å†…æ²¡æœ‰æ•°æ®çš„æ—¶å€™ï¼Œä¸šåŠ¡æ–¹è¦æ±‚è¿”å›ç©ºçš„ç»“æœé›†ã€‚
      */
     private boolean                                              mappingRuleReturnNullValue = false;
 

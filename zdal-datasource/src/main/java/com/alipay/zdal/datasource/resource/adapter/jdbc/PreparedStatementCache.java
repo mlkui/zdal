@@ -14,8 +14,8 @@ import com.alipay.zdal.datasource.resource.util.LRUCachePolicy;
 /**
  * LRU cache for PreparedStatements.  When ps ages out, close it.
  *
- * @author ≤Æ—¿
- * @version $Id: PreparedStatementCache.java, v 0.1 2014-1-6 œ¬ŒÁ05:29:33 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: PreparedStatementCache.java, v 0.1 2014-1-6 ‰∏ãÂçà05:29:33 Exp $
  */
 public class PreparedStatementCache extends LRUCachePolicy {
     private static final Logger log = Logger.getLogger(PreparedStatementCache.class);
@@ -23,7 +23,7 @@ public class PreparedStatementCache extends LRUCachePolicy {
     /**
      * 
      * @author sicong.shou
-     * @version $Id: PreparedStatementCache.java, v 0.1 2012-11-23 …œŒÁ11:27:11 sicong.shou Exp $
+     * @version $Id: PreparedStatementCache.java, v 0.1 2012-11-23 ‰∏äÂçà11:27:11 sicong.shou Exp $
      */
     public static class Key {
         /**  */

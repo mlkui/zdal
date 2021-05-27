@@ -11,8 +11,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLUseStatement.java, v 0.1 2012-11-17 ÏÂÎç3:28:55 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLUseStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:28:55 Exp $
  */
 public class SQLUseStatement extends SQLStatementImpl implements SQLStatement {
 

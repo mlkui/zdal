@@ -22,7 +22,7 @@ import com.alipay.zdal.parser.result.SqlParserResult;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLParserOfOracleWithSelectTest.java, v 0.1 2012-5-29 ÉÏÎç10:02:01 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLParserOfOracleWithSelectTest.java, v 0.1 2012-5-29 ä¸Šåˆ10:02:01 xiaoqing.zhouxq Exp $
  */
 public class SQLParserOfOracleWithSelectTest {
     //    private static final String   ORACLE_SELECT       = "select inst_id, finance_exchange_code, reference_no, div_db_flag, gmt_biz_create, gmt_biz_modified, gmt_create, gmt_modified"
@@ -50,7 +50,7 @@ public class SQLParserOfOracleWithSelectTest {
             "create2", 1, 5, 20                      };
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ïµ¥¸ö×Ö¶ÎµÄ²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­å•ä¸ªå­—æ®µçš„æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     //    @Test
     public void testParseWithTwoPartination() {

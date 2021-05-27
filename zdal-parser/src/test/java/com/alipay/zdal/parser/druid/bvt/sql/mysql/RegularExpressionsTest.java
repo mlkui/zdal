@@ -28,7 +28,7 @@ import com.alipay.zdal.parser.sql.parser.SQLStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: RegularExpressionsTest.java, v 0.1 2012-5-17 …œŒÁ10:07:34 xiaoqing.zhouxq Exp $
+ * @version $Id: RegularExpressionsTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:07:34 xiaoqing.zhouxq Exp $
  */
 public class RegularExpressionsTest extends TestCase {
 

@@ -7,8 +7,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
 /**
  * The thread pool is full.
  *
- * @author ²®ÑÀ
- * @version $Id: ThreadPoolFullException.java, v 0.1 2014-1-6 ÏÂÎç05:45:30 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ThreadPoolFullException.java, v 0.1 2014-1-6 ä¸‹åˆ05:45:30 Exp $
  */
 public class ThreadPoolFullException extends RuntimeException {
     // Constants -----------------------------------------------------

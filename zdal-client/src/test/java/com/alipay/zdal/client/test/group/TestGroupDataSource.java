@@ -19,8 +19,8 @@ import com.alipay.zdal.client.util.ThreadLocalMap;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: TestGroupDataSource.java, v 0.1 2013-12-25 ÉÏÎç09:44:45 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TestGroupDataSource.java, v 0.1 2013-12-25 ä¸Šåˆ09:44:45 Exp $
  */
 public class TestGroupDataSource extends BaseTest {
 
@@ -55,7 +55,7 @@ public class TestGroupDataSource extends BaseTest {
     }
 
     /**
-     * É¾³ıÀúÊ·Êı¾İ.
+     * åˆ é™¤å†å²æ•°æ®.
      * @param dataSource
      */
     private void deleteData(ZdalDataSource dataSource) {
@@ -78,7 +78,7 @@ public class TestGroupDataSource extends BaseTest {
     }
 
     /**
-     * Ö´ĞĞsqlÓï¾ä²Ù×÷.
+     * æ‰§è¡Œsqlè¯­å¥æ“ä½œ.
      * @param dataSource
      */
     private void operateGroupDataSource(ZdalDataSource dataSource) {
@@ -110,7 +110,7 @@ public class TestGroupDataSource extends BaseTest {
             conn = dataSource.getConnection();
             pst = conn.prepareStatement(selectSql);
             pst.setString(1, "id");
-            ThreadLocalMap.put(ThreadLocalString.DATABASE_INDEX, 0);//Ö¸¶¨Ğ´¿â¶Á.
+            ThreadLocalMap.put(ThreadLocalString.DATABASE_INDEX, 0);//æŒ‡å®šå†™åº“è¯».
             rs = pst.executeQuery();
             while (rs.next()) {
                 Assert.assertEquals("name", rs.getString("name"));

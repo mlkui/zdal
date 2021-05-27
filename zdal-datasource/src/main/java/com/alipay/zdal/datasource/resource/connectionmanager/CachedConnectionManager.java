@@ -35,8 +35,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * such mbean.  It is called by CachedConnectionInterceptor, UserTransaction,
  * and all BaseConnectionManager2 instances.
  *
- * @author ²®ÑÀ
- * @version $Id: CachedConnectionManager.java, v 0.1 2014-1-6 ÏÂÎç05:33:10 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CachedConnectionManager.java, v 0.1 2014-1-6 ä¸‹åˆ05:33:10 Exp $
  */
 public class CachedConnectionManager {
     private static final Logger log                          = Logger
@@ -150,7 +150,7 @@ public class CachedConnectionManager {
      */
     public void init() throws Exception {
         TransactionSynchronizer.setTransactionManager(tm);
-        // TODO: ÕÒ³öÒÔÏÂ·½·¨µÄÌæ´ú·½°¸
+        // TODO: æ‰¾å‡ºä»¥ä¸‹æ–¹æ³•çš„æ›¿ä»£æ–¹æ¡ˆ
         // ServerVMClientUserTransaction.getSingleton().registerTxStartedListener(this);
         // EnterpriseContext.setUserTransactionStartedListener(this);
     }
@@ -160,7 +160,7 @@ public class CachedConnectionManager {
      * @throws Exception
      */
     public void destroy() throws Exception {
-        // TODO: ÕÒ³öÒÔÏÂ·½·¨µÄÌæ´ú·½°¸
+        // TODO: æ‰¾å‡ºä»¥ä¸‹æ–¹æ³•çš„æ›¿ä»£æ–¹æ¡ˆ
         // ServerVMClientUserTransaction.getSingleton().unregisterTxStartedListener(this);
         // EnterpriseContext.setUserTransactionStartedListener(null);
     }
@@ -318,7 +318,7 @@ public class CachedConnectionManager {
         throw new IllegalStateException("Trying to return an unknown connection2! " + c);
     }
 
-    // FIXME: UserTransaction¿ªÊ¼Ê±ĞèÒªµ÷ÓÃÕâ¸ö·½·¨
+    // FIXME: UserTransactionå¼€å§‹æ—¶éœ€è¦è°ƒç”¨è¿™ä¸ªæ–¹æ³•
     //called by UserTransaction after starting a transaction
     /**
      * 

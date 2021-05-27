@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlAlterTableAddColumn.java, v 0.1 2012-11-17 ÏÂÎç3:31:15 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlAlterTableAddColumn.java, v 0.1 2012-11-17 ä¸‹åˆ3:31:15 Exp $
  */
 public class MySqlAlterTableAddColumn extends SQLAlterTableAddColumn implements MySqlObject {
 

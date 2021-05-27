@@ -15,7 +15,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLInsertStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:22:39 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLInsertStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:22:39 xiaoqing.zhouxq Exp $
  */
 public class SQLInsertStatement extends SQLInsertInto implements SQLStatement {
 

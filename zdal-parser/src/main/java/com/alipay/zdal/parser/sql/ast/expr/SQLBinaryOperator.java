@@ -5,9 +5,9 @@
 package com.alipay.zdal.parser.sql.ast.expr;
 
 /**
- * 二元操作.
+ * 浜屽厓鎿嶄綔.
  * @author xiaoqing.zhouxq
- * @version $Id: SQLBinaryOperator.java, v 0.1 2012-11-17 下午3:14:57 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLBinaryOperator.java, v 0.1 2012-11-17 涓嬪崍3:14:57 xiaoqing.zhouxq Exp $
  */
 public enum SQLBinaryOperator {
     Union("UNION", 0), COLLATE("COLLATE", 20), BitwiseXor("^", 50),

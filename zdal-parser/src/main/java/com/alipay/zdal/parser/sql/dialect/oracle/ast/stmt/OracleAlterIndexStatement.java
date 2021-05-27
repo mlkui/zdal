@@ -12,8 +12,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleAlterIndexStatement.java, v 0.1 2012-11-17 ÏÂÎç3:44:49 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleAlterIndexStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:44:49 Exp $
  */
 public class OracleAlterIndexStatement extends OracleStatementImpl {
 

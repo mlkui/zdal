@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.parser;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: CharTypes.java, v 0.1 2012-11-17 ÏÂÎç3:53:18 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CharTypes.java, v 0.1 2012-11-17 ä¸‹åˆ3:53:18 Exp $
  */
 public class CharTypes {
 
@@ -79,7 +79,7 @@ public class CharTypes {
         whitespaceFlags['\t'] = true;
         whitespaceFlags['\f'] = true;
         whitespaceFlags['\b'] = true;
-        whitespaceFlags[160] = true; // ç‰¹åˆ«å¤„ç†
+        whitespaceFlags[160] = true; // é—ç‘°åŸ†æ¾¶å‹­æ‚Š
     }
 
     /**

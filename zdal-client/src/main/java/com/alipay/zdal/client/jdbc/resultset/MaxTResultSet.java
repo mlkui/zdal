@@ -12,8 +12,8 @@ import com.alipay.zdal.client.jdbc.ZdalStatement;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MaxTResultSet.java, v 0.1 2014-1-6 ÏÂÎç05:14:33 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MaxTResultSet.java, v 0.1 2014-1-6 ä¸‹åˆ05:14:33 Exp $
  */
 public class MaxTResultSet extends MaxMinTResultSet {
 

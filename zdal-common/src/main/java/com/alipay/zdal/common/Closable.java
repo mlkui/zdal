@@ -5,15 +5,15 @@
 package com.alipay.zdal.common;
 
 /**
- * Ïú»ÙÍâ²¿×ÊÔ´.
+ * é”€æ¯å¤–éƒ¨èµ„æº.
  * 
- * @author ²®ÑÀ
- * @version $Id: Closable.java, v 0.1 2012-11-17 ÏÂÎç4:57:54 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: Closable.java, v 0.1 2012-11-17 ä¸‹åˆ4:57:54 Exp $
  */
 public interface Closable {
     /**
      * com.alipay.zdal.client.jdbc.ZdalDataSource,
-     * com.alipay.zdal.datasource.ZdatasourceĞèÒªµ÷ÓÃÀ´Ïú»ÙÍâ²¿×ÊÔ´.
+     * com.alipay.zdal.datasource.Zdatasourceéœ€è¦è°ƒç”¨æ¥é”€æ¯å¤–éƒ¨èµ„æº.
      * @throws Throwable
      */
     void close() throws Throwable;

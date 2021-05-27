@@ -11,8 +11,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlRollbackStatement.java, v 0.1 2012-11-17 ÏÂÎç3:34:12 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlRollbackStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:34:12 Exp $
  */
 public class MySqlRollbackStatement extends SQLRollbackStatement implements MySqlStatement {
 

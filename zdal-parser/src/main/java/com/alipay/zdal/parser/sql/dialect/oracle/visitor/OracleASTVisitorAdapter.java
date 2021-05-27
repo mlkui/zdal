@@ -124,8 +124,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitorAdapter;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleASTVisitorAdapter.java, v 0.1 2012-11-17 œ¬ŒÁ3:52:42 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleASTVisitorAdapter.java, v 0.1 2012-11-17 ‰∏ãÂçà3:52:42 Exp $
  */
 public class OracleASTVisitorAdapter extends SQLASTVisitorAdapter implements OracleASTVisitor {
 

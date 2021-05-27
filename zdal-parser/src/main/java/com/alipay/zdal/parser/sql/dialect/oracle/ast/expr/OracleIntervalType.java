@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.dialect.oracle.ast.expr;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleIntervalType.java, v 0.1 2012-11-17 œ¬ŒÁ3:44:09 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleIntervalType.java, v 0.1 2012-11-17 ‰∏ãÂçà3:44:09 Exp $
  */
 public enum OracleIntervalType {
     YEAR, MONTH, DAY, HOUR, MINUTE, SECOND;

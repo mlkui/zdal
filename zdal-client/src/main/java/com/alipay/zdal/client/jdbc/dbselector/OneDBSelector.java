@@ -20,8 +20,8 @@ import com.alipay.zdal.client.util.ThreadLocalMap;
 import com.alipay.zdal.common.OperationDBType;
 
 /**
- * Ö»ÓĞÒ»¸öÊı¾İÔ´µÄDBSelector
- * //private String id, ×÷ÎªdbSelectorµÄidºÍdbµÄdsKey
+ * åªæœ‰ä¸€ä¸ªæ•°æ®æºçš„DBSelector
+ * //private String id, ä½œä¸ºdbSelectorçš„idå’Œdbçš„dsKey
  */
 public class OneDBSelector extends AbstractDBSelector {
     private static final Logger logger              = Logger.getLogger(OneDBSelector.class);
@@ -50,7 +50,7 @@ public class OneDBSelector extends AbstractDBSelector {
                             Object... args) throws SQLException {
         List<SQLException> exceptions;
         if (failedDataSources != null && failedDataSources.containsKey(db)) {
-            //throw new SQLException("Ã»ÓĞ¿ÉÓÃµÄÊı¾İÔ´ÁË");
+            //throw new SQLException("æ²¡æœ‰å¯ç”¨çš„æ•°æ®æºäº†");
             exceptions = new ArrayList<SQLException>(failedDataSources.size());
             exceptions.addAll(failedDataSources.values());
             return tryer.onSQLException(exceptions, this.exceptionSorter, args);
@@ -59,9 +59,9 @@ public class OneDBSelector extends AbstractDBSelector {
             if (OneDbRunTimeWeight <= 0) {
                 throw new SQLException("Mark_down or readonly!");
             }
-            //»ñÈ¡µ½dbµÄÃû×Ö£¬È»ºó»º´æÆğÀ´£¬ÒµÎñ»áÓÃµ½¸ÃÃû×Ö
+            //è·å–åˆ°dbçš„åå­—ï¼Œç„¶åç¼“å­˜èµ·æ¥ï¼Œä¸šåŠ¡ä¼šç”¨åˆ°è¯¥åå­—
             Map<String, DataSource> map = new HashMap<String, DataSource>();
-            //¼ÓÉÏÇ°×º£¬by±ù»ê 20130903
+            //åŠ ä¸Šå‰ç¼€ï¼Œbyå†°é­‚ 20130903
             map.put(getAppDsName() + "." + getId(), null);
             ThreadLocalMap.put(ThreadLocalString.GET_ID_AND_DATABASE, map);
 
@@ -79,8 +79,8 @@ public class OneDBSelector extends AbstractDBSelector {
     }
 
     public void setWeight(Map<String, Integer> weightMap) {
-        // ÎªÁË¿ÉÒÔ¶¯Ì¬µÄÍ£µôÄ³¸öÂß¼­¿â£¬¼ÓÈëÁËÒÔÏÂ´úÂë 
-        //´Ó¸¸ÀàµÃµ½id
+        // ä¸ºäº†å¯ä»¥åŠ¨æ€çš„åœæ‰æŸä¸ªé€»è¾‘åº“ï¼ŒåŠ å…¥äº†ä»¥ä¸‹ä»£ç  
+        //ä»çˆ¶ç±»å¾—åˆ°id
         String id = getId();
         String id_db = id + indexSuffix;
         Integer weight = weightMap.get(id_db);

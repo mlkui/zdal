@@ -12,8 +12,8 @@ import java.sql.Statement;
  statement implementation back from the wrapper.
 
  * 
- * @author ²®ÑÀ
- * @version $Id: StatementAccess.java, v 0.1 2014-1-6 ÏÂÎç05:29:45 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: StatementAccess.java, v 0.1 2014-1-6 ä¸‹åˆ05:29:45 Exp $
  */
 public interface StatementAccess {
     /**

@@ -29,8 +29,8 @@ import com.alipay.zdal.parser.sql.parser.Token;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlSelectParser.java, v 0.1 2012-11-17 ÏÂÎç3:40:19 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlSelectParser.java, v 0.1 2012-11-17 ä¸‹åˆ3:40:19 Exp $
  */
 public class MySqlSelectParser extends SQLSelectParser {
 

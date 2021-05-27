@@ -9,7 +9,7 @@ import java.util.Comparator;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: BindVarConditionComparable.java, v 0.1 2012-5-28 œ¬ŒÁ04:08:00 xiaoqing.zhouxq Exp $
+ * @version $Id: BindVarConditionComparable.java, v 0.1 2012-5-28 ‰∏ãÂçà04:08:00 xiaoqing.zhouxq Exp $
  */
 public class BindVarConditionComparable implements Comparator<BindVarCondition> {
 

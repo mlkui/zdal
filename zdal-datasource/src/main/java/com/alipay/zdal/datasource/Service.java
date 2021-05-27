@@ -7,7 +7,7 @@ package com.alipay.zdal.datasource;
 /**
  * 
  * @author sicong.shou
- * @version $Id: Service.java, v 0.1 2012-11-23 …œŒÁ11:04:01 sicong.shou Exp $
+ * @version $Id: Service.java, v 0.1 2012-11-23 ‰∏äÂçà11:04:01 sicong.shou Exp $
  */
 public interface Service {
 

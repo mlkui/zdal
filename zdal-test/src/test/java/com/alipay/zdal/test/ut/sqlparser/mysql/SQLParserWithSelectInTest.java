@@ -30,7 +30,7 @@ public class SQLParserWithSelectInTest {
                                                       + " where inst_id in ('code1','code2','code3','code4')";
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊ±,inÀïÃæ´ø¶à¸ö²ÎÊı.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ—¶,iné‡Œé¢å¸¦å¤šä¸ªå‚æ•°.
      */
     @Test
     public void test1() {
@@ -50,7 +50,7 @@ public class SQLParserWithSelectInTest {
     }
 
     /**
-     * ²âÊÔ·Ç°ó¶¨²ÎÊı£¬inÀïÃæ´ø¶à¸ö²ÎÊı.
+     * æµ‹è¯•éç»‘å®šå‚æ•°ï¼Œiné‡Œé¢å¸¦å¤šä¸ªå‚æ•°.
      */
     @Test
     public void test2() {

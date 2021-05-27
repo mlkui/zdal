@@ -22,7 +22,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rwÖØÊÔ")
+@Feature("shard+rwé‡è¯•")
 public class SR954150 {
 	public TestAssertion Assert = new TestAssertion();;
 	private SqlMapClient sqlMap;
@@ -43,17 +43,17 @@ public class SR954150 {
 	
 	@After
 	public void afterTestCase(){
-		Step("É¾³ıÊı¾İ");
+		Step("åˆ é™¤æ•°æ®");
 		String delStr = "delete from user_0";
 		ZdalTestCommon.dataUpdateJDBC(delStr, url0, psd, user);
 		ZdalTestCommon.dataUpdateJDBC(delStr, url0_bac, psd, user);
 	}
 
-	@Subject("shard+rw¡£Ğ´¿â£¬·Ö¿âµ½group_0ÖĞ ds0:r2w10,ds2:r10w5,ÆäÖĞds0²»¿ÉÓÃ,È«²¿Ğ´µ½ds2ÖĞ")
+	@Subject("shard+rwã€‚å†™åº“ï¼Œåˆ†åº“åˆ°group_0ä¸­ ds0:r2w10,ds2:r10w5,å…¶ä¸­ds0ä¸å¯ç”¨,å…¨éƒ¨å†™åˆ°ds2ä¸­")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954151() {
-		Step("shard+rw¡£Ğ´¿â£¬·Ö¿âµ½group_0ÖĞ ds0:r2w10,ds2:r10w5,ÆäÖĞds0²»¿ÉÓÃ,È«²¿Ğ´µ½ds2ÖĞ");
+		Step("shard+rwã€‚å†™åº“ï¼Œåˆ†åº“åˆ°group_0ä¸­ ds0:r2w10,ds2:r10w5,å…¶ä¸­ds0ä¸å¯ç”¨,å…¨éƒ¨å†™åˆ°ds2ä¸­");
 		int countA = 0;
 		Map<String, Object> params = new HashMap<String, Object>();
 		for (int i = 0; i < 20; i++) {
@@ -65,7 +65,7 @@ public class SR954150 {
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
-			Step("¼ì²éÊı¾İ");
+			Step("æ£€æŸ¥æ•°æ®");
 			String sqlStr = "select count(*) from user_0";
 			ResultSet rs0 = ZdalTestCommon.dataCheckFromJDBC(sqlStr, url0_bac,
 					psd, user);
@@ -77,25 +77,25 @@ public class SR954150 {
 				e.printStackTrace();
 			}
 		}
-		Assert.areEqual(true, countA == 20, "¼ì²é¼ÇÂ¼ÌõÊı,countA="+countA);
+		Assert.areEqual(true, countA == 20, "æ£€æŸ¥è®°å½•æ¡æ•°,countA="+countA);
 	
 	}
 	
 	
 	@SuppressWarnings("unchecked")
-	@Subject("shard+rw¡£¶Á¿â£¬·Ö¿âµ½group_0ÖĞ ds0:r2w10,ds2:r10w5,ÆäÖĞds0²»¿ÉÓÃ,È«²¿´Óds2ÖĞ¶Á")
+	@Subject("shard+rwã€‚è¯»åº“ï¼Œåˆ†åº“åˆ°group_0ä¸­ ds0:r2w10,ds2:r10w5,å…¶ä¸­ds0ä¸å¯ç”¨,å…¨éƒ¨ä»ds2ä¸­è¯»")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954152(){
-		Step("shard+rw¡£¶Á¿â£¬·Ö¿âµ½group_0ÖĞ ds0:r2w10,ds2:r10w5,ÆäÖĞds0²»¿ÉÓÃ,È«²¿´Óds2ÖĞ¶Á");
+		Step("shard+rwã€‚è¯»åº“ï¼Œåˆ†åº“åˆ°group_0ä¸­ ds0:r2w10,ds2:r10w5,å…¶ä¸­ds0ä¸å¯ç”¨,å…¨éƒ¨ä»ds2ä¸­è¯»");
 		int countA=0;
 		int countB=0;
-		Step("×¼±¸Êı¾İ");
+		Step("å‡†å¤‡æ•°æ®");
 		String insertSql1="insert into user_0 (user_id,age,name,gmt_created,gmt_modified) values (10,10,'DB_A',now(),now())";
 	    String insertSql2="insert into user_0 (user_id,age,name,gmt_created,gmt_modified) values (10,10,'DB_B',now(),now())";
 	    ZdalTestCommon.dataUpdateJDBC(insertSql1, url0, psd, user);
 	    ZdalTestCommon.dataUpdateJDBC(insertSql2, url0_bac, psd, user);
-	    Step("¶ÁÊı¾İ");
+	    Step("è¯»æ•°æ®");
 	    for(int readnum=0;readnum<20;readnum++){
 	    try {
 	    	List<Object> sr=(List<Object>)sqlMap.queryForList("selectShardrwMysql");
@@ -114,7 +114,7 @@ public class SR954150 {
 			e.printStackTrace();
 		}
 	    }
-	    Assert.areEqual(true, countB==20, "shardrwµÄ¶ÁĞ´ÖØÊÔ,countB="+countB);
+	    Assert.areEqual(true, countB==20, "shardrwçš„è¯»å†™é‡è¯•,countB="+countB);
 	    
 	}
 

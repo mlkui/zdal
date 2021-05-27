@@ -9,8 +9,8 @@ import org.apache.log4j.Logger;
 /**
  * Makes a runnable a task.
  *
- * @author ²®ÑÀ
- * @version $Id: RunnableTaskWrapper.java, v 0.1 2014-1-6 ÏÂÎç05:44:27 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: RunnableTaskWrapper.java, v 0.1 2014-1-6 ä¸‹åˆ05:44:27 Exp $
  */
 public class RunnableTaskWrapper implements TaskWrapper {
     // Constants -----------------------------------------------------

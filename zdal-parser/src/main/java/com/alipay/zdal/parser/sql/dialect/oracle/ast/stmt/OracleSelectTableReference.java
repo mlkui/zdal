@@ -13,8 +13,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSelectTableReference.java, v 0.1 2012-11-17 œ¬ŒÁ3:50:15 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSelectTableReference.java, v 0.1 2012-11-17 ‰∏ãÂçà3:50:15 Exp $
  */
 public class OracleSelectTableReference extends SQLExprTableSource implements
                                                                   OracleSelectTableSource {

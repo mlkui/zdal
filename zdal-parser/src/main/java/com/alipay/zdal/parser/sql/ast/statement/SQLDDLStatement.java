@@ -9,7 +9,7 @@ import com.alipay.zdal.parser.sql.ast.SQLStatement;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLDDLStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:21:37 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLDDLStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:21:37 xiaoqing.zhouxq Exp $
  */
 public interface SQLDDLStatement extends SQLStatement {
 

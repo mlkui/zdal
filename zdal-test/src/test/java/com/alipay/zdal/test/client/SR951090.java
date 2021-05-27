@@ -11,14 +11,14 @@ import com.alipay.ats.enums.PriorityLevel;
 import com.alipay.ats.junit.ATSJUnitRunner;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("´ÓzdcÉÏÀ­ÅäÖÃÎÄ¼ş")
+@Feature("ä»zdcä¸Šæ‹‰é…ç½®æ–‡ä»¶")
 public class SR951090 {
 	
-	@Subject("´ÓzdcÉÏ»ñÈ¡ÅäÖÃÎÄ¼ş")
+	@Subject("ä»zdcä¸Šè·å–é…ç½®æ–‡ä»¶")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC951091(){
-		Step("´ÓzdcÉÏ»ñÈ¡ÅäÖÃÎÄ¼ş");
+		Step("ä»zdcä¸Šè·å–é…ç½®æ–‡ä»¶");
 	//	ZdalDataSource zd = (ZdalDataSource) ZdalTestSuite.context
 	//	.getBean("zdalClientGetFileFromZdc");
 		

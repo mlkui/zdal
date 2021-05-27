@@ -7,8 +7,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
 /**
  * The start timeout was exceeded.
  *
- * @author ²®ÑÀ
- * @version $Id: StartTimeoutException.java, v 0.1 2014-1-6 ÏÂÎç05:44:40 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: StartTimeoutException.java, v 0.1 2014-1-6 ä¸‹åˆ05:44:40 Exp $
  */
 public class StartTimeoutException extends RuntimeException {
     // Constants -----------------------------------------------------

@@ -20,7 +20,7 @@ import static com.alipay.ats.internal.domain.ATS.Step;
 
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rw ,¿çzone·ÃÎÊ")
+@Feature("rw ,è·¨zoneè®¿é—®")
 public class SR952190 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
@@ -31,14 +31,14 @@ public class SR952190 {
 	}
 	
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=ds0,zoneError=Exception.Ğ´¿âds1µÄ±í£¬²»ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=ds0,zoneError=Exception.å†™åº“ds1çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952191(){
-		Step("¿çzone·ÃÎÊ£º zoneDs=ds0,zoneError=Exception.Ğ´¿âds1µÄ±í£¬²»ÔÊĞí·ÃÎÊ");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=ds0,zoneError=Exception.å†™åº“ds1çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean("zdalRwVisitOtherZone");
 		HashMap<String ,Object> params = new HashMap<String, Object>();	
-		Step("²åÈëÊı¾İ");
+		Step("æ’å…¥æ•°æ®");
 		try {
 			params.put("num", 123);
 			sqlMap.insert("insertRwSql", params);
@@ -50,11 +50,11 @@ public class SR952190 {
 	}
 	
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=ds0,zoneError=Exception.¶Á¿âds1µÄ±í£¬²»ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=ds0,zoneError=Exception.è¯»åº“ds1çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952192(){
-	    Step("¿çzone·ÃÎÊ£º zoneDs=ds0,zoneError=Exception.¶Á¿âds1µÄ±í£¬²»ÔÊĞí·ÃÎÊ");
+	    Step("è·¨zoneè®¿é—®ï¼š zoneDs=ds0,zoneError=Exception.è¯»åº“ds1çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean("zdalRwVisitOtherZone");
 	
 		try {

@@ -21,7 +21,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+Failover ,±íºó×º")
+@Feature("shard+Failover ,è¡¨åç¼€")
 public class SR953040 {
 
 	public TestAssertion Assert = new TestAssertion();;
@@ -42,11 +42,11 @@ public class SR953040 {
 		 	
 	}
 	
-	@Subject("shard+failover£¬±íºó×º£¬dbIndexForEachDB¡£Ô¤¼Æ²åÈëµ½0¿âµÄ0±í")
+	@Subject("shard+failoverï¼Œè¡¨åç¼€ï¼ŒdbIndexForEachDBã€‚é¢„è®¡æ’å…¥åˆ°0åº“çš„0è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953041() {
-		Step("shard+failover£¬±íºó×º£¬dbIndexForEachDB¡£Ô¤¼Æ²åÈëµ½0¿âµÄ0±í");
+		Step("shard+failoverï¼Œè¡¨åç¼€ï¼ŒdbIndexForEachDBã€‚é¢„è®¡æ’å…¥åˆ°0åº“çš„0è¡¨");
 		sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 		.getBean("zdalShardfailoverTableSuffix1");
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -67,11 +67,11 @@ public class SR953040 {
 	}
 	
 	
-		@Subject("shard+failover£¬±íºó×º£¬dbIndexForEachDB¡£Ô¤¼Æ²åÈëµ½1¿âµÄ1±í")
+		@Subject("shard+failoverï¼Œè¡¨åç¼€ï¼ŒdbIndexForEachDBã€‚é¢„è®¡æ’å…¥åˆ°1åº“çš„1è¡¨")
 		@Priority(PriorityLevel.HIGHEST)
 		@Test
 		public void TC953042() {
-			Step("shard+failover£¬±íºó×º£¬dbIndexForEachDB¡£Ô¤¼Æ²åÈëµ½1¿âµÄ1±í");
+			Step("shard+failoverï¼Œè¡¨åç¼€ï¼ŒdbIndexForEachDBã€‚é¢„è®¡æ’å…¥åˆ°1åº“çš„1è¡¨");
 			sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 			.getBean("zdalShardfailoverTableSuffix1");
 			Map<String, Object> params = new HashMap<String, Object>();
@@ -91,11 +91,11 @@ public class SR953040 {
 			deleteData(dburl2);
 	}
 		
-		@Subject("shard+failover£¬±íºó×º£¬twoColumnForEachDB¡£Ğ´1¿âµÄ01_09±í")
+		@Subject("shard+failoverï¼Œè¡¨åç¼€ï¼ŒtwoColumnForEachDBã€‚å†™1åº“çš„01_09è¡¨")
 		@Priority(PriorityLevel.HIGHEST)
 		@Test
 		public void TC953043(){
-			Step("shard+failover£¬±íºó×º£¬twoColumnForEachDB¡£Ğ´1¿âµÄ01_09±í");
+			Step("shard+failoverï¼Œè¡¨åç¼€ï¼ŒtwoColumnForEachDBã€‚å†™1åº“çš„01_09è¡¨");
 			sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 			.getBean("zdalShardfailoverTableSuffix2");
 			Map<String, Object> params = new HashMap<String, Object>();
@@ -113,7 +113,7 @@ public class SR953040 {
 		
 		
 		/**
-		 * Êı¾İ¼ì²é
+		 * æ•°æ®æ£€æŸ¥
 		 * @param url
 		 */
 		private void chackData(String url){
@@ -130,7 +130,7 @@ public class SR953040 {
 			}
 			try {
 				rs.next();
-				Assert.areEqual(1, rs.getInt(1), "Êı¾İ¼ì²é");
+				Assert.areEqual(1, rs.getInt(1), "æ•°æ®æ£€æŸ¥");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -138,7 +138,7 @@ public class SR953040 {
 		}
 		
 		/**
-		 * É¾³ıÊı¾İ
+		 * åˆ é™¤æ•°æ®
 		 * @param url
 		 */
 		private void deleteData(String url){

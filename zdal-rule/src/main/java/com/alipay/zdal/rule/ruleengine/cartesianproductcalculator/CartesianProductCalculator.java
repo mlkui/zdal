@@ -12,16 +12,16 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * ËãµÑ¿¨¶û»ı
+ * ç®—ç¬›å¡å°”ç§¯
  * 
  * 
  */
 public class CartesianProductCalculator implements Parent, Iterable<SamplingField>,
                                        Iterator<SamplingField> {
     /**
-     * samplingFieldÔÚÄÚ´æÀïÊÇ±»¸´ÓÃµÄ£¬ÒòÎªËû±¾ÉíÖ»ÊÇÓÃÓÚÖµµÄ´«µİµÄ£¬¶øÇÒÊÇÔÚµ¥Ïß³ÌÀïÃæ±»Ê¹ÓÃ¡£
-     * ËûµÄ¸¸class CartesianProductCalculator±¾ÉíÊÇÔÚÃ¿´Î¼ÆËãµÑ¿¨¶û»ıµÄÊ±ºò¶¼»áĞÂ½¨µÄ£¬Òò´ËÀïÃæµÄÀà
-     * ÊÇ²»ĞèÒª¹Ø×¢Ïß³Ì°²È«µÄ
+     * samplingFieldåœ¨å†…å­˜é‡Œæ˜¯è¢«å¤ç”¨çš„ï¼Œå› ä¸ºä»–æœ¬èº«åªæ˜¯ç”¨äºå€¼çš„ä¼ é€’çš„ï¼Œè€Œä¸”æ˜¯åœ¨å•çº¿ç¨‹é‡Œé¢è¢«ä½¿ç”¨ã€‚
+     * ä»–çš„çˆ¶class CartesianProductCalculatoræœ¬èº«æ˜¯åœ¨æ¯æ¬¡è®¡ç®—ç¬›å¡å°”ç§¯çš„æ—¶å€™éƒ½ä¼šæ–°å»ºçš„ï¼Œå› æ­¤é‡Œé¢çš„ç±»
+     * æ˜¯ä¸éœ€è¦å…³æ³¨çº¿ç¨‹å®‰å…¨çš„
      * 
      */
     final SamplingField                                    samplingFieldToBeReturned;
@@ -32,7 +32,7 @@ public class CartesianProductCalculator implements Parent, Iterable<SamplingFiel
                                                                             null, Collections
                                                                                 .emptySet());
     /**
-     * ×îÖÕ»áÊÇÕû¸öµÑ¿¨¶û»ıµÄ×îÓÒ±ßµÄÒ»ÁĞ£¬Ò²¾ÍÊÇ×ÔÔö·¢ÆğµÄÁĞ
+     * æœ€ç»ˆä¼šæ˜¯æ•´ä¸ªç¬›å¡å°”ç§¯çš„æœ€å³è¾¹çš„ä¸€åˆ—ï¼Œä¹Ÿå°±æ˜¯è‡ªå¢å‘èµ·çš„åˆ—
      */
     private CartesianProductCalculatorElement              firstCartesianProductCalculatorElement;
 
@@ -51,7 +51,7 @@ public class CartesianProductCalculator implements Parent, Iterable<SamplingFiel
         CartesianProductCalculatorElement parentProductor = null;
         CartesianProductCalculatorElement childrenProductor = null;
         boolean isFirst = true;
-        //TODO:Õâ¸öcolumnListÎª¿Õ
+        //TODO:è¿™ä¸ªcolumnListä¸ºç©º
         if (!enumeratedValuesSetOrderByColumnList.isEmpty()) {
             for (Set<Object> set : enumeratedValuesSetOrderByColumnList) {
                 //parent
@@ -82,9 +82,9 @@ public class CartesianProductCalculator implements Parent, Iterable<SamplingFiel
 
     public SamplingField next() {
         if (firstNext) {
-            // µÚÒ»´Î³õÊ¼»¯µÄÊ±ºòÒªËùÓĞµÄµÑ¿¨¶û»ıÔªËØ¶¼×öÒ»´Înext²Ù×÷ÒÔ³õÊ¼»¯Êı¾İ
+            // ç¬¬ä¸€æ¬¡åˆå§‹åŒ–çš„æ—¶å€™è¦æ‰€æœ‰çš„ç¬›å¡å°”ç§¯å…ƒç´ éƒ½åšä¸€æ¬¡nextæ“ä½œä»¥åˆå§‹åŒ–æ•°æ®
             for (CartesianProductCalculatorElement element : list) {
-                // TODO:²âÊÔÈç¹ûÓĞÁ½ÁĞ¶¼ÎŞ·¨nextµÄÇé¿öÏÂµÄĞĞÎª
+                // TODO:æµ‹è¯•å¦‚æœæœ‰ä¸¤åˆ—éƒ½æ— æ³•nextçš„æƒ…å†µä¸‹çš„è¡Œä¸º
                 if (element.hasNext()) {
                     element.init();
                 }
@@ -107,7 +107,7 @@ public class CartesianProductCalculator implements Parent, Iterable<SamplingFiel
     }
 
     public boolean parentHasNext() {
-        //´«µİµ½Í·µÄÊ±ºò±íÊ¾Ã»ÓĞÏÂÒ»¸öÁË
+        //ä¼ é€’åˆ°å¤´çš„æ—¶å€™è¡¨ç¤ºæ²¡æœ‰ä¸‹ä¸€ä¸ªäº†
         return false;
     }
 

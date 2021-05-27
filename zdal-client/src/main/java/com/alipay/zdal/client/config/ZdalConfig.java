@@ -11,9 +11,9 @@ import com.alipay.zdal.common.DBType;
 import com.alipay.zdal.rule.config.beans.AppRule;
 
 /**
- * Zdatasource³õÊ¼»¯Ê±´«ÈëµÄ²ÎÊı,ÒÔ¼°ÅäÖÃ·¢Éú±ä¸üºó£¬¼ÇÂ¼±ä»¯µÄ¹æÔòºÍÊôĞÔ.
- * @author ²®ÑÀ
- * @version $Id: ZdalConfig.java, v 0.1 2012-11-17 ÏÂÎç4:07:01 Exp $
+ * Zdatasourceåˆå§‹åŒ–æ—¶ä¼ å…¥çš„å‚æ•°,ä»¥åŠé…ç½®å‘ç”Ÿå˜æ›´åï¼Œè®°å½•å˜åŒ–çš„è§„åˆ™å’Œå±æ€§.
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalConfig.java, v 0.1 2012-11-17 ä¸‹åˆ4:07:01 Exp $
  */
 public class ZdalConfig {
     private String                           appName;
@@ -24,10 +24,10 @@ public class ZdalConfig {
 
     private DBType                           dbType               = DBType.MYSQL;
 
-    /** key=dsName;value=DataSourceParameter µÚÒ»´Î³õÊ¼»¯Ê±µÄËùÓĞÎïÀíÊı¾İÔ´µÄÅäÖÃÏî */
+    /** key=dsName;value=DataSourceParameter ç¬¬ä¸€æ¬¡åˆå§‹åŒ–æ—¶çš„æ‰€æœ‰ç‰©ç†æ•°æ®æºçš„é…ç½®é¡¹ */
     private Map<String, DataSourceParameter> dataSourceParameters = new ConcurrentHashMap<String, DataSourceParameter>();
 
-    /** Âß¼­Êı¾İÔ´ºÍÎïÀíÊı¾İÔ´µÄ¶ÔÓ¦¹ØÏµ:key=logicDsName,value=physicDsName */
+    /** é€»è¾‘æ•°æ®æºå’Œç‰©ç†æ•°æ®æºçš„å¯¹åº”å…³ç³»:key=logicDsName,value=physicDsName */
     private Map<String, String>              logicPhysicsDsNames  = new ConcurrentHashMap<String, String>();
 
     /** key=dsName;value=readwriteRule */

@@ -16,23 +16,23 @@ import com.alipay.zdal.common.DBType;
 import com.alipay.zdal.datasource.ZDataSource;
 
 /**
- * 预热mysql，oracle的最小连接数.
- * @author 伯牙
- * @version $Id: PreFillConnection.java, v 0.1 2013-6-7 上午09:48:02 Exp $
+ * 棰勭儹mysql锛宱racle鐨勬渶灏忚繛鎺ユ暟.
+ * @author 浼墮
+ * @version $Id: PreFillConnection.java, v 0.1 2013-6-7 涓婂崍09:48:02 Exp $
  */
 public class PreFillConnection {
 
     private static final Logger logger             = Logger
                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
-    /** mysql数据库预热连接的sql语句 */
+    /** mysql鏁版嵁搴撻鐑繛鎺ョ殑sql璇彞 */
     private static final String MYSQL_PREFILL_SQL  = "select 1";
 
-    /** oracle数据库预热连接的sql语句 */
+    /** oracle鏁版嵁搴撻鐑繛鎺ョ殑sql璇彞 */
     private static final String ORACLE_PREFILL_SQL = "select sysdate from dual";
 
     /**
-     * 初始化所有数据源的最小连接数.
+     * 鍒濆鍖栨墍鏈夋暟鎹簮鐨勬渶灏忚繛鎺ユ暟.
      * @param dataSources
      * @param dbType
      */

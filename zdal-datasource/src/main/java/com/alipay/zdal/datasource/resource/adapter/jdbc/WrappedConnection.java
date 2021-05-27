@@ -34,8 +34,8 @@ import com.alipay.zdal.datasource.exception.NestedSQLException;
 /**
  * A wrapper for a connection.
  *
- * @author 伯牙
- * @version $Id: WrappedConnection.java, v 0.1 2014-1-6 下午05:30:28 Exp $
+ * @author 浼墮
+ * @version $Id: WrappedConnection.java, v 0.1 2014-1-6 涓嬪崍05:30:28 Exp $
  */
 public class WrappedConnection implements Connection {
 
@@ -46,7 +46,7 @@ public class WrappedConnection implements Connection {
     private HashMap                      statements;
     private boolean                      closed      = false;
     private int                          trackStatements;
-    /**  應用看到的數據源*/
+    /**  鎳夌敤鐪嬪埌鐨勬暩鎿氭簮*/
     private ZDataSource                  zdatasource = null;
 
     /**

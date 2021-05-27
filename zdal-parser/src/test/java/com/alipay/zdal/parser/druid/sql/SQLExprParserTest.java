@@ -12,7 +12,7 @@ import com.alipay.zdal.parser.sql.parser.SQLExprParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLExprParserTest.java, v 0.1 2012-5-17 …œŒÁ10:24:10 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLExprParserTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:24:10 xiaoqing.zhouxq Exp $
  */
 public class SQLExprParserTest extends TestCase {
     public void test_binary() throws Exception {

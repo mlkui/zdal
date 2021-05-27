@@ -29,7 +29,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rw ,Ö±½ÓÈÆ¹ı·Ö¿â·Ö±í¹æÔòµÄÂ·ÓÉ")
+@Feature("shard+rw ,ç›´æ¥ç»•è¿‡åˆ†åº“åˆ†è¡¨è§„åˆ™çš„è·¯ç”±")
 public class SR954100 {
 
 	public TestAssertion Assert = new TestAssertion();;
@@ -56,19 +56,19 @@ public class SR954100 {
 	}
 
 	
-	@Subject("shard+rw£¬ÈÆ¹ı·Ö¿â·Ö±í¹æÔòµÄÂ·ÓÉ")
+	@Subject("shard+rwï¼Œç»•è¿‡åˆ†åº“åˆ†è¡¨è§„åˆ™çš„è·¯ç”±")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954101() {
 		insertData();
-		Step("Êı¾İ¼ì²é");
+		Step("æ•°æ®æ£€æŸ¥");
 		testCheckData(dburl0);
-		Step("Çå³ıÊı¾İ");
+		Step("æ¸…é™¤æ•°æ®");
 		testDeleData(dburl0);
 
 	}
 
-	@Subject("shard+rwÊÂÎñ£¬ÈÆ¹ı·Ö¿â·Ö±í¹æÔòµÄÂ·ÓÉ")
+	@Subject("shard+rwäº‹åŠ¡ï¼Œç»•è¿‡åˆ†åº“åˆ†è¡¨è§„åˆ™çš„è·¯ç”±")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954102() {
@@ -82,13 +82,13 @@ public class SR954100 {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		Step("¼ì²éÊı¾İ");
+		Step("æ£€æŸ¥æ•°æ®");
 		testCheckData(dburl0);
-		Step("Çå³ıÊı¾İ");
+		Step("æ¸…é™¤æ•°æ®");
 		testDeleData(dburl0);
 	}
 
-	@Subject("shard+rw£¬ÈÆ¹ı·Ö¿â·Ö±í¹æÔòµÄÂ·ÓÉ,ÉÙÁËÒ»¸ö·Ö¿âµÄÌõ¼ş£¬±¨Òì³£")
+	@Subject("shard+rwï¼Œç»•è¿‡åˆ†åº“åˆ†è¡¨è§„åˆ™çš„è·¯ç”±,å°‘äº†ä¸€ä¸ªåˆ†åº“çš„æ¡ä»¶ï¼ŒæŠ¥å¼‚å¸¸")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954103() {
@@ -97,7 +97,7 @@ public class SR954100 {
 		params.put("age", Integer.valueOf("11"));
 		params.put("name", "test_ROUTE_CONDITION");
 
-		Step("¸Ä±äÂ·ÓÉ£¬ÉÙÒ»¸ö·Ö¿âµÄÌõ¼ş");
+		Step("æ”¹å˜è·¯ç”±ï¼Œå°‘ä¸€ä¸ªåˆ†åº“çš„æ¡ä»¶");
 		SimpleCondition simpleCondition = new SimpleCondition();
 		simpleCondition.setVirtualTableName("user");
 		simpleCondition.put("age", 10);
@@ -106,12 +106,12 @@ public class SR954100 {
 			sqlMap.insert("insertShardrwMysql", params);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			Assert.areEqual(NestedSQLException.class, ex.getClass(), "Òì³£ÑéÖ¤");
+			Assert.areEqual(NestedSQLException.class, ex.getClass(), "å¼‚å¸¸éªŒè¯");
 		}
 	}
 
 	/**
-	 * ²åÈëÊı¾İ
+	 * æ’å…¥æ•°æ®
 	 */
 	private void insertData() {
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -119,7 +119,7 @@ public class SR954100 {
 		params.put("age", Integer.valueOf("11"));
 		params.put("name", "test_ROUTE_CONDITION");
 
-		Step("¸Ä±äÂ·ÓÉ");
+		Step("æ”¹å˜è·¯ç”±");
 		SimpleCondition simpleCondition = new SimpleCondition();
 		simpleCondition.setVirtualTableName("user");
 		simpleCondition.put("user_id", 10);
@@ -134,7 +134,7 @@ public class SR954100 {
 	}
 
 	/**
-	 * ¼ì²éÊı¾İÊıÁ¿
+	 * æ£€æŸ¥æ•°æ®æ•°é‡
 	 * 
 	 * @param dburl
 	 */
@@ -144,7 +144,7 @@ public class SR954100 {
 				dbuser);
 		try {
 			rs.next();
-			Assert.areEqual(1, rs.getInt(1), "Êı¾İ¼ì²é");
+			Assert.areEqual(1, rs.getInt(1), "æ•°æ®æ£€æŸ¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -152,7 +152,7 @@ public class SR954100 {
 	}
 
 	/**
-	 * Ïû³ıÊı¾İ
+	 * æ¶ˆé™¤æ•°æ®
 	 */
 	private void testDeleData(String dburl) {
 		String delStr = "delete from user_0";

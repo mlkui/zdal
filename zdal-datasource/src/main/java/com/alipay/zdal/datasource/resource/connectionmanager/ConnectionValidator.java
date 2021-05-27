@@ -16,8 +16,8 @@ import org.apache.log4j.Logger;
  * InternalManagedConnectionPool.
  * 
  * 
- * @author ²®ÑÀ
- * @version $Id: ConnectionValidator.java, v 0.1 2014-1-6 ÏÂÎç05:34:20 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ConnectionValidator.java, v 0.1 2014-1-6 ä¸‹åˆ05:34:20 Exp $
  */
 public class ConnectionValidator {
 

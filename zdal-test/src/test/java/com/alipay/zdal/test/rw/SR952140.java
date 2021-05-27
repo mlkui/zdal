@@ -31,7 +31,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapExecutor;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("ÅúÁ¿²Ù×÷")
+@Feature("æ‰¹é‡æ“ä½œ")
 public class SR952140 {
 	public TestAssertion Assert = new TestAssertion();
 	private  SqlMapClient sqlMap;
@@ -69,40 +69,40 @@ public class SR952140 {
 	}
 
 	
-	@Subject("ÅúÁ¿²åÈëÊı¾İ,²»Í¨¹ıÊÂÎñÄ£°å")
+	@Subject("æ‰¹é‡æ’å…¥æ•°æ®,ä¸é€šè¿‡äº‹åŠ¡æ¨¡æ¿")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952141(){
-		Step("ÅúÁ¿²åÈëÊı¾İ");
+		Step("æ‰¹é‡æ’å…¥æ•°æ®");
 		try{
 		inserts(getTestData(3));
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}	
-		Step("ÑéÖ¤Êı¾İ");
+		Step("éªŒè¯æ•°æ®");
 		assertLineCount();	
 	}
 	
 	
 	
-	@Subject("ÊÂÎñÄ£°å,ÏÈÅúÁ¿²éÑ¯£¬ È»ºóÔÙÉ¾³ı")
+	@Subject("äº‹åŠ¡æ¨¡æ¿,å…ˆæ‰¹é‡æŸ¥è¯¢ï¼Œ ç„¶åå†åˆ é™¤")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952142(){
-		Step("Êı¾İ×¼±¸");
+		Step("æ•°æ®å‡†å¤‡");
 		ZdalTestCommon.dataPrepareForFail0();
 		try {
 			tt.execute(new TransactionCallback() {
 				public Object doInTransaction(TransactionStatus status) {
-					Step("ÅúÁ¿²éÑ¯");
+					Step("æ‰¹é‡æŸ¥è¯¢");
 					List<Map<String,Object>> paramList = getTestData(1);
 					selects(paramList);
-					Step("É¾³ıÊı¾İ");
+					Step("åˆ é™¤æ•°æ®");
 					String deleteSql = "rw-Delete";
 					try {
-						Step("ÊÂÎñÄÚÉ¾³ıÊı¾İ");
+						Step("äº‹åŠ¡å†…åˆ é™¤æ•°æ®");
 						int res_2 = sqlMap.delete(deleteSql);
-						Assert.areEqual(1, res_2, "ÑéÖ¤delete³É¹¦");						
+						Assert.areEqual(1, res_2, "éªŒè¯deleteæˆåŠŸ");						
 					} catch (SQLException e) {
 						throw new RuntimeException(e);
 					}
@@ -118,17 +118,17 @@ public class SR952140 {
 	
 	
 	
-	@Subject("ÊÂÎñÄ£°å,ÏÈÅúÁ¿²åÈë£¬ È»ºóÅúÁ¿²éÑ¯")
+	@Subject("äº‹åŠ¡æ¨¡æ¿,å…ˆæ‰¹é‡æ’å…¥ï¼Œ ç„¶åæ‰¹é‡æŸ¥è¯¢")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952143(){
 		try {
 			tt.execute(new TransactionCallback() {
 				public Object doInTransaction(TransactionStatus status) {
-					Step("ÅúÁ¿²åÈë");
+					Step("æ‰¹é‡æ’å…¥");
 					List<Map<String,Object>> ls=getTestData(3);
 					inserts(ls);
-					Step("ÅúÁ¿²éÑ¯");
+					Step("æ‰¹é‡æŸ¥è¯¢");
 					List<Map<String,Object>> paramList = getTestData(1);
 					selects(paramList);
 
@@ -138,29 +138,29 @@ public class SR952140 {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}		
-		//ÑéÖ¤Êı¾İ
+		//éªŒè¯æ•°æ®
 		assertLineCount();
 	}
 	
-	/**¸ÃÓÃÀıÎŞĞ§
-	@Subject("ÊÂÎñÄ£°å,ÏÈdelete ºóÅúÁ¿²åÈë")
+	/**è¯¥ç”¨ä¾‹æ— æ•ˆ
+	@Subject("äº‹åŠ¡æ¨¡æ¿,å…ˆdelete åæ‰¹é‡æ’å…¥")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC951232(){
-		// Êı¾İ×¼±¸
+		// æ•°æ®å‡†å¤‡
 		ZdalTestCommon.dataPrepareForFail0();
 		try {
 			tt.execute(new TransactionCallback() {
 				public Object doInTransaction(TransactionStatus status) {
 					String deleteSql = "rw-Delete";
 					try {
-						Step("ÊÂÎñÄÚÉ¾³ıÊı¾İ");
+						Step("äº‹åŠ¡å†…åˆ é™¤æ•°æ®");
 						int res_2 = sqlMap.delete(deleteSql);
-						Assert.areEqual(1, res_2, "ÑéÖ¤delete³É¹¦");						
+						Assert.areEqual(1, res_2, "éªŒè¯deleteæˆåŠŸ");						
 					} catch (SQLException e) {
 						throw new RuntimeException(e);
 					}
-					//ÅúÁ¿²åÈë
+					//æ‰¹é‡æ’å…¥
 					List<Map<String,Object>> ls=getTestData(3);
 					inserts(ls);
 
@@ -170,7 +170,7 @@ public class SR952140 {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}		
-		//ÑéÖ¤Êı¾İ
+		//éªŒè¯æ•°æ®
 		//assertLineCount();
 	}
 	*/
@@ -178,7 +178,7 @@ public class SR952140 {
 	
 	
 	/**
-	 * ×éÖ¯²ÎÊımapµÄLIST
+	 * ç»„ç»‡å‚æ•°mapçš„LIST
 	 * @param num
 	 * @return
 	 */
@@ -197,7 +197,7 @@ public class SR952140 {
 	    	return dataList;
 	    }
 	 /**
-	  * ÅúÁ¿²åÈë
+	  * æ‰¹é‡æ’å…¥
 	  * @param paramList
 	  */
 	  private void inserts( final List<Map<String,Object>> paramList){
@@ -215,7 +215,7 @@ public class SR952140 {
 	    }
 	  
 	  /**
-	   * ÅúÁ¿²éÑ¯
+	   * æ‰¹é‡æŸ¥è¯¢
 	   * @param paramList
 	   */
 	  public void selects(final List<Map<String,Object>> paramList){
@@ -232,15 +232,15 @@ public class SR952140 {
 	    }
 	  
 	  /**
-	   * ÑéÖ¤Êı¾İ
+	   * éªŒè¯æ•°æ®
 	   */
 	  private void  assertLineCount(){
-		Step("ÑéÖ¤Êı¾İ");
+		Step("éªŒè¯æ•°æ®");
 			String sqlStr1="select count(*) from master_0 where age=10";
 			ResultSet rs = ZdalTestCommon.dataCheckFromJDBC(sqlStr1, url, psd, user);
 			try {
-				Assert.areEqual(true, rs.next(), "Êı¾İ³É¹¦");
-				Assert.areEqual(3, rs.getInt(1), "ÑéÖ¤ÓĞÊı¾İ:"+rs.getInt(1));
+				Assert.areEqual(true, rs.next(), "æ•°æ®æˆåŠŸ");
+				Assert.areEqual(3, rs.getInt(1), "éªŒè¯æœ‰æ•°æ®:"+rs.getInt(1));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

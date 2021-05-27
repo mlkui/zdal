@@ -15,9 +15,9 @@ import com.alipay.zdal.datasource.LocalTxDataSourceDO;
 import com.alipay.zdal.datasource.ZDataSource;
 
 /**
- * oracle db 基本使用
+ * oracle db 鍩烘湰浣跨敤
  * @author sicong.shou
- * @version $Id: ZdsTest2.java, v 0.1 2012-11-21 下午04:54:07 sicong.shou Exp $
+ * @version $Id: ZdsTest2.java, v 0.1 2012-11-21 涓嬪崍04:54:07 sicong.shou Exp $
  */
 public class ZdsTestOracle {
     protected static DataSource   dataSource = null;

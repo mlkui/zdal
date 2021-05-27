@@ -58,15 +58,15 @@ public class AppUser implements Runnable {
 	public void run(){
 		try{
 			connect();
-//			System.out.println("Ó¦ÓÃÊ¹ÓÃÕß" + Thread.currentThread().getName() + 
-//				"½¨Á¢Á¬½Ó");
+//			System.out.println("åº”ç”¨ä½¿ç”¨è€…" + Thread.currentThread().getName() + 
+//				"å»ºç«‹è¿æ¥");
 			while(!isStop()){
 				execSql();
 			}
 			statement.close();
 			connection.close();
-//			System.out.println("Ó¦ÓÃÊ¹ÓÃÕß" + Thread.currentThread().getName() + 
-//					"¹Ø±ÕÁ¬½Ó");
+//			System.out.println("åº”ç”¨ä½¿ç”¨è€…" + Thread.currentThread().getName() + 
+//					"å…³é—­è¿æ¥");
 		}catch(Exception e){
 			e.printStackTrace();
 		}

@@ -14,8 +14,8 @@ import java.util.Map;
  * A collection of String utilities.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: Strings.java, v 0.1 2014-1-6 ÏÂÎç05:40:14 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: Strings.java, v 0.1 2014-1-6 ä¸‹åˆ05:40:14 Exp $
  */
 public final class Strings {
     /** An empty string constant */

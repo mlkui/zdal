@@ -16,16 +16,16 @@ import com.alipay.zdal.common.Constants;
 import com.alipay.zdal.common.lang.StringUtil;
 
 /**
- * zdal ĞÅºÅ×ÊÔ´Àà, Ö÷ÒªÎªÁËÏìÓ¦zdal¹Ü¿ØÆ½Ì¨¹Ü¿Ø¶¯×÷,ÓÃÓÚ¶¯Ì¬ÍÆËÍfailover£¬markdown£¬markupµÈ.
- * ĞèÒª¸ÄÔì³É½èÖúÓÚzookeeper½øĞĞ¶¯Ì¬ÍÆËÍ.
- * @author ²®ÑÀ
- * @version $Id: ZdalSignalResource.java, v 0.1 2012-11-17 ÏÂÎç4:05:12 Exp $
+ * zdal ä¿¡å·èµ„æºç±», ä¸»è¦ä¸ºäº†å“åº”zdalç®¡æ§å¹³å°ç®¡æ§åŠ¨ä½œ,ç”¨äºåŠ¨æ€æ¨é€failoverï¼Œmarkdownï¼Œmarkupç­‰.
+ * éœ€è¦æ”¹é€ æˆå€ŸåŠ©äºzookeeperè¿›è¡ŒåŠ¨æ€æ¨é€.
+ * @author ä¼¯ç‰™
+ * @version $Id: ZdalSignalResource.java, v 0.1 2012-11-17 ä¸‹åˆ4:05:12 Exp $
  */
 public class ZdalSignalResource {
 
     private static final String DRM_ATT_KEY_WEIGHT = "keyWeight";
 
-    /** ×¨ÃÅ´òÓ¡ÍÆËÍ½á¹ûµÄlogĞÅÏ¢. */
+    /** ä¸“é—¨æ‰“å°æ¨é€ç»“æœçš„logä¿¡æ¯. */
     private static final Logger log                = Logger
                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
@@ -39,7 +39,7 @@ public class ZdalSignalResource {
     }
 
     /**
-     * ×¢²ázoonkeeperµÄ¿Í»§¶Ë£¬½øĞĞ¶¯Ì¬¹Ü¿Ø.
+     * æ³¨å†Œzoonkeeperçš„å®¢æˆ·ç«¯ï¼Œè¿›è¡ŒåŠ¨æ€ç®¡æ§.
      */
     private void registerZk() {
 
@@ -73,7 +73,7 @@ public class ZdalSignalResource {
     }
 
     /**
-     * Ïú»Ùzoonkeeper¿Í»§¶Ë.
+     * é”€æ¯zoonkeeperå®¢æˆ·ç«¯.
      */
     public void close() {
         //TODO 

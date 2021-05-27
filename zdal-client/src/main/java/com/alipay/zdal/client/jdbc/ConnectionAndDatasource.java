@@ -9,26 +9,26 @@ import java.sql.Connection;
 import javax.sql.DataSource;
 
 /**
- * ÒòÎªÖØÊÔÒÔdatasourceÎªkey,Òò´ËĞèÒª½«parent datasourceÒıÓÃÒ²´øÈëµ½ÁÙÊ±»º´æµÄ¿ÉÖØÓÃÁ¬½ÓÖĞ¡£
+ * å› ä¸ºé‡è¯•ä»¥datasourceä¸ºkey,å› æ­¤éœ€è¦å°†parent datasourceå¼•ç”¨ä¹Ÿå¸¦å…¥åˆ°ä¸´æ—¶ç¼“å­˜çš„å¯é‡ç”¨è¿æ¥ä¸­ã€‚
  * 
- * Õâ3¸öÊôĞÔÊÇÓëÖ±½ÓÍ¨¹ısql¼ÆËã³öÀ´µÄ·Ö¿âÏò¶ÔÓ¦µÄ£¬Í¨¹ıÕâ3¸ö¶ÔÏó
+ * è¿™3ä¸ªå±æ€§æ˜¯ä¸ç›´æ¥é€šè¿‡sqlè®¡ç®—å‡ºæ¥çš„åˆ†åº“å‘å¯¹åº”çš„ï¼Œé€šè¿‡è¿™3ä¸ªå¯¹è±¡
  * 
- * ¿ÉÒÔ×öµ½£º1£¬ÖØĞÂ¸ù¾İdbSelectorÑ¡Ôñdatasource.
- *         2£¬¸ù¾İparentDataSource ´ÓdbSelectorÖĞÒÆ³ıµ±Ç°ÓĞÎÊÌâµÄparentDataSource
- *         3£¬»ñÈ¡ÕæÕıµÄÁ´½Ó¡£
+ * å¯ä»¥åšåˆ°ï¼š1ï¼Œé‡æ–°æ ¹æ®dbSelectoré€‰æ‹©datasource.
+ *         2ï¼Œæ ¹æ®parentDataSource ä»dbSelectorä¸­ç§»é™¤å½“å‰æœ‰é—®é¢˜çš„parentDataSource
+ *         3ï¼Œè·å–çœŸæ­£çš„é“¾æ¥ã€‚
  * 
  * 
  *
  */
 public class ConnectionAndDatasource {
     /**
-     * Ëæ×Å¶ÁÖØÊÔ connectionÒ²»á²»¶Ï·¢Éú±ä»¯¡£
+     * éšç€è¯»é‡è¯• connectionä¹Ÿä¼šä¸æ–­å‘ç”Ÿå˜åŒ–ã€‚
      */
     Connection connection;
     DataSource parentDataSource;
     /**
-     * dbselector¶ÔÏó£¬ÔÚÕı³£Çé¿öÏÂÊÇTDatasourceÖĞ³ÖÓĞµÄdbSelector.
-     * µ«Èç¹û·¢Éú¶ÁÖØÊÔ£¬Ôò³ÖÓĞµÄÊÇ¾­¹ıcopy£¬²¢È¥µôÁËÓĞÎÊÌâdatasource¶ÔÏóµÄdbSelector
+     * dbselectorå¯¹è±¡ï¼Œåœ¨æ­£å¸¸æƒ…å†µä¸‹æ˜¯TDatasourceä¸­æŒæœ‰çš„dbSelector.
+     * ä½†å¦‚æœå‘ç”Ÿè¯»é‡è¯•ï¼Œåˆ™æŒæœ‰çš„æ˜¯ç»è¿‡copyï¼Œå¹¶å»æ‰äº†æœ‰é—®é¢˜datasourceå¯¹è±¡çš„dbSelector
      */
     DBSelector dbSelector;
 }

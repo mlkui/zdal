@@ -9,8 +9,8 @@ package com.alipay.zdal.datasource.resource.util;
  * reachable, has just been reached.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: UnreachableStatementException.java, v 0.1 2014-1-6 ÏÂÎç05:40:55 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: UnreachableStatementException.java, v 0.1 2014-1-6 ä¸‹åˆ05:40:55 Exp $
  */
 public class UnreachableStatementException extends RuntimeException {
     /**

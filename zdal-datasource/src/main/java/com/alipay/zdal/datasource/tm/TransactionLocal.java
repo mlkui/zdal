@@ -13,8 +13,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * Transactions. A transaction local variable is cleared after the transaction
  * completes.
  *
- * @author ²®ÑÀ
- * @version $Id: TransactionLocal.java, v 0.1 2014-1-6 ÏÂÎç05:48:09 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TransactionLocal.java, v 0.1 2014-1-6 ä¸‹åˆ05:48:09 Exp $
  */
 public class TransactionLocal {
 

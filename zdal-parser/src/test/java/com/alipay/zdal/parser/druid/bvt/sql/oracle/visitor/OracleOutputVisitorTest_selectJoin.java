@@ -14,7 +14,7 @@ import com.alipay.zdal.parser.sql.stat.TableStat.Column;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleOutputVisitorTest_selectJoin.java, v 0.1 2012-5-17 …œŒÁ10:23:10 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleOutputVisitorTest_selectJoin.java, v 0.1 2012-5-17 ‰∏äÂçà10:23:10 xiaoqing.zhouxq Exp $
  */
 public class OracleOutputVisitorTest_selectJoin extends TestCase {
 

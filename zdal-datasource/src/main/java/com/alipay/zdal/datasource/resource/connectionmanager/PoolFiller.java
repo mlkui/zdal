@@ -12,8 +12,8 @@ import org.apache.log4j.Logger;
  * PoolFiller
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: PoolFiller.java, v 0.1 2014-1-6 ÏÂÎç05:35:56 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: PoolFiller.java, v 0.1 2014-1-6 ä¸‹åˆ05:35:56 Exp $
  */
 public class PoolFiller implements Runnable {
     private final LinkedList<InternalManagedConnectionPool> pools       = new LinkedList<InternalManagedConnectionPool>();

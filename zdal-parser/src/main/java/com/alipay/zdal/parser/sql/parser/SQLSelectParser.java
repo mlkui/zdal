@@ -21,8 +21,8 @@ import com.alipay.zdal.parser.sql.ast.statement.SQLUnionQuery;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLSelectParser.java, v 0.1 2012-11-17 ÏÂÎç3:54:38 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLSelectParser.java, v 0.1 2012-11-17 ä¸‹åˆ3:54:38 Exp $
  */
 public class SQLSelectParser extends SQLParser {
     protected SQLExprParser exprParser;

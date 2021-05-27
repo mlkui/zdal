@@ -43,8 +43,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  *
  *
  * 
- * @author 伯牙
- * @version $Id: BaseConnectionManager2.java, v 0.1 2014-1-6 下午05:32:58 Exp $
+ * @author 浼墮
+ * @version $Id: BaseConnectionManager2.java, v 0.1 2014-1-6 涓嬪崍05:32:58 Exp $
  */
 public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
                                             ConnectionListenerFactory,
@@ -142,7 +142,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
         //        String categoryName = poolingStrategy.getManagedConnectionFactory().getClass().getName()
         //                              + "." + name;
 
-        //        LogWriter没用
+        //        LogWriter娌＄敤
         //        PrintWriter logWriter = new LoggerPluginWriter(log.getLoggerPlugin());
         //        try {
         //            poolingStrategy.getManagedConnectionFactory().setLogWriter(logWriter);
@@ -429,7 +429,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
     }
 
     private Subject getSubject() {
-        // TODO: 当前不支持Subject
+        // TODO: 褰撳墠涓嶆敮鎸丼ubject
         Subject subject = null;
         // if (securityDomain != null)
         // {

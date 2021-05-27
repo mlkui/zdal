@@ -15,10 +15,10 @@ import org.apache.log4j.Logger;
 import com.alipay.zdal.common.RuntimeConfigHolder;
 
 /**
- * trade-failover·½°¸Êı¾İÔ´È¨ÖØ¹ÜÀíµÄºËĞÄÀà
- * Ö÷ÒªÍê³ÉMaster/FailoverÊı¾İÔ´È¨ÖØµÄ¹ÜÀí£¬¸ù¾İÈ¨ÖØËæ»ú²úÉúÒ»¸ödbĞòºÅ¡£
+ * trade-failoveræ–¹æ¡ˆæ•°æ®æºæƒé‡ç®¡ç†çš„æ ¸å¿ƒç±»
+ * ä¸»è¦å®ŒæˆMaster/Failoveræ•°æ®æºæƒé‡çš„ç®¡ç†ï¼Œæ ¹æ®æƒé‡éšæœºäº§ç”Ÿä¸€ä¸ªdbåºå·ã€‚
  * @author zhaofeng.wang
- * @version $Id: TDataSourceKeyWeightRandom.java,v 0.1 2012-5-2 ÉÏÎç10:29:56 zhaofeng.wang Exp $
+ * @version $Id: TDataSourceKeyWeightRandom.java,v 0.1 2012-5-2 ä¸Šåˆ10:29:56 zhaofeng.wang Exp $
  */
 public class ZdalDataSourceKeyWeightRandom {
 
@@ -26,20 +26,20 @@ public class ZdalDataSourceKeyWeightRandom {
                                                                      .getLogger(ZdalDataSourceKeyWeightRandom.class);
 
     /**
-     * Ã¿¸ö×éÄÚµÄÊı¾İÔ´µÄ¸öÊı£»
+     * æ¯ä¸ªç»„å†…çš„æ•°æ®æºçš„ä¸ªæ•°ï¼›
      */
     private final int                         dataSourceNumberInGroup;
     /**
-     * »º´æµÄÊı¾İÔ´È¨ÖØ£¬ÆäÖĞkeyÎªÊı¾İÔ´±êÊ¶£¬valueÎª¶ÔÓ¦µÄÈ¨ÖØ
+     * ç¼“å­˜çš„æ•°æ®æºæƒé‡ï¼Œå…¶ä¸­keyä¸ºæ•°æ®æºæ ‡è¯†ï¼Œvalueä¸ºå¯¹åº”çš„æƒé‡
      */
     private final Map<String, Integer>        cachedWeightConfig = new HashMap<String, Integer>();
     /**
-     * ÔËĞĞÊ±±äÁ¿£¬´æ·ÅÈ¨ÖØµÄÈİÆ÷
+     * è¿è¡Œæ—¶å˜é‡ï¼Œå­˜æ”¾æƒé‡çš„å®¹å™¨
      */
     private final RuntimeConfigHolder<Weight> weightHolder       = new RuntimeConfigHolder<Weight>();
 
     /**
-     * ±£³Ö²»±ä¶ÔÏó£¬Ö»ÄÜÖØ½¨£¬²»ÄÜĞŞ¸Ä
+     * ä¿æŒä¸å˜å¯¹è±¡ï¼Œåªèƒ½é‡å»ºï¼Œä¸èƒ½ä¿®æ”¹
      */
     private static class Weight {
         public Weight(int[] weights, String[] weightKeys, int[] weightAreaEnds) {
@@ -49,23 +49,23 @@ public class ZdalDataSourceKeyWeightRandom {
         }
 
         /**
-         * Êı¾İÔ´µÄ±êÊ¶×÷ÎªweightµÄkey£¬µ÷ÓÃÕß±£Ö¤²»ÄÜĞŞ¸ÄÆäÔªËØ
+         * æ•°æ®æºçš„æ ‡è¯†ä½œä¸ºweightçš„keyï¼Œè°ƒç”¨è€…ä¿è¯ä¸èƒ½ä¿®æ”¹å…¶å…ƒç´ 
          */
         public final String[] weightKeys;
         /**
-         * Êı¾İÔ´µÄÈ¨ÖØ£¬ÓëÉÏÃæµÄweightKeysÖĞµÄÖµÒ»Ò»¶ÔÓ¦£¬µ÷ÓÃÕß±£Ö¤²»ÄÜĞŞ¸ÄÆäÔªËØ
+         * æ•°æ®æºçš„æƒé‡ï¼Œä¸ä¸Šé¢çš„weightKeysä¸­çš„å€¼ä¸€ä¸€å¯¹åº”ï¼Œè°ƒç”¨è€…ä¿è¯ä¸èƒ½ä¿®æ”¹å…¶å…ƒç´ 
          */
         public final int[]    weightValues;
         /**
-         * ¼ÆËã³öÀ´µÄÈ¨ÖØÇø¼ä¶Î£¬ÓëÉÏÊöµÄkeyºÍvalue¶ÔÓ¦£¬µ÷ÓÃÕß±£Ö¤²»ÄÜĞŞ¸ÄÆäÔªËØ
+         * è®¡ç®—å‡ºæ¥çš„æƒé‡åŒºé—´æ®µï¼Œä¸ä¸Šè¿°çš„keyå’Œvalueå¯¹åº”ï¼Œè°ƒç”¨è€…ä¿è¯ä¸èƒ½ä¿®æ”¹å…¶å…ƒç´ 
          */
         public final int[]    weightAreaEnds;
     }
 
     /**
-     * ³õÊ¼»¯È¨ÖØ»º´æ£¬ÒÔ¼°¼ÆËãÈ¨ÖØÇø¼ä¶Î
-     * @param weightKeys  Êı¾İÔ´key
-     * @param weights     ÓëÊı¾İÔ´keyÒ»Ò»¶ÔÓ¦µÄÈ¨ÖØÖµ
+     * åˆå§‹åŒ–æƒé‡ç¼“å­˜ï¼Œä»¥åŠè®¡ç®—æƒé‡åŒºé—´æ®µ
+     * @param weightKeys  æ•°æ®æºkey
+     * @param weights     ä¸æ•°æ®æºkeyä¸€ä¸€å¯¹åº”çš„æƒé‡å€¼
      */
     public ZdalDataSourceKeyWeightRandom(String[] weightKeys, int[] weights) {
 
@@ -82,17 +82,17 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * Ëæ»úÆ÷£¬ÓÃÓÚ¸ù¾İÈ¨ÖØ²úÉúËæ»úÊı
+     * éšæœºå™¨ï¼Œç”¨äºæ ¹æ®æƒé‡äº§ç”Ÿéšæœºæ•°
      */
     private final Random random = new Random();
 
     /**
      * 
-     * ¼ÙÉèÈı¸ö¿âÈ¨ÖØ    10   9   8
-     * ÄÇÃ´areaEnds¾ÍÊÇ  10  19  27
-     * Ëæ»úÊıÊÇ0~27Ö®¼äµÄÒ»¸öÊı£¬ÒÀ´ÎÈ¥ºÍareaEndsÀïµÄÔªËØ±È£¬Èô·¢ÏÖËæ»úÊıĞ¡ÓÚÄ³ÔªËØ£¬Ôò±íÊ¾Ó¦¸ÃÑ¡ÔñÕâ¸öÔªËØ,¼´·µ»Ø¸ÃÔªËØµÄÏÂ±êºÅ¡£
+     * å‡è®¾ä¸‰ä¸ªåº“æƒé‡    10   9   8
+     * é‚£ä¹ˆareaEndså°±æ˜¯  10  19  27
+     * éšæœºæ•°æ˜¯0~27ä¹‹é—´çš„ä¸€ä¸ªæ•°ï¼Œä¾æ¬¡å»å’ŒareaEndsé‡Œçš„å…ƒç´ æ¯”ï¼Œè‹¥å‘ç°éšæœºæ•°å°äºæŸå…ƒç´ ï¼Œåˆ™è¡¨ç¤ºåº”è¯¥é€‰æ‹©è¿™ä¸ªå…ƒç´ ,å³è¿”å›è¯¥å…ƒç´ çš„ä¸‹æ ‡å·ã€‚
      * 
-     * ×¢Òâ£º¸Ã·½·¨²»ÄÜ¸Ä±ä²ÎÊıÊı×éÄÚÈİ,ºóĞøÊµÏÖ±£Ö¤²»ÄÜ¸Ä±äwÖĞÈÎºÎÊı×éµÄÄÚÈİ£¬·ñÔòÏß³Ì²»°²È«
+     * æ³¨æ„ï¼šè¯¥æ–¹æ³•ä¸èƒ½æ”¹å˜å‚æ•°æ•°ç»„å†…å®¹,åç»­å®ç°ä¿è¯ä¸èƒ½æ”¹å˜wä¸­ä»»ä½•æ•°ç»„çš„å†…å®¹ï¼Œå¦åˆ™çº¿ç¨‹ä¸å®‰å…¨
      * @return int 
      */
     public int select() {
@@ -100,7 +100,7 @@ public class ZdalDataSourceKeyWeightRandom {
         int[] areaEnds = w.weightAreaEnds;
         int sum = areaEnds[areaEnds.length - 1];
         if (sum == 0) {
-            logger.error("¸Ã×éÊı¾İÔ´È¨ÖØÈ«²¿Îª0£¬areaEnds: " + intArray2String(areaEnds));
+            logger.error("è¯¥ç»„æ•°æ®æºæƒé‡å…¨éƒ¨ä¸º0ï¼ŒareaEnds: " + intArray2String(areaEnds));
             return -1;
         }
         int rand = random.nextInt(sum);
@@ -115,10 +115,10 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * ¼ÆËãÈ¨ÖØÇø¼ä
+     * è®¡ç®—æƒé‡åŒºé—´
      * 
-     * @param weights  Êı¾İÔ´µÄÈ¨ÖØÊı×é
-     * @return   È¨ÖØÇø¼ä
+     * @param weights  æ•°æ®æºçš„æƒé‡æ•°ç»„
+     * @return   æƒé‡åŒºé—´
      */
     private static int[] genAreaEnds(int[] weights) {
         if (weights == null) {
@@ -142,9 +142,9 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * È¨ÖØÊı×éÈÕÖ¾Êä³ö×ªÒå
-     * @param inta È¨ÖØÊı×é
-     * @return  ¸ñÊ½»¯ºóµÄÈÕÖ¾×Ö·û´®
+     * æƒé‡æ•°ç»„æ—¥å¿—è¾“å‡ºè½¬ä¹‰
+     * @param inta æƒé‡æ•°ç»„
+     * @return  æ ¼å¼åŒ–åçš„æ—¥å¿—å­—ç¬¦ä¸²
      */
     private static String intArray2String(int[] inta) {
         if (inta == null) {
@@ -162,9 +162,9 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * »ñÈ¡ËùÓĞµÄdbµÄ±êÊ¶ºÏ²¢ºóµÄ×Ö·û´®
+     * è·å–æ‰€æœ‰çš„dbçš„æ ‡è¯†åˆå¹¶åçš„å­—ç¬¦ä¸²
      *  
-     * @return db±êÊ¶¼¯ºÏ×Ö·û´®
+     * @return dbæ ‡è¯†é›†åˆå­—ç¬¦ä¸²
      */
     public String getAllDbKeys() {
         StringBuilder sb = new StringBuilder();
@@ -178,9 +178,9 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * ¸ù¾İÈ¨ÖØËæ»ú»ñÈ¡dbµÄĞòºÅ
-     * @param excludeNums  ²»¿ÉÓÃdbĞòºÅµÄ¼¯ºÏ
-     * @return   dbµÄĞòºÅ£¬²»Ò»¶¨ÕæÕı¿ÉÓÃ£¬ĞèÒªÍâÎ§×öĞ£Ñé
+     * æ ¹æ®æƒé‡éšæœºè·å–dbçš„åºå·
+     * @param excludeNums  ä¸å¯ç”¨dbåºå·çš„é›†åˆ
+     * @return   dbçš„åºå·ï¼Œä¸ä¸€å®šçœŸæ­£å¯ç”¨ï¼Œéœ€è¦å¤–å›´åšæ ¡éªŒ
      */
     public int getRandomDBIndexByWeight(List<Integer> excludeNums) {
         final Weight w = weightHolder.get();
@@ -193,17 +193,17 @@ public class ZdalDataSourceKeyWeightRandom {
         }
         int size = dbIndexes.size();
         if (size <= 0) {
-            throw new IllegalArgumentException("Ã»ÓĞ¿ÉÓÃµÄÊı¾İÔ´ÁË£¬È¨ÖØÈ«²¿Îª0£¡");
+            throw new IllegalArgumentException("æ²¡æœ‰å¯ç”¨çš„æ•°æ®æºäº†ï¼Œæƒé‡å…¨éƒ¨ä¸º0ï¼");
         }
         int rand = random.nextInt(size);
         return dbIndexes.get(rand);
     }
 
     /**
-      * ¸ù¾İ´«ÈëµÄdbĞòÁĞºÅ£¬ÅĞ¶¨dbÊÇ·ñ¿ÉÓÃ
+      * æ ¹æ®ä¼ å…¥çš„dbåºåˆ—å·ï¼Œåˆ¤å®šdbæ˜¯å¦å¯ç”¨
       * 
-      * @param dbNumber  dbĞòÁĞºÅ
-      * @return          µ±Ç°dbÊÇ·ñ¿ÉÓÃ
+      * @param dbNumber  dbåºåˆ—å·
+      * @return          å½“å‰dbæ˜¯å¦å¯ç”¨
       */
     public boolean isDataBaseAvailable(int dbNumber) {
         final Weight w = weightHolder.get();
@@ -215,7 +215,7 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * ·µ»Ø²»¿ÉÓÃµÄÊı¾İ¿âĞòÁĞ¼¯ºÏ
+     * è¿”å›ä¸å¯ç”¨çš„æ•°æ®åº“åºåˆ—é›†åˆ
      * 
      * @return
      */
@@ -232,7 +232,7 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * ·µ»Ø¿ÉÓÃµÄÊı¾İ¿âĞòÁĞ¼¯ºÏ
+     * è¿”å›å¯ç”¨çš„æ•°æ®åº“åºåˆ—é›†åˆ
      * 
      * @return
      */
@@ -249,9 +249,9 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * ¸ù¾İdbĞòºÅ»ñÈ¡dbµÄkey±êÊ¶
-     * @param number  dbĞòºÅ
-     * @return   db±êÊ¶
+     * æ ¹æ®dbåºå·è·å–dbçš„keyæ ‡è¯†
+     * @param number  dbåºå·
+     * @return   dbæ ‡è¯†
      */
     public String getDBKeyByNumber(int number) {
         final Weight w = weightHolder.get();
@@ -273,9 +273,9 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * ¸ù¾İdbĞòºÅ»ñÈ¡dbµÄÈ¨ÖØ
-     * @param number  dbĞòºÅ
-     * @return   db È¨ÖØ
+     * æ ¹æ®dbåºå·è·å–dbçš„æƒé‡
+     * @param number  dbåºå·
+     * @return   db æƒé‡
      */
     public int getDBWeightByNumber(int number) {
         final Weight w = weightHolder.get();
@@ -287,9 +287,9 @@ public class ZdalDataSourceKeyWeightRandom {
     }
 
     /**
-     * »ñÈ¡ËùÓĞµÄÊı¾İÔ´±êÊ¶
+     * è·å–æ‰€æœ‰çš„æ•°æ®æºæ ‡è¯†
      * 
-     * @return Êı¾İÔ´±êÊ¶¼¯ºÏÊı×é
+     * @return æ•°æ®æºæ ‡è¯†é›†åˆæ•°ç»„
      */
     public String[] getDBKeysArray() {
         String keys[] = weightHolder.get().weightKeys;

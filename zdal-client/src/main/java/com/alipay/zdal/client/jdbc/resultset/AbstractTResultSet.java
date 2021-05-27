@@ -32,11 +32,11 @@ public abstract class AbstractTResultSet extends DummyTResultSet {
     }
 
     /**
-     * Ô­À´»á·¢ÉúÒ»¸öÇé¿ö¾ÍÊÇÈç¹ûZdalStatementµ÷ÓÃÁËclose()·½·¨
-     * ¶ø±¾ÉíÆä¹ÜÀíµÄTResultSetÃ»ÓĞclosedÊ±ºò¡£Íâ²¿»áÊ¹ÓÃiteratorÀ´±éÀúÃ¿Ò»¸ö
-     * TResultSet£¬µ÷ÓÃ¹Ø±ÕµÄ·½·¨£¬µ«ÒòÎªTResultSetµÄclose·½·¨»á»Øµ÷
-     * ZdalStatementÀïÃæÓÃÓÚ´´½¨iteratorµÄSet<ResultSet>¶ÔÏó£¬²¢Ê¹ÓÃremove·½·¨¡£
-     * Õâ¾Í»áÅ×³öÒ»¸öconcurrentModificationException¡£
+     * åŸæ¥ä¼šå‘ç”Ÿä¸€ä¸ªæƒ…å†µå°±æ˜¯å¦‚æœZdalStatementè°ƒç”¨äº†close()æ–¹æ³•
+     * è€Œæœ¬èº«å…¶ç®¡ç†çš„TResultSetæ²¡æœ‰closedæ—¶å€™ã€‚å¤–éƒ¨ä¼šä½¿ç”¨iteratoræ¥éå†æ¯ä¸€ä¸ª
+     * TResultSetï¼Œè°ƒç”¨å…³é—­çš„æ–¹æ³•ï¼Œä½†å› ä¸ºTResultSetçš„closeæ–¹æ³•ä¼šå›è°ƒ
+     * ZdalStatementé‡Œé¢ç”¨äºåˆ›å»ºiteratorçš„Set<ResultSet>å¯¹è±¡ï¼Œå¹¶ä½¿ç”¨removeæ–¹æ³•ã€‚
+     * è¿™å°±ä¼šæŠ›å‡ºä¸€ä¸ªconcurrentModificationExceptionã€‚
      * 
      * @param removeThis
      * @throws SQLException
@@ -66,7 +66,7 @@ public abstract class AbstractTResultSet extends DummyTResultSet {
         } finally {
             closed = true;
             actualResultSets.clear();
-            //Èç¹ûremoveThis=trueÔò´ÓparentÖĞÒÆ³ıµ±Ç°½Úµã¡£
+            //å¦‚æœremoveThis=trueåˆ™ä»parentä¸­ç§»é™¤å½“å‰èŠ‚ç‚¹ã€‚
             if (removeThis) {
                 if (!statementProxy.getTResultSets().remove(this)) {
                     log.warn("open result set does not exist");

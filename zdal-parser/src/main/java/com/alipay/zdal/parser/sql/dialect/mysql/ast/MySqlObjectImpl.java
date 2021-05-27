@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlObjectImpl.java, v 0.1 2012-11-17 ÏÂÎç3:29:39 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlObjectImpl.java, v 0.1 2012-11-17 ä¸‹åˆ3:29:39 Exp $
  */
 public abstract class MySqlObjectImpl extends SQLObjectImpl implements MySqlObject {
 

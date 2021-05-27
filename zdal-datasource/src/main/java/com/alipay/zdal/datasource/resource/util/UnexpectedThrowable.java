@@ -9,8 +9,8 @@ package com.alipay.zdal.datasource.resource.util;
  * This is typical when catching Throwables to handle and rethrow Exceptions
  * and Errors.
  *
- * @author ²®ÑÀ
- * @version $Id: UnexpectedThrowable.java, v 0.1 2014-1-6 ÏÂÎç05:40:45 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: UnexpectedThrowable.java, v 0.1 2014-1-6 ä¸‹åˆ05:40:45 Exp $
  */
 public class UnexpectedThrowable extends NestedError {
     /**

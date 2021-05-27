@@ -19,8 +19,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlSelectQueryBlock.java, v 0.1 2012-11-17 œ¬ŒÁ3:34:27 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlSelectQueryBlock.java, v 0.1 2012-11-17 ‰∏ãÂçà3:34:27 Exp $
  */
 @SuppressWarnings("serial")
 public class MySqlSelectQueryBlock extends SQLSelectQueryBlock implements MySqlObject {

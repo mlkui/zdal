@@ -20,19 +20,19 @@ import com.alipay.zdal.common.WeightRandom;
 import com.alipay.zdal.common.jdbc.sorter.ExceptionSorter;
 
 /**
- * �����ȼ�ѡ���selector
+ * 按优先级选择的selector
  * 
- * ÿ��ѡ��ֻ�����ȼ���ߵ�һ��DB��ѡ�����������ã��ż�������һ�����ȼ���DB����ѡ��
+ * 每次选择只从优先级最高的一组DB中选择，若都不可用，才继续在下一个优先级的DB组中选择
  * 
- * ���ȼ���ͬ��DB�������ѡ��
+ * 优先级相同的DB还用随机选择
  * 
- * ԭʼ����TCҪ����ÿ��dbgroup�����ȶ����⣬�����ⲻ����ʱ���Զ������� 
- * ��չ����һ���౸��������������⡣�����ⶼ������ʱ���Ŷ�����
+ * 原始需求：TC要求在每个dbgroup中优先读备库，当备库不可用时，自动读主库 
+ * 扩展需求：一主多备，优先随机读备库。当备库都不可用时，才读主库
  * 
- * Ϊ�˷��㴦���ͽӿ�һ�£�������Ҫ�� 
- * 1. Ŀǰֻ֧�ֶ������ȼ��� 
- * 2. һ��Ȩ�����͵���Ϣ�У������� 
- * 3. һ������Դֻ����һ�����ȼ����У�
+ * 为了方便处理和接口一致，有如下要求： 
+ * 1. 目前只支持读分优先级组 
+ * 2. 一个权重推送的信息中，。。。 
+ * 3. 一个数据源只能在一个优先级组中？
  * 
  * 
  */
@@ -40,7 +40,7 @@ public class PriorityDbGroupSelector extends AbstractDBSelector {
     private static final Logger         logger = Logger.getLogger(PriorityDbGroupSelector.class);
 
     /**
-     * �����ȼ�˳�������ݿ��顣Ԫ��0���ȼ���ߡ�ÿ��EquityDbManagerԪ�ش���������ͬ���ȼ���һ�����ݿ�
+     * 按优先级顺序存放数据库组。元素0优先级最高。每个EquityDbManager元素代表具有相同优先级的一组数据库
      */
     //private EquityDbManager[] priorityGroups;
 
@@ -73,7 +73,7 @@ public class PriorityDbGroupSelector extends AbstractDBSelector {
     }
 
     /**
-     * ȡÿ�������weightKey���ܵ�weightKey�Ľ�������������
+     * 取每个级别的weightKey和总的weightKey的交集，挨个设置
      */
     public void setWeight(Map<String, Integer> weightMap) {
         for (int i = 0; i < priorityGroupsDataSourceHolder.length; i++) {
@@ -117,8 +117,8 @@ public class PriorityDbGroupSelector extends AbstractDBSelector {
     };
 
     /**
-     * ����EquityDbManager��tryExecuteʵ�֣����û���tryer��һ����װ����wrapperTryer.onSQLException��
-     * ��⵽���һ��e��NoMoreDataSourceExceptionʱ������ԭtryer��onSQLException, ת�������������ȼ���
+     * 基于EquityDbManager的tryExecute实现，对用户的tryer做一个包装，在wrapperTryer.onSQLException中
+     * 检测到最后一个e是NoMoreDataSourceException时，不调原tryer的onSQLException, 转而重试其他优先级的
      */
     public <T> T tryExecute(Map<DataSource, SQLException> failedDataSources,
                             DataSourceTryer<T> tryer, int times, DB_OPERATION_TYPE operationType,
@@ -134,11 +134,11 @@ public class PriorityDbGroupSelector extends AbstractDBSelector {
                 logger.warn("NoMoreDataSource for retry for priority group " + i);
             }
         }
-        //���е����ȼ��鶼�����ã����׳��쳣
+        //所有的优先级组都不可用，则抛出异常
         return tryer.onSQLException(historyExceptions, exceptionSorter, args);
     }
 
-    //Ĭ�϶�д�ⶼ���Խ�������
+    //默认读写库都可以进行重试
     public boolean isSupportRetry(OperationDBType type) {
         return true;
     }

@@ -28,7 +28,7 @@ import com.alipay.zdal.parser.sql.parser.SQLStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: HexadecimalValuesTest.java, v 0.1 2012-5-17 …œŒÁ10:05:09 xiaoqing.zhouxq Exp $
+ * @version $Id: HexadecimalValuesTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:05:09 xiaoqing.zhouxq Exp $
  */
 public class HexadecimalValuesTest extends TestCase {
 

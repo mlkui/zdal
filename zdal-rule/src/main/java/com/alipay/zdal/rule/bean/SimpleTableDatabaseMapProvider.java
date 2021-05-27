@@ -9,8 +9,8 @@ import java.util.List;
 
 /**
  * 
- * Ö§³ÖºÍDatabaseÏÂ±êÒ»ÑùµÄ±íÃüÃû·½Ê½,Ã¿¸öDatabaseÖ»ÓĞÒ»ÕÅ±í¡£
- * ±ÈÈç: database01 -> trade_base_01
+ * æ”¯æŒå’ŒDatabaseä¸‹æ ‡ä¸€æ ·çš„è¡¨å‘½åæ–¹å¼,æ¯ä¸ªDatabaseåªæœ‰ä¸€å¼ è¡¨ã€‚
+ * æ¯”å¦‚: database01 -> trade_base_01
  *      database02 -> trade_base_02
  * 		database03 -> trade_base_03
  * 
@@ -33,8 +33,8 @@ public class SimpleTableDatabaseMapProvider extends SimpleTableMapProvider {
             multiple = Integer.valueOf(getParentID());
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(
-                "Ê¹ÓÃSimpleTableDatabaseMapProvider£¬databaseµÄindexÖµ±ØĞëÊÇ¸öintegerÊı×Ö"
-                        + "µ±Ç°databaseµÄindexÊÇ:" + getParentID());
+                "ä½¿ç”¨SimpleTableDatabaseMapProviderï¼Œdatabaseçš„indexå€¼å¿…é¡»æ˜¯ä¸ªintegeræ•°å­—"
+                        + "å½“å‰databaseçš„indexæ˜¯:" + getParentID());
         }
         String suffix = getSuffixInit(width, multiple);
         sb.append(suffix);

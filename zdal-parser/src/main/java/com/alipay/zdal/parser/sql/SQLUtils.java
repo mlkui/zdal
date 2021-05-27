@@ -25,7 +25,7 @@ import com.alipay.zdal.parser.sql.visitor.SchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLUtils.java, v 0.1 2012-11-17 œ¬ŒÁ3:11:19 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLUtils.java, v 0.1 2012-11-17 ‰∏ãÂçà3:11:19 xiaoqing.zhouxq Exp $
  */
 public class SQLUtils {
 

@@ -28,21 +28,21 @@ import com.alipay.zdal.rule.ruleengine.entities.retvalue.TargetDB;
 import com.alipay.zdal.rule.ruleengine.util.RuleUtils;
 
 /**
- * È«»î²ßÂÔµÄÖ§³ÖÀà£¬Ëæ»ú»ñÈ¡Ä³¸ö¿ÉÓÃµÄdbĞòºÅ»òÕß±íºÅ,<br>
- * ±à¼­µ½ÒµÎñÁ÷Ë®ºÅÀï£¬È»ºóÔÚ×öshardingÂ·ÓÉµÄÊ±ºò»áÓÃµ½¡£<br>
- * ±¾Àà¿ÉÒÔÊµÏÖµÄ¹¦ÄÜ°üÀ¨£º
- * 1)È«»î²ßÂÔ³¡¾°ÏÂ£¬¸ù¾İÂß¼­±íÃûºÍ×éºÅ£¨Ä¬ÈÏÎª0£¬ÒòÎªÖ»ÓĞÒ»×é£©Ëæ»ú»ñÈ¡Ò»¸ö¿ÉÓÃµÄdbºÅ£¬ÒÔ¼°ÔÚ¸ÃdbÀïµÄÎïÀí±íÃû<br>
- * 2£©»ñÈ¡¸ÃÂß¼­±íÔÚÄ³¸öÊı¾İÔ´ÉÏµÄ·Ö¿â·Ö±íµÄÇé¿ö<br>
+ * å…¨æ´»ç­–ç•¥çš„æ”¯æŒç±»ï¼Œéšæœºè·å–æŸä¸ªå¯ç”¨çš„dbåºå·æˆ–è€…è¡¨å·,<br>
+ * ç¼–è¾‘åˆ°ä¸šåŠ¡æµæ°´å·é‡Œï¼Œç„¶ååœ¨åšshardingè·¯ç”±çš„æ—¶å€™ä¼šç”¨åˆ°ã€‚<br>
+ * æœ¬ç±»å¯ä»¥å®ç°çš„åŠŸèƒ½åŒ…æ‹¬ï¼š
+ * 1)å…¨æ´»ç­–ç•¥åœºæ™¯ä¸‹ï¼Œæ ¹æ®é€»è¾‘è¡¨åå’Œç»„å·ï¼ˆé»˜è®¤ä¸º0ï¼Œå› ä¸ºåªæœ‰ä¸€ç»„ï¼‰éšæœºè·å–ä¸€ä¸ªå¯ç”¨çš„dbå·ï¼Œä»¥åŠåœ¨è¯¥dbé‡Œçš„ç‰©ç†è¡¨å<br>
+ * 2ï¼‰è·å–è¯¥é€»è¾‘è¡¨åœ¨æŸä¸ªæ•°æ®æºä¸Šçš„åˆ†åº“åˆ†è¡¨çš„æƒ…å†µ<br>
  * 
- * ¶Ôdual±íµÄÓÅ»¯²ßÂÔ£º
- * ÓÉÓÚÈ«»î²ßÂÔĞèÒª»ñÈ¡Ò»¸ö¿ÉÓÃµÄdbĞòºÅ£¬Ö®Ç°µÄ·½°¸ÊÇÃ¿´ÎÓĞÒµÎñÇëÇóµ½´ï£¬¶¼ÒªÍ¨¹ıselect from dual 
- * ½øĞĞdb¿ÉÓÃĞÔµÄĞ£Ñé£¬ Ôì³É dba ·¢ÏÖdual±íµÄ·ÃÎÊ´ÎÊıÌ«¸ß£¬µ¼ÖÂloadÉı¸ß£»ÓÅ»¯ºó´ó´ó½µµÍÁË¶Ôdual±íµÄ·ÃÎÊ´ÎÊı£¬dbµÄloadËæÖ®½µµÍ¡£
- * ¼òµ¥ÃèÊö·½°¸£º
- * ÓÉÖ®Ç°µÄÒµÎñÏß³Ì¼ì²âdb ¿ÉÓÃĞÔ£¬¸Ä±äÎª ÓÉzdalµÄÒì²½Ïß³Ì¼ì²â£¬Ã¿¸ôÒ»¶¨µÄÊ±¼ä¶Î£¨¼ÙÉè10ms£¬¿ÉÅäÖÃ£©
- * ¼ì²âÒ»´ÎËùÓĞdbµÄ×´Ì¬£¬µ«Ö»ÓĞ·¢ÏÖºÍÉÏ´ÎµÄ¼ì²â½á¹û´æÔÚ²îÒìµÄÇé¿öÏÂ²ÅÈ¥Ë¢ĞÂ±ä¸üdbµÄ×´Ì¬£¬¸Ã·½°¸ºÜºÃµÄÊµÏÖÁËÈ«»î²ßÂÔÊı¾İÔ´µÄ×Ô¶¯ÌŞ³ıºÍ»Ö¸´¡£
+ * å¯¹dualè¡¨çš„ä¼˜åŒ–ç­–ç•¥ï¼š
+ * ç”±äºå…¨æ´»ç­–ç•¥éœ€è¦è·å–ä¸€ä¸ªå¯ç”¨çš„dbåºå·ï¼Œä¹‹å‰çš„æ–¹æ¡ˆæ˜¯æ¯æ¬¡æœ‰ä¸šåŠ¡è¯·æ±‚åˆ°è¾¾ï¼Œéƒ½è¦é€šè¿‡select from dual 
+ * è¿›è¡Œdbå¯ç”¨æ€§çš„æ ¡éªŒï¼Œ é€ æˆ dba å‘ç°dualè¡¨çš„è®¿é—®æ¬¡æ•°å¤ªé«˜ï¼Œå¯¼è‡´loadå‡é«˜ï¼›ä¼˜åŒ–åå¤§å¤§é™ä½äº†å¯¹dualè¡¨çš„è®¿é—®æ¬¡æ•°ï¼Œdbçš„loadéšä¹‹é™ä½ã€‚
+ * ç®€å•æè¿°æ–¹æ¡ˆï¼š
+ * ç”±ä¹‹å‰çš„ä¸šåŠ¡çº¿ç¨‹æ£€æµ‹db å¯ç”¨æ€§ï¼Œæ”¹å˜ä¸º ç”±zdalçš„å¼‚æ­¥çº¿ç¨‹æ£€æµ‹ï¼Œæ¯éš”ä¸€å®šçš„æ—¶é—´æ®µï¼ˆå‡è®¾10msï¼Œå¯é…ç½®ï¼‰
+ * æ£€æµ‹ä¸€æ¬¡æ‰€æœ‰dbçš„çŠ¶æ€ï¼Œä½†åªæœ‰å‘ç°å’Œä¸Šæ¬¡çš„æ£€æµ‹ç»“æœå­˜åœ¨å·®å¼‚çš„æƒ…å†µä¸‹æ‰å»åˆ·æ–°å˜æ›´dbçš„çŠ¶æ€ï¼Œè¯¥æ–¹æ¡ˆå¾ˆå¥½çš„å®ç°äº†å…¨æ´»ç­–ç•¥æ•°æ®æºçš„è‡ªåŠ¨å‰”é™¤å’Œæ¢å¤ã€‚
  * 
  * @author zhaofeng.wang
- * @version $Id: TDatasourceIntrospector.java, v 0.1 2012-3-26 ÏÂÎç06:26:21 zhaofeng.wang Exp $
+ * @version $Id: TDatasourceIntrospector.java, v 0.1 2012-3-26 ä¸‹åˆ06:26:21 zhaofeng.wang Exp $
  */
 
 public class ZdalDatasourceIntrospector {
@@ -50,64 +50,64 @@ public class ZdalDatasourceIntrospector {
     public static final Logger                  logger                 = Logger
                                                                            .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
     /**
-     * Zdal·â×°µÄÊı¾İÔ´ 
+     * Zdalå°è£…çš„æ•°æ®æº 
      */
     private AbstractZdalDataSource              targetDataSource;
     /**
-     * key Îª ¡°Êı¾İÔ´±êÊ¶#Âß¼­±íÃû¡±£¬valueÎª±íµÄºó×º¼¯ºÏ
+     * key ä¸º â€œæ•°æ®æºæ ‡è¯†#é€»è¾‘è¡¨åâ€ï¼Œvalueä¸ºè¡¨çš„åç¼€é›†åˆ
      */
     private Map<String, List<String>>           tablesCache            = new HashMap<String, List<String>>(
                                                                            0);
     /**
-     * È¨ÖØËæ»úÆ÷
+     * æƒé‡éšæœºå™¨
      */
     private final Random                        random                 = new Random();
     /**
-     * ¹æÔòÁ´»º´æ
+     * è§„åˆ™é“¾ç¼“å­˜
      */
     private static final Map<String, RuleChain> ruleChainCache         = new HashMap<String, RuleChain>();
     /**
-     * µ¥¸ö¹æÔòÁ´
+     * å•ä¸ªè§„åˆ™é“¾
      */
     private RuleChain                           singleRuleChain;
 
     /**
-     * Ä¬ÈÏµÄÂÖÑµÊ±¼ä
+     * é»˜è®¤çš„è½®è®­æ—¶é—´
      */
     private long                                waitTime               = 1000L;
     /**
-     * Í¨¹ıFuture·½Ê½»ñÈ¡¼ì²éÁ¬½Ó½á¹ûµÄ³¬Ê±Ê±³¤£¬Èç¹û³¬¹ı¸ÃÖµ¾ÍÅ×³ötimeOutException
+     * é€šè¿‡Futureæ–¹å¼è·å–æ£€æŸ¥è¿æ¥ç»“æœçš„è¶…æ—¶æ—¶é•¿ï¼Œå¦‚æœè¶…è¿‡è¯¥å€¼å°±æŠ›å‡ºtimeOutException
      */
     private long                                timeOutLength          = 500L;
 
     /**
-     * ×î¶à¿ÉÒÔ×Ô¶¯ÌŞ³ıµÄÊı¾İ¿âµÄ¸öÊı£¬Ä¬ÈÏÎª-1
+     * æœ€å¤šå¯ä»¥è‡ªåŠ¨å‰”é™¤çš„æ•°æ®åº“çš„ä¸ªæ•°ï¼Œé»˜è®¤ä¸º-1
      */
     private int                                 closeDBLimitNumber     = -1;
 
     private CheckDBAvailableStatus              checkDBAvailableStatus = new CheckDBAvailableStatus();
 
     /**
-     * Ïß³Ì³ØµÄ×îĞ¡Öµ
+     * çº¿ç¨‹æ± çš„æœ€å°å€¼
      */
     private int                                 corePoolSize           = 1;
     /**
-     * Ïß³Ì³ØµÄ×î´óÖµ
+     * çº¿ç¨‹æ± çš„æœ€å¤§å€¼
      */
     private int                                 maximumPoolSize        = 10;
     /**
-     * Ïß³Ì³Ø¶ÓÁĞ³¤¶È
+     * çº¿ç¨‹æ± é˜Ÿåˆ—é•¿åº¦
      */
     private int                                 workQueueSize          = 100;
 
     /**
-     * ÊÇ·ñÊ¹ÓÃÒì²½Ìá½»·½Ê½
+     * æ˜¯å¦ä½¿ç”¨å¼‚æ­¥æäº¤æ–¹å¼
      */
     private boolean                             isUseFutureMode        = true;
 
     public void init() {
-        //Æô¶¯Òì²½Ïß³Ì£¬ÂÖÑµÊı¾İ¿âµÄ¿ÉÓÃ×´Ì¬
-        //Æô¶¯Òì²½Ïß³Ì£¬ÂÖÑµÊı¾İ¿âµÄ¿ÉÓÃ×´Ì¬
+        //å¯åŠ¨å¼‚æ­¥çº¿ç¨‹ï¼Œè½®è®­æ•°æ®åº“çš„å¯ç”¨çŠ¶æ€
+        //å¯åŠ¨å¼‚æ­¥çº¿ç¨‹ï¼Œè½®è®­æ•°æ®åº“çš„å¯ç”¨çŠ¶æ€
         checkDBAvailableStatus.setTargetDataSource(targetDataSource);
         checkDBAvailableStatus.setIsUseFutureMode(isUseFutureMode);
         checkDBAvailableStatus.setWaitTime(waitTime);
@@ -122,15 +122,15 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ½ğÈÚ½»»»ÏîÄ¿¡¢ÉÏº£ÊÕµ¥ÏîÄ¿ÔÚµ÷ÓÃ<br>
+     * é‡‘èäº¤æ¢é¡¹ç›®ã€ä¸Šæµ·æ”¶å•é¡¹ç›®åœ¨è°ƒç”¨<br>
      * 
-     * È«»î²ßÂÔÒÀÀµµÄ½Ó¿Ú<br>
+     * å…¨æ´»ç­–ç•¥ä¾èµ–çš„æ¥å£<br>
      * 
-     * ¸ù¾İÈ¨ÖØËæ»úµÄÑ¡ÔñÒ»¸ö¿ÉÓÃdb£¬²¢ÔÚ¸ÃdbÉÏËæ»úÑ¡ÔñÒ»¸ö±í£¬ÒµÎñÓÃÓÚ×é×°·Ö¿â·Ö±í×Ö¶Î<br>
+     * æ ¹æ®æƒé‡éšæœºçš„é€‰æ‹©ä¸€ä¸ªå¯ç”¨dbï¼Œå¹¶åœ¨è¯¥dbä¸Šéšæœºé€‰æ‹©ä¸€ä¸ªè¡¨ï¼Œä¸šåŠ¡ç”¨äºç»„è£…åˆ†åº“åˆ†è¡¨å­—æ®µ<br>
      * 
-     * @param logicTableName   Âß¼­±íÃû<br>
-     * @param groupNum  È«»î²ßÂÔ³¡¾°ÏÂÄ¬ÈÏÎª0
-     * @return   String[0]´ú±í¿âºÅ£¬String[1]´ú±íÎïÀí±íÃû<br>
+     * @param logicTableName   é€»è¾‘è¡¨å<br>
+     * @param groupNum  å…¨æ´»ç­–ç•¥åœºæ™¯ä¸‹é»˜è®¤ä¸º0
+     * @return   String[0]ä»£è¡¨åº“å·ï¼ŒString[1]ä»£è¡¨ç‰©ç†è¡¨å<br>
      */
     public String[] getAvailableDBAndTableByWeights(String logicTableName, int groupNum,
                                                     boolean isCheckConnection) {
@@ -138,13 +138,13 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ½ğÈÚ½»»»ÏîÄ¿×éÔÚµ÷ÓÃ<br>
+     * é‡‘èäº¤æ¢é¡¹ç›®ç»„åœ¨è°ƒç”¨<br>
      * 
-     * ÏÈ½øĞĞ·Ö×é£¬ÔÙ½øĞĞ×éÄÚÈ«»î²ßÂÔµÄ½Ó¿Ú<br>
-     *  »ñÈ¡×éÄÚ¿ÉÓÃµÄdbºÅÒÔ¼°Ëæ»úµÄ±í<br>
-     * @param logicTableName Âß¼­±íÃû
-     * @param parameters     ·Ö×é²ÎÊı¶Ô
-     * @return               ×éÄÚ¿ÉÓÃµÄdbºÅºÍËæ»úÑ¡ÔñµÄ±í
+     * å…ˆè¿›è¡Œåˆ†ç»„ï¼Œå†è¿›è¡Œç»„å†…å…¨æ´»ç­–ç•¥çš„æ¥å£<br>
+     *  è·å–ç»„å†…å¯ç”¨çš„dbå·ä»¥åŠéšæœºçš„è¡¨<br>
+     * @param logicTableName é€»è¾‘è¡¨å
+     * @param parameters     åˆ†ç»„å‚æ•°å¯¹
+     * @return               ç»„å†…å¯ç”¨çš„dbå·å’Œéšæœºé€‰æ‹©çš„è¡¨
      */
     public String[] getAvailableGroupDBAndTable(String logicTableName,
                                                 Map<String, String> parameters,
@@ -154,10 +154,10 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İÓÃ»§×éºÅ£¬È»ºó¸ù¾İÈ¨ÖØÔÚ×éÄÚËæ»úµÄÑ¡ÔñÒ»¸ö¿ÉÓÃdb£¬²¢ÔÚ¸ÃdbÉÏËæ»úÑ¡ÔñÒ»¸ö±í£¬ÒµÎñÓÃÓÚ×é×°·Ö¿â·Ö±í×Ö¶Î<br>
+     * æ ¹æ®ç”¨æˆ·ç»„å·ï¼Œç„¶åæ ¹æ®æƒé‡åœ¨ç»„å†…éšæœºçš„é€‰æ‹©ä¸€ä¸ªå¯ç”¨dbï¼Œå¹¶åœ¨è¯¥dbä¸Šéšæœºé€‰æ‹©ä¸€ä¸ªè¡¨ï¼Œä¸šåŠ¡ç”¨äºç»„è£…åˆ†åº“åˆ†è¡¨å­—æ®µ<br>
      * 
-     * @param logicTableName   Âß¼­±íÃû<br>
-     * @return   String[0]´ú±í×éÄÚËæ»úÑ¡ÔñµÄ¿âºÅ£¬String[1]´ú±íÔÚ¿âÄÚËæ»úÑ¡ÔñµÄÎïÀí±íÃû<br>
+     * @param logicTableName   é€»è¾‘è¡¨å<br>
+     * @return   String[0]ä»£è¡¨ç»„å†…éšæœºé€‰æ‹©çš„åº“å·ï¼ŒString[1]ä»£è¡¨åœ¨åº“å†…éšæœºé€‰æ‹©çš„ç‰©ç†è¡¨å<br>
      */
     private String[] getAvailableGroupDBAndTableByWeights(String logicTableName, int groupNum,
                                                           boolean isCheckConnection) {
@@ -173,13 +173,13 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * Í³Ò»Ö§¸¶ÏîÄ¿ÔÚµ÷ÓÃ
+     * ç»Ÿä¸€æ”¯ä»˜é¡¹ç›®åœ¨è°ƒç”¨
      * 
-     * ÏÈ½øĞĞ·Ö×é£¬ÔÙ½øĞĞ×éÄÚÈ«»î²ßÂÔµÄ½Ó¿Ú.<br>
-     * ÔÚÒ»×éÄÚ»ñÈ¡¿ÉÓÃµÄdb£¬²»ĞèÒªÂß¼­±íÃû.<br>
-     * µ÷ÓÃ´Ë½Ó¿Ú£¬Ğë±£Ö¤ËùÓĞ±íµÄshardingRule¶¼ÏàÍ¬£¬»òÕßÖ»ÓĞÒ»¸ö±íÅäÖÃ¸ÃÊôĞÔ<br>
-     * @param parameters     ²ÎÊı¼üÖµ¶Ô<br>
-     * @return               ×éÄÚ¿ÉÓÃµÄdbºÅ
+     * å…ˆè¿›è¡Œåˆ†ç»„ï¼Œå†è¿›è¡Œç»„å†…å…¨æ´»ç­–ç•¥çš„æ¥å£.<br>
+     * åœ¨ä¸€ç»„å†…è·å–å¯ç”¨çš„dbï¼Œä¸éœ€è¦é€»è¾‘è¡¨å.<br>
+     * è°ƒç”¨æ­¤æ¥å£ï¼Œé¡»ä¿è¯æ‰€æœ‰è¡¨çš„shardingRuleéƒ½ç›¸åŒï¼Œæˆ–è€…åªæœ‰ä¸€ä¸ªè¡¨é…ç½®è¯¥å±æ€§<br>
+     * @param parameters     å‚æ•°é”®å€¼å¯¹<br>
+     * @return               ç»„å†…å¯ç”¨çš„dbå·
      */
     public String getAvailableGroupDB(Map<String, String> parameters) {
         int groupNum = getShardingResult(parameters);
@@ -187,13 +187,13 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * Í³Ò»Ö§¸¶ÏîÄ¿µ÷ÓÃ
+     * ç»Ÿä¸€æ”¯ä»˜é¡¹ç›®è°ƒç”¨
      * 
-     * ÏÈ½øĞĞ·Ö×é£¬ÔÙ½øĞĞ×éÄÚÈ«»î²ßÂÔµÄ½Ó¿Ú.<br>
-     * ÔÚÒ»×éÄÚ»ñÈ¡¿ÉÓÃµÄdb£¬²»ĞèÒªÂß¼­±íÃû.<br>
-     * µ÷ÓÃ´Ë½Ó¿Ú£¬Ğë±£Ö¤ËùÓĞ±íµÄshardingRule¶¼ÏàÍ¬£¬»òÕßÖ»ÓĞÒ»¸ö±íÅäÖÃ¸ÃÊôĞÔ<br>
-     * @param parameters     ²ÎÊı¼üÖµ¶Ô<br>
-     * @return               ×éÄÚ¿ÉÓÃµÄdbºÅ
+     * å…ˆè¿›è¡Œåˆ†ç»„ï¼Œå†è¿›è¡Œç»„å†…å…¨æ´»ç­–ç•¥çš„æ¥å£.<br>
+     * åœ¨ä¸€ç»„å†…è·å–å¯ç”¨çš„dbï¼Œä¸éœ€è¦é€»è¾‘è¡¨å.<br>
+     * è°ƒç”¨æ­¤æ¥å£ï¼Œé¡»ä¿è¯æ‰€æœ‰è¡¨çš„shardingRuleéƒ½ç›¸åŒï¼Œæˆ–è€…åªæœ‰ä¸€ä¸ªè¡¨é…ç½®è¯¥å±æ€§<br>
+     * @param parameters     å‚æ•°é”®å€¼å¯¹<br>
+     * @return               ç»„å†…å¯ç”¨çš„dbå·
      */
     public String getAvailableGroupDB(Map<String, String> parameters, boolean isCheckConnection) {
         int groupNum = getShardingResult(parameters);
@@ -201,22 +201,22 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * Ëæ»úµÄÑ¡ÔñÒ»¸ö¿ÉÓÃdb<br>
-     * Èç¹û isCheckConnection Îª false£¬ÔòÄ¬ÈÏ ²ÉÓÃÂÖÑµ»úÖÆ£¬¼´zdalµÄÒì²½Ïß³Ì¼ä¸ôÒ»¶ÎÊ±¼ä½øĞĞ¼ì²â£¬
-     * Èç¹ûÎªtrue£¬Ôò±íÊ¾Ã¿´Î¶¼¼ì²éÒ»ÏÂ£¬ºÄ·ÑĞÔÄÜµÄËµ£»
+     * éšæœºçš„é€‰æ‹©ä¸€ä¸ªå¯ç”¨db<br>
+     * å¦‚æœ isCheckConnection ä¸º falseï¼Œåˆ™é»˜è®¤ é‡‡ç”¨è½®è®­æœºåˆ¶ï¼Œå³zdalçš„å¼‚æ­¥çº¿ç¨‹é—´éš”ä¸€æ®µæ—¶é—´è¿›è¡Œæ£€æµ‹ï¼Œ
+     * å¦‚æœä¸ºtrueï¼Œåˆ™è¡¨ç¤ºæ¯æ¬¡éƒ½æ£€æŸ¥ä¸€ä¸‹ï¼Œè€—è´¹æ€§èƒ½çš„è¯´ï¼›
      * 
-     * @param    groupNum   ×éºÅ<br>
-     * @param    isCheckConnection ÊÇ·ñ¼ì²éÁ¬½Ó
-     * @return   String[0]´ú±í¿âºÅ£¬String[1]´ú±íÎïÀí±íÃû<br>
+     * @param    groupNum   ç»„å·<br>
+     * @param    isCheckConnection æ˜¯å¦æ£€æŸ¥è¿æ¥
+     * @return   String[0]ä»£è¡¨åº“å·ï¼ŒString[1]ä»£è¡¨ç‰©ç†è¡¨å<br>
      */
     private String getAvailableGroupDBByWeights(int groupNum, boolean isCheckConnection) {
         ZdalDataSourceKeyWeightRandom ZdalDataSourceKeyWeightRandom = getZdalDataSourceKeyWeightRandom(groupNum);
         int orderInGroup = -1;
 
-        // ¸ù¾İÈ¨ÖØÔÚ¸ÃgroupNumÄÚËæ»ú»ñÈ¡Ò»¸ö
+        // æ ¹æ®æƒé‡åœ¨è¯¥groupNumå†…éšæœºè·å–ä¸€ä¸ª
         orderInGroup = ZdalDataSourceKeyWeightRandom
             .getRandomDBIndexByWeight(new ArrayList<Integer>());
-        //»ñÈ¡¸Ãdb¶ÔÓ¦µÄ±êÊ¶dbKey
+        //è·å–è¯¥dbå¯¹åº”çš„æ ‡è¯†dbKey
         String dbKey = ZdalDataSourceKeyWeightRandom.getDBKeyByNumber(orderInGroup);
 
         if (logger.isDebugEnabled()) {
@@ -235,21 +235,21 @@ public class ZdalDatasourceIntrospector {
                                                    .getDataSourceNumberInGroup() - 1));
         }
 
-        //·µ»ØËæ»ú»ñÈ¡dbµÄnumber
+        //è¿”å›éšæœºè·å–dbçš„number
         return Integer.toString(orderInGroup);
     }
 
     /**
-     * ¸ù¾İdb±êÊ¶¡¢Âß¼­±íÃûËæ»ú»ñÈ¡¸Ã¿âÉÏµÄÒ»¸öÎïÀí±íÃû<br>
-     * @param dbKey            Êı¾İ¿â±êÊ¶<br>
-     * @param logicTableName   Âß¼­±íÃû<br>
-     * @return                 ÎïÀí±íÃû<br>
+     * æ ¹æ®dbæ ‡è¯†ã€é€»è¾‘è¡¨åéšæœºè·å–è¯¥åº“ä¸Šçš„ä¸€ä¸ªç‰©ç†è¡¨å<br>
+     * @param dbKey            æ•°æ®åº“æ ‡è¯†<br>
+     * @param logicTableName   é€»è¾‘è¡¨å<br>
+     * @return                 ç‰©ç†è¡¨å<br>
      */
     private String getTableNumberByRandom(String dbKey, String logicTableName) {
         List<String> tableIndexesList = new ArrayList<String>(0);
         tableIndexesList = getAllTableIndex(dbKey, logicTableName);
         if (tableIndexesList == null || tableIndexesList.size() == 0) {
-            throw new IllegalArgumentException("±íÃûºó×º¼¯ºÏ²» ÄÜÎª¿Õ,dbKey=" + dbKey + ",logicTableName="
+            throw new IllegalArgumentException("è¡¨ååç¼€é›†åˆä¸ èƒ½ä¸ºç©º,dbKey=" + dbKey + ",logicTableName="
                                                + logicTableName);
         }
         int rand = random.nextInt(tableIndexesList.size());
@@ -257,13 +257,13 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İ¿âµÄ±êÊ¶dbKeyºÍÂß¼­±íÃûlogicTableName»ñÈ¡¸Ã¿âÉÏ¸ÃÂß¼­±íËù¶ÔÓ¦µÄÎïÀí±íÃû¼¯ºÏ<br>
-     * ÒòÎªÒ»µ©·Ö¿â·Ö±íºó£¬¸÷¸ö·Ö¿âµÄ·Ö±íÏà¶Ô¶¼ÊÇ¹Ì¶¨µÄ£¬Òò´Ë¿ÉÒÔ»º´æÆğÀ´£¬ÏÈÈ¥»º´æ²é£¬<br>
-     * Èç¹û²é²»µ½£¬¾ÍÈ¥»ñÈ¡¸Ã¿âÉÏ¸ÃÂß¼­±íËù¶ÔÓ¦µÄÎïÀí±íÃû¼¯ºÏ¡£<br>
+     * æ ¹æ®åº“çš„æ ‡è¯†dbKeyå’Œé€»è¾‘è¡¨ålogicTableNameè·å–è¯¥åº“ä¸Šè¯¥é€»è¾‘è¡¨æ‰€å¯¹åº”çš„ç‰©ç†è¡¨åé›†åˆ<br>
+     * å› ä¸ºä¸€æ—¦åˆ†åº“åˆ†è¡¨åï¼Œå„ä¸ªåˆ†åº“çš„åˆ†è¡¨ç›¸å¯¹éƒ½æ˜¯å›ºå®šçš„ï¼Œå› æ­¤å¯ä»¥ç¼“å­˜èµ·æ¥ï¼Œå…ˆå»ç¼“å­˜æŸ¥ï¼Œ<br>
+     * å¦‚æœæŸ¥ä¸åˆ°ï¼Œå°±å»è·å–è¯¥åº“ä¸Šè¯¥é€»è¾‘è¡¨æ‰€å¯¹åº”çš„ç‰©ç†è¡¨åé›†åˆã€‚<br>
      * 
-     * @param dbKey          ¿âµÄ±êÊ¶<br>
-     * @param logicTableName Âß¼­±íÃû<br>
-     * @return               ±íºó×º¼¯ºÏ<br>
+     * @param dbKey          åº“çš„æ ‡è¯†<br>
+     * @param logicTableName é€»è¾‘è¡¨å<br>
+     * @return               è¡¨åç¼€é›†åˆ<br>
      */
     private List<String> getAllTableIndex(String dbKey, String logicTableName) {
 
@@ -271,16 +271,16 @@ public class ZdalDatasourceIntrospector {
 
         List<String> tableIndexesList = new ArrayList<String>(0);
         tableIndexesList = tablesCache.get(tablesCachekey);
-        //È¥»º´æÀï²é£¬Èç¹û²éµ½¾Í·µ»Ø
+        //å»ç¼“å­˜é‡ŒæŸ¥ï¼Œå¦‚æœæŸ¥åˆ°å°±è¿”å›
         if (tableIndexesList != null && tableIndexesList.size() != 0) {
             if (logger.isDebugEnabled()) {
-                logger.debug("¸ù¾İdbKey=" + dbKey + "»ñÈ¡µ½Âß¼­±íÃû" + logicTableName + "Ëù¶ÔÓ¦µÄÎïÀí±íÃû¼¯ºÏ£¬·Ö±ğÊÇ£º"
+                logger.debug("æ ¹æ®dbKey=" + dbKey + "è·å–åˆ°é€»è¾‘è¡¨å" + logicTableName + "æ‰€å¯¹åº”çš„ç‰©ç†è¡¨åé›†åˆï¼Œåˆ†åˆ«æ˜¯ï¼š"
                              + tableIndexesList.toString());
 
             }
             return tableIndexesList;
         } else {
-            //Èç¹û²é²»µ½£¬¾ÍËµÃ÷»¹Ã»·ÃÎÊ¹ı¸Ã¿âÉÏµÄ¸ÃÂß¼­±í
+            //å¦‚æœæŸ¥ä¸åˆ°ï¼Œå°±è¯´æ˜è¿˜æ²¡è®¿é—®è¿‡è¯¥åº“ä¸Šçš„è¯¥é€»è¾‘è¡¨
             DatabaseChoicer databaseChoicer = getDatabaseChoicer();
             if (databaseChoicer == null) {
                 throw new IllegalArgumentException("The dispatcher is null,dbKey=" + dbKey
@@ -296,7 +296,7 @@ public class ZdalDatasourceIntrospector {
                 throw new IllegalArgumentException("TargetDBs can not be null,dbKey=" + dbKey
                                                    + ",logicTableName=" + logicTableName);
             }
-            //±éÀú¸÷¸ö·Ö¿â£¬»ñÈ¡¶ÔÓ¦µÄ·Ö±íÇé¿ö
+            //éå†å„ä¸ªåˆ†åº“ï¼Œè·å–å¯¹åº”çš„åˆ†è¡¨æƒ…å†µ
             for (TargetDB targetDB : targetDBs) {
                 List<String> list = new ArrayList<String>(0);
                 for (String tableName : targetDB.getTableNames()) {
@@ -316,10 +316,10 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İ±íÃûÒÔ¼°´«ÈëµÄ²ÎÊı£¬»ñÈ¡¶ÔÓ¦µÄ·Ö×éºÅ
-     * @param tableName      Âß¼­±íÃû
-     * @param parameters     ²ÎÊı¶Ô
-     * @return               ·Ö×éºÅ
+     * æ ¹æ®è¡¨åä»¥åŠä¼ å…¥çš„å‚æ•°ï¼Œè·å–å¯¹åº”çš„åˆ†ç»„å·
+     * @param tableName      é€»è¾‘è¡¨å
+     * @param parameters     å‚æ•°å¯¹
+     * @return               åˆ†ç»„å·
      */
     public int getShardingResultByTableName(String tableName, Map<String, String> parameters) {
         if (StringUtil.isBlank(tableName)) {
@@ -336,9 +336,9 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İ´«ÈëµÄ²ÎÊı£¬»ñÈ¡¶ÔÓ¦µÄ·Ö×éºÅ
-     * @param parameters     ²ÎÊı
-     * @return               ·Ö×éºÅ
+     * æ ¹æ®ä¼ å…¥çš„å‚æ•°ï¼Œè·å–å¯¹åº”çš„åˆ†ç»„å·
+     * @param parameters     å‚æ•°
+     * @return               åˆ†ç»„å·
      */
     private int getShardingResult(Map<String, String> parameters) {
         TableShardingRuleImpl tableShardingRuleImpl = new TableShardingRuleImpl();
@@ -352,9 +352,9 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İÂß¼­±íÃû»ñÈ¡¹æÔòÁ´
-     * @param tableName Âß¼­±íÃû
-     * @return shardingRule¹æÔòÁ´¶ÔÏó
+     * æ ¹æ®é€»è¾‘è¡¨åè·å–è§„åˆ™é“¾
+     * @param tableName é€»è¾‘è¡¨å
+     * @return shardingRuleè§„åˆ™é“¾å¯¹è±¡
      */
     private RuleChain getShardingRuleChainByTableName(String tableName) {
         if (StringUtil.isBlank(tableName)) {
@@ -375,12 +375,12 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * »ñÈ¡µ¥Ò»µÄshardingRuleËù¶ÔÓ¦µÄ¹æÔòÁ´,±éÀúËùÓĞµÄ·Ö¿â·Ö±í¹æÔò£¬
-     * Èç¹û·¢ÏÖÓĞÒ»¸ö¹æÔòÅäÖÃÁËshardingRule£¬±ãÒÔËü×÷Îª»ñÈ¡¹æÔòÁ´µÄÈë²Î
-     * @return          µ¥Ò»¹æÔòÁ´
+     * è·å–å•ä¸€çš„shardingRuleæ‰€å¯¹åº”çš„è§„åˆ™é“¾,éå†æ‰€æœ‰çš„åˆ†åº“åˆ†è¡¨è§„åˆ™ï¼Œ
+     * å¦‚æœå‘ç°æœ‰ä¸€ä¸ªè§„åˆ™é…ç½®äº†shardingRuleï¼Œä¾¿ä»¥å®ƒä½œä¸ºè·å–è§„åˆ™é“¾çš„å…¥å‚
+     * @return          å•ä¸€è§„åˆ™é“¾
      */
     private RuleChain getSingleShardingRuleChain() {
-        //Èç¹ûsingleRuleChainÎª¿Õ£¬Ôò±éÀúËùÓĞ±í¹æÔò
+        //å¦‚æœsingleRuleChainä¸ºç©ºï¼Œåˆ™éå†æ‰€æœ‰è¡¨è§„åˆ™
         if (singleRuleChain == null) {
 
             Map<String, TableRule> tableRules = getTableRules();
@@ -388,12 +388,12 @@ public class ZdalDatasourceIntrospector {
                 String tableName = entry.getKey();
                 TableRule tableRule = entry.getValue();
                 singleRuleChain = getRuleChainByTableRule(tableRule, tableName);
-                //Èç¹ûÓĞÒ»Ìõ¹æÔòÅäÖÃÁËshardingRule
+                //å¦‚æœæœ‰ä¸€æ¡è§„åˆ™é…ç½®äº†shardingRule
                 if (singleRuleChain != null) {
                     break;
                 }
             }
-            //Èç¹û·¢ÏÖËùÓĞµÄ¹æÔò¶¼Ã×ÓĞÅäÖÃshardingRule
+            //å¦‚æœå‘ç°æ‰€æœ‰çš„è§„åˆ™éƒ½ç±³æœ‰é…ç½®shardingRule
             if (singleRuleChain == null) {
                 throw new IllegalArgumentException("The shardingRules property don't be set!");
             }
@@ -402,13 +402,13 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İ·Ö¿â·Ö±í¹æÔò£¬»ñÈ¡shardingRule¶ÔÓ¦µÄ¹æÔòÁ´
-     * @param tableRule     ·Ö¿â·Ö±í¹æÔò
-     * @param tableName     Âß¼­±íÃû
-     * @return   shardingRule¶ÔÓ¦µÄ¹æÔòÁ´
+     * æ ¹æ®åˆ†åº“åˆ†è¡¨è§„åˆ™ï¼Œè·å–shardingRuleå¯¹åº”çš„è§„åˆ™é“¾
+     * @param tableRule     åˆ†åº“åˆ†è¡¨è§„åˆ™
+     * @param tableName     é€»è¾‘è¡¨å
+     * @return   shardingRuleå¯¹åº”çš„è§„åˆ™é“¾
      */
     private RuleChain getRuleChainByTableRule(TableRule tableRule, String tableName) {
-        //tableRule Ò»¸öÂß¼­±íÃû¶ÔÓ¦×ÅÒ»Ì×·Ö¿â·Ö±í¹æÔò£¬¹Ê´ËÊôĞÔ²»¿ÉÎª¿Õ
+        //tableRule ä¸€ä¸ªé€»è¾‘è¡¨åå¯¹åº”ç€ä¸€å¥—åˆ†åº“åˆ†è¡¨è§„åˆ™ï¼Œæ•…æ­¤å±æ€§ä¸å¯ä¸ºç©º
         if (tableRule != null) {
             List<Object> sharidngRuleStringList = tableRule.getShardingRules();
             if (sharidngRuleStringList != null && sharidngRuleStringList.size() != 0) {
@@ -423,8 +423,8 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * »ñÈ¡ËùÓĞµÄ·Ö¿â·Ö±í¹æÔò
-     * @return  ·Ö¿â·Ö±í¹æÔò
+     * è·å–æ‰€æœ‰çš„åˆ†åº“åˆ†è¡¨è§„åˆ™
+     * @return  åˆ†åº“åˆ†è¡¨è§„åˆ™
      */
     private Map<String, TableRule> getTableRules() {
         AppRule appRule = getTargetDataSource().getAppRule();
@@ -445,9 +445,9 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İÂß¼­±íÃû·µ»Ø¸Ã±íÃûËù¶ÔÓ¦µÄËùÓĞµÄÎïÀí±íÃû¼¯ºÏ<br>
-     * @param logicTableName  Âß¼­±íÃû<br>
-     * @return                ·µ»ØËùÓĞµÄÎïÀí±íÃû£¬keyÎª¿âµÄ±êÊ¶£¬valueÎªlist<String>£¬´ú±í¸Ã¿âÉÏµÄÎïÀí±íµÄ¼¯ºÏ
+     * æ ¹æ®é€»è¾‘è¡¨åè¿”å›è¯¥è¡¨åæ‰€å¯¹åº”çš„æ‰€æœ‰çš„ç‰©ç†è¡¨åé›†åˆ<br>
+     * @param logicTableName  é€»è¾‘è¡¨å<br>
+     * @return                è¿”å›æ‰€æœ‰çš„ç‰©ç†è¡¨åï¼Œkeyä¸ºåº“çš„æ ‡è¯†ï¼Œvalueä¸ºlist<String>ï¼Œä»£è¡¨è¯¥åº“ä¸Šçš„ç‰©ç†è¡¨çš„é›†åˆ
      */
     public Map<String, List<String>> getAllTableNames(String logicTableName) {
         Map<String, List<String>> map = new HashMap<String, List<String>>(0);
@@ -462,7 +462,7 @@ public class ZdalDatasourceIntrospector {
                                                + logicTableName);
         }
         List<TargetDB> targetDBs = result.getTarget();
-        //±éÀú¸÷¸ö·Ö¿â£¬»ñÈ¡¶ÔÓ¦µÄ·Ö±íÇé¿ö
+        //éå†å„ä¸ªåˆ†åº“ï¼Œè·å–å¯¹åº”çš„åˆ†è¡¨æƒ…å†µ
         for (TargetDB targetDB : targetDBs) {
             List<String> list = new ArrayList<String>(0);
             for (String tableName : targetDB.getTableNames()) {
@@ -474,23 +474,23 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İdbNumberÅĞ¶ÏdbÊÇ·ñ¿ÉÓÃ
-     * @param dbNumber  dbĞòÁĞºÅ
-     * @param groupNum  ·Ö×éºÅ
-     * @return          ÊÇ·ñ¿ÉÓÃ
+     * æ ¹æ®dbNumberåˆ¤æ–­dbæ˜¯å¦å¯ç”¨
+     * @param dbNumber  dbåºåˆ—å·
+     * @param groupNum  åˆ†ç»„å·
+     * @return          æ˜¯å¦å¯ç”¨
      */
     public boolean isDataBaseAvailable(int dbNumber, int groupNum) {
         ZdalDataSourceKeyWeightRandom ZdalDataSourceKeyWeightRandom = getZdalDataSourceKeyWeightRandom(groupNum);
-        //»ñÈ¡¸Ãdb¶ÔÓ¦µÄ±êÊ¶dbKey
+        //è·å–è¯¥dbå¯¹åº”çš„æ ‡è¯†dbKey
         int dbWeight = ZdalDataSourceKeyWeightRandom.getDBWeightByNumber(dbNumber);
         return dbWeight > 0 ? true : false;
     }
 
     /**
-     * ¸ù¾İÈ¨ÖØ»ñÈ¡²»¿ÉÓÃµÄÊı¾İ¿âĞòÁĞ¼¯ºÏ
-     * Èç¹ûdb¹ÊÕÏÁË£¬Ö»ÓĞÈ¨ÖØÍÆËÍÁËÖ®ºó£¬²ÅÄÜÖÃÎªÂß¼­ÉÏ²»¿ÉÓÃ
-     * ´Ë·½·¨µÄ·µ»Ø½á¹ûÒÀÀµÓÚÍÆËÍĞĞÎª
-     * @return   ·µ»Ø²»¿ÉÓÃµÄ¿âµÄ±êºÅ£¬ÆäÖĞÀàĞÍÎª Integer¡£
+     * æ ¹æ®æƒé‡è·å–ä¸å¯ç”¨çš„æ•°æ®åº“åºåˆ—é›†åˆ
+     * å¦‚æœdbæ•…éšœäº†ï¼Œåªæœ‰æƒé‡æ¨é€äº†ä¹‹åï¼Œæ‰èƒ½ç½®ä¸ºé€»è¾‘ä¸Šä¸å¯ç”¨
+     * æ­¤æ–¹æ³•çš„è¿”å›ç»“æœä¾èµ–äºæ¨é€è¡Œä¸º
+     * @return   è¿”å›ä¸å¯ç”¨çš„åº“çš„æ ‡å·ï¼Œå…¶ä¸­ç±»å‹ä¸º Integerã€‚
      */
     public List<Integer> getNotAvailableDBIndexes(int groupNum) {
         ZdalDataSourceKeyWeightRandom ZdalDataSourceKeyWeightRandom = getZdalDataSourceKeyWeightRandom(groupNum);
@@ -498,10 +498,10 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İÈ¨ÖØ»ñÈ¡¿ÉÓÃµÄÊı¾İ¿âĞòÁĞ¼¯ºÏ
-     * Èç¹ûdb¹ÊÕÏÁË£¬Ö»ÓĞÈ¨ÖØÍÆËÍÁËÖ®ºó£¬²ÅÄÜÖÃÎªÂß¼­ÉÏ²»¿ÉÓÃ
-     * ´Ë·½·¨µÄ·µ»Ø½á¹ûÒÀÀµÓÚÍÆËÍĞĞÎª
-     * @return  ·µ»Ø¿ÉÓÃµÄdbµÄ±êºÅ¼¯ºÏ¡£
+     * æ ¹æ®æƒé‡è·å–å¯ç”¨çš„æ•°æ®åº“åºåˆ—é›†åˆ
+     * å¦‚æœdbæ•…éšœäº†ï¼Œåªæœ‰æƒé‡æ¨é€äº†ä¹‹åï¼Œæ‰èƒ½ç½®ä¸ºé€»è¾‘ä¸Šä¸å¯ç”¨
+     * æ­¤æ–¹æ³•çš„è¿”å›ç»“æœä¾èµ–äºæ¨é€è¡Œä¸º
+     * @return  è¿”å›å¯ç”¨çš„dbçš„æ ‡å·é›†åˆã€‚
      */
     public List<Integer> getAvailableDBIndexes(int groupNum) {
         ZdalDataSourceKeyWeightRandom ZdalDataSourceKeyWeightRandom = getZdalDataSourceKeyWeightRandom(groupNum);
@@ -509,9 +509,9 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ¸ù¾İ×éºÅ»ñÈ¡Ëæ»úÆ÷¶ÔÏó
-     * @param groupNum     ×éºÅ<br>
-     * @return      ZdalDataSourceKeyWeightRandom¶ÔÏó
+     * æ ¹æ®ç»„å·è·å–éšæœºå™¨å¯¹è±¡
+     * @param groupNum     ç»„å·<br>
+     * @return      ZdalDataSourceKeyWeightRandomå¯¹è±¡
      */
     private ZdalDataSourceKeyWeightRandom getZdalDataSourceKeyWeightRandom(int groupNum) {
         Map<String, ZdalDataSourceKeyWeightRandom> keyWeightMapConfig = getTargetDataSource()
@@ -536,7 +536,7 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * »ñÈ¡Êı¾İÔ´¹ÜÀíÆ÷ <br>
+     * è·å–æ•°æ®æºç®¡ç†å™¨ <br>
      * 
      * @return    DatabaseChoicer
      */
@@ -547,9 +547,9 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * »ñÈ¡zdalÊı¾İÔ´
+     * è·å–zdalæ•°æ®æº
      * 
-     * @return  zdal·â×°ºóµÄÊı¾İÔ´
+     * @return  zdalå°è£…åçš„æ•°æ®æº
      */
     public AbstractZdalDataSource getTargetDataSource() {
         if (targetDataSource == null) {
@@ -559,9 +559,9 @@ public class ZdalDatasourceIntrospector {
     }
 
     /**
-     * ÉèÖÃÊı¾İÔ´
+     * è®¾ç½®æ•°æ®æº
      * 
-     * @param targetDataSource Ä¿±êÊı¾İÔ´
+     * @param targetDataSource ç›®æ ‡æ•°æ®æº
      */
     public void setTargetDataSource(AbstractZdalDataSource targetDataSource) {
         this.targetDataSource = targetDataSource;

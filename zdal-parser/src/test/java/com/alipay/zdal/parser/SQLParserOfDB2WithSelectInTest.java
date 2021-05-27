@@ -19,9 +19,9 @@ import com.alipay.zdal.common.sqljep.function.ComparativeOR;
 import com.alipay.zdal.parser.result.SqlParserResult;
 
 /**
- * ²âÊÔmysqlµÄselectÓï¾ä.
+ * æµ‹è¯•mysqlçš„selectè¯­å¥.
  * @author xiaoqing.zhouxq
- * @version $Id: SQLParserTest.java, v 0.1 2012-5-25 ÏÂÎç04:23:41 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLParserTest.java, v 0.1 2012-5-25 ä¸‹åˆ04:23:41 xiaoqing.zhouxq Exp $
  */
 public class SQLParserOfDB2WithSelectInTest {
 
@@ -37,7 +37,7 @@ public class SQLParserOfDB2WithSelectInTest {
                                                     + " where inst_id in ('code1','code2','code3','code4')";
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊ±,inÀïÃæ´ø¶à¸ö²ÎÊı.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ—¶,iné‡Œé¢å¸¦å¤šä¸ªå‚æ•°.
      */
     @Test
     public void test1() {
@@ -57,7 +57,7 @@ public class SQLParserOfDB2WithSelectInTest {
     }
 
     /**
-     * ²âÊÔ·Ç°ó¶¨²ÎÊı£¬inÀïÃæ´ø¶à¸ö²ÎÊı.
+     * æµ‹è¯•éç»‘å®šå‚æ•°ï¼Œiné‡Œé¢å¸¦å¤šä¸ªå‚æ•°.
      */
     @Test
     public void test2() {

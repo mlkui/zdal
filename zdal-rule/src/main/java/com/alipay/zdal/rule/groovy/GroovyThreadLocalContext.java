@@ -8,7 +8,7 @@ import java.util.Map;
 
 /**
  * groovy threadlocal context
- * Ó¦ÓÃÉèÖÃ±ØĞëÒªÇå³ı
+ * åº”ç”¨è®¾ç½®å¿…é¡»è¦æ¸…é™¤
  * @author zuomou
  *
  */
@@ -16,7 +16,7 @@ public class GroovyThreadLocalContext {
 
     static private ThreadLocal<Map<String, Object>> context = new ThreadLocal<Map<String, Object>>();
 
-    //TODO  Ôö¼Ó±äÁ¿µÄ×÷ÓÃÓò
+    //TODO  å¢åŠ å˜é‡çš„ä½œç”¨åŸŸ
 
     static public Map<String, Object> getContext() {
         return context.get();

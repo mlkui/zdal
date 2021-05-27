@@ -25,7 +25,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rwÊÂÎñµÄ·ÃÎÊ")
+@Feature("shard+rwäº‹åŠ¡çš„è®¿é—®")
 public class SR954130 {
 	public TestAssertion Assert = new TestAssertion();
 	private TransactionTemplate tt;
@@ -48,45 +48,45 @@ public class SR954130 {
 				.getBean("shardrwtransactionTemplate1");
 	}
 
-	@Subject("shard+rw:zdalÊÂÎñ½øĞĞÊäÈë£¬Ô¤ÆÚĞ´Èëgroup_0µÄds0¿â0±íµÄ²âÊÔ£¬Êµ¼ÊÔÚ¶ÁÈ¡Ê±¶Áds0µÄ0±í")
+	@Subject("shard+rw:zdaläº‹åŠ¡è¿›è¡Œè¾“å…¥ï¼Œé¢„æœŸå†™å…¥group_0çš„ds0åº“0è¡¨çš„æµ‹è¯•ï¼Œå®é™…åœ¨è¯»å–æ—¶è¯»ds0çš„0è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954131() {
 
 		testTransactionInsertSelect();
 
-		Step("Êı¾İÑéÖ¤£¬Çå³ıÊı¾İ");
+		Step("æ•°æ®éªŒè¯ï¼Œæ¸…é™¤æ•°æ®");
 		testCheckData();
 	}
 
-	@Subject("shard+rw:zdalÊÂÎñ½øĞĞÊäÈë£¬Ô¤ÆÚĞ´Èëgroup_0µÄds0¿â0±íµÄ²âÊÔ£¬Êµ¼ÊÔÚ¶ÁÈ¡Ê±¶Áds0µÄ1±í")
+	@Subject("shard+rw:zdaläº‹åŠ¡è¿›è¡Œè¾“å…¥ï¼Œé¢„æœŸå†™å…¥group_0çš„ds0åº“0è¡¨çš„æµ‹è¯•ï¼Œå®é™…åœ¨è¯»å–æ—¶è¯»ds0çš„1è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954132() {
 
 		testTransactionInsertSelectOther();
 
-		Step("Êı¾İÑéÖ¤£¬Çå³ıÊı¾İ");
+		Step("æ•°æ®éªŒè¯ï¼Œæ¸…é™¤æ•°æ®");
 		testCheckData();
 	}
 
-	@Subject("shard+rw:zdalÊÂÎñ½øĞĞÊäÈë£¬Ô¤ÆÚĞ´Èëgroup_0µÄds0¿â0±íµÄ²âÊÔ£¬µ±¶ÁÊ±¶ÁÆäËügroup_1£¬Ôò´ËÊ±¶Á¸Ãgroup_1µÄĞ´¿â")
+	@Subject("shard+rw:zdaläº‹åŠ¡è¿›è¡Œè¾“å…¥ï¼Œé¢„æœŸå†™å…¥group_0çš„ds0åº“0è¡¨çš„æµ‹è¯•ï¼Œå½“è¯»æ—¶è¯»å…¶å®ƒgroup_1ï¼Œåˆ™æ­¤æ—¶è¯»è¯¥group_1çš„å†™åº“")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954133() {
 
 		testTransactionInsertSelectOther2();
 
-		Step("Êı¾İÑéÖ¤£¬Çå³ıÊı¾İ");
+		Step("æ•°æ®éªŒè¯ï¼Œæ¸…é™¤æ•°æ®");
 		testCheckData();
 	}
 
-	@Subject("shard+rw:zdalÊÂÎñ½øĞĞÊäÈë£¬Á½´ÎĞ´ÈëµÄgroup²»Í¬")
+	@Subject("shard+rw:zdaläº‹åŠ¡è¿›è¡Œè¾“å…¥ï¼Œä¸¤æ¬¡å†™å…¥çš„groupä¸åŒ")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954134() {
 
-		Step("shard+rw:zdalÊÂÎñ½øĞĞÊäÈë£¬Á½´ÎĞ´ÈëµÄgroup²»Í¬");
+		Step("shard+rw:zdaläº‹åŠ¡è¿›è¡Œè¾“å…¥ï¼Œä¸¤æ¬¡å†™å…¥çš„groupä¸åŒ");
 		testTransactionInsertInsert();
 		
 		String delSql="delete from user_0";
@@ -95,7 +95,7 @@ public class SR954130 {
 	}
 
 	/**
-	 * ÏÈinsertºóselectµÄÊÂÎñ¡£ÔÚÊÂÎñÖĞµÄ¶Á£¬µ±¶Á²Ù×÷·Öµ½Í¬Ò»¸ögroupÖĞÊ±£¬¶ÁµÄÊÇµ±Ç°Ğ´¿â
+	 * å…ˆinsertåselectçš„äº‹åŠ¡ã€‚åœ¨äº‹åŠ¡ä¸­çš„è¯»ï¼Œå½“è¯»æ“ä½œåˆ†åˆ°åŒä¸€ä¸ªgroupä¸­æ—¶ï¼Œè¯»çš„æ˜¯å½“å‰å†™åº“
 	 */
 	private void testTransactionInsertSelect() {
 		try {
@@ -111,7 +111,7 @@ public class SR954130 {
 					try {
 						sqlMap.insert(insertSql, params);
 						List<Object> res_1 = sqlMap.queryForList(selectSql);
-						Assert.areEqual(1, res_1.size(), "ÑéÖ¤select½á¹û·Ç¿Õ");
+						Assert.areEqual(1, res_1.size(), "éªŒè¯selectç»“æœéç©º");
 
 					} catch (SQLException e) {
 						status.setRollbackOnly();
@@ -126,7 +126,7 @@ public class SR954130 {
 	}
 
 	/**
-	 * Ğ´¿âµ½groupµÄuser_0±í£¬¶ÁÈ¡Í¬Ò»¸ögroupµÄuser_1±í
+	 * å†™åº“åˆ°groupçš„user_0è¡¨ï¼Œè¯»å–åŒä¸€ä¸ªgroupçš„user_1è¡¨
 	 */
 	private void testTransactionInsertSelectOther() {
 		try {
@@ -142,8 +142,8 @@ public class SR954130 {
 					try {
 						sqlMap.insert(insertSql, params);
 						List<Object> res_1 = sqlMap.queryForList(selectSql);
-						Step("´ËÊ±¶ÁÈ¡µÄÊÇds0µÄuser_1±í");
-						Assert.areEqual(0, res_1.size(), "ÑéÖ¤select½á¹û·Ç¿Õ");
+						Step("æ­¤æ—¶è¯»å–çš„æ˜¯ds0çš„user_1è¡¨");
+						Assert.areEqual(0, res_1.size(), "éªŒè¯selectç»“æœéç©º");
 
 					} catch (SQLException e) {
 						status.setRollbackOnly();
@@ -158,7 +158,7 @@ public class SR954130 {
 	}
 
 	/**
-	 * Ğ´¿âµ½groupµÄuser_0±í£¬¶ÁÈ¡²»Í¬µÄgroupµÄuser_0±í
+	 * å†™åº“åˆ°groupçš„user_0è¡¨ï¼Œè¯»å–ä¸åŒçš„groupçš„user_0è¡¨
 	 */
 	private void testTransactionInsertSelectOther2() {
 		try {
@@ -175,7 +175,7 @@ public class SR954130 {
 						sqlMap.insert(insertSql, params);
 						List<Object> res_1 = sqlMap.queryForList(selectSql);
 
-						Assert.areEqual(0, res_1.size(), "ÑéÖ¤select½á¹û·Ç¿Õ,"+res_1.size());
+						Assert.areEqual(0, res_1.size(), "éªŒè¯selectç»“æœéç©º,"+res_1.size());
 
 					} catch (SQLException e) {
 						status.setRollbackOnly();
@@ -190,7 +190,7 @@ public class SR954130 {
 	}
 
 	/**
-	 * Ç°ºóÁ½´Î²åÈëµÄsql£¬°´·Ö¿â¹æÔò£¬¹éÊôÔÚ²»Í¬µÄgroupÉÏ
+	 * å‰åä¸¤æ¬¡æ’å…¥çš„sqlï¼ŒæŒ‰åˆ†åº“è§„åˆ™ï¼Œå½’å±åœ¨ä¸åŒçš„groupä¸Š
 	 */
 	private void testTransactionInsertInsert() {
 		try {
@@ -214,7 +214,7 @@ public class SR954130 {
 						status.setRollbackOnly();
 						e.printStackTrace();
 						Assert.areEqual(NestedSQLException.class, e.getClass(),
-								"Òì³£");
+								"å¼‚å¸¸");
 					}
 					return null;
 				}
@@ -225,7 +225,7 @@ public class SR954130 {
 	}
 
 	/**
-	 * ¼ì²éÊı¾İÊıÁ¿,Ö®ºóÉ¾³ıÊı¾İ
+	 * æ£€æŸ¥æ•°æ®æ•°é‡,ä¹‹ååˆ é™¤æ•°æ®
 	 * 
 	 * @param dburl
 	 */
@@ -236,7 +236,7 @@ public class SR954130 {
 				dbuser);
 		try {
 			rs.next();
-			Assert.areEqual(1, rs.getInt(1), "Êı¾İ¼ì²é");
+			Assert.areEqual(1, rs.getInt(1), "æ•°æ®æ£€æŸ¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

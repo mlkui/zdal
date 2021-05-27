@@ -7,7 +7,7 @@ package com.alipay.zdal.parser.sql.ast;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:12:41 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:12:41 xiaoqing.zhouxq Exp $
  */
 public interface SQLExpr extends SQLObject {
 

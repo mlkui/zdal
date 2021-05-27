@@ -21,7 +21,7 @@ import com.alipay.zdal.parser.result.SqlParserResult;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLParserOfOracleWithDeleteTest.java, v 0.1 2012-5-29 ÉÏÎç10:43:46 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLParserOfOracleWithDeleteTest.java, v 0.1 2012-5-29 ä¸Šåˆ10:43:46 xiaoqing.zhouxq Exp $
  */
 public class SQLParserOfOracleWithDeleteTest {
     private static final String   ORACLE_DELETE        = "delete from  users  where c3 = ? and  c4='xiaoqing.zhouxq'";
@@ -33,7 +33,7 @@ public class SQLParserOfOracleWithDeleteTest {
     private static final String   PATITION_NAME        = "c3";
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ï²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     //    @Test
     public void testParseWithPartination() {
@@ -61,7 +61,7 @@ public class SQLParserOfOracleWithDeleteTest {
     }
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊÇ£¬Èç¹û²ğ·Ö×Ö¶Î²»ÔÚsqlÓï¾äÖĞ£¬²ğ·Ö¹æÔò»á±¨´í.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ˜¯ï¼Œå¦‚æœæ‹†åˆ†å­—æ®µä¸åœ¨sqlè¯­å¥ä¸­ï¼Œæ‹†åˆ†è§„åˆ™ä¼šæŠ¥é”™.
      */
     //    @Test(expected = SqlParserException.class)
     public void testParserWithoutPartination() {
@@ -89,7 +89,7 @@ public class SQLParserOfOracleWithDeleteTest {
     }
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ï¶à¸ö×Ö¶ÎµÄ²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­å¤šä¸ªå­—æ®µçš„æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     //    @Test
     public void testParserWithMultiPartinations() {
@@ -122,7 +122,7 @@ public class SQLParserOfOracleWithDeleteTest {
     }
 
     /**
-     * ²âÊÔ·Ç°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ïµ¥¸ö×Ö¶ÎµÄ²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•éç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­å•ä¸ªå­—æ®µçš„æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     //    @Test
     public void testParserWithNoBindPartination() {
@@ -148,7 +148,7 @@ public class SQLParserOfOracleWithDeleteTest {
     }
 
     /**
-     * ²âÊÔ·Ç°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ïµ¥¸ö×Ö¶ÎµÄ²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•éç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­å•ä¸ªå­—æ®µçš„æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     @Test
     public void testParserWithNoBindPartination1() {

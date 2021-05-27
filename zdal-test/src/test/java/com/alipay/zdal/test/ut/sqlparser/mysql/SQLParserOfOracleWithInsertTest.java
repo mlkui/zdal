@@ -27,7 +27,7 @@ public class SQLParserOfOracleWithInsertTest {
     private static final String   PATITION_NAME        = "name";
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ï²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     @Test
     public void testParseWithPartination() {
@@ -55,7 +55,7 @@ public class SQLParserOfOracleWithInsertTest {
     }
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊÇ£¬Èç¹û²ğ·Ö×Ö¶Î²»ÔÚsqlÓï¾äÖĞ£¬²ğ·Ö¹æÔò»á±¨´í.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ˜¯ï¼Œå¦‚æœæ‹†åˆ†å­—æ®µä¸åœ¨sqlè¯­å¥ä¸­ï¼Œæ‹†åˆ†è§„åˆ™ä¼šæŠ¥é”™.
      */
     @Test
     public void testParserWithoutPartination() {
@@ -83,7 +83,7 @@ public class SQLParserOfOracleWithInsertTest {
     }
 
     /**
-     * ²âÊÔ°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ï¶à¸ö×Ö¶ÎµÄ²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•ç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­å¤šä¸ªå­—æ®µçš„æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     @Test
     public void testParserWithMultiPartinations() {
@@ -116,7 +116,7 @@ public class SQLParserOfOracleWithInsertTest {
     }
 
     /**
-     * ²âÊÔ·Ç°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ïµ¥¸ö×Ö¶ÎµÄ²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•éç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­å•ä¸ªå­—æ®µçš„æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     @Test
     public void testParserWithNoBindPartination() {
@@ -142,12 +142,12 @@ public class SQLParserOfOracleWithInsertTest {
     }
 
     /**
-     * ²âÊÔ·Ç°ó¶¨²ÎÊıÊ±£¬ÅĞ¶Ïµ¥¸ö×Ö¶ÎµÄ²ğ·Ö¹æÔòÊÇ·ñÕıÈ·.
+     * æµ‹è¯•éç»‘å®šå‚æ•°æ—¶ï¼Œåˆ¤æ–­å•ä¸ªå­—æ®µçš„æ‹†åˆ†è§„åˆ™æ˜¯å¦æ­£ç¡®.
      */
     // @Test
     public void testParserWithNoBindPartination1() {
         SQLParser sqlParser = new DefaultSQLParser();
-        String sql = "insert into tradecore08.fund_flow_info_08 values('BO20130513014163608201','20881020107848240156','20881020107848240156','FREEZE','500','coupon','COUPON_ID=12','08-7ÔÂ -11 03.22.42.000000 ÏÂÎç','08-7ÔÂ -11 03.22.42.000000 ÏÂÎç') ";
+        String sql = "insert into tradecore08.fund_flow_info_08 values('BO20130513014163608201','20881020107848240156','20881020107848240156','FREEZE','500','coupon','COUPON_ID=12','08-7æœˆ -11 03.22.42.000000 ä¸‹åˆ','08-7æœˆ -11 03.22.42.000000 ä¸‹åˆ') ";
         SqlParserResult parserResult = sqlParser.parse(sql, DBType.ORACLE);
         Assert.assertEquals("users", parserResult.getTableName());
         Assert.assertEquals(true, parserResult.getGroupByEles().isEmpty());

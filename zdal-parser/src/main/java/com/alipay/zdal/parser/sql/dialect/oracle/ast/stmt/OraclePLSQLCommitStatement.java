@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OraclePLSQLCommitStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:49:06 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OraclePLSQLCommitStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:49:06 Exp $
  */
 public class OraclePLSQLCommitStatement extends OracleStatementImpl {
 

@@ -14,8 +14,8 @@ import org.apache.log4j.Logger;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: WeightRandom.java, v 0.1 2014-1-6 ÏÂÎç05:17:44 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: WeightRandom.java, v 0.1 2014-1-6 ä¸‹åˆ05:17:44 Exp $
  */
 public class WeightRandom {
 
@@ -29,7 +29,7 @@ public class WeightRandom {
     private final RuntimeConfigHolder<Weight> weightHolder           = new RuntimeConfigHolder<Weight>();
 
     /**
-     * ±£³Ö²»±ä¶ÔÏó£¬Ö»ÄÜÖØ½¨£¬²»ÄÜĞŞ¸Ä
+     * ä¿æŒä¸å˜å¯¹è±¡ï¼Œåªèƒ½é‡å»ºï¼Œä¸èƒ½ä¿®æ”¹
      */
     private static class Weight {
         public Weight(int[] weights, String[] weightKeys, int[] weightAreaEnds) {
@@ -38,9 +38,9 @@ public class WeightRandom {
             this.weightAreaEnds = weightAreaEnds;
         }
 
-        public final String[] weightKeys;    //µ÷ÓÃÕß±£Ö¤²»ÄÜĞŞ¸ÄÆäÔªËØ
-        public final int[]    weightValues;  //µ÷ÓÃÕß±£Ö¤²»ÄÜĞŞ¸ÄÆäÔªËØ
-        public final int[]    weightAreaEnds; //µ÷ÓÃÕß±£Ö¤²»ÄÜĞŞ¸ÄÆäÔªËØ
+        public final String[] weightKeys;    //è°ƒç”¨è€…ä¿è¯ä¸èƒ½ä¿®æ”¹å…¶å…ƒç´ 
+        public final int[]    weightValues;  //è°ƒç”¨è€…ä¿è¯ä¸èƒ½ä¿®æ”¹å…¶å…ƒç´ 
+        public final int[]    weightAreaEnds; //è°ƒç”¨è€…ä¿è¯ä¸èƒ½ä¿®æ”¹å…¶å…ƒç´ 
     }
 
     public WeightRandom(Map<String, Integer> weightConfigs) {
@@ -67,7 +67,7 @@ public class WeightRandom {
     }
 
     /**
-     * Ö§³Ö¶¯Ì¬ĞŞ¸Ä
+     * æ”¯æŒåŠ¨æ€ä¿®æ”¹
      */
     public void setWeightConfig(Map<String, Integer> weightConfig) {
         this.init(weightConfig);
@@ -78,15 +78,15 @@ public class WeightRandom {
     }
 
     /**
-     * ¼ÙÉèÈı¸ö¿âÈ¨ÖØ    10   9   8
-     * ÄÇÃ´areaEnds¾ÍÊÇ  10  19  27
-     * Ëæ»úÊıÊÇ0~27Ö®¼äµÄÒ»¸öÊı
+     * å‡è®¾ä¸‰ä¸ªåº“æƒé‡    10   9   8
+     * é‚£ä¹ˆareaEndså°±æ˜¯  10  19  27
+     * éšæœºæ•°æ˜¯0~27ä¹‹é—´çš„ä¸€ä¸ªæ•°
      * 
-     * ·Ö±ğÈ¥ÉÏÃæareaEndsÀïµÄÔªËØ±È¡£
+     * åˆ†åˆ«å»ä¸Šé¢areaEndsé‡Œçš„å…ƒç´ æ¯”ã€‚
      * 
-     * ·¢ÏÖËæ»úÊıĞ¡ÓÚÒ»¸öÔªËØÁË£¬Ôò±íÊ¾Ó¦¸ÃÑ¡ÔñÕâ¸öÔªËØ
+     * å‘ç°éšæœºæ•°å°äºä¸€ä¸ªå…ƒç´ äº†ï¼Œåˆ™è¡¨ç¤ºåº”è¯¥é€‰æ‹©è¿™ä¸ªå…ƒç´ 
      * 
-     * ×¢Òâ£º¸Ã·½·¨²»ÄÜ¸Ä±ä²ÎÊıÊı×éÄÚÈİ
+     * æ³¨æ„ï¼šè¯¥æ–¹æ³•ä¸èƒ½æ”¹å˜å‚æ•°æ•°ç»„å†…å®¹
      */
     private final Random random = new Random();
 
@@ -96,8 +96,8 @@ public class WeightRandom {
             logger.error("areaEnds: " + intArray2String(areaEnds));
             return null;
         }
-        //Ñ¡ÔñµÄ¹ı
-        //findbugsÈÏÎªÕâÀï²»ÊÇºÜºÃ(Ã¿´Î¶¼ĞÂ½¨Ò»¸öRandom)(guangxia)
+        //é€‰æ‹©çš„è¿‡
+        //findbugsè®¤ä¸ºè¿™é‡Œä¸æ˜¯å¾ˆå¥½(æ¯æ¬¡éƒ½æ–°å»ºä¸€ä¸ªRandom)(guangxia)
         int rand = random.nextInt(sum);
         for (int i = 0; i < areaEnds.length; i++) {
             if (rand < areaEnds[i]) {
@@ -108,7 +108,7 @@ public class WeightRandom {
     }
 
     /**
-     * Í¨¹ıÊı¾İÔ´µÄ±êÊ¶»ñÈ¡¶ÔÓ¦µÄÈ¨ÖØ£»
+     * é€šè¿‡æ•°æ®æºçš„æ ‡è¯†è·å–å¯¹åº”çš„æƒé‡ï¼›
      * @param key
      * @return
      */
@@ -123,17 +123,17 @@ public class WeightRandom {
             }
         }
         if (flag == false) {
-            logger.error("Êı¾İÔ´µÄ±êÊ¶²»´æÔÚ£¬·Ç·¨µÄkey=" + key);
+            logger.error("æ•°æ®æºçš„æ ‡è¯†ä¸å­˜åœ¨ï¼Œéæ³•çš„key=" + key);
         }
         return weight;
     }
 
     /**
-     * @param excludeKeys ĞèÒªÅÅ³ıµÄkeyÁĞ±í 
+     * @param excludeKeys éœ€è¦æ’é™¤çš„keyåˆ—è¡¨ 
      * @return
      */
     public String select(List<String> excludeKeys) {
-        final Weight w = weightHolder.get(); //ºóĞøÊµÏÖ±£Ö¤²»ÄÜ¸Ä±äwÖĞÈÎºÎÊı×éµÄÄÚÈİ£¬·ñÔòÏß³Ì²»°²È«
+        final Weight w = weightHolder.get(); //åç»­å®ç°ä¿è¯ä¸èƒ½æ”¹å˜wä¸­ä»»ä½•æ•°ç»„çš„å†…å®¹ï¼Œå¦åˆ™çº¿ç¨‹ä¸å®‰å…¨
         if (excludeKeys == null || excludeKeys.isEmpty()) {
             return select(w.weightAreaEnds, w.weightKeys);
         }
@@ -149,13 +149,13 @@ public class WeightRandom {
 
     public static interface Tryer<T extends Throwable> {
         /**
-         * @return null±íÊ¾³É¹¦£¬·ñÔò·µ»ØÒ»¸öÒì³£
+         * @return nullè¡¨ç¤ºæˆåŠŸï¼Œå¦åˆ™è¿”å›ä¸€ä¸ªå¼‚å¸¸
          */
         public T tryOne(String name);
     }
 
     /**
-     * @return null±íÊ¾³É¹¦£¬·ñÔò·µ»ØÒ»¸öÒì³£ÁĞ±í
+     * @return nullè¡¨ç¤ºæˆåŠŸï¼Œå¦åˆ™è¿”å›ä¸€ä¸ªå¼‚å¸¸åˆ—è¡¨
      */
     public <T extends Throwable> List<T> retry(int times, Tryer<T> tryer) {
         List<T> exceptions = new ArrayList<T>(0);

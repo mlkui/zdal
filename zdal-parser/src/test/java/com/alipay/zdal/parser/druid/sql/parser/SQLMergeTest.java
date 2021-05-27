@@ -15,7 +15,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleOutputVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLMergeTest.java, v 0.1 2012-5-17 …œŒÁ10:25:35 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLMergeTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:25:35 xiaoqing.zhouxq Exp $
  */
 public class SQLMergeTest extends TestCase {
 

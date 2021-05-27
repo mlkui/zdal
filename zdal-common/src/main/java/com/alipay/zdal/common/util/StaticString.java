@@ -6,8 +6,8 @@ package com.alipay.zdal.common.util;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: StaticString.java, v 0.1 2014-1-6 ÏÂÎç05:23:31 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: StaticString.java, v 0.1 2014-1-6 ä¸‹åˆ05:23:31 Exp $
  */
 public interface StaticString {
     public static final String DATE_FORMAT_SYMBOLS = "DATE_FORMAT_SYMBOLS";

@@ -24,7 +24,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rw mysql ¶ÁĞ´·ÖÀë")
+@Feature("rw mysql è¯»å†™åˆ†ç¦»")
 public class SR952010 {
     public TestAssertion Assert = new TestAssertion();
     private SqlMapClient sqlMap;
@@ -47,189 +47,189 @@ public class SR952010 {
         ZdalTestCommon.dataDeleteForZds();
     }
 
-    @Subject("rw Ğ´¿â ds0:r2w1,ds1:r1w2")
+    @Subject("rw å†™åº“ ds0:r2w1,ds1:r1w2")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952011() {
-        Step("rw Ğ´¿â ds0:r2w1,ds1:r1w2");
+        Step("rw å†™åº“ ds0:r2w1,ds1:r1w2");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql1", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("¶ÏÑÔÊı¾İÈ¡Öµ¸öÊı");
+        Step("æ–­è¨€æ•°æ®å–å€¼ä¸ªæ•°");
         Assert.areEqual(true, 0 <= count1 && count1 <= 15, "the count1 value");
         Assert.areEqual(true, 10 <= count2 && count2 <= 30, "the count2 value");
     }
 
-    @Subject("rw ¶Á¿â ds0:r2w1,ds1:r1w2")
+    @Subject("rw è¯»åº“ ds0:r2w1,ds1:r1w2")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952012() {
-        Step("Êı¾İ×¼±¸");
+        Step("æ•°æ®å‡†å¤‡");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql1", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("¶ÏÑÔÊı¾İÈ¡Öµ¸öÊı");
+        Step("æ–­è¨€æ•°æ®å–å€¼ä¸ªæ•°");
         Assert.areEqual(true, 10 <= countA && countA <= 30, "the countA value:" + countA);
         Assert.areEqual(true, 0 <= countB && countB <= 15, "the countB value:" + countB);
 
     }
 
-    @Subject("rw Ğ´¿â ds0:r1w0,ds1:r0w1")
+    @Subject("rw å†™åº“ ds0:r1w0,ds1:r0w1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952013() {
-        Step("rw Ğ´¿â ds0:r1w0,ds1:r0w1");
+        Step("rw å†™åº“ ds0:r1w0,ds1:r0w1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql2", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("¶ÏÑÔÊı¾İÈ¡Öµ¸öÊı");
+        Step("æ–­è¨€æ•°æ®å–å€¼ä¸ªæ•°");
         Assert.areEqual(true, count1 == 0, "the count1 value");
         Assert.areEqual(true, count2 == 30, "the count2 value");
 
     }
 
-    @Subject("rw ¶Á¿â ds0:r1w0,ds1:r0w1")
+    @Subject("rw è¯»åº“ ds0:r1w0,ds1:r0w1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952014() {
-        Step("rw ¶Á¿â ds0:r1w0,ds1:r0w1");
+        Step("rw è¯»åº“ ds0:r1w0,ds1:r0w1");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql2", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("¶ÏÑÔÈ¡Öµ¸öÊı");
+        Step("æ–­è¨€å–å€¼ä¸ªæ•°");
         Assert.areEqual(true, countA == 30, "the countA value");
         Assert.areEqual(true, countB == 0, "the countB value");
 
     }
 
-    @Subject("rw Ğ´¿â:ds0:r1,ds1:w1")
+    @Subject("rw å†™åº“:ds0:r1,ds1:w1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952015() {
-        Step("rw Ğ´¿â:ds0:r1,ds1:w1");
+        Step("rw å†™åº“:ds0:r1,ds1:w1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql3", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("¶ÏÑÔÈ¡Öµ¸öÊı");
+        Step("æ–­è¨€å–å€¼ä¸ªæ•°");
         Assert.areEqual(true, count1 == 0, "the count1 value");
         Assert.areEqual(true, count2 == 30, "the count2 value");
     }
 
-    @Subject("rw ¶Á¿â:ds0:r1,ds1:w1")
+    @Subject("rw è¯»åº“:ds0:r1,ds1:w1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952016() {
-        Step("rw ¶Á¿â:ds0:r1,ds1:w1");
+        Step("rw è¯»åº“:ds0:r1,ds1:w1");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql3", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("¶ÏÑÔÈ¡Öµ¸öÊı");
+        Step("æ–­è¨€å–å€¼ä¸ªæ•°");
         Assert.areEqual(true, countA == 30, "the countA value");
         Assert.areEqual(true, countB == 0, "the countB value");
     }
 
-    @Subject("rw Ğ´¿â:ds0:r1w1,ds1:r0w0")
+    @Subject("rw å†™åº“:ds0:r1w1,ds1:r0w0")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952017() {
-        Step("rw Ğ´¿â:ds0:r1w1,ds1:r0w0");
+        Step("rw å†™åº“:ds0:r1w1,ds1:r0w0");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql4", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("¶ÏÑÔÈ¡Öµ¸öÊı");
+        Step("æ–­è¨€å–å€¼ä¸ªæ•°");
         Assert.areEqual(true, count1 == 30, "the count1 value");
         Assert.areEqual(true, count2 == 0, "the count2 value");
     }
 
-    @Subject("rw ¶Á¿â:ds0:r1w1,ds1:r0w0")
+    @Subject("rw è¯»åº“:ds0:r1w1,ds1:r0w0")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952018() {
-        Step("rw ¶Á¿â:ds0:r1w1,ds1:r0w0");
+        Step("rw è¯»åº“:ds0:r1w1,ds1:r0w0");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql4", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("¶ÏÑÔ»ñÈ¡Êı¾İ¸öÊı");
+        Step("æ–­è¨€è·å–æ•°æ®ä¸ªæ•°");
         Assert.areEqual(true, countA == 30, "the countA value");
         Assert.areEqual(true, countB == 0, "the countB value");
     }
 
-    @Subject("rw Ğ´¿â:ds0:rw,ds1:r0w0")
+    @Subject("rw å†™åº“:ds0:rw,ds1:r0w0")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952019() {
-        Step("rw Ğ´¿â:ds0:rw,ds1:r0w0");
+        Step("rw å†™åº“:ds0:rw,ds1:r0w0");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql5", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("»ñÈ¡Êı¾İ¸öÊı");
+        Step("è·å–æ•°æ®ä¸ªæ•°");
         Assert.areEqual(true, count1 == 30, "the count1 value");
         Assert.areEqual(true, count2 == 0, "the count2 value");
 
     }
 
-    @Subject("rw ¶Á¿â:ds0:rw,ds1:r0w0")
+    @Subject("rw è¯»åº“:ds0:rw,ds1:r0w0")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201a() {
-        Step("rw ¶Á¿â:ds0:rw,ds1:r0w0");
+        Step("rw è¯»åº“:ds0:rw,ds1:r0w0");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql5", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("»ñÈ¡Êı¾İ¸öÊı");
+        Step("è·å–æ•°æ®ä¸ªæ•°");
         Assert.areEqual(true, countA == 30, "the countA value");
         Assert.areEqual(true, countB == 0, "the countB value");
     }
 
-    @Subject("rw Ğ´¿â:ds0:rw,ds1:r1w1")
+    @Subject("rw å†™åº“:ds0:rw,ds1:r1w1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201b() {
-        Step("rw Ğ´¿â:ds0:rw,ds1:r1w1");
+        Step("rw å†™åº“:ds0:rw,ds1:r1w1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql6", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("»ñÈ¡Êı¾İ¸öÊı");
+        Step("è·å–æ•°æ®ä¸ªæ•°");
         Assert.areEqual(true, count1 > 20, "the count1 value:" + count1);
         Assert.areEqual(true, count2 < 10, "the count2 value:" + count2);
 
     }
 
-    @Subject("rw ¶Á¿â:ds0:rw,ds1:r1w1")
+    @Subject("rw è¯»åº“:ds0:rw,ds1:r1w1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201c() {
-        Step("rw ¶Á¿â:ds0:rw,ds1:r1w1");
+        Step("rw è¯»åº“:ds0:rw,ds1:r1w1");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql6", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("»ñÈ¡Êı¾İ¸öÊı");
+        Step("è·å–æ•°æ®ä¸ªæ•°");
         Assert.areEqual(true, countA > 20, "the countA value:" + countA);
         Assert.areEqual(true, countB < 10, "the countB value:" + countB);
 
     }
 
-    @Subject("rw Ğ´¿â:ds0:r1w1")
+    @Subject("rw å†™åº“:ds0:r1w1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201d() {
-        Step("rw Ğ´¿â:ds0:r1w1");
+        Step("rw å†™åº“:ds0:r1w1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql7", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("»ñÈ¡Êı¾İ¸öÊı");
+        Step("è·å–æ•°æ®ä¸ªæ•°");
         Assert.areEqual(true, count1 == 30, "the count1 value");
         Assert.areEqual(true, count2 == 0, "the count2 value");
 
     }
 
-    @Subject("rw ¶Á¿â:ds0:r1w1")
+    @Subject("rw è¯»åº“:ds0:r1w1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201e() {
@@ -242,25 +242,25 @@ public class SR952010 {
 
     }
 
-    @Subject("rw Ğ´¿â:ds0:r1w0,ds1:r1w0")
+    @Subject("rw å†™åº“:ds0:r1w0,ds1:r1w0")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201f() {
-        Step("rw Ğ´¿â:ds0:r1w0,ds1:r1w0");
+        Step("rw å†™åº“:ds0:r1w0,ds1:r1w0");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql8", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("»ñÈ¡Êı¾İ¸öÊı");
+        Step("è·å–æ•°æ®ä¸ªæ•°");
         Assert.areEqual(true, count1 == 0, "the count1 value");
         Assert.areEqual(true, count2 == 0, "the count2 value");
 
     }
 
-    @Subject("rw ¶Á¿â:ds0:r1w0,ds1:r1w0")
+    @Subject("rw è¯»åº“:ds0:r1w0,ds1:r1w0")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201h() {
-        Step("rw ¶Á¿â:ds0:r1w0,ds1:r1w0");
+        Step("rw è¯»åº“:ds0:r1w0,ds1:r1w0");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql8", "queryRwSql");
         int countA = mp.get("countA");
@@ -270,11 +270,11 @@ public class SR952010 {
 
     }
 
-    @Subject("rw Ğ´¿â:ds0:r2w1,ds1:r1w2,µ±ds0Á¬½Ó²»ÉÏÊ±£¬È«²¿Ğ´Èëds1")
+    @Subject("rw å†™åº“:ds0:r2w1,ds1:r1w2,å½“ds0è¿æ¥ä¸ä¸Šæ—¶ï¼Œå…¨éƒ¨å†™å…¥ds1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201i() {
-        Step("rw Ğ´¿â:ds0:r2w1,ds1:r1w2,µ±ds0Á¬½Ó²»ÉÏÊ±£¬È«²¿Ğ´Èëds1");
+        Step("rw å†™åº“:ds0:r2w1,ds1:r1w2,å½“ds0è¿æ¥ä¸ä¸Šæ—¶ï¼Œå…¨éƒ¨å†™å…¥ds1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql9", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
@@ -282,23 +282,23 @@ public class SR952010 {
         Assert.areEqual(true, count2 == 30, "the count2 value");
     }
 
-    @Subject("rw ¶Á¿â:ds0:r2w1,ds1:r1w2,µ±ds0Á¬½Ó²»ÉÏÊ±£¬È«²¿¶Áds1")
+    @Subject("rw è¯»åº“:ds0:r2w1,ds1:r1w2,å½“ds0è¿æ¥ä¸ä¸Šæ—¶ï¼Œå…¨éƒ¨è¯»ds1")
     @Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201j() {
-        Step("rw ¶Á¿â:ds0:r2w1,ds1:r1w2,µ±ds0Á¬½Ó²»ÉÏÊ±£¬È«²¿¶Áds1");
+        Step("rw è¯»åº“:ds0:r2w1,ds1:r1w2,å½“ds0è¿æ¥ä¸ä¸Šæ—¶ï¼Œå…¨éƒ¨è¯»ds1");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql9", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("»ñÈ¡Êı¾İ¸öÊı");
+        Step("è·å–æ•°æ®ä¸ªæ•°");
         Assert.areEqual(true, countA == 0, "the count1 value");
         Assert.areEqual(true, countB == 30, "the count2 value");
 
     }
 
     /**
-     * Õë¶Ôrw mysql¿âµÄĞ´¿âµÄ¹«¹²º¯Êı
+     * é’ˆå¯¹rw mysqlåº“çš„å†™åº“çš„å…¬å…±å‡½æ•°
      * 
      * @param beanName
      * @param sqlName
@@ -321,7 +321,7 @@ public class SR952010 {
                 e.printStackTrace();
             }
         }
-        // ½øĞ´ÈëµÄÊı¾İcount£¬½øĞĞÑéÖ¤
+        // è¿›å†™å…¥çš„æ•°æ®countï¼Œè¿›è¡ŒéªŒè¯
         String querySql = "select count(*) from test1 where colu2 = 'DB_G'";
         ResultSet rs = ZdalTestCommon.dataCheckFromJDBC(querySql, url1, psd, user);
         ResultSet rs2 = ZdalTestCommon.dataCheckFromJDBC(querySql, url2, psd, user);
@@ -340,7 +340,7 @@ public class SR952010 {
     }
 
     /**
-     * Õë¶Ôrw mysql¿âµÄ¶Á¿âµÄ¹«¹²º¯Êı£¨zds¿â£©
+     * é’ˆå¯¹rw mysqlåº“çš„è¯»åº“çš„å…¬å…±å‡½æ•°ï¼ˆzdsåº“ï¼‰
      * 
      * @param beanName
      * @param sqlName
@@ -351,10 +351,10 @@ public class SR952010 {
         HashMap<String, Integer> hp = new HashMap<String, Integer>();
         int countA = 0;
         int countB = 0;
-        // ×¼±¸Êı¾İ
+        // å‡†å¤‡æ•°æ®
         ZdalTestCommon.dataPrepareForZds();
 
-        // ¶ÁÈ¡Êı¾İ£¬²¢¼ÆËã´ÓÃ¿¸ö¿âÀïÃæ¶ÁÊıµÄ´ÎÊı
+        // è¯»å–æ•°æ®ï¼Œå¹¶è®¡ç®—ä»æ¯ä¸ªåº“é‡Œé¢è¯»æ•°çš„æ¬¡æ•°
         sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean(beanName);
         String sqlStr1 = sqlName;
         for (int countnum = 0; countnum < 30; countnum++) {

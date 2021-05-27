@@ -14,7 +14,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleParameterizedOutp
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: MySqlParameterizedOutputVisitorTest2.java, v 0.1 2012-5-17 …œŒÁ10:06:50 xiaoqing.zhouxq Exp $
+ * @version $Id: MySqlParameterizedOutputVisitorTest2.java, v 0.1 2012-5-17 ‰∏äÂçà10:06:50 xiaoqing.zhouxq Exp $
  */
 public class MySqlParameterizedOutputVisitorTest2 extends TestCase {
 

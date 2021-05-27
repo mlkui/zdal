@@ -10,7 +10,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleSubqueryFactoringTest.java, v 0.1 2012-5-17 …œŒÁ10:22:22 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleSubqueryFactoringTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:22:22 xiaoqing.zhouxq Exp $
  */
 public class OracleSubqueryFactoringTest extends TestCase {
 

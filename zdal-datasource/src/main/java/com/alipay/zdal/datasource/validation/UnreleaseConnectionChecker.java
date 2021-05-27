@@ -10,7 +10,7 @@ package com.alipay.zdal.datasource.validation;
 public interface UnreleaseConnectionChecker {
 
     /**
-     * ¶ÔÃ»ÓĞÊÍ·ÅµÄÊı¾İ¿âÁ¬½Ó½øĞĞ¼ì²é
+     * å¯¹æ²¡æœ‰é‡Šæ”¾çš„æ•°æ®åº“è¿æ¥è¿›è¡Œæ£€æŸ¥
      */
     void connectionCheck();
 

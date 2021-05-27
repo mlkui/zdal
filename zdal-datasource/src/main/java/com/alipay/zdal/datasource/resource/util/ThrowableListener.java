@@ -10,8 +10,8 @@ import java.util.EventListener;
  * An interface used to handle <tt>Throwable</tt> events.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: ThrowableListener.java, v 0.1 2014-1-6 ÏÂÎç05:40:34 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ThrowableListener.java, v 0.1 2014-1-6 ä¸‹åˆ05:40:34 Exp $
  */
 public interface ThrowableListener extends EventListener {
     /**

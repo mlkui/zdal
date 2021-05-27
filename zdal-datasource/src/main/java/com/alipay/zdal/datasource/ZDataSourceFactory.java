@@ -11,7 +11,7 @@ import com.alipay.zdal.datasource.resource.connectionmanager.CachedConnectionMan
 import com.alipay.zdal.datasource.tm.TxManager;
 
 /**
- *  Êı¾İÔ´´´½¨¹¤³§Àà£¬Ìá¹©Êı¾İÔ´µÄ´´½¨ºÍÏú»Ù
+ *  æ•°æ®æºåˆ›å»ºå·¥å‚ç±»ï¼Œæä¾›æ•°æ®æºçš„åˆ›å»ºå’Œé”€æ¯
  * 
  * @author liangjie.li
  * 
@@ -25,7 +25,7 @@ public final class ZDataSourceFactory {
     private static final CachedConnectionManager defaultCachedConnectionManager = new CachedConnectionManager();
 
     /**
-     *  ´´½¨ĞÂµÄÊı¾İÔ´
+     *  åˆ›å»ºæ–°çš„æ•°æ®æº
      * 
      * @param dataSourceDO
      * @return com.alipay.zdatasource.resource.adapter.jdbc.local.LocalTxDataSource
@@ -38,7 +38,7 @@ public final class ZDataSourceFactory {
     }
 
     /**
-     *  ´´½¨ĞÂµÄÊı¾İÔ´
+     *  åˆ›å»ºæ–°çš„æ•°æ®æº
      * 
      * @param dataSourceDO
      * @param transactionManager
@@ -57,23 +57,23 @@ public final class ZDataSourceFactory {
             throw new Exception("dataSource config is Empty!");
         }
         LocalTxDataSource localTxDataSource = new LocalTxDataSource();
-        // ÉèÖÃÁ¬½Ó»º´æ¹ÜÀíÆ÷£¬Èç¹û¸ø¶¨ÁËÊ¹ÓÃ¸ø¶¨µÄ£¬Èç¹ûÃ»Ö¸¶¨ÔòÄ¬ÈÏ¸øÒ»¸ö
+        // è®¾ç½®è¿æ¥ç¼“å­˜ç®¡ç†å™¨ï¼Œå¦‚æœç»™å®šäº†ä½¿ç”¨ç»™å®šçš„ï¼Œå¦‚æœæ²¡æŒ‡å®šåˆ™é»˜è®¤ç»™ä¸€ä¸ª
         if (null != cachedConnectionManager) {
             localTxDataSource.setCachedConnectionManager(cachedConnectionManager);
         } else {
             localTxDataSource.setCachedConnectionManager(defaultCachedConnectionManager);
         }
-        // ÉèÖÃÊÂÎñ¹ÜÀíÆ÷£¬Èç¹û¸ø¶¨µÄÊ¹ÓÃ¸ø¶¨µÄ£¬Èç¹ûÃ»ÓĞÔòÄ¬ÈÏ¸øÒÔ¸ö
+        // è®¾ç½®äº‹åŠ¡ç®¡ç†å™¨ï¼Œå¦‚æœç»™å®šçš„ä½¿ç”¨ç»™å®šçš„ï¼Œå¦‚æœæ²¡æœ‰åˆ™é»˜è®¤ç»™ä»¥ä¸ª
         if (null != transactionManager) {
             localTxDataSource.setTransactionManager(transactionManager);
         } else {
             localTxDataSource.setTransactionManager(defaultTransactionManager);
         }
 
-        // Ìî³äÊı¾İÔ´
+        // å¡«å……æ•°æ®æº
         fillLocalTxDataSource(dataSourceDO, localTxDataSource);
 
-        // ³õÊ¼»¯Êı¾İÔ´
+        // åˆå§‹åŒ–æ•°æ®æº
         localTxDataSource.init(zdatasource);
 
         return localTxDataSource;
@@ -127,7 +127,7 @@ public final class ZDataSourceFactory {
     }
 
     /**
-     * Ïú»Ùµ±Ç°µÄÊı¾İÔ´
+     * é”€æ¯å½“å‰çš„æ•°æ®æº
      * 
      * @param localTxDataSource
      * @throws Exception
@@ -135,7 +135,7 @@ public final class ZDataSourceFactory {
     public static void destroy(LocalTxDataSource localTxDataSource) throws Exception {
         if (null != localTxDataSource) {
             localTxDataSource.destroy();
-            logger.warn("ÒÑ¾­Ïú»ÙÊı¾İÔ´ £º " + localTxDataSource.getBeanName());
+            logger.warn("å·²ç»é”€æ¯æ•°æ®æº ï¼š " + localTxDataSource.getBeanName());
         }
     }
 

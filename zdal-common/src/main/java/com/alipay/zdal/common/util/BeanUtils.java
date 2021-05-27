@@ -8,9 +8,9 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * ÓÃ»§»ñÈ¡javabean¶ÔÏóÖĞ¸÷ÖÖÊı¾İµÄ¹¤¾ßÀà.
- * @author ²®ÑÀ
- * @version $Id: BeanUtils.java, v 0.1 2012-11-17 ÏÂÎç4:52:07 Exp $
+ * ç”¨æˆ·è·å–javabeanå¯¹è±¡ä¸­å„ç§æ•°æ®çš„å·¥å…·ç±».
+ * @author ä¼¯ç‰™
+ * @version $Id: BeanUtils.java, v 0.1 2012-11-17 ä¸‹åˆ4:52:07 Exp $
  */
 public class BeanUtils {
     /**

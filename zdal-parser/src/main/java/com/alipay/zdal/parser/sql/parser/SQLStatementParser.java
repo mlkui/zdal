@@ -37,8 +37,8 @@ import com.alipay.zdal.parser.sql.ast.statement.SQLUseStatement;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLStatementParser.java, v 0.1 2012-11-17 ÏÂÎç3:54:46 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLStatementParser.java, v 0.1 2012-11-17 ä¸‹åˆ3:54:46 Exp $
  */
 public class SQLStatementParser extends SQLParser {
 

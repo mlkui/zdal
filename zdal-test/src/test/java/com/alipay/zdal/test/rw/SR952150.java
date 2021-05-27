@@ -21,7 +21,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("select from dual-rwÊı¾İÔ´oracle£ºds0:r10w10,ds1:r10w0")
+@Feature("select from dual-rwæ•°æ®æºoracleï¼šds0:r10w10,ds1:r10w0")
 public class SR952150 {
 	private SqlMapClient sqlMap;
 	public TestAssertion Assert = new TestAssertion();
@@ -46,23 +46,23 @@ public class SR952150 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Step("Í¨¹ıjdbc²éÑ¯Ä¿Ç°µÄvalÖµ");
+		Step("é€šè¿‡jdbcæŸ¥è¯¢ç›®å‰çš„valå€¼");
 		String sql0="select ID.nextval from dual";
 		String sql1="select ID.CURRVAL  from dual";
 		String dburl=ConstantsTest.oralcePrefUrl;
 		String dbpsd=ConstantsTest.oraclePrePsd;
 		String dbuser=ConstantsTest.oraclePreUser1;
-		Step("jdbc²»ÄÜÖ±½Óµ¥²écurrentval£¬ĞèÒªÖ®Ç°²éÑ¯nextval");
+		Step("jdbcä¸èƒ½ç›´æ¥å•æŸ¥currentvalï¼Œéœ€è¦ä¹‹å‰æŸ¥è¯¢nextval");
 		ResultSet rs=ZdalTestCommon.dualCheckJDBC(dburl, sql0, sql1, dbpsd, dbuser);
 		try {
-			Assert.isTrue(rs.next(),"currval Öµ²éÑ¯");
+			Assert.isTrue(rs.next(),"currval å€¼æŸ¥è¯¢");
 			
 			currva=rs.getLong(1);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Assert.areEqual(currva, Long.parseLong(val)+1, "ÑéÖ¤ĞòÁĞ");
+		Assert.areEqual(currva, Long.parseLong(val)+1, "éªŒè¯åºåˆ—");
 	}
 
 }

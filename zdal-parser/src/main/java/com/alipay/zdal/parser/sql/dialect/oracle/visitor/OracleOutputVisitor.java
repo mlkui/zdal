@@ -153,8 +153,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTOutputVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleOutputVisitor.java, v 0.1 2012-11-17 œ¬ŒÁ3:52:58 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleOutputVisitor.java, v 0.1 2012-11-17 ‰∏ãÂçà3:52:58 Exp $
  */
 public class OracleOutputVisitor extends SQLASTOutputVisitor implements OracleASTVisitor {
 

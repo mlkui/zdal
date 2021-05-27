@@ -56,15 +56,15 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     private String                                dsName            = "";
     private LocalTxDataSource                     localTxDataSource = null;
 
-    // datasource destroyÊ±Í£Ö¹ÈÎÎñ binghun 20130522
+    // datasource destroyæ—¶åœæ­¢ä»»åŠ¡ binghun 20130522
     private ScheduledFuture<?>                    future;
 
     /**
-     * ÓÃ LocalTxDataSourceDOÀ´³õÊ¼»¯zdatasource
+     * ç”¨ LocalTxDataSourceDOæ¥åˆå§‹åŒ–zdatasource
      * 
      * @param dataSourceDO
      * @param appName
-     * @throws Exception ²ÎÊı²»È«»áÅ×³ö IllegalArgumentException
+     * @throws Exception å‚æ•°ä¸å…¨ä¼šæŠ›å‡º IllegalArgumentException
      */
     public ZDataSource(LocalTxDataSourceDO dataSourceDO) throws Exception {
         checkParam(dataSourceDO);
@@ -76,7 +76,7 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     }
 
     /**
-     * ¼ì²éÄÇĞ©±ØÌîµÄ²ÎÊı
+     * æ£€æŸ¥é‚£äº›å¿…å¡«çš„å‚æ•°
      * @param dataSourceDO
      * @throws IllegalArgumentException
      */
@@ -139,7 +139,7 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     //        if (localTxDataSourceDO == null) {
     //            throw new IllegalArgumentException("The localTxDataSourceDO is NULL for datasource");
     //        }
-    //        if (switching.get()) {// ÖØÔØÖĞ...
+    //        if (switching.get()) {// é‡è½½ä¸­...
     //            return false;
     //        }
     //        try {
@@ -152,7 +152,7 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     //            valve.set(localTxDataSourceDO.getSqlValve(), localTxDataSourceDO.getTxValve(),
     //                localTxDataSourceDO.getTableVave());
     //        } catch (Exception e) {
-    //            logger.error("Ë¢ĞÂÊı¾İÔ´´íÎó£¡", e);
+    //            logger.error("åˆ·æ–°æ•°æ®æºé”™è¯¯ï¼", e);
     //            return false;
     //        } finally {
     //            switching.set(false);
@@ -191,7 +191,7 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     }
 
     /**
-     * »ñÈ¡Á¬½Ó³ØĞÅÏ¢
+     * è·å–è¿æ¥æ± ä¿¡æ¯
      * @return
      */
     public PoolCondition getPoolCondition() {

@@ -11,8 +11,8 @@ import java.sql.SQLException;
  * a nested <tt>Throwable</tt> detail object.
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: NestedSQLException.java, v 0.1 2014-1-6 ÏÂÎç05:25:42 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: NestedSQLException.java, v 0.1 2014-1-6 ä¸‹åˆ05:25:42 Exp $
  */
 public class NestedSQLException extends SQLException {
     /**  */

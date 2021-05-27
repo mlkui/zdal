@@ -5,12 +5,12 @@
 package com.alipay.zdal.common.sqljep.function;
 
 /**
- * ¿É±È½ÏµÄÀà
- * Êµ¼ÊÉÏÊÇÊÇÁ½¸ö¶«Î÷µÄ½áºÏ
+ * å¯æ¯”è¾ƒçš„ç±»
+ * å®žé™…ä¸Šæ˜¯æ˜¯ä¸¤ä¸ªä¸œè¥¿çš„ç»“åˆ
  * 
- * ·ûºÅ+Öµ
+ * ç¬¦å·+å€¼
  * 
- * ÀýÈç [> 1] , [< 1] , [= 1]
+ * ä¾‹å¦‚ [> 1] , [< 1] , [= 1]
  * 
  *
  */
@@ -28,7 +28,7 @@ public class Comparative implements Comparable, Cloneable {
     public static final int NotSupport         = -1;
 
     /**
-     * ±í´ïÊ½È¡·´
+     * è¡¨è¾¾å¼å–å
      * 
      * @param function
      * @return
@@ -38,7 +38,7 @@ public class Comparative implements Comparable, Cloneable {
     }
 
     /**
-     * ±í´ïÊ½Ç°ºóÎ»ÖÃµ÷»»µÄÊ±ºò
+     * è¡¨è¾¾å¼å‰åŽä½ç½®è°ƒæ¢çš„æ—¶å€™
      * 
      * @param function
      * @return
@@ -58,7 +58,7 @@ public class Comparative implements Comparable, Cloneable {
         }
     }
 
-    private Comparable value;     //ÕâÓÐ¿ÉÄÜÓÖÊÇ¸öComparative£¬´Ó¶øÊµÖÊÉÏ±íÊ¾Ò»¿ÎÊ÷£¨±È½ÏÊ÷£©
+    private Comparable value;     //è¿™æœ‰å¯èƒ½åˆæ˜¯ä¸ªComparativeï¼Œä»Žè€Œå®žè´¨ä¸Šè¡¨ç¤ºä¸€è¯¾æ ‘ï¼ˆæ¯”è¾ƒæ ‘ï¼‰
     private int        comparison;
 
     protected Comparative() {

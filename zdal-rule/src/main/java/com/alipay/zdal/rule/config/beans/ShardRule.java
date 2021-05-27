@@ -8,15 +8,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Ò»·İÍêÕûµÄ·Ö¿â·Ö±í¹æÔòÅäÖÃ£¬Ò»Ì×¿âÒ»·İ
+ * ä¸€ä»½å®Œæ•´çš„åˆ†åº“åˆ†è¡¨è§„åˆ™é…ç½®ï¼Œä¸€å¥—åº“ä¸€ä»½
  *  
  */
 public class ShardRule implements Cloneable {
-    private Map<String/*Âß¼­±íÃû*/, TableRule> tableRules;
+    private Map<String/*é€»è¾‘è¡¨å*/, TableRule> tableRules;
     private String                          defaultDbIndex;
 
     /**
-     * ÎŞÂß¼­µÄgetter/setter
+     * æ— é€»è¾‘çš„getter/setter
      */
     public Map<String, TableRule> getTableRules() {
         return tableRules;
@@ -35,7 +35,7 @@ public class ShardRule implements Cloneable {
     }
 
     /**
-     * tableRulesĞÂ´´½¨map£¬Ã¿¸öTableRule¶ÔÏóÖĞµÄDbIndexÉîclone
+     * tableRulesæ–°åˆ›å»ºmapï¼Œæ¯ä¸ªTableRuleå¯¹è±¡ä¸­çš„DbIndexæ·±clone
      */
     @Override
     public ShardRule clone() throws CloneNotSupportedException {
@@ -75,7 +75,7 @@ public class ShardRule implements Cloneable {
     public boolean equals(Object obj) {
         //  tableRules
         ShardRule shardRule = (ShardRule) obj;
-        Map<String/*Âß¼­±íÃû*/, TableRule> tableRules = shardRule.getTableRules();
+        Map<String/*é€»è¾‘è¡¨å*/, TableRule> tableRules = shardRule.getTableRules();
         if (tableRules == null || this.tableRules == null
             || tableRules.size() != this.tableRules.size()) {
             return false;

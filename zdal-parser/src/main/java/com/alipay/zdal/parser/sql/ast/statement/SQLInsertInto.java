@@ -15,7 +15,7 @@ import com.alipay.zdal.parser.sql.ast.statement.SQLInsertStatement.ValuesClause;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLInsertInto.java, v 0.1 2012-11-17 œ¬ŒÁ3:22:31 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLInsertInto.java, v 0.1 2012-11-17 ‰∏ãÂçà3:22:31 xiaoqing.zhouxq Exp $
  */
 public abstract class SQLInsertInto extends SQLObjectImpl {
 

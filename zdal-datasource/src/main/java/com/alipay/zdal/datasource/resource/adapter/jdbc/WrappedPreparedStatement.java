@@ -31,8 +31,8 @@ import com.alipay.zdal.datasource.ZDataSource;
 /**
  * A wrapper for a prepared statement.
  *
- * @author ²®ÑÀ
- * @version $Id: WrappedPreparedStatement.java, v 0.1 2014-1-6 ÏÂÎç05:30:56 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: WrappedPreparedStatement.java, v 0.1 2014-1-6 ä¸‹åˆ05:30:56 Exp $
  */
 public class WrappedPreparedStatement extends WrappedStatement implements PreparedStatement {
 

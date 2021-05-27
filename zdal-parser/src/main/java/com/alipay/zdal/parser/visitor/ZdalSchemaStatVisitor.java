@@ -31,9 +31,9 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 import com.alipay.zdal.parser.sql.visitor.SchemaStatVisitor;
 
 /**
- * »ùÓÚdruidµÄsqlparserµÄÒ»¸öÀ©Õ¹£¬ÓÃÓÚÊµÏÖzdalµÄparserÄ£¿éÔÚ½âÎöÒÔºó·µ»Ø½âÎöºóµÄ¶ÔÏóÊ÷.
+ * åŸºäºdruidçš„sqlparserçš„ä¸€ä¸ªæ‰©å±•ï¼Œç”¨äºå®ç°zdalçš„parseræ¨¡å—åœ¨è§£æä»¥åè¿”å›è§£æåçš„å¯¹è±¡æ ‘.
  * @author xiaoqing.zhouxq
- * @version $Id: ZdalSchemaStatVisitor.java, v 0.1 2012-5-25 ÉÏÎç08:58:02 xiaoqing.zhouxq Exp $
+ * @version $Id: ZdalSchemaStatVisitor.java, v 0.1 2012-5-25 ä¸Šåˆ08:58:02 xiaoqing.zhouxq Exp $
  */
 public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVisitor {
 
@@ -41,21 +41,21 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
 
     public final static String     ROWCOUNT            = "ROWCOUNT";
 
-    /** ÔÚsqlÖĞËùÓĞµÄ°ó¶¨²ÎÊıÁĞ±í£¬°üÀ¨mysqlµÄlimitºÍoracleµÄrownumËù°ó¶¨µÄ²ÎÊı */
+    /** åœ¨sqlä¸­æ‰€æœ‰çš„ç»‘å®šå‚æ•°åˆ—è¡¨ï¼ŒåŒ…æ‹¬mysqlçš„limitå’Œoracleçš„rownumæ‰€ç»‘å®šçš„å‚æ•° */
     private List<BindVarCondition> bindVarConditions   = new ArrayList<BindVarCondition>();
 
-    /** ÔÚsqlÖĞµÄ²ÎÊıÖ±½ÓÓĞÖµµÄ²ÎÊıÁĞ±í. */
+    /** åœ¨sqlä¸­çš„å‚æ•°ç›´æ¥æœ‰å€¼çš„å‚æ•°åˆ—è¡¨. */
     private List<BindVarCondition> noBindVarConditions = new ArrayList<BindVarCondition>();
 
     /** 
-     * ÔÚsqlÓï¾äÖĞ±£Áô¶ÔÓ¦µÄ±íµÄ±ğÃû.
+     * åœ¨sqlè¯­å¥ä¸­ä¿ç•™å¯¹åº”çš„è¡¨çš„åˆ«å.
      * @see com.alibaba.druid.sql.visitor.SchemaStatVisitor#clearAliasMap()
      */
     public void clearAliasMap() {
     }
 
     /** 
-     * ÓÉÓÚÔÚdruid½âÎöupdateµÄsqlÊ±Ã»ÓĞ·µ»Ø²Ù×÷ÀàĞÍ.
+     * ç”±äºåœ¨druidè§£æupdateçš„sqlæ—¶æ²¡æœ‰è¿”å›æ“ä½œç±»å‹.
      * @see com.alipay.zdal.parser.sql.visitor.SchemaStatVisitor#visit(com.alipay.zdal.parser.sql.ast.statement.SQLUpdateStatement)
      */
     public boolean visit(SQLUpdateStatement x) {
@@ -73,7 +73,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
         aliasMap.put(ident, ident);
 
         accept(x.getItems());
-        //´ÓupdateµÄwhereÇ°Ãæ»ñÈ¡°ó¶¨²ÎÊı.
+        //ä»updateçš„whereå‰é¢è·å–ç»‘å®šå‚æ•°.
         acceptSQLUpdateSetItem(x.getItems());
         accept(x.getWhere());
 
@@ -123,7 +123,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
     }
 
     /**
-     * »ñÈ¡inÖĞµÄ°ó¶¨²ÎÊı.
+     * è·å–inä¸­çš„ç»‘å®šå‚æ•°.
      * @param x
      */
     private void handCondition(SQLInListExpr x) {
@@ -197,7 +197,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
     }
 
     public void handleCondition(SQLBinaryOpExpr x) {
-        //»ñÈ¡whereÌõ¼şºóÃæµÄ°ó¶¨²ÎÊı.
+        //è·å–whereæ¡ä»¶åé¢çš„ç»‘å®šå‚æ•°.
         if ((x.getRight() instanceof SQLVariantRefExpr)
             && ((x.getLeft() instanceof SQLIdentifierExpr) || (x.getLeft() instanceof SQLPropertyExpr))) {
             SQLVariantRefExpr right = (SQLVariantRefExpr) x.getRight();
@@ -325,7 +325,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
     }
 
     /**
-     * »ñÈ¡update whereÇ°ÃæµÄ°ó¶¨²ÎÊı.
+     * è·å–update whereå‰é¢çš„ç»‘å®šå‚æ•°.
      * @param items
      */
     protected void acceptSQLUpdateSetItem(List<SQLUpdateSetItem> items) {
@@ -386,9 +386,9 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
     }
 
     /**
-     * »ñÈ¡insertµÄ°ó¶¨²ÎÊı.
-     * @param columns ²ÎÊıÃû³Æ.
-     * @param valuesClauses ²ÎÊıÖµ.
+     * è·å–insertçš„ç»‘å®šå‚æ•°.
+     * @param columns å‚æ•°åç§°.
+     * @param valuesClauses å‚æ•°å€¼.
      */
     protected void acceptInsertValueClauses(List<SQLExpr> columns, List<ValuesClause> valuesClauses) {
         if (columns == null || valuesClauses == null) {
@@ -411,7 +411,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
                 BindVarCondition bindVarCondition = new BindVarCondition();
                 bindVarCondition.setColumnName(columnExpr.getName());
                 bindVarCondition.setTableName(getCurrentTable());
-                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//ÔÚinsertÖĞÄ¬ÈÏÊÇ=
+                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//åœ¨insertä¸­é»˜è®¤æ˜¯=
                 bindVarCondition.setIndex(varExpr.getIndex());
                 bindVarConditions.add(bindVarCondition);
             } else if (value instanceof SQLIntegerExpr) {
@@ -420,7 +420,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
                 BindVarCondition bindVarCondition = new BindVarCondition();
                 bindVarCondition.setColumnName(columnExpr.getName());
                 bindVarCondition.setTableName(getCurrentTable());
-                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//ÔÚinsertÖĞÄ¬ÈÏÊÇ=
+                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//åœ¨insertä¸­é»˜è®¤æ˜¯=
                 bindVarCondition.setValue((Comparable<?>) right.getNumber());
 
                 noBindVarConditions.add(bindVarCondition);
@@ -430,7 +430,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
                 BindVarCondition bindVarCondition = new BindVarCondition();
                 bindVarCondition.setColumnName(columnExpr.getName());
                 bindVarCondition.setTableName(getCurrentTable());
-                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//ÔÚinsertÖĞÄ¬ÈÏÊÇ=
+                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//åœ¨insertä¸­é»˜è®¤æ˜¯=
                 bindVarCondition.setValue((Comparable<?>) right.getNumber());
                 noBindVarConditions.add(bindVarCondition);
             } else if (value instanceof SQLCharExpr) {
@@ -439,7 +439,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
                 BindVarCondition bindVarCondition = new BindVarCondition();
                 bindVarCondition.setColumnName(columnExpr.getName());
                 bindVarCondition.setTableName(getCurrentTable());
-                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//ÔÚinsertÖĞÄ¬ÈÏÊÇ=
+                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//åœ¨insertä¸­é»˜è®¤æ˜¯=
                 bindVarCondition.setValue(right.getText());
                 noBindVarConditions.add(bindVarCondition);
             } else if (value instanceof SQLNCharExpr) {
@@ -448,7 +448,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
                 BindVarCondition bindVarCondition = new BindVarCondition();
                 bindVarCondition.setColumnName(columnExpr.getName());
                 bindVarCondition.setTableName(getCurrentTable());
-                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//ÔÚinsertÖĞÄ¬ÈÏÊÇ=
+                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//åœ¨insertä¸­é»˜è®¤æ˜¯=
                 bindVarCondition.setValue(right.getText());
                 noBindVarConditions.add(bindVarCondition);
             } else if (value instanceof SQLMethodInvokeExpr) {//value = null
@@ -456,7 +456,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
                 BindVarCondition bindVarCondition = new BindVarCondition();
                 bindVarCondition.setColumnName(columnExpr.getName());
                 bindVarCondition.setTableName(getCurrentTable());
-                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//ÔÚinsertÖĞÄ¬ÈÏÊÇ=
+                bindVarCondition.setOperator(SQLBinaryOperator.Equality.name);//åœ¨insertä¸­é»˜è®¤æ˜¯=
                 noBindVarConditions.add(bindVarCondition);
             }
             index++;
@@ -464,7 +464,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
     }
 
     /**
-     * ÓÉÓÚsuper.getMode()ÊÇprotectedµÄ£¬ËùÒÔĞèÒª×ª»¯Ò»ÏÂ.
+     * ç”±äºsuper.getMode()æ˜¯protectedçš„ï¼Œæ‰€ä»¥éœ€è¦è½¬åŒ–ä¸€ä¸‹.
      * @return
      */
     public Mode getSqlMode() {
@@ -472,7 +472,7 @@ public class ZdalSchemaStatVisitor extends SchemaStatVisitor implements SQLASTVi
     }
 
     /**
-     * °´ÕÕBindVarConditionÖĞµÄindex½øĞĞÅÅĞò.
+     * æŒ‰ç…§BindVarConditionä¸­çš„indexè¿›è¡Œæ’åº.
      * @return
      */
     public List<BindVarCondition> getBindVarConditions() {

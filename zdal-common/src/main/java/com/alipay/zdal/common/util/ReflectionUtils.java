@@ -18,8 +18,8 @@ import java.util.List;
  * Simple utility class for working with the reflection API and handling
  * reflection exceptions.
  * 
- * @author ²®ÑÀ
- * @version $Id: ReflectionUtils.java, v 0.1 2012-11-17 ÏÂÎç4:57:35 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ReflectionUtils.java, v 0.1 2012-11-17 ä¸‹åˆ4:57:35 Exp $
  */
 public class ReflectionUtils {
     /**

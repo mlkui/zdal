@@ -26,8 +26,8 @@ import java.util.Map;
 /**
  * WrappedCallableStatement
  *
- * @author ²®ÑÀ
- * @version $Id: WrappedCallableStatement.java, v 0.1 2014-1-6 ÏÂÎç05:30:17 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: WrappedCallableStatement.java, v 0.1 2014-1-6 ä¸‹åˆ05:30:17 Exp $
  */
 public class WrappedCallableStatement extends WrappedPreparedStatement implements CallableStatement {
 

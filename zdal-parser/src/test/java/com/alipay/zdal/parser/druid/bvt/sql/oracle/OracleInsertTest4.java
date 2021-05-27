@@ -13,7 +13,7 @@ import com.alipay.zdal.parser.sql.stat.TableStat;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleInsertTest4.java, v 0.1 2012-5-17 …œŒÁ10:17:37 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleInsertTest4.java, v 0.1 2012-5-17 ‰∏äÂçà10:17:37 xiaoqing.zhouxq Exp $
  */
 public class OracleInsertTest4 extends OracleTest {
 

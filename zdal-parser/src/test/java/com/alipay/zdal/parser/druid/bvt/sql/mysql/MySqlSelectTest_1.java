@@ -14,7 +14,7 @@ import com.alipay.zdal.parser.sql.stat.TableStat.Column;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: MySqlSelectTest_1.java, v 0.1 2012-5-17 …œŒÁ10:06:57 xiaoqing.zhouxq Exp $
+ * @version $Id: MySqlSelectTest_1.java, v 0.1 2012-5-17 ‰∏äÂçà10:06:57 xiaoqing.zhouxq Exp $
  */
 public class MySqlSelectTest_1 extends MysqlTest {
 

@@ -12,7 +12,7 @@ public class LiteralHexadecimalTest  extends TestCase {
 	 public void test_0() throws Exception {
 	        String sql = "x'E982B1E7A195275C73'";
 	        SQLHexExpr hex = (SQLHexExpr) new MySqlExprParser(sql).expr();
-	        Assert.assertEquals("ÇñË¶'\\s", new String(hex.toBytes(), "utf-8"));
+	        Assert.assertEquals("é‚±ç¡•'\\s", new String(hex.toBytes(), "utf-8"));
 	    }
 
 	    public void test_1() throws Exception {

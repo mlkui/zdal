@@ -7,9 +7,9 @@ package com.alipay.zdal.parser.visitor;
 import com.alipay.zdal.parser.sql.ast.SQLObject;
 
 /**
- * ÔÚsqlÖĞ°ó¶¨ÁË¶àÉÙ²ÎÊı£¬°´ÕÕË³Ğò±£´æ.
+ * åœ¨sqlä¸­ç»‘å®šäº†å¤šå°‘å‚æ•°ï¼ŒæŒ‰ç…§é¡ºåºä¿å­˜.
  * @author xiaoqing.zhouxq
- * @version $Id: BindVarCondition.java, v 0.1 2012-5-25 ÉÏÎç09:47:50 xiaoqing.zhouxq Exp $
+ * @version $Id: BindVarCondition.java, v 0.1 2012-5-25 ä¸Šåˆ09:47:50 xiaoqing.zhouxq Exp $
  */
 public class BindVarCondition {
 
@@ -19,7 +19,7 @@ public class BindVarCondition {
 
     private String        operator;
 
-    /** Õâ¸ö²ÎÊıÔÚsqlÓï¾äÖĞ³öÏÖµÄÎ»ÖÃ */
+    /** è¿™ä¸ªå‚æ•°åœ¨sqlè¯­å¥ä¸­å‡ºç°çš„ä½ç½® */
     private int           index = -1;
 
     /** 0:one ;1:and; 2:or */

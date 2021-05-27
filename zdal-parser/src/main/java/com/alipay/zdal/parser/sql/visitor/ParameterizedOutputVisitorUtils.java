@@ -21,8 +21,8 @@ import com.alipay.zdal.parser.sql.util.JdbcUtils;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: ParameterizedOutputVisitorUtils.java, v 0.1 2012-11-17 ÏÂÎç3:56:10 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ParameterizedOutputVisitorUtils.java, v 0.1 2012-11-17 ä¸‹åˆ3:56:10 Exp $
  */
 public class ParameterizedOutputVisitorUtils {
 

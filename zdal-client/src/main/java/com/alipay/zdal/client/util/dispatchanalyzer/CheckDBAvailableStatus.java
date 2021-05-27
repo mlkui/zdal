@@ -27,76 +27,76 @@ import com.alipay.zdal.common.RuntimeConfigHolder;
 /**
  * 
  * @author zhaofeng.wang
- * @version $Id: CheckDBAvailableStatus.java, v 0.1 2013-3-20 ÉÏÎç11:32:51 zhaofeng.wang Exp $
+ * @version $Id: CheckDBAvailableStatus.java, v 0.1 2013-3-20 ä¸Šåˆ11:32:51 zhaofeng.wang Exp $
  */
 public class CheckDBAvailableStatus {
     public static final Logger     logger             = Logger
                                                           .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
     /**
-     * Zdal·â×°µÄÊı¾İÔ´ 
+     * Zdalå°è£…çš„æ•°æ®æº 
      */
     private AbstractZdalDataSource targetDataSource;
     /** 
-     * ÂÖÑµÊı¾İÔ´×´Ì¬µÄÏß³Ì 
+     * è½®è®­æ•°æ®æºçŠ¶æ€çš„çº¿ç¨‹ 
      */
     private Thread                 circulateThread    = null;
 
     /**
-     * Ä¬ÈÏµÄÂÖÑµÊ±¼ä£¬µ¥Î»ms
+     * é»˜è®¤çš„è½®è®­æ—¶é—´ï¼Œå•ä½ms
      */
     private long                   waitTime           = 1000L;
 
     /**
-     * Í¨¹ıFuture·½Ê½»ñÈ¡¼ì²éÁ¬½Ó½á¹ûµÄ³¬Ê±Ê±³¤£¬Èç¹û³¬¹ı¸ÃÖµ¾ÍÅ×³ötimeOutException£¬µ¥Î»ms
+     * é€šè¿‡Futureæ–¹å¼è·å–æ£€æŸ¥è¿æ¥ç»“æœçš„è¶…æ—¶æ—¶é•¿ï¼Œå¦‚æœè¶…è¿‡è¯¥å€¼å°±æŠ›å‡ºtimeOutExceptionï¼Œå•ä½ms
      */
     private long                   timeOutLength      = 500L;
     /**
-     * ×î¶à¿ÉÒÔ×Ô¶¯ÌŞ³ıµÄÊı¾İ¿âµÄ¸öÊı£¬Ä¬ÈÏÎª-1
+     * æœ€å¤šå¯ä»¥è‡ªåŠ¨å‰”é™¤çš„æ•°æ®åº“çš„ä¸ªæ•°ï¼Œé»˜è®¤ä¸º-1
      */
     private int                    closeDBLimitNumber = -1;
 
     /**
-     * Ïß³Ì³ØµÄ×îĞ¡Öµ
+     * çº¿ç¨‹æ± çš„æœ€å°å€¼
      */
     private int                    corePoolSize       = 1;
     /**
-     * Ïß³Ì³ØµÄ×î´óÖµ
+     * çº¿ç¨‹æ± çš„æœ€å¤§å€¼
      */
     private int                    maximumPoolSize    = 10;
     /**
-     * Ïß³Ì³Ø¶ÓÁĞ³¤¶È
+     * çº¿ç¨‹æ± é˜Ÿåˆ—é•¿åº¦
      */
     private int                    workQueueSize      = 100;
     /**
-     * Ïß³Ì³Ø£¬²ÉÓÃÅ×Æú×î¾ÉµÄÈÎÎñµÄ²ßÂÔ£¬·ÀÖ¹Ò»Ö±½«¶ÓÁĞ¶ÂËÀ
+     * çº¿ç¨‹æ± ï¼Œé‡‡ç”¨æŠ›å¼ƒæœ€æ—§çš„ä»»åŠ¡çš„ç­–ç•¥ï¼Œé˜²æ­¢ä¸€ç›´å°†é˜Ÿåˆ—å µæ­»
      */
     private ExecutorService        checkDBStatusExecutor;
     /**
-     * ÊÇ·ñÊ¹ÓÃÒì²½Ìá½»·½Ê½
+     * æ˜¯å¦ä½¿ç”¨å¼‚æ­¥æäº¤æ–¹å¼
      */
     private boolean                isUseFutureMode    = true;
 
     /**
-     * Òì²½Ïß³ÌÂÖÑ­
+     * å¼‚æ­¥çº¿ç¨‹è½®å¾ª
      */
     void runCirculateThread() {
-        //Æô¶¯ÂÖÑ¯Ïß³Ì³Ø
+        //å¯åŠ¨è½®è¯¢çº¿ç¨‹æ± 
         checkDBStatusExecutor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, 0L,
             TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(workQueueSize),
             new ThreadPoolExecutor.DiscardOldestPolicy());
-        //Æô¶¯Òì²½Ïß³Ì
+        //å¯åŠ¨å¼‚æ­¥çº¿ç¨‹
         circulateThread = new Thread(new Runnable() {
             public void run() {
-                // µÈ´ıwaitTimeÃë
+                // ç­‰å¾…waitTimeç§’
                 while (true) {
                     try {
                         Thread.sleep(waitTime);
-                        //Èç¹û·¢ÉúÒì³££¬¾Ícatch×¡£¬·ÀÖ¹Ïß³ÌÒì³£ÍË³ö
+                        //å¦‚æœå‘ç”Ÿå¼‚å¸¸ï¼Œå°±catchä½ï¼Œé˜²æ­¢çº¿ç¨‹å¼‚å¸¸é€€å‡º
                         circulateDBStatus();
                     } catch (Exception e) {
                         logger.error("Circulate db status error!", e);
                     }
-                    //ÂÖÑµÊı¾İ¿â£¬»ñÈ¡Æä×´Ì¬,Èç¹û×´Ì¬Î´·¢Éú±ä¸ü£¬Ôò²»ÖØÖÃ
+                    //è½®è®­æ•°æ®åº“ï¼Œè·å–å…¶çŠ¶æ€,å¦‚æœçŠ¶æ€æœªå‘ç”Ÿå˜æ›´ï¼Œåˆ™ä¸é‡ç½®
                 }
             }
         });
@@ -104,17 +104,17 @@ public class CheckDBAvailableStatus {
     }
 
     /**
-     * Ñ­»·É¨ÃèËùÓĞdbµÄ×´Ì¬£¬È»ºó¸üĞÂ
+     * å¾ªç¯æ‰«ææ‰€æœ‰dbçš„çŠ¶æ€ï¼Œç„¶åæ›´æ–°
      */
     private synchronized void circulateDBStatus() {
-        //ÏÈ»ñÈ¡ËùÓĞµÄÎ³¶È£¬È»ºóÒÀ´Î±éÀú
+        //å…ˆè·å–æ‰€æœ‰çš„çº¬åº¦ï¼Œç„¶åä¾æ¬¡éå†
         Map<String, ZdalDataSourceKeyWeightRandom> keyWeightMapConfig = getTargetDataSource()
             .getKeyWeightMapConfig();
         if (keyWeightMapConfig == null || keyWeightMapConfig.size() == 0) {
             throw new IllegalArgumentException("The keyWeightMapConfig is empty! ");
         }
         boolean isDBStatusChanged = false;
-        //ÍâÎ§Ñ­»·£¬±éÀúÃ¿Ò»¸öÈ«»î²ßÂÔµÄ×é
+        //å¤–å›´å¾ªç¯ï¼Œéå†æ¯ä¸€ä¸ªå…¨æ´»ç­–ç•¥çš„ç»„
         for (Map.Entry<String, ZdalDataSourceKeyWeightRandom> entry : keyWeightMapConfig.entrySet()) {
             boolean changeFlag = false;
             String group_key = entry.getKey().trim();
@@ -128,7 +128,7 @@ public class CheckDBAvailableStatus {
             int[] newWeightValues = new int[weightValues.length];
 
             //Map<String, Integer> weightKeysAndWeights = new HashMap<String, Integer>();
-            //ÄÚ²ãÑ­»·£¬±éÀú×éÄÚµÄÃ¿Ò»¸öÊı¾İÔ´£¬¼ì²éÆäÈ¨ÖØ
+            //å†…å±‚å¾ªç¯ï¼Œéå†ç»„å†…çš„æ¯ä¸€ä¸ªæ•°æ®æºï¼Œæ£€æŸ¥å…¶æƒé‡
             int number = 0;
             //int dbNumberInGroup = dbWeightKeysAndWeights.size();
             int dbNumberInGroup = dbWeightKeys.length;
@@ -137,9 +137,9 @@ public class CheckDBAvailableStatus {
                 String dbKey = dbWeightKeys[i];
                 Integer weightValue = 10;
                 boolean isAvailable = isAvailableDB(dbKey);
-                //¼ì²é×´Ì¬±ä¸ü£¬°üÀ¨ ²»¿ÉÓÃ-¡·¿ÉÓÃ£¬ ÒÔ¼° ¿ÉÓÃ-¡·²»¿ÉÓÃ Á½ÖÖ×´Ì¬
+                //æ£€æŸ¥çŠ¶æ€å˜æ›´ï¼ŒåŒ…æ‹¬ ä¸å¯ç”¨-ã€‹å¯ç”¨ï¼Œ ä»¥åŠ å¯ç”¨-ã€‹ä¸å¯ç”¨ ä¸¤ç§çŠ¶æ€
                 if (isAvailable) {
-                    //²»¿ÉÓÃ-¡·¿ÉÓÃ
+                    //ä¸å¯ç”¨-ã€‹å¯ç”¨
                     if (weightValues[i] == 0) {
                         changeFlag = true;
                         logger.warn("The db status will change from NOT to YES,groupName="
@@ -150,7 +150,7 @@ public class CheckDBAvailableStatus {
                                          + dbKey);
                         }
                     }
-                } else {// ¿ÉÓÃ-¡·²»¿ÉÓÃ
+                } else {// å¯ç”¨-ã€‹ä¸å¯ç”¨
                     if (weightValues[i] > 0) {
                         if (++number <= getCloseDBLimitNumber(dbNumberInGroup)) {
                             changeFlag = true;
@@ -171,7 +171,7 @@ public class CheckDBAvailableStatus {
                 newWeightValues[i] = weightValue;
                 //weightKeysAndWeights.put(dbKey, weightValue);
             }
-            //Èç¹û·¢ÉúÁË×´Ì¬±ä¸ü£»
+            //å¦‚æœå‘ç”Ÿäº†çŠ¶æ€å˜æ›´ï¼›
             if (changeFlag) {
                 isDBStatusChanged = true;
                 // String[] weightKeys = weightKeysAndWeights.keySet().toArray(new String[0]);
@@ -191,17 +191,17 @@ public class CheckDBAvailableStatus {
     }
 
     /**
-     * ÀûÓÃfutureµÄ·½Ê½À´²âÊÔdbµÄ¿ÉÓÃĞÔ
+     * åˆ©ç”¨futureçš„æ–¹å¼æ¥æµ‹è¯•dbçš„å¯ç”¨æ€§
      * 
      * @param dbKey
      * @return
      */
     private boolean isAvailableDB(final String dbKey) {
-        //Èç¹û²»Ê¹ÓÃÒì²½¼ì²â³¬Ê±·½Ê½
+        //å¦‚æœä¸ä½¿ç”¨å¼‚æ­¥æ£€æµ‹è¶…æ—¶æ–¹å¼
         if (!isUseFutureMode()) {
             return checkDBAvailalbeStatusUtil(dbKey);
         }
-        //Ìá½»Ö´ĞĞÈÎÎñ
+        //æäº¤æ‰§è¡Œä»»åŠ¡
         Future<Boolean> future = checkDBStatusExecutor.submit(new Callable<Boolean>() {
             public Boolean call() throws Exception {
                 try {
@@ -213,12 +213,12 @@ public class CheckDBAvailableStatus {
                 }
             }
         });
-        //»ñÈ¡Ö´ĞĞ½á¹û
+        //è·å–æ‰§è¡Œç»“æœ
         try {
             return future.get(timeOutLength, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
             boolean result = future.cancel(true);
-            logger.error("»ñÈ¡Êı¾İ¿â×´Ì¬³¬Ê±:threadName=" + Thread.currentThread().getName() + ",dbKey="
+            logger.error("è·å–æ•°æ®åº“çŠ¶æ€è¶…æ—¶:threadName=" + Thread.currentThread().getName() + ",dbKey="
                          + dbKey + ",cacleResult=" + result + ",workQueueCapacity="
                          + getWorkQueueCapacity() + ",poolSize=" + this.getPoolSize()
                          + ",activeThreadCount=" + this.getActiveCount() + ",largestPoolSize="
@@ -232,9 +232,9 @@ public class CheckDBAvailableStatus {
     }
 
     /**
-     * ÅĞ¶¨Êı¾İÔ´ÊÇ·ñ¿ÉÓÃ<br>  checkDataBaseStatus  isAvailableDB
-     * @param dbKey  Êı¾İÔ´±êÊ¶<br>
-     * @return  ÊÇ·ñ¿ÉÓÃ<br>
+     * åˆ¤å®šæ•°æ®æºæ˜¯å¦å¯ç”¨<br>  checkDataBaseStatus  isAvailableDB
+     * @param dbKey  æ•°æ®æºæ ‡è¯†<br>
+     * @return  æ˜¯å¦å¯ç”¨<br>
      */
     private boolean checkDBAvailalbeStatusUtil(final String dbKey) {
         boolean isAvailable = true;
@@ -260,12 +260,12 @@ public class CheckDBAvailableStatus {
                 sql = "select * from dual";
                 break;
             default:
-                throw new IllegalArgumentException("Êı¾İ¿âÀàĞÍ³ö´íÎó£¬Çë¼ì²éÅäÖÃ£¡");
+                throw new IllegalArgumentException("æ•°æ®åº“ç±»å‹å‡ºé”™è¯¯ï¼Œè¯·æ£€æŸ¥é…ç½®ï¼");
         }
         try {
             jdbcTemplate.queryForList(sql);
         } catch (Exception e) {
-            logger.error("Á¬½Ó¸Ãdb³ö´í£¬ThreadName=" + Thread.currentThread().getName() + ",dbKey="
+            logger.error("è¿æ¥è¯¥dbå‡ºé”™ï¼ŒThreadName=" + Thread.currentThread().getName() + ",dbKey="
                          + dbKey + ",sql=" + sql, e);
             isAvailable = false;
         }
@@ -273,7 +273,7 @@ public class CheckDBAvailableStatus {
     }
 
     /**
-     * »ñÈ¡ËùÓĞdbµÄ×´Ì¬
+     * è·å–æ‰€æœ‰dbçš„çŠ¶æ€
      * 
      * @return
      */
@@ -365,7 +365,7 @@ public class CheckDBAvailableStatus {
     }
 
     /**
-     * ´òÓ¡²ÎÊı
+     * æ‰“å°å‚æ•°
      * @see java.lang.Object#toString()
      */
     public String toString() {

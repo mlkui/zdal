@@ -13,8 +13,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlRenameTableStatement.java, v 0.1 2012-11-17 ÏÂÎç3:33:55 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlRenameTableStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:33:55 Exp $
  */
 public class MySqlRenameTableStatement extends MySqlStatementImpl {
 

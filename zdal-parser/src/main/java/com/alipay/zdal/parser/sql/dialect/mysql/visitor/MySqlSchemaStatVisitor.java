@@ -121,8 +121,8 @@ import com.alipay.zdal.parser.sql.visitor.SchemaStatVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlSchemaStatVisitor.java, v 0.1 2012-11-17 œ¬ŒÁ3:41:10 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlSchemaStatVisitor.java, v 0.1 2012-11-17 ‰∏ãÂçà3:41:10 Exp $
  */
 public class MySqlSchemaStatVisitor extends SchemaStatVisitor implements MySqlASTVisitor {
 

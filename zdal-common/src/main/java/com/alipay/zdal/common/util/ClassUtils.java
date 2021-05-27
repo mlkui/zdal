@@ -26,7 +26,7 @@ import java.util.Set;
  * <a href="http://commons.apache.org/lang/" target="_blank">Apache Commons Lang</a>
  * for a more comprehensive suite of class utilities.
  * @author xiaoqing.zhouxq
- * @version $Id: ClassUtils.java, v 0.1 2012-10-29 …œŒÁ09:24:34 xiaoqing.zhouxq Exp $
+ * @version $Id: ClassUtils.java, v 0.1 2012-10-29 ‰∏äÂçà09:24:34 xiaoqing.zhouxq Exp $
  */
 @SuppressWarnings("unchecked")
 public class ClassUtils {

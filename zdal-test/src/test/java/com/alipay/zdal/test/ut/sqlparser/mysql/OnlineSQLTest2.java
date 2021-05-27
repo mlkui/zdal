@@ -31,7 +31,7 @@ public class OnlineSQLTest2  extends TestCase {
 	            int id = rs.getInt(1);
 	            String value = rs.getString(2);
 
-	            if (value.indexOf('ги') != -1) {
+	            if (value.indexOf('я╝И') != -1) {
 	                continue;
 	            }
 

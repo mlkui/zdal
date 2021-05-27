@@ -11,8 +11,8 @@ import java.util.List;
 import com.alipay.zdal.client.jdbc.ZdalStatement;
 
 /**
- * µ÷ÓÃrs.nextÓÀÔ¶·µ»ØfalseµÄ¿Õ½á¹û¼¯¡£
- * Ö÷ÒªÓÃÓÚÒ»Ğ©ÌØÊâµÄÇé¿ö
+ * è°ƒç”¨rs.nextæ°¸è¿œè¿”å›falseçš„ç©ºç»“æœé›†ã€‚
+ * ä¸»è¦ç”¨äºä¸€äº›ç‰¹æ®Šçš„æƒ…å†µ
  * 
  */
 public class EmptySimpleTResultSet extends AbstractTResultSet {

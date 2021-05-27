@@ -9,8 +9,8 @@ package com.alipay.zdal.datasource.tm;
  *  a JBoss server. This implementation is immutable and serializable at 
  *  runtime.
  *
- * @author ²®ÑÀ
- * @version $Id: LocalId.java, v 0.1 2014-1-6 ÏÂÎç05:47:48 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: LocalId.java, v 0.1 2014-1-6 ä¸‹åˆ05:47:48 Exp $
  */
 public class LocalId implements java.io.Externalizable {
     static final long serialVersionUID = 2076780468014328911L;

@@ -7,7 +7,7 @@ package com.alipay.zdal.parser.sql.ast;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLStatement.java, v 0.1 2012-11-17 ÏÂÎç3:14:09 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:14:09 xiaoqing.zhouxq Exp $
  */
 public interface SQLStatement extends SQLObject {
 

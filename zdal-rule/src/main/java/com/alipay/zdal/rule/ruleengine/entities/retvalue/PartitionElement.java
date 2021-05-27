@@ -10,21 +10,21 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * ×¨ÃÅÓÃÓÚ·ÖÀàÊÕ¼¯µ±Ç°sqlÖĞº¬ÓĞµÄÖ÷¼ü£¬·Ö¿â¼üºÍ·Ö±í¼ü²¢Í³Ò»±£´æµÄ¶ÔÏó
+ * ä¸“é—¨ç”¨äºåˆ†ç±»æ”¶é›†å½“å‰sqlä¸­å«æœ‰çš„ä¸»é”®ï¼Œåˆ†åº“é”®å’Œåˆ†è¡¨é”®å¹¶ç»Ÿä¸€ä¿å­˜çš„å¯¹è±¡
  * 
  *
  */
 public class PartitionElement {
     /**
-     * sqlÖĞº¬ÓĞ·Ö¿â¼üµÄÊ±ºò£¬Õâ¸öset²»Îª¿Õ
+     * sqlä¸­å«æœ‰åˆ†åº“é”®çš„æ—¶å€™ï¼Œè¿™ä¸ªsetä¸ä¸ºç©º
      */
     private List<Set<String>> db            = new ArrayList<Set<String>>();
     /**
-     * sqlÖĞµÄ·Ö±í¼üµÄkey
+     * sqlä¸­çš„åˆ†è¡¨é”®çš„key
      */
     private List<Set<String>> tab           = new ArrayList<Set<String>>();
     /**
-     * sqlÖĞµÄÖ÷¼ü
+     * sqlä¸­çš„ä¸»é”®
      */
     private List<Set<String>> uniqueColumns = new ArrayList<Set<String>>();
 

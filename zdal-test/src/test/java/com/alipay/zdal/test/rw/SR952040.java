@@ -22,7 +22,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rw¶ÁĞ´·ÖÏíµÄÓÅÏÈ¼¶,¶ÁÓÅÏÈ¼¶Îªp,Ğ´ÓÅÏÈ¼¶Îªq¡£²âÊÔĞ´")
+@Feature("rwè¯»å†™åˆ†äº«çš„ä¼˜å…ˆçº§,è¯»ä¼˜å…ˆçº§ä¸ºp,å†™ä¼˜å…ˆçº§ä¸ºqã€‚æµ‹è¯•å†™")
 public class SR952040 {
 
 	public TestAssertion Assert = new TestAssertion();
@@ -48,61 +48,61 @@ public class SR952040 {
 		ZdalTestCommon.dataDeleteForZds();
 	}
 
-	@Subject("Ğ´:ds0:r1w1q0,ds1:r1w1q1£¬È«²¿Ğ´Èëds0ÖĞ")
+	@Subject("å†™:ds0:r1w1q0,ds1:r1w1q1ï¼Œå…¨éƒ¨å†™å…¥ds0ä¸­")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952041() {
-		Step("Ğ´:ds0:r1w1q0,ds1:r1w1q1£¬È«²¿Ğ´Èëds0ÖĞ");
+		Step("å†™:ds0:r1w1q0,ds1:r1w1q1ï¼Œå…¨éƒ¨å†™å…¥ds0ä¸­");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context
 				.getBean("zdalRwPriority5");
 		testWriteDb(sqlMap);
-		Assert.areEqual(true, countA==10&&countB==0, "ÑéÖ¤ÓÅÏÈ¼¶µÄĞ´");
+		Assert.areEqual(true, countA==10&&countB==0, "éªŒè¯ä¼˜å…ˆçº§çš„å†™");
 	}
 	
 	
-	@Subject("Ğ´:ds0:r1w1q1,ds1:r1w1q1£¬ÓÅÏÈ¼¶Ò»Ñù£¬°´±ÈÀı·ÖÅä")
+	@Subject("å†™:ds0:r1w1q1,ds1:r1w1q1ï¼Œä¼˜å…ˆçº§ä¸€æ ·ï¼ŒæŒ‰æ¯”ä¾‹åˆ†é…")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952042() {
-		Step("Ğ´:ds0:r1w1q1,ds1:r1w1q1£¬ÓÅÏÈ¼¶Ò»Ñù£¬°´±ÈÀı·ÖÅä");
+		Step("å†™:ds0:r1w1q1,ds1:r1w1q1ï¼Œä¼˜å…ˆçº§ä¸€æ ·ï¼ŒæŒ‰æ¯”ä¾‹åˆ†é…");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context
 				.getBean("zdalRwPriority6");
 		testWriteDb(sqlMap);
-		Assert.areEqual(true, countA<10&&countB<10, "ÑéÖ¤ÓÅÏÈ¼¶µÄĞ´,countA:"+countA+",countB:"+countB);
+		Assert.areEqual(true, countA<10&&countB<10, "éªŒè¯ä¼˜å…ˆçº§çš„å†™,countA:"+countA+",countB:"+countB);
 	}
 	
 	
-	@Subject("Ğ´:ds0:r1w0q0,ds1:r1w1q1£¬ds0²»¿ÉÓÃ¡£È«²¿Ğ´µ½ds1")
+	@Subject("å†™:ds0:r1w0q0,ds1:r1w1q1ï¼Œds0ä¸å¯ç”¨ã€‚å…¨éƒ¨å†™åˆ°ds1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952043() {
-		Step("Ğ´:ds0:r1w0q0,ds1:r1w1q1£¬ds0²»¿ÉÓÃ¡£È«²¿Ğ´µ½ds1");
+		Step("å†™:ds0:r1w0q0,ds1:r1w1q1ï¼Œds0ä¸å¯ç”¨ã€‚å…¨éƒ¨å†™åˆ°ds1");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context
 				.getBean("zdalRwPriority7");
 		testWriteDb(sqlMap);
-		Assert.areEqual(true, countA==0&&countB ==10, "ÑéÖ¤ÓÅÏÈ¼¶µÄĞ´");
+		Assert.areEqual(true, countA==0&&countB ==10, "éªŒè¯ä¼˜å…ˆçº§çš„å†™");
 	}
 	
 	
-	@Subject("Ğ´:ds0:r2w4p0q1,ds1:r1w1p1q0£¬È«²¿Ğ´µ½ds1")
+	@Subject("å†™:ds0:r2w4p0q1,ds1:r1w1p1q0ï¼Œå…¨éƒ¨å†™åˆ°ds1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952044() {
-		Step("Ğ´:ds0:r2w4p0q1,ds1:r1w1p1q0£¬È«²¿Ğ´µ½ds1");
+		Step("å†™:ds0:r2w4p0q1,ds1:r1w1p1q0ï¼Œå…¨éƒ¨å†™åˆ°ds1");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context
 				.getBean("zdalRwPriority8");
 		testWriteDb(sqlMap);
-		Assert.areEqual(true, countA==0&&countB ==10, "ÑéÖ¤ÓÅÏÈ¼¶µÄĞ´");
+		Assert.areEqual(true, countA==0&&countB ==10, "éªŒè¯ä¼˜å…ˆçº§çš„å†™");
 	}
 	
 	/**
-	 * Á¬ĞøĞ´¿â
+	 * è¿ç»­å†™åº“
 	 * @param sqlMa
 	 */
 	private void testWriteDb(SqlMapClient sqlMa){
 		//countA=0;
 		//countB=0;
-		// Á¬ĞøĞ´10´Î
+		// è¿ç»­å†™10æ¬¡
 		for (int i = 1; i <= 10; i++) {
 			Map<String, Object> params = new HashMap<String, Object>();
 			params.put("num", i);

@@ -17,8 +17,8 @@ import com.alipay.zdal.parser.visitor.ZdalOracleSchemaStatVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: TradeQuerySqlParserTest.java, v 0.1 2013-3-11 ÉÏÎç09:48:35 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TradeQuerySqlParserTest.java, v 0.1 2013-3-11 ä¸Šåˆ09:48:35 Exp $
  */
 public class TradeQuerySqlParserTest extends OracleTest {
 

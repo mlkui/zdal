@@ -27,8 +27,8 @@ import com.alipay.zdal.datasource.util.PoolCondition;
  * functionality as ds.xml files
  *
  * 
- * @author 伯牙
- * @version $Id: LocalTxDataSource.java, v 0.1 2014-1-6 下午05:32:25 Exp $
+ * @author 浼墮
+ * @version $Id: LocalTxDataSource.java, v 0.1 2014-1-6 涓嬪崍05:32:25 Exp $
  */
 public class LocalTxDataSource {
 
@@ -53,13 +53,13 @@ public class LocalTxDataSource {
 
     private TxConnectionManager                 connectionManager;
     private DataSource                          datasource;
-    /** 生成他的zds */
+    /** 鐢熸垚浠栫殑zds */
     private ZDataSource                         zdatasource;
 
     /**
      * 
      * @author sicong.shou
-     * @version $Id: LocalTxDataSource.java, v 0.1 2012-11-23 上午11:40:05 sicong.shou Exp $
+     * @version $Id: LocalTxDataSource.java, v 0.1 2012-11-23 涓婂崍11:40:05 sicong.shou Exp $
      */
     public class ConnectionManagerDelegate implements ConnectionManager {
         private static final long serialVersionUID = 1L;

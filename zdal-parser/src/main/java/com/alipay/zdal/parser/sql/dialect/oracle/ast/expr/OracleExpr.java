@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.ast.OracleSQLObject;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleExpr.java, v 0.1 2012-11-17 ÏÂÎç3:43:51 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleExpr.java, v 0.1 2012-11-17 ä¸‹åˆ3:43:51 Exp $
  */
 public interface OracleExpr extends SQLExpr, OracleSQLObject {
 

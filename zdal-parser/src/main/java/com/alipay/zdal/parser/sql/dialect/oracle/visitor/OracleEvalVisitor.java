@@ -15,8 +15,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLEvalVisitorUtils;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleEvalVisitor.java, v 0.1 2012-11-17 œ¬ŒÁ3:52:46 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleEvalVisitor.java, v 0.1 2012-11-17 ‰∏ãÂçà3:52:46 Exp $
  */
 public class OracleEvalVisitor extends OracleASTVisitorAdapter implements SQLEvalVisitor {
     private List<Object> parameters       = new ArrayList<Object>();

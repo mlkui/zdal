@@ -36,8 +36,8 @@ import com.alipay.zdal.datasource.resource.spi.ResourceAdapterInternalException;
  * BaseWrapperManagedConnection
  *
  * 
- * @author ²®ÑÀ
- * @version $Id: BaseWrapperManagedConnection.java, v 0.1 2014-1-6 ÏÂÎç05:27:08 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: BaseWrapperManagedConnection.java, v 0.1 2014-1-6 ä¸‹åˆ05:27:08 Exp $
  */
 public abstract class BaseWrapperManagedConnection implements ManagedConnection {
     protected final BaseWrapperManagedConnectionFactory mcf;

@@ -23,7 +23,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rw ,¿çzone·ÃÎÊ")
+@Feature("shard+rw ,è·¨zoneè®¿é—®")
 public class SR954140 {
 	 public TestAssertion Assert = new TestAssertion();
 	  private SqlMapClient sqlMap;
@@ -39,11 +39,11 @@ public class SR954140 {
 	  }
 	
 	  
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=group_0_r,group_0_w,zoneError=Exception.Ğ´¿âgroup_0µÄ±í£¬ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=group_0_r,group_0_w,zoneError=Exception.å†™åº“group_0çš„è¡¨ï¼Œå…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954141(){
-		Step("¿çzone·ÃÎÊ£º zoneDs=group_0_r,group_0_w,zoneError=Exception.Ğ´¿âgroup_0µÄ±í£¬ÔÊĞí·ÃÎÊ");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=group_0_r,group_0_w,zoneError=Exception.å†™åº“group_0çš„è¡¨ï¼Œå…è®¸è®¿é—®");
 		 sqlMap=(SqlMapClient)ZdalShardrwSuite.context.getBean("zdalShardrwMysql");
 		Map<String, Object> params = new HashMap<String, Object>();	
 		try {
@@ -54,12 +54,12 @@ public class SR954140 {
 		} catch (SQLException e) {
 			e.printStackTrace();	
 		}	
-		Step("¼ì²éÊı¾İ");
+		Step("æ£€æŸ¥æ•°æ®");
 		String sqlStr="select count(*) from user_0 where user_id=10";
 		ResultSet se=ZdalTestCommon.dataCheckFromJDBC(sqlStr, dburl0, dbpsd,dbuser);
 		try {
 			se.next();
-			Assert.areEqual(1, se.getInt(1), "Êı¾İÑéÖ¤");
+			Assert.areEqual(1, se.getInt(1), "æ•°æ®éªŒè¯");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,11 +69,11 @@ public class SR954140 {
 	}
 
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=group_0_r,group_0_w,zoneError=Exception.¶Á¿âgroup_0µÄ±í£¬ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=group_0_r,group_0_w,zoneError=Exception.è¯»åº“group_0çš„è¡¨ï¼Œå…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954142(){
-		Step("¿çzone·ÃÎÊ£º zoneDs=group_0_r,group_0_w,zoneError=Exception.¶Á¿âgroup_0µÄ±í£¬ÔÊĞí·ÃÎÊ");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=group_0_r,group_0_w,zoneError=Exception.è¯»åº“group_0çš„è¡¨ï¼Œå…è®¸è®¿é—®");
 		 sqlMap=(SqlMapClient)ZdalShardrwSuite.context.getBean("zdalShardrwMysql");
 
 		try {		
@@ -81,13 +81,13 @@ public class SR954140 {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			Assert.areEqual(1, 2, "·¢ÉúÁË²»¸ÃÓĞµÄÒì³£");
+			Assert.areEqual(1, 2, "å‘ç”Ÿäº†ä¸è¯¥æœ‰çš„å¼‚å¸¸");
 		}		
 	}
 	
 		
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=group_1_r,group_1_w,zoneError=Exception.¶Á¿âgroup_0µÄ±í£¬²»ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=group_1_r,group_1_w,zoneError=Exception.è¯»åº“group_0çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954143(){
@@ -101,15 +101,15 @@ public class SR954140 {
 			e.printStackTrace();
 			Assert.areEqual(NestedSQLException.class, e.getClass(), "the visit other zone");			
 		}
-		Assert.areEqual(1, i, "ÑéÖ¤ÎŞÒì³£");
+		Assert.areEqual(1, i, "éªŒè¯æ— å¼‚å¸¸");
 	}
 	
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=group_0_w,zoneError=Exception.¶Á¿âgroup_0µÄ±í£¬²»ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=group_0_w,zoneError=Exception.è¯»åº“group_0çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954144(){
-		Step("¿çzone·ÃÎÊ£º zoneDs=group_0_w,zoneError=Exception.¶Á¿âgroup_0µÄ±í£¬²»ÔÊĞí·ÃÎÊ");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=group_0_w,zoneError=Exception.è¯»åº“group_0çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®");
 		 sqlMap=(SqlMapClient)ZdalShardrwSuite.context.getBean("zdalShardrwMysql3");
          int i=0;
 		try {		
@@ -119,15 +119,15 @@ public class SR954140 {
 			e.printStackTrace();
 			Assert.areEqual(NestedSQLException.class, e.getClass(), "the visit other zone");			
 		}
-		Assert.areEqual(1, i, "ÑéÖ¤ÎŞÒì³£");
+		Assert.areEqual(1, i, "éªŒè¯æ— å¼‚å¸¸");
 	}
 	
 	
-	@Subject("¿çzone·ÃÎÊ£º zoneDs=group_0_r,zoneError=Exception.Ğ´¿âgroup_0µÄ±í£¬²»ÔÊĞí·ÃÎÊ")
+	@Subject("è·¨zoneè®¿é—®ï¼š zoneDs=group_0_r,zoneError=Exception.å†™åº“group_0çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954145(){
-		Step("¿çzone·ÃÎÊ£º zoneDs=group_0_r,zoneError=Exception.Ğ´¿âgroup_0µÄ±í£¬²»ÔÊĞí·ÃÎÊ");
+		Step("è·¨zoneè®¿é—®ï¼š zoneDs=group_0_r,zoneError=Exception.å†™åº“group_0çš„è¡¨ï¼Œä¸å…è®¸è®¿é—®");
 		 sqlMap=(SqlMapClient)ZdalShardrwSuite.context.getBean("zdalShardrwMysql4");
          int i=0;	
 			Map<String, Object> params = new HashMap<String, Object>();	
@@ -142,7 +142,7 @@ public class SR954140 {
 			e.printStackTrace();
 			Assert.areEqual(NestedSQLException.class, e.getClass(), "the visit other zone");			
 		}
-		Assert.areEqual(1, i, "ÑéÖ¤Òì³£");
+		Assert.areEqual(1, i, "éªŒè¯å¼‚å¸¸");
 		}
 	
 	

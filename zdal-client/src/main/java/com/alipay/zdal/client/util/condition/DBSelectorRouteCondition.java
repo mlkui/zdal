@@ -10,8 +10,8 @@ import com.alipay.zdal.client.RouteCondition;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: DBSelectorRouteCondition.java, v 0.1 2014-1-6 ÏÂÎç05:16:15 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: DBSelectorRouteCondition.java, v 0.1 2014-1-6 ä¸‹åˆ05:16:15 Exp $
  */
 public interface DBSelectorRouteCondition extends RouteCondition {
     public String getDBSelectorID();

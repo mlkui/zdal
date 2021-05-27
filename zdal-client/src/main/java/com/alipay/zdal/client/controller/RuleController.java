@@ -16,7 +16,7 @@ import com.alipay.zdal.common.sqljep.function.Comparative;
 public interface RuleController {
 
     /**
-     * 根据sql获取分库分表信息，必须先设置ruleUrl以后才能正确使用 
+     * 鏍规嵁sql鑾峰彇鍒嗗簱鍒嗚〃淇℃伅锛屽繀椤诲厛璁剧疆ruleUrl浠ュ悗鎵嶈兘姝ｇ‘浣跨敤 
      * @param sql
      * @param args
      * @return
@@ -34,7 +34,7 @@ public interface RuleController {
     //			boolean isPK);
 
     /**
-     * 直接指定分库分表列的方式来走规则引擎
+     * 鐩存帴鎸囧畾鍒嗗簱鍒嗚〃鍒楃殑鏂瑰紡鏉ヨ蛋瑙勫垯寮曟搸
      * @param virtualTableName
      * @param map
      * @param sqlType
@@ -45,7 +45,7 @@ public interface RuleController {
                                              SqlType sqlType) throws ZdalCheckedExcption;
 
     /**
-     *	直接指定分库分表
+     *	鐩存帴鎸囧畾鍒嗗簱鍒嗚〃
      * @param virtualTableName
      * @param ruleID
      * @param tables

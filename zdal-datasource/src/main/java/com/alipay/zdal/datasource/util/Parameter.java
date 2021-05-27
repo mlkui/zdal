@@ -8,7 +8,7 @@ package com.alipay.zdal.datasource.util;
  * 
  * 
  * @author liangjie.li
- * @version $Id: Parameter.java, v 0.1 2012-9-4 ÏÂÎç12:00:55 liangjie.li Exp $
+ * @version $Id: Parameter.java, v 0.1 2012-9-4 ä¸‹åˆ12:00:55 liangjie.li Exp $
  */
 public final class Parameter {
 

@@ -6,8 +6,8 @@ package com.alipay.zdal.parser.sql.parser;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: NotAllowCommentException.java, v 0.1 2012-11-17 œ¬ŒÁ3:53:51 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: NotAllowCommentException.java, v 0.1 2012-11-17 ‰∏ãÂçà3:53:51 Exp $
  */
 public class NotAllowCommentException extends ParserException {
 

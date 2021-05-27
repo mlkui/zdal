@@ -7,7 +7,7 @@ package com.alipay.zdal.parser.sql.ast.expr;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLDateLiteralValue.java, v 0.1 2012-11-17 œ¬ŒÁ3:16:51 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLDateLiteralValue.java, v 0.1 2012-11-17 ‰∏ãÂçà3:16:51 xiaoqing.zhouxq Exp $
  */
 public class SQLDateLiteralValue {
 

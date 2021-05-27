@@ -10,8 +10,8 @@ import com.alipay.zdal.client.jdbc.ZdalDataSource;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: TestShardFailoverDataSource.java, v 0.1 2013-12-27 ÉÏÎç10:20:50 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TestShardFailoverDataSource.java, v 0.1 2013-12-27 ä¸Šåˆ10:20:50 Exp $
  */
 public class TestShardFailoverDataSource {
     private static final String   APPNAME    = "ShardFailover";

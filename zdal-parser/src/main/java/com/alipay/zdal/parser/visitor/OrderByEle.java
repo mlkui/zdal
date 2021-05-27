@@ -13,7 +13,7 @@ import com.alipay.zdal.parser.sql.ast.SQLOrderingSpecification;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OrderByEle.java, v 0.1 2012-5-25 ÏÂÎç02:59:43 xiaoqing.zhouxq Exp $
+ * @version $Id: OrderByEle.java, v 0.1 2012-5-25 ä¸‹åˆ02:59:43 xiaoqing.zhouxq Exp $
  */
 public class OrderByEle {
     private String              table;
@@ -30,7 +30,7 @@ public class OrderByEle {
     }
 
     /**
-     * ·µ»ØÄ³ÁĞÊÇÉıĞò»¹ÊÇµ¹Ğò£¬Èç¹û²»´æÔÚorderBy.typeµÄÖµ£¬¾ÍËµÃ÷ÊÇASCµÄÅÅĞò·½Ê½.
+     * è¿”å›æŸåˆ—æ˜¯å‡åºè¿˜æ˜¯å€’åºï¼Œå¦‚æœä¸å­˜åœ¨orderBy.typeçš„å€¼ï¼Œå°±è¯´æ˜æ˜¯ASCçš„æ’åºæ–¹å¼.
      * @return
      */
     public boolean isASC() {

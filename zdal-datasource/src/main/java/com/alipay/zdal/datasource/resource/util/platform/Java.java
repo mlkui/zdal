@@ -23,8 +23,8 @@ import com.alipay.zdal.datasource.resource.util.ThrowableHandler;
  *    </ol>
  * </p>
  *
- * @author ²®ÑÀ
- * @version $Id: Java.java, v 0.1 2014-1-6 ÏÂÎç05:43:14 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: Java.java, v 0.1 2014-1-6 ä¸‹åˆ05:43:14 Exp $
  */
 public final class Java {
     /** Prevent instantiation */

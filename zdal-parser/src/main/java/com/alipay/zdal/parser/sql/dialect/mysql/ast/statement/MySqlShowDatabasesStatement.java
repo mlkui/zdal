@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlShowDatabasesStatement.java, v 0.1 2012-11-17 ÏÂÎç3:36:05 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlShowDatabasesStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:36:05 Exp $
  */
 public class MySqlShowDatabasesStatement extends MySqlStatementImpl {
 

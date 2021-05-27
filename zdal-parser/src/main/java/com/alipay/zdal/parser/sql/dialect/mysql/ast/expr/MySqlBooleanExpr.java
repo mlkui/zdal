@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlBooleanExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:30:04 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlBooleanExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:30:04 Exp $
  */
 public class MySqlBooleanExpr extends MySqlExprImpl implements MySqlExpr, SQLLiteralExpr {
 

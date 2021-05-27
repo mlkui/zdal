@@ -16,29 +16,29 @@ import com.alipay.zdal.common.lang.StringUtil;
 import com.alipay.zdal.rule.bean.AdvancedParameter;
 
 /**
- * ¹æÔòµÄ×Ü³éÏó ¹æÔòÓÉ²ÎÊıºÍ±í´ïÊ½×é³É
+ * è§„åˆ™çš„æ€»æŠ½è±¡ è§„åˆ™ç”±å‚æ•°å’Œè¡¨è¾¾å¼ç»„æˆ
  *
  */
 public abstract class AbstractRule {
     private static final Logger      log    = Logger.getLogger(AbstractRule.class);
     /**
-     * µ±Ç°¹æÔòĞèÒªÓÃµ½µÄ²ÎÊı
+     * å½“å‰è§„åˆ™éœ€è¦ç”¨åˆ°çš„å‚æ•°
      */
     protected Set<AdvancedParameter> parameters;
 
     private boolean                  inited = false;
 
     /**
-     * µ±Ç°¹æÔòĞèÒªÓÃµ½µÄ±í´ïÊ½
+     * å½“å‰è§„åˆ™éœ€è¦ç”¨åˆ°çš„è¡¨è¾¾å¼
      */
     protected String                 expression;
 
     /*
-     * Í¨¹ı·ÖÎö¿â±í½á¹¹¹æÔòÖÇÄÜ¼ÆËãµş¼Ó´ÎÊı£¬²¢setµ½¹æÔòÖĞ£¬ĞèÒª×¢ÒâµÄÊÇ
-     * Èç¹ûÓĞ¶à¸öÖµ²ÎÓëÁËÒ»¸ö¼ÆËãÊ½£¬ÕâÖÖ·ÖÎöÊÇ²»×¼È·µÄ£¬ÕâÊ±ºò¿ÉÒÔÍ¨¹ıÅäÖÃÎÄ¼ş
-     * ÊÖ¶¯µÄÓÅÏÈÉèÖÃÕë¶ÔÃ¿Ò»¸ö²ÎÓëÔËËãµÄ²ÎÊıµÄµş¼Ó´ÎÊı¡£
+     * é€šè¿‡åˆ†æåº“è¡¨ç»“æ„è§„åˆ™æ™ºèƒ½è®¡ç®—å åŠ æ¬¡æ•°ï¼Œå¹¶setåˆ°è§„åˆ™ä¸­ï¼Œéœ€è¦æ³¨æ„çš„æ˜¯
+     * å¦‚æœæœ‰å¤šä¸ªå€¼å‚ä¸äº†ä¸€ä¸ªè®¡ç®—å¼ï¼Œè¿™ç§åˆ†ææ˜¯ä¸å‡†ç¡®çš„ï¼Œè¿™æ—¶å€™å¯ä»¥é€šè¿‡é…ç½®æ–‡ä»¶
+     * æ‰‹åŠ¨çš„ä¼˜å…ˆè®¾ç½®é’ˆå¯¹æ¯ä¸€ä¸ªå‚ä¸è¿ç®—çš„å‚æ•°çš„å åŠ æ¬¡æ•°ã€‚
      * 
-     * ÏÖÔÚ»¹Ã»ÆôÓÃ£¬ÒòÎª±È½Ï¸´ÔÓ
+     * ç°åœ¨è¿˜æ²¡å¯ç”¨ï¼Œå› ä¸ºæ¯”è¾ƒå¤æ‚
      * 
      * @param cumulativeTimes
      
@@ -53,7 +53,7 @@ public abstract class AbstractRule {
     protected abstract void initInternal();
 
     /**
-     * È·±£¹æÔòÖ»³õÊ¼»¯Ò»´Î
+     * ç¡®ä¿è§„åˆ™åªåˆå§‹åŒ–ä¸€æ¬¡
      */
     public void initRule() {
         if (inited) {
@@ -71,7 +71,7 @@ public abstract class AbstractRule {
     }
 
     /**
-     * spring×¢Èë´øÓĞÄ¬ÈÏ×ÔÔö×Ö¶ÎµÄÖµ,»á½«ËùÓĞÖµ±äÎªĞ¡Ğ´
+     * springæ³¨å…¥å¸¦æœ‰é»˜è®¤è‡ªå¢å­—æ®µçš„å€¼,ä¼šå°†æ‰€æœ‰å€¼å˜ä¸ºå°å†™
      * 
      * @param parameters
      */
@@ -86,7 +86,7 @@ public abstract class AbstractRule {
     }
 
     /**
-     * Spring×¢Èë¶à¸ö
+     * Springæ³¨å…¥å¤šä¸ª
      * @param parameters
      */
     public void setAdvancedParameter(Set<AdvancedParameter> parameters) {
@@ -100,7 +100,7 @@ public abstract class AbstractRule {
     }
 
     /**
-     * spring×¢ÈëÒ»¸ö
+     * springæ³¨å…¥ä¸€ä¸ª
      * @param parameter
      */
     public void setAdvancedParameter(AdvancedParameter parameter) {
@@ -115,13 +115,13 @@ public abstract class AbstractRule {
     }
 
     /**
-     * ½âÎö
-     * col,1,7ÕâÑùµÄ×Ö¶Î
+     * è§£æ
+     * col,1,7è¿™æ ·çš„å­—æ®µ
      * col,1_date,7
-     * col = ĞèÒª·Ö¿â·Ö±íµÄÁĞÃû
-     * 1£¬±íÊ¾Ô­×Ó×ÔÔöÊı¡£
-     * 7 ±íÊ¾yµÄ±ä»¯·¶Î§
-     * ¾ßÌåÇë¿´Éè¼ÆÎÄµµ
+     * col = éœ€è¦åˆ†åº“åˆ†è¡¨çš„åˆ—å
+     * 1ï¼Œè¡¨ç¤ºåŸå­è‡ªå¢æ•°ã€‚
+     * 7 è¡¨ç¤ºyçš„å˜åŒ–èŒƒå›´
+     * å…·ä½“è¯·çœ‹è®¾è®¡æ–‡æ¡£
      * 
      * @param paramToken
      * @return
@@ -139,9 +139,9 @@ public abstract class AbstractRule {
                 param.key = paramTokens[0];
                 try {
                     /*
-                     * ¸ù¾İtokens»ñÈ¡×ÔÔöÊı¾İ
-                     * Ö÷ÒªÓĞÁ½Àà£¬µÚÒ»ÀàÊÇÊı×Ö_date...
-                     * µÚ¶şÀàÊÇ Ö±½ÓÎªÊı×ÖµÄ¡£ 
+                     * æ ¹æ®tokensè·å–è‡ªå¢æ•°æ®
+                     * ä¸»è¦æœ‰ä¸¤ç±»ï¼Œç¬¬ä¸€ç±»æ˜¯æ•°å­—_date...
+                     * ç¬¬äºŒç±»æ˜¯ ç›´æ¥ä¸ºæ•°å­—çš„ã€‚ 
                      */
                     Comparable<?> atomicIncreateValue = getIncreatementValueByString(paramTokens);
                     param.atomicIncreateValue = atomicIncreateValue;
@@ -151,18 +151,18 @@ public abstract class AbstractRule {
                         param.needMergeValueInCloseInterval = true;
                     }
                 } catch (NumberFormatException e) {
-                    throw new IllegalArgumentException("ÊäÈëµÄ²ÎÊı²»ÎªIntegerÀàĞÍ,²ÎÊıÎª:" + paramToken, e);
+                    throw new IllegalArgumentException("è¾“å…¥çš„å‚æ•°ä¸ä¸ºIntegerç±»å‹,å‚æ•°ä¸º:" + paramToken, e);
                 }
                 break;
             default:
-                throw new IllegalArgumentException("´íÎóµÄ²ÎÊı¸öÊı£¬±ØĞëÎª1¸ö»òÕß3¸ö£¬3¸öµÄÊ±ºòÎªÔÊĞíÊ¹ÓÃ" + "Ã¶¾ÙÊ±µÄÊı¾İ");
+                throw new IllegalArgumentException("é”™è¯¯çš„å‚æ•°ä¸ªæ•°ï¼Œå¿…é¡»ä¸º1ä¸ªæˆ–è€…3ä¸ªï¼Œ3ä¸ªçš„æ—¶å€™ä¸ºå…è®¸ä½¿ç”¨" + "æšä¸¾æ—¶çš„æ•°æ®");
         }
         return param;
     }
 
     /**
-     * ½âÎö 1_date¡£Êı×Ö_month¡£Êı×Ö_year ¡£ÒÔ¼°¼òµ¥Êı×ÖµÄ¼¸ÖÖÇé¿ö¡£
-     * ²»¿ÉÄÜÊÇ¿Õ
+     * è§£æ 1_dateã€‚æ•°å­—_monthã€‚æ•°å­—_year ã€‚ä»¥åŠç®€å•æ•°å­—çš„å‡ ç§æƒ…å†µã€‚
+     * ä¸å¯èƒ½æ˜¯ç©º
      * @param paramTokens
      * @return
      */
@@ -172,7 +172,7 @@ public abstract class AbstractRule {
         String[] fields = StringUtil.split(atomicIncreateValueField, "_");
         int length = fields.length;
         switch (length) {
-            //Êı×Ö_ÈÕÆÚÀàĞÍ
+            //æ•°å­—_æ—¥æœŸç±»å‹
             case 2:
                 int calendarFieldType = 0;
                 String fieldString = StringUtil.trim(fields[1]);
@@ -190,7 +190,7 @@ public abstract class AbstractRule {
                 break;
 
             default:
-                //Ä¬ÈÏÇé¿öÏÂÖ±½ÓvalueOf,×ßµÄÂ·¾¶ºÍÒÔÇ°Ò»Ñù£¬»áÅ×³öNumberformatExceptionÊ± »á´òÒì³£³öÈ¥¡£
+                //é»˜è®¤æƒ…å†µä¸‹ç›´æ¥valueOf,èµ°çš„è·¯å¾„å’Œä»¥å‰ä¸€æ ·ï¼Œä¼šæŠ›å‡ºNumberformatExceptionæ—¶ ä¼šæ‰“å¼‚å¸¸å‡ºå»ã€‚
                 atomicIncreateValue = Integer.valueOf(paramTokens[1]);
                 break;
         }

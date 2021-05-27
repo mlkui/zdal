@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.ast.clause.FlashbackQueryClause
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleSelectTableSource.java, v 0.1 2012-11-17 ÏÂÎç3:50:21 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleSelectTableSource.java, v 0.1 2012-11-17 ä¸‹åˆ3:50:21 Exp $
  */
 public interface OracleSelectTableSource extends SQLTableSource {
 

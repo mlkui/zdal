@@ -24,11 +24,11 @@ public abstract class AbstractDBSelector implements DBSelector {
 
     /**
      * added by fanzeng.
-     * 表示同一组dbSeletor中最终选择到的数据源标识；
+     * 琛ㄧず鍚屼竴缁刣bSeletor涓渶缁堥�夋嫨鍒扮殑鏁版嵁婧愭爣璇嗭紱
      */
     private String            selectedDSName;
 
-    //数据源名称，方便输出信息，add by 冰魂 20130903
+    //鏁版嵁婧愬悕绉帮紝鏂逛究杈撳嚭淇℃伅锛宎dd by 鍐伴瓊 20130903
     private String            appDsName;
 
     public AbstractDBSelector(String id) {

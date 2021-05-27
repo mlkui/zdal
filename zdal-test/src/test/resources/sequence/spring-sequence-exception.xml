@@ -13,13 +13,13 @@
 	 </bean> 
 	 
 	<bean id="multipleSequenceDao"  class="com.alipay.zdal.sequence.impl.MultipleSequenceDao" init-method="init">
-		<!-- Êı¾İÔ´ÁĞ±í£¬±êÊ¾Îª0,1,2...µÈ  -->
+		<!-- æ•°æ®æºåˆ—è¡¨ï¼Œæ ‡ç¤ºä¸º0,1,2...ç­‰  -->
 		<property  name="zdalDataSource" ref="sequenceDataSource"/>
-		<!-- ×Ô¶¯µ÷Õû¿ª¹Ø£¬Ä¬ÈÏÎªfalse -->
+		<!-- è‡ªåŠ¨è°ƒæ•´å¼€å…³ï¼Œé»˜è®¤ä¸ºfalse -->
 		<property name="adjust">
 			<value>true</value>
 		</property>
-		<!-- tableNameÎª´æ·ÅsequenceµÄ±íÃû£¬Ä¬ÈÏÎª sequence -->
+		<!-- tableNameä¸ºå­˜æ”¾sequenceçš„è¡¨åï¼Œé»˜è®¤ä¸º sequence -->
 		<property name="tableName" value="multiple_sequence" />
 	</bean>
 	

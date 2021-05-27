@@ -26,9 +26,9 @@ import com.alipay.zdal.common.jdbc.sorter.MySQLExceptionSorter;
 import com.alipay.zdal.common.jdbc.sorter.OracleExceptionSorter;
 
 /**
- * Ôö¼ÓÁËDataSourceHolder¾²Ì¬Àà£¬Ö÷ÒªÓÃÓÚ¹ÊÕÏÊı¾İÔ´µÄÌŞ³ıÓë»Ö¸´
+ * å¢åŠ äº†DataSourceHolderé™æ€ç±»ï¼Œä¸»è¦ç”¨äºæ•…éšœæ•°æ®æºçš„å‰”é™¤ä¸æ¢å¤
  * @author zhaofeng.wang
- * @version $Id: DataSourceHolder.java,v 0.1 2011-4-14 ÏÂÎç04:00:55 zhaofeng.wang Exp $
+ * @version $Id: DataSourceHolder.java,v 0.1 2011-4-14 ä¸‹åˆ04:00:55 zhaofeng.wang Exp $
  */
 public class DataSourceHolder {
 
@@ -38,42 +38,42 @@ public class DataSourceHolder {
     private final DataSource    ds;
 
     /**
-     * ·Ç×èÈûËø£¬ÓÃÓÚ¿ØÖÆÖ»ÔÊĞíÒ»¸öÒµÎñÏß³ÌÈ¥ÖØÊÔ£»
+     * éé˜»å¡é”ï¼Œç”¨äºæ§åˆ¶åªå…è®¸ä¸€ä¸ªä¸šåŠ¡çº¿ç¨‹å»é‡è¯•ï¼›
      */
     private final ReentrantLock lock                = new ReentrantLock();
 
     /**
-     * Êı¾İÔ´ÊÇ·ñ¿ÉÓÃ£¬Ä¬ÈÏ¿ÉÓÃ
+     * æ•°æ®æºæ˜¯å¦å¯ç”¨ï¼Œé»˜è®¤å¯ç”¨
      */
     private volatile boolean    isNotAvailable      = false;
     /**
-     * ÉÏ´ÎÖØÊÔÊ±¼ä
+     * ä¸Šæ¬¡é‡è¯•æ—¶é—´
      */
     private volatile long       lastRetryTime       = 0;
     /**
-     * Òì³£´ÎÊı
+     * å¼‚å¸¸æ¬¡æ•°
      */
     private volatile int        exceptionTimes      = 0;
     /**
-     * µÚÒ»´Î²¶»ñÒì³£µÄÊ±¼ä£¬µ¥Î»ºÁÃë
+     * ç¬¬ä¸€æ¬¡æ•è·å¼‚å¸¸çš„æ—¶é—´ï¼Œå•ä½æ¯«ç§’
      */
     private volatile long       firstExceptionTime  = 0;
     /**
-     * ÖØÊÔ¹ÊÕÏdbµÄÊ±¼ä¼ä¸ô£¬Ä¬ÈÏÖµÉèÎª2s,µ¥Î»ºÁÃë
+     * é‡è¯•æ•…éšœdbçš„æ—¶é—´é—´éš”ï¼Œé»˜è®¤å€¼è®¾ä¸º2s,å•ä½æ¯«ç§’
      */
     private final int           retryBadDbInterval  = 2000;
 
     /**
-     * µ¥Î»Ê±¼ä¶Î£¬Ä¬ÈÏÎª1·ÖÖÓ£¬ÓÃÓÚÍ³¼ÆÊ±¼ä¶ÎÄÚÄ³¸ödbÅ×Òì³£µÄ´ÎÊı£¬µ¥Î»ºÁÃë
+     * å•ä½æ—¶é—´æ®µï¼Œé»˜è®¤ä¸º1åˆ†é’Ÿï¼Œç”¨äºç»Ÿè®¡æ—¶é—´æ®µå†…æŸä¸ªdbæŠ›å¼‚å¸¸çš„æ¬¡æ•°ï¼Œå•ä½æ¯«ç§’
      */
     private final int           timeInterval        = 60000;
     /**
-     * µ¥Î»Ê±¼äÄÚÔÊĞíÒì³£µÄ´ÎÊı£¬Èç¹û³¬¹ıÕâ¸öÖµ±ã½«Êı¾İÔ´ÖÃÎª²»¿ÉÓÃ
+     * å•ä½æ—¶é—´å†…å…è®¸å¼‚å¸¸çš„æ¬¡æ•°ï¼Œå¦‚æœè¶…è¿‡è¿™ä¸ªå€¼ä¾¿å°†æ•°æ®æºç½®ä¸ºä¸å¯ç”¨
      */
     private final int           allowExceptionTimes = 10;
 
     /**
-     * ¹¹Ôìº¯Êı
+     * æ„é€ å‡½æ•°
      * @param ds
      */
     public DataSourceHolder(DataSource ds) {
@@ -85,15 +85,15 @@ public class DataSourceHolder {
     }
 
     /**
-     * ÔÚÑ¡ÖĞµÄÊı¾İÔ´ÉÏ½øĞĞ²Ù×÷£¬¸ù¾İ¸ÃÊı¾İÔ´Ä¿Ç°µÄ¿ÉÓÃĞÔ½øĞĞÅĞ¶Ï×ßÄÄ¸ö·ÖÖ§£»¶şÕßµÄÇø±ğÖ÷ÒªÓĞÒÔÏÂÁ½µã£º
-     * £¨1£©Èç¹ûÊı¾İÔ´Ä¿Ç°²»¿ÉÓÃ£¬Ö»ÔÊĞíÒµÎñµ¥Ïß³ÌÖØÊÔ£»
-     * £¨2£©¶şÕßÔÚ´¦ÀíÒì³£µÄ»·½Ú´æÔÚÒ»¶¨Çø±ğ£¬Ö÷ÒªÊÇÈç¹ûÄ¿Ç°²»¿ÉÓÃ£¬µ¥Ïß³Ì³¢ÊÔÓÖÊ§°ÜÊ±£¬¾Í²»ÓÃÍ³¼ÆÒì³£´ÎÊı£¬¶øÈç¹ûÄ¿Ç°¿ÉÓÃ£¬·¢ÉúÒì³£Ê±ĞèÒª
-     *      Í³¼Æµ¥Î»Ê±¼äÄÚµÄÒì³£´ÎÊı
+     * åœ¨é€‰ä¸­çš„æ•°æ®æºä¸Šè¿›è¡Œæ“ä½œï¼Œæ ¹æ®è¯¥æ•°æ®æºç›®å‰çš„å¯ç”¨æ€§è¿›è¡Œåˆ¤æ–­èµ°å“ªä¸ªåˆ†æ”¯ï¼›äºŒè€…çš„åŒºåˆ«ä¸»è¦æœ‰ä»¥ä¸‹ä¸¤ç‚¹ï¼š
+     * ï¼ˆ1ï¼‰å¦‚æœæ•°æ®æºç›®å‰ä¸å¯ç”¨ï¼Œåªå…è®¸ä¸šåŠ¡å•çº¿ç¨‹é‡è¯•ï¼›
+     * ï¼ˆ2ï¼‰äºŒè€…åœ¨å¤„ç†å¼‚å¸¸çš„ç¯èŠ‚å­˜åœ¨ä¸€å®šåŒºåˆ«ï¼Œä¸»è¦æ˜¯å¦‚æœç›®å‰ä¸å¯ç”¨ï¼Œå•çº¿ç¨‹å°è¯•åˆå¤±è´¥æ—¶ï¼Œå°±ä¸ç”¨ç»Ÿè®¡å¼‚å¸¸æ¬¡æ•°ï¼Œè€Œå¦‚æœç›®å‰å¯ç”¨ï¼Œå‘ç”Ÿå¼‚å¸¸æ—¶éœ€è¦
+     *      ç»Ÿè®¡å•ä½æ—¶é—´å†…çš„å¼‚å¸¸æ¬¡æ•°
      * @param <T>
-     * @param operationType  ¶Á²Ù×÷»¹ÊÇĞ´²Ù×÷
-     * @param weightRandom    ¸÷¸öÊı¾İÔ´µÄÈ¨ÖØ
-     * @param dataSourceHolders °ü×°¹ıµÄÊı¾İÔ´
-     * @param failedDataSources  Ê§°ÜµÄdatasource
+     * @param operationType  è¯»æ“ä½œè¿˜æ˜¯å†™æ“ä½œ
+     * @param weightRandom    å„ä¸ªæ•°æ®æºçš„æƒé‡
+     * @param dataSourceHolders åŒ…è£…è¿‡çš„æ•°æ®æº
+     * @param failedDataSources  å¤±è´¥çš„datasource
      * @param tryer 
      * @param exceptions
      * @param excludeKeys
@@ -123,8 +123,8 @@ public class DataSourceHolder {
     }
 
     /**
-     * Èç¹ûÊı¾İÔ´ÒÑ¾­±»±ê¼ÇÎª²»¿ÉÓÃ£¬ÔòÖ»ÔÊĞíÒ»¸öÏß³Ì½øĞĞ³¢ÊÔ£¬³¢ÊÔ³É¹¦Ö±½Ó±ê¼ÇÎª¿ÉÓÃ£¬·ñÔòÅÅ³ıµô¸ÃÊı¾İÔ´£¬È¥Ñ°ÕÒÆäËûµÄ¿ÉÓÃÊı¾İÔ´£»
-     * Èç¹ûÒÑ¾­ÓĞÒµÎñÏß³ÌÔÚ³¢ÊÔ¸ÃÊı¾İÔ´£¨¼´²»·ûºÏÊ±¼ä¼ä¸ô»òÕßÄÃ²»µ½Ëø£©£¬ÄÇÃ´ÆäËûÏß³ÌÖ±½ÓÅÅ³ıµô¸ÃÊı¾İÔ´£¬È¥Ñ°ÕÒÆäËûµÄÊı¾İÔ´
+     * å¦‚æœæ•°æ®æºå·²ç»è¢«æ ‡è®°ä¸ºä¸å¯ç”¨ï¼Œåˆ™åªå…è®¸ä¸€ä¸ªçº¿ç¨‹è¿›è¡Œå°è¯•ï¼Œå°è¯•æˆåŠŸç›´æ¥æ ‡è®°ä¸ºå¯ç”¨ï¼Œå¦åˆ™æ’é™¤æ‰è¯¥æ•°æ®æºï¼Œå»å¯»æ‰¾å…¶ä»–çš„å¯ç”¨æ•°æ®æºï¼›
+     * å¦‚æœå·²ç»æœ‰ä¸šåŠ¡çº¿ç¨‹åœ¨å°è¯•è¯¥æ•°æ®æºï¼ˆå³ä¸ç¬¦åˆæ—¶é—´é—´éš”æˆ–è€…æ‹¿ä¸åˆ°é”ï¼‰ï¼Œé‚£ä¹ˆå…¶ä»–çº¿ç¨‹ç›´æ¥æ’é™¤æ‰è¯¥æ•°æ®æºï¼Œå»å¯»æ‰¾å…¶ä»–çš„æ•°æ®æº
      * @param <T>
      * @param failedDataSources
      * @param tryer
@@ -142,12 +142,12 @@ public class DataSourceHolder {
                                        String name, Object... args) throws SQLException {
         T t = null;
         boolean toTry = System.currentTimeMillis() - lastRetryTime > retryBadDbInterval;
-        //Ã¿¼ä¸ôÁ½Ãë£¬Ö»»áÓĞÒ»¸öÒµÎñÏß³Ì¼ÌĞøÊ¹ÓÃÕâ¸öÊı¾İÔ´¡£
+        //æ¯é—´éš”ä¸¤ç§’ï¼Œåªä¼šæœ‰ä¸€ä¸ªä¸šåŠ¡çº¿ç¨‹ç»§ç»­ä½¿ç”¨è¿™ä¸ªæ•°æ®æºã€‚
         if (toTry && lock.tryLock()) {
             try {
-                logger.warn("Ïß³Ì" + Thread.currentThread().getName() + "ÔÚ"
-                            + getCurrentDateTime(null) + "½øÈëÊı¾İÔ´" + name + "µÄµ¥Ïß³ÌÖØÊÔ×´Ì¬£¡");
-                //×öÒ»´ÎÕæÕıµÄÊı¾İ¿âÁ¬½Ó£¬Èç¹û²»³É¹¦¾Í±íÊ¾Êı¾İÔ´»¹²»¿ÉÓÃ£¬Ö±½Ó·µ»Ø£»
+                logger.warn("çº¿ç¨‹" + Thread.currentThread().getName() + "åœ¨"
+                            + getCurrentDateTime(null) + "è¿›å…¥æ•°æ®æº" + name + "çš„å•çº¿ç¨‹é‡è¯•çŠ¶æ€ï¼");
+                //åšä¸€æ¬¡çœŸæ­£çš„æ•°æ®åº“è¿æ¥ï¼Œå¦‚æœä¸æˆåŠŸå°±è¡¨ç¤ºæ•°æ®æºè¿˜ä¸å¯ç”¨ï¼Œç›´æ¥è¿”å›ï¼›
                 boolean isSussessful = tryToConnectDataBase(exceptionSorter, name);
                 if (!isSussessful) {
                     excludeKeys.add(name);
@@ -155,38 +155,38 @@ public class DataSourceHolder {
                 }
                 Long beginTime = System.currentTimeMillis();
                 t = tryer.tryOnDataSource(ds, name, args);
-                logger.warn("µ¥Ïß³Ì" + Thread.currentThread().getName() + "È¥»ñÈ¡¸ÃÊı¾İÔ´Á¬½Ó" + name
-                            + "³É¹¦£¬ºÄÊ±Îª£º" + (System.currentTimeMillis() - beginTime));
-                //Èç¹ûÏß³ÌÖ´ĞĞ³É¹¦Ôò±ê¼ÇÎª¿ÉÓÃ£¬½«¸ÃÊı¾İÔ´±ê¼ÇÎª¿ÉÓÃ
+                logger.warn("å•çº¿ç¨‹" + Thread.currentThread().getName() + "å»è·å–è¯¥æ•°æ®æºè¿æ¥" + name
+                            + "æˆåŠŸï¼Œè€—æ—¶ä¸ºï¼š" + (System.currentTimeMillis() - beginTime));
+                //å¦‚æœçº¿ç¨‹æ‰§è¡ŒæˆåŠŸåˆ™æ ‡è®°ä¸ºå¯ç”¨ï¼Œå°†è¯¥æ•°æ®æºæ ‡è®°ä¸ºå¯ç”¨
                 isNotAvailable = false;
                 exceptionTimes = 0;
-                logger.warn("Êı¾İÔ´" + name + "ÔÚ" + getCurrentDateTime(null) + "ÒÑ¾­»Ö¸´£¬±ê¼ÇÎª¿ÉÓÃ£¡");
+                logger.warn("æ•°æ®æº" + name + "åœ¨" + getCurrentDateTime(null) + "å·²ç»æ¢å¤ï¼Œæ ‡è®°ä¸ºå¯ç”¨ï¼");
             } catch (SQLException e) {
                 exceptions.add(e);
                 boolean isFatal = exceptionSorter.isExceptionFatal(e);
                 if (!isFatal || failedDataSources == null) {
-                    logger.warn("Òì³£´íÎóÂë: " + e.getErrorCode() + " ²»ÊÇÊı¾İ¿â²»¿ÉÓÃÒì³£»ò²»ÒªÇóÖØÊÔ£¬Ö±½ÓÅ×³ö.isFatal= "
+                    logger.warn("å¼‚å¸¸é”™è¯¯ç : " + e.getErrorCode() + " ä¸æ˜¯æ•°æ®åº“ä¸å¯ç”¨å¼‚å¸¸æˆ–ä¸è¦æ±‚é‡è¯•ï¼Œç›´æ¥æŠ›å‡º.isFatal= "
                                 + isFatal, e);
                     return tryer.onSQLException(exceptions, exceptionSorter, args);
                 }
                 excludeKeys.add(name);
-                logger.warn("µ¥Ïß³Ì" + Thread.currentThread().getName() + "³¢ÊÔ¹ÊÕÏÊı¾İÔ´" + name
-                            + "Ê±Ê§°Ü£¬ÏÖÔÚÈ¥Ñ°ÕÒÆäËû¿ÉÓÃµÄÊı¾İÔ´£¡");
+                logger.warn("å•çº¿ç¨‹" + Thread.currentThread().getName() + "å°è¯•æ•…éšœæ•°æ®æº" + name
+                            + "æ—¶å¤±è´¥ï¼Œç°åœ¨å»å¯»æ‰¾å…¶ä»–å¯ç”¨çš„æ•°æ®æºï¼");
             } finally {
                 lastRetryTime = System.currentTimeMillis();
                 lock.unlock();
             }
         } else {
-            //²»·ûºÏ³¢ÊÔ¸ÃÊı¾İÔ´µÄÌõ¼ş£¬¼ÌĞøÍâÎ§forÑ­»·È¥ÕÒÑ°ÆäËûµÄÊı¾İÔ´
-            logger.warn("Ïß³Ì" + Thread.currentThread().getName() + "ÔÚ" + getCurrentDateTime(null)
-                        + "Ê±¼ä´òËã³¢ÊÔ¹ÊÕÏÊı¾İÔ´" + name + "Ê±Ê§°Ü£¬ÆäËûÏß³ÌÕıÔÚ·ÃÎÊ»òÕß²»·ûºÏ2sµÄÊ±¼ä¼ä¸ô£¡");
+            //ä¸ç¬¦åˆå°è¯•è¯¥æ•°æ®æºçš„æ¡ä»¶ï¼Œç»§ç»­å¤–å›´forå¾ªç¯å»æ‰¾å¯»å…¶ä»–çš„æ•°æ®æº
+            logger.warn("çº¿ç¨‹" + Thread.currentThread().getName() + "åœ¨" + getCurrentDateTime(null)
+                        + "æ—¶é—´æ‰“ç®—å°è¯•æ•…éšœæ•°æ®æº" + name + "æ—¶å¤±è´¥ï¼Œå…¶ä»–çº¿ç¨‹æ­£åœ¨è®¿é—®æˆ–è€…ä¸ç¬¦åˆ2sçš„æ—¶é—´é—´éš”ï¼");
             excludeKeys.add(name);
         }
         return t;
     }
 
     /**
-     * ÔÚµ¥Ïß³ÌÖØÊÔµÄÊ±ºò£¬È¡µ½Á¬½ÓºóÕæÕıºÍÊı¾İ¿â½¨Á¢Á¬½Ó£»
+     * åœ¨å•çº¿ç¨‹é‡è¯•çš„æ—¶å€™ï¼Œå–åˆ°è¿æ¥åçœŸæ­£å’Œæ•°æ®åº“å»ºç«‹è¿æ¥ï¼›
      */
     public boolean tryToConnectDataBase(ExceptionSorter exceptionSorter, String name) {
         Long beginTime = System.currentTimeMillis();
@@ -197,7 +197,7 @@ public class DataSourceHolder {
         } else if (exceptionSorter instanceof OracleExceptionSorter) {
             sql = "select * from dual";
         } else {
-            logger.error("Êı¾İ¿âÀàĞÍ³ö´íÎó£¬Çë¼ì²éÅäÖÃ£¡");
+            logger.error("æ•°æ®åº“ç±»å‹å‡ºé”™è¯¯ï¼Œè¯·æ£€æŸ¥é…ç½®ï¼");
             isSussessful = false;
             return isSussessful;
         }
@@ -211,11 +211,11 @@ public class DataSourceHolder {
             logger.warn("Create the statement success,time="
                         + getCurrentDateTime(System.currentTimeMillis()));
             stmt.executeQuery(sql);
-            logger.warn("µ¥Ïß³Ì" + Thread.currentThread().getName() + "ÀûÓÃsql=" + sql + "ÕæÕı×öĞ£ÑéÁ¬½Ó¸ÃÊı¾İÔ´"
-                        + name + "³É¹¦£¬ºÄÊ±Îª:" + (System.currentTimeMillis() - beginTime));
+            logger.warn("å•çº¿ç¨‹" + Thread.currentThread().getName() + "åˆ©ç”¨sql=" + sql + "çœŸæ­£åšæ ¡éªŒè¿æ¥è¯¥æ•°æ®æº"
+                        + name + "æˆåŠŸï¼Œè€—æ—¶ä¸º:" + (System.currentTimeMillis() - beginTime));
         } catch (SQLException e) {
-            logger.error("µ¥Ïß³Ì" + Thread.currentThread().getName() + "ÀûÓÃsql=" + sql + "ÕæÕı×öĞ£ÑéÁ¬½Ó¸ÃÊı¾İÔ´"
-                         + name + "Ê§°Ü,ºÄÊ±Îª:" + (System.currentTimeMillis() - beginTime) + "ms", e);
+            logger.error("å•çº¿ç¨‹" + Thread.currentThread().getName() + "åˆ©ç”¨sql=" + sql + "çœŸæ­£åšæ ¡éªŒè¿æ¥è¯¥æ•°æ®æº"
+                         + name + "å¤±è´¥,è€—æ—¶ä¸º:" + (System.currentTimeMillis() - beginTime) + "ms", e);
             isSussessful = false;
         } finally {
             try {
@@ -233,9 +233,9 @@ public class DataSourceHolder {
     }
 
     /**
-     * Èç¹û¸ÃÊı¾İÔ´¿ÉÓÃ£¬Ö±½ÓÔÚ¸ÃÊı¾İÔ´ÉÏ½øĞĞ²Ù×÷£¬Èç¹û·¢ÉúÒì³££¬ÔòÔÚcatch´úÂë¿éÀï½øĞĞÏàÓ¦µÄ´¦Àí£¬´¦ÀíÁ÷³Ì»ù±¾ÓëtryOnFailedDataSource·½·¨ÀàËÆ£¬
-     * Î¨Ò»²»Í¬µÄÊÇÕâ¸öÊ±ºòĞèÒª½øĞĞÒì³£´ÎÊıµÄÀÛ¼Ó£¬²ÉÓÃµÄ·½Ê½ÊÇ£¬Èç¹ûµ¥Î»Ê±¼äÄÚ·¢ÉúÒì³£µÄ´ÎÊı³¬¹ıÊÂÏÈÉèÖÃµÄãĞÖµ£¬²¢ÇÒÄ¿Ç°¶ÁÊı¾İÔ´¸öÊı
-     * ¶àÓàÒ»¸ö£¬Ôò½«¸ÃÊı¾İÔ´ÖÃÎª²»¿ÉÓÃ£¬Èç¹ûÊÇĞ´¿â£¬¼´Ê¹Ö»ÓĞÒ»¸ö£¬Ò²»áÖÃÎª²»¿ÉÓÃ
+     * å¦‚æœè¯¥æ•°æ®æºå¯ç”¨ï¼Œç›´æ¥åœ¨è¯¥æ•°æ®æºä¸Šè¿›è¡Œæ“ä½œï¼Œå¦‚æœå‘ç”Ÿå¼‚å¸¸ï¼Œåˆ™åœ¨catchä»£ç å—é‡Œè¿›è¡Œç›¸åº”çš„å¤„ç†ï¼Œå¤„ç†æµç¨‹åŸºæœ¬ä¸tryOnFailedDataSourceæ–¹æ³•ç±»ä¼¼ï¼Œ
+     * å”¯ä¸€ä¸åŒçš„æ˜¯è¿™ä¸ªæ—¶å€™éœ€è¦è¿›è¡Œå¼‚å¸¸æ¬¡æ•°çš„ç´¯åŠ ï¼Œé‡‡ç”¨çš„æ–¹å¼æ˜¯ï¼Œå¦‚æœå•ä½æ—¶é—´å†…å‘ç”Ÿå¼‚å¸¸çš„æ¬¡æ•°è¶…è¿‡äº‹å…ˆè®¾ç½®çš„é˜ˆå€¼ï¼Œå¹¶ä¸”ç›®å‰è¯»æ•°æ®æºä¸ªæ•°
+     * å¤šä½™ä¸€ä¸ªï¼Œåˆ™å°†è¯¥æ•°æ®æºç½®ä¸ºä¸å¯ç”¨ï¼Œå¦‚æœæ˜¯å†™åº“ï¼Œå³ä½¿åªæœ‰ä¸€ä¸ªï¼Œä¹Ÿä¼šç½®ä¸ºä¸å¯ç”¨
      * @param <T>
      * @param failedDataSources
      * @param tryer
@@ -262,14 +262,14 @@ public class DataSourceHolder {
             exceptions.add(e);
             boolean isFatal = exceptionSorter.isExceptionFatal(e);
             if (!isFatal || failedDataSources == null) {
-                logger.warn("Òì³£´íÎóÂë: " + e.getErrorCode() + " ²»ÊÇÊı¾İ¿â²»¿ÉÓÃÒì³£»ò²»ÒªÇóÖØÊÔ£¬Ö±½ÓÅ×³ö.isFatal= "
+                logger.warn("å¼‚å¸¸é”™è¯¯ç : " + e.getErrorCode() + " ä¸æ˜¯æ•°æ®åº“ä¸å¯ç”¨å¼‚å¸¸æˆ–ä¸è¦æ±‚é‡è¯•ï¼Œç›´æ¥æŠ›å‡º.isFatal= "
                             + isFatal, e);
                 return tryer.onSQLException(exceptions, exceptionSorter, args);
             }
-            logger.error("Ïß³Ì" + Thread.currentThread().getName()
-                         + "ÔÚ·ÃÎÊdataSourceHolderÊı¾İÔ´·¢Éú¹ÊÕÏ£¬name=" + name, e);
+            logger.error("çº¿ç¨‹" + Thread.currentThread().getName()
+                         + "åœ¨è®¿é—®dataSourceHolderæ•°æ®æºå‘ç”Ÿæ•…éšœï¼Œname=" + name, e);
             excludeKeys.add(name);
-            //´Ë´¦½«¹ÊÕÏÊı¾İÔ´ÅÅ³ı£¬²ÉÓÃµÄ²ßÂÔÊÇ¸ù¾İµ¥Î»Ê±¼äÄÚÁ¬½ÓÊ§°ÜµÄ´ÎÊıÈç¹û³¬¹ıÄ³¸öãĞÖµ£¬µ±Êı¾İÔ´¸öÊı½öÊ£ÓàÒ»¸öÊ±£¬½«¸ù¾İÊı¾İÔ´ÀàĞÍ¾ö¶¨ÊÇ·ñÌß³ö£» 
+            //æ­¤å¤„å°†æ•…éšœæ•°æ®æºæ’é™¤ï¼Œé‡‡ç”¨çš„ç­–ç•¥æ˜¯æ ¹æ®å•ä½æ—¶é—´å†…è¿æ¥å¤±è´¥çš„æ¬¡æ•°å¦‚æœè¶…è¿‡æŸä¸ªé˜ˆå€¼ï¼Œå½“æ•°æ®æºä¸ªæ•°ä»…å‰©ä½™ä¸€ä¸ªæ—¶ï¼Œå°†æ ¹æ®æ•°æ®æºç±»å‹å†³å®šæ˜¯å¦è¸¢å‡ºï¼› 
             calcFailedDSExceptionTimes(name, operationType, weightRandom, dataSourceHolders);
         }
         return t;
@@ -277,16 +277,16 @@ public class DataSourceHolder {
     }
 
     /**
-     * Íâ²¿´«ÈëÁ½¸ö±äÁ¿£¬·Ö±ğÊÇ¸÷¸öÊı¾İÔ´µÄÈ¨ÖØweightRandom£¬ÒÔ¼°°ü×°¹ıµÄÊı¾İÔ´dataSourceHolders£¬
-     * Á½¸öÊôĞÔÒ»ÆğÓÃÓÚÍ³¼Æµ±Ç°¿ÉÓÃµÄÊı¾İÔ´¸öÊıÊ±Ê¹ÓÃ
-     * ÅĞ¶¨Ò»¸öÊı¾İÔ´¿ÉÓÃµÄÇ°ÌáÌõ¼şÊÇ£ºÈ¨ÖØ´óÓÚ0£¬ÇÒisNotAvailableµÄÖµÎªfalse£»
+     * å¤–éƒ¨ä¼ å…¥ä¸¤ä¸ªå˜é‡ï¼Œåˆ†åˆ«æ˜¯å„ä¸ªæ•°æ®æºçš„æƒé‡weightRandomï¼Œä»¥åŠåŒ…è£…è¿‡çš„æ•°æ®æºdataSourceHoldersï¼Œ
+     * ä¸¤ä¸ªå±æ€§ä¸€èµ·ç”¨äºç»Ÿè®¡å½“å‰å¯ç”¨çš„æ•°æ®æºä¸ªæ•°æ—¶ä½¿ç”¨
+     * åˆ¤å®šä¸€ä¸ªæ•°æ®æºå¯ç”¨çš„å‰ææ¡ä»¶æ˜¯ï¼šæƒé‡å¤§äº0ï¼Œä¸”isNotAvailableçš„å€¼ä¸ºfalseï¼›
      */
 
     /**
-     * ¼ÆËãµ±Ç°Êı¾İÔ´µÄÒì³£´ÎÊı
-     * £¨1£©Í³¼Æµ±Ç°¿ÉÓÃµÄÊı¾İÔ´¸öÊı£¬¸ù¾İoperationTypeÀ´ÅĞ¶ÏÊÇĞ´¿â»¹ÊÇ¶Á¿â£»
-     *      Èç¹ûÊÇ¶Á¿â£¬Ä¿Ç°ÈçÖ»Ê£ÓàÒ»¸ö¿ÉÓÃÊı¾İÔ´£¬²»×öÈÎºÎ´¦Àí£»Èç¹ûÊÇĞ´¿â£¬ÔòÃ»ÓĞ´ËÏŞÖÆ£»
-     * £¨2£©ÔÚ¿ÉÌß³öµÄÇé¿öÏÂ£¬Èç¹ûµ¥Î»Ê±¼ä£¨ÔİÉèÎª1·ÖÖÓ£©ÄÚÒì³£´ÎÊı³¬¹ıÄ³¸öãĞÖµ£¨ÔİÉèÎª20´Î£©£¬Ôò½«¸ÃÊı¾İÔ´±ê¼ÇÎª²»¿ÉÓÃ£»
+     * è®¡ç®—å½“å‰æ•°æ®æºçš„å¼‚å¸¸æ¬¡æ•°
+     * ï¼ˆ1ï¼‰ç»Ÿè®¡å½“å‰å¯ç”¨çš„æ•°æ®æºä¸ªæ•°ï¼Œæ ¹æ®operationTypeæ¥åˆ¤æ–­æ˜¯å†™åº“è¿˜æ˜¯è¯»åº“ï¼›
+     *      å¦‚æœæ˜¯è¯»åº“ï¼Œç›®å‰å¦‚åªå‰©ä½™ä¸€ä¸ªå¯ç”¨æ•°æ®æºï¼Œä¸åšä»»ä½•å¤„ç†ï¼›å¦‚æœæ˜¯å†™åº“ï¼Œåˆ™æ²¡æœ‰æ­¤é™åˆ¶ï¼›
+     * ï¼ˆ2ï¼‰åœ¨å¯è¸¢å‡ºçš„æƒ…å†µä¸‹ï¼Œå¦‚æœå•ä½æ—¶é—´ï¼ˆæš‚è®¾ä¸º1åˆ†é’Ÿï¼‰å†…å¼‚å¸¸æ¬¡æ•°è¶…è¿‡æŸä¸ªé˜ˆå€¼ï¼ˆæš‚è®¾ä¸º20æ¬¡ï¼‰ï¼Œåˆ™å°†è¯¥æ•°æ®æºæ ‡è®°ä¸ºä¸å¯ç”¨ï¼›
      * @param name
      * @param operationType
      * @param weightRandom
@@ -297,16 +297,16 @@ public class DataSourceHolder {
                                                         DB_OPERATION_TYPE operationType,
                                                         WeightRandom weightRandom,
                                                         Map<String, DataSourceHolder> dataSourceHolders) {
-        //Èç¹û¸ÃÊı¾İÔ´ÒÑ¾­±ê¼ÇÎª²»¿ÉÓÃ£¬ÔòÖ±½Ó·µ»Ø
+        //å¦‚æœè¯¥æ•°æ®æºå·²ç»æ ‡è®°ä¸ºä¸å¯ç”¨ï¼Œåˆ™ç›´æ¥è¿”å›
         if (isNotAvailable) {
-            logger.warn("Êı¾İÔ´" + name + "ÒÑ¾­²»¿ÉÓÃÁË£¬²»ÓÃÔÙÍ³¼ÆÒì³£´ÎÊıÁË£¡");
+            logger.warn("æ•°æ®æº" + name + "å·²ç»ä¸å¯ç”¨äº†ï¼Œä¸ç”¨å†ç»Ÿè®¡å¼‚å¸¸æ¬¡æ•°äº†ï¼");
             return;
         }
-        //Í³¼Æµ±Ç°¿ÉÓÃµÄÊı¾İÔ´¸öÊı£»
+        //ç»Ÿè®¡å½“å‰å¯ç”¨çš„æ•°æ®æºä¸ªæ•°ï¼›
         int availableDSNumber = 0;
         for (Map.Entry<String, DataSourceHolder> entry : dataSourceHolders.entrySet()) {
             int weight = weightRandom.getWeightByKey(entry.getKey());
-            //Êı¾İÔ´µÄÈ¨ÖØ´óÓÚ0£¬²¢ÇÒ¸ÃÊı¾İÔ´¿ÉÓÃ
+            //æ•°æ®æºçš„æƒé‡å¤§äº0ï¼Œå¹¶ä¸”è¯¥æ•°æ®æºå¯ç”¨
             if ((weight > 0) && !(entry.getValue().isNotAvailable)) {
                 availableDSNumber++;
             }
@@ -314,10 +314,10 @@ public class DataSourceHolder {
                         + isNotAvailable);
         }
 
-        logger.warn("Ä¿Ç°¿ÉÓÃµÄÊı¾İÔ´µÄ¸öÊıÎª" + availableDSNumber + ",operationType=" + operationType
+        logger.warn("ç›®å‰å¯ç”¨çš„æ•°æ®æºçš„ä¸ªæ•°ä¸º" + availableDSNumber + ",operationType=" + operationType
                     + ",name=" + name);
         if (availableDSNumber <= 1 && (operationType == DB_OPERATION_TYPE.READ_FROM_DB)) {
-            logger.error("¶ÁÊı¾İÔ´" + name + "ÒÑ¾­·¢ÉúÒì³££¬µ«Ä¿Ç°¿ÉÓÃµÄ¶ÁÊı¾İÔ´¸öÊı½öÊ£Óà" + availableDSNumber + "¸ö£¬¹Ê²»Ìß³ı£¡");
+            logger.error("è¯»æ•°æ®æº" + name + "å·²ç»å‘ç”Ÿå¼‚å¸¸ï¼Œä½†ç›®å‰å¯ç”¨çš„è¯»æ•°æ®æºä¸ªæ•°ä»…å‰©ä½™" + availableDSNumber + "ä¸ªï¼Œæ•…ä¸è¸¢é™¤ï¼");
             return;
         }
 
@@ -325,27 +325,27 @@ public class DataSourceHolder {
             this.firstExceptionTime = System.currentTimeMillis();
         }
         long currentTime = System.currentTimeMillis();
-        //Ğ¡ÓÚÖ¸¶¨Ê±¼ä¼ä¸ôÔòÀÛ¼ÓÒì³£´ÎÊı£¬Èç¹ûÒì³£´ÎÊı³¬¹ıÄ³¸öãĞÖµ¾Í½«¸ÃÊı¾İÔ´ÖÃÎª²»¿ÉÓÃ£»·ñÔòÇåÁãÖØĞÂ¼ÆÊı
+        //å°äºæŒ‡å®šæ—¶é—´é—´éš”åˆ™ç´¯åŠ å¼‚å¸¸æ¬¡æ•°ï¼Œå¦‚æœå¼‚å¸¸æ¬¡æ•°è¶…è¿‡æŸä¸ªé˜ˆå€¼å°±å°†è¯¥æ•°æ®æºç½®ä¸ºä¸å¯ç”¨ï¼›å¦åˆ™æ¸…é›¶é‡æ–°è®¡æ•°
         if (currentTime - this.firstExceptionTime <= timeInterval) {
             ++exceptionTimes;
-            logger.error("Êı¾İÔ´" + name + "µ¥Î»Ê±¼äÄÚµÚ" + exceptionTimes + "´ÎÒì³££¬µ±Ç°Ê±¼ä£º"
-                         + getCurrentDateTime(currentTime) + "£¬Ê×´ÎÒì³£Ê±¼ä£º"
-                         + getCurrentDateTime(firstExceptionTime) + "£¬Ê±¼ä¼ä¸ôÎª£º"
+            logger.error("æ•°æ®æº" + name + "å•ä½æ—¶é—´å†…ç¬¬" + exceptionTimes + "æ¬¡å¼‚å¸¸ï¼Œå½“å‰æ—¶é—´ï¼š"
+                         + getCurrentDateTime(currentTime) + "ï¼Œé¦–æ¬¡å¼‚å¸¸æ—¶é—´ï¼š"
+                         + getCurrentDateTime(firstExceptionTime) + "ï¼Œæ—¶é—´é—´éš”ä¸ºï¼š"
                          + (currentTime - firstExceptionTime) + "ms.");
             if (exceptionTimes >= allowExceptionTimes) {
                 this.isNotAvailable = true;
-                logger.error("Êı¾İÔ´" + name + "ÔÚÊ±¼ä" + getCurrentDateTime(null) + "±»Ìß³ö£¬Ä¿Ç°"
-                             + operationType + "ÀàĞÍ¿ÉÓÃµÄÊı¾İÔ´¸öÊıÎª£º" + (availableDSNumber - 1));
+                logger.error("æ•°æ®æº" + name + "åœ¨æ—¶é—´" + getCurrentDateTime(null) + "è¢«è¸¢å‡ºï¼Œç›®å‰"
+                             + operationType + "ç±»å‹å¯ç”¨çš„æ•°æ®æºä¸ªæ•°ä¸ºï¼š" + (availableDSNumber - 1));
             }
         } else {
-            logger.warn("Í³¼ÆÒì³£´ÎÊı³¬¹ıµ¥Î»Ê±¼ä¼ä¸ô,ÉÏ´Îµ¥Î»Ê±¼ä¼ä¸ôÄÚÒì³£´ÎÊıÎª" + exceptionTimes + "´Î,ÏÖÔÚ¿ªÊ¼ÖØĞÂ¼ÆÊı£¡");
+            logger.warn("ç»Ÿè®¡å¼‚å¸¸æ¬¡æ•°è¶…è¿‡å•ä½æ—¶é—´é—´éš”,ä¸Šæ¬¡å•ä½æ—¶é—´é—´éš”å†…å¼‚å¸¸æ¬¡æ•°ä¸º" + exceptionTimes + "æ¬¡,ç°åœ¨å¼€å§‹é‡æ–°è®¡æ•°ï¼");
             this.exceptionTimes = 0;
 
         }
     }
 
     /**
-     * ½«Òì³£½øĞĞ´¦ÀíºóÅ×³ö£»
+     * å°†å¼‚å¸¸è¿›è¡Œå¤„ç†åæŠ›å‡ºï¼›
      * @param exceptions
      * @param exceptionSorter
      * @throws SQLException
@@ -357,9 +357,9 @@ public class DataSourceHolder {
         if (size <= 0) {
             throw new IllegalArgumentException("should not be here!");
         } else {
-            //Õı³£Çé¿öÏÂµÄ´¦Àí
+            //æ­£å¸¸æƒ…å†µä¸‹çš„å¤„ç†
             int lastElementIndex = size - 1;
-            //È¡×îºóÒ»¸öexception.ÅĞ¶ÏÊÇ·ñÊÇÊı¾İ¿â²»¿ÉÓÃÒì³£.Èç¹ûÊÇ£¬È¥µô×îºóÒ»¸öÒì³££¬²¢½«Í·Òì³£°ü×°ÎªZdalCommunicationExceptionÅ×³ö
+            //å–æœ€åä¸€ä¸ªexception.åˆ¤æ–­æ˜¯å¦æ˜¯æ•°æ®åº“ä¸å¯ç”¨å¼‚å¸¸.å¦‚æœæ˜¯ï¼Œå»æ‰æœ€åä¸€ä¸ªå¼‚å¸¸ï¼Œå¹¶å°†å¤´å¼‚å¸¸åŒ…è£…ä¸ºZdalCommunicationExceptionæŠ›å‡º
             SQLException lastSQLException = exceptions.get(lastElementIndex);
             if (exceptionSorter.isExceptionFatal(lastSQLException)) {
                 exceptions.remove(lastElementIndex);
@@ -372,7 +372,7 @@ public class DataSourceHolder {
     }
 
     /**
-     * »ñÈ¡µ±Ç°µÄÊ±¼äµÄ¸ñÊ½»¯×Ö·û´®
+     * è·å–å½“å‰çš„æ—¶é—´çš„æ ¼å¼åŒ–å­—ç¬¦ä¸²
      */
     public String getCurrentDateTime(Long time) {
         java.util.Date now;
@@ -386,7 +386,7 @@ public class DataSourceHolder {
     }
 
     //    /**
-    //     * ¹Ø±Õstatement
+    //     * å…³é—­statement
     //     * 
     //     * @param stmt
     //     */
@@ -403,7 +403,7 @@ public class DataSourceHolder {
     //    }
     //
     //    /**
-    //     * ¹Ø±ÕÁ¬½Ó
+    //     * å…³é—­è¿æ¥
     //     * 
     //     * @param conn
     //     */

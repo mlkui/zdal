@@ -25,47 +25,47 @@ public class PhysicalDataSourceBean implements InitializingBean {
 
     private static final String DB2_DRIVER_CLASS      = "com.ibm.db2.jcc.DB2Driver";
 
-    /** ÎïÀíÊı¾İÔ´Ãû³Æ. */
+    /** ç‰©ç†æ•°æ®æºåç§°. */
     private String              name                  = "";
 
-    /** ¹ØÁªµ½Õâ¸öÎïÀíÊı¾İÔ´µÄÂß¼­Êı¾İÔ´ÁĞ±í. */
+    /** å…³è”åˆ°è¿™ä¸ªç‰©ç†æ•°æ®æºçš„é€»è¾‘æ•°æ®æºåˆ—è¡¨. */
     private Set<String>         logicDbNameSet;
 
-    /** ½¨Á¢Á¬½ÓµÄjdbcUrl. */
+    /** å»ºç«‹è¿æ¥çš„jdbcUrl. */
     private String              jdbcUrl               = "";
 
-    /** ½¨Á¢Á¬½ÓµÄÓÃ»§Ãû. */
+    /** å»ºç«‹è¿æ¥çš„ç”¨æˆ·å. */
     private String              userName              = "";
 
-    /** ½¨Á¢Á¬½ÓµÄÃÜÂë */
+    /** å»ºç«‹è¿æ¥çš„å¯†ç  */
     private String              password              = "";
 
-    /** Á¬½Ó³ØÖĞ»î¶¯µÄ×îĞ¡Á¬½ÓÊı */
+    /** è¿æ¥æ± ä¸­æ´»åŠ¨çš„æœ€å°è¿æ¥æ•° */
     private int                 minConn;
 
-    /** Á¬½Ó³ØÖĞ»î¶¯µÄ×î´óÁ¬½ÓÊı */
+    /** è¿æ¥æ± ä¸­æ´»åŠ¨çš„æœ€å¤§è¿æ¥æ•° */
 
     private int                 maxConn;
 
-    /** ½¨Á¢Á¬½ÓµÄÇı¶¯Àà. */
+    /** å»ºç«‹è¿æ¥çš„é©±åŠ¨ç±». */
     private String              driverClass           = "";
 
-    /** »ñÈ¡Á¬½ÓµÄ×î´ó³¬Ê±Ê±¼ä£¬ÔÚÖ¸¶¨Ê±¼äÄÚ»ñÈ¡²»µ½Á¬½Ó£¬µÚÒ»ÖÖÇé¿öÊÇ£¬Á¬½Ó³ØµÄÁ¬½ÓÈ«²¿ÔÚÊ¹ÓÃ£¬µÚ¶şÖÖÇé¿öÊÇÊı¾İ¿â·±Ã¦»òÕßÓĞÒì³£,µ¥Î»£ººÁÃë */
+    /** è·å–è¿æ¥çš„æœ€å¤§è¶…æ—¶æ—¶é—´ï¼Œåœ¨æŒ‡å®šæ—¶é—´å†…è·å–ä¸åˆ°è¿æ¥ï¼Œç¬¬ä¸€ç§æƒ…å†µæ˜¯ï¼Œè¿æ¥æ± çš„è¿æ¥å…¨éƒ¨åœ¨ä½¿ç”¨ï¼Œç¬¬äºŒç§æƒ…å†µæ˜¯æ•°æ®åº“ç¹å¿™æˆ–è€…æœ‰å¼‚å¸¸,å•ä½ï¼šæ¯«ç§’ */
     private int                 blockingTimeoutMillis = 180;
 
-    /** (idleTimeoutMinutes*60*1000)/2(ms)¼ì²âÒ»´Î£¬³¬¹ıidleTimeoutMinutes*60*1000(ms)Ã»ÓĞÊ¹ÓÃµÄÁ¬½Ó¾ÍÊÇ¿ÕÏĞÁ¬½Ó£¬»á×Ô¶¯ÌŞ³ö ,µ¥Î»£º·Ö */
+    /** (idleTimeoutMinutes*60*1000)/2(ms)æ£€æµ‹ä¸€æ¬¡ï¼Œè¶…è¿‡idleTimeoutMinutes*60*1000(ms)æ²¡æœ‰ä½¿ç”¨çš„è¿æ¥å°±æ˜¯ç©ºé—²è¿æ¥ï¼Œä¼šè‡ªåŠ¨å‰”å‡º ,å•ä½ï¼šåˆ† */
     private int                 idleTimeoutMinutes    = 30;
 
-    /** »º´æµÄpreparedStatement´óĞ¡£¬ĞèÒªdriverÖ§³Ö£¬oracle-driverÖ§³Ö£¬mysql-driver²»Ö§³Ö */
+    /** ç¼“å­˜çš„preparedStatementå¤§å°ï¼Œéœ€è¦driveræ”¯æŒï¼Œoracle-driveræ”¯æŒï¼Œmysql-driverä¸æ”¯æŒ */
     private int                 preparedStatementCacheSize;
 
-    /** Ö´ĞĞexecute,executeQuery,excuteUpdateµÄ×î´ó³¬Ê±¼ä */
+    /** æ‰§è¡Œexecute,executeQuery,excuteUpdateçš„æœ€å¤§è¶…æ—¶é—´ */
     private int                 queryTimeout          = 30;
 
-    /** ½¨Á¢Á¬½ÓµÄ²ÎÊı£¬ÓÉÊı¾İ¿â²úÉÌÖ§³Ö. */
+    /** å»ºç«‹è¿æ¥çš„å‚æ•°ï¼Œç”±æ•°æ®åº“äº§å•†æ”¯æŒ. */
     private Map<String, String> connectionProperties  = new HashMap<String, String>();
 
-    /** ÔÚÎïÀíÊı¾İÔ´³õÊ¼»¯Ê±£¬ÊÇ·ñ½¨Á¢×îĞ¡Á¬½ÓÊı. */
+    /** åœ¨ç‰©ç†æ•°æ®æºåˆå§‹åŒ–æ—¶ï¼Œæ˜¯å¦å»ºç«‹æœ€å°è¿æ¥æ•°. */
     private boolean             prefill;
 
     public String getName() {

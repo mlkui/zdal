@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlShowCreateTriggerStatement.java, v 0.1 2012-11-17 ÏÂÎç3:35:53 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlShowCreateTriggerStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:35:53 Exp $
  */
 public class MySqlShowCreateTriggerStatement extends MySqlStatementImpl {
 

@@ -26,8 +26,8 @@ Doug Lea says he isn't going to fix. In fact, the version in j2se
 size must be > 0.
 
  * 
- * @author ≤Æ—¿
- * @version $Id: MinPooledExecutor.java, v 0.1 2014-1-6 œ¬ŒÁ05:44:12 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MinPooledExecutor.java, v 0.1 2014-1-6 ‰∏ãÂçà05:44:12 Exp $
  */
 public class MinPooledExecutor extends PooledExecutor {
     // Constants -----------------------------------------------------

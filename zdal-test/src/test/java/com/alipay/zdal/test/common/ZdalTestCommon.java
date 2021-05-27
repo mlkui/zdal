@@ -12,7 +12,7 @@ import junit.framework.Assert;
 
 public class ZdalTestCommon {
     /**
-     * mysql»ñÈ¡connection
+     * mysqlè·å–connection
      * @param url
      * @param psd
      * @param user
@@ -27,7 +27,7 @@ public class ZdalTestCommon {
 		return con;
 	}
     /**
-     * oracle»ñÈ¡connection
+     * oracleè·å–connection
      * @param url
      * @param psd
      * @param user
@@ -44,7 +44,7 @@ public class ZdalTestCommon {
 	}
 
 	/**
-	 * Í¨¹ımysql jdbcÁ¬½Ó»ñÈ¡Êı¾İ
+	 * é€šè¿‡mysql jdbcè¿æ¥è·å–æ•°æ®
 	 * @param querySqlJDBC
 	 * @param url
 	 * @param psd
@@ -64,14 +64,14 @@ public class ZdalTestCommon {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			// Assert.fail("ÓÃjdbc²éÑ¯Ê§°Ü");
+			// Assert.fail("ç”¨jdbcæŸ¥è¯¢å¤±è´¥");
 		}
 		return result;
 
 	}
 
 	/**
-	 * Í¨¹ımysql jdbcÀ´ÔöĞŞ¸ÄÉ¾³ıÊı¾İ
+	 * é€šè¿‡mysql jdbcæ¥å¢ä¿®æ”¹åˆ é™¤æ•°æ®
 	 * @param updateSqlJDBC
 	 * @param url
 	 * @param psd
@@ -85,20 +85,20 @@ public class ZdalTestCommon {
 		try {
 			Connection jdbcCon;
 			jdbcCon = getConnectionFromMysql(url, psd, user);
-			// ²»´ø²ÎÊıµÄ´¦Àí
+			// ä¸å¸¦å‚æ•°çš„å¤„ç†
 			PreparedStatement stateNormal = jdbcCon
 					.prepareStatement(updateSqlJDBC);
 			rNumber = stateNormal.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-			// Assert.fail("ÓÃjdbc¸üĞÂÊ§°Ü");
+			// Assert.fail("ç”¨jdbcæ›´æ–°å¤±è´¥");
 		}
 		return rNumber;
 
 	}
 
 	/**
-	 * Í¨¹ıoracle jdbcÁ¬½Ó»ñÈ¡Êı¾İ
+	 * é€šè¿‡oracle jdbcè¿æ¥è·å–æ•°æ®
 	 * @param querySqlJDBC
 	 * @param url
 	 * @param psd
@@ -116,7 +116,7 @@ public class ZdalTestCommon {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			// Assert.fail("ÓÃjdbc²éÑ¯Ê§°Ü");
+			// Assert.fail("ç”¨jdbcæŸ¥è¯¢å¤±è´¥");
 		}
 		return result;
 
@@ -124,7 +124,7 @@ public class ZdalTestCommon {
 
 	
 	/**
-	 * Í¨¹ıoracle jdbcÀ´ÔöĞŞ¸ÄÉ¾³ıÊı¾İ
+	 * é€šè¿‡oracle jdbcæ¥å¢ä¿®æ”¹åˆ é™¤æ•°æ®
 	 * @param updateSqlJDBC
 	 * @param url
 	 * @param psd
@@ -138,13 +138,13 @@ public class ZdalTestCommon {
 		try {
 			Connection jdbcCon;
 			jdbcCon = getConnectionFromOracle(url, psd, user);
-			// ²»´ø²ÎÊıµÄ´¦Àí
+			// ä¸å¸¦å‚æ•°çš„å¤„ç†
 			PreparedStatement stateNormal = jdbcCon
 					.prepareStatement(updateSqlJDBC);
 			rNumber = stateNormal.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
-			// Assert.fail("ÓÃjdbc¸üĞÂÊ§°Ü");
+			// Assert.fail("ç”¨jdbcæ›´æ–°å¤±è´¥");
 		}
 		return rNumber;
 
@@ -152,7 +152,7 @@ public class ZdalTestCommon {
 
 
 	/**
-	 * jdbc²éÑ¯oracle µÄdual±í
+	 * jdbcæŸ¥è¯¢oracle çš„dualè¡¨
 	 * @param url
 	 * @param queryNextSql
 	 * @param queryCurrSql
@@ -166,17 +166,17 @@ public class ZdalTestCommon {
 		try {
 			Connection jdbcCon;
 			jdbcCon = getConnectionFromOracle(url, psd, user);
-			// Ö´ĞĞsequence.nextval²éÑ¯
+			// æ‰§è¡Œsequence.nextvalæŸ¥è¯¢
 			PreparedStatement stateNormal = jdbcCon
 					.prepareStatement(queryNextSql);
 			stateNormal.executeQuery();
-			// Ö´ĞĞsequence.currval²éÑ¯
+			// æ‰§è¡Œsequence.currvalæŸ¥è¯¢
 			PreparedStatement stateNormal0 = jdbcCon
 					.prepareStatement(queryCurrSql);
 			result = stateNormal0.executeQuery();
 
 		} catch (Exception e) {
-			Assert.fail("ÓÃjdbc²éÑ¯Ê§°Ü");
+			Assert.fail("ç”¨jdbcæŸ¥è¯¢å¤±è´¥");
 		}
 		return result;
 		// logger.warn(result);
@@ -184,7 +184,7 @@ public class ZdalTestCommon {
 	}
 
 	/**
-	 * Îªmysql µÄzdsÁ½¸ö¿â×¼±¸Êı¾İ
+	 * ä¸ºmysql çš„zdsä¸¤ä¸ªåº“å‡†å¤‡æ•°æ®
 	 */
 	public static void dataPrepareForZds() {
 		String url1 = ConstantsTest.mysql12UrlZds1;
@@ -198,7 +198,7 @@ public class ZdalTestCommon {
 	}
 	
 	/**
-	 * ÎªmysqlµÄzdsÁ½¸ö¿âÉ¾³ıÊı¾İ
+	 * ä¸ºmysqlçš„zdsä¸¤ä¸ªåº“åˆ é™¤æ•°æ®
 	 */
 	public static void dataDeleteForZds(){
 		String url1 = ConstantsTest.mysql12UrlZds1;
@@ -211,7 +211,7 @@ public class ZdalTestCommon {
 	}
 	
 	/**
-	 * ÎªmysqlµÄfail_0×¼±¸Êı¾İ
+	 * ä¸ºmysqlçš„fail_0å‡†å¤‡æ•°æ®
 	 */
 	public static void dataPrepareForFail0(){
 		String insertSqlJDBC = "insert into master_0 (user_id,age,name,content) values (20,10,'a','s')";
@@ -222,7 +222,7 @@ public class ZdalTestCommon {
 	}
 	
 	/**
-	 * ÎªmysqlµÄTddl0,tddl_1,tddl_2×¼±¸Êı¾İ
+	 * ä¸ºmysqlçš„Tddl0,tddl_1,tddl_2å‡†å¤‡æ•°æ®
 	 */
 	public static void dataPrepareForTddl(){
 		String insertSqlJDBC0 ="insert into users(name,address) values ('DB','DB_A')";
@@ -239,7 +239,7 @@ public class ZdalTestCommon {
 	}
 	
 	/**
-	 * ÎªmysqlµÄtddl_0,tddl_1,tddl_2É¾³ıÊı¾İ
+	 * ä¸ºmysqlçš„tddl_0,tddl_1,tddl_2åˆ é™¤æ•°æ®
 	 */
 	public static void dataDeleteForTddl(){
 		String delSql="delete from users";

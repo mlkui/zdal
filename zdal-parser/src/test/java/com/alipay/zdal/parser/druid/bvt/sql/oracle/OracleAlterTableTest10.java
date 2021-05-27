@@ -13,7 +13,7 @@ import com.alipay.zdal.parser.visitor.ZdalOracleSchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleAlterTableTest10.java, v 0.1 2012-5-17 …œŒÁ10:13:21 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleAlterTableTest10.java, v 0.1 2012-5-17 ‰∏äÂçà10:13:21 xiaoqing.zhouxq Exp $
  */
 public class OracleAlterTableTest10 extends OracleTest {
 

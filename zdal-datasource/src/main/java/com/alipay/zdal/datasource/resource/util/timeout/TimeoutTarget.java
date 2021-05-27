@@ -7,8 +7,8 @@ package com.alipay.zdal.datasource.resource.util.timeout;
 /**
  * The interface of objects that can receive timeouts.
  *   
- * @author ²®ÑÀ
- * @version $Id: TimeoutTarget.java, v 0.1 2014-1-6 ÏÂÎç05:46:26 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TimeoutTarget.java, v 0.1 2014-1-6 ä¸‹åˆ05:46:26 Exp $
  */
 public interface TimeoutTarget {
     /**

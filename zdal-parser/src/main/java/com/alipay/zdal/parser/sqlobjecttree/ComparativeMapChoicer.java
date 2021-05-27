@@ -11,7 +11,7 @@ import java.util.Set;
 import com.alipay.zdal.common.sqljep.function.Comparative;
 
 /**
- * 结果集筛选器
+ * 缁撴灉闆嗙瓫閫夊櫒
  * 
  * @author shenxun
  *
@@ -19,7 +19,7 @@ import com.alipay.zdal.common.sqljep.function.Comparative;
 public interface ComparativeMapChoicer {
 
     /**
-     * 根据PartinationSet 获取列名和他对应值的map.
+     * 鏍规嵁PartinationSet 鑾峰彇鍒楀悕鍜屼粬瀵瑰簲鍊肩殑map.
      * @param arguments
      * @param partnationSet
      * @return

@@ -15,8 +15,8 @@ import com.alipay.zdal.datasource.transaction.RollbackException;
  *
  *
  * 
- * @author ≤Æ—¿
- * @version $Id: JBossRollbackException.java, v 0.1 2014-1-6 œ¬ŒÁ05:46:46 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: JBossRollbackException.java, v 0.1 2014-1-6 ‰∏ãÂçà05:46:46 Exp $
  */
 public class JBossRollbackException extends RollbackException implements NestedThrowable {
     static final long serialVersionUID = 2924502280803535350L;

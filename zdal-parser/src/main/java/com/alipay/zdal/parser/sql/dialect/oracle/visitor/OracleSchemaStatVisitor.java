@@ -150,8 +150,8 @@ import com.alipay.zdal.parser.sql.visitor.SchemaStatVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSchemaStatVisitor.java, v 0.1 2012-11-17 œ¬ŒÁ3:53:08 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSchemaStatVisitor.java, v 0.1 2012-11-17 ‰∏ãÂçà3:53:08 Exp $
  */
 public class OracleSchemaStatVisitor extends SchemaStatVisitor implements OracleASTVisitor {
 

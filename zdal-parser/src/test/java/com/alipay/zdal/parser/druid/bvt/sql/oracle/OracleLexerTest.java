@@ -8,7 +8,7 @@ import com.alipay.zdal.parser.sql.parser.Token;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleLexerTest.java, v 0.1 2012-5-17 …œŒÁ10:18:40 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleLexerTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:18:40 xiaoqing.zhouxq Exp $
  */
 public class OracleLexerTest extends TestCase {
 

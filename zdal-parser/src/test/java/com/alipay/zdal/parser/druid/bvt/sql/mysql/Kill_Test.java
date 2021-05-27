@@ -27,7 +27,7 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlOutputVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: Kill_Test.java, v 0.1 2012-5-17 …œŒÁ10:05:23 xiaoqing.zhouxq Exp $
+ * @version $Id: Kill_Test.java, v 0.1 2012-5-17 ‰∏äÂçà10:05:23 xiaoqing.zhouxq Exp $
  */
 public class Kill_Test extends TestCase {
 

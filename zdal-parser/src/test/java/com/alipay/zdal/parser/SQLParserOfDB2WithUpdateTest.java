@@ -22,7 +22,7 @@ import com.alipay.zdal.parser.result.SqlParserResult;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLParserOfOracleWithUpdateTest.java, v 0.1 2012-5-29 …œŒÁ10:44:19 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLParserOfOracleWithUpdateTest.java, v 0.1 2012-5-29 ‰∏äÂçà10:44:19 xiaoqing.zhouxq Exp $
  */
 public class SQLParserOfDB2WithUpdateTest {
     private static final String   UPDATE        = "update users set c1 = ?, c2 = 'nihao' where c3 = ? and  c4=? AND ROWNUM<=?";
@@ -35,7 +35,7 @@ public class SQLParserOfDB2WithUpdateTest {
     private static final String   PATITION_NAME = "c3";
 
     /**
-     * ≤‚ ‘∞Û∂®≤Œ ˝ ±£¨≈–∂œ≤∑÷πÊ‘Ú «∑Ò’˝»∑.
+     * ÊµãËØïÁªëÂÆöÂèÇÊï∞Êó∂ÔºåÂà§Êñ≠ÊãÜÂàÜËßÑÂàôÊòØÂê¶Ê≠£Á°Æ.
      */
     @Test
     public void testParseWithPartination() {
@@ -62,7 +62,7 @@ public class SQLParserOfDB2WithUpdateTest {
     }
 
     /**
-     * ≤‚ ‘∞Û∂®≤Œ ˝ «£¨»Áπ˚≤∑÷◊÷∂Œ≤ª‘⁄sql”Ôæ‰÷–£¨≤∑÷πÊ‘Úª·±®¥Ì.
+     * ÊµãËØïÁªëÂÆöÂèÇÊï∞ÊòØÔºåÂ¶ÇÊûúÊãÜÂàÜÂ≠óÊÆµ‰∏çÂú®sqlËØ≠Âè•‰∏≠ÔºåÊãÜÂàÜËßÑÂàô‰ºöÊä•Èîô.
      */
     @Test(expected = SqlParserException.class)
     public void testParserWithoutPartination() {
@@ -89,7 +89,7 @@ public class SQLParserOfDB2WithUpdateTest {
     }
 
     /**
-     * ≤‚ ‘∞Û∂®≤Œ ˝ ±£¨≈–∂œ∂‡∏ˆ◊÷∂Œµƒ≤∑÷πÊ‘Ú «∑Ò’˝»∑.
+     * ÊµãËØïÁªëÂÆöÂèÇÊï∞Êó∂ÔºåÂà§Êñ≠Â§ö‰∏™Â≠óÊÆµÁöÑÊãÜÂàÜËßÑÂàôÊòØÂê¶Ê≠£Á°Æ.
      */
     @Test
     public void testParserWithMultiPartinations() {
@@ -121,7 +121,7 @@ public class SQLParserOfDB2WithUpdateTest {
     }
 
     /**
-     * ≤‚ ‘∑«∞Û∂®≤Œ ˝ ±£¨≈–∂œµ•∏ˆ◊÷∂Œµƒ≤∑÷πÊ‘Ú «∑Ò’˝»∑.
+     * ÊµãËØïÈùûÁªëÂÆöÂèÇÊï∞Êó∂ÔºåÂà§Êñ≠Âçï‰∏™Â≠óÊÆµÁöÑÊãÜÂàÜËßÑÂàôÊòØÂê¶Ê≠£Á°Æ.
      */
     @Test
     public void testParserWithNoBindPartination() {

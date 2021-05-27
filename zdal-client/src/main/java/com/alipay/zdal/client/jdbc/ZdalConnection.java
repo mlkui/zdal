@@ -35,8 +35,8 @@ import com.alipay.zdal.client.util.ExceptionUtils;
 
 /**
  * 
- * @author 伯牙
- * @version $Id: ZdalConnection.java, v 0.1 2014-1-6 下午05:02:15 Exp $
+ * @author 浼墮
+ * @version $Id: ZdalConnection.java, v 0.1 2014-1-6 涓嬪崍05:02:15 Exp $
  */
 public class ZdalConnection implements Connection {
     private static final Logger                  logger               = Logger
@@ -51,7 +51,7 @@ public class ZdalConnection implements Connection {
     private String                               username;
     private String                               password;
 
-    // ZdalConnection对象所持有的真正数据库连接
+    // ZdalConnection瀵硅薄鎵�鎸佹湁鐨勭湡姝ｆ暟鎹簱杩炴帴
     private Map<String, ConnectionAndDatasource> actualConnections    = new HashMap<String, ConnectionAndDatasource>();
 
     private boolean                              autoCommit           = true;
@@ -65,12 +65,12 @@ public class ZdalConnection implements Connection {
     private boolean                              txStart;
     private String                               txTarget;
 
-    // TConnection对象创建的所有TStatement对象，包括TPreparedStatement对象
+    // TConnection瀵硅薄鍒涘缓鐨勬墍鏈塗Statement瀵硅薄锛屽寘鎷琓PreparedStatement瀵硅薄
     private Set<ZdalStatement>                   openStatements       = new HashSet<ZdalStatement>();
 
     private DataSourceConfigType                 dbConfigType         = null;
 
-    /**  数据源的名称*/
+    /**  鏁版嵁婧愮殑鍚嶇О*/
     protected String                             appDsName            = null;
 
     public ZdalConnection() {
@@ -84,7 +84,7 @@ public class ZdalConnection implements Connection {
     public DatabaseMetaData getMetaData() throws SQLException {
         checkClosed();
 
-        // TODO: DatabaseMetaData目前还不存在元数据的信息
+        // TODO: DatabaseMetaData鐩墠杩樹笉瀛樺湪鍏冩暟鎹殑淇℃伅
         return new ZDatabaseMetaData();
     }
 
@@ -331,8 +331,8 @@ public class ZdalConnection implements Connection {
         try {
             for (ZdalStatement stmt : openStatements) {
                 try {
-                    //bug fix by shenxun :这里不允许内部调用remove的方法，而在外部显示的调用该方法
-                    //引发bug的主要原因是当set里面的size多于1个，并且调用remove方法时会发生这时候HashSet会检查modification.
+                    //bug fix by shenxun :杩欓噷涓嶅厑璁稿唴閮ㄨ皟鐢╮emove鐨勬柟娉曪紝鑰屽湪澶栭儴鏄剧ず鐨勮皟鐢ㄨ鏂规硶
+                    //寮曞彂bug鐨勪富瑕佸師鍥犳槸褰搒et閲岄潰鐨剆ize澶氫簬1涓紝骞朵笖璋冪敤remove鏂规硶鏃朵細鍙戠敓杩欐椂鍊橦ashSet浼氭鏌odification.
                     stmt.closeInternal(false);
                 } catch (SQLException e) {
                     if (exceptions == null) {

@@ -23,7 +23,7 @@ import com.alipay.zdal.client.jdbc.ZdalDataSource;
 import com.alipay.zdal.test.common.ZdalTestCommon;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("ÊÂÎñÄÚµÄÁ¬Ğø²Ù×÷")
+@Feature("äº‹åŠ¡å†…çš„è¿ç»­æ“ä½œ")
 public class SR952090 {
 	public TestAssertion Assert = new TestAssertion();
 	private Connection cn = null;
@@ -62,12 +62,12 @@ public class SR952090 {
 	}
 
 	
-	@Subject("ÊÂÎñÄÚÏÈĞ´ºó¶Á,´ÓĞ´¿âÀïÃæ¶Á[Ä¿Ç°Ö»Ö§³ÖÒ»¸öĞ´¿â]£¬ÒòÎªËüÊÇÊÂÎñ")
+	@Subject("äº‹åŠ¡å†…å…ˆå†™åè¯»,ä»å†™åº“é‡Œé¢è¯»[ç›®å‰åªæ”¯æŒä¸€ä¸ªå†™åº“]ï¼Œå› ä¸ºå®ƒæ˜¯äº‹åŠ¡")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952091() {
 		try {
-			Step("ÊÂÎñÄÚÏÈĞ´ºó¶Á,´ÓĞ´¿âÀïÃæ¶Á[Ä¿Ç°Ö»Ö§³ÖÒ»¸öĞ´¿â]£¬ÒòÎªËüÊÇÊÂÎñ");
+			Step("äº‹åŠ¡å†…å…ˆå†™åè¯»,ä»å†™åº“é‡Œé¢è¯»[ç›®å‰åªæ”¯æŒä¸€ä¸ªå†™åº“]ï¼Œå› ä¸ºå®ƒæ˜¯äº‹åŠ¡");
 			cn.setAutoCommit(false);
 			st = cn.createStatement();
 			st.execute("insert into test1 value(111,'DB_G')");
@@ -75,8 +75,8 @@ public class SR952090 {
 					.executeQuery("select count(*) from test1 where clum=111");
 			rs.next();
 			int count = rs.getInt(1);
-			Step("´ÓĞ´¿âÖĞ¶ÁÊı¾İ");
-			Assert.areEqual(1, count, "´ÓĞ´¿âÖĞ¶ÁÊı¾İ");
+			Step("ä»å†™åº“ä¸­è¯»æ•°æ®");
+			Assert.areEqual(1, count, "ä»å†™åº“ä¸­è¯»æ•°æ®");
 
 			cn.commit();
 			cn.setAutoCommit(true);
@@ -84,18 +84,18 @@ public class SR952090 {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Assert.isFalse(true, "·ÇÔ¤ÆÚÒì³£" + e);
+			Assert.isFalse(true, "éé¢„æœŸå¼‚å¸¸" + e);
 		}
 	}
 	
 
-	@Subject("ÊÂÎñÄÚÏÈ¶ÁºóĞ´,´ÓĞ´¿âÀïÃæ¶Á[Ä¿Ç°Ö»Ö§³ÖÒ»¸öĞ´¿â]£¬ÒòÎªËüÊÇÊÂÎñ")
+	@Subject("äº‹åŠ¡å†…å…ˆè¯»åå†™,ä»å†™åº“é‡Œé¢è¯»[ç›®å‰åªæ”¯æŒä¸€ä¸ªå†™åº“]ï¼Œå› ä¸ºå®ƒæ˜¯äº‹åŠ¡")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952092() {
-		Step("Êı¾İ×¼±¸");
+		Step("æ•°æ®å‡†å¤‡");
 		ZdalTestCommon.dataPrepareForZds();
-		Step("¿ªÆôÊÂÎñ");
+		Step("å¼€å¯äº‹åŠ¡");
 		try {
 		
 			cn.setAutoCommit(false);
@@ -108,18 +108,18 @@ public class SR952090 {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Assert.isFalse(true, "·ÇÔ¤ÆÚÒì³£" + e);
+			Assert.isFalse(true, "éé¢„æœŸå¼‚å¸¸" + e);
 		}
 	}
 	
 	
-	@Subject("ÊÂÎñÄÚÁ¬Ğø¶Á,´ÓĞ´¿âÀïÃæ¶Á[Ä¿Ç°Ö»Ö§³ÖÒ»¸öĞ´¿â]£¬ÒòÎªËüÊÇÊÂÎñ")
+	@Subject("äº‹åŠ¡å†…è¿ç»­è¯»,ä»å†™åº“é‡Œé¢è¯»[ç›®å‰åªæ”¯æŒä¸€ä¸ªå†™åº“]ï¼Œå› ä¸ºå®ƒæ˜¯äº‹åŠ¡")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952093(){
-		Step("Êı¾İ×¼±¸");
+		Step("æ•°æ®å‡†å¤‡");
 		ZdalTestCommon.dataPrepareForZds();
-		Step("¿ªÆôÊÂÎñ");
+		Step("å¼€å¯äº‹åŠ¡");
 		try {
 		
 			cn.setAutoCommit(false);
@@ -133,15 +133,15 @@ public class SR952090 {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Assert.isFalse(true, "·ÇÔ¤ÆÚÒì³£" + e);
+			Assert.isFalse(true, "éé¢„æœŸå¼‚å¸¸" + e);
 		}
 	}
 
-	@Subject("ÊÂÎñÄÚÁ¬ĞøĞ´")
+	@Subject("äº‹åŠ¡å†…è¿ç»­å†™")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952094(){
-		Step(" ¿ªÆôÊÂÎñ");
+		Step(" å¼€å¯äº‹åŠ¡");
 		try {
 			
 			cn.setAutoCommit(false);
@@ -155,11 +155,11 @@ public class SR952090 {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Assert.isFalse(true, "·ÇÔ¤ÆÚÒì³£" + e);
+			Assert.isFalse(true, "éé¢„æœŸå¼‚å¸¸" + e);
 		}
 	}
 	
-	@Subject("¶àÊÂÎñÁ¬½ÓÍ¬Ê±¹Ø±Õ")
+	@Subject("å¤šäº‹åŠ¡è¿æ¥åŒæ—¶å…³é—­")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952095(){
@@ -167,14 +167,14 @@ public class SR952090 {
 		try {
 			cn.setAutoCommit(false);
 			st =cn.createStatement();
-			Step("¿ªÆô1¸öÊÂÎñÇÒÌá½»");
+			Step("å¼€å¯1ä¸ªäº‹åŠ¡ä¸”æäº¤");
 			st.execute("select * from test1 where clum = 12");
 			st.execute("delete from test1 where clum = 12");
 			cn.commit();
 			cn.setAutoCommit(true);
 			
-			Step("¿ªÆôÁíÒ»¸öÊÂÎñ");
-			Step("¿ªÆô2¸öÊÂÎñÇÒÌá½»");
+			Step("å¼€å¯å¦ä¸€ä¸ªäº‹åŠ¡");
+			Step("å¼€å¯2ä¸ªäº‹åŠ¡ä¸”æäº¤");
 			cn.setAutoCommit(false);
 			java.sql.Statement st1 = cn.createStatement();
 			st1.execute("select * from test1 where clum = 12");
@@ -189,7 +189,7 @@ public class SR952090 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Assert.areEqual(Long.parseLong("0"), cCount, "ËùÓĞÁ¬½ÓÒÑ¹Ø±Õ");
+		Assert.areEqual(Long.parseLong("0"), cCount, "æ‰€æœ‰è¿æ¥å·²å…³é—­");
 	}
 	
 	

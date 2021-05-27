@@ -7,8 +7,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
 /**
  * Management interface for the thread pool.
  *
- * @author ²®ÑÀ
- * @version $Id: ThreadPoolMBean.java, v 0.1 2014-1-6 ÏÂÎç05:45:45 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ThreadPoolMBean.java, v 0.1 2014-1-6 ä¸‹åˆ05:45:45 Exp $
  */
 public interface ThreadPoolMBean {
     // Constants -----------------------------------------------------

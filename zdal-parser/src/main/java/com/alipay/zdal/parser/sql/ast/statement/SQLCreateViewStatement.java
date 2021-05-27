@@ -15,7 +15,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLCreateViewStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:21:32 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLCreateViewStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:21:32 xiaoqing.zhouxq Exp $
  */
 public class SQLCreateViewStatement extends SQLStatementImpl implements SQLDDLStatement {
 

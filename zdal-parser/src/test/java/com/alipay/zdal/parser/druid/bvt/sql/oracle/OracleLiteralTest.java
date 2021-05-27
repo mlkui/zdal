@@ -10,7 +10,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleLiteralTest.java, v 0.1 2012-5-17 …œŒÁ10:18:43 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleLiteralTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:18:43 xiaoqing.zhouxq Exp $
  */
 public class OracleLiteralTest extends TestCase {
 

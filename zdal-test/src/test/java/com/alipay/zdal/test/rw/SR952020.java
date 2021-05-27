@@ -23,7 +23,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("rw oracle¶ÁĞ´·ÖÀë")
+@Feature("rw oracleè¯»å†™åˆ†ç¦»")
 public class SR952020 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
@@ -50,68 +50,68 @@ public class SR952020 {
 
 	}
 
-	@Subject("rw oracleĞ´¿â:ds0:r2w1,ds1:r1w2")
+	@Subject("rw oracleå†™åº“:ds0:r2w1,ds1:r1w2")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952021() {
-		Step("rw oracleĞ´¿â:ds0:r2w1,ds1:r1w2");
+		Step("rw oracleå†™åº“:ds0:r2w1,ds1:r1w2");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle1",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
 		int count2 = mp.get("count2");
-		Step("¶ÏÑÔÊı¾İ¸öÊı");
+		Step("æ–­è¨€æ•°æ®ä¸ªæ•°");
 		Assert.areEqual(true, 0 <= count1 && count1 <= 15, "the count1 value");
 		Assert.areEqual(true, 10 <= count2 && count2 <= 30, "the count2 value");
 	}
 
-	@Subject("rw oracle¶Á¿â:ds0:r2w1,ds1:r1w2")
+	@Subject("rw oracleè¯»åº“:ds0:r2w1,ds1:r1w2")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952022() {
-		Step("rw oracle¶Á¿â:ds0:r2w1,ds1:r1w2");
+		Step("rw oracleè¯»åº“:ds0:r2w1,ds1:r1w2");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle1",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
 		int count2 = mp.get("countB");
-		Step("¶ÏÑÔÊı¾İ¸öÊı");
+		Step("æ–­è¨€æ•°æ®ä¸ªæ•°");
 		Assert.areEqual(true, 10 <= count1 && count1 <= 30, "the countA value:"+count1);
 		Assert.areEqual(true, 0 <= count2 && count2 <= 15, "the countB value:"+count2);
 	}
 	
-	@Subject("rw oracleĞ´¿â:ds0:r1w1,ds1:r0w0")
+	@Subject("rw oracleå†™åº“:ds0:r1w1,ds1:r0w0")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952023() {
-		Step("rw oracleĞ´¿â:ds0:r1w1,ds1:r0w0");
+		Step("rw oracleå†™åº“:ds0:r1w1,ds1:r0w0");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle2",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
 		int count2 = mp.get("count2");
-		Step("Êı¾İ¸öÊı");
+		Step("æ•°æ®ä¸ªæ•°");
 		Assert.areEqual(true,  count1 == 30, "the count1 value");
 		Assert.areEqual(true,  count2 == 0, "the count2 value");
 	}
 	
-	@Subject("rw oracle¶Á¿â:ds0:r1w1,ds1:r0w0")
+	@Subject("rw oracleè¯»åº“:ds0:r1w1,ds1:r0w0")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952024() {
-		Step("rw oracle¶Á¿â:ds0:r1w1,ds1:r0w0");
+		Step("rw oracleè¯»åº“:ds0:r1w1,ds1:r0w0");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle2",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
 		int count2 = mp.get("countB");
-		Step("Êı¾İ¸öÊı");
+		Step("æ•°æ®ä¸ªæ•°");
 		Assert.areEqual(true,  count1 == 30, "the countA value");
 		Assert.areEqual(true,  count2 == 0, "the countB value");
 	}
 	
 	
-	@Subject("rw oracleĞ´¿â:ds0:r1,ds1:w1")
+	@Subject("rw oracleå†™åº“:ds0:r1,ds1:w1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952025() {
-		Step("rw oracleĞ´¿â:ds0:r1,ds1:w1");
+		Step("rw oracleå†™åº“:ds0:r1,ds1:w1");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle3",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
@@ -120,11 +120,11 @@ public class SR952020 {
 		Assert.areEqual(true,  count2 == 30, "the count2 value");
 	}
 	
-	@Subject("rw oracle¶Á¿â:ds0:r1,ds1:w1")
+	@Subject("rw oracleè¯»åº“:ds0:r1,ds1:w1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952026() {
-		Step("rw oracle¶Á¿â:ds0:r1,ds1:w1");
+		Step("rw oracleè¯»åº“:ds0:r1,ds1:w1");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle3",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
@@ -134,11 +134,11 @@ public class SR952020 {
 	}
 	
 	
-	@Subject("rw oracleĞ´¿â:ds0:rw,ds1:r1w1")
+	@Subject("rw oracleå†™åº“:ds0:rw,ds1:r1w1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952027() {
-		Step("rw oracleĞ´¿â:ds0:rw,ds1:r1w1");
+		Step("rw oracleå†™åº“:ds0:rw,ds1:r1w1");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle4",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
@@ -147,26 +147,26 @@ public class SR952020 {
 		Assert.areEqual(true,  count2 < 10, "the count2 value");
 	}
 	
-	@Subject("rw oracle¶Á¿â:ds0:rw,ds1:r1w1")
+	@Subject("rw oracleè¯»åº“:ds0:rw,ds1:r1w1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952028() {
-		Step("rw oracle¶Á¿â:ds0:rw,ds1:r1w1");
+		Step("rw oracleè¯»åº“:ds0:rw,ds1:r1w1");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle4",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
 		int count2 = mp.get("countB");
-		Step("¶ÏÑÔÊı¾İ¸öÊı");
+		Step("æ–­è¨€æ•°æ®ä¸ªæ•°");
 		Assert.areEqual(true,  count1 > 20, "the countA value");
 		Assert.areEqual(true,  count2 < 10, "the countB value");
 	}
 	
 	
-	@Subject("rw oracleĞ´¿â:ds0:r1w1")
+	@Subject("rw oracleå†™åº“:ds0:r1w1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952029() {
-		Step("rw oracleĞ´¿â:ds0:r1w1");
+		Step("rw oracleå†™åº“:ds0:r1w1");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle5",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
@@ -175,11 +175,11 @@ public class SR952020 {
 		Assert.areEqual(true,  count2 == 0, "the count2 value");
 	}
 	
-	@Subject("rw oracle¶Á¿â:ds0:r1w1")
+	@Subject("rw oracleè¯»åº“:ds0:r1w1")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC95202a() {
-		Step("rw oracle¶Á¿â:ds0:r1w1");
+		Step("rw oracleè¯»åº“:ds0:r1w1");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle5",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
@@ -192,7 +192,7 @@ public class SR952020 {
 	
 
 	/**
-	 * Õë¶Ôrw oracle¿âµÄĞ´¿âµÄ¹«¹²º¯Êı
+	 * é’ˆå¯¹rw oracleåº“çš„å†™åº“çš„å…¬å…±å‡½æ•°
 	 * 
 	 * @param beanName
 	 * @param sqlName
@@ -216,7 +216,7 @@ public class SR952020 {
 				e.printStackTrace();
 			}
 		}
-		// Ğ´ÈëµÄÊı¾İcount£¬½øĞĞÑéÖ¤
+		// å†™å…¥çš„æ•°æ®countï¼Œè¿›è¡ŒéªŒè¯
 		String querySql = "select count(*) from acm_target_record where test_varchar = 'DB_G'";
 
 		ResultSet rs = ZdalTestCommon.dataCheckFromJDBCOracle(querySql, url,
@@ -239,7 +239,7 @@ public class SR952020 {
 	}
 
 	/**
-	 * Õë¶Ôrw oracle¿âµÄ¶Á¿âµÄ¹«¹²º¯Êı
+	 * é’ˆå¯¹rw oracleåº“çš„è¯»åº“çš„å…¬å…±å‡½æ•°
 	 * 
 	 * @param beanName
 	 * @param sqlName
@@ -251,13 +251,13 @@ public class SR952020 {
 		HashMap<String, Integer> hp = new HashMap<String, Integer>();
 		int countA = 0;
 		int countB = 0;
-		// ÏÈ²åÈëÊı¾İ
+		// å…ˆæ’å…¥æ•°æ®
 		String insertSql1 = "insert into ACM_TARGET_RECORD (id,test_varchar,test_date,int_field_1,int_field_2,var_field_1,var_field_2) values (100,'DB_A',to_date('2013-10-08 20:46:34','YYYY-MM-DD-HH24:MI:SS'),1,1,'a','b')";
 		String insertSql2 = "insert into ACM_TARGET_RECORD (id,test_varchar,test_date,int_field_1,int_field_2,var_field_1,var_field_2) values (100,'DB_B',to_date('2013-10-08 20:46:34','YYYY-MM-DD-HH24:MI:SS'),1,1,'a','b')";
 		ZdalTestCommon.dataUpdateJDBCOracle(insertSql1, url, psd, user1);
 		ZdalTestCommon.dataUpdateJDBCOracle(insertSql2, url, psd, user2);
 
-		// ¶ÁÈ¡Êı¾İ£¬²¢¼ÆËã´ÓÃ¿¸ö¿âÀïÃæ¶ÁÊıµÄ´ÎÊı
+		// è¯»å–æ•°æ®ï¼Œå¹¶è®¡ç®—ä»æ¯ä¸ªåº“é‡Œé¢è¯»æ•°çš„æ¬¡æ•°
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean(beanName);
 		for (int countnum = 0; countnum < 30; countnum++) {
 			try {

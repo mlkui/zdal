@@ -10,16 +10,16 @@ import com.alipay.zdal.client.RouteCondition;
 import com.alipay.zdal.common.exception.checked.ZdalCheckedExcption;
 
 /**
- * Êı¾İÔ´ºÍ¶ÔÓ¦ÁĞ±íµÄÑ¡ÔñÆ÷£¬¿ÉÒÔÍ¨¹ısqlºÍarg»ñÈ¡Ö´ĞĞÄ¿±ê
- * Ò²¿ÉÒÔÍ¨¹ırc»ñÈ¡£¬Í¬Ê±»¹¿ÉÒÔÍ¨¹ıÕâ¸ö½Ó¿Ú»ñµÃËùÓĞµÄÊı¾İ¿âºÍ±í
+ * æ•°æ®æºå’Œå¯¹åº”åˆ—è¡¨çš„é€‰æ‹©å™¨ï¼Œå¯ä»¥é€šè¿‡sqlå’Œargè·å–æ‰§è¡Œç›®æ ‡
+ * ä¹Ÿå¯ä»¥é€šè¿‡rcè·å–ï¼ŒåŒæ—¶è¿˜å¯ä»¥é€šè¿‡è¿™ä¸ªæ¥å£è·å¾—æ‰€æœ‰çš„æ•°æ®åº“å’Œè¡¨
  * 
- * Result½á¹¹ºÍÄÚ²¿ÊµÏÖÎŞ¹Ø£¬ÒµÎñ·½¿ÉÒÔ½øĞĞĞŞ¸Ä ²»»áÓ°Ïìµ½ZdalÄÚ²¿ÊµÏÖ¡£
+ * Resultç»“æ„å’Œå†…éƒ¨å®ç°æ— å…³ï¼Œä¸šåŠ¡æ–¹å¯ä»¥è¿›è¡Œä¿®æ”¹ ä¸ä¼šå½±å“åˆ°Zdalå†…éƒ¨å®ç°ã€‚
  * 
  *
  */
 public interface DatabaseChoicer {
     /**
-     * »ñÈ¡µ±Ç°Êı¾İ¿âºÍ±í¡£
+     * è·å–å½“å‰æ•°æ®åº“å’Œè¡¨ã€‚
      * @param sql
      * @param args
      * @return
@@ -28,14 +28,14 @@ public interface DatabaseChoicer {
     Result getDBAndTables(String sql, List<Object> args) throws ZdalCheckedExcption;
 
     /**
-     * ²»½âÎöSQL£¬ÓÉThreadLocal´«ÈëµÄÖ¸¶¨¶ÔÏó£¨RouteCondition£©£¬¾ö¶¨¿â±íÄ¿µÄµØµÄ½Ó¿Ú
+     * ä¸è§£æSQLï¼Œç”±ThreadLocalä¼ å…¥çš„æŒ‡å®šå¯¹è±¡ï¼ˆRouteConditionï¼‰ï¼Œå†³å®šåº“è¡¨ç›®çš„åœ°çš„æ¥å£
      * @param rc
      * @return
      */
     Result getDBAndTables(RouteCondition rc);
 
     /**
-     * »ñÈ¡È«¿âÈ«±íĞÅÏ¢
+     * è·å–å…¨åº“å…¨è¡¨ä¿¡æ¯
      * @param logicTableName
      * @return
      */

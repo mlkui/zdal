@@ -56,8 +56,8 @@ import com.alipay.zdal.parser.sql.ast.statement.SQLSelectOrderByItem;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SQLExprParser.java, v 0.1 2012-11-17 ÏÂÎç3:54:14 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SQLExprParser.java, v 0.1 2012-11-17 ä¸‹åˆ3:54:14 Exp $
  */
 public class SQLExprParser extends SQLParser {
 

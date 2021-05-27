@@ -16,7 +16,7 @@ import com.alipay.zdal.parser.visitor.ZdalSchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleSqlParserResult.java, v 0.1 2012-5-21 ÏÂÎç03:12:36 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleSqlParserResult.java, v 0.1 2012-5-21 ä¸‹åˆ03:12:36 xiaoqing.zhouxq Exp $
  */
 public class OracleSqlParserResult extends DefaultSqlParserResult {
 
@@ -25,7 +25,7 @@ public class OracleSqlParserResult extends DefaultSqlParserResult {
     }
 
     /**
-     * ÅĞ¶ÏmaxÊÇ·ñÊÇ°ó¶¨±äÁ¿.
+     * åˆ¤æ–­maxæ˜¯å¦æ˜¯ç»‘å®šå˜é‡.
      * @return
      */
     public int isRowCountBind() {
@@ -53,17 +53,17 @@ public class OracleSqlParserResult extends DefaultSqlParserResult {
             return DEFAULT_SKIP_MAX;
         }
         int result = DEFAULT_SKIP_MAX;
-        //Èç¹ûÒ»ÌõsqlÓï¾äÖĞ°üº¬¶à×érownumÌõ¼ş£¬¿ÉÄÜ»áÓĞÎÊÌâ.
+        //å¦‚æœä¸€æ¡sqlè¯­å¥ä¸­åŒ…å«å¤šç»„rownumæ¡ä»¶ï¼Œå¯èƒ½ä¼šæœ‰é—®é¢˜.
         for (BindVarCondition rowNum : rowNums) {
             if (ZdalSchemaStatVisitor.ROWCOUNT.equalsIgnoreCase(rowNum.getColumnName())) {
-                //Èç¹ûÊÇ°ó¶¨²ÎÊı£¬¾Í´Ó²ÎÊıÁĞ±íÖĞ»ñÈ¡rowcountµÄÖµ.
+                //å¦‚æœæ˜¯ç»‘å®šå‚æ•°ï¼Œå°±ä»å‚æ•°åˆ—è¡¨ä¸­è·å–rowcountçš„å€¼.
                 if (rowNum.getValue() == null) {
                     Object obj = arguments.get(rowNum.getIndex());
                     if (obj instanceof Long) {
                         throw new SqlParserException("ERROR ## row selecter can't handle long data");
                     } else if (obj instanceof Integer) {
                         int tmp = ((Integer) obj).intValue();
-                        if (rowNum.getOperator().equals(SQLBinaryOperator.LessThan.name)) {//Èç¹ûÊÇĞ¡ÓÚ£¬¾ÍĞèÒª¼õÒ»
+                        if (rowNum.getOperator().equals(SQLBinaryOperator.LessThan.name)) {//å¦‚æœæ˜¯å°äºï¼Œå°±éœ€è¦å‡ä¸€
                             tmp = tmp - 1;
                         }
                         if (tmp > result) {
@@ -73,11 +73,11 @@ public class OracleSqlParserResult extends DefaultSqlParserResult {
                         throw new SqlParserException("ERROR ## bind rowcount var has an error , "
                                                      + obj + " is not a int value");
                     }
-                } else {//´ÓsqlÓï¾äÖĞ»ñÈ¡rowcountµÄÖµ.
+                } else {//ä»sqlè¯­å¥ä¸­è·å–rowcountçš„å€¼.
                     Comparable<?> tmp = rowNum.getValue();
                     if (tmp instanceof Number) {
                         int rowcount = ((Integer) tmp).intValue();
-                        if (rowNum.getOperator().equals(SQLBinaryOperator.LessThan.name)) {//Èç¹ûÊÇĞ¡ÓÚ£¬¾ÍĞèÒª¼õÒ»
+                        if (rowNum.getOperator().equals(SQLBinaryOperator.LessThan.name)) {//å¦‚æœæ˜¯å°äºï¼Œå°±éœ€è¦å‡ä¸€
                             rowcount = rowcount - 1;
                         }
                         if (rowcount > result) {
@@ -118,17 +118,17 @@ public class OracleSqlParserResult extends DefaultSqlParserResult {
             return DEFAULT_SKIP_MAX;
         }
         int result = DEFAULT_SKIP_MAX;
-        //Èç¹ûÒ»ÌõsqlÓï¾äÖĞ°üº¬¶à×éoffsetÌõ¼ş£¬¿ÉÄÜ»áÓĞÎÊÌâ.
+        //å¦‚æœä¸€æ¡sqlè¯­å¥ä¸­åŒ…å«å¤šç»„offsetæ¡ä»¶ï¼Œå¯èƒ½ä¼šæœ‰é—®é¢˜.
         for (BindVarCondition rowNum : rowNums) {
             if (ZdalSchemaStatVisitor.OFFSET.equals(rowNum.getColumnName())) {
-                //Èç¹ûÊÇ°ó¶¨²ÎÊı£¬¾Í´Ó²ÎÊıÁĞ±íÖĞ»ñÈ¡offsetµÄÖµ.
+                //å¦‚æœæ˜¯ç»‘å®šå‚æ•°ï¼Œå°±ä»å‚æ•°åˆ—è¡¨ä¸­è·å–offsetçš„å€¼.
                 if (rowNum.getValue() == null) {
                     Object obj = arguments.get(rowNum.getIndex());
                     if (obj instanceof Long) {
                         throw new SqlParserException("ERROR ## row selecter can't handle long data");
                     } else if (obj instanceof Integer) {
                         int tmp = ((Integer) obj).intValue();
-                        if (rowNum.getOperator().equals(SQLBinaryOperator.GreaterThanOrEqual.name)) {//Èç¹ûÊÇ´óÓÚµÈÓÚ£¬¾ÍĞèÒª¼õÒ»
+                        if (rowNum.getOperator().equals(SQLBinaryOperator.GreaterThanOrEqual.name)) {//å¦‚æœæ˜¯å¤§äºç­‰äºï¼Œå°±éœ€è¦å‡ä¸€
                             tmp = tmp - 1;
                         }
                         if (tmp > result) {
@@ -138,11 +138,11 @@ public class OracleSqlParserResult extends DefaultSqlParserResult {
                         throw new SqlParserException("ERROR ## bind offset var has an error , "
                                                      + obj + " is not a int value");
                     }
-                } else {//´ÓsqlÓï¾äÖĞ»ñÈ¡rowcountµÄÖµ.
+                } else {//ä»sqlè¯­å¥ä¸­è·å–rowcountçš„å€¼.
                     Comparable<?> tmp = rowNum.getValue();
                     if (tmp instanceof Number) {
                         int offset = ((Integer) tmp).intValue();
-                        if (rowNum.getOperator().equals(SQLBinaryOperator.GreaterThanOrEqual.name)) {//Èç¹ûÊÇ´óÓÚµÈÓÚ£¬¾ÍĞèÒª¼õÒ»
+                        if (rowNum.getOperator().equals(SQLBinaryOperator.GreaterThanOrEqual.name)) {//å¦‚æœæ˜¯å¤§äºç­‰äºï¼Œå°±éœ€è¦å‡ä¸€
                             offset = offset - 1;
                         }
                         if (offset > result) {

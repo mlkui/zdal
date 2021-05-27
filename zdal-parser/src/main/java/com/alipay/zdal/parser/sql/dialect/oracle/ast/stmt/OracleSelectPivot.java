@@ -13,8 +13,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSelectPivot.java, v 0.1 2012-11-17 œ¬ŒÁ3:49:46 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSelectPivot.java, v 0.1 2012-11-17 ‰∏ãÂçà3:49:46 Exp $
  */
 public class OracleSelectPivot extends OracleSelectPivotBase {
 

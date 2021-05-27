@@ -9,7 +9,7 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: SQLStatementImpl.java, v 0.1 2012-11-17 œ¬ŒÁ3:14:16 xiaoqing.zhouxq Exp $
+ * @version $Id: SQLStatementImpl.java, v 0.1 2012-11-17 ‰∏ãÂçà3:14:16 xiaoqing.zhouxq Exp $
  */
 public abstract class SQLStatementImpl extends SQLObjectImpl implements SQLStatement {
 

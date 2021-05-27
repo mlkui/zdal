@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleAlterTableMoveTablespace.java, v 0.1 2012-11-17 ÏÂÎç3:45:27 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleAlterTableMoveTablespace.java, v 0.1 2012-11-17 ä¸‹åˆ3:45:27 Exp $
  */
 public class OracleAlterTableMoveTablespace extends OracleAlterTableItem {
 

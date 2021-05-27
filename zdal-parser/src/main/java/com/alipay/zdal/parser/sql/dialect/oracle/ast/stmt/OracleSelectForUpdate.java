@@ -14,8 +14,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSelectForUpdate.java, v 0.1 2012-11-17 œ¬ŒÁ3:49:29 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSelectForUpdate.java, v 0.1 2012-11-17 ‰∏ãÂçà3:49:29 Exp $
  */
 public class OracleSelectForUpdate extends OracleSQLObjectImpl {
 

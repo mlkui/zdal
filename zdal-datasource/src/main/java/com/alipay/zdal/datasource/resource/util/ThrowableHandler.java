@@ -14,8 +14,8 @@ import org.apache.log4j.Logger;
  * A static singleton that handles processing throwables that otherwise would
  * be ignored or dumped to System.err.
  *
- * @author ²®ÑÀ
- * @version $Id: ThrowableHandler.java, v 0.1 2014-1-6 ÏÂÎç05:40:25 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: ThrowableHandler.java, v 0.1 2014-1-6 ä¸‹åˆ05:40:25 Exp $
  */
 public final class ThrowableHandler {
     private static Logger log = Logger.getLogger(ThrowableHandler.class);

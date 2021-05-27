@@ -10,8 +10,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleStorageClause.java, v 0.1 2012-11-17 œ¬ŒÁ3:42:21 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleStorageClause.java, v 0.1 2012-11-17 ‰∏ãÂçà3:42:21 Exp $
  */
 public class OracleStorageClause extends OracleSQLObjectImpl {
 

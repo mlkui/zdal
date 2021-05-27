@@ -23,8 +23,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * are invoked before the cached connection manager closes any
  * closed connections.
  *
- * @author ²®ÑÀ
- * @version $Id: TransactionSynchronizer.java, v 0.1 2014-1-6 ÏÂÎç05:36:20 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TransactionSynchronizer.java, v 0.1 2014-1-6 ä¸‹åˆ05:36:20 Exp $
  */
 public class TransactionSynchronizer implements Synchronization {
     /** The logger */

@@ -7,26 +7,26 @@ package com.alipay.zdal.datasource.util;
 /**
  * 
  * @author sicong.shou
- * @version $Id: PoolCondition.java, v 0.1 2012-11-19 ÏÂÎç08:19:23 sicong.shou Exp $
+ * @version $Id: PoolCondition.java, v 0.1 2012-11-19 ä¸‹åˆ08:19:23 sicong.shou Exp $
  */
 public class PoolCondition {
-    /** Êı¾İÔ´Ãû×Ö */
+    /** æ•°æ®æºåå­— */
     String dsName                   = "";
-    /**×îĞ¡Á¬½ÓÊı  */
+    /**æœ€å°è¿æ¥æ•°  */
     int    minSize                  = 0;
-    /** ×î´óÁ¬½ÓÊı */
+    /** æœ€å¤§è¿æ¥æ•° */
     int    maxSize                  = 0;
-    /** ¿ÉÓÃµÄÁ¬½ÓÊı */
+    /** å¯ç”¨çš„è¿æ¥æ•° */
     long   availableConnectionCount = 0;
-    /**  µ±Ç°Êı¾İÔ´¹ÜÀíµÄÁ¬½ÓÊı*/
+    /**  å½“å‰æ•°æ®æºç®¡ç†çš„è¿æ¥æ•°*/
     int    connectionCount          = 0;
-    /**  µ±Ç°ÔÚÊ¹ÓÃÖĞµÄÁ¬½ÓÊı*/
+    /**  å½“å‰åœ¨ä½¿ç”¨ä¸­çš„è¿æ¥æ•°*/
     long   inUseConnectionCount     = 0;
-    /**  ±»Ê¹ÓÃ¹ıµÄ×î´óµÄÁ¬½ÓÊı*/
+    /**  è¢«ä½¿ç”¨è¿‡çš„æœ€å¤§çš„è¿æ¥æ•°*/
     long   maxConnectionsInUseCount = 0;
-    /** ´´½¨µÄÁ¬½ÓÊı */
+    /** åˆ›å»ºçš„è¿æ¥æ•° */
     int    connectionCreatedCount   = 0;
-    /** Ïú»ÙµÄÁ¬½ÓÊı */
+    /** é”€æ¯çš„è¿æ¥æ•° */
     int    connectionDestroyedCount = 0;
 
     public PoolCondition(String dsName, int min, int max, long avl, int con, long inUse,
@@ -44,10 +44,10 @@ public class PoolCondition {
 
     @Override
     public String toString() {
-        //        return dsName + "\t×îĞ¡Á¬½ÓÊı:" + minSize + "\t×î´óÁ¬½ÓÊı:" + maxSize + "\t¿ÉÓÃµÄÁ¬½ÓÊı:"
-        //               + availableConnectionCount + "\tµ±Ç°Êı¾İÔ´¹ÜÀíµÄÁ¬½ÓÊı:" + connectionCount + "\tµ±Ç°ÔÚÊ¹ÓÃÖĞµÄÁ¬½ÓÊı:"
-        //               + inUseConnectionCount + "\t±»Ê¹ÓÃ¹ıµÄ×î´óµÄÁ¬½ÓÊı:" + maxConnectionsInUseCount + "\t×Ü¹²´´½¨µÄÁ¬½ÓÊı:"
-        //               + connectionCreatedCount + "\t×Ü¹²Ïú»ÙµÄÁ¬½ÓÊı:" + connectionDestroyedCount;
+        //        return dsName + "\tæœ€å°è¿æ¥æ•°:" + minSize + "\tæœ€å¤§è¿æ¥æ•°:" + maxSize + "\tå¯ç”¨çš„è¿æ¥æ•°:"
+        //               + availableConnectionCount + "\tå½“å‰æ•°æ®æºç®¡ç†çš„è¿æ¥æ•°:" + connectionCount + "\tå½“å‰åœ¨ä½¿ç”¨ä¸­çš„è¿æ¥æ•°:"
+        //               + inUseConnectionCount + "\tè¢«ä½¿ç”¨è¿‡çš„æœ€å¤§çš„è¿æ¥æ•°:" + maxConnectionsInUseCount + "\tæ€»å…±åˆ›å»ºçš„è¿æ¥æ•°:"
+        //               + connectionCreatedCount + "\tæ€»å…±é”€æ¯çš„è¿æ¥æ•°:" + connectionDestroyedCount;
         return dsName + "[min:" + minSize + "-max:" + maxSize + "-canUse:"
                + availableConnectionCount + "-managed:" + connectionCount + "-using:"
                + inUseConnectionCount + "-maxUsed:" + maxConnectionsInUseCount + "-createCount:"

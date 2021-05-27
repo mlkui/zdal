@@ -15,8 +15,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleDeleteStatement.java, v 0.1 2012-11-17 ÏÂÎç3:47:05 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleDeleteStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:47:05 Exp $
  */
 public class OracleDeleteStatement extends SQLDeleteStatement {
 

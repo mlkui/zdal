@@ -11,8 +11,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlUnionQuery.java, v 0.1 2012-11-17 œ¬ŒÁ3:39:22 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlUnionQuery.java, v 0.1 2012-11-17 ‰∏ãÂçà3:39:22 Exp $
  */
 public class MySqlUnionQuery extends SQLUnionQuery implements MySqlStatement {
 

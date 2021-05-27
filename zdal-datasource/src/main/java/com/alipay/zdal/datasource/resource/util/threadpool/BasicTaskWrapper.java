@@ -9,8 +9,8 @@ import org.apache.log4j.Logger;
 /**
  * A wrapper for the task.
  *
- * @author ²®ÑÀ
- * @version $Id: BasicTaskWrapper.java, v 0.1 2014-1-6 ÏÂÎç05:43:26 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: BasicTaskWrapper.java, v 0.1 2014-1-6 ä¸‹åˆ05:43:26 Exp $
  */
 public class BasicTaskWrapper implements TaskWrapper {
     // Constants -----------------------------------------------------

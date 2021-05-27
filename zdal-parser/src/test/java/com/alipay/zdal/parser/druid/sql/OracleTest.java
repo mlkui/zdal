@@ -10,7 +10,7 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleOutputVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: OracleTest.java, v 0.1 2012-5-17 …œŒÁ10:24:07 xiaoqing.zhouxq Exp $
+ * @version $Id: OracleTest.java, v 0.1 2012-5-17 ‰∏äÂçà10:24:07 xiaoqing.zhouxq Exp $
  */
 public abstract class OracleTest extends TestCase {
     protected String output(List<SQLStatement> stmtList) {

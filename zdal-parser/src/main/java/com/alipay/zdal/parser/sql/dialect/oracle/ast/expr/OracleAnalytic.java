@@ -15,8 +15,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: OracleAnalytic.java, v 0.1 2012-11-17 ÏÂÎç3:42:54 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: OracleAnalytic.java, v 0.1 2012-11-17 ä¸‹åˆ3:42:54 Exp $
  */
 public class OracleAnalytic extends SQLObjectImpl implements OracleExpr {
 

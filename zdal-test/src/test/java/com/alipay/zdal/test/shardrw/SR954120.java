@@ -20,7 +20,7 @@ import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("shard+rw±íºó×º")
+@Feature("shard+rwè¡¨åç¼€")
 public class SR954120 {
 	public TestAssertion Assert = new TestAssertion();;
 	private SqlMapClient sqlMap;
@@ -41,11 +41,11 @@ public class SR954120 {
 	}
 	
 	
-	@Subject("shard+rw:±íºó×ºthroughalldb,²åÈëµ½group_0µÄĞ´¿âÀïÃæµÄ00±í")
+	@Subject("shard+rw:è¡¨åç¼€throughalldb,æ’å…¥åˆ°group_0çš„å†™åº“é‡Œé¢çš„00è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954121(){
-		Step("shard+rw:±íºó×ºthroughalldb,²åÈëµ½group_0µÄĞ´¿âÀïÃæµÄ00±í");
+		Step("shard+rw:è¡¨åç¼€throughalldb,æ’å…¥åˆ°group_0çš„å†™åº“é‡Œé¢çš„00è¡¨");
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("the_key", "1234");
 		params.put("the_namespace", "5678");
@@ -62,11 +62,11 @@ public class SR954120 {
 		deleteData(dburl1);
 	}
 	
-	@Subject("shard+rw:±íºó×ºthroughalldb,²åÈëµ½group_1µÄĞ´¿âÀïÃæ03±í")
+	@Subject("shard+rw:è¡¨åç¼€throughalldb,æ’å…¥åˆ°group_1çš„å†™åº“é‡Œé¢03è¡¨")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC954122(){
-		Step("shard+rw:±íºó×ºthroughalldb,²åÈëµ½group_1µÄĞ´¿âÀïÃæ03±í");
+		Step("shard+rw:è¡¨åç¼€throughalldb,æ’å…¥åˆ°group_1çš„å†™åº“é‡Œé¢03è¡¨");
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("the_key", "1234");
 		params.put("the_namespace", "5678");
@@ -87,7 +87,7 @@ public class SR954120 {
 	
 
 	/**
-	 * Êı¾İ¼ì²é
+	 * æ•°æ®æ£€æŸ¥
 	 * @param url
 	 */
 	private void chackData(String url){
@@ -101,7 +101,7 @@ public class SR954120 {
 		}					 		
 		try {
 			rs.next();
-			Assert.areEqual(1, rs.getInt(1), "Êı¾İ¼ì²é");
+			Assert.areEqual(1, rs.getInt(1), "æ•°æ®æ£€æŸ¥");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -109,7 +109,7 @@ public class SR954120 {
 	}
 	
 	/**
-	 * É¾³ıÊı¾İ
+	 * åˆ é™¤æ•°æ®
 	 * @param url
 	 */
 	private void deleteData(String url){

@@ -13,7 +13,7 @@ import com.alipay.zdal.parser.visitor.ZdalMySqlSchemaStatVisitor;
 /**
  * 
  * @author xiaoqing.zhouxq
- * @version $Id: MySqlSchemaStatVisitorTest_Subquery.java, v 0.1 2012-5-17 …œŒÁ10:11:59 xiaoqing.zhouxq Exp $
+ * @version $Id: MySqlSchemaStatVisitorTest_Subquery.java, v 0.1 2012-5-17 ‰∏äÂçà10:11:59 xiaoqing.zhouxq Exp $
  */
 public class MySqlSchemaStatVisitorTest_Subquery extends TestCase {
 

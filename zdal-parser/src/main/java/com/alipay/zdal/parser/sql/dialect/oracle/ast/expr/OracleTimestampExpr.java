@@ -11,8 +11,8 @@ import com.alipay.zdal.parser.sql.visitor.SQLASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleTimestampExpr.java, v 0.1 2012-11-17 œ¬ŒÁ3:44:40 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleTimestampExpr.java, v 0.1 2012-11-17 ‰∏ãÂçà3:44:40 Exp $
  */
 public class OracleTimestampExpr extends SQLExprImpl implements SQLLiteralExpr, OracleExpr {
 

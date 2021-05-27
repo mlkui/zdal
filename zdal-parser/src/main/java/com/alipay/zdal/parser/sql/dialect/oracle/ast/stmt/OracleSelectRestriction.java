@@ -9,8 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleSelectRestriction.java, v 0.1 2012-11-17 œ¬ŒÁ3:50:04 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleSelectRestriction.java, v 0.1 2012-11-17 ‰∏ãÂçà3:50:04 Exp $
  */
 public abstract class OracleSelectRestriction extends OracleSQLObjectImpl {
 

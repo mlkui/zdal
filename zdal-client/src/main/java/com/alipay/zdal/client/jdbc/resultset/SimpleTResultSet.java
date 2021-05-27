@@ -12,8 +12,8 @@ import com.alipay.zdal.client.jdbc.ZdalStatement;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: SimpleTResultSet.java, v 0.1 2014-1-6 ÏÂÎç05:15:00 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: SimpleTResultSet.java, v 0.1 2014-1-6 ä¸‹åˆ05:15:00 Exp $
  */
 public class SimpleTResultSet extends BaseTResultSet {
 

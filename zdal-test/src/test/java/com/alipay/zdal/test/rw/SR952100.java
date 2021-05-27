@@ -23,7 +23,7 @@ import com.alipay.zdal.test.common.ZdalTestBase;
 import com.alipay.zdal.test.common.ZdalTestCommon;
 
 @RunWith(ATSJUnitRunner.class)
-@Feature("zdalÕë¶ÔoracleÊı¾İÔ´µÄÊÂÎñ²Ù×÷")
+@Feature("zdalé’ˆå¯¹oracleæ•°æ®æºçš„äº‹åŠ¡æ“ä½œ")
 public class SR952100 extends ZdalTestBase {
 	private Connection connection = null;
 	private PreparedStatement ps = null;
@@ -56,18 +56,18 @@ public class SR952100 extends ZdalTestBase {
 		}
 	}
 
-	@Subject("µ±ÊÂÎñÖĞ¶àÌõsqlÓï¾ä£¬ÓĞÊ§°ÜÇé¿ö")
+	@Subject("å½“äº‹åŠ¡ä¸­å¤šæ¡sqlè¯­å¥ï¼Œæœ‰å¤±è´¥æƒ…å†µ")
 	@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952111() {
-		Step("µ±ÊÂÎñÖĞ¶àÌõsqlÓï¾ä£¬ÓĞÊ§°ÜÇé¿ö");
+		Step("å½“äº‹åŠ¡ä¸­å¤šæ¡sqlè¯­å¥ï¼Œæœ‰å¤±è´¥æƒ…å†µ");
 		String sqlStr = "insert into ACM_TARGET_RECORD (id,test_varchar,test_date,int_field_1,int_field_2,var_field_1,var_field_2) values (99,'DB_G',to_date('2012-06-15 20:46:34','YYYY-MM-DD-HH24:MI:SS'),1,1,'a','b')";
 		try {
 			connection.setAutoCommit(false);
 			ps = connection.prepareStatement(sqlStr);
 			ps.execute();
 			Thread.sleep(50);
-			Step(" ²åÈë³åÍ»µÄÊı¾İ");
+			Step(" æ’å…¥å†²çªçš„æ•°æ®");
 			ps.execute();
 			connection.commit();
 		} catch (SQLException e) {
@@ -83,7 +83,7 @@ public class SR952100 extends ZdalTestBase {
 				e.printStackTrace();
 			}
 		}
-		Step("Êı¾İ½øĞĞÁË»Ø¹ö£¬¼ì²éÊı¾İ");
+		Step("æ•°æ®è¿›è¡Œäº†å›æ»šï¼Œæ£€æŸ¥æ•°æ®");
 		String sql = "select count(*) from ACM_TARGET_RECORD where id=99";
 		String dburl = ConstantsTest.oralcePrefUrl;
 		String dbpsd = ConstantsTest.oraclePrePsd;
@@ -91,7 +91,7 @@ public class SR952100 extends ZdalTestBase {
 		st = ZdalTestCommon.dataCheckFromJDBCOracle(sql, dburl, dbpsd, dbuser);
 		try {
 			st.next();
-			Assert.areEqual(0, st.getInt(1), "ÑéÖ¤ÎŞÊı¾İ");
+			Assert.areEqual(0, st.getInt(1), "éªŒè¯æ— æ•°æ®");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

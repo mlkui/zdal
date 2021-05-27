@@ -8,8 +8,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: MySqlShowBinaryLogsStatement.java, v 0.1 2012-11-17 œ¬ŒÁ3:34:53 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: MySqlShowBinaryLogsStatement.java, v 0.1 2012-11-17 ‰∏ãÂçà3:34:53 Exp $
  */
 public class MySqlShowBinaryLogsStatement extends MySqlStatementImpl {
 

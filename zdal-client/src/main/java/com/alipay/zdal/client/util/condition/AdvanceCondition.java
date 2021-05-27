@@ -11,8 +11,8 @@ import com.alipay.zdal.common.sqljep.function.ComparativeOR;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: AdvanceCondition.java, v 0.1 2014-1-6 ÏÂÎç05:15:57 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: AdvanceCondition.java, v 0.1 2014-1-6 ä¸‹åˆ05:15:57 Exp $
  */
 public class AdvanceCondition extends SimpleCondition {
     public static final int GT  = Comparative.GreaterThan;

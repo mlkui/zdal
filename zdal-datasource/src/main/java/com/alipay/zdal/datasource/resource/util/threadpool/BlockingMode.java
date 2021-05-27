@@ -9,8 +9,8 @@ import java.io.Serializable;
 
 /** A type-safe enum for the BasicThreadPool blocking mode.
  * 
- * @author ²®ÑÀ
- * @version $Id: BlockingMode.java, v 0.1 2014-1-6 ÏÂÎç05:44:02 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: BlockingMode.java, v 0.1 2014-1-6 ä¸‹åˆ05:44:02 Exp $
  */
 public class BlockingMode implements Serializable {
     /** @since 1.0 */

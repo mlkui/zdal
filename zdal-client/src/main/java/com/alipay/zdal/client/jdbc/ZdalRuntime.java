@@ -8,11 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * ±£³ÖÎªFinalÀà£¬Ö»¿ÉÖØ½¨£¬²»¿ÉĞŞ¸Ä
+ * ä¿æŒä¸ºFinalç±»ï¼Œåªå¯é‡å»ºï¼Œä¸å¯ä¿®æ”¹
  * 
- * µÚÒ»½×¶Î£ºÖ»Ö§³ÖÊı¾İÔ´µÄ¶¯Ì¬£¬²»Ö§³Ö¹æÔòºÍdbindexµÄ¶¯Ì¬
+ * ç¬¬ä¸€é˜¶æ®µï¼šåªæ”¯æŒæ•°æ®æºçš„åŠ¨æ€ï¼Œä¸æ”¯æŒè§„åˆ™å’Œdbindexçš„åŠ¨æ€
  * @author zhaofeng.wang
- * @version $Id: ZdalRuntime.java,v 0.1 2012-10-26 ÉÏÎç11:21:29 zhaofeng.wang Exp $
+ * @version $Id: ZdalRuntime.java,v 0.1 2012-10-26 ä¸Šåˆ11:21:29 zhaofeng.wang Exp $
  */
 public class ZdalRuntime {
     public final Map<String, DBSelector> dbSelectors;
@@ -22,7 +22,7 @@ public class ZdalRuntime {
     }
 
     /**
-     * ÒÔÔ­ÓĞµÄdbIndexÈ¥ĞÂµÄÍÆËÍÏÂÀ´µÄmapÖĞ²éÕÒ£¬ÈôÕÒµ½ÔòÓÃĞÂµÄ 
+     * ä»¥åŸæœ‰çš„dbIndexå»æ–°çš„æ¨é€ä¸‹æ¥çš„mapä¸­æŸ¥æ‰¾ï¼Œè‹¥æ‰¾åˆ°åˆ™ç”¨æ–°çš„ 
      */
     public static ZdalRuntime resetDbSelectors(ZdalRuntime oldrt,
                                                Map<String, DBSelector> newDbSelectors) {

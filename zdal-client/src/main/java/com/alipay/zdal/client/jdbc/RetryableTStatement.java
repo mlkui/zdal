@@ -20,8 +20,8 @@ import com.alipay.zdal.common.OperationDBType;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: RetryableTStatement.java, v 0.1 2014-1-6 ÏÂÎç01:49:21 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: RetryableTStatement.java, v 0.1 2014-1-6 ä¸‹åˆ01:49:21 Exp $
  */
 public class RetryableTStatement extends ZdalStatement {
     private static final Logger logger                  = Logger
@@ -34,15 +34,15 @@ public class RetryableTStatement extends ZdalStatement {
 
     //	@Override
     //	/*
-    //	 * TEST required :²âÊÔ1´ÎÖØÊÔ£¬Á½´ÎÖØÊÔ£¬ÓÈÆä×ßµ½43ĞĞºóµİ¹éµ÷ÓÃÖĞÅ×³öÒì³£µÄÇé¿ö
+    //	 * TEST required :æµ‹è¯•1æ¬¡é‡è¯•ï¼Œä¸¤æ¬¡é‡è¯•ï¼Œå°¤å…¶èµ°åˆ°43è¡Œåé€’å½’è°ƒç”¨ä¸­æŠ›å‡ºå¼‚å¸¸çš„æƒ…å†µ
     //	 * 
-    //	 * ·½·¨»á±£Ö¤dbIndex->Connection+datasource+dbselector mapÖĞµÄDatasource±Ø¶¨ÓĞÖµ
+    //	 * æ–¹æ³•ä¼šä¿è¯dbIndex->Connection+datasource+dbselector mapä¸­çš„Datasourceå¿…å®šæœ‰å€¼
     //	 */
     //	protected void createConnection(DBSelector dbselector, String dbIndex,
     //			RetringContext retringContext) throws SQLException {
     //
     //		try {
-    //			// ½¨Á¢Á¬½Ó²¢·Åµ½TConnection µÄmap dbSelectorID->connection+datasource+dbSelectorÖĞ
+    //			// å»ºç«‹è¿æ¥å¹¶æ”¾åˆ°TConnection çš„map dbSelectorID->connection+datasource+dbSelectorä¸­
     //			super.createConnection(dbselector, dbIndex, retringContext);
     //
     //		} catch (RetrySQLException e) {
@@ -54,9 +54,9 @@ public class RetryableTStatement extends ZdalStatement {
     //			dbselector = removeCurrentDataSourceFromDbSelector( dbselector, e.getCurrentDataSource(),
     //					retringContext);
     //			
-    //			// ´ÓÖØÓÃÁ¬½Ó³ØÖĞÒÆ×ßÓĞÎÊÌâµÄÁ´½Ó,Èç¹û²»ÒÆ³ıÔòÑ­»·Ç¶Ì×Ê±»áÒòÎªÄÜ¹»È¡µ½ConnectionAndDataSource¶ÔÏó¶ø²»½«ÓĞÎÊÌâµÄÁ´½ÓÌŞ³ıµô¡£
+    //			// ä»é‡ç”¨è¿æ¥æ± ä¸­ç§»èµ°æœ‰é—®é¢˜çš„é“¾æ¥,å¦‚æœä¸ç§»é™¤åˆ™å¾ªç¯åµŒå¥—æ—¶ä¼šå› ä¸ºèƒ½å¤Ÿå–åˆ°ConnectionAndDataSourceå¯¹è±¡è€Œä¸å°†æœ‰é—®é¢˜çš„é“¾æ¥å‰”é™¤æ‰ã€‚
     //			getConnectionProxy().removeConnectionAndDatasourceByID(dbIndex);
-    //			// Èç¹ûremoveÊ§°Ü»òÎªĞ´¿âÇëÇó£¬ÒÑ¾­Ö±½ÓÅ×³öÁË Òò´ËÕâÀï¶¼ÊÇ³É¹¦µÄ
+    //			// å¦‚æœremoveå¤±è´¥æˆ–ä¸ºå†™åº“è¯·æ±‚ï¼Œå·²ç»ç›´æ¥æŠ›å‡ºäº† å› æ­¤è¿™é‡Œéƒ½æ˜¯æˆåŠŸçš„
     //			createConnection(dbselector, dbIndex, retringContext);
     //		}
     //	}
@@ -74,14 +74,14 @@ public class RetryableTStatement extends ZdalStatement {
         } catch (SQLException e) {
             //retringContext.addSQLException(e);
             //validRetryable(retringContext, e);
-            //added by fanzeng, ĞèÒª½øÒ»²½ÑéÖ¤´Ë´¦ÊÇ·ñĞèÒªÖØÊÔ
+            //added by fanzeng, éœ€è¦è¿›ä¸€æ­¥éªŒè¯æ­¤å¤„æ˜¯å¦éœ€è¦é‡è¯•
             validRetryable(dbIndex, e, OperationDBType.readFromDb);
             if (failedDataSources != null) {
                 ConnectionAndDatasource connectionAndDatasource = getConnectionProxy()
                     .getConnectionAndDatasourceByDBSelectorID(dbIndex);
                 failedDataSources.put(connectionAndDatasource.parentDataSource, e);
             } else {
-                //µ±ÔÚÊÂÎñÖĞÊ±²»ĞèÒªÖØÊÔ£¬failedDataSourcesÎªnullÖµ£¬Ö±½Ó½«Òì³£Å×³ö
+                //å½“åœ¨äº‹åŠ¡ä¸­æ—¶ä¸éœ€è¦é‡è¯•ï¼ŒfailedDataSourcesä¸ºnullå€¼ï¼Œç›´æ¥å°†å¼‚å¸¸æŠ›å‡º
                 //added by fanzeng.
 
                 throw e;
@@ -109,7 +109,7 @@ public class RetryableTStatement extends ZdalStatement {
                     .getConnectionAndDatasourceByDBSelectorID(dbSelectorId);
                 failedDataSources.put(connectionAndDatasource.parentDataSource, e);
             } else {
-                //µ±ÔÚÊÂÎñÖĞÊ±²»ĞèÒªÖØÊÔ£¬failedDataSourcesÎªnullÖµ£¬Ö±½Ó½«Òì³£Å×³ö
+                //å½“åœ¨äº‹åŠ¡ä¸­æ—¶ä¸éœ€è¦é‡è¯•ï¼ŒfailedDataSourcesä¸ºnullå€¼ï¼Œç›´æ¥å°†å¼‚å¸¸æŠ›å‡º
                 //added by fanzeng.
                 throw e;
             }
@@ -122,13 +122,13 @@ public class RetryableTStatement extends ZdalStatement {
     }
 
     /**
-     * 1.ÏÈ´Óparent TConnection¶ÔÏóÖĞ»ñÈ¡connectionsMap.<br>
-     * 2.¸ù¾İDBSelectorIdÕÒµ½¶ÔÓ¦µÄconnectionĞÅÏ¢¡£<br>
-     * 3.ÒÆ³ıconnectionsMapÖĞÓĞÎÊÌâµÄDatasource.<br>
-     * 4.ÒÆ³ıdbSelectorÖĞ·¢ÉúÎÊÌâµÄdatasource .(¸´ÖÆdbSelectorÒ»´Î£¬È»ºóÒÆ³ı).<br>
-     * 5.¸ù¾İdbSelectorIdºÍĞÂµÄdbSelector.´ÓĞÂ°´ÕÕÈ¨ÖØÑ¡ÔñÒ»¸ödatasource.<br>
-     * 6.»ñÈ¡Á¬½Ó£¬·ÅÈëconnectionsMap.<br>
-     * 7.·µ»ØÁ¬½Ó<br>
+     * 1.å…ˆä»parent TConnectionå¯¹è±¡ä¸­è·å–connectionsMap.<br>
+     * 2.æ ¹æ®DBSelectorIdæ‰¾åˆ°å¯¹åº”çš„connectionä¿¡æ¯ã€‚<br>
+     * 3.ç§»é™¤connectionsMapä¸­æœ‰é—®é¢˜çš„Datasource.<br>
+     * 4.ç§»é™¤dbSelectorä¸­å‘ç”Ÿé—®é¢˜çš„datasource .(å¤åˆ¶dbSelectorä¸€æ¬¡ï¼Œç„¶åç§»é™¤).<br>
+     * 5.æ ¹æ®dbSelectorIdå’Œæ–°çš„dbSelector.ä»æ–°æŒ‰ç…§æƒé‡é€‰æ‹©ä¸€ä¸ªdatasource.<br>
+     * 6.è·å–è¿æ¥ï¼Œæ”¾å…¥connectionsMap.<br>
+     * 7.è¿”å›è¿æ¥<br>
      * 
      * @param dbIndex
      * @param retringContext
@@ -141,25 +141,25 @@ public class RetryableTStatement extends ZdalStatement {
                                                                 Map<DataSource, SQLException> failedDataSources)
                                                                                                                 throws SQLException {
         Connection connection;
-        //´ÓTConnectionµÄconnectionsMap»ñÈ¡ËùÓĞconnection
+        //ä»TConnectionçš„connectionsMapè·å–æ‰€æœ‰connection
 
         ConnectionAndDatasource connectionAndDatasource = getConnectionProxy()
             .getConnectionAndDatasourceByDBSelectorID(dbIndex);
         DBSelector dbSelector = connectionAndDatasource.dbSelector;
         //DataSource ds = connectionAndDatasource.parentDataSource;
-        //´ÓdbSelectorÖĞÒÆ³ıµ±Ç°ÓĞÎÊÌâµÄdatasource
+        //ä»dbSelectorä¸­ç§»é™¤å½“å‰æœ‰é—®é¢˜çš„datasource
         //dbSelector = removeCurrentDataSourceFromDbSelector(dbSelector, ds,
         //		retringContext);
-        //´Ó¸¸ÀàÖĞÒÆ³ı
+        //ä»çˆ¶ç±»ä¸­ç§»é™¤
         getConnectionProxy().removeConnectionAndDatasourceByID(dbIndex);
-        // ÖØĞÂ½¨Á¢Á¬½Ó, exclueDataSource = connectionAndDatasource.parentDataSource
+        // é‡æ–°å»ºç«‹è¿æ¥, exclueDataSource = connectionAndDatasource.parentDataSource
         createConnection(dbSelector, dbIndex, failedDataSources);
         connection = getConnectionProxy().getConnectionAndDatasourceByDBSelectorID(dbIndex).connection;
         return connection;
     }
 
     /**
-     * dbselector²»Ö§³ÖÖØÊÔÖ±½ÓÅ×Òì³£
+     * dbselectorä¸æ”¯æŒé‡è¯•ç›´æ¥æŠ›å¼‚å¸¸
      * @param dbSelectorId
      * @param currentException
      * @throws SQLException
@@ -170,17 +170,17 @@ public class RetryableTStatement extends ZdalStatement {
             .getConnectionAndDatasourceByDBSelectorID(dbSelectorId);
 
         if (!connectionAndDatasource.dbSelector.isSupportRetry(type)) {
-            logger.warn("²»ÔÊĞí½øĞĞÖØÊÔ£¬dbSelectorId=" + dbSelectorId + ",type=" + type, currentException);
+            logger.warn("ä¸å…è®¸è¿›è¡Œé‡è¯•ï¼ŒdbSelectorId=" + dbSelectorId + ",type=" + type, currentException);
             throw currentException;
         }
     }
 
     /**
-     * ´ÓºòÑ¡selectorÖĞÒÆ³ıµ±Ç°datasource.
+     * ä»å€™é€‰selectorä¸­ç§»é™¤å½“å‰datasource.
      * 
-     * ÎªÁË±£Ö¤²»ĞŞ¸ÄdbSelectorÀïÃæselectorÀïÃæÔ­ÓĞµÄÊı¾İ×´Ì¬¡£Ã¿´ÎÒÆ³ıÊ±¶¼»áÏÈ¸´ÖÆÒ»¸ö ¶ÀÁ¢µÄdbSelector³öÀ´½øĞĞ´¦Àí¡£
+     * ä¸ºäº†ä¿è¯ä¸ä¿®æ”¹dbSelectoré‡Œé¢selectoré‡Œé¢åŸæœ‰çš„æ•°æ®çŠ¶æ€ã€‚æ¯æ¬¡ç§»é™¤æ—¶éƒ½ä¼šå…ˆå¤åˆ¶ä¸€ä¸ª ç‹¬ç«‹çš„dbSelectorå‡ºæ¥è¿›è¡Œå¤„ç†ã€‚
      * 
-     * Èç¹ûÒÑ¾­Ã»ÓĞ±¸Ñ¡¿â»òÎªÒ»¸öĞ´¿â ÔòÖ±½ÓÅ×³öÒì³£
+     * å¦‚æœå·²ç»æ²¡æœ‰å¤‡é€‰åº“æˆ–ä¸ºä¸€ä¸ªå†™åº“ åˆ™ç›´æ¥æŠ›å‡ºå¼‚å¸¸
      * 
      * @param exceptions
      * @return
@@ -192,7 +192,7 @@ public class RetryableTStatement extends ZdalStatement {
     		throws SQLException {
     	dbSelector = dbSelector.copyAndRemove(currentDataSource);
     	if (dbSelector == null) {
-    		// ±íÊ¾Ã»ÓĞ¶àÓàµÄ¿â¿É¹©Ñ¡Ôñ
+    		// è¡¨ç¤ºæ²¡æœ‰å¤šä½™çš„åº“å¯ä¾›é€‰æ‹©
     		ExceptionUtils.throwSQLException(retringContext.getSqlExceptions(),
     				"getConnection", Collections.emptyList());
     	} else {
@@ -202,7 +202,7 @@ public class RetryableTStatement extends ZdalStatement {
     }*/
 
     //	/**
-    //	 * ÑéÖ¤ÊÇ·ñĞèÒªÖØÊÔ
+    //	 * éªŒè¯æ˜¯å¦éœ€è¦é‡è¯•
     //	 * 
     //	 * @param retringContext
     //	 * @param currentException
@@ -219,11 +219,11 @@ public class RetryableTStatement extends ZdalStatement {
     //					"getConnection", Collections.emptyList());
     //		}
     //		if (!retringContext.isNeedRetry()) {
-    //			// Èç¹ûÊÇĞ´ÇëÇó,ÄÇÃ´²»ĞèÒªÖØÊÔ£¬Ö±½ÓÅ×³ö
+    //			// å¦‚æœæ˜¯å†™è¯·æ±‚,é‚£ä¹ˆä¸éœ€è¦é‡è¯•ï¼Œç›´æ¥æŠ›å‡º
     //			ExceptionUtils.throwSQLException(retringContext.getSqlExceptions(),
     //					"getConnection", Collections.emptyList());
     //		}
-    //		// Èç¹ûÖØÊÔ´ÎÊı´óÓÚÏŞÖÆ£¬Ö±½ÓÅ×´í³öÈ¥
+    //		// å¦‚æœé‡è¯•æ¬¡æ•°å¤§äºé™åˆ¶ï¼Œç›´æ¥æŠ›é”™å‡ºå»
     //		if (reachMaxRetryableTimes(retringContext)) {
     //			ExceptionUtils.throwSQLException(retringContext.getSqlExceptions(),
     //					"getConnection", Collections.emptyList());

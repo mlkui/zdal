@@ -103,8 +103,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * Entry point: ConnectionCacheListener.disconnect(Collection conns).
  * written.
  *
- * @author ²®ÑÀ
- * @version $Id: TxConnectionManager.java, v 0.1 2014-1-6 ÏÂÎç05:36:35 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: TxConnectionManager.java, v 0.1 2014-1-6 ä¸‹åˆ05:36:35 Exp $
  */
 public class TxConnectionManager extends BaseConnectionManager2 {
     private static final Logger    log                 = Logger

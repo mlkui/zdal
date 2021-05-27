@@ -15,9 +15,9 @@ import com.alipay.zdal.rule.ruleengine.entities.abstractentities.RuleChain;
 import com.alipay.zdal.rule.ruleengine.rule.ListAbstractResultRule;
 
 /**
- * Ìí¼Ó¹æÔò£¬½øĞĞ·Ö×é¼ÆËã
+ * æ·»åŠ è§„åˆ™ï¼Œè¿›è¡Œåˆ†ç»„è®¡ç®—
  * @author zhaofeng.wang
- * @version $Id: TableShardingRuleImpl.java,v 0.1 2012-5-10 ÉÏÎç11:18:44 zhaofeng.wang Exp $
+ * @version $Id: TableShardingRuleImpl.java,v 0.1 2012-5-10 ä¸Šåˆ11:18:44 zhaofeng.wang Exp $
  */
 public class TableShardingRuleImpl {
 
@@ -27,7 +27,7 @@ public class TableShardingRuleImpl {
         Map<String, String> retMap = new HashMap<String, String>(ShardingParameters.size());
         for (String str : partnationSet) {
             if (str != null) {
-                //ÒòÎªgroovyÊÇ´óĞ¡Ğ´Ãô¸ĞµÄ£¬Òò´ËÕâÀïÖ»ÊÇÔÚÆ¥ÅäµÄÊ±ºò×ªÎªĞ¡Ğ´£¬·ÅÈëmapÖĞµÄÊ±ºòÈÔÈ»Ê¹ÓÃÔ­À´µÄ´óĞ¡Ğ´
+                //å› ä¸ºgroovyæ˜¯å¤§å°å†™æ•æ„Ÿçš„ï¼Œå› æ­¤è¿™é‡Œåªæ˜¯åœ¨åŒ¹é…çš„æ—¶å€™è½¬ä¸ºå°å†™ï¼Œæ”¾å…¥mapä¸­çš„æ—¶å€™ä»ç„¶ä½¿ç”¨åŸæ¥çš„å¤§å°å†™
                 String comp = ShardingParameters.get(str.toLowerCase());
                 if (comp != null) {
                     retMap.put(str, comp);
@@ -41,7 +41,7 @@ public class TableShardingRuleImpl {
         if (parameters == null) {
             throw new IllegalArgumentException("The parameters can't be null!");
         }
-        //¶ÔÃ¿¸ökey½øĞĞĞ¡Ğ´´¦Àí
+        //å¯¹æ¯ä¸ªkeyè¿›è¡Œå°å†™å¤„ç†
         for (Map.Entry<String, String> entry : parameters.entrySet()) {
             String key = entry.getKey();
             String parameter = entry.getValue();
@@ -53,12 +53,12 @@ public class TableShardingRuleImpl {
         if (rc == null) {
             throw new IllegalArgumentException("The RuleChain can't be null!");
         }
-        // Õë¶ÔÃ¿Ò»¸ö¹æÔòÁ´
-        List<Set<String>/*Ã¿Ò»Ìõ¹æÔòĞèÒªµÄ²ÎÊı*/> requiredArgumentSortByLevel = rc
+        // é’ˆå¯¹æ¯ä¸€ä¸ªè§„åˆ™é“¾
+        List<Set<String>/*æ¯ä¸€æ¡è§„åˆ™éœ€è¦çš„å‚æ•°*/> requiredArgumentSortByLevel = rc
             .getRequiredArgumentSortByLevel();
         int index = 0;
         int ruleIndex = -1;
-        Map<String/*µ±Ç°²ÎÊıÒªÇóµÄÁĞÃû*/, String> argsMap = new HashMap<String, String>();
+        Map<String/*å½“å‰å‚æ•°è¦æ±‚çš„åˆ—å*/, String> argsMap = new HashMap<String, String>();
         for (Set<String> oneLevelArgument : requiredArgumentSortByLevel) {
             argsMap = getColumnsMap(oneLevelArgument);
             if (argsMap.size() == oneLevelArgument.size()) {
@@ -69,7 +69,7 @@ public class TableShardingRuleImpl {
             }
         }
         if (ruleIndex == -1) {
-            throw new IllegalArgumentException("Çë¼ì²é¹æÔòÅäÖÃµÄ×Ö¶ÎÊÇ·ñÕıÈ·£¡");
+            throw new IllegalArgumentException("è¯·æ£€æŸ¥è§„åˆ™é…ç½®çš„å­—æ®µæ˜¯å¦æ­£ç¡®ï¼");
         }
         ListAbstractResultRule rule = rc.getRuleByIndex(ruleIndex);
         Object[] args = new Object[] { argsMap };

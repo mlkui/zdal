@@ -11,8 +11,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleASTVisitor;
 
 /**
  * 
- * @author ≤Æ—¿
- * @version $Id: OracleErrorLoggingClause.java, v 0.1 2012-11-17 œ¬ŒÁ3:41:56 Exp $
+ * @author ‰ºØÁâô
+ * @version $Id: OracleErrorLoggingClause.java, v 0.1 2012-11-17 ‰∏ãÂçà3:41:56 Exp $
  */
 public class OracleErrorLoggingClause extends OracleSQLObjectImpl {
 

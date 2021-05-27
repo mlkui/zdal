@@ -26,8 +26,8 @@ import java.util.Map;
 /**
  * A cache wrapper for java.sql.CallableStatement
  *
- * @author ²®ÑÀ
- * @version $Id: CachedCallableStatement.java, v 0.1 2014-1-6 ÏÂÎç05:27:35 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: CachedCallableStatement.java, v 0.1 2014-1-6 ä¸‹åˆ05:27:35 Exp $
  */
 public class CachedCallableStatement extends CachedPreparedStatement implements CallableStatement {
 

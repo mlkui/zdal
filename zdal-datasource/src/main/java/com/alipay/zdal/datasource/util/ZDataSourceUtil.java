@@ -20,7 +20,7 @@ import com.alipay.zdal.datasource.resource.adapter.jdbc.local.LocalTxDataSource;
  * ZDataSourceDRM util class
  * 
  * @author liangjie
- * @version $Id: ZDataSourceDRMUtil.java, v 0.1 2012-8-15 ÏÂÎç1:32:37 liangjie Exp $
+ * @version $Id: ZDataSourceDRMUtil.java, v 0.1 2012-8-15 ä¸‹åˆ1:32:37 liangjie Exp $
  */
 public final class ZDataSourceUtil {
 
@@ -40,14 +40,14 @@ public final class ZDataSourceUtil {
                         long bvm = Long.valueOf(value);
                         newDO.setBackgroundValidationMinutes(bvm);
                     } catch (NumberFormatException ex) {
-                        logger.error("ÅäÖÃ backgroundValidationMinutesµÄÖµ²»ÊÇLongÀàĞÍ£¬ºöÂÔ");
+                        logger.error("é…ç½® backgroundValidationMinutesçš„å€¼ä¸æ˜¯Longç±»å‹ï¼Œå¿½ç•¥");
                     }
                 } else if (StringUtil.equalsIgnoreCase(key, Parameter.BLOCKING_TIMEOUT_MILLIS)) {
                     try {
                         int blk = Integer.valueOf(value);
                         newDO.setBlockingTimeoutMillis(blk);
                     } catch (NumberFormatException ex) {
-                        logger.error("ÅäÖÃ blockingTimeoutMillisµÄÖµ²»ÊÇIntegerÀàĞÍ£¬ºöÂÔ");
+                        logger.error("é…ç½® blockingTimeoutMillisçš„å€¼ä¸æ˜¯Integerç±»å‹ï¼Œå¿½ç•¥");
                     }
                 } else if (StringUtil.equalsIgnoreCase(key, Parameter.CHECK_VALID_CONNECTIONSQL)) {
                     newDO.setCheckValidConnectionSQL(value);
@@ -64,21 +64,21 @@ public final class ZDataSourceUtil {
                         long itm = Long.valueOf(value);
                         newDO.setIdleTimeoutMinutes(itm);
                     } catch (NumberFormatException ex) {
-                        logger.error("ÅäÖÃ idleTimeoutMinutesµÄÖµ²»ÊÇLongÀàĞÍ£¬ºöÂÔ");
+                        logger.error("é…ç½® idleTimeoutMinutesçš„å€¼ä¸æ˜¯Longç±»å‹ï¼Œå¿½ç•¥");
                     }
                 } else if (StringUtil.equalsIgnoreCase(key, Parameter.MAXCONN)) {
                     try {
                         int max = Integer.valueOf(value);
                         newDO.setMaxPoolSize(max);
                     } catch (NumberFormatException ex) {
-                        logger.error("ÅäÖÃ maxConnµÄÖµ²»ÊÇIntegerÀàĞÍ£¬ºöÂÔ");
+                        logger.error("é…ç½® maxConnçš„å€¼ä¸æ˜¯Integerç±»å‹ï¼Œå¿½ç•¥");
                     }
                 } else if (StringUtil.equalsIgnoreCase(key, Parameter.MINCONN)) {
                     try {
                         int min = Integer.valueOf(value);
                         newDO.setMinPoolSize(min);
                     } catch (NumberFormatException ex) {
-                        logger.error("ÅäÖÃ minConnµÄÖµ²»ÊÇIntegerÀàĞÍ£¬ºöÂÔ");
+                        logger.error("é…ç½® minConnçš„å€¼ä¸æ˜¯Integerç±»å‹ï¼Œå¿½ç•¥");
                     }
                 } else if (StringUtil.equalsIgnoreCase(key, Parameter.NEW_CONNECTION_SQL)) {
                     newDO.setNewConnectionSQL(value);
@@ -94,14 +94,14 @@ public final class ZDataSourceUtil {
                         int psc = Integer.valueOf(value);
                         newDO.setPreparedStatementCacheSize(psc);
                     } catch (NumberFormatException ex) {
-                        logger.error("ÅäÖÃ preparedStatementCacheSizeµÄÖµ²»ÊÇIntegerÀàĞÍ£¬ºöÂÔ");
+                        logger.error("é…ç½® preparedStatementCacheSizeçš„å€¼ä¸æ˜¯Integerç±»å‹ï¼Œå¿½ç•¥");
                     }
                 } else if (StringUtil.equalsIgnoreCase(key, Parameter.QUERY_TIMEOUT)) {
                     try {
                         int qt = Integer.valueOf(value);
                         newDO.setQueryTimeout(qt);
                     } catch (NumberFormatException ex) {
-                        logger.error("ÅäÖÃqueryTimeoutµÄÖµ²»ÊÇIntegerÀàĞÍ£¬ºöÂÔ");
+                        logger.error("é…ç½®queryTimeoutçš„å€¼ä¸æ˜¯Integerç±»å‹ï¼Œå¿½ç•¥");
                     }
                 } else if (StringUtil.equalsIgnoreCase(key, Parameter.SHARE_PREPARED_STATEMENTS)) {
                     boolean sps = Boolean.parseBoolean(value);
@@ -147,8 +147,8 @@ public final class ZDataSourceUtil {
     }
 
     /**
-     * connectionPropertiesµÄ¸ñÊ½   key1%value1;key2%value2...
-     * Ö÷ÒªÊÇ·ÀÖ¹ºÍÕû¸öÅäÖÃµÄkey=valueÀïÃæµÄ=³åÍ»
+     * connectionPropertiesçš„æ ¼å¼   key1%value1;key2%value2...
+     * ä¸»è¦æ˜¯é˜²æ­¢å’Œæ•´ä¸ªé…ç½®çš„key=valueé‡Œé¢çš„=å†²çª
      * 
      * @param strP
      * @return
@@ -162,7 +162,7 @@ public final class ZDataSourceUtil {
             for (String str : properties) {
                 int pos = str.indexOf("=");
                 if (pos == -1) {
-                    logger.error("connection property¸ñÊ½²»¶Ô " + str);
+                    logger.error("connection propertyæ ¼å¼ä¸å¯¹ " + str);
                     continue;
                 }
                 String key = str.substring(0, pos), value = str.substring(pos + 1);
@@ -173,7 +173,7 @@ public final class ZDataSourceUtil {
     }
 
     /**
-     * ½«ÀÏµÄLocalTxDataSourceÀïµÄËùÓĞÅäÖÃ¸´ÖÆµ½ĞÂµÄLocalTxDataSourceDO ÀïÃæ
+     * å°†è€çš„LocalTxDataSourceé‡Œçš„æ‰€æœ‰é…ç½®å¤åˆ¶åˆ°æ–°çš„LocalTxDataSourceDO é‡Œé¢
      * 
      * @param ds
      * @param DO
@@ -219,7 +219,7 @@ public final class ZDataSourceUtil {
     }
 
     /**
-     * ½«LocalTxDataSourceDOÀïµÄËùÓĞÅäÖÃ¸´ÖÆµ½LocalTxDataSourceÀïÃæ£¬ÏÖÔÚÔİÊ±Ã»ÓÃÁË
+     * å°†LocalTxDataSourceDOé‡Œçš„æ‰€æœ‰é…ç½®å¤åˆ¶åˆ°LocalTxDataSourceé‡Œé¢ï¼Œç°åœ¨æš‚æ—¶æ²¡ç”¨äº†
      * 
      * @param DO
      * @param ds
@@ -254,8 +254,8 @@ public final class ZDataSourceUtil {
 
     /**
      * MinPoolSize  MaxPoolSize  BlockingTimeout  IdleTimeout  PreparedStatementCacheSize
-     * »òÕßoracleµÄconnectionproperties
-     * ÓĞ±ä»¯µÄÊ±ºò£¬Á¬½Ó³ØÒªÖØ½¨,ÕâÀïÎªÁË·½±ãÆğ¼û£¬mysqlµÄconnectionproperties±ä»¯µÄÊ±ºò£¬Ò²ÖØ½¨
+     * æˆ–è€…oracleçš„connectionproperties
+     * æœ‰å˜åŒ–çš„æ—¶å€™ï¼Œè¿æ¥æ± è¦é‡å»º,è¿™é‡Œä¸ºäº†æ–¹ä¾¿èµ·è§ï¼Œmysqlçš„connectionpropertieså˜åŒ–çš„æ—¶å€™ï¼Œä¹Ÿé‡å»º
      * 
      * @param newDO
      * @param oldDS
@@ -304,7 +304,7 @@ public final class ZDataSourceUtil {
     }
 
     /**
-     * ÅĞ¶ÏconnectionpropertiesÊÇ·ñÓĞ±ä»¯
+     * åˆ¤æ–­connectionpropertiesæ˜¯å¦æœ‰å˜åŒ–
      * 
      * @param connectionProperties
      * @return
@@ -325,7 +325,7 @@ public final class ZDataSourceUtil {
     }
 
     /**
-     * ÅĞ¶ÏÅäÖÃĞÅÏ¢×Ö·û´®µÄ°æ±¾ĞÅÏ¢
+     * åˆ¤æ–­é…ç½®ä¿¡æ¯å­—ç¬¦ä¸²çš„ç‰ˆæœ¬ä¿¡æ¯
      * 
      * @param configValue
      * @return

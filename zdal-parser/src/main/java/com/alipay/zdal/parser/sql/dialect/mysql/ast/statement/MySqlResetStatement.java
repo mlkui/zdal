@@ -11,8 +11,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlASTVisitor;
 
 /**
  * 
- * @author ²®ÑÀ
- * @version $Id: MySqlResetStatement.java, v 0.1 2012-11-17 ÏÂÎç3:34:07 Exp $
+ * @author ä¼¯ç‰™
+ * @version $Id: MySqlResetStatement.java, v 0.1 2012-11-17 ä¸‹åˆ3:34:07 Exp $
  */
 public class MySqlResetStatement extends MySqlStatementImpl {
     private static final long serialVersionUID = 1L;
