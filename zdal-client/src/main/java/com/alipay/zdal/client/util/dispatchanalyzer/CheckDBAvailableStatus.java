@@ -12,7 +12,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.alipay.zdal.client.datasource.keyweight.ZdalDataSourceKeyWeightRandom;
@@ -25,19 +26,19 @@ import com.alipay.zdal.common.DBType;
 import com.alipay.zdal.common.RuntimeConfigHolder;
 
 /**
- * 
+ *
  * @author zhaofeng.wang
  * @version $Id: CheckDBAvailableStatus.java, v 0.1 2013-3-20 上午11:32:51 zhaofeng.wang Exp $
  */
 public class CheckDBAvailableStatus {
-    public static final Logger     logger             = Logger
-                                                          .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
+    public static final Logger     logger             = LoggerFactory
+                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
     /**
-     * Zdal封装的数据源 
+     * Zdal封装的数据源
      */
     private AbstractZdalDataSource targetDataSource;
-    /** 
-     * 轮训数据源状态的线程 
+    /**
+     * 轮训数据源状态的线程
      */
     private Thread                 circulateThread    = null;
 
@@ -192,7 +193,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * 利用future的方式来测试db的可用性
-     * 
+     *
      * @param dbKey
      * @return
      */
@@ -274,7 +275,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * 获取所有db的状态
-     * 
+     *
      * @return
      */
     private String dbKeyWeightToString() {
@@ -380,7 +381,7 @@ public class CheckDBAvailableStatus {
 
     /**
     * Setter method for property <tt>targetDataSource</tt>.
-    * 
+    *
     * @param targetDataSource value to be assigned to property targetDataSource
     */
     public void setTargetDataSource(AbstractZdalDataSource targetDataSource) {
@@ -389,7 +390,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Getter method for property <tt>targetDataSource</tt>.
-     * 
+     *
      * @return property value of targetDataSource
      */
     public AbstractZdalDataSource getTargetDataSource() {
@@ -398,7 +399,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Getter method for property <tt>waitTime</tt>.
-     * 
+     *
      * @return property value of waitTime
      */
     public long getWaitTime() {
@@ -407,7 +408,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Setter method for property <tt>waitTime</tt>.
-     * 
+     *
      * @param waitTime value to be assigned to property waitTime
      */
     public void setWaitTime(long waitTime) {
@@ -416,7 +417,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Getter method for property <tt>timeOutLength</tt>.
-     * 
+     *
      * @return property value of timeOutLength
      */
     public long getTimeOutLength() {
@@ -425,7 +426,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Setter method for property <tt>timeOutLength</tt>.
-     * 
+     *
      * @param timeOutLength value to be assigned to property timeOutLength
      */
     public void setTimeOutLength(long timeOutLength) {
@@ -434,7 +435,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Getter method for property <tt>closeDBLimitNumber</tt>.
-     * 
+     *
      * @return property value of closeDBLimitNumber
      */
     public int getCloseDBLimitNumber(int dbNumberInGroup) {
@@ -446,7 +447,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Setter method for property <tt>closeDBLimitNumber</tt>.
-     * 
+     *
      * @param closeDBLimitNumber value to be assigned to property closeDBLimitNumber
      */
     public void setCloseDBLimitNumber(int closeDBLimitNumber) {
@@ -455,7 +456,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Getter method for property <tt>corePoolSize</tt>.
-     * 
+     *
      * @return property value of corePoolSize
      */
     public int getCorePoolSize() {
@@ -464,7 +465,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Setter method for property <tt>corePoolSize</tt>.
-     * 
+     *
      * @param corePoolSize value to be assigned to property corePoolSize
      */
     public void setCorePoolSize(int corePoolSize) {
@@ -473,7 +474,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Getter method for property <tt>maximumPoolSize</tt>.
-     * 
+     *
      * @return property value of maximumPoolSize
      */
     public int getMaximumPoolSize() {
@@ -482,7 +483,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Setter method for property <tt>maximumPoolSize</tt>.
-     * 
+     *
      * @param maximumPoolSize value to be assigned to property maximumPoolSize
      */
     public void setMaximumPoolSize(int maximumPoolSize) {
@@ -491,7 +492,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Getter method for property <tt>workQueueSize</tt>.
-     * 
+     *
      * @return property value of workQueueSize
      */
     public int getWorkQueueSize() {
@@ -500,7 +501,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Setter method for property <tt>workQueueSize</tt>.
-     * 
+     *
      * @param workQueueSize value to be assigned to property workQueueSize
      */
     public void setWorkQueueSize(int workQueueSize) {
@@ -509,7 +510,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Getter method for property <tt>isUseFutureMode</tt>.
-     * 
+     *
      * @return property value of isUseFutureMode
      */
     public boolean isUseFutureMode() {
@@ -518,7 +519,7 @@ public class CheckDBAvailableStatus {
 
     /**
      * Setter method for property <tt>isUseFutureMode</tt>.
-     * 
+     *
      * @param isUseFutureMode value to be assigned to property isUseFutureMode
      */
     public void setIsUseFutureMode(boolean isUseFutureMode) {

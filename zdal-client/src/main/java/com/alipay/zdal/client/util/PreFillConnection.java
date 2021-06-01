@@ -9,7 +9,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Collection;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.Constants;
 import com.alipay.zdal.common.DBType;
@@ -22,8 +23,8 @@ import com.alipay.zdal.datasource.ZDataSource;
  */
 public class PreFillConnection {
 
-    private static final Logger logger             = Logger
-                                                       .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
+    private static final Logger logger             = LoggerFactory
+                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
     /** mysql数据库预热连接的sql语句 */
     private static final String MYSQL_PREFILL_SQL  = "select 1";

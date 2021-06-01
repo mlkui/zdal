@@ -9,7 +9,8 @@ import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.config.ZdalConfigListener;
 import com.alipay.zdal.common.Constants;
@@ -26,8 +27,8 @@ public class ZdalSignalResource {
     private static final String DRM_ATT_KEY_WEIGHT = "keyWeight";
 
     /** 专门打印推送结果的log信息. */
-    private static final Logger log                = Logger
-                                                       .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
+    private static final Logger log                = LoggerFactory
+                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
     private ZdalConfigListener  configListener;
 
@@ -46,7 +47,7 @@ public class ZdalSignalResource {
     }
 
     /**
-     * 
+     *
      * @param key
      * @param value
      */
@@ -76,7 +77,7 @@ public class ZdalSignalResource {
      * 销毁zoonkeeper客户端.
      */
     public void close() {
-        //TODO 
+        //TODO
     }
 
     /**

@@ -10,18 +10,19 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: ExceptionUtils.java, v 0.1 2014-1-6 下午05:15:12 Exp $
  */
 public class ExceptionUtils {
     public static final String  SQL_EXECUTION_ERROR_CONTEXT_LOG     = "SQL_EXECUTION_ERROR_CONTEXT_LOG";
     private static final String SQL_EXECUTION_ERROR_CONTEXT_MESSAGE = "SQLException ,context is ";
-    private static final Logger log                                 = Logger
-                                                                        .getLogger(SQL_EXECUTION_ERROR_CONTEXT_LOG);
+    private static final Logger log                                 = LoggerFactory
+                                                        .getLogger(SQL_EXECUTION_ERROR_CONTEXT_LOG);
 
     public static void throwSQLException(List<SQLException> exceptions, String sql,
                                          List<Object> args) throws SQLException {

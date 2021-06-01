@@ -18,7 +18,7 @@ import com.alipay.zdal.client.test.BaseTest;
 import com.alipay.zdal.client.util.ThreadLocalMap;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: TestGroupDataSource.java, v 0.1 2013-12-25 上午09:44:45 Exp $
  */
@@ -120,6 +120,7 @@ public class TestGroupDataSource extends BaseTest {
                                + ThreadLocalMap.get(ThreadLocalString.GET_ID_AND_DATABASE));
         } catch (Exception e) {
             e.printStackTrace();
+
         } finally {
             try {
                 closeResource(rs, pst, conn);

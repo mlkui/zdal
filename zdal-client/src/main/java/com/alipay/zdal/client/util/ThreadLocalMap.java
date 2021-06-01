@@ -7,7 +7,8 @@ package com.alipay.zdal.client.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * ThreadLocal Context
@@ -15,8 +16,8 @@ import org.apache.log4j.Logger;
  * @version $Id: ThreadLocalMap.java, v 0.1 2014-1-6 下午05:15:36 Exp $
  */
 public class ThreadLocalMap {
-    private static final Logger                             log           = Logger
-                                                                              .getLogger(ThreadLocalMap.class);
+    private static final Logger                             log           = LoggerFactory
+                                                        .getLogger(ThreadLocalMap.class);
     protected final static ThreadLocal<Map<Object, Object>> threadContext = new MapThreadLocal();
 
     private ThreadLocalMap() {

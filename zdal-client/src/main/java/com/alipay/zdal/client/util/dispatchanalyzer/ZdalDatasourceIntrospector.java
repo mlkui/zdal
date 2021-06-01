@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.datasource.keyweight.ZdalDataSourceKeyWeightRandom;
 import com.alipay.zdal.client.dispatcher.DatabaseChoicer;
@@ -33,24 +34,24 @@ import com.alipay.zdal.rule.ruleengine.util.RuleUtils;
  * 本类可以实现的功能包括：
  * 1)全活策略场景下，根据逻辑表名和组号（默认为0，因为只有一组）随机获取一个可用的db号，以及在该db里的物理表名<br>
  * 2）获取该逻辑表在某个数据源上的分库分表的情况<br>
- * 
+ *
  * 对dual表的优化策略：
- * 由于全活策略需要获取一个可用的db序号，之前的方案是每次有业务请求到达，都要通过select from dual 
+ * 由于全活策略需要获取一个可用的db序号，之前的方案是每次有业务请求到达，都要通过select from dual
  * 进行db可用性的校验， 造成 dba 发现dual表的访问次数太高，导致load升高；优化后大大降低了对dual表的访问次数，db的load随之降低。
  * 简单描述方案：
  * 由之前的业务线程检测db 可用性，改变为 由zdal的异步线程检测，每隔一定的时间段（假设10ms，可配置）
  * 检测一次所有db的状态，但只有发现和上次的检测结果存在差异的情况下才去刷新变更db的状态，该方案很好的实现了全活策略数据源的自动剔除和恢复。
- * 
+ *
  * @author zhaofeng.wang
  * @version $Id: TDatasourceIntrospector.java, v 0.1 2012-3-26 下午06:26:21 zhaofeng.wang Exp $
  */
 
 public class ZdalDatasourceIntrospector {
 
-    public static final Logger                  logger                 = Logger
-                                                                           .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
+    public static final Logger                  logger                 = LoggerFactory
+                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
     /**
-     * Zdal封装的数据源 
+     * Zdal封装的数据源
      */
     private AbstractZdalDataSource              targetDataSource;
     /**
@@ -123,11 +124,11 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * 金融交换项目、上海收单项目在调用<br>
-     * 
+     *
      * 全活策略依赖的接口<br>
-     * 
+     *
      * 根据权重随机的选择一个可用db，并在该db上随机选择一个表，业务用于组装分库分表字段<br>
-     * 
+     *
      * @param logicTableName   逻辑表名<br>
      * @param groupNum  全活策略场景下默认为0
      * @return   String[0]代表库号，String[1]代表物理表名<br>
@@ -139,7 +140,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * 金融交换项目组在调用<br>
-     * 
+     *
      * 先进行分组，再进行组内全活策略的接口<br>
      *  获取组内可用的db号以及随机的表<br>
      * @param logicTableName 逻辑表名
@@ -155,7 +156,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * 根据用户组号，然后根据权重在组内随机的选择一个可用db，并在该db上随机选择一个表，业务用于组装分库分表字段<br>
-     * 
+     *
      * @param logicTableName   逻辑表名<br>
      * @return   String[0]代表组内随机选择的库号，String[1]代表在库内随机选择的物理表名<br>
      */
@@ -174,7 +175,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * 统一支付项目在调用
-     * 
+     *
      * 先进行分组，再进行组内全活策略的接口.<br>
      * 在一组内获取可用的db，不需要逻辑表名.<br>
      * 调用此接口，须保证所有表的shardingRule都相同，或者只有一个表配置该属性<br>
@@ -188,7 +189,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * 统一支付项目调用
-     * 
+     *
      * 先进行分组，再进行组内全活策略的接口.<br>
      * 在一组内获取可用的db，不需要逻辑表名.<br>
      * 调用此接口，须保证所有表的shardingRule都相同，或者只有一个表配置该属性<br>
@@ -204,7 +205,7 @@ public class ZdalDatasourceIntrospector {
      * 随机的选择一个可用db<br>
      * 如果 isCheckConnection 为 false，则默认 采用轮训机制，即zdal的异步线程间隔一段时间进行检测，
      * 如果为true，则表示每次都检查一下，耗费性能的说；
-     * 
+     *
      * @param    groupNum   组号<br>
      * @param    isCheckConnection 是否检查连接
      * @return   String[0]代表库号，String[1]代表物理表名<br>
@@ -260,7 +261,7 @@ public class ZdalDatasourceIntrospector {
      * 根据库的标识dbKey和逻辑表名logicTableName获取该库上该逻辑表所对应的物理表名集合<br>
      * 因为一旦分库分表后，各个分库的分表相对都是固定的，因此可以缓存起来，先去缓存查，<br>
      * 如果查不到，就去获取该库上该逻辑表所对应的物理表名集合。<br>
-     * 
+     *
      * @param dbKey          库的标识<br>
      * @param logicTableName 逻辑表名<br>
      * @return               表后缀集合<br>
@@ -537,7 +538,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * 获取数据源管理器 <br>
-     * 
+     *
      * @return    DatabaseChoicer
      */
     private DatabaseChoicer getDatabaseChoicer() {
@@ -548,7 +549,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * 获取zdal数据源
-     * 
+     *
      * @return  zdal封装后的数据源
      */
     public AbstractZdalDataSource getTargetDataSource() {
@@ -560,7 +561,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * 设置数据源
-     * 
+     *
      * @param targetDataSource 目标数据源
      */
     public void setTargetDataSource(AbstractZdalDataSource targetDataSource) {
@@ -569,7 +570,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Getter method for property <tt>waitTime</tt>.
-     * 
+     *
      * @return property value of waitTime
      */
     public long getWaitTime() {
@@ -578,7 +579,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Setter method for property <tt>waitTime</tt>.
-     * 
+     *
      * @param waitTime value to be assigned to property waitTime
      */
     public void setWaitTime(long waitTime) {
@@ -587,7 +588,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Getter method for property <tt>timeOutLength</tt>.
-     * 
+     *
      * @return property value of timeOutLength
      */
     public long getTimeOutLength() {
@@ -596,7 +597,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Setter method for property <tt>timeOutLength</tt>.
-     * 
+     *
      * @param timeOutLength value to be assigned to property timeOutLength
      */
     public void setTimeOutLength(long timeOutLength) {
@@ -605,7 +606,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Setter method for property <tt>closeDBLimitNumber</tt>.
-     * 
+     *
      * @param closeDBLimitNumber value to be assigned to property closeDBLimitNumber
      */
     public void setCloseDBLimitNumber(int closeDBLimitNumber) {
@@ -614,7 +615,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Getter method for property <tt>closeDBLimitNumber</tt>.
-     * 
+     *
      * @return property value of closeDBLimitNumber
      */
     public int getCloseDBLimitNumber() {
@@ -623,7 +624,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Getter method for property <tt>corePoolSize</tt>.
-     * 
+     *
      * @return property value of corePoolSize
      */
     public int getCorePoolSize() {
@@ -632,7 +633,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Setter method for property <tt>corePoolSize</tt>.
-     * 
+     *
      * @param corePoolSize value to be assigned to property corePoolSize
      */
     public void setCorePoolSize(int corePoolSize) {
@@ -641,7 +642,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Getter method for property <tt>maximumPoolSize</tt>.
-     * 
+     *
      * @return property value of maximumPoolSize
      */
     public int getMaximumPoolSize() {
@@ -650,7 +651,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Setter method for property <tt>maximumPoolSize</tt>.
-     * 
+     *
      * @param maximumPoolSize value to be assigned to property maximumPoolSize
      */
     public void setMaximumPoolSize(int maximumPoolSize) {
@@ -659,7 +660,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Getter method for property <tt>workQueueSize</tt>.
-     * 
+     *
      * @return property value of workQueueSize
      */
     public int getWorkQueueSize() {
@@ -668,7 +669,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Setter method for property <tt>workQueueSize</tt>.
-     * 
+     *
      * @param workQueueSize value to be assigned to property workQueueSize
      */
     public void setWorkQueueSize(int workQueueSize) {
@@ -677,7 +678,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Getter method for property <tt>isUseFutureMode</tt>.
-     * 
+     *
      * @return property value of isUseFutureMode
      */
     public boolean isUseFutureMode() {
@@ -686,7 +687,7 @@ public class ZdalDatasourceIntrospector {
 
     /**
      * Setter method for property <tt>isUseFutureMode</tt>.
-     * 
+     *
      * @param isUseFutureMode value to be assigned to property isUseFutureMode
      */
     public void setIsUseFutureMode(boolean isUseFutureMode) {

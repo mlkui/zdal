@@ -7,19 +7,20 @@ package com.alipay.zdal.client.datasource.keyweight;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.lang.StringUtil;
 
 /**
- * 
+ *
  * @author zhaofeng.wang
  * @version $Id: KeyWeightRumtime.java, v 0.1 2011-9-23 下午04:12:46 zhaofeng.wang Exp $
  */
 public class ZdalDataSourceKeyWeightRumtime {
 
-    private static Logger                              logger                    = Logger
-                                                                                     .getLogger(ZdalDataSourceKeyWeightRumtime.class);
+    private static Logger                              logger                    = LoggerFactory
+                                                        .getLogger(ZdalDataSourceKeyWeightRumtime.class);
     private static final int                           DEFAULT_DATASOURCE_WEIGHT = 10;
     private Map<String, ZdalDataSourceKeyWeightRandom> keyWeightMapHolder;
 
@@ -30,16 +31,16 @@ public class ZdalDataSourceKeyWeightRumtime {
 
     /**
      * 处理数据源的keyWeight的权重标识
-     * 
+     *
      * 参数p格式如下
      * group_0=TradeCore00:10,TradeCore00_0:0
      * group_1=TradeCore01:10,TradeCore01_0:0
      * group_2=TradeCore02:0,TradeCore02_0:10
      * 放在运行时变量里keyWeightRuntimeConfigHoder里
-     * 
+     *
      * @param keyWeightConfig
      * @return
-     * @throws Exception 
+     * @throws Exception
      */
     public static Map<String, ZdalDataSourceKeyWeightRandom> buildKeyWeightConfig(
                                                                                   Map<String, String> keyWeightConfig,
@@ -113,7 +114,7 @@ public class ZdalDataSourceKeyWeightRumtime {
 
     /**
      * Setter method for property <tt>keyWeightMapHolder</tt>.
-     * 
+     *
      * @param keyWeightMapHolder value to be assigned to property keyWeightMapHolder
      */
     public void setKeyWeightMapHolder(Map<String, ZdalDataSourceKeyWeightRandom> keyWeightMapHolder) {
@@ -122,7 +123,7 @@ public class ZdalDataSourceKeyWeightRumtime {
 
     /**
      * Getter method for property <tt>keyWeightMapHolder</tt>.
-     * 
+     *
      * @return property value of keyWeightMapHolder
      */
     public Map<String, ZdalDataSourceKeyWeightRandom> getKeyWeightMapHolder() {

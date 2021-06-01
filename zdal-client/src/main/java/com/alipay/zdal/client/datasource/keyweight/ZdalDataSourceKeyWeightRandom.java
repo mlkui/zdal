@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.RuntimeConfigHolder;
 
@@ -22,8 +23,8 @@ import com.alipay.zdal.common.RuntimeConfigHolder;
  */
 public class ZdalDataSourceKeyWeightRandom {
 
-    private static final Logger               logger             = Logger
-                                                                     .getLogger(ZdalDataSourceKeyWeightRandom.class);
+    private static final Logger               logger             = LoggerFactory
+                                                        .getLogger(ZdalDataSourceKeyWeightRandom.class);
 
     /**
      * 每个组内的数据源的个数；
@@ -87,13 +88,13 @@ public class ZdalDataSourceKeyWeightRandom {
     private final Random random = new Random();
 
     /**
-     * 
+     *
      * 假设三个库权重    10   9   8
      * 那么areaEnds就是  10  19  27
      * 随机数是0~27之间的一个数，依次去和areaEnds里的元素比，若发现随机数小于某元素，则表示应该选择这个元素,即返回该元素的下标号。
-     * 
+     *
      * 注意：该方法不能改变参数数组内容,后续实现保证不能改变w中任何数组的内容，否则线程不安全
-     * @return int 
+     * @return int
      */
     public int select() {
         final Weight w = weightHolder.get();
@@ -116,7 +117,7 @@ public class ZdalDataSourceKeyWeightRandom {
 
     /**
      * 计算权重区间
-     * 
+     *
      * @param weights  数据源的权重数组
      * @return   权重区间
      */
@@ -163,7 +164,7 @@ public class ZdalDataSourceKeyWeightRandom {
 
     /**
      * 获取所有的db的标识合并后的字符串
-     *  
+     *
      * @return db标识集合字符串
      */
     public String getAllDbKeys() {
@@ -201,7 +202,7 @@ public class ZdalDataSourceKeyWeightRandom {
 
     /**
       * 根据传入的db序列号，判定db是否可用
-      * 
+      *
       * @param dbNumber  db序列号
       * @return          当前db是否可用
       */
@@ -216,7 +217,7 @@ public class ZdalDataSourceKeyWeightRandom {
 
     /**
      * 返回不可用的数据库序列集合
-     * 
+     *
      * @return
      */
     public List<Integer> getNotAvailableDBIndexes() {
@@ -233,7 +234,7 @@ public class ZdalDataSourceKeyWeightRandom {
 
     /**
      * 返回可用的数据库序列集合
-     * 
+     *
      * @return
      */
     public List<Integer> getAvailableDBIndexes() {
@@ -288,7 +289,7 @@ public class ZdalDataSourceKeyWeightRandom {
 
     /**
      * 获取所有的数据源标识
-     * 
+     *
      * @return 数据源标识集合数组
      */
     public String[] getDBKeysArray() {

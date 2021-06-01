@@ -11,7 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.util.CollectionUtils;
 
@@ -28,14 +29,14 @@ import com.alipay.zdal.common.Constants;
  * holds all zdal configurations across applications distinguish by unique id
  * consist of appName + dbMode + zone
  * </p>
- * 
+ *
  * @author <a href="mailto:xiang.yangx@alipay.com">Yang Xiang</a>
- * 
+ *
  */
 public class ZdalConfigurationLoader {
 
-    private static final Logger                  log          = Logger
-                                                                  .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
+    private static final Logger                  log          = LoggerFactory
+                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
     private static final ZdalConfigurationLoader instance     = new ZdalConfigurationLoader();
 
@@ -50,7 +51,7 @@ public class ZdalConfigurationLoader {
      * Load Zdal configuration context via Spring XmlApplicationContext when the
      * zdal has not been loaded up. If application's Zdal configuration has been
      * loaded up, just fetch the zdal config from the single configuration map.
-     * 
+     *
      * @param appName
      * @param dbMode
      * @param idcName
@@ -75,7 +76,7 @@ public class ZdalConfigurationLoader {
     /**
      * It is pretty much as same as getZdalConfiguration, but it only load
      * configuration from local which given parameter configPath.
-     * 
+     *
      * @param appName
      * @param dbMode
      * @param idcName
@@ -110,7 +111,7 @@ public class ZdalConfigurationLoader {
     }
 
     /**
-     * 
+     *
      * @param fileNames
      * @param appName
      * @param dbMode
@@ -161,7 +162,7 @@ public class ZdalConfigurationLoader {
     }
 
     /**
-     * 
+     *
      * @param appBean
      * @param appDataSourceBean
      * @return

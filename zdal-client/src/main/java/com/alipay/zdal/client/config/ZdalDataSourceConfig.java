@@ -6,7 +6,8 @@ package com.alipay.zdal.client.config;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.Constants;
 import com.alipay.zdal.common.DBType;
@@ -14,15 +15,15 @@ import com.alipay.zdal.common.lang.StringUtil;
 
 /**
  * mysql/oracle/db2各种数据源的配置加载.
- * 
+ *
  * @author 伯牙
  * @version $Id: ZdalDataSourceConfig.java, v 0.1 2013-1-18 下午03:48:28 Exp $
  */
 public abstract class ZdalDataSourceConfig {
 
     /** 专门打印推送结果的log信息. */
-    protected static final Logger  CONFIG_LOGGER = Logger
-                                                     .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
+    protected static final Logger  CONFIG_LOGGER = LoggerFactory
+                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
     /** app名称 */
     protected String               appName;
