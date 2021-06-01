@@ -37,7 +37,8 @@ import java.util.Map.Entry;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.ThreadLocalString;
 import com.alipay.zdal.client.config.DataSourceConfigType;
@@ -89,7 +90,7 @@ import com.alipay.zdal.common.lang.StringUtil;
 import com.alipay.zdal.rule.ruleengine.entities.retvalue.TargetDB;
 
 public class ZdalPreparedStatement extends RetryableTStatement implements PreparedStatement {
-    private static final Logger log = Logger.getLogger(ZdalPreparedStatement.class);
+    private static final Logger log = LoggerFactory.getLogger(ZdalPreparedStatement.class);
 
     public ZdalPreparedStatement(SqlDispatcher writeDispatcher, SqlDispatcher readDispatcher) {
         super(writeDispatcher, readDispatcher);
@@ -289,9 +290,9 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.sql.PreparedStatement#executeQuery()
-     * 
+     *
      * 这个方法当for update时会执行到。不应该进行重试
      */
     public ResultSet executeQuery() throws SQLException {
@@ -358,9 +359,9 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
     /**
      * 建立preparedStatment然后将其放入statments队列中，并设置初值，然后返回。
      * 只用在executeUpdate和executeQuery中。
-     * 
+     *
      * 重试则只针对在executeUpdate和query中需要重试的sql.
-     * 
+     *
      * @param dbSelectorId
      * @param targetSql
      * @param retringContext
@@ -770,7 +771,7 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
     }
 
     /**
-     * 
+     *
      * @param batchedParameters
      * @param targetSqls
      * @throws SQLException
@@ -822,11 +823,11 @@ public class ZdalPreparedStatement extends RetryableTStatement implements Prepar
          * key0:最终数据源ID; value0:{key1:数据源上执行的使用物理表名的SQL; value1:绑定参数列表}
          * key1的SQL为PreparedStatement本身的sql加上参数列表最终确定的使用物理表名的sql
          * 通过本类的addBatch()方法，加入到batchedArgs中的List<ParameterContext>
-         * 
+         *
          * [ [setString(1, 0), setString(2, wangzhaofeng0), setString(3, 20)]
          * [setString(1, 1), setString(2, wangzhaofeng1), setString(3, 20)]
          * [setString(1, 2), setString(2, wangzhaofeng2), setString(3, 20)] ]
-         * 
+         *
          */
         Map<String, Map<String, List<List<ParameterContext>>>> targetSqls = new HashMap<String, Map<String, List<List<ParameterContext>>>>();
         try {

@@ -10,14 +10,15 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.jdbc.DBSelector.DataSourceTryer;
 import com.alipay.zdal.client.jdbc.ZdalStatement.DB_OPERATION_TYPE;
 
 public class PriorityGroupsDataSources {
-    private static final Logger   logger              = Logger
-                                                          .getLogger(PriorityGroupsDataSources.class);
+    private static final Logger   logger              = LoggerFactory
+                                                        .getLogger(PriorityGroupsDataSources.class);
     private final EquityDbManager equityDbManager;
 
     /**
@@ -91,7 +92,7 @@ public class PriorityGroupsDataSources {
      * 在不可用的优先级上进行操作
      * 只允许单线程进入到该优先级进行重试，如果尝试成功则将该优先级置为可用；如果失败就抛出异常，外围捕获住异常即会尝试下一个优先级；
      * 如果其他线程不符合重试状态，则不进行重试，直接抛出异常，外围捕获异常，随即尝试下一个优先级；
-     * 
+     *
      * @param <T>
      * @param failedDataSources
      * @param tryer
@@ -100,8 +101,8 @@ public class PriorityGroupsDataSources {
      * @param i
      * @param args
      * @return
-     * @throws SQLException 
-     * @throws SQLException 
+     * @throws SQLException
+     * @throws SQLException
      */
     public <T> T tryOnFailedPriorityGroupDataSource(
                                                     Map<DataSource, SQLException> failedDataSources,

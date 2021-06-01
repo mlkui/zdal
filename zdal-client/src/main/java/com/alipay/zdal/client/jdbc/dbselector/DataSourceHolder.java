@@ -13,7 +13,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.jdbc.DBSelector.DataSourceTryer;
 import com.alipay.zdal.client.jdbc.ZdalStatement.DB_OPERATION_TYPE;
@@ -32,7 +33,7 @@ import com.alipay.zdal.common.jdbc.sorter.OracleExceptionSorter;
  */
 public class DataSourceHolder {
 
-    private static final Logger logger              = Logger
+    private static final Logger logger              = LoggerFactory
                                                         .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
 
     private final DataSource    ds;
@@ -94,7 +95,7 @@ public class DataSourceHolder {
      * @param weightRandom    各个数据源的权重
      * @param dataSourceHolders 包装过的数据源
      * @param failedDataSources  失败的datasource
-     * @param tryer 
+     * @param tryer
      * @param exceptions
      * @param excludeKeys
      * @param exceptionSorter
@@ -269,7 +270,7 @@ public class DataSourceHolder {
             logger.error("线程" + Thread.currentThread().getName()
                          + "在访问dataSourceHolder数据源发生故障，name=" + name, e);
             excludeKeys.add(name);
-            //此处将故障数据源排除，采用的策略是根据单位时间内连接失败的次数如果超过某个阈值，当数据源个数仅剩余一个时，将根据数据源类型决定是否踢出； 
+            //此处将故障数据源排除，采用的策略是根据单位时间内连接失败的次数如果超过某个阈值，当数据源个数仅剩余一个时，将根据数据源类型决定是否踢出；
             calcFailedDSExceptionTimes(name, operationType, weightRandom, dataSourceHolders);
         }
         return t;
@@ -387,7 +388,7 @@ public class DataSourceHolder {
 
     //    /**
     //     * 关闭statement
-    //     * 
+    //     *
     //     * @param stmt
     //     */
     //    private void closeStatement(Statement stmt) {
@@ -404,7 +405,7 @@ public class DataSourceHolder {
     //
     //    /**
     //     * 关闭连接
-    //     * 
+    //     *
     //     * @param conn
     //     */
     //    private void closeConnection(Connection conn) {

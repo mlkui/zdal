@@ -13,19 +13,20 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.dispatcher.SqlDispatcher;
 import com.alipay.zdal.common.OperationDBType;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: RetryableTStatement.java, v 0.1 2014-1-6 下午01:49:21 Exp $
  */
 public class RetryableTStatement extends ZdalStatement {
-    private static final Logger logger                  = Logger
-                                                            .getLogger(RetryableTStatement.class);
+    private static final Logger logger                  = LoggerFactory
+                                                        .getLogger(RetryableTStatement.class);
     public boolean              redirectToWriteDatabase = false;
 
     public RetryableTStatement(SqlDispatcher writeDispatcher, SqlDispatcher readDispatcher) {
@@ -35,7 +36,7 @@ public class RetryableTStatement extends ZdalStatement {
     //	@Override
     //	/*
     //	 * TEST required :测试1次重试，两次重试，尤其走到43行后递归调用中抛出异常的情况
-    //	 * 
+    //	 *
     //	 * 方法会保证dbIndex->Connection+datasource+dbselector map中的Datasource必定有值
     //	 */
     //	protected void createConnection(DBSelector dbselector, String dbIndex,
@@ -50,10 +51,10 @@ public class RetryableTStatement extends ZdalStatement {
     //			retringContext.addSQLException(e.getSqlException());
     //
     //			validRetryable(retringContext, e.getSqlException());
-    //			
+    //
     //			dbselector = removeCurrentDataSourceFromDbSelector( dbselector, e.getCurrentDataSource(),
     //					retringContext);
-    //			
+    //
     //			// 从重用连接池中移走有问题的链接,如果不移除则循环嵌套时会因为能够取到ConnectionAndDataSource对象而不将有问题的链接剔除掉。
     //			getConnectionProxy().removeConnectionAndDatasourceByID(dbIndex);
     //			// 如果remove失败或为写库请求，已经直接抛出了 因此这里都是成功的
@@ -129,7 +130,7 @@ public class RetryableTStatement extends ZdalStatement {
      * 5.根据dbSelectorId和新的dbSelector.从新按照权重选择一个datasource.<br>
      * 6.获取连接，放入connectionsMap.<br>
      * 7.返回连接<br>
-     * 
+     *
      * @param dbIndex
      * @param retringContext
      * @param e
@@ -177,11 +178,11 @@ public class RetryableTStatement extends ZdalStatement {
 
     /**
      * 从候选selector中移除当前datasource.
-     * 
+     *
      * 为了保证不修改dbSelector里面selector里面原有的数据状态。每次移除时都会先复制一个 独立的dbSelector出来进行处理。
-     * 
+     *
      * 如果已经没有备选库或为一个写库 则直接抛出异常
-     * 
+     *
      * @param exceptions
      * @return
      * @throws SQLException
@@ -203,7 +204,7 @@ public class RetryableTStatement extends ZdalStatement {
 
     //	/**
     //	 * 验证是否需要重试
-    //	 * 
+    //	 *
     //	 * @param retringContext
     //	 * @param currentException
     //	 * @throws SQLException

@@ -12,7 +12,8 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.ThreadLocalString;
 import com.alipay.zdal.client.jdbc.ZdalStatement.DB_OPERATION_TYPE;
@@ -24,7 +25,7 @@ import com.alipay.zdal.common.OperationDBType;
  * //private String id, 作为dbSelector的id和db的dsKey
  */
 public class OneDBSelector extends AbstractDBSelector {
-    private static final Logger logger              = Logger.getLogger(OneDBSelector.class);
+    private static final Logger logger              = LoggerFactory.getLogger(OneDBSelector.class);
 
     private DataSource          db;
 
@@ -79,7 +80,7 @@ public class OneDBSelector extends AbstractDBSelector {
     }
 
     public void setWeight(Map<String, Integer> weightMap) {
-        // 为了可以动态的停掉某个逻辑库，加入了以下代码 
+        // 为了可以动态的停掉某个逻辑库，加入了以下代码
         //从父类得到id
         String id = getId();
         String id_db = id + indexSuffix;

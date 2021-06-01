@@ -26,21 +26,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+import java.util.concurrent.Executor;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.config.DataSourceConfigType;
 import com.alipay.zdal.client.dispatcher.SqlDispatcher;
 import com.alipay.zdal.client.util.ExceptionUtils;
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: ZdalConnection.java, v 0.1 2014-1-6 下午05:02:15 Exp $
  */
 public class ZdalConnection implements Connection {
-    private static final Logger                  logger               = Logger
-                                                                          .getLogger(ZdalConnection.class);
+    private static final Logger                  logger               = LoggerFactory
+                                                        .getLogger(ZdalConnection.class);
 
     private Map<String, DBSelector>              dbSelectors;
 
@@ -549,6 +552,36 @@ public class ZdalConnection implements Connection {
     @Override
     public Struct createStruct(String typeName, Object[] attributes) throws SQLException {
         return null;
+    }
+
+    @Override
+    public void setSchema(String schema) throws SQLException
+    {
+        throw new NotSupportException("setSchema");
+    }
+
+    @Override
+    public String getSchema() throws SQLException
+    {
+        throw new NotSupportException("getSchema");
+    }
+
+    @Override
+    public void abort(Executor executor) throws SQLException
+    {
+        throw new NotSupportException("abort");
+    }
+
+    @Override
+    public void setNetworkTimeout(Executor executor, int milliseconds) throws SQLException
+    {
+        throw new NotSupportException("setNetworkTimeout");
+    }
+
+    @Override
+    public int getNetworkTimeout() throws SQLException
+    {
+        throw new NotSupportException("getNetworkTimeout");
     }
 
     @Override

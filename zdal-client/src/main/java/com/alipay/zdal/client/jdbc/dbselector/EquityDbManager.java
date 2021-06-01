@@ -16,7 +16,8 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.ThreadLocalString;
 import com.alipay.zdal.client.jdbc.ZdalStatement.DB_OPERATION_TYPE;
@@ -31,16 +32,16 @@ import com.alipay.zdal.common.lang.StringUtil;
  * 对等数据库管理器
  * 可以是读对等：如多个读库，每个库的数据完全相同。对等读取
  * 可以是写对等：如日志库，每个库数据不同，一条数据写入哪个库都可以。对等写入
- * 
+ *
  * 支持动态推送权重，动态加减库
- * 
- * 
+ *
+ *
  * @param <T> JdbcTemplate 或则 DataSource
- * 
+ *
  * TODO 从DataSource对象本身判断是不是同一个库，不再保留这种配置信息：Map<String, Map<String, Object>>
  */
 public class EquityDbManager extends AbstractDBSelector {
-    private static final Logger logger = Logger.getLogger(EquityDbManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(EquityDbManager.class);
 
     /**
      * 运行期会动态改变的状态。保持不变对象，只能重建，不能修改。

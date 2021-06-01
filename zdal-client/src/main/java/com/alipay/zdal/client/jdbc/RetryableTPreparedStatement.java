@@ -12,19 +12,20 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.dispatcher.SqlDispatcher;
 import com.alipay.zdal.common.OperationDBType;
 
 public class RetryableTPreparedStatement extends ZdalPreparedStatement {
-    private static final Logger logger = Logger.getLogger(RetryableTPreparedStatement.class);
+    private static final Logger logger = LoggerFactory.getLogger(RetryableTPreparedStatement.class);
 
     public RetryableTPreparedStatement(SqlDispatcher writeDispatcher, SqlDispatcher readDispatcher) {
         super(writeDispatcher, readDispatcher);
     }
 
-    /*	
+    /*
      * 规范没 说允许update时运行select语句。
      * @Override
     	protected int executeUpdateAndCountAffectRows(String dbSelectorId,
