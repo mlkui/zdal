@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalReadWriteRule" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalReadWriteRule" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="readWriteRuleDs1" />
 				<ref bean="readWriteRuleDs2" />
 				<ref bean="readWriteRuleDs3" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="readWriteRuleDs1" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="readWriteRuleDs1" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -26,7 +26,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="readWriteRuleDs1ds1"/>
@@ -48,7 +48,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="readWriteRuleDs2ds1"/>
@@ -70,7 +70,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="readWriteRuleDs3ds1"/>
@@ -83,7 +83,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="readWriteRuleDs1ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -126,7 +126,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="readWriteRuleDs2ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -169,7 +169,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="readWriteRuleDs3ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -212,6 +212,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

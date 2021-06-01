@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	classpath:spring/spring-beans-2.5.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="ShardFailover" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="ShardFailover" />
 		<property name="dbmode" value="dev" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="ShardFailoverDataSource" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="ShardFailoverDataSource" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="ShardFailoverDataSource" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -24,9 +24,9 @@
 				<ref bean="masterphysics00"/>
 				<ref bean="masterphysics01"/>
 				<ref bean="masterphysics02"/>
-				<ref bean="masterphysics03"/>	
-				<ref bean="masterphysics04"/>	
-				<ref bean="failoverphysics"/>			
+				<ref bean="masterphysics03"/>
+				<ref bean="masterphysics04"/>
+				<ref bean="failoverphysics"/>
 			</set>
 		</property>
 		<property name="failOverGroupRuleMap">
@@ -39,11 +39,11 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="masterphysics00" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_0" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_0?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_0?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -67,7 +67,7 @@
 
 	<bean id="masterphysics01" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_1" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_1?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_1?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -91,7 +91,7 @@
 
 	<bean id="masterphysics02" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_2" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_2?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_2?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -115,7 +115,7 @@
 
 	<bean id="masterphysics03" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_3" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_3?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_3?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -136,10 +136,10 @@
 			</map>
 		 </property>
 	</bean>
-	
+
 	<bean id="masterphysics04" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_4" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_4?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_master_4?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -160,10 +160,10 @@
 			</map>
 		 </property>
 	</bean>
-	
+
 	<bean id="failoverphysics" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_4" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_failover?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shardfailover_failover?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -180,7 +180,7 @@
 	    		<value>failover_2</value>
 	    		<value>failover_3</value>
 	    		<value>failover_4</value>
-	    	</set>	    	
+	    	</set>
 	    </property>
 	    <property name="connectionProperties">
 			<map>

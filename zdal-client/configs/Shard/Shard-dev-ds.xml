@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	classpath:spring/spring-beans-2.5.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="Shard" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="Shard" />
 		<property name="dbmode" value="dev" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="ShardDataSource" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="ShardDataSource" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="ShardDataSource" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -24,16 +24,16 @@
 				<ref bean="testphysics00"/>
 				<ref bean="testphysics01"/>
 				<ref bean="testphysics02"/>
-				<ref bean="testphysics03"/>	
-				<ref bean="testphysics04"/>				
+				<ref bean="testphysics03"/>
+				<ref bean="testphysics04"/>
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="testphysics00" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_0" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_0?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_0?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -57,7 +57,7 @@
 
 	<bean id="testphysics01" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_1" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_1?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_1?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -81,7 +81,7 @@
 
 	<bean id="testphysics02" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_2" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_2?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_2?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -105,7 +105,7 @@
 
 	<bean id="testphysics03" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_3" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_3?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_3?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />
@@ -126,10 +126,10 @@
 			</map>
 		 </property>
 	</bean>
-	
+
 	<bean id="testphysics04" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master_4" />
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_4?useUnicode=true&amp;characterEncoding=gbk" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/shard_4?useUnicode=true&amp;characterEncoding=UTF-8" />
 	    <property name="userName" value="root" />
 	    <property name="password" value="root" />
 	    <property name="minConn" value="1" />

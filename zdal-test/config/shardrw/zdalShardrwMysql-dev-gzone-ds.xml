@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalShardrwMysql" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalShardrwMysql" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="MysqlShardrwDs4" />
 				<ref bean="MysqlShardrwDs1" />
 				<ref bean="MysqlShardrwDs3" />
@@ -17,7 +17,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="MysqlShardrwDs4" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="MysqlShardrwDs4" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -29,7 +29,7 @@
 				<value>group_0_r</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlShardrwDs4ds1"/>
@@ -57,7 +57,7 @@
 				<value>group_0_w</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlShardrwDs1ds1"/>
@@ -84,7 +84,7 @@
 				<value>group_0_w</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlShardrwDs3ds1"/>
@@ -112,7 +112,7 @@
 				<value>group_1_r</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlShardrwDs2ds1"/>
@@ -128,7 +128,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlShardrwDs4ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -209,7 +209,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlShardrwDs1ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -290,7 +290,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlShardrwDs3ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -371,7 +371,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlShardrwDs2ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -452,6 +452,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

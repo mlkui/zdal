@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalRwOracle" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalRwOracle" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="OracleDs5" />
 				<ref bean="OracleDs2" />
 				<ref bean="OracleDs1" />
@@ -18,7 +18,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="OracleDs5" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="OracleDs5" />
 		<property name="dataBaseType" value="ORACLE" />
@@ -28,7 +28,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="OracleDs5ds1"/>
@@ -50,7 +50,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="OracleDs2ds1"/>
@@ -72,7 +72,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="OracleDs1ds1"/>
@@ -94,7 +94,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="OracleDs4ds1"/>
@@ -116,7 +116,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="OracleDs3ds1"/>
@@ -129,7 +129,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="OracleDs5ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -170,7 +170,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="OracleDs2ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -211,7 +211,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="OracleDs1ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -252,7 +252,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="OracleDs4ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -293,7 +293,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="OracleDs3ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -334,6 +334,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

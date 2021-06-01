@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalsqlParserMysql01" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalsqlParserMysql01" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="zdalsqlParserMysql01Ds" />
 			</list>
 		</property>
 	</bean>
-	
-	
+
+
 	<bean id="zdalsqlParserMysql01Ds" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="zdalsqlParserMysql01Ds" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -25,7 +25,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs1ds0"/>
@@ -37,10 +37,10 @@
 			</map>
 		</property>
 	</bean>
-	
 
 
-	
+
+
 
 	<bean id="MysqlDs1ds0" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds0" />
@@ -61,9 +61,9 @@
 			</set>
 		</property>
 	</bean>
-	
 
-	
-	
-	
+
+
+
+
 </beans>

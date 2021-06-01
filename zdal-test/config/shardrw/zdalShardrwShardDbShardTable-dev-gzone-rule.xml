@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -8,8 +8,8 @@
 		init-method="init">
 		<property name="readwriteRule" ref="ShardrwShardDbShardTableDs1ReadWriteRule" />
 	</bean>
-	
-	
+
+
 	<bean id="ShardrwShardDbShardTableDs1ReadWriteRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -19,7 +19,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="ShardrwShardDbShardTableDs1_user" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="user" />

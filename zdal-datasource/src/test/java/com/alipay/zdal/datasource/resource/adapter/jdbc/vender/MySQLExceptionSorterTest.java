@@ -16,7 +16,7 @@ import com.alipay.zdal.datasource.ZDataSource;
 
 /**
  * MySQLExceptionSorter 测试用例
- * 
+ *
  * @author liangjie.li
  * @version $Id: MySQLExceptionSorterTest.java, v 0.1 2012-8-15 下午3:06:02 liangjie.li Exp $
  */
@@ -62,7 +62,7 @@ public class MySQLExceptionSorterTest {
         LocalTxDataSourceDO dsDo = new LocalTxDataSourceDO();
         dsDo.setDsName("test");
         dsDo
-            .setConnectionURL("jdbc:mysql://10.253.34.30:3300/diamond?useUnicode=true&amp;characterEncoding=gbk");
+            .setConnectionURL("jdbc:mysql://10.253.34.30:3300/diamond?useUnicode=true&amp;characterEncoding=UTF-8");
         dsDo.setUserName("diamond");
         dsDo.setPassWord("ali88");
         dsDo.setDriverClass("com.mysql.jdbc.Driver");

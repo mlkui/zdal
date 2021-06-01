@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -9,7 +9,7 @@
 		<property name="masterRule" ref="zdalClientPrefillshardOraclezoneDsIsNullMasterRule" />
 		<property name="slaveRule" ref="zdalClientPrefillshardOraclezoneDsIsNullSlaveRule" />
 	</bean>
-	
+
 	<bean id="zdalClientPrefillshardOraclezoneDsIsNullMasterRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="ORACLE" />
 		<property name="tableRules">
@@ -19,7 +19,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalClientPrefillshardOraclezoneDsIsNullSlaveRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="ORACLE" />
 		<property name="tableRules">
@@ -29,7 +29,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalClientPrefillshardOraclezoneDsIsNull_AUCTION_AUCTIONS" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="AUCTION_AUCTIONS" />
@@ -61,8 +61,8 @@
 		init-method="init">
 		<property name="readwriteRule" ref="zdalClientPrefillshardrwzoneDsIsNullReadWriteRule" />
 	</bean>
-	
-	
+
+
 	<bean id="zdalClientPrefillshardrwzoneDsIsNullReadWriteRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -72,7 +72,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalClientPrefillshardrwzoneDsIsNull_user" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="user" />
@@ -100,7 +100,7 @@
 		<property name="masterRule" ref="zdalClientPrefillshardfailoverzoneDsIsNullMasterRule" />
 		<property name="slaveRule" ref="zdalClientPrefillshardfailoverzoneDsIsNullSlaveRule" />
 	</bean>
-	
+
 	<bean id="zdalClientPrefillshardfailoverzoneDsIsNullMasterRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -110,7 +110,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalClientPrefillshardfailoverzoneDsIsNullSlaveRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -120,7 +120,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalClientPrefillshardfailoverzoneDsIsNull_users" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="users" />

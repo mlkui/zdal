@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="sequence2" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="sequence2" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="datasource0" />
 				<ref bean="datasource1" />
 				<ref bean="datasource2" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="datasource0" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="datasource0" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -26,7 +26,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="datasource0ds0"/>
@@ -47,7 +47,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="datasource1ds0"/>
@@ -68,7 +68,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="datasource2ds0"/>
@@ -80,7 +80,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="datasource0ds0" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds0" />
@@ -102,7 +102,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="datasource1ds0" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds0" />
@@ -124,7 +124,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="datasource2ds0" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds0" />
@@ -146,6 +146,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

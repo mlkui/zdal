@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalClientPrefill" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalClientPrefill" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="zdalClientPrefillshardrw" />
 				<ref bean="zdalClientPrefillshardfailover" />
 				<ref bean="zdalClientPrefillshardOracle" />
@@ -17,7 +17,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="zdalClientPrefillshardrw" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="zdalClientPrefillshardrw" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -29,7 +29,7 @@
 				<value>group_0_r</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdalClientPrefillshardrwds1"/>
@@ -57,7 +57,7 @@
 				<value>master_0</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdalClientPrefillshardfailoverds9"/>
@@ -88,7 +88,7 @@
 				<value>master_0</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdalClientPrefillshardOraclemaster0"/>
@@ -110,7 +110,7 @@
 				<value>group_r</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdalClientPrefillrwds1"/>
@@ -123,7 +123,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="zdalClientPrefillshardrwds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -212,7 +212,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="zdalClientPrefillshardfailoverds9" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds9" />
@@ -433,7 +433,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="zdalClientPrefillshardOraclemaster0" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="master0" />
@@ -478,7 +478,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="zdalClientPrefillrwds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -523,6 +523,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

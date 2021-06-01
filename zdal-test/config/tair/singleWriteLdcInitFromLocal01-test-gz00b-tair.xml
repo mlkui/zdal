@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sofa="http://img.alipay.net/dtd/schema/service"
 	xmlns:esb="http://mule.mulesource.org/schema/esb"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-         http://img.alipay.net/dtd/schema/service http://img.alipay.net/dtd/schema/service/sofa-service.xsd 
+         http://img.alipay.net/dtd/schema/service http://img.alipay.net/dtd/schema/service/sofa-service.xsd
 		 http://mule.mulesource.org/schema/esb http://mule.mulesource.org/schema/esb.xsd"
 	default-autowire="byName">
 
@@ -21,13 +21,13 @@
 		<property name="tairIndexs" value="tair_01"/>
 		<property name="tairMappingMap">
 			<map>
-				<entry key="tair_01" value="masterTair01:r10w10,failoverTair01:r00w00"/>		
+				<entry key="tair_01" value="masterTair01:r10w10,failoverTair01:r00w00"/>
 			</map>
 		</property>
 		<property name="logicalTairSettingList">
 			<list>
 				<ref bean="masterTair01" />
-				<ref bean="failoverTair01"/>			
+				<ref bean="failoverTair01"/>
 			</list>
 		</property>
 		<property name="zonePolicy" value="Logging" />
@@ -39,15 +39,15 @@
 		<property name="zoneId" value="RZ01A" />
 		<property name="physicalTairSetting" ref="physicalTair" />
 	</bean>
-	
+
 	<bean id="failoverTair01" class="com.alipay.zdal.tair.config.impl.LogicalTairSetting">
 		<property name="nameSpace" value="20" />
 		<property name="tairName" value="failoverTair01" />
 		<property name="zoneId" value="RZ01A" />
 		<property name="physicalTairSetting" ref="physicalTair" />
 	</bean>
-	
-	
+
+
 	<bean id="physicalTair" class="com.alipay.zdal.tair.config.impl.PhysicalTairSetting">
 		<property name="tairName" value="physicalTair" />
 		<property name="configServerList">
@@ -58,5 +58,5 @@
 		</property>
 		<property name="groupName" value="sessiontair" />
 	</bean>
-	
+
 </beans>

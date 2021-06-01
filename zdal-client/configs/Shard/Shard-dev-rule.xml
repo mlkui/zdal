@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -8,7 +8,7 @@
 		<property name="masterRule" ref="testRWRule" />
 		<property name="slaveRule" ref="testRWRule" />
 	</bean>
-	
+
 	<bean id="testRWRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="tableRules">
 			<map>
@@ -16,7 +16,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 	<bean id="userTableRule" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="tbSuffix" value="resetForEachDB:[_00-_09]"/>

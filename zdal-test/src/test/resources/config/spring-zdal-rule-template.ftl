@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -17,7 +17,7 @@
 		<property name="readwriteRule" ref="${appDsName}ReadWriteRule" />
 		</#if>
 	</bean>
-	
+
 	<#if masterRuleMap[appDsName]?? >
 	<bean id="${appDsName}MasterRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<#if dbTypeMap[appDsName]?? >
@@ -33,7 +33,7 @@
 		<property name="defaultDbIndex" value="" />
 	</bean>
 	</#if>
-	
+
 	<#if slaveRuleMap[appDsName]?? >
 	<bean id="${appDsName}SlaveRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<#if dbTypeMap[appDsName]?? >
@@ -64,7 +64,7 @@
 		<property name="defaultDbIndex" value="" />
 	</bean>
 	</#if>
-	
+
 	<#if allRuleMap[appDsName]?? >
 	<#list allRuleMap[appDsName] as shardRule>
 	<bean id="${appDsName}_${shardRule.logicTableName}" class="com.alipay.zdal.rule.config.beans.TableRule"

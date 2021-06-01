@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalClientInitApp" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalClientInitApp" />
 		<property name="dbmode" value="dev" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="zdataconsoleUrlIsNull" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="zdataconsoleUrlIsNull" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="zdataconsoleUrlIsNull" />
 		<property name="dataBaseType" value="MYSQL" />
 		<property name="configType" value="GROUP" />
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdataconsoleUrlIsNullds1"/>
@@ -31,7 +31,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="zdataconsoleUrlIsNullds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -72,6 +72,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

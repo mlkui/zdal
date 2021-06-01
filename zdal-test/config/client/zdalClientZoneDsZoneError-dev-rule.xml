@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -9,7 +9,7 @@
 		<property name="masterRule" ref="zdalZoneDsZoneErrorRight3MasterRule" />
 		<property name="slaveRule" ref="zdalZoneDsZoneErrorRight3SlaveRule" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight3MasterRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -19,7 +19,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight3SlaveRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -29,7 +29,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight3_users" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="users" />
@@ -57,7 +57,7 @@
 		<property name="masterRule" ref="zdalZoneDsZoneErrorRight2MasterRule" />
 		<property name="slaveRule" ref="zdalZoneDsZoneErrorRight2SlaveRule" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight2MasterRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -67,7 +67,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight2SlaveRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -77,7 +77,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight2_users" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="users" />
@@ -105,7 +105,7 @@
 		<property name="masterRule" ref="zdalZoneDsZoneErrorRight1MasterRule" />
 		<property name="slaveRule" ref="zdalZoneDsZoneErrorRight1SlaveRule" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight1MasterRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -115,7 +115,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight1SlaveRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -125,7 +125,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight1_users" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="users" />

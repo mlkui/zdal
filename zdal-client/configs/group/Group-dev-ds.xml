@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	classpath:spring/spring-beans-2.5.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="Group" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="Group" />
 		<property name="dbmode" value="dev" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="groupDataSource" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="groupDataSource" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="groupDataSource" />
 		<property name="dataBaseType" value="MYSQL" />
-		<property name="configType" value="GROUP" />		
+		<property name="configType" value="GROUP" />
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="writeDataSource"/>
@@ -33,7 +33,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="writeDataSource" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="writeDataSource" />
@@ -154,6 +154,6 @@
 			</map>
 		 </property>
 	</bean>
-	
-	
+
+
 </beans>

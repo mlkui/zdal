@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="sequence3" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="sequence3" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="sequenceds" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="sequenceds" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="sequenceds" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -24,7 +24,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="sequencedsds1"/>
@@ -37,7 +37,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="sequencedsds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -80,6 +80,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

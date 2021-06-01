@@ -26,7 +26,7 @@ public class TestGetPoolCondition {
         LocalTxDataSourceDO dsDo = new LocalTxDataSourceDO();
         dsDo.setDsName("test");
         dsDo
-            .setConnectionURL("jdbc:mysql://mypay83307.devdb.alipay.net:3307/zds_switch?useUnicode=true&amp;characterEncoding=gbk");
+            .setConnectionURL("jdbc:mysql://mypay83307.devdb.alipay.net:3307/zds_switch?useUnicode=true&amp;characterEncoding=UTF-8");
         dsDo.setUserName("zds_switch");
         dsDo.setPassWord("ali88");
         dsDo.setDriverClass("com.mysql.jdbc.Driver");

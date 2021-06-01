@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalPreparedStatement" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalPreparedStatement" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="preparedStatementDsOracle" />
 				<ref bean="preparedStatementDs1" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="preparedStatementDsOracle" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="preparedStatementDsOracle" />
 		<property name="dataBaseType" value="ORACLE" />
@@ -25,7 +25,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="preparedStatementDsOracleds1"/>
@@ -47,7 +47,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="preparedStatementDs1ds0"/>
@@ -59,7 +59,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="preparedStatementDsOracleds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -102,7 +102,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="preparedStatementDs1ds0" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds0" />
@@ -124,6 +124,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

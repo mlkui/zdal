@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalRwRetry" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalRwRetry" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="rwRetry10" />
 				<ref bean="rwRetry2" />
 				<ref bean="rwRetry1" />
@@ -23,7 +23,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="rwRetry10" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="rwRetry10" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -33,7 +33,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry10ds1"/>
@@ -56,7 +56,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry2ds1"/>
@@ -79,7 +79,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry1ds1"/>
@@ -102,7 +102,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry5ds1"/>
@@ -125,7 +125,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry6ds1"/>
@@ -148,7 +148,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry3ds1"/>
@@ -171,7 +171,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry4ds1"/>
@@ -194,7 +194,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry9ds1"/>
@@ -217,7 +217,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry7ds1"/>
@@ -240,7 +240,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwRetry8ds1"/>
@@ -254,7 +254,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry10ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -315,7 +315,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry2ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -376,7 +376,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry1ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -437,7 +437,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry5ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -498,7 +498,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry6ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -559,7 +559,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry3ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -620,7 +620,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry4ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -681,7 +681,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry9ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -742,7 +742,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry7ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -803,7 +803,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwRetry8ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -864,6 +864,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

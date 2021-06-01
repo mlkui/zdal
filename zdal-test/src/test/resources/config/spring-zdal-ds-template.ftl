@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="${appName}" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="${appName}" />
 		<property name="dbmode" value="${dbmode}" />
 		<property name="idcName" value="${idcName}" />
 		<#if appDataSourceList?? >
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<#list appDataSourceList as ds>
 				<ref bean="${ds.appDsName}" />
 				</#list>
@@ -18,7 +18,7 @@
 		</property>
 		</#if>
 	</bean>
-	
+
 	<#if appDataSourceList?? >
 		<#list appDataSourceList as appDataSource>
 	<bean id="${appDataSource.appDsName}" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
@@ -26,7 +26,7 @@
 		<property name="dataBaseType" value="${appDataSource.dbType}" />
 		<property name="configType" value="${appDataSource.dataSourceConfigType}" />
 		<property name="zoneError" value="${appDataSource.zoneError}" />
-		<#if appDataSource.shardTableRules?size gt 0 > 
+		<#if appDataSource.shardTableRules?size gt 0 >
 		<property name="appRule" ref="${appDataSource.appDsName}Rule" />
 		</#if>
 		<property name="zoneDSSet" >
@@ -38,7 +38,7 @@
 			</#if>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<#list appDataSource.dataSourceParameters?keys as key >
@@ -58,10 +58,10 @@
 	</bean>
 		</#list>
 	</#if>
-	
+
 	<#list appDataSourceList as appDataSource >
 	<#list appDataSource.dataSourceParameters?keys as key >
-		<#assign dataSource = appDataSource.dataSourceParameters[key] > 
+		<#assign dataSource = appDataSource.dataSourceParameters[key] >
 
 	<bean id="${appDataSource.appDsName}${key}" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="${key}" />
@@ -105,7 +105,7 @@
 		</property>
 	</bean>
 	</#list>
-	
+
 	</#list>
-	
+
 </beans>

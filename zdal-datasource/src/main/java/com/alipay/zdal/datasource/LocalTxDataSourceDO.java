@@ -13,7 +13,7 @@ import com.alipay.zdal.common.lang.StringUtil;
 import com.alipay.zdal.datasource.resource.security.SecureIdentityLoginModule;
 
 /**
- * 
+ *
  * @author sicong.shou
  * @version $Id: LocalTxDataSourceDO.java, v 0.1 2012-11-22 上午10:04:48 sicong.shou Exp $
  */
@@ -24,7 +24,7 @@ public class LocalTxDataSourceDO implements Cloneable {
 
     /** 数据库连接的url,必填，由统一数据源提供. */
     private String              connectionURL                   = null;
-    /**  连接数据库的driver类名，必填，目前只支持mysql和oracle 
+    /**  连接数据库的driver类名，必填，目前只支持mysql和oracle
      * mysql：com.mysql.jdbc.Driver
      * oracle:oracle.jdbc.OracleDriver*/
     private String              driverClass                     = null;
@@ -52,7 +52,7 @@ public class LocalTxDataSourceDO implements Cloneable {
      * 单位：毫秒  必须 > 0 */
     private int                 blockingTimeoutMillis           = 180;
     /** 每个connection缓存的preparedStatement的大小，
-     * 1，oracle11g-thin模式，请设置成0，采用oracle-driver提供的cache 
+     * 1，oracle11g-thin模式，请设置成0，采用oracle-driver提供的cache
      * 2，oracle11g-oci模式，根据业务情况设置成一定的>0的值
      * 3，mysql目前不支持，直接设置成0就可以
      * 必须>=0*/
@@ -63,7 +63,7 @@ public class LocalTxDataSourceDO implements Cloneable {
     /** 事务隔离级别. */
     private String              transactionIsolation            = "-1";
     /** mysql-driver,oracle-driver所提供的连接参数
-     * mysql会默认加上useUnicode=true；characterEncoding=gbk这两个Key-Value
+     * mysql会默认加上useUnicode=true；characterEncoding=UTF-8这两个Key-Value
      * oracle会默认加上SetBigStringTryClob=true；defaultRowPrefetch=50这两个Key-Value. */
     private Map<String, String> connectionProperties            = new HashMap<String, String>();
     /** 数据源连接池在初始化成功以后，是否建立最小连接数. */
@@ -101,7 +101,7 @@ public class LocalTxDataSourceDO implements Cloneable {
     public LocalTxDataSourceDO() {
         //
         //        connectionProperties.put("useUnicode", "true");
-        //        connectionProperties.put("characterEncoding", "gbk");
+        //        connectionProperties.put("characterEncoding", "UTF-8");
     }
 
     public void setDsName(String dsName) {
@@ -139,7 +139,7 @@ public class LocalTxDataSourceDO implements Cloneable {
     public void setExceptionSorterClassName(String exceptionSorterClassName) {
         if (exceptionSorterClassName.equals(MySQLExceptionSorter.class.getName())) {
             connectionProperties.put("useUnicode", "true");
-            connectionProperties.put("characterEncoding", "gbk");
+            connectionProperties.put("characterEncoding", "UTF-8");
         } else if (exceptionSorterClassName.equals(OracleExceptionSorter.class.getName())) {
             connectionProperties.put("SetBigStringTryClob", "true");
             connectionProperties.put("defaultRowPrefetch", "50");
@@ -328,7 +328,7 @@ public class LocalTxDataSourceDO implements Cloneable {
         return backgroundValidationMinutes;
     }
 
-    /** 
+    /**
      * @see java.lang.Object#hashCode()
      */
     @Override
@@ -372,7 +372,7 @@ public class LocalTxDataSourceDO implements Cloneable {
         return result;
     }
 
-    /** 
+    /**
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
@@ -569,7 +569,7 @@ public class LocalTxDataSourceDO implements Cloneable {
         return sb.toString();
     }
 
-    /** 
+    /**
      * @see java.lang.Object#clone()
      */
     @Override

@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalRwPriority" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalRwPriority" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="rwPriorityDs4" />
 				<ref bean="rwPriorityDs5" />
 				<ref bean="rwPriorityDs6" />
@@ -21,7 +21,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="rwPriorityDs4" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="rwPriorityDs4" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -31,7 +31,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwPriorityDs4ds1"/>
@@ -53,7 +53,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwPriorityDs5ds1"/>
@@ -75,7 +75,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwPriorityDs6ds1"/>
@@ -97,7 +97,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwPriorityDs7ds1"/>
@@ -119,7 +119,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwPriorityDs1ds1"/>
@@ -141,7 +141,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwPriorityDs2ds1"/>
@@ -163,7 +163,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwPriorityDs3ds1"/>
@@ -185,7 +185,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="rwPriorityDs8ds1"/>
@@ -198,7 +198,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwPriorityDs4ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -239,7 +239,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwPriorityDs5ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -280,7 +280,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwPriorityDs6ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -321,7 +321,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwPriorityDs7ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -362,7 +362,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwPriorityDs1ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -403,7 +403,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwPriorityDs2ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -444,7 +444,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwPriorityDs3ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -485,7 +485,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="rwPriorityDs8ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -526,6 +526,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

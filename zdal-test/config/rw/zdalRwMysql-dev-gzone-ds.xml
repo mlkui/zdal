@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalRwMysql" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalRwMysql" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="MysqlDs9" />
 				<ref bean="MysqlDs7" />
 				<ref bean="MysqlDs8" />
@@ -22,7 +22,7 @@
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="MysqlDs9" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="MysqlDs9" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -32,7 +32,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs9ds1"/>
@@ -54,7 +54,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs7ds1"/>
@@ -76,7 +76,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs8ds1"/>
@@ -98,7 +98,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs5ds1"/>
@@ -120,7 +120,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs6ds1"/>
@@ -142,7 +142,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs3ds1"/>
@@ -164,7 +164,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs4ds1"/>
@@ -186,7 +186,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs1ds1"/>
@@ -208,7 +208,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="MysqlDs2ds1"/>
@@ -221,7 +221,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs9ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -262,7 +262,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs7ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -303,7 +303,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs8ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -344,7 +344,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs5ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -385,7 +385,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs6ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -426,7 +426,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs3ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -467,7 +467,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs4ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -508,7 +508,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs1ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -549,7 +549,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="MysqlDs2ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -590,6 +590,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

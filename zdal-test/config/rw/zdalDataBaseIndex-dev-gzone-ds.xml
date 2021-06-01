@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalDataBaseIndex" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalDataBaseIndex" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="dataBaseIndex2" />
 				<ref bean="dataBaseIndex1" />
 				<ref bean="dataBaseIndex3" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="dataBaseIndex2" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="dataBaseIndex2" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -26,7 +26,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="dataBaseIndex2ds1"/>
@@ -48,7 +48,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="dataBaseIndex1ds1"/>
@@ -70,7 +70,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="dataBaseIndex3ds1"/>
@@ -83,7 +83,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="dataBaseIndex2ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -124,7 +124,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="dataBaseIndex1ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -165,7 +165,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="dataBaseIndex3ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -206,6 +206,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>

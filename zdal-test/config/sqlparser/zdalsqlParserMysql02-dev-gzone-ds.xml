@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalsqlParserMysql02" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalsqlParserMysql02" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="zdalsqlParserMysql02Ds1" />
-				<ref bean="zdalsqlParserMysql03Ds1" />			
+				<ref bean="zdalsqlParserMysql03Ds1" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="zdalsqlParserMysql02Ds1" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="zdalsqlParserMysql02Ds1" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -26,11 +26,11 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
-			<set>			
+			<set>
 				<ref bean="shardfailoverShardDbShardTableDs1ds1"/>
-				<ref bean="shardfailoverShardDbShardTableDs1ds0"/>				
+				<ref bean="shardfailoverShardDbShardTableDs1ds0"/>
 			</set>
 		</property>
 		<property name="groupDataSourceRuleMap">
@@ -38,8 +38,8 @@
 			</map>
 		</property>
 	</bean>
-	
-	
+
+
 
 	<bean id="shardfailoverShardDbShardTableDs1ds1" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds1" />
@@ -83,7 +83,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 	<bean id="zdalsqlParserMysql03Ds1" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="zdalsqlParserMysql03Ds1" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -94,7 +94,7 @@
 			<set>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdalsqlParserMysql03Ds1DBphysics0"/>
@@ -108,7 +108,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 	<bean id="zdalsqlParserMysql03Ds1DBphysics0" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="physics0" />
 		<property name="jdbcUrl" value="jdbc:mysql://mysql-1-2.bjl.alipay.net:3306/tddl_sample_0" />
@@ -192,8 +192,8 @@
 			</set>
 		</property>
 	</bean>
-	
 
-	
-	
+
+
+
 </beans>

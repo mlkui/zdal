@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -9,7 +9,7 @@
 		<property name="masterRule" ref="shardfailoverdbIndexForEachDBMasterRule" />
 		<property name="slaveRule" ref="shardfailoverdbIndexForEachDBSlaveRule" />
 	</bean>
-	
+
 	<bean id="shardfailoverdbIndexForEachDBMasterRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -19,7 +19,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="shardfailoverdbIndexForEachDBSlaveRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -29,7 +29,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="shardfailoverdbIndexForEachDB_AUCTION_AUCTIONS" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="AUCTION_AUCTIONS" />
@@ -57,7 +57,7 @@
 		<property name="masterRule" ref="shardfailovertwoColumnForEachDBMasterRule" />
 		<property name="slaveRule" ref="shardfailovertwoColumnForEachDBSlaveRule" />
 	</bean>
-	
+
 	<bean id="shardfailovertwoColumnForEachDBMasterRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -67,7 +67,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="shardfailovertwoColumnForEachDBSlaveRule" class="com.alipay.zdal.rule.config.beans.ShardRule">
 		<property name="dbtype" value="MYSQL" />
 		<property name="tableRules">
@@ -77,7 +77,7 @@
 		</property>
 		<property name="defaultDbIndex" value="" />
 	</bean>
-	
+
 	<bean id="shardfailovertwoColumnForEachDB_card_no_month" class="com.alipay.zdal.rule.config.beans.TableRule"
 		init-method="init">
 		<property name="logicTableName" value="card_no_month" />

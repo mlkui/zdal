@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="gbk"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <App name="sequence4" dbmode="dev" idcName="gzone" zoneError="EXCEPTOIN">
 <AppDataSource name="datasource0" dataBaseType="MYSQL" version="1" zoneDs="">
   <datasource name="rootRwDs" dataSourceType="RW" readwriteRule="ds0:r1w1">

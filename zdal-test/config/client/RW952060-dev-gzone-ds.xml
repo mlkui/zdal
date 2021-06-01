@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="gbk"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <App name="RW952060" dbmode="dev" idcName="gzone" zoneError="EXCEPTOIN">
 <AppDataSource name="RW952060" dataBaseType="MYSQL" version="1" zoneDs="">
   <datasource name="rootRwDs" dataSourceType="RW" readwriteRule="ds0:r2w1,ds1:r1w2">

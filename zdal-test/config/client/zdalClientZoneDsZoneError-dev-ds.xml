@@ -1,22 +1,22 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-autowire="byName">
-	
+
 	<bean id="zdalClientZoneDsZoneError" class="com.alipay.zdal.client.config.bean.ZdalAppBean">
 		<property name="appName" value="zdalClientZoneDsZoneError" />
 		<property name="dbmode" value="dev" />
 		<property name="idcName" value="gzone" />
 		<property name="appDataSourceList">
-			<list>		
+			<list>
 				<ref bean="zdalZoneDsZoneErrorRight3" />
 				<ref bean="zdalZoneDsZoneErrorRight2" />
 				<ref bean="zdalZoneDsZoneErrorRight1" />
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="zdalZoneDsZoneErrorRight3" class="com.alipay.zdal.client.config.bean.AppDataSourceBean">
 		<property name="appDataSourceName" value="zdalZoneDsZoneErrorRight3" />
 		<property name="dataBaseType" value="MYSQL" />
@@ -29,7 +29,7 @@
 				<value>master_0</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdalZoneDsZoneErrorRight3ds9"/>
@@ -61,7 +61,7 @@
 				<value>master_0</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdalZoneDsZoneErrorRight2ds9"/>
@@ -92,7 +92,7 @@
 				<value>master_0</value>
 			</set>
 		</property>
-		
+
 		<property name="physicalDataSourceSet">
 			<set>
 				<ref bean="zdalZoneDsZoneErrorRightds9"/>
@@ -112,7 +112,7 @@
 			</map>
 		</property>
 	</bean>
-	
+
 
 	<bean id="zdalZoneDsZoneErrorRight3ds9" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds9" />
@@ -323,7 +323,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="zdalZoneDsZoneErrorRight2ds9" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds9" />
@@ -534,7 +534,7 @@
 			</set>
 		</property>
 	</bean>
-	
+
 
 	<bean id="zdalZoneDsZoneErrorRightds9" class="com.alipay.zdal.client.config.bean.PhysicalDataSourceBean" >
 		<property name="name" value="ds9" />
@@ -745,6 +745,6 @@
 			</set>
 		</property>
 	</bean>
-	
-	
+
+
 </beans>
