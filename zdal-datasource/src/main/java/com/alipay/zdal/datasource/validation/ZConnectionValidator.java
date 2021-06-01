@@ -8,7 +8,8 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -16,8 +17,8 @@ import org.apache.log4j.Logger;
 public class ZConnectionValidator {
 
     /** The log */
-    private static final Logger                                    log       = Logger
-                                                                                 .getLogger(ZConnectionValidator.class);
+    private static final Logger                                    log       = LoggerFactory
+                                                        .getLogger(ZConnectionValidator.class);
 
     /** The pools */
     private final CopyOnWriteArrayList<UnreleaseConnectionChecker> pools     = new CopyOnWriteArrayList<UnreleaseConnectionChecker>();

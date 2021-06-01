@@ -6,7 +6,8 @@ package com.alipay.zdal.datasource.util;
 
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.LocalTxDataSourceDO;
 import com.alipay.zdal.datasource.ZDataSource;
@@ -14,13 +15,13 @@ import com.alipay.zdal.datasource.ZDataSourceFactory;
 import com.alipay.zdal.datasource.resource.adapter.jdbc.local.LocalTxDataSource;
 
 /**
- * 
- * 
+ *
+ *
  * @author liangjie.li
  * @version $Id: ZDataSourceChanger.java, v 0.1 2012-8-20 下午8:08:03 liangjie.li Exp $
  */
 public class ZDataSourceChanger {
-    private static final Logger logger = Logger.getLogger(ZDataSourceChanger.class);
+    private static final Logger logger = LoggerFactory.getLogger(ZDataSourceChanger.class);
 
     public static boolean configChange(Map<String, String> properties, ZDataSource zds) {
         boolean urlChange = ZDataSourceUtil.isChanged(properties, Parameter.JDBC_URL); //url是否改变
@@ -51,7 +52,7 @@ public class ZDataSourceChanger {
 
     /**
      * 重建数据源连接池，先建立一个新的连接池，然后和旧的交换，最后销货旧的
-     * 
+     *
      * @param newDO
      * @return
      */

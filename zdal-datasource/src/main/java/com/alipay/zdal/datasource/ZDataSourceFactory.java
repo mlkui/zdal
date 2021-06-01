@@ -4,7 +4,8 @@
  */
 package com.alipay.zdal.datasource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.adapter.jdbc.local.LocalTxDataSource;
 import com.alipay.zdal.datasource.resource.connectionmanager.CachedConnectionManager;
@@ -12,21 +13,21 @@ import com.alipay.zdal.datasource.tm.TxManager;
 
 /**
  *  数据源创建工厂类，提供数据源的创建和销毁
- * 
+ *
  * @author liangjie.li
- * 
+ *
  */
 public final class ZDataSourceFactory {
 
     private static final TxManager               defaultTransactionManager      = TxManager
                                                                                     .getInstance();
-    private static final Logger                  logger                         = Logger
-                                                                                    .getLogger(ZDataSourceFactory.class);
+    private static final Logger                  logger                         = LoggerFactory
+                                                        .getLogger(ZDataSourceFactory.class);
     private static final CachedConnectionManager defaultCachedConnectionManager = new CachedConnectionManager();
 
     /**
      *  创建新的数据源
-     * 
+     *
      * @param dataSourceDO
      * @return com.alipay.zdatasource.resource.adapter.jdbc.local.LocalTxDataSource
      * @throws Exception
@@ -39,7 +40,7 @@ public final class ZDataSourceFactory {
 
     /**
      *  创建新的数据源
-     * 
+     *
      * @param dataSourceDO
      * @param transactionManager
      * @param cachedConnectionManager
@@ -80,8 +81,8 @@ public final class ZDataSourceFactory {
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @param dataSourceDO
      * @param localTxDataSource
      * @param configRoot
@@ -128,7 +129,7 @@ public final class ZDataSourceFactory {
 
     /**
      * 销毁当前的数据源
-     * 
+     *
      * @param localTxDataSource
      * @throws Exception
      */

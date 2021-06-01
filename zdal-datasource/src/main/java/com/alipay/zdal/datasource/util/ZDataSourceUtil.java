@@ -10,7 +10,8 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.lang.StringUtil;
 import com.alipay.zdal.datasource.LocalTxDataSourceDO;
@@ -18,13 +19,13 @@ import com.alipay.zdal.datasource.resource.adapter.jdbc.local.LocalTxDataSource;
 
 /**
  * ZDataSourceDRM util class
- * 
+ *
  * @author liangjie
  * @version $Id: ZDataSourceDRMUtil.java, v 0.1 2012-8-15 下午1:32:37 liangjie Exp $
  */
 public final class ZDataSourceUtil {
 
-    private static final Logger logger = Logger.getLogger(ZDataSourceUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(ZDataSourceUtil.class);
 
     static void replaceValueFromMap(LocalTxDataSourceDO newDO, Map<String, String> map) {
         if (map != null && !map.isEmpty()) {
@@ -128,7 +129,7 @@ public final class ZDataSourceUtil {
                     try {
                         newDO.setEncPassword(value);
                     } catch (Exception e1) {
-                        logger.error(e1);
+                        logger.error(e1.toString());
                     }
                 }
             }
@@ -149,7 +150,7 @@ public final class ZDataSourceUtil {
     /**
      * connectionProperties的格式   key1%value1;key2%value2...
      * 主要是防止和整个配置的key=value里面的=冲突
-     * 
+     *
      * @param strP
      * @return
      */
@@ -174,7 +175,7 @@ public final class ZDataSourceUtil {
 
     /**
      * 将老的LocalTxDataSource里的所有配置复制到新的LocalTxDataSourceDO 里面
-     * 
+     *
      * @param ds
      * @param DO
      */
@@ -220,7 +221,7 @@ public final class ZDataSourceUtil {
 
     /**
      * 将LocalTxDataSourceDO里的所有配置复制到LocalTxDataSource里面，现在暂时没用了
-     * 
+     *
      * @param DO
      * @param ds
      */
@@ -256,7 +257,7 @@ public final class ZDataSourceUtil {
      * MinPoolSize  MaxPoolSize  BlockingTimeout  IdleTimeout  PreparedStatementCacheSize
      * 或者oracle的connectionproperties
      * 有变化的时候，连接池要重建,这里为了方便起见，mysql的connectionproperties变化的时候，也重建
-     * 
+     *
      * @param newDO
      * @param oldDS
      * @param propChange
@@ -305,7 +306,7 @@ public final class ZDataSourceUtil {
 
     /**
      * 判断connectionproperties是否有变化
-     * 
+     *
      * @param connectionProperties
      * @return
      */
@@ -326,7 +327,7 @@ public final class ZDataSourceUtil {
 
     /**
      * 判断配置信息字符串的版本信息
-     * 
+     *
      * @param configValue
      * @return
      */

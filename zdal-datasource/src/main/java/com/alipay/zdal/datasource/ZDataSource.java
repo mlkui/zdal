@@ -5,6 +5,7 @@
 package com.alipay.zdal.datasource;
 
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -14,8 +15,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
 import com.alipay.zdal.datasource.client.util.PoolConditionWriter;
 import com.alipay.zdal.datasource.client.util.ZConstants;
 import com.alipay.zdal.datasource.resource.adapter.jdbc.local.LocalTxDataSource;
@@ -23,15 +26,15 @@ import com.alipay.zdal.datasource.util.PoolCondition;
 import com.alipay.zdal.datasource.util.ZDataSourceChanger;
 
 /**
- * 
- * 
+ *
+ *
  * @author liangjie.li
  * @version $Id: ZDataSource.java, v 0.1 May 11, 2012 3:38:23 PM liangjie.li Exp $
  */
 public class ZDataSource extends AbstractDataSource implements Flusher, Comparable<ZDataSource> {
 
-    private static final Logger                   logger            = Logger
-                                                                        .getLogger(ZDataSource.class);
+    private static final Logger                   logger            = LoggerFactory
+                                                        .getLogger(ZDataSource.class);
 
     private static AtomicBoolean                  switching         = new AtomicBoolean(false);
     private final static ScheduledExecutorService service           = Executors
@@ -61,7 +64,7 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
 
     /**
      * 用 LocalTxDataSourceDO来初始化zdatasource
-     * 
+     *
      * @param dataSourceDO
      * @param appName
      * @throws Exception 参数不全会抛出 IllegalArgumentException
@@ -105,8 +108,8 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     }
 
     /**
-     * 
-     * 
+     *
+     *
      * @throws Exception
      */
     public void destroy() throws Exception {
@@ -125,14 +128,14 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                logger.error(e);
+                logger.error(e.toString());
             }
             return getDatasource();
         }
     }
 
     /**
-     * 
+     *
      * @see com.alipay.zdal.Flusher#flush(com.alipay.zdal.LocalTxDataSourceDO)
      */
     //    public boolean flush(LocalTxDataSourceDO localTxDataSourceDO) {
@@ -162,8 +165,8 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     //    }
 
     /**
-     * 
-     * @throws Exception 
+     *
+     * @throws Exception
      * @see com.alipay.zdal.datasource.Flusher#flush(java.util.Map)
      */
     public boolean flush(Map<String, String> map) {
@@ -171,7 +174,7 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     }
 
     /**
-     * 
+     *
      * @param name
      * @param dsConfigs
      * @throws Exception
@@ -201,7 +204,7 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
     }
 
     /**
-     * 
+     *
      * @param localTxDataSourceDO
      * @throws Exception
      */
@@ -238,4 +241,9 @@ public class ZDataSource extends AbstractDataSource implements Flusher, Comparab
         return this.getDsName().compareTo(o.getDsName());
     }
 
+    @Override
+    public java.util.logging.Logger getParentLogger() throws SQLFeatureNotSupportedException
+    {
+        throw new NotSupportException("getParentLogger");
+    }
 }
