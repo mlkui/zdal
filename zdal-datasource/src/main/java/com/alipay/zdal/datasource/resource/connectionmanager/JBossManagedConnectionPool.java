@@ -722,7 +722,7 @@ public class JBossManagedConnectionPool implements JBossManagedConnectionPoolMBe
                 toLog.append(this.poolParams.maxSize);
                 toLog.append("]");
 
-                log.debug(toLog);
+                log.debug(toLog.toString());
             }
         }
     }
