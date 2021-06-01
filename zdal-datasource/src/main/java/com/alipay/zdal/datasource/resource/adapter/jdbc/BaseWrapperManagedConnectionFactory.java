@@ -17,7 +17,8 @@ import java.util.Set;
 
 import javax.security.auth.Subject;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.jdbc.sorter.ExceptionSorter;
 import com.alipay.zdal.common.jdbc.sorter.NullExceptionSorter;
@@ -50,7 +51,7 @@ public abstract class BaseWrapperManagedConnectionFactory implements ManagedConn
     public static final String       TRACK_STATEMENTS_TRUE       = "true";
     public static final String       TRACK_STATEMENTS_NOWARN     = "nowarn";
 
-    protected final Logger           log                         = Logger.getLogger(getClass());
+    protected final Logger           log                         = LoggerFactory.getLogger(getClass());
 
     protected String                 userName;
     protected String                 password;
@@ -113,7 +114,7 @@ public abstract class BaseWrapperManagedConnectionFactory implements ManagedConn
     }
 
     /**
-     * 
+     *
      */
     public BaseWrapperManagedConnectionFactory() {
 
@@ -129,7 +130,7 @@ public abstract class BaseWrapperManagedConnectionFactory implements ManagedConn
     }
 
     /**
-     * 
+     *
      * @param cm
      * @param dataSourceName
      * @param zdatasource
@@ -141,7 +142,7 @@ public abstract class BaseWrapperManagedConnectionFactory implements ManagedConn
         return new WrapperDataSource(this, cm, dataSourceName, zdatasource);
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnectionFactory#createConnectionFactory()
      */
     public Object createConnectionFactory() throws ResourceException {
@@ -301,7 +302,7 @@ public abstract class BaseWrapperManagedConnectionFactory implements ManagedConn
         queryTimeout = timeout;
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ValidatingManagedConnectionFactory#getInvalidConnections(java.util.Set)
      */
     public Set getInvalidConnections(final Set connectionSet) throws ResourceException {
@@ -429,7 +430,7 @@ public abstract class BaseWrapperManagedConnectionFactory implements ManagedConn
             this.mcf = mcf;
         }
 
-        /** 
+        /**
          * @see java.security.PrivilegedAction#run()
          */
         public Object run() {

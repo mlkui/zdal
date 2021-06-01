@@ -6,19 +6,20 @@ package com.alipay.zdal.datasource.resource.connectionmanager;
 
 import java.util.LinkedList;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * PoolFiller
  *
- * 
+ *
  * @author 伯牙
  * @version $Id: PoolFiller.java, v 0.1 2014-1-6 下午05:35:56 Exp $
  */
 public class PoolFiller implements Runnable {
     private final LinkedList<InternalManagedConnectionPool> pools       = new LinkedList<InternalManagedConnectionPool>();
-    private static final Logger                             logger      = Logger
-                                                                            .getLogger(PoolFiller.class);
+    private static final Logger                             logger      = LoggerFactory
+                                                        .getLogger(PoolFiller.class);
     private final Thread                                    fillerThread;
 
     private static final PoolFiller                         filler      = new PoolFiller();

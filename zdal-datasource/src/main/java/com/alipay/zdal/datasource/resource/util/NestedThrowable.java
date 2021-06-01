@@ -8,14 +8,15 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.util.platform.Java;
 
 /**
  * Interface which is implemented by all the nested throwable flavors.
  *
- * 
+ *
  * @author 伯牙
  * @version $Id: NestedThrowable.java, v 0.1 2014-1-6 下午05:39:40 Exp $
  */
@@ -90,7 +91,7 @@ public interface NestedThrowable extends Serializable {
      */
     final class Util {
         // Can not be final due to init bug, see getLogger() for details
-        private static Logger log = Logger.getLogger(NestedThrowable.class);
+        private static Logger log = LoggerFactory.getLogger(NestedThrowable.class);
 
         /**
          * Something is very broken with class nesting, which can sometimes

@@ -6,7 +6,8 @@ package com.alipay.zdal.datasource.resource.connectionmanager;
 
 import java.util.ArrayList;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.util.NestedRuntimeException;
 import com.alipay.zdal.datasource.tm.TransactionLocal;
@@ -18,7 +19,7 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
 
 /**
  * Organizes transaction synchronization done by JCA.<p>
- * 
+ *
  * This class exists to make sure all Tx synchronizations
  * are invoked before the cached connection manager closes any
  * closed connections.
@@ -28,7 +29,7 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  */
 public class TransactionSynchronizer implements Synchronization {
     /** The logger */
-    private static final Logger       log = Logger.getLogger(TransactionSynchronizer.class);
+    private static final Logger       log = LoggerFactory.getLogger(TransactionSynchronizer.class);
 
     /** The transaction synchronizations */
     protected static TransactionLocal txSynchs;
@@ -55,7 +56,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Create a new transaction synchronizer
-     * 
+     *
      * @param tx the transaction to synchronize with
      */
     private TransactionSynchronizer(Transaction tx) {
@@ -64,7 +65,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Add a new Tx synchronization that has not been enlisted
-     * 
+     *
      * @param synch the synchronization
      */
     synchronized void addUnenlisted(Synchronization synch) {
@@ -76,7 +77,7 @@ public class TransactionSynchronizer implements Synchronization {
     /**
      * Get the unenlisted synchronizations
      * and say we are enlisting if some are returned.
-     * 
+     *
      * @return the unenlisted synchronizations
      */
     synchronized ArrayList getUnenlisted() {
@@ -100,7 +101,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * The synchronization is now enlisted
-     * 
+     *
      * @param synch the synchronization
      */
     synchronized void addEnlisted(Synchronization synch) {
@@ -111,7 +112,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Remove an enlisted synchronization
-     * 
+     *
      * @param synch the synchronization
      * @return true when the synchronization was enlisted
      */
@@ -155,7 +156,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Check whether we have a CCM synchronization
-     * 
+     *
      * @param tx the transaction
      */
     static Synchronization getCCMSynchronization(Transaction tx) {
@@ -168,7 +169,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Register a new CCM synchronization
-     * 
+     *
      * @param tx the transaction
      * @param synch the synchronization
      * @throws RolledbackException if the transaction is already rolled back
@@ -183,7 +184,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Lock for the given transaction
-     * 
+     *
      * @param tx the transaction
      */
     static void lock(Transaction tx) {
@@ -196,7 +197,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Unlock for the given transaction
-     * 
+     *
      * @param tx the transaction
      */
     static void unlock(Transaction tx) {
@@ -233,7 +234,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Invoke a beforeCompletion
-     * 
+     *
      * @param synch the synchronization
      */
     protected void invokeBefore(Synchronization synch) {
@@ -246,7 +247,7 @@ public class TransactionSynchronizer implements Synchronization {
 
     /**
      * Invoke an afterCompletion
-     * 
+     *
      * @param synch the synchronization
      * @param status the status of the transaction
      */

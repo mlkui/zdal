@@ -9,7 +9,8 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.ZDataSource;
 import com.alipay.zdal.datasource.resource.ResourceException;
@@ -26,19 +27,19 @@ import com.alipay.zdal.datasource.util.PoolCondition;
  * This is a pojo that instantiates a Local tx connection pool. It provides same
  * functionality as ds.xml files
  *
- * 
+ *
  * @author 伯牙
  * @version $Id: LocalTxDataSource.java, v 0.1 2014-1-6 下午05:32:25 Exp $
  */
 public class LocalTxDataSource {
 
-    protected static Logger    logger = Logger.getLogger(LocalTxDataSource.class);
+    protected static Logger    logger = LoggerFactory.getLogger(LocalTxDataSource.class);
 
     /**  */
     public final static String SUFFIX = "ConnectionPool";
 
     /**
-     * 
+     *
      */
     public LocalTxDataSource() {
     }
@@ -57,7 +58,7 @@ public class LocalTxDataSource {
     private ZDataSource                         zdatasource;
 
     /**
-     * 
+     *
      * @author sicong.shou
      * @version $Id: LocalTxDataSource.java, v 0.1 2012-11-23 上午11:40:05 sicong.shou Exp $
      */
@@ -72,7 +73,7 @@ public class LocalTxDataSource {
     }
 
     /**
-     * 
+     *
      * @param zdatasource
      * @throws Exception
      */
@@ -85,7 +86,7 @@ public class LocalTxDataSource {
     }
 
     /**
-     * 
+     *
      * @param zdatasource
      * @throws ResourceException
      */
@@ -95,7 +96,7 @@ public class LocalTxDataSource {
     }
 
     /**
-     * 
+     *
      */
     private void initConnectionManager() {
         if (transactionManager == null) {
@@ -133,7 +134,7 @@ public class LocalTxDataSource {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void start() throws Exception {
@@ -146,7 +147,7 @@ public class LocalTxDataSource {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void stop() throws Exception {
@@ -399,7 +400,7 @@ public class LocalTxDataSource {
         return pool.getNoTxSeparatePools();
     }
 
-    /** 
+    /**
      * @see java.lang.Object#toString()
      */
     @Override

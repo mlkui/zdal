@@ -9,7 +9,8 @@ import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.adapter.jdbc.ValidConnectionChecker;
 import com.alipay.zdal.datasource.resource.util.NestedRuntimeException;
@@ -23,8 +24,8 @@ import com.alipay.zdal.datasource.resource.util.NestedRuntimeException;
 public class OracleValidConnectionChecker implements ValidConnectionChecker, Serializable {
     private static final long   serialVersionUID = -2227528634302168877L;
 
-    private static final Logger log              = Logger
-                                                     .getLogger(OracleValidConnectionChecker.class);
+    private static final Logger log              = LoggerFactory
+                                                        .getLogger(OracleValidConnectionChecker.class);
 
     private Method              ping;
 
@@ -32,7 +33,7 @@ public class OracleValidConnectionChecker implements ValidConnectionChecker, Ser
     private static Object[]     params           = new Object[] { new Integer(5000) };
 
     /**
-     * 
+     *
      */
     public OracleValidConnectionChecker() {
         try {
@@ -44,7 +45,7 @@ public class OracleValidConnectionChecker implements ValidConnectionChecker, Ser
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.adapter.jdbc.ValidConnectionChecker#isValidConnection(java.sql.Connection)
      */
     public SQLException isValidConnection(Connection c) {

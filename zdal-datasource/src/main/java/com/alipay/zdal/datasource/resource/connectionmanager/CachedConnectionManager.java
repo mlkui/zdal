@@ -17,7 +17,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.WeakHashMap;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.ResourceException;
 import com.alipay.zdal.datasource.resource.spi.ConnectionRequestInfo;
@@ -39,8 +40,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * @version $Id: CachedConnectionManager.java, v 0.1 2014-1-6 下午05:33:10 Exp $
  */
 public class CachedConnectionManager {
-    private static final Logger log                          = Logger
-                                                                 .getLogger(CachedConnectionManager.class);
+    private static final Logger log                          = LoggerFactory
+                                                        .getLogger(CachedConnectionManager.class);
 
     private boolean             specCompliant;
 
@@ -126,7 +127,7 @@ public class CachedConnectionManager {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public Map listInUseConnections() {
@@ -145,7 +146,7 @@ public class CachedConnectionManager {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void init() throws Exception {
@@ -156,7 +157,7 @@ public class CachedConnectionManager {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void destroy() throws Exception {
@@ -233,7 +234,7 @@ public class CachedConnectionManager {
     }
 
     /**
-     * 
+     *
      * @return
      */
     KeyConnectionAssociation peekMetaAwareObject() {
@@ -249,7 +250,7 @@ public class CachedConnectionManager {
     //ConnectionRegistration -- called by ConnectionCacheListeners (normally ConnectionManagers)
 
     /**
-     * 
+     *
      * @param cm
      * @param cl
      * @param connection
@@ -283,7 +284,7 @@ public class CachedConnectionManager {
     }
 
     /**
-     * 
+     *
      * @param cm
      * @param c
      */
@@ -321,7 +322,7 @@ public class CachedConnectionManager {
     // FIXME: UserTransaction开始时需要调用这个方法
     //called by UserTransaction after starting a transaction
     /**
-     * 
+     *
      * @throws SystemException
      */
     public void userTransactionStarted() throws SystemException {

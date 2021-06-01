@@ -16,7 +16,8 @@ import javax.transaction.xa.XAException;
 import javax.transaction.xa.XAResource;
 import javax.transaction.xa.Xid;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.spi.work.Work;
 import com.alipay.zdal.datasource.resource.spi.work.WorkCompletedException;
@@ -38,7 +39,7 @@ import com.alipay.zdal.datasource.transaction.Transaction;
  *
  *  @see TxManager
  *
- * 
+ *
  * @author 伯牙
  * @version $Id: TransactionImpl.java, v 0.1 2014-1-6 下午05:47:58 Exp $
  */
@@ -63,7 +64,7 @@ public class TransactionImpl implements Transaction, TimeoutTarget {
     // Attributes ----------------------------------------------------
 
     /** Class logger, we don't want a new logger with every transaction. */
-    private static Logger     log                 = Logger.getLogger(TransactionImpl.class);
+    private static Logger     log                 = LoggerFactory.getLogger(TransactionImpl.class);
 
     /** The ID of this transaction. */
     private final XidImpl     xid;

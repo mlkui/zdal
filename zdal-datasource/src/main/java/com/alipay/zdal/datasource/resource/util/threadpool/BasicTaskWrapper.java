@@ -4,7 +4,8 @@
  */
 package com.alipay.zdal.datasource.resource.util.threadpool;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A wrapper for the task.
@@ -16,7 +17,7 @@ public class BasicTaskWrapper implements TaskWrapper {
     // Constants -----------------------------------------------------
 
     /** The log */
-    private static final Logger log               = Logger.getLogger(BasicTaskWrapper.class);
+    private static final Logger log               = LoggerFactory.getLogger(BasicTaskWrapper.class);
 
     /** The task has not been accepted */
     public static final int     TASK_NOT_ACCEPTED = 0;
@@ -354,7 +355,7 @@ public class BasicTaskWrapper implements TaskWrapper {
 
     /**
      * Get the state as a string
-     * 
+     *
      * @return the state string
      */
     protected String getStateString() {

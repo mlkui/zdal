@@ -10,7 +10,8 @@ import java.util.Properties;
 
 import javax.transaction.xa.XAResource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.JBossResourceException;
 import com.alipay.zdal.datasource.resource.ResourceException;
@@ -25,7 +26,7 @@ import com.alipay.zdal.datasource.resource.spi.LocalTransaction;
  */
 public class LocalManagedConnection extends BaseWrapperManagedConnection implements
                                                                         LocalTransaction {
-    private static final Logger logger = Logger.getLogger(LocalManagedConnection.class);
+    private static final Logger logger = LoggerFactory.getLogger(LocalManagedConnection.class);
 
     /**
      * @param mcf
@@ -49,7 +50,7 @@ public class LocalManagedConnection extends BaseWrapperManagedConnection impleme
         throw new JBossResourceException("Local tx only!");
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.LocalTransaction#commit()
      */
     public void commit() throws ResourceException {
@@ -64,7 +65,7 @@ public class LocalManagedConnection extends BaseWrapperManagedConnection impleme
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.LocalTransaction#rollback()
      */
     public void rollback() throws ResourceException {
@@ -78,12 +79,12 @@ public class LocalManagedConnection extends BaseWrapperManagedConnection impleme
             try {
                 checkException(e);
             } catch (Exception e2) {
-                logger.error(e2);
+                logger.error(e2.toString());
             }
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.LocalTransaction#begin()
      */
     public void begin() throws ResourceException {

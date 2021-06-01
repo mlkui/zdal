@@ -11,7 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.adapter.jdbc.ValidConnectionChecker;
 
@@ -20,14 +21,14 @@ import com.alipay.zdal.datasource.resource.adapter.jdbc.ValidConnectionChecker;
  * This should work on just about any version of the database itself but will
  * only be "fast" on version 3.22.1 and later. Prior to that version it just
  * does "SELECT 1" anyhow.
- * 
+ *
  * @author 伯牙
  * @version $Id: MySQLValidConnectionChecker.java, v 0.1 2014-1-6 下午05:32:36 Exp $
  */
 public class MySQLValidConnectionChecker implements ValidConnectionChecker, Serializable {
     private static final long   serialVersionUID    = -2227528634302168878L;
 
-    private static final Logger log                 = Logger
+    private static final Logger log                 = LoggerFactory
                                                         .getLogger(MySQLValidConnectionChecker.class);
 
     private Method              ping;
@@ -37,7 +38,7 @@ public class MySQLValidConnectionChecker implements ValidConnectionChecker, Seri
     private static Object[]     params              = new Object[] {};
 
     /**
-     * 
+     *
      */
     public MySQLValidConnectionChecker() {
         try {
@@ -55,7 +56,7 @@ public class MySQLValidConnectionChecker implements ValidConnectionChecker, Seri
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.adapter.jdbc.ValidConnectionChecker#isValidConnection(java.sql.Connection)
      */
     public SQLException isValidConnection(Connection c) {
@@ -94,7 +95,7 @@ public class MySQLValidConnectionChecker implements ValidConnectionChecker, Seri
                     if (stmt != null)
                         stmt.close();
                 } catch (SQLException e) {
-                    log.error(e);
+                    log.error(e.getMessage());
                 }
             }
 

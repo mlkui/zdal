@@ -17,7 +17,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.security.auth.Subject;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.Constants;
 import com.alipay.zdal.datasource.client.util.ZConstants;
@@ -37,8 +38,8 @@ import com.alipay.zdal.datasource.resource.util.UnreachableStatementException;
  * @version $Id: InternalManagedConnectionPool.java, v 0.1 2014-1-6 下午05:34:47 Exp $
  */
 public class InternalManagedConnectionPool {
-    private static final Logger             logger               = Logger
-                                                                     .getLogger(Constants.ZDAL_DATASOURCE_POOL_LOGNAME);
+    private static final Logger             logger               = LoggerFactory
+                                                        .getLogger(Constants.ZDAL_DATASOURCE_POOL_LOGNAME);
 
     private static final String             DEFAULT_FORMAT_STYLE = "yyyy-MM-dd HH:mm:ss";
     private SimpleDateFormat                sdf                  = new SimpleDateFormat(
@@ -323,7 +324,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * 
+     *
      * @param cl
      * @param kill
      */
@@ -400,7 +401,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * 
+     *
      */
     public void flush() {
         ArrayList destroy = null;
@@ -448,7 +449,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * 
+     *
      */
     public void removeTimedOut() {
         ArrayList destroy = null;
@@ -505,7 +506,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * 
+     *
      */
     public void shutdown() {
         shutdown.set(true);
@@ -515,7 +516,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * 
+     *
      */
     public void fillToMin() {
         while (true) {
@@ -620,7 +621,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * 
+     *
      * @throws Exception
      */
     public void validateConnections() throws Exception {
@@ -738,7 +739,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * 
+     *
      * @author sicong.shou
      * @version $Id: InternalManagedConnectionPool.java, v 0.1 2012-11-23 上午11:49:54 sicong.shou Exp $
      */
@@ -762,7 +763,7 @@ public class InternalManagedConnectionPool {
     }
 
     /**
-     * 
+     *
      * @author sicong.shou
      * @version $Id: InternalManagedConnectionPool.java, v 0.1 2012-11-23 上午11:49:58 sicong.shou Exp $
      */

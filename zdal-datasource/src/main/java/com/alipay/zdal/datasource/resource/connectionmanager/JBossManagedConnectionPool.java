@@ -12,7 +12,8 @@ import java.util.concurrent.ConcurrentMap;
 
 import javax.security.auth.Subject;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.Service;
 import com.alipay.zdal.datasource.resource.JBossResourceException;
@@ -41,8 +42,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
 public class JBossManagedConnectionPool implements JBossManagedConnectionPoolMBean, Service {
 
     /** The log */
-    private static final Logger      log        = Logger
-                                                    .getLogger(JBossManagedConnectionPool.class);
+    private static final Logger      log        = LoggerFactory
+                                                        .getLogger(JBossManagedConnectionPool.class);
 
     /** The pooling criteria */
     private String                   criteria   = "ByNothing";

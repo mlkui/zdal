@@ -9,21 +9,22 @@ import java.security.PrivilegedAction;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A ConnectionValidator that performs background validation of managed connections for an
  * InternalManagedConnectionPool.
- * 
- * 
+ *
+ *
  * @author 伯牙
  * @version $Id: ConnectionValidator.java, v 0.1 2014-1-6 下午05:34:20 Exp $
  */
 public class ConnectionValidator {
 
     /** The log */
-    private static final Logger                                       log       = Logger
-                                                                                    .getLogger(ConnectionValidator.class);
+    private static final Logger                                       log       = LoggerFactory
+                                                        .getLogger(ConnectionValidator.class);
 
     /** The pools */
     private final CopyOnWriteArrayList<InternalManagedConnectionPool> pools     = new CopyOnWriteArrayList<InternalManagedConnectionPool>();
@@ -119,7 +120,7 @@ public class ConnectionValidator {
     }
 
     /**
-     * 
+     *
      */
     public static void waitForBackgroundThread() {
         synchronized (validator.pools) {

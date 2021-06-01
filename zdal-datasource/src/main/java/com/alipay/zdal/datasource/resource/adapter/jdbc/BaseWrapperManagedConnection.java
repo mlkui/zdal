@@ -21,7 +21,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.security.auth.Subject;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.JBossResourceException;
 import com.alipay.zdal.datasource.resource.ResourceException;
@@ -35,7 +36,7 @@ import com.alipay.zdal.datasource.resource.spi.ResourceAdapterInternalException;
 /**
  * BaseWrapperManagedConnection
  *
- * 
+ *
  * @author 伯牙
  * @version $Id: BaseWrapperManagedConnection.java, v 0.1 2014-1-6 下午05:27:08 Exp $
  */
@@ -104,7 +105,7 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
         jdbcTransactionIsolation = this.transactionIsolation;
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#addConnectionEventListener(com.alipay.zdal.datasource.resource.spi.ConnectionEventListener)
      */
     public void addConnectionEventListener(ConnectionEventListener cel) {
@@ -113,7 +114,7 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#removeConnectionEventListener(com.alipay.zdal.datasource.resource.spi.ConnectionEventListener)
      */
     public void removeConnectionEventListener(ConnectionEventListener cel) {
@@ -122,7 +123,7 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#associateConnection(java.lang.Object)
      */
     public void associateConnection(Object handle) throws ResourceException {
@@ -135,7 +136,7 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#getLogWriter()
      */
     public PrintWriter getLogWriter() throws ResourceException {
@@ -143,7 +144,7 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
         return null;
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#getMetaData()
      */
     public ManagedConnectionMetaData getMetaData() throws ResourceException {
@@ -151,14 +152,14 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
         return null;
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#setLogWriter(java.io.PrintWriter)
      */
     public void setLogWriter(PrintWriter param1) throws ResourceException {
         // TODO: implement this javax.resource.spi.ManagedConnection method
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#cleanup()
      */
     public void cleanup() throws ResourceException {
@@ -184,7 +185,7 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#getConnection(javax.security.auth.Subject, com.alipay.zdal.datasource.resource.spi.ConnectionRequestInfo)
      */
     public Object getConnection(Subject subject, ConnectionRequestInfo cri)
@@ -197,7 +198,7 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
         return lc;
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.spi.ManagedConnection#destroy()
      */
     public void destroy() throws ResourceException {
@@ -214,7 +215,7 @@ public abstract class BaseWrapperManagedConnection implements ManagedConnection 
     }
 
     /**
-     * 
+     *
      * @return
      */
     public boolean checkValid() {

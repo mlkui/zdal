@@ -17,7 +17,8 @@ import javax.transaction.xa.XAException;
 import javax.transaction.xa.XAResource;
 import javax.transaction.xa.Xid;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.JBossResourceException;
 import com.alipay.zdal.datasource.resource.ResourceException;
@@ -107,8 +108,8 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * @version $Id: TxConnectionManager.java, v 0.1 2014-1-6 下午05:36:35 Exp $
  */
 public class TxConnectionManager extends BaseConnectionManager2 {
-    private static final Logger    log                 = Logger
-                                                           .getLogger(TxConnectionManager.class);
+    private static final Logger    log                 = LoggerFactory
+                                                        .getLogger(TxConnectionManager.class);
 
     private static final Throwable FAILED_TO_ENLIST    = new Throwable(
                                                            "Unabled to enlist resource, see the previous warnings.");

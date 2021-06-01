@@ -25,7 +25,7 @@ import com.alipay.zdal.datasource.resource.util.threadpool.ThreadPool;
  * @version $Id: TimeoutFactory.java, v 0.1 2014-1-6 下午05:46:16 Exp $
  */
 public class TimeoutFactory {
-    //   private static final Logger    logger                = Logger.getLogger(TimeoutFactory.class);
+    //   private static final Logger    logger                = LoggerFactory.getLogger(TimeoutFactory.class);
     //  Code commented out with the mark "INV:" are runtime checks
     //  of invariants that are not needed for a production system.
     //  For problem solving, you can remove these comments.
@@ -252,7 +252,7 @@ public class TimeoutFactory {
 
     /**
      * Schedules a new timeout.
-     * 
+     *
      * @param time absolute time
      * @param target target to fire
      */
@@ -269,7 +269,7 @@ public class TimeoutFactory {
 
     /**
      * Schedules a new timeout.
-     * 
+     *
      * @param time absolute time
      * @param run runnable to run
      */

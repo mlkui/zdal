@@ -4,7 +4,8 @@
  */
 package com.alipay.zdal.datasource.resource.util.threadpool;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Makes a runnable a task.
@@ -16,7 +17,7 @@ public class RunnableTaskWrapper implements TaskWrapper {
     // Constants -----------------------------------------------------
 
     /** The log */
-    private static final Logger log = Logger.getLogger(RunnableTaskWrapper.class);
+    private static final Logger log = LoggerFactory.getLogger(RunnableTaskWrapper.class);
 
     // Attributes ----------------------------------------------------
 

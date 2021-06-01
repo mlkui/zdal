@@ -15,7 +15,8 @@ import java.util.Set;
 
 import javax.security.auth.Subject;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.Service;
 import com.alipay.zdal.datasource.resource.JBossResourceException;
@@ -42,14 +43,14 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
  * ManagedConnectionFactory.
  *
  *
- * 
+ *
  * @author 伯牙
  * @version $Id: BaseConnectionManager2.java, v 0.1 2014-1-6 下午05:32:58 Exp $
  */
 public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
                                             ConnectionListenerFactory,
                                             TransactionTimeoutConfiguration, Service {
-    private static final Logger       log = Logger.getLogger(BaseConnectionManager2.class);
+    private static final Logger       log = LoggerFactory.getLogger(BaseConnectionManager2.class);
 
     protected ManagedConnectionPool   poolingStrategy;
 
@@ -132,7 +133,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
         throw new NotImplementedException("NYI: getTransactionTimeout()");
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.Service#startService()
      */
     public void startService() {
@@ -160,7 +161,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.Service#stopService()
      */
     public void stopService() throws Exception {
@@ -198,7 +199,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
     }
 
     /**
-     * 
+     *
      * @param cl
      * @param kill
      */
@@ -282,14 +283,14 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
 
     // ConnectionCacheListener implementation
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.connectionmanager.ConnectionCacheListener#transactionStarted(java.util.Collection)
      */
     public void transactionStarted(Collection conns) throws SystemException {
         // reimplement in subclasses
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.connectionmanager.ConnectionCacheListener#reconnect(java.util.Collection, java.util.Set)
      */
     public void reconnect(Collection conns, Set unsharableResources) throws ResourceException {
@@ -326,7 +327,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
         criToCLMap.clear();// not needed logically, might help the gc.
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.datasource.resource.connectionmanager.ConnectionCacheListener#disconnect(java.util.Collection, java.util.Set)
      */
     public void disconnect(Collection crs, Set unsharableResources) throws ResourceException {
@@ -419,7 +420,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
     }
 
     /**
-     * 
+     *
      * @param cl
      * @param c
      * @throws ResourceException
@@ -538,7 +539,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
             handles.add(handle);
         }
 
-        /** 
+        /**
          * @see com.alipay.zdal.datasource.resource.connectionmanager.ConnectionListener#unregisterConnection(java.lang.Object)
          */
         public synchronized void unregisterConnection(Object handle) {
@@ -569,7 +570,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
             }
         }
 
-        /** 
+        /**
          * @see com.alipay.zdal.datasource.resource.spi.ConnectionEventListener#connectionErrorOccurred(com.alipay.zdal.datasource.resource.spi.ConnectionEvent)
          */
         public void connectionErrorOccurred(ConnectionEvent ce) {
@@ -617,7 +618,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
         }
 
         // For debugging
-        /** 
+        /**
          * @see java.lang.Object#toString()
          */
         @Override

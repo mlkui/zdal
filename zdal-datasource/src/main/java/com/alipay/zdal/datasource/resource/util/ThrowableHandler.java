@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A static singleton that handles processing throwables that otherwise would
@@ -18,7 +19,7 @@ import org.apache.log4j.Logger;
  * @version $Id: ThrowableHandler.java, v 0.1 2014-1-6 下午05:40:25 Exp $
  */
 public final class ThrowableHandler {
-    private static Logger log = Logger.getLogger(ThrowableHandler.class);
+    private static Logger log = LoggerFactory.getLogger(ThrowableHandler.class);
 
     /**
      * Container for throwable types.
@@ -65,7 +66,7 @@ public final class ThrowableHandler {
 
     /**
      * Fire onThrowable to all registered listeners.
-     * 
+     *
      * @param type    The type off the throwable.
      * @param t       Throwable
      */
@@ -96,7 +97,7 @@ public final class ThrowableHandler {
             fireOnThrowable(type, t);
         } catch (Throwable bad) {
             // don't let these propagate, that could introduce unwanted side-effects
-            log.error(bad);
+            log.error(bad.toString());
         }
     }
 

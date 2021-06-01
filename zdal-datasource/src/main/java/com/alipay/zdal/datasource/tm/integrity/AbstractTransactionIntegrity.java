@@ -4,20 +4,21 @@
  */
 package com.alipay.zdal.datasource.tm.integrity;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.tm.TransactionImpl;
 import com.alipay.zdal.datasource.transaction.Transaction;
 
 /**
  * A NOOP implementation of transaction integrity.<p>
- * 
+ *
  * Implementations should extend this for future compatibility.
- * 
+ *
  */
 public class AbstractTransactionIntegrity implements TransactionIntegrity {
     /** The log */
-    protected Logger log = Logger.getLogger(getClass());
+    protected Logger log = LoggerFactory.getLogger(getClass());
 
     public void checkTransactionIntegrity(TransactionImpl transaction) {
         // Do nothing
@@ -25,7 +26,7 @@ public class AbstractTransactionIntegrity implements TransactionIntegrity {
 
     /**
      * Mark the transaction for rollback
-     * 
+     *
      * @param transaction the transacton
      */
     protected void markRollback(Transaction transaction) {

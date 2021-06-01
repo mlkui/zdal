@@ -7,7 +7,8 @@ package com.alipay.zdal.datasource.resource.adapter.jdbc;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.util.LRUCachePolicy;
 
@@ -18,10 +19,10 @@ import com.alipay.zdal.datasource.resource.util.LRUCachePolicy;
  * @version $Id: PreparedStatementCache.java, v 0.1 2014-1-6 下午05:29:33 Exp $
  */
 public class PreparedStatementCache extends LRUCachePolicy {
-    private static final Logger log = Logger.getLogger(PreparedStatementCache.class);
+    private static final Logger log = LoggerFactory.getLogger(PreparedStatementCache.class);
 
     /**
-     * 
+     *
      * @author sicong.shou
      * @version $Id: PreparedStatementCache.java, v 0.1 2012-11-23 上午11:27:11 sicong.shou Exp $
      */
@@ -48,7 +49,7 @@ public class PreparedStatementCache extends LRUCachePolicy {
             this.resultSetConcurrency = resultSetConcurrency;
         }
 
-        /** 
+        /**
          * @see java.lang.Object#equals(java.lang.Object)
          */
         @Override
@@ -77,7 +78,7 @@ public class PreparedStatementCache extends LRUCachePolicy {
 
         }
 
-        /** 
+        /**
          * @see java.lang.Object#hashCode()
          */
         @Override
@@ -90,7 +91,7 @@ public class PreparedStatementCache extends LRUCachePolicy {
             return result;
         }
 
-        /** 
+        /**
          * @see java.lang.Object#toString()
          */
         @Override

@@ -7,25 +7,26 @@ package com.alipay.zdal.datasource.resource.util.id;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Serialization version compatibility mode constants.<p>
  *
  * Contains static constants and attributes to help with serialization
  * versioning.<p>
- * 
+ *
  * Set the system property <pre>org.jboss.j2ee.LegacySerialization</pre>
  * to serialization compatibility with jboss-4.0.1 and earlier. The
  * serialVersionUID values were synched with the j2ee 1.4 ri classes and
  * explicitly set in jboss-4.0.2 which is what
  *
- * 
+ *
  * @author 伯牙
  * @version $Id: SerialVersion.java, v 0.1 2014-1-6 下午05:43:01 Exp $
  */
 public class SerialVersion {
-    private static final Logger logger    = Logger.getLogger(SerialVersion.class);
+    private static final Logger logger    = LoggerFactory.getLogger(SerialVersion.class);
     // Static --------------------------------------------------------
 
     /** Legacy, jboss-4.0.1 through jboss-4.0.0 */
@@ -47,7 +48,7 @@ public class SerialVersion {
                     if (System.getProperty("org.jboss.j2ee.LegacySerialization") != null)
                         version = LEGACY;
                 } catch (Throwable ignored) {
-                    logger.error(ignored);
+                    logger.error(ignored.toString());
                 }
                 return null;
             }

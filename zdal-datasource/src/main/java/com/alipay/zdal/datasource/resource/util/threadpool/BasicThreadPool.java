@@ -7,7 +7,8 @@ package com.alipay.zdal.datasource.resource.util.threadpool;
 import java.util.Collections;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.util.collection.WeakValueHashMap;
 import com.alipay.zdal.datasource.resource.util.concurrent.BoundedLinkedQueue;
@@ -36,8 +37,8 @@ public class BasicThreadPool implements ThreadPool, BasicThreadPoolMBean {
     /** The internal pool number */
     private static final SynchronizedInt lastPoolNumber     = new SynchronizedInt(0);
 
-    private static Logger                log                = Logger
-                                                                .getLogger(BasicThreadPool.class);
+    private static Logger                log                = LoggerFactory
+                                                        .getLogger(BasicThreadPool.class);
 
     // Attributes ----------------------------------------------------
 
@@ -475,7 +476,7 @@ public class BasicThreadPool implements ThreadPool, BasicThreadPoolMBean {
          * run method. If it has not, then the associated task thread is stopped
          * using the deprecated Thread.stop method since this is the only way to
          * abort a thread that is in spin loop for example.
-         * 
+         *
          * @todo this is not responsive to new tasks with timeouts smaller than
          * the current shortest completion expiration. We probably should interrupt
          * the thread on each insertion into the timeout heap to ensure better

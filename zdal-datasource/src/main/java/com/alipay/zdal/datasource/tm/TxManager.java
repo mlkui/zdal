@@ -12,7 +12,8 @@ import javax.transaction.InvalidTransactionException;
 import javax.transaction.xa.XAException;
 import javax.transaction.xa.Xid;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.datasource.resource.spi.work.Work;
 import com.alipay.zdal.datasource.resource.spi.work.WorkCompletedException;
@@ -32,7 +33,7 @@ import com.alipay.zdal.datasource.transaction.TransactionManager;
 /**
  * Our TransactionManager implementation.
  *
- * 
+ *
  * @author 伯牙
  * @version $Id: TxManager.java, v 0.1 2014-1-6 下午05:49:07 Exp $
  */
@@ -50,7 +51,7 @@ public class TxManager implements TransactionManager, TransactionPropagationCont
     private boolean              interruptThreads = false;
 
     /** Instance logger. */
-    private final Logger         log              = Logger.getLogger(this.getClass());
+    private final Logger         log              = LoggerFactory.getLogger(this.getClass());
 
     /**
      *  Default timeout in milliseconds.

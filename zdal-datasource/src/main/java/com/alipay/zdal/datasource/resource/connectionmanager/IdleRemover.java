@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * IdleRemover
@@ -19,7 +20,7 @@ import org.apache.log4j.Logger;
  * @version $Id: IdleRemover.java, v 0.1 2014-1-6 下午05:34:35 Exp $
  */
 public class IdleRemover {
-    private final Logger             log      = Logger.getLogger(getClass());
+    private final Logger             log      = LoggerFactory.getLogger(getClass());
 
     private final Collection         pools    = new ArrayList();
 
@@ -30,7 +31,7 @@ public class IdleRemover {
     private static final IdleRemover remover  = new IdleRemover();
 
     /**
-     * 
+     *
      * @param mcp
      * @param interval
      */
@@ -39,7 +40,7 @@ public class IdleRemover {
     }
 
     /**
-     * 
+     *
      * @param mcp
      */
     public static void unregisterPool(InternalManagedConnectionPool mcp) {
@@ -109,7 +110,7 @@ public class IdleRemover {
 
     /**
      * Change the context classloader to be where the idle remover was loaded from.<p>
-     * 
+     *
      * This avoids holding a reference to the caller's classloader which may be undeployed.
      */
     private void setupContextClassLoader() {
