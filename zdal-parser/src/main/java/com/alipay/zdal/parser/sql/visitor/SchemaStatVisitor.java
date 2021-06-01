@@ -638,7 +638,7 @@ public class SchemaStatVisitor extends SQLASTVisitorAdapter {
         }
 
         if (x.getFrom() != null) {
-            x.getFrom().accept(this); // 鎻愬墠鎵ц锛岃幏寰梐liasMap
+            x.getFrom().accept(this); // 提前执行，获得aliasMap
             String table = (String) x.getFrom().getAttribute(ATTR_TABLE);
             if (table != null) {
                 x.putAttribute(ATTR_TABLE, table);

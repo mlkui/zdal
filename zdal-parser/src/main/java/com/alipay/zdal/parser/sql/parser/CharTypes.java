@@ -79,7 +79,7 @@ public class CharTypes {
         whitespaceFlags['\t'] = true;
         whitespaceFlags['\f'] = true;
         whitespaceFlags['\b'] = true;
-        whitespaceFlags[160] = true; // 鐗瑰埆澶勭悊
+        whitespaceFlags[160] = true; // 特别处理
     }
 
     /**

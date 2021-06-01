@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.DBType;
 import com.alipay.zdal.parser.exceptions.SqlParserException;
@@ -28,13 +29,13 @@ import com.alipay.zdal.parser.visitor.ZdalSchemaStatVisitor;
 /**
  * SQL 解析器的实现类，主要是将SQL解析后存放到cache中，
  * 如果cache中有该条SQL,则直接从cache中取，否则进行parse
- * 
- * 
+ *
+ *
  * @author xiaoqing.zhouxq
  * @version $Id: SQLParserImp.java, v 0.1 2012-5-22 上午10:01:18 xiaoqing.zhouxq Exp $
  */
 public class DefaultSQLParser implements SQLParser {
-    private static final Logger      LOG         = Logger.getLogger(DefaultSQLParser.class);
+    private static final Logger      LOG         = LoggerFactory.getLogger(DefaultSQLParser.class);
 
     private static final ParserCache GLOBALCACHE = ParserCache.instance();
 
@@ -57,9 +58,9 @@ public class DefaultSQLParser implements SQLParser {
 
     /**
      * 尝试从cache中取该sql,如果未取到，则分析该sql并初始化。
-     * 
+     *
      * 最坏情况是多次初始化，但因为key一致，同一条sql分析并初始化以后的结果是一致的
-     * 
+     *
      * 但有可能因为乱序发生put在init之前的问题,因此整个加锁。
      * @param sql
      */
