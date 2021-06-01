@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.rule.bean.AdvancedParameter;
 import com.alipay.zdal.rule.groovy.GroovyListRuleEngine;
@@ -20,12 +21,12 @@ import com.alipay.zdal.rule.ruleengine.cartesianproductcalculator.SamplingField;
  * 会先进行枚举，然后笛卡尔积，拿到里面的
  * 需要做映射的对象以后，调用get方法进行映射。
  * 然后将映射的结果带入targetRule进行运算
- * 
+ *
  *
  */
 public abstract class AbstractMappingRule extends CartesianProductBasedListResultRule {
     //	protected CartesianProductBasedListResultRule targetRule;
-    private static final Logger    logger     = Logger.getLogger(AbstractMappingRule.class);
+    private static final Logger    logger     = LoggerFactory.getLogger(AbstractMappingRule.class);
     /**
      * 转意以后的目标规则
      */
@@ -35,7 +36,7 @@ public abstract class AbstractMappingRule extends CartesianProductBasedListResul
      */
     private String                 targetKey  = null;
 
-    /** 
+    /**
      * 测试了通过映射规则，正常返回结果和映射后数据这个testCase,对应在分库时取数据这个逻辑。
      * @see com.alipay.zdal.rule.ruleengine.rule.CartesianProductBasedListResultRule#evalueateSamplingField(com.alipay.zdal.rule.ruleengine.cartesianproductcalculator.SamplingField)
      */
@@ -94,7 +95,7 @@ public abstract class AbstractMappingRule extends CartesianProductBasedListResul
 
     /**
      * 根据sourceKey和sourceValue获取 用于targerRule里的参数的targetValue
-     * 
+     *
      * @param sourceKey
      * @param sourceValue
      * @return
