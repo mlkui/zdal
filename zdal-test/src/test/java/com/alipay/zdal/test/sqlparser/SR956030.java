@@ -7,20 +7,13 @@ import java.util.HashMap;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.test.common.ConstantsTest;
 import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
-import static com.alipay.ats.internal.domain.ATS.Step;
-@RunWith(ATSJUnitRunner.class)
-@Feature("rw数据源:insert,update,delete")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("rw数据源:insert,update,delete")
 public class SR956030 {
 	String url1 = ConstantsTest.mysql12UrlZds1;
 	String psd = ConstantsTest.mysq112Psd;
@@ -28,7 +21,7 @@ public class SR956030 {
 
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
-	
+
 	@Before
 	public void beforeTestcase() {
 		// 数据准备
@@ -37,18 +30,18 @@ public class SR956030 {
 		sqlMap = (SqlMapClient) ZdalSqlParserSuite.context
 				.getBean("zdalsqlParserMysql01");
 	}
-	
+
 	@After
 	public void afterTestcase(){
 		deleteData();
 	}
-	
-	
-	@Subject("执行:insert into")
-	@Priority(PriorityLevel.NORMAL)
+
+
+	//@Subject("执行:insert into")
+	//@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956031(){
-		Step("执行:insert into");
+		//Step("执行:insert into");
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("clum", 300);
 		params.put("colu2", "DB_C");
@@ -66,14 +59,14 @@ public class SR956030 {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}		
+		}
 	}
-	
-	@Subject("执行:update set")
-	@Priority(PriorityLevel.NORMAL)
+
+	//@Subject("执行:update set")
+	//@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956032(){
-		Step("执行:update set");
+		//Step("执行:update set");
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("clum", 100);
 		params.put("colu2", "DB_G");
@@ -91,14 +84,14 @@ public class SR956030 {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
 	}
-	
-	@Subject("执行:delete")
-	@Priority(PriorityLevel.NORMAL)
+
+	//@Subject("执行:delete")
+	//@Priority(PriorityLevel.NORMAL)
 	@Test
 	public void TC956033(){
-		Step("执行:delete");
+		//Step("执行:delete");
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		params.put("clum", 100);
 		try {
@@ -117,9 +110,9 @@ public class SR956030 {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
+
+
 	/**
 	 * 数据准备
 	 */

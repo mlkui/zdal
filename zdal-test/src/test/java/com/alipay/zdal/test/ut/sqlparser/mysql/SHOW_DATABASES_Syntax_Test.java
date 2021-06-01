@@ -2,8 +2,6 @@ package com.alipay.zdal.test.ut.sqlparser.mysql;
 
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import org.junit.Assert;
 
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
@@ -11,8 +9,10 @@ import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlOutputVisitor;
 import com.alipay.zdal.parser.sql.parser.SQLStatementParser;
 
+import junit.framework.TestCase;
+
 public class SHOW_DATABASES_Syntax_Test  extends TestCase {
-	
+
 	 public void test_0() throws Exception {
 	        String sql = "SHOW DATABASES;";
 

@@ -1,11 +1,6 @@
 package com.alipay.zdal.test.common;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import junit.framework.Assert;
 
@@ -122,7 +117,7 @@ public class ZdalTestCommon {
 
 	}
 
-	
+
 	/**
 	 * 通过oracle jdbc来增修改删除数据
 	 * @param updateSqlJDBC
@@ -196,7 +191,7 @@ public class ZdalTestCommon {
 		dataUpdateJDBC(insertSql1, url1, psd, user);
 		dataUpdateJDBC(insertSql2, url2, psd, user);
 	}
-	
+
 	/**
 	 * 为mysql的zds两个库删除数据
 	 */
@@ -209,7 +204,7 @@ public class ZdalTestCommon {
 		dataUpdateJDBC(delSql1, url1, psd, user);
 		dataUpdateJDBC(delSql1, url2, psd, user);
 	}
-	
+
 	/**
 	 * 为mysql的fail_0准备数据
 	 */
@@ -220,7 +215,7 @@ public class ZdalTestCommon {
 		String psd=ConstantsTest.mysq112Psd ;
 		dataUpdateJDBC(insertSqlJDBC, url, psd, user);
 	}
-	
+
 	/**
 	 * 为mysql的Tddl0,tddl_1,tddl_2准备数据
 	 */
@@ -235,9 +230,9 @@ public class ZdalTestCommon {
 		String psd=ConstantsTest.mysq112Psd;
 		dataUpdateJDBC(insertSqlJDBC0, url0, psd, user);
 		dataUpdateJDBC(insertSqlJDBC1, url1, psd, user);
-		dataUpdateJDBC(insertSqlJDBC2, url2, psd, user);		
+		dataUpdateJDBC(insertSqlJDBC2, url2, psd, user);
 	}
-	
+
 	/**
 	 * 为mysql的tddl_0,tddl_1,tddl_2删除数据
 	 */
@@ -250,8 +245,8 @@ public class ZdalTestCommon {
 		String psd=ConstantsTest.mysq112Psd;
 		dataUpdateJDBC(delSql, url0, psd, user);
 		dataUpdateJDBC(delSql, url1, psd, user);
-		dataUpdateJDBC(delSql, url2, psd, user);	
-		
+		dataUpdateJDBC(delSql, url2, psd, user);
+
 	}
 
 }

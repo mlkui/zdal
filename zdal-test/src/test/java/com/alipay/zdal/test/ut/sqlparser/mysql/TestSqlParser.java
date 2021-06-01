@@ -2,8 +2,6 @@ package com.alipay.zdal.test.ut.sqlparser.mysql;
 
 import java.util.List;
 
-import junit.framework.Assert;
-
 import org.junit.Test;
 
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
@@ -11,6 +9,8 @@ import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 import com.alipay.zdal.parser.visitor.ZdalMySqlSchemaStatVisitor;
 import com.alipay.zdal.parser.visitor.ZdalOracleSchemaStatVisitor;
+
+import junit.framework.Assert;
 
 
 public class TestSqlParser {

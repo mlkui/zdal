@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.visitor.ZdalMySqlSchemaStatVisitor;
+
+import junit.framework.Assert;
 
 
 public class MysqlSqlSelectTest_2  {
@@ -27,7 +28,7 @@ public class MysqlSqlSelectTest_2  {
         MySqlStatementParser parser = new MySqlStatementParser(SELECT_DS_VER_BY_APPID_SQL);
         List<SQLStatement> statementList = parser.parseStatementList();
         SQLStatement statemen = statementList.get(0);
-       
+
 
         Assert.assertEquals(1, statementList.size());
 
@@ -40,7 +41,7 @@ public class MysqlSqlSelectTest_2  {
         MySqlStatementParser parser = new MySqlStatementParser(SELECT_CHILD_DS_BY_APPID_NODEID_SQL);
         List<SQLStatement> statementList = parser.parseStatementList();
         SQLStatement statemen = statementList.get(0);
-  
+
 
         Assert.assertEquals(1, statementList.size());
 

@@ -2,10 +2,10 @@ package com.alipay.zdal.test.ut.sqlparser.oracle;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
-
 import com.alipay.zdal.parser.sql.ast.statement.SQLSelectStatement;
 import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
+
+import junit.framework.Assert;
 
 
 public class OracleAnalyticTest   {

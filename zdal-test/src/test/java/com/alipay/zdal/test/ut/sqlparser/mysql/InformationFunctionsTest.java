@@ -4,15 +4,15 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
-
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlOutputVisitor;
 import com.alipay.zdal.parser.sql.parser.SQLStatementParser;
 
+import junit.framework.Assert;
+
 public class InformationFunctionsTest {
-	
+
 	@Test
 	 public void test_0() throws Exception {
 	        String sql = "SELECT BENCHMARK(1000000,ENCODE('hello','goodbye'))";

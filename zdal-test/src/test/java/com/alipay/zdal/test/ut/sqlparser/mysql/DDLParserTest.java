@@ -1,13 +1,13 @@
 package com.alipay.zdal.test.ut.sqlparser.mysql;
 
-import junit.framework.TestCase;
-
 import org.junit.Assert;
 
 import com.alipay.zdal.parser.sql.SQLUtils;
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.sql.parser.Token;
+
+import junit.framework.TestCase;
 
 public class DDLParserTest  extends TestCase {
 
@@ -56,7 +56,7 @@ public class DDLParserTest  extends TestCase {
 	        Assert.assertEquals("ALTER TABLE `test`.`tb1`" + //
 	                            "\n\tADD COLUMN `name` VARCHAR(45) NULL AFTER `fid`", output);
 	    }
-	    
+
 	    public void testAlterTable_3() throws Exception {
 	        String sql = "ALTER TABLE `test`.`tb1` DROP COLUMN `name` ;";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -66,7 +66,7 @@ public class DDLParserTest  extends TestCase {
 	        Assert.assertEquals("ALTER TABLE `test`.`tb1`" + //
 	                "\n\tDROP COLUMN `name`", output);
 	    }
-	    
+
 	    public void test_createTable_0() throws Exception {
 	        String sql = "crEate temporary tabLe if not exists tb_name (fid int)";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -75,7 +75,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("CREATE TEMPORARY TABLE IF NOT EXISTS tb_name (\n\tfid int\n)", output);
 	    }
-	    
+
 	    public void test_createTable_1() throws Exception {
 	        String sql = "crEate tabLe if not exists tb_name (fid int)";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -84,7 +84,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("CREATE TABLE IF NOT EXISTS tb_name (\n\tfid int\n)", output);
 	    }
-	    
+
 	    public void test_createIndex_0() throws Exception {
 	        String sql = "create index `idx1` ON tb1 (`fname` ASC) ;";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -93,7 +93,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("CREATE INDEX `idx1` ON tb1 (`fname` ASC)", output);
 	    }
-	    
+
 	    public void test_createIndex_1() throws Exception {
 	        String sql = "create unique index `idx1` ON tb1 (`fname` desc) ;";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -102,7 +102,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("CREATE UNIQUE INDEX `idx1` ON tb1 (`fname` DESC)", output);
 	    }
-	    
+
 	    public void test_createIndex_2() throws Exception {
 	        String sql = "CREATE INDEX id_index ON lookup (id) USING BTREE;";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -111,7 +111,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("CREATE INDEX id_index ON lookup (id) USING BTREE", output);
 	    }
-	    
+
 	    public void test_createIndex_3() throws Exception {
 	        String sql = "crEate index index_name using hash on tb(col(id))";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -120,7 +120,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("CREATE INDEX index_name ON tb (col(id)) USING HASH", output);
 	    }
-	    
+
 	    public void test_createIndex_4() throws Exception {
 	        String sql = "crEate spatial index index_name on tb(col(id))";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -129,7 +129,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("CREATE SPATIAL INDEX index_name ON tb (col(id))", output);
 	    }
-	    
+
 	    public void test_drop_index_0() throws Exception {
 	        String sql = "drop index index_name on tb1";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -138,7 +138,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("DROP INDEX index_name ON tb1", output);
 	    }
-	    
+
 	    public void test_drop_index_1() throws Exception {
 	        String sql = "DROP INDEX `PRIMARY` ON t;";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -147,7 +147,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("DROP INDEX `PRIMARY` ON t", output);
 	    }
-	    
+
 	    public void test_drop_table_0() throws Exception {
 	        String sql = "DROP TEMPORARY TABLE IF EXISTS tb1, tb2, tb3 RESTRICT";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -156,7 +156,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("DROP TEMPORARY TABLE IF EXISTS tb1, tb2, tb3 RESTRICT", output);
 	    }
-	    
+
 	    public void test_drop_table_1() throws Exception {
 	        String sql = "DROP TEMPORARY TABLE IF EXISTS tb1, tb2, tb3 CASCADE";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -165,7 +165,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("DROP TEMPORARY TABLE IF EXISTS tb1, tb2, tb3 CASCADE", output);
 	    }
-	    
+
 	    public void test_drop_table_2() throws Exception {
 	        String sql = "DROP TABLE t1";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -174,7 +174,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("DROP TABLE t1", output);
 	    }
-	    
+
 	    public void test_rename_0() throws Exception {
 	        String sql = "RENAME TABLE current_db.tbl_name TO other_db.tbl_name";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -183,7 +183,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("RENAME TABLE current_db.tbl_name TO other_db.tbl_name", output);
 	    }
-	    
+
 	    public void test_rename_1() throws Exception {
 	        String sql = "rename table tb1 to ntb1,tb2 to ntb2";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);
@@ -201,7 +201,7 @@ public class DDLParserTest  extends TestCase {
 	        String output = SQLUtils.toMySqlString(stmt);
 	        Assert.assertEquals("DROP VIEW IF EXISTS tb1, tb2, tb3 CASCADE", output);
 	    }
-	    
+
 	    public void test_drop_view_2() throws Exception {
 	        String sql = "DROP VIEW t1";
 	        MySqlStatementParser parser = new MySqlStatementParser(sql);

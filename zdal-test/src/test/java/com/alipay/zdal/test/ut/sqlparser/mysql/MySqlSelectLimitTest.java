@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
-
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.visitor.ZdalMySqlSchemaStatVisitor;
+
+import junit.framework.Assert;
 
 public class MySqlSelectLimitTest {
 	@Test
@@ -23,7 +23,7 @@ public class MySqlSelectLimitTest {
         MySqlStatementParser parser = new MySqlStatementParser(sql);
         List<SQLStatement> statementList = parser.parseStatementList();
         SQLStatement statemen = statementList.get(0);
-       
+
 
         Assert.assertEquals(1, statementList.size());
 

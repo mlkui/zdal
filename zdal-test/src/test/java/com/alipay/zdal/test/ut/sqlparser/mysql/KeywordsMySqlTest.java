@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import com.alipay.zdal.parser.sql.parser.Keywords;
+
+import junit.framework.TestCase;
 
 public class KeywordsMySqlTest extends TestCase {
 

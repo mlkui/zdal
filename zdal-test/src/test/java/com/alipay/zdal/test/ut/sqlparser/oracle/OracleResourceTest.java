@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlParameterizedOutputVisitor;
@@ -15,6 +14,8 @@ import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleSchemaStatVisitor;
 import com.alipay.zdal.parser.sql.util.IOUtils;
 import com.alipay.zdal.parser.sql.util.JdbcUtils;
+
+import junit.framework.Assert;
 
 
 public class OracleResourceTest   {
@@ -46,7 +47,7 @@ public class OracleResourceTest   {
 
         System.out.println(sql);
 
-      
+
 
         OracleSchemaStatVisitor visitor = new OracleSchemaStatVisitor();
 

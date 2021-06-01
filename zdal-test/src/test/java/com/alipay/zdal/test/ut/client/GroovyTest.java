@@ -1,16 +1,16 @@
 package com.alipay.zdal.test.ut.client;
 
-import groovy.lang.Binding;
-import groovy.lang.GroovyShell;
-
 import java.util.List;
 
 import org.junit.Test;
 
+import groovy.lang.Binding;
+import groovy.lang.GroovyShell;
+
 public class GroovyTest {
 	@Test
 	public void test001(){
-		
+
 		 String groovy = "return com.alipay.zdal.test.ut.client.Groovy.cal();";
 	        Binding binding = new Binding();
 	        GroovyShell shell = new GroovyShell(binding);
@@ -21,7 +21,7 @@ public class GroovyTest {
 	                System.out.println(integer);
 	            }
 	        }
-		
+
 	}
 
 }

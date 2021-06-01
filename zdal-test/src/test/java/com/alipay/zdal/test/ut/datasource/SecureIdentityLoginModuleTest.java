@@ -1,10 +1,10 @@
 package com.alipay.zdal.test.ut.datasource;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 import com.alipay.zdal.datasource.resource.security.SecureIdentityLoginModule;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class SecureIdentityLoginModuleTest {

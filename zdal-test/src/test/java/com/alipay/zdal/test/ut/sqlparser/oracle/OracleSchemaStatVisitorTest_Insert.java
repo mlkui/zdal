@@ -1,14 +1,15 @@
 package com.alipay.zdal.test.ut.sqlparser.oracle;
+
 import java.util.List;
 
 import org.junit.Test;
-
-import junit.framework.Assert;
 
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 import com.alipay.zdal.parser.sql.stat.TableStat.Column;
 import com.alipay.zdal.parser.visitor.ZdalOracleSchemaStatVisitor;
+
+import junit.framework.Assert;
 
 
 public class OracleSchemaStatVisitorTest_Insert   {

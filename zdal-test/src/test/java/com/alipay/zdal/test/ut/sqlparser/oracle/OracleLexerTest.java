@@ -2,7 +2,6 @@ package com.alipay.zdal.test.ut.sqlparser.oracle;
 
 import org.junit.Test;
 
-
 import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleLexer;
 import com.alipay.zdal.parser.sql.parser.Token;
 

@@ -7,8 +7,8 @@ package com.alipay.zdal.test.ut.sqlparser.mysql;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.junit.Assert;
 import org.junit.Test;

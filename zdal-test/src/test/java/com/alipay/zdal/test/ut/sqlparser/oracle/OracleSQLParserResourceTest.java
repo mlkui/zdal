@@ -7,12 +7,12 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
-
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 import com.alipay.zdal.parser.sql.util.IOUtils;
 import com.alipay.zdal.parser.sql.util.JdbcUtils;
+
+import junit.framework.Assert;
 
 
 public class OracleSQLParserResourceTest   {

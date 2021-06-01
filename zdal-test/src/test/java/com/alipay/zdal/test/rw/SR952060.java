@@ -1,7 +1,5 @@
 package com.alipay.zdal.test.rw;
 
-import static com.alipay.ats.internal.domain.ATS.Step;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,18 +8,12 @@ import java.sql.SQLException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.test.common.ZdalTestBase;
 
-@RunWith(ATSJUnitRunner.class)
-@Feature("zdal的preparedStatement的executeQuery()与executeUpdate()")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("zdal的preparedStatement的executeQuery()与executeUpdate()")
 public class SR952060 extends ZdalTestBase {
 
     private Connection   connection = null;
@@ -53,18 +45,18 @@ public class SR952060 extends ZdalTestBase {
 
     }
 
-    @Subject("preparedStatement的执行insert和select")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("preparedStatement的执行insert和select")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952061() {
 
-        Step("1、验证insert语句");
+        //Step("1、验证insert语句");
         String sql = "insert into test1(colu2) values('hello')";
         int result = 0;
         result = testExecuteUpdate(sql);
         Assert.areEqual(1, result, "preparedStatement执行insert sql语句");
 
-        Step("2、 preparedStatement开始执行select语句");
+        //Step("2、 preparedStatement开始执行select语句");
         String sql_2 = "select count(*) from test1 where colu2 ='hello'";
         ResultSet result_2 = null;
         PreparedStatement preparedStatement_2 = null;
@@ -86,13 +78,13 @@ public class SR952060 extends ZdalTestBase {
             }
         }
 
-        Step("3、 preparedStatement开始执行update语句");
+        //Step("3、 preparedStatement开始执行update语句");
         int result_3 = 0;
         String sql_3 = "update test1 set colu2 = 'world' ";
         result_3 = testExecuteUpdate(sql_3);
         Assert.areEqual(1, result_3, "preparedStatement执行udpate sql语句");
 
-        Step("4、 preparedStatement开始执行delete语句");
+        //Step("4、 preparedStatement开始执行delete语句");
         int result_4 = 0;
         String sql_4 = "delete from test1 where colu2 ='world' ";
         result_4 = testExecuteUpdate(sql_4);
@@ -100,18 +92,18 @@ public class SR952060 extends ZdalTestBase {
 
     }
 
-    @Subject("preparedStatement的执行select")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("preparedStatement的执行select")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952062() {
 
-        Step("1、执行insert操作");
+        //Step("1、执行insert操作");
         String sql = "insert into test1(colu2) values('world')";
         int res_1 = 0;
         res_1 = testExecute(sql);
         Assert.areEqual(1, res_1, "验证插入操作," + res_1);
 
-        Step("2、执行select操作");
+        //Step("2、执行select操作");
         sql = "select count(*) from test1 where colu2 = 'world'";
         ResultSet res_2 = null;
         int res_s = 0;
@@ -141,13 +133,13 @@ public class SR952060 extends ZdalTestBase {
 
         Assert.areEqual(1, res_s, "验证select结果");
 
-        Step("3、测试执行update操作");
+        //Step("3、测试执行update操作");
         sql = "update test1 set colu2 = 'abc' ";
         int res_4 = 0;
         res_4 = testExecute(sql);
         Assert.areEqual(1, res_4, "验update操作");
 
-        Step("4、测试执行delete操作");
+        //Step("4、测试执行delete操作");
         sql = "delete from test1 where colu2 = 'abc'";
         int res_3 = 0;
         res_3 = testExecute(sql);
@@ -157,7 +149,7 @@ public class SR952060 extends ZdalTestBase {
 
     /**
      * 测试方法executeUpdate
-     * 
+     *
      * @param sqlStr
      * @return
      */
@@ -187,7 +179,7 @@ public class SR952060 extends ZdalTestBase {
 
     /**
      * 测试方法execute
-     * 
+     *
      * @param sqlStr
      * @return
      */

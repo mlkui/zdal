@@ -2,12 +2,15 @@ package com.alipay.zdal.test.ut.datasource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.alipay.zdal.datasource.LocalTxDataSourceDO;
 import com.alipay.zdal.datasource.ZDataSource;
 
 public class ZDSFactory {
-	private Logger logger = Logger.getLogger(ZDSFactory.class.getName());
+	private Logger logger = LoggerFactory.getLogger(ZDSFactory.class.getName());
 	private int length = 20;
 	private LocalTxDataSourceDO localTxDataSourceDO_0 = new LocalTxDataSourceDO();
 	private LocalTxDataSourceDO localTxDataSourceDO_1 = new LocalTxDataSourceDO();
@@ -16,10 +19,10 @@ public class ZDSFactory {
 	private LocalTxDataSourceDO localTxDataSourceDO_4 = new LocalTxDataSourceDO();
 	private LocalTxDataSourceDO localTxDataSourceDO_5 = new LocalTxDataSourceDO();
 	private String[] jndinames = {"DataSource-Oracle","DataSource-Mysql","DataSource-MysqlChange","DataSource-MysqlAPP","DataSource-invalid","DataSource-OracleChange"};
-	
+
 	private ZDataSource[] zDataSources = new ZDataSource[length];
-	
-	public ZDSFactory(){	
+
+	public ZDSFactory(){
         localTxDataSourceDO_0.setBackgroundValidation(false);
         localTxDataSourceDO_0.setBackgroundValidationMinutes(10);
         localTxDataSourceDO_0.setBlockingTimeoutMillis(2000);
@@ -52,8 +55,8 @@ public class ZDSFactory {
 		} catch (Exception e) {
 			logger.error(e);
 		}
-        
-        
+
+
         localTxDataSourceDO_1.setBackgroundValidation(false);
         localTxDataSourceDO_1.setBackgroundValidationMinutes(10);
         localTxDataSourceDO_1.setBlockingTimeoutMillis(2000);
@@ -86,7 +89,7 @@ try {
 		} catch (Exception e) {
 			logger.error(e);
 		}
-        
+
         localTxDataSourceDO_2.setBackgroundValidation(false);
         localTxDataSourceDO_2.setBackgroundValidationMinutes(10);
         localTxDataSourceDO_2.setBlockingTimeoutMillis(2000);
@@ -119,7 +122,7 @@ try {
 		} catch (Exception e){
 			logger.error(e);
 		}
-        
+
         localTxDataSourceDO_3.setBackgroundValidation(false);
         localTxDataSourceDO_3.setBackgroundValidationMinutes(10);
         localTxDataSourceDO_3.setBlockingTimeoutMillis(2000);
@@ -145,14 +148,14 @@ try {
         localTxDataSourceDO_3.setUserName("mysql");
         localTxDataSourceDO_3.setUseFastFail(false);
         localTxDataSourceDO_3.setValidateOnMatch(false);
-        localTxDataSourceDO_3.setValidConnectionCheckerClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.MySQLValidConnectionChecker");    
+        localTxDataSourceDO_3.setValidConnectionCheckerClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.MySQLValidConnectionChecker");
         localTxDataSourceDO_3.setDsName("ds");
         try {
 			zDataSources[3] = new ZDataSource(localTxDataSourceDO_3);
 		} catch (Exception e) {
-			logger.error(e);			
+			logger.error(e);
 		}
-        
+
         localTxDataSourceDO_4.setBackgroundValidation(false);
         localTxDataSourceDO_4.setBackgroundValidationMinutes(10);
         localTxDataSourceDO_4.setBlockingTimeoutMillis(2000);
@@ -178,14 +181,14 @@ try {
         localTxDataSourceDO_4.setUserName("mysql");
         localTxDataSourceDO_4.setUseFastFail(false);
         localTxDataSourceDO_4.setValidateOnMatch(false);
-        localTxDataSourceDO_4.setValidConnectionCheckerClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.MySQLValidConnectionChecker");    
+        localTxDataSourceDO_4.setValidConnectionCheckerClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.MySQLValidConnectionChecker");
         localTxDataSourceDO_4.setDsName("ds");
         try {
 			zDataSources[4] = new ZDataSource(localTxDataSourceDO_4);
 		} catch (Exception e) {
-			logger.error(e);			
+			logger.error(e);
 		}
-        
+
         localTxDataSourceDO_5.setBackgroundValidation(false);
         localTxDataSourceDO_5.setBackgroundValidationMinutes(10);
         localTxDataSourceDO_5.setBlockingTimeoutMillis(2000);
@@ -217,36 +220,36 @@ try {
 			zDataSources[5] = new ZDataSource(localTxDataSourceDO_5);
 		} catch (Exception e) {
 			logger.error(e);
-		}		
+		}
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param index 对应zDataSources[]的下标
 	 * @return
 	 */
 	public ZDataSource getZdataSouceByIndex(int index){
 		return zDataSources[index];
 	}
-	
+
 	public ZDataSource getZdataSouceByJndiname(String jndiname){
 		int index = 99;
 		boolean flag = true;
-	
+
 		for(int i=0;i<length && flag;i++){
 			if( jndiname.equalsIgnoreCase(jndinames[i]) ){
 				index = i;
-				flag = false;				
+				flag = false;
 			}
 		}
-		
+
 		if(index == 99){
 			return null;
 		}
 		return zDataSources[index];
 	}
-	
-	
+
+
 	public static void main(String[] args) {
 		ZDSFactory zdsFactory = null;
 		try {
@@ -254,11 +257,11 @@ try {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		for(int i=1;i<4;i++){
 			ZDataSource zds = zdsFactory.getZdataSouceByJndiname("DataSource-Mysql1");
 			Connection connection = null;
-			
+
 			try {
 				connection = zds.getConnection();
 				System.err.println(connection);

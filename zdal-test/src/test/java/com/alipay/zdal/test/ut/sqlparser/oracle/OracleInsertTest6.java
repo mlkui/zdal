@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleSchemaStatVisitor;
+
+import junit.framework.Assert;
 
 
 public class OracleInsertTest6  {
@@ -18,7 +19,7 @@ public class OracleInsertTest6  {
         OracleStatementParser parser = new OracleStatementParser(sql);
         List<SQLStatement> statementList = parser.parseStatementList();
         SQLStatement statemen = statementList.get(0);
-       
+
 
         Assert.assertEquals(1, statementList.size());
 

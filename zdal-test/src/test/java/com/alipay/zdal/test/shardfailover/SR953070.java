@@ -4,24 +4,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import static com.alipay.ats.internal.domain.ATS.Step;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.test.common.ConstantsTest;
 import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-@RunWith(ATSJUnitRunner.class)
-@Feature("shard+failover ,zoneError=Log，跨zone访问")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("shard+failover ,zoneError=Log，跨zone访问")
 public class SR953070 {
 	public TestAssertion Assert = new TestAssertion();;
 	private SqlMapClient sqlMap;
@@ -29,13 +23,13 @@ public class SR953070 {
 	private String dbpsd;
 	private String dbuser;
 	private String dburl2;
-	
-	
+
+
 
 
 	@Before
 	public void beforeTestCase() {
-	  
+
 		dburl = ConstantsTest.mysq112UrlTddl0;
 		dbpsd = ConstantsTest.mysq112Psd;
 		dbuser = ConstantsTest.mysq112User;
@@ -50,12 +44,12 @@ public class SR953070 {
 		ZdalTestCommon.dataUpdateJDBC(delSql2, dburl2, dbpsd, dbuser);
 	}
 
-	
-	@Subject("跨zone访问： zoneDs=master_0,zoneError=LOG.访问 master_0库的users_0表,允许访问")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("跨zone访问： zoneDs=master_0,zoneError=LOG.访问 master_0库的users_0表,允许访问")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953071() throws SQLException {
-		Step("跨zone访问： zoneDs=master_0,zoneError=LOG.访问 master_0库的users_0表,允许访问");
+		//Step("跨zone访问： zoneDs=master_0,zoneError=LOG.访问 master_0库的users_0表,允许访问");
 		String querySql = "select user_id,name,address from users_0 where user_id = 10";
 		sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 				.getBean("zdalZoneDsZoneErrorLog");
@@ -82,11 +76,11 @@ public class SR953070 {
 				"the zoneDs=master_0,zoneError=LOG.then visit master_0");
 	}
 
-	@Subject("跨zone访问： zoneDs=master_0,zoneError=LOG.访问 master_1和users_1表，允许访问")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("跨zone访问： zoneDs=master_0,zoneError=LOG.访问 master_1和users_1表，允许访问")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953072() throws SQLException {
-		Step("跨zone访问： zoneDs=master_0,zoneError=LOG.访问 master_1和users_1表，允许访问");
+		//Step("跨zone访问： zoneDs=master_0,zoneError=LOG.访问 master_1和users_1表，允许访问");
 		String querySql = "select user_id,name,address from users_1 where user_id = 11";
 		sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 				.getBean("zdalZoneDsZoneErrorLog");
@@ -113,11 +107,11 @@ public class SR953070 {
 				"the zoneDs=master_0,zoneError=LOG.then visit master_1");
 	}
 
-	@Subject("跨zone访问： zoneDs=abc,zoneError=LOG.访问 master_1的users_1表，允许访问")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("跨zone访问： zoneDs=abc,zoneError=LOG.访问 master_1的users_1表，允许访问")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953073() throws SQLException {
-		Step("跨zone访问： zoneDs=abc,zoneError=LOG.访问 master_1的users_1表，允许访问");
+		//Step("跨zone访问： zoneDs=abc,zoneError=LOG.访问 master_1的users_1表，允许访问");
 		String querySql = "select user_id,name,address from users_1 where user_id = 11";
 		sqlMap = (SqlMapClient) ZdalShardfailoverSuite.context
 				.getBean("zdalZoneDsZoneErrorLog2");

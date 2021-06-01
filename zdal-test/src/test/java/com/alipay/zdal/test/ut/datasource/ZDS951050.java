@@ -51,12 +51,12 @@
 //		}
 //	}
 //
-//    /*@Subject("不配置valve参数")
-//    @Priority(PriorityLevel.NORMAL)
+//    /*//@Subject("不配置valve参数")
+//    //@Priority(PriorityLevel.NORMAL)
 //    @Tester("riqiu")
 //    @Test
 //	public void testTC951051() {
-//    	Step("创建数据源");
+//    	//Step("创建数据源");
 //    	try {
 //			zDataSource = new ZDataSource(localTxDSDo);
 //		} catch (Exception e) {
@@ -64,7 +64,7 @@
 //			fail();
 //		}
 //
-//		Step("获取valve参数");
+//		//Step("获取valve参数");
 //		Valve valve = zDataSource.getValve();
 //		ThresholdAndPeriod sqlLimit=valve.getSqlValve();
 //		ThresholdAndPeriod txLimit=valve.getTXValve();
@@ -73,20 +73,20 @@
 //	    ThresholdAndPeriod   noLimit    = new ThresholdAndPeriod(-1, -1);
 //	    HashMap<String, ThresholdAndPeriod> emptyTable = new HashMap<String, ThresholdAndPeriod>();
 //
-//	    Step("验证valve参数");
+//	    //Step("验证valve参数");
 //	    Assert.isTrue(sqlLimit.equals(noLimit),"校验sql限流");
 //	    Assert.isTrue(txLimit.equals(txLimit),"校验tx限流");
 //	    Assert.isTrue(tableLimit.equals(emptyTable),"校验table限流");
 //	}*/
 //
-//    @Subject("配置合法valve参数")
-//    @Priority(PriorityLevel.NORMAL)
+//    //@Subject("配置合法valve参数")
+//    //@Priority(PriorityLevel.NORMAL)
 //    @Tester("riqiu")
 //    @Test
 //	public void testTC951052() {
-//		Step("准备valve参数");
+//		//Step("准备valve参数");
 //
-//		Step("创建数据源");
+//		//Step("创建数据源");
 //		try {
 //			zDataSource = new ZDataSource(localTxDSDo);
 //		} catch (Exception e) {
@@ -94,7 +94,7 @@
 //			fail();
 //		}
 //
-//		Step("获取valve参数");
+//		//Step("获取valve参数");
 //		/*Valve valve = zDataSource.getValve();
 //		ThresholdAndPeriod sqlLimit=valve.getSqlValve();
 //		ThresholdAndPeriod txLimit=valve.getTXValve();
@@ -106,20 +106,20 @@
 //	    Limit3.put("t1",Limit1);
 //	    Limit3.put("t2", Limit2);
 //
-//		Step("验证valve参数");
+//		//Step("验证valve参数");
 //        Assert.isTrue(sqlLimit.equals(Limit1),"校验sql限流");
 //	    Assert.isTrue(txLimit.equals(Limit2),"校验tx限流");
 //	    Assert.isTrue(tableLimit.equals(Limit3),"校验table限流");*/
 //	}
 //
-//    @Subject("配置不合法valve参数")
-//    @Priority(PriorityLevel.NORMAL)
+//    //@Subject("配置不合法valve参数")
+//    //@Priority(PriorityLevel.NORMAL)
 //    @Tester("riqiu")
 //    @Test
 //	public void testTC951053() {
-//		Step("准备valve参数");
+//		//Step("准备valve参数");
 //
-//		Step("创建数据源");
+//		//Step("创建数据源");
 //		try {
 //			zDataSource = new ZDataSource(localTxDSDo);
 //		} catch (Exception e) {
@@ -127,7 +127,7 @@
 //			fail();
 //		}
 //
-//		Step("获取valve参数");
+//		//Step("获取valve参数");
 //		/*Valve valve = zDataSource.getValve();
 //		ThresholdAndPeriod sqlLimit=valve.getSqlValve();
 //		ThresholdAndPeriod txLimit=valve.getTXValve();
@@ -136,7 +136,7 @@
 //	    ThresholdAndPeriod   noLimit    = new ThresholdAndPeriod(-1, -1);
 //	    HashMap<String, ThresholdAndPeriod> emptyTable = new HashMap<String, ThresholdAndPeriod>();
 //
-//		Step("验证valve参数");
+//		//Step("验证valve参数");
 //	    Assert.isTrue(sqlLimit.equals(noLimit),"校验sql限流");
 //	    Assert.isTrue(txLimit.equals(txLimit),"校验tx限流");
 //	    Assert.isTrue(tableLimit.equals(emptyTable),"校验table限流");	    */

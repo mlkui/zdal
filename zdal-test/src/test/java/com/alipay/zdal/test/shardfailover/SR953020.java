@@ -4,31 +4,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-import static com.alipay.ats.internal.domain.ATS.Step;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.client.ThreadLocalString;
 import com.alipay.zdal.client.util.ThreadLocalMap;
 import com.alipay.zdal.client.util.condition.SimpleCondition;
-import com.ibatis.common.jdbc.exception.NestedSQLException;
 import com.alipay.zdal.test.common.ConstantsTest;
 import com.alipay.zdal.test.common.ZdalTestCommon;
+import com.ibatis.common.jdbc.exception.NestedSQLException;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-@RunWith(ATSJUnitRunner.class)
-@Feature("shard+Failover ,直接绕过分库分表规则的路由")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("shard+Failover ,直接绕过分库分表规则的路由")
 public class SR953020 {
 	public TestAssertion Assert = new TestAssertion();;
 	private SqlMapClient sqlMap;
@@ -53,26 +47,26 @@ public class SR953020 {
 		ThreadLocalMap.reset();
 	}
 
-	@Subject("shard+failover，绕过分库分表规则的路由")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("shard+failover，绕过分库分表规则的路由")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953021() {
 		insertData();
-		Step("数据验证");
+		//Step("数据验证");
 		testCheckData(dburl1);
-		Step("消除数所");
+		//Step("消除数所");
 		testDeleData(dburl1);
 	}
 
-	@Subject("shard+failover，绕过分库分表规则的路由,逻辑表名出错，抛异常")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("shard+failover，绕过分库分表规则的路由,逻辑表名出错，抛异常")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953022() {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("user_id", Integer.valueOf("11"));
 		params.put("name", "test_ROUTE_CONDITION");
 		params.put("address", "test_ROUTE_CONDITION");
-		Step("改变路由");
+		//Step("改变路由");
 		SimpleCondition simpleCondition = new SimpleCondition();
 		simpleCondition.setVirtualTableName("users001");
 		simpleCondition.put("user_id", 10);
@@ -86,8 +80,8 @@ public class SR953020 {
 		}
 	}
 
-	@Subject("shard+failover事务，绕过分库分表规则的路由")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("shard+failover事务，绕过分库分表规则的路由")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC953023(){
 		try {
@@ -100,11 +94,11 @@ public class SR953020 {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		Step("数据验证");
+		//Step("数据验证");
 		testCheckData(dburl1);
-		Step("消除数据");
+		//Step("消除数据");
 		testDeleData(dburl1);
-		
+
 	}
 	/**
 	 * 插入数据
@@ -129,7 +123,7 @@ public class SR953020 {
 
 	/**
 	 * 检查数据数量
-	 * 
+	 *
 	 * @param dburl
 	 */
 	private void testCheckData(String dburl) {

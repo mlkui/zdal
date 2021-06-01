@@ -1,7 +1,5 @@
 package com.alipay.zdal.test.ut.datasource;
 
-import static org.junit.Assert.assertTrue;
-
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -13,6 +11,8 @@ import org.junit.Test;
 import com.alipay.zdal.common.jdbc.sorter.MySQLExceptionSorter;
 import com.alipay.zdal.datasource.LocalTxDataSourceDO;
 import com.alipay.zdal.datasource.ZDataSource;
+
+import static org.junit.Assert.assertTrue;
 
 
 public class MySQLExceptionSorterTest {
@@ -57,7 +57,7 @@ public class MySQLExceptionSorterTest {
         LocalTxDataSourceDO dsDo = new LocalTxDataSourceDO();
         dsDo.setDsName("test");
         dsDo
-            .setConnectionURL("jdbc:mysql://10.253.34.30:3300/diamond?useUnicode=true&amp;characterEncoding=gbk");
+            .setConnectionURL("jdbc:mysql://10.253.34.30:3300/diamond?useUnicode=true&amp;characterEncoding=UTF-8");
         dsDo.setUserName("diamond");
         dsDo.setPassWord("ali88");
         dsDo.setDriverClass("com.mysql.jdbc.Driver");

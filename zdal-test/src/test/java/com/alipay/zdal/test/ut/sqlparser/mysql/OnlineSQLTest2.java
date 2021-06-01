@@ -1,6 +1,5 @@
 package com.alipay.zdal.test.ut.sqlparser.mysql;
 
-import junit.framework.TestCase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,8 +12,10 @@ import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlSchemaStatVisitor;
 
+import junit.framework.TestCase;
+
 public class OnlineSQLTest2  extends TestCase {
-	
+
 	 private String url      = "jdbc:mysql://mysql-1-2.bjl.alipay.net:3306/tddl_0";
 	    private String user     = "mysql";
 	    private String password = "mysql";

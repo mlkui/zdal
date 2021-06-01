@@ -2,7 +2,6 @@ package com.alipay.zdal.test.ut.sqlparser.oracle;
 
 import org.junit.Test;
 
-
 import com.alipay.zdal.parser.sql.SQLUtils;
 
 

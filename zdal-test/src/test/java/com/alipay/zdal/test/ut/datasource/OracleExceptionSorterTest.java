@@ -1,7 +1,5 @@
 package com.alipay.zdal.test.ut.datasource;
 
-import static org.junit.Assert.assertTrue;
-
 import java.sql.SQLException;
 
 import javax.sql.DataSource;
@@ -16,7 +14,7 @@ import com.alipay.zdal.datasource.ZDataSource;
 
 /**
  * OracleExceptionSorter 测试用例
- * 
+ *
  * @author liangjie.li
  * @version $Id: OracleExceptionSorterTest.java, v 0.1 2012-8-15 下午3:05:49 liangjie.li Exp $
  */

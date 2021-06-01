@@ -1,7 +1,6 @@
 package com.alipay.zdal.test.rw;
 
 import java.sql.ResultSet;
-import static com.alipay.ats.internal.domain.ATS.Step;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -10,20 +9,14 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.test.common.ConstantsTest;
 import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-@RunWith(ATSJUnitRunner.class)
-@Feature("rw oracle读写分离")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("rw oracle读写分离")
 public class SR952020 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
@@ -31,17 +24,17 @@ public class SR952020 {
 	private String psd;
 	private String user1;
 	private String user2;
-	
+
 
 	@Before
 	public void beforeTestCase() {
-		
+
 		url = ConstantsTest.oralcePrefUrl;
 		user1 = ConstantsTest.oraclePreUser1;
 		user2 = ConstantsTest.oraclePreUser2;
 		psd = ConstantsTest.oraclePrePsd;
 	}
-	
+
 	@After
 	public void afterTestCase(){
 		String delSql = "delete from acm_target_record ";
@@ -50,68 +43,68 @@ public class SR952020 {
 
 	}
 
-	@Subject("rw oracle写库:ds0:r2w1,ds1:r1w2")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("rw oracle写库:ds0:r2w1,ds1:r1w2")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952021() {
-		Step("rw oracle写库:ds0:r2w1,ds1:r1w2");
+		//Step("rw oracle写库:ds0:r2w1,ds1:r1w2");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle1",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
 		int count2 = mp.get("count2");
-		Step("断言数据个数");
+		//Step("断言数据个数");
 		Assert.areEqual(true, 0 <= count1 && count1 <= 15, "the count1 value");
 		Assert.areEqual(true, 10 <= count2 && count2 <= 30, "the count2 value");
 	}
 
-	@Subject("rw oracle读库:ds0:r2w1,ds1:r1w2")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("rw oracle读库:ds0:r2w1,ds1:r1w2")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952022() {
-		Step("rw oracle读库:ds0:r2w1,ds1:r1w2");
+		//Step("rw oracle读库:ds0:r2w1,ds1:r1w2");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle1",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
 		int count2 = mp.get("countB");
-		Step("断言数据个数");
+		//Step("断言数据个数");
 		Assert.areEqual(true, 10 <= count1 && count1 <= 30, "the countA value:"+count1);
 		Assert.areEqual(true, 0 <= count2 && count2 <= 15, "the countB value:"+count2);
 	}
-	
-	@Subject("rw oracle写库:ds0:r1w1,ds1:r0w0")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("rw oracle写库:ds0:r1w1,ds1:r0w0")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952023() {
-		Step("rw oracle写库:ds0:r1w1,ds1:r0w0");
+		//Step("rw oracle写库:ds0:r1w1,ds1:r0w0");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle2",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
 		int count2 = mp.get("count2");
-		Step("数据个数");
+		//Step("数据个数");
 		Assert.areEqual(true,  count1 == 30, "the count1 value");
 		Assert.areEqual(true,  count2 == 0, "the count2 value");
 	}
-	
-	@Subject("rw oracle读库:ds0:r1w1,ds1:r0w0")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("rw oracle读库:ds0:r1w1,ds1:r0w0")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952024() {
-		Step("rw oracle读库:ds0:r1w1,ds1:r0w0");
+		//Step("rw oracle读库:ds0:r1w1,ds1:r0w0");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle2",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
 		int count2 = mp.get("countB");
-		Step("数据个数");
+		//Step("数据个数");
 		Assert.areEqual(true,  count1 == 30, "the countA value");
 		Assert.areEqual(true,  count2 == 0, "the countB value");
 	}
-	
-	
-	@Subject("rw oracle写库:ds0:r1,ds1:w1")
-	@Priority(PriorityLevel.HIGHEST)
+
+
+	//@Subject("rw oracle写库:ds0:r1,ds1:w1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952025() {
-		Step("rw oracle写库:ds0:r1,ds1:w1");
+		//Step("rw oracle写库:ds0:r1,ds1:w1");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle3",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
@@ -119,12 +112,12 @@ public class SR952020 {
 		Assert.areEqual(true,  count1 == 0, "the count1 value");
 		Assert.areEqual(true,  count2 == 30, "the count2 value");
 	}
-	
-	@Subject("rw oracle读库:ds0:r1,ds1:w1")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("rw oracle读库:ds0:r1,ds1:w1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952026() {
-		Step("rw oracle读库:ds0:r1,ds1:w1");
+		//Step("rw oracle读库:ds0:r1,ds1:w1");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle3",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
@@ -132,13 +125,13 @@ public class SR952020 {
 		Assert.areEqual(true,  count1 == 30, "the countA value");
 		Assert.areEqual(true,  count2 == 0, "the countB value");
 	}
-	
-	
-	@Subject("rw oracle写库:ds0:rw,ds1:r1w1")
-	@Priority(PriorityLevel.HIGHEST)
+
+
+	//@Subject("rw oracle写库:ds0:rw,ds1:r1w1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952027() {
-		Step("rw oracle写库:ds0:rw,ds1:r1w1");
+		//Step("rw oracle写库:ds0:rw,ds1:r1w1");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle4",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
@@ -146,27 +139,27 @@ public class SR952020 {
 		Assert.areEqual(true,  count1 > 20, "the count1 value");
 		Assert.areEqual(true,  count2 < 10, "the count2 value");
 	}
-	
-	@Subject("rw oracle读库:ds0:rw,ds1:r1w1")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("rw oracle读库:ds0:rw,ds1:r1w1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952028() {
-		Step("rw oracle读库:ds0:rw,ds1:r1w1");
+		//Step("rw oracle读库:ds0:rw,ds1:r1w1");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle4",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
 		int count2 = mp.get("countB");
-		Step("断言数据个数");
+		//Step("断言数据个数");
 		Assert.areEqual(true,  count1 > 20, "the countA value");
 		Assert.areEqual(true,  count2 < 10, "the countB value");
 	}
-	
-	
-	@Subject("rw oracle写库:ds0:r1w1")
-	@Priority(PriorityLevel.HIGHEST)
+
+
+	//@Subject("rw oracle写库:ds0:r1w1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952029() {
-		Step("rw oracle写库:ds0:r1w1");
+		//Step("rw oracle写库:ds0:r1w1");
 		HashMap<String, Integer> mp = writeRwOracleDB("zdalRwOracle5",
 				"insertRwSqlOracle");
 		int count1 = mp.get("count1");
@@ -174,12 +167,12 @@ public class SR952020 {
 		Assert.areEqual(true,  count1 == 30, "the count1 value");
 		Assert.areEqual(true,  count2 == 0, "the count2 value");
 	}
-	
-	@Subject("rw oracle读库:ds0:r1w1")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("rw oracle读库:ds0:r1w1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC95202a() {
-		Step("rw oracle读库:ds0:r1w1");
+		//Step("rw oracle读库:ds0:r1w1");
 		HashMap<String, Integer> mp = readRwOracleDB("zdalRwOracle5",
 				"queryRwSqlOracle");
 		int count1 = mp.get("countA");
@@ -187,13 +180,13 @@ public class SR952020 {
 		Assert.areEqual(true,  count1 ==30, "the countA value");
 		Assert.areEqual(true,  count2 ==0, "the countB value");
 	}
-	
-	
-	
+
+
+
 
 	/**
 	 * 针对rw oracle库的写库的公共函数
-	 * 
+	 *
 	 * @param beanName
 	 * @param sqlName
 	 * @return
@@ -240,7 +233,7 @@ public class SR952020 {
 
 	/**
 	 * 针对rw oracle库的读库的公共函数
-	 * 
+	 *
 	 * @param beanName
 	 * @param sqlName
 	 * @return

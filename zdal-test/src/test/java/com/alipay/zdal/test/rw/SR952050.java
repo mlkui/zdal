@@ -1,7 +1,6 @@
 package com.alipay.zdal.test.rw;
 
 import java.sql.ResultSet;
-import static com.alipay.ats.internal.domain.ATS.Step;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -10,24 +9,17 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.client.ThreadLocalString;
 import com.alipay.zdal.client.util.ThreadLocalMap;
 import com.alipay.zdal.test.common.ConstantsTest;
 import com.alipay.zdal.test.common.ZdalTestCommon;
-import com.alipay.zdal.test.common.AllTestSuit;
 import com.ibatis.common.jdbc.exception.NestedSQLException;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-@RunWith(ATSJUnitRunner.class)
-@Feature("rw 动态指定库")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("rw 动态指定库")
 public class SR952050 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
@@ -35,11 +27,11 @@ public class SR952050 {
 	private String url2;
 	private String psd;
 	private String user;
-	
+
 
 	@Before
 	public void beforeTestCase() {
-		
+
 		url1 = ConstantsTest.mysql12UrlZds1;
 		url2 = ConstantsTest.mysql12UrlZds2;
 		psd = ConstantsTest.mysq112Psd;
@@ -53,41 +45,41 @@ public class SR952050 {
 		ThreadLocalMap.reset();
 	}
 
-	@Subject("动态指定库，rw 写库 ds0:r2w1p0,ds1:r1w2p1")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("动态指定库，rw 写库 ds0:r2w1p0,ds1:r1w2p1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952051() {
-		Step("动态指定库，rw 写库 ds0:r2w1p0,ds1:r1w2p1");
+		//Step("动态指定库，rw 写库 ds0:r2w1p0,ds1:r1w2p1");
 		HashMap<String, Integer> mp = writeRwMysqlDBByIndex(
 				"zdalrwmysqlDBIndex", "insertRwSql", 1);
 		int count1 = mp.get("count1");
 		int count2 = mp.get("count2");
-		Step("获取个数");
+		//Step("获取个数");
 		Assert.areEqual(true, count1 == 0, "the count1 value:"+count1);
 		Assert.areEqual(true, count2 == 30, "the count2 value:"+count2);
 
 	}
 
-	
-	@Subject("动态指定库，rw 读库 ds0:r2w1p0,ds1:r1w2p1")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("动态指定库，rw 读库 ds0:r2w1p0,ds1:r1w2p1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952052() {
-		Step("动态指定库，rw 读库 ds0:r2w1p0,ds1:r1w2p1");
+		//Step("动态指定库，rw 读库 ds0:r2w1p0,ds1:r1w2p1");
 		HashMap<String, Integer> mp = readRwMysqlDBByIndex(
 				"zdalrwmysqlDBIndex", "queryRwSql", 1);
 
 		int countA = mp.get("countA");
 		int countB = mp.get("countB");
-		Step("获取个数");
+		//Step("获取个数");
 
 		Assert.areEqual(true, countA == 0, "the countA value");
 		Assert.areEqual(true, countB == 30, "the countA value");
 
 	}
 
-	@Subject("动态指定库,越界，rw 写库 ds0:r2w1p0,ds1:r1w2p1")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("动态指定库,越界，rw 写库 ds0:r2w1p0,ds1:r1w2p1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952053() {
 		sqlMap = (SqlMapClient) ZdalRwSuite.context
@@ -104,11 +96,11 @@ public class SR952050 {
 			Assert.areEqual(NestedSQLException.class, e.getClass(), "验证是否抛出异常");
 		}
 	}
-	
+
 
 	/**
-	@Subject("动态指定库,越界，rw 读库 ds0:r2w1p0,ds1:r1w2p1")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("动态指定库,越界，rw 读库 ds0:r2w1p0,ds1:r1w2p1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void testcase04() {
 
@@ -123,33 +115,33 @@ public class SR952050 {
 	}
 	*/
 
-	
-	@Subject("动态指定库,库权重为0，rw 读库 ds0:r0w1p0,ds1:r1w2p1")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("动态指定库,库权重为0，rw 读库 ds0:r0w1p0,ds1:r1w2p1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952055() {
-		Step("动态指定库,库权重为0，rw 读库 ds0:r0w1p0,ds1:r1w2p1");
+		//Step("动态指定库,库权重为0，rw 读库 ds0:r0w1p0,ds1:r1w2p1");
 		HashMap<String, Integer> mp = readRwMysqlDBByIndex(
 				"zdalrwmysqlDBIndex2", "queryRwSql", 0);
 
 		int countA = mp.get("countA");
 		int countB = mp.get("countB");
-		Step("获取个数");
+		//Step("获取个数");
 		Assert.areEqual(true, countA == 30, "the countA value");
 		Assert.areEqual(true, countB == 0, "the countA value");
 
 	}
 
-	@Subject("动态指定库，rw 写库 ds0:r1w1p0,ds1:r1w0p1")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("动态指定库，rw 写库 ds0:r1w1p0,ds1:r1w0p1")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952056() {
-		Step("动态指定库，rw 写库 ds0:r1w1p0,ds1:r1w0p1");
+		//Step("动态指定库，rw 写库 ds0:r1w1p0,ds1:r1w0p1");
 		HashMap<String, Integer> mp = writeRwMysqlDBByIndex(
 				"zdalrwmysqlDBIndex3", "insertRwSql", 1);
 		int count1 = mp.get("count1");
 		int count2 = mp.get("count2");
-		Step("获取个数");
+		//Step("获取个数");
 		Assert.areEqual(true, count1 == 0, "the count1 value");
 		Assert.areEqual(true, count2 == 30, "the count2 value");
 
@@ -158,7 +150,7 @@ public class SR952050 {
 
 	/**
 	 * 动态指定库 写库
-	 * 
+	 *
 	 * @param beanName
 	 * @param sqlName
 	 * @return
@@ -206,7 +198,7 @@ public class SR952050 {
 
 	/**
 	 * 动态指写库读
-	 * 
+	 *
 	 * @param beanName
 	 * @param sqlName
 	 * @return

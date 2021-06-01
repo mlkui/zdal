@@ -1,7 +1,5 @@
 package com.alipay.zdal.test.rw;
 
-import static com.alipay.ats.internal.domain.ATS.Step;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -11,20 +9,14 @@ import java.util.Map;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.test.common.ConstantsTest;
 import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-@RunWith(ATSJUnitRunner.class)
-@Feature("rw mysql 读写分离")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("rw mysql 读写分离")
 public class SR952010 {
     public TestAssertion Assert = new TestAssertion();
     private SqlMapClient sqlMap;
@@ -47,190 +39,190 @@ public class SR952010 {
         ZdalTestCommon.dataDeleteForZds();
     }
 
-    @Subject("rw 写库 ds0:r2w1,ds1:r1w2")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库 ds0:r2w1,ds1:r1w2")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952011() {
-        Step("rw 写库 ds0:r2w1,ds1:r1w2");
+        //Step("rw 写库 ds0:r2w1,ds1:r1w2");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql1", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("断言数据取值个数");
+        //Step("断言数据取值个数");
         Assert.areEqual(true, 0 <= count1 && count1 <= 15, "the count1 value");
         Assert.areEqual(true, 10 <= count2 && count2 <= 30, "the count2 value");
     }
 
-    @Subject("rw 读库 ds0:r2w1,ds1:r1w2")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库 ds0:r2w1,ds1:r1w2")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952012() {
-        Step("数据准备");
+        //Step("数据准备");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql1", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("断言数据取值个数");
+        //Step("断言数据取值个数");
         Assert.areEqual(true, 10 <= countA && countA <= 30, "the countA value:" + countA);
         Assert.areEqual(true, 0 <= countB && countB <= 15, "the countB value:" + countB);
 
     }
 
-    @Subject("rw 写库 ds0:r1w0,ds1:r0w1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库 ds0:r1w0,ds1:r0w1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952013() {
-        Step("rw 写库 ds0:r1w0,ds1:r0w1");
+        //Step("rw 写库 ds0:r1w0,ds1:r0w1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql2", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("断言数据取值个数");
+        //Step("断言数据取值个数");
         Assert.areEqual(true, count1 == 0, "the count1 value");
         Assert.areEqual(true, count2 == 30, "the count2 value");
 
     }
 
-    @Subject("rw 读库 ds0:r1w0,ds1:r0w1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库 ds0:r1w0,ds1:r0w1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952014() {
-        Step("rw 读库 ds0:r1w0,ds1:r0w1");
+        //Step("rw 读库 ds0:r1w0,ds1:r0w1");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql2", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("断言取值个数");
+        //Step("断言取值个数");
         Assert.areEqual(true, countA == 30, "the countA value");
         Assert.areEqual(true, countB == 0, "the countB value");
 
     }
 
-    @Subject("rw 写库:ds0:r1,ds1:w1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库:ds0:r1,ds1:w1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952015() {
-        Step("rw 写库:ds0:r1,ds1:w1");
+        //Step("rw 写库:ds0:r1,ds1:w1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql3", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("断言取值个数");
+        //Step("断言取值个数");
         Assert.areEqual(true, count1 == 0, "the count1 value");
         Assert.areEqual(true, count2 == 30, "the count2 value");
     }
 
-    @Subject("rw 读库:ds0:r1,ds1:w1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库:ds0:r1,ds1:w1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952016() {
-        Step("rw 读库:ds0:r1,ds1:w1");
+        //Step("rw 读库:ds0:r1,ds1:w1");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql3", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("断言取值个数");
+        //Step("断言取值个数");
         Assert.areEqual(true, countA == 30, "the countA value");
         Assert.areEqual(true, countB == 0, "the countB value");
     }
 
-    @Subject("rw 写库:ds0:r1w1,ds1:r0w0")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库:ds0:r1w1,ds1:r0w0")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952017() {
-        Step("rw 写库:ds0:r1w1,ds1:r0w0");
+        //Step("rw 写库:ds0:r1w1,ds1:r0w0");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql4", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("断言取值个数");
+        //Step("断言取值个数");
         Assert.areEqual(true, count1 == 30, "the count1 value");
         Assert.areEqual(true, count2 == 0, "the count2 value");
     }
 
-    @Subject("rw 读库:ds0:r1w1,ds1:r0w0")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库:ds0:r1w1,ds1:r0w0")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952018() {
-        Step("rw 读库:ds0:r1w1,ds1:r0w0");
+        //Step("rw 读库:ds0:r1w1,ds1:r0w0");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql4", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("断言获取数据个数");
+        //Step("断言获取数据个数");
         Assert.areEqual(true, countA == 30, "the countA value");
         Assert.areEqual(true, countB == 0, "the countB value");
     }
 
-    @Subject("rw 写库:ds0:rw,ds1:r0w0")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库:ds0:rw,ds1:r0w0")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC952019() {
-        Step("rw 写库:ds0:rw,ds1:r0w0");
+        //Step("rw 写库:ds0:rw,ds1:r0w0");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql5", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("获取数据个数");
+        //Step("获取数据个数");
         Assert.areEqual(true, count1 == 30, "the count1 value");
         Assert.areEqual(true, count2 == 0, "the count2 value");
 
     }
 
-    @Subject("rw 读库:ds0:rw,ds1:r0w0")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库:ds0:rw,ds1:r0w0")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201a() {
-        Step("rw 读库:ds0:rw,ds1:r0w0");
+        //Step("rw 读库:ds0:rw,ds1:r0w0");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql5", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("获取数据个数");
+        //Step("获取数据个数");
         Assert.areEqual(true, countA == 30, "the countA value");
         Assert.areEqual(true, countB == 0, "the countB value");
     }
 
-    @Subject("rw 写库:ds0:rw,ds1:r1w1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库:ds0:rw,ds1:r1w1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201b() {
-        Step("rw 写库:ds0:rw,ds1:r1w1");
+        //Step("rw 写库:ds0:rw,ds1:r1w1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql6", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("获取数据个数");
+        //Step("获取数据个数");
         Assert.areEqual(true, count1 > 20, "the count1 value:" + count1);
         Assert.areEqual(true, count2 < 10, "the count2 value:" + count2);
 
     }
 
-    @Subject("rw 读库:ds0:rw,ds1:r1w1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库:ds0:rw,ds1:r1w1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201c() {
-        Step("rw 读库:ds0:rw,ds1:r1w1");
+        //Step("rw 读库:ds0:rw,ds1:r1w1");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql6", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("获取数据个数");
+        //Step("获取数据个数");
         Assert.areEqual(true, countA > 20, "the countA value:" + countA);
         Assert.areEqual(true, countB < 10, "the countB value:" + countB);
 
     }
 
-    @Subject("rw 写库:ds0:r1w1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库:ds0:r1w1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201d() {
-        Step("rw 写库:ds0:r1w1");
+        //Step("rw 写库:ds0:r1w1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql7", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("获取数据个数");
+        //Step("获取数据个数");
         Assert.areEqual(true, count1 == 30, "the count1 value");
         Assert.areEqual(true, count2 == 0, "the count2 value");
 
     }
 
-    @Subject("rw 读库:ds0:r1w1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库:ds0:r1w1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201e() {
         ZdalTestCommon.dataPrepareForZds();
@@ -242,25 +234,25 @@ public class SR952010 {
 
     }
 
-    @Subject("rw 写库:ds0:r1w0,ds1:r1w0")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库:ds0:r1w0,ds1:r1w0")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201f() {
-        Step("rw 写库:ds0:r1w0,ds1:r1w0");
+        //Step("rw 写库:ds0:r1w0,ds1:r1w0");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql8", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
-        Step("获取数据个数");
+        //Step("获取数据个数");
         Assert.areEqual(true, count1 == 0, "the count1 value");
         Assert.areEqual(true, count2 == 0, "the count2 value");
 
     }
 
-    @Subject("rw 读库:ds0:r1w0,ds1:r1w0")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库:ds0:r1w0,ds1:r1w0")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201h() {
-        Step("rw 读库:ds0:r1w0,ds1:r1w0");
+        //Step("rw 读库:ds0:r1w0,ds1:r1w0");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql8", "queryRwSql");
         int countA = mp.get("countA");
@@ -270,11 +262,11 @@ public class SR952010 {
 
     }
 
-    @Subject("rw 写库:ds0:r2w1,ds1:r1w2,当ds0连接不上时，全部写入ds1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 写库:ds0:r2w1,ds1:r1w2,当ds0连接不上时，全部写入ds1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201i() {
-        Step("rw 写库:ds0:r2w1,ds1:r1w2,当ds0连接不上时，全部写入ds1");
+        //Step("rw 写库:ds0:r2w1,ds1:r1w2,当ds0连接不上时，全部写入ds1");
         HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwMysql9", "insertRwSql");
         int count1 = mp.get("count1");
         int count2 = mp.get("count2");
@@ -282,16 +274,16 @@ public class SR952010 {
         Assert.areEqual(true, count2 == 30, "the count2 value");
     }
 
-    @Subject("rw 读库:ds0:r2w1,ds1:r1w2,当ds0连接不上时，全部读ds1")
-    @Priority(PriorityLevel.HIGHEST)
+    //@Subject("rw 读库:ds0:r2w1,ds1:r1w2,当ds0连接不上时，全部读ds1")
+    //@Priority(PriorityLevel.HIGHEST)
     @Test
     public void TC95201j() {
-        Step("rw 读库:ds0:r2w1,ds1:r1w2,当ds0连接不上时，全部读ds1");
+        //Step("rw 读库:ds0:r2w1,ds1:r1w2,当ds0连接不上时，全部读ds1");
         ZdalTestCommon.dataPrepareForZds();
         HashMap<String, Integer> mp = readRwMysqlDB("zdalRwMysql9", "queryRwSql");
         int countA = mp.get("countA");
         int countB = mp.get("countB");
-        Step("获取数据个数");
+        //Step("获取数据个数");
         Assert.areEqual(true, countA == 0, "the count1 value");
         Assert.areEqual(true, countB == 30, "the count2 value");
 
@@ -299,7 +291,7 @@ public class SR952010 {
 
     /**
      * 针对rw mysql库的写库的公共函数
-     * 
+     *
      * @param beanName
      * @param sqlName
      * @return
@@ -341,7 +333,7 @@ public class SR952010 {
 
     /**
      * 针对rw mysql库的读库的公共函数（zds库）
-     * 
+     *
      * @param beanName
      * @param sqlName
      * @return

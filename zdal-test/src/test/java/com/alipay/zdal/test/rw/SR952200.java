@@ -4,24 +4,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
+
 import org.junit.After;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
-import com.ibatis.common.jdbc.exception.NestedSQLException;
 import com.alipay.zdal.test.common.ConstantsTest;
 import com.alipay.zdal.test.common.ZdalTestCommon;
+import com.ibatis.common.jdbc.exception.NestedSQLException;
 import com.ibatis.sqlmap.client.SqlMapClient;
-import static com.alipay.ats.internal.domain.ATS.Step;
 
-@RunWith(ATSJUnitRunner.class)
-@Feature("rw重试")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("rw重试")
 public class SR952200 {
 	public TestAssertion Assert = new TestAssertion();
 	private SqlMapClient sqlMap;
@@ -34,13 +28,13 @@ public class SR952200 {
 		ZdalTestCommon.dataDeleteForTddl();
 	}
 
-	@Subject("重试读：ds0:r2w1p0,ds1:r1w1p1,ds2:r1w1p2，ds0和ds1不可用,ds2可用")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("重试读：ds0:r2w1p0,ds1:r1w1p1,ds2:r1w1p2，ds0和ds1不可用,ds2可用")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
-	public void TC952201() { 
-		Step("1、数据准备");
-		ZdalTestCommon.dataPrepareForTddl(); 
-		Step(" zdal读数据");
+	public void TC952201() {
+		//Step("1、数据准备");
+		ZdalTestCommon.dataPrepareForTddl();
+		//Step(" zdal读数据");
 		HashMap<String, Integer> mp = readRwMysqlDB("zdalRwRetry1",
 				"queryRwSqlTddl");
 		int countA = mp.get("countA");
@@ -52,11 +46,11 @@ public class SR952200 {
 
 	}
 
-	@Subject("重试写：ds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2，ds0和ds2不可用,ds1可用")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("重试写：ds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2，ds0和ds2不可用,ds1可用")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952202() {
-		Step("重试写：ds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2，ds0和ds2不可用,ds1可用");
+		//Step("重试写：ds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2，ds0和ds2不可用,ds1可用");
 		HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwRetry2",
 				"insertRwSqlTddl");
 		int count0 = mp.get("count0");
@@ -67,13 +61,13 @@ public class SR952200 {
 		Assert.areEqual(true, count2 == 0, "the count2 value");
 	}
 
-	@Subject("重试读：ds0:r10w1,ds1:r10w1,ds2:r1w1，ds0和ds2不可用,ds1可用")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("重试读：ds0:r10w1,ds1:r10w1,ds2:r1w1，ds0和ds2不可用,ds1可用")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952203() {
-		Step("重试读：ds0:r10w1,ds1:r10w1,ds2:r1w1，ds0和ds2不可用,ds1可用");
-		ZdalTestCommon.dataPrepareForTddl(); 
-		Step("zdal读数据");
+		//Step("重试读：ds0:r10w1,ds1:r10w1,ds2:r1w1，ds0和ds2不可用,ds1可用");
+		ZdalTestCommon.dataPrepareForTddl();
+		//Step("zdal读数据");
 		HashMap<String, Integer> mp = readRwMysqlDB("zdalRwRetry3",
 				"queryRwSqlTddl");
 		int countA = mp.get("countA");
@@ -85,11 +79,11 @@ public class SR952200 {
 
 	}
 
-	@Subject("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，ds0和ds1不可用,ds2可用")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，ds0和ds1不可用,ds2可用")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952204() {
-		Step("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，ds0和ds1不可用,ds2可用");
+		//Step("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，ds0和ds1不可用,ds2可用");
 		HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwRetry4",
 				"insertRwSqlTddl");
 		int count0 = mp.get("count0");
@@ -100,13 +94,13 @@ public class SR952200 {
 		Assert.areEqual(true, count2 == 30, "the count2 value");
 	}
 
-	@Subject("重试读：ds0:r10w1,ds1:r10w1,ds2:r1w1，ds0不可用,ds1和ds2可用")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("重试读：ds0:r10w1,ds1:r10w1,ds2:r1w1，ds0不可用,ds1和ds2可用")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952205() {
-		Step("重试读：ds0:r10w1,ds1:r10w1,ds2:r1w1，ds0不可用,ds1和ds2可用");
-		ZdalTestCommon.dataPrepareForTddl(); 
-		Step("zdal读数据");
+		//Step("重试读：ds0:r10w1,ds1:r10w1,ds2:r1w1，ds0不可用,ds1和ds2可用");
+		ZdalTestCommon.dataPrepareForTddl();
+		//Step("zdal读数据");
 		HashMap<String, Integer> mp = readRwMysqlDB("zdalRwRetry5",
 				"queryRwSqlTddl");
 		int countA = mp.get("countA");
@@ -118,11 +112,11 @@ public class SR952200 {
 
 	}
 
-	@Subject("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，ds1不可用,ds0和ds2可用")
-	@Priority(PriorityLevel.HIGHEST)
+	//@Subject("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，ds1不可用,ds0和ds2可用")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952206() {
-		Step("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，ds1不可用,ds0和ds2可用");
+		//Step("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，ds1不可用,ds0和ds2可用");
 		HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwRetry6",
 				"insertRwSqlTddl");
 		int count0 = mp.get("count0");
@@ -132,12 +126,12 @@ public class SR952200 {
 		Assert.areEqual(true, count1 == 0, "the count1 value");
 		Assert.areEqual(true, count2 < 30, "the count2 value");
 	}
-	
-	@Subject("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，均不可用")
-	@Priority(PriorityLevel.HIGHEST)
+
+	//@Subject("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，均不可用")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952207(){
-		Step("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，均不可用");
+		//Step("重试写：ds0:r10w10,ds1:r10w10,ds2:r1w1，均不可用");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean("zdalRwRetry7");
 		try {
 			sqlMap.insert("insertRwSqlTddl");
@@ -145,15 +139,15 @@ public class SR952200 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Assert.areEqual(NestedSQLException.class, e.getClass(), "全部数据源不可用");
-		}	
+		}
 	}
-	
-	
-	@Subject("重试写：ds0:r2w1q0,ds1:r1w0q1,ds2:r1w1q2，ds0和ds2不可用,ds1可用,但ds1的权重为0,报异常")
-	@Priority(PriorityLevel.HIGHEST)
+
+
+	//@Subject("重试写：ds0:r2w1q0,ds1:r1w0q1,ds2:r1w1q2，ds0和ds2不可用,ds1可用,但ds1的权重为0,报异常")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC952208() {
-		Step("重试写：ds0:r2w1q0,ds1:r1w0q1,ds2:r1w1q2，ds0和ds2不可用,ds1可用,但ds1的权重为0,报异常");
+		//Step("重试写：ds0:r2w1q0,ds1:r1w0q1,ds2:r1w1q2，ds0和ds2不可用,ds1可用,但ds1的权重为0,报异常");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean("zdalRwRetry8");
 		try {
 			sqlMap.insert("insertRwSqlTddl");
@@ -161,18 +155,18 @@ public class SR952200 {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Assert.areEqual(NestedSQLException.class, e.getClass(), "全部数据源不可用");
-		}	
-		
+		}
+
 	}
-	
-	
-	@Subject("重试读：ds0:r2w1p0,ds1:r1w1p1,ds2:r1w1p2，ds0不可用,,ds1和ds2可用.则全部从ds1在读")
-	@Priority(PriorityLevel.HIGHEST)
+
+
+	//@Subject("重试读：ds0:r2w1p0,ds1:r1w1p1,ds2:r1w1p2，ds0不可用,,ds1和ds2可用.则全部从ds1在读")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
-	public void TC952209() { 
-		Step("1、数据准备");
-		ZdalTestCommon.dataPrepareForTddl(); 
-		Step("zdal读数据");
+	public void TC952209() {
+		//Step("1、数据准备");
+		ZdalTestCommon.dataPrepareForTddl();
+		//Step("zdal读数据");
 		HashMap<String, Integer> mp = readRwMysqlDB("zdalRwRetry9",
 				"queryRwSqlTddl");
 		int countA = mp.get("countA");
@@ -183,13 +177,13 @@ public class SR952200 {
 		Assert.areEqual(true, countC == 0, "the count2 value");
 
 	}
-	
-	
-	@Subject("重试写：ds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2，ds2不可用,ds0和ds1可用，由全部写到ds0")
-	@Priority(PriorityLevel.HIGHEST)
+
+
+	//@Subject("重试写：ds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2，ds2不可用,ds0和ds1可用，由全部写到ds0")
+	//@Priority(PriorityLevel.HIGHEST)
 	@Test
 	public void TC95220a() {
-		Step("重试写：ds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2，ds2不可用,ds0和ds1可用，由全部写到ds0");
+		//Step("重试写：ds0:r2w1q0,ds1:r1w1q1,ds2:r1w1q2，ds2不可用,ds0和ds1可用，由全部写到ds0");
 		HashMap<String, Integer> mp = writeRwMysqlDB("zdalRwRetry10",
 				"insertRwSqlTddl");
 		int count0 = mp.get("count0");
@@ -199,11 +193,11 @@ public class SR952200 {
 		Assert.areEqual(true, count1 == 0, "the count1 value");
 		Assert.areEqual(true, count2 == 0, "the count2 value");
 	}
-	
+
 
 	/**
 	 * 针对rw mysql库的读库的公共函数(tddl库）
-	 * 
+	 *
 	 * @param beanName
 	 * @param sqlName
 	 * @return
@@ -215,10 +209,10 @@ public class SR952200 {
 		int countA = 0;
 		int countB = 0;
 		int countC = 0;
-		Step("准备数据");
+		//Step("准备数据");
 		ZdalTestCommon.dataPrepareForZds();
 
-		Step("读取数据，并计算从每个库里面读数的次数");
+		//Step("读取数据，并计算从每个库里面读数的次数");
 		sqlMap = (SqlMapClient) ZdalRwSuite.context.getBean(beanName);
 		String sqlStr1 = sqlName;
 		for (int countnum = 0; countnum < 30; countnum++) {
@@ -250,7 +244,7 @@ public class SR952200 {
 
 	/**
 	 * 针对rw mysql写库的公共函数（tddl）
-	 * 
+	 *
 	 * @param beanName
 	 * @param sqlName
 	 * @return
@@ -276,7 +270,7 @@ public class SR952200 {
 				e.printStackTrace();
 			}
 		}
-		Step("进写入的数据count，进行验证");
+		//Step("进写入的数据count，进行验证");
 		String querySql = "select count(*) from users where name = 'DB' and address='DB_G'";
 		ResultSet rs0 = ZdalTestCommon.dataCheckFromJDBC(querySql, url0, psd,
 				user);

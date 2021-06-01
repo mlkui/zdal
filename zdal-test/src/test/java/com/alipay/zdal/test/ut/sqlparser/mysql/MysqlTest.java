@@ -2,10 +2,10 @@ package com.alipay.zdal.test.ut.sqlparser.mysql;
 
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlOutputVisitor;
+
+import junit.framework.TestCase;
 
 public abstract class MysqlTest extends TestCase {
     protected String output(List<SQLStatement> stmtList) {

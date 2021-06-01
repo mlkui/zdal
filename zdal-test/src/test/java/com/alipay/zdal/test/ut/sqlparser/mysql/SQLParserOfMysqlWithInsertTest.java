@@ -1,10 +1,6 @@
 package com.alipay.zdal.test.ut.sqlparser.mysql;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.Map.Entry;
 
 import org.junit.Assert;

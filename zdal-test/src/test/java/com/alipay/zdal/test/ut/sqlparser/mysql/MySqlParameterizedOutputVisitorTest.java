@@ -4,16 +4,16 @@ import java.util.List;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
-
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.mysql.parser.MySqlStatementParser;
 import com.alipay.zdal.parser.sql.dialect.mysql.visitor.MySqlParameterizedOutputVisitor;
 import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleParameterizedOutputVisitor;
 
+import junit.framework.Assert;
+
 public class MySqlParameterizedOutputVisitorTest {
-	
+
 	@Test
 	public void test_0() throws Exception {
         validate("SELECT * FROM T WHERE ID IN (?, ?, ?)", "SELECT *\nFROM T\nWHERE ID IN (?)");

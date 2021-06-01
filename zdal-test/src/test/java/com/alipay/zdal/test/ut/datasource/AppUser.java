@@ -2,6 +2,7 @@ package com.alipay.zdal.test.ut.datasource;
 
 import java.sql.Connection;
 import java.sql.Statement;
+
 import javax.sql.DataSource;
 
 public class AppUser implements Runnable {
@@ -10,7 +11,7 @@ public class AppUser implements Runnable {
 	private Statement statement;
 	private String sql;
 	private boolean isStop = false;
-	
+
 	public DataSource getDataSource() {
 		return dataSource;
 	}
@@ -42,30 +43,30 @@ public class AppUser implements Runnable {
 	public void setStop(boolean isStop) {
 		this.isStop = isStop;
 	}
-	
+
 	public void connect() throws Exception{
 		connection = dataSource.getConnection();
 		statement = connection.createStatement();
 	}
-	
+
 	public void execSql() throws Exception{
 		statement.execute(sql);
 //		ResultSet resultSet = statement.getResultSet();
-//		System.out.println(Thread.currentThread().getName() + 
+//		System.out.println(Thread.currentThread().getName() +
 //				" " + resultSet.getMetaData().getColumnCount());
 	}
-	
+
 	public void run(){
 		try{
 			connect();
-//			System.out.println("应用使用者" + Thread.currentThread().getName() + 
+//			System.out.println("应用使用者" + Thread.currentThread().getName() +
 //				"建立连接");
 			while(!isStop()){
 				execSql();
 			}
 			statement.close();
 			connection.close();
-//			System.out.println("应用使用者" + Thread.currentThread().getName() + 
+//			System.out.println("应用使用者" + Thread.currentThread().getName() +
 //					"关闭连接");
 		}catch(Exception e){
 			e.printStackTrace();

@@ -3,6 +3,7 @@ package com.alipay.zdal.test.ut.sqlparser.oracle;
 import java.util.List;
 
 import org.junit.Test;
+
 import com.alipay.zdal.parser.sql.ast.SQLStatement;
 import com.alipay.zdal.parser.sql.dialect.oracle.parser.OracleStatementParser;
 import com.alipay.zdal.parser.sql.dialect.oracle.visitor.OracleSchemaStatVisitor;
@@ -16,7 +17,7 @@ public class OracleSelectParserTest   {
         OracleStatementParser parser = new OracleStatementParser(sql);
         List<SQLStatement> statementList = parser.parseStatementList();
         SQLStatement statemen = statementList.get(0);
-      
+
 
         OracleSchemaStatVisitor visitor = new OracleSchemaStatVisitor();
         statemen.accept(visitor);
@@ -30,7 +31,7 @@ public class OracleSelectParserTest   {
         System.out.println("variant : " + visitor.getVariants());
         System.out.println("relationShip : " + visitor.getRelationships());
         System.out.println("--------------------------------");
-        
+
     }
 @Test
     public void test_hinits() throws Exception {
@@ -39,7 +40,7 @@ public class OracleSelectParserTest   {
         OracleStatementParser parser = new OracleStatementParser(sql);
         List<SQLStatement> statementList = parser.parseStatementList();
         SQLStatement statemen = statementList.get(0);
-       
+
 
         OracleSchemaStatVisitor visitor = new OracleSchemaStatVisitor();
         statemen.accept(visitor);

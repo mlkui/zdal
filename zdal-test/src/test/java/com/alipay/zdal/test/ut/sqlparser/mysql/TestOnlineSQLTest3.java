@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import junit.framework.TestCase;
-
 import com.alipay.zdal.parser.sql.util.JdbcUtils;
+
+import junit.framework.TestCase;
 
 public class TestOnlineSQLTest3 extends TestCase {
 
@@ -32,13 +32,13 @@ public class TestOnlineSQLTest3 extends TestCase {
     public void test_0() throws Exception {
 //        ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
 //        JdbcUtils.printResultSet(rs);
-        
+
         String sql = "select benchmark( 1, sha1( 'test' ) )";
         Statement stmt = conn.createStatement();
 
         ResultSet rs = stmt.executeQuery(sql);
         JdbcUtils.printResultSet(rs);
-        
+
         stmt.close();
     }
 }

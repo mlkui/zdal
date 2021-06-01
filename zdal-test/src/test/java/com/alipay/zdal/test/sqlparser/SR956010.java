@@ -7,20 +7,14 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
-import com.alipay.ats.annotation.Feature;
-import com.alipay.ats.annotation.Priority;
-import com.alipay.ats.annotation.Subject;
 import com.alipay.ats.assertion.TestAssertion;
-import com.alipay.ats.enums.PriorityLevel;
-import com.alipay.ats.junit.ATSJUnitRunner;
 import com.alipay.zdal.test.common.ConstantsTest;
 import com.alipay.zdal.test.common.ZdalTestCommon;
 import com.ibatis.sqlmap.client.SqlMapClient;
 
-@RunWith(ATSJUnitRunner.class)
-@Feature("rw数据源:table.cloum,in(),betweeen and,<>,not in (?,?)")
+//@RunWith(ATSJUnitRunner.class)
+//@Feature("rw数据源:table.cloum,in(),betweeen and,<>,not in (?,?)")
 public class SR956010 {
     String               url1   = ConstantsTest.mysql12UrlZds1;
     String               psd    = ConstantsTest.mysq112Psd;
@@ -44,8 +38,8 @@ public class SR956010 {
         deleteData();
     }
 
-    @Subject("执行:select colu2 from test1 where test1.clum = #clum#")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select colu2 from test1 where test1.clum = #clum#")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956011() {
 
@@ -59,8 +53,8 @@ public class SR956010 {
         Assert.areEqual(1, rs.size(), "select colu2 from table whre table.id 的断言");
     }
 
-    @Subject("执行:select colu2 from test1 where test1.clum in (#clum1#,#clum2#)")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select colu2 from test1 where test1.clum in (#clum1#,#clum2#)")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956012() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -75,8 +69,8 @@ public class SR956010 {
             "select colu2 from test1 where test1.clum in (#clum1#,#clum2#) 的断言");
     }
 
-    @Subject("执行:select colu2 from table whre table.id between ? and ?")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select colu2 from table whre table.id between ? and ?")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956013() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -90,8 +84,8 @@ public class SR956010 {
         Assert.areEqual(2, rs.size(), "select colu2 from table whre table.id between ? and ?的断言");
     }
 
-    @Subject("执行:select colu2 from table whre table.id <> ?")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select colu2 from table whre table.id <> ?")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956014() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -104,8 +98,8 @@ public class SR956010 {
         Assert.areEqual(1, rs.size(), "select colu2 from table whre table.id <> ?的断言");
     }
 
-    @Subject("执行:select colu2 from test1 where test1.clum not in (#clum1#)")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select colu2 from test1 where test1.clum not in (#clum1#)")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956015() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -119,8 +113,8 @@ public class SR956010 {
             "select colu2 from test1 where test1.clum not in (#clum1#)的断言");
     }
 
-    @Subject("执行:select count(*) from test1 where test1.clum = #clum1#")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(*) from test1 where test1.clum = #clum1#")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956016() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -136,8 +130,8 @@ public class SR956010 {
 
     }
 
-    @Subject("执行:select count(1) from test1 where test1.clum = #clum1#")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(1) from test1 where test1.clum = #clum1#")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956017() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -153,8 +147,8 @@ public class SR956010 {
 
     }
 
-    @Subject("执行:select count(1) as count from test1 where (test1.colu2 is not null) and test1.clum = #clum1#")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(1) as count from test1 where (test1.colu2 is not null) and test1.clum = #clum1#")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956018() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -171,8 +165,8 @@ public class SR956010 {
 
     }
 
-    @Subject("执行:select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1#")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1#")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC956019() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -190,8 +184,8 @@ public class SR956010 {
                 "select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1#");
     }
 
-    @Subject("执行:select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1# order by test1.clum")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1# order by test1.clum")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601a() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -209,8 +203,8 @@ public class SR956010 {
                 "select count(1) as count from test1 where (test1.colu2 in('DB_A','DB_B')) and test1.clum = #clum1# order by test1.clum");
     }
 
-    @Subject("执行:select count(1) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(1) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601b() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -228,8 +222,8 @@ public class SR956010 {
                 "select count(1) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ");
     }
 
-    @Subject("执行:select distinct(colu2) as colu2 from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select distinct(colu2) as colu2 from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601c() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -247,8 +241,8 @@ public class SR956010 {
                 "select distinct(colu2) as colu2 from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.clum = #clum1# ");
     }
 
-    @Subject("执行:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.colu2 like '%DB%' ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.colu2 like '%DB%' ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601d() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -266,8 +260,8 @@ public class SR956010 {
                 "select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and test1.colu2 like '%DB%' ");
     }
 
-    @Subject("执行:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) limit 0,1 ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) limit 0,1 ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601e() {
         try {
@@ -281,8 +275,8 @@ public class SR956010 {
                 "select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) limit 0,1 ");
     }
 
-    @Subject("执行:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and 1=1 ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and 1=1 ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601f() {
         try {
@@ -296,8 +290,8 @@ public class SR956010 {
                 "select count(*) as count from test1 where (test1.colu2 not in('DB_D','DB_E')) and 1=1 ");
     }
 
-    @Subject("执行:select count(*) as count from test1 where test1.clum > 101 ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(*) as count from test1 where test1.clum > 101 ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601g() {
         try {
@@ -310,8 +304,8 @@ public class SR956010 {
             "select count(*) as count from test1 where test1.clum > 101 ");
     }
 
-    @Subject("执行:select count(*) as count from test1 where test1.clum <= 199 ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select count(*) as count from test1 where test1.clum <= 199 ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601h() {
         try {
@@ -324,8 +318,8 @@ public class SR956010 {
             "select count(*) as count from test1 where test1.clum <= 199 ");
     }
 
-    @Subject("执行:select sum(clum) as sumvalue from test1 where test1.clum <= 201 ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select sum(clum) as sumvalue from test1 where test1.clum <= 201 ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601j() {
         try {
@@ -339,8 +333,8 @@ public class SR956010 {
             "select sum(clum) as sumvalue from test1 where test1.clum <= 201");
     }
 
-    @Subject("执行:select min(clum) as minvalue from test1 where test1.clum <= 201 ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select min(clum) as minvalue from test1 where test1.clum <= 201 ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601k() {
         try {
@@ -355,8 +349,8 @@ public class SR956010 {
 
     }
 
-    @Subject("执行:select max(clum) as maxvalue from test1 where test1.clum <= 201 ")
-    @Priority(PriorityLevel.NORMAL)
+    //@Subject("执行:select max(clum) as maxvalue from test1 where test1.clum <= 201 ")
+    //@Priority(PriorityLevel.NORMAL)
     @Test
     public void TC95601l() {
         try {
