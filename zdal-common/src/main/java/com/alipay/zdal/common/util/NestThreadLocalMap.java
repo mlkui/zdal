@@ -3,17 +3,18 @@ package com.alipay.zdal.common.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * ThreadLocal Context
- * 
+ *
  * @author 伯牙
  * @version $Id: NestThreadLocalMap.java, v 0.1 2014-1-6 下午05:22:59 Exp $
  */
 public class NestThreadLocalMap {
-    private static final Logger                             log           = Logger
-                                                                              .getLogger(NestThreadLocalMap.class);
+    private static final Logger                             log           = LoggerFactory
+                                                        .getLogger(NestThreadLocalMap.class);
     protected final static ThreadLocal<Map<Object, Object>> threadContext = new MapThreadLocal();
 
     private NestThreadLocalMap() {

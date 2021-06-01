@@ -10,17 +10,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: WeightRandom.java, v 0.1 2014-1-6 下午05:17:44 Exp $
  */
 public class WeightRandom {
 
-    private static final Logger               logger                 = Logger
-                                                                         .getLogger(WeightRandom.class);
+    private static final Logger               logger                 = LoggerFactory
+                                                        .getLogger(WeightRandom.class);
 
     public static final int                   DEFAULT_WEIGHT_NEW_ADD = 0;
     public static final int                   DEFAULT_WEIGHT_INIT    = 10;
@@ -81,11 +82,11 @@ public class WeightRandom {
      * 假设三个库权重    10   9   8
      * 那么areaEnds就是  10  19  27
      * 随机数是0~27之间的一个数
-     * 
+     *
      * 分别去上面areaEnds里的元素比。
-     * 
+     *
      * 发现随机数小于一个元素了，则表示应该选择这个元素
-     * 
+     *
      * 注意：该方法不能改变参数数组内容
      */
     private final Random random = new Random();
@@ -129,7 +130,7 @@ public class WeightRandom {
     }
 
     /**
-     * @param excludeKeys 需要排除的key列表 
+     * @param excludeKeys 需要排除的key列表
      * @return
      */
     public String select(List<String> excludeKeys) {

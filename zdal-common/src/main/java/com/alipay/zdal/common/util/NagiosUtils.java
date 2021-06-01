@@ -4,15 +4,16 @@
  */
 package com.alipay.zdal.common.util;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: NagiosUtils.java, v 0.1 2014-1-6 下午05:22:18 Exp $
  */
 public class NagiosUtils {
-    private static final Logger nagiosLog                  = Logger.getLogger("Nagios");
+    private static final Logger nagiosLog                  = LoggerFactory.getLogger("Nagios");
 
     public static final String  KEY_DB_NOT_AVAILABLE       = "DB_NOT_AVAILABLE";        //数据库不可用,KEY前缀+dbindex
     public static final String  KEY_SQL_PARSE_FAIL         = "SQL_PARSE_FAIL";          //业务执行了特殊的SQL造成解析失败

@@ -11,7 +11,8 @@ import java.util.Set;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 回旋的并发HashMap.
@@ -20,7 +21,7 @@ import org.apache.log4j.Logger;
  */
 public class BoundedConcurrentHashMap<K, V> extends LinkedHashMap<K, V> {
 
-    private static final Logger logger           = Logger.getLogger(BoundedConcurrentHashMap.class);
+    private static final Logger logger           = LoggerFactory.getLogger(BoundedConcurrentHashMap.class);
     private static final long   serialVersionUID = 2615986629983154259L;
 
     private static final int    DEFAULT_CAPACITY = 386;

@@ -7,7 +7,8 @@ package com.alipay.zdal.common.jdbc.sorter;
 import java.io.Serializable;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * OracleExceptionSorter.java
@@ -22,7 +23,7 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
 
     private static final long   serialVersionUID = 573723525408205079L;
 
-    private static final Logger logger           = Logger.getLogger(OracleExceptionSorter.class);
+    private static final Logger logger           = LoggerFactory.getLogger(OracleExceptionSorter.class);
 
     public OracleExceptionSorter() {
     }
@@ -73,7 +74,7 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
             || (error_code >= 12100 && error_code <= 12299) // TNS issues
             || (error_code == 17002) //connection reset
             || (error_code == 17008)//connection closed
-            || (error_code == 28000)// the account is locked   
+            || (error_code == 28000)// the account is locked
             || (error_code == 17410) //No more data to read from socket
             || (error_code == 17447) //OALL8 is in an inconsistent state
             || (error_code == 17401) || (error_code == 3137)//报文错误
