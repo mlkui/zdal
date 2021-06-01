@@ -28,7 +28,7 @@ public class ZdsTestMysql {
         LocalTxDataSourceDO dsDo = new LocalTxDataSourceDO();
         dsDo.setDsName("test");
         dsDo
-            .setConnectionURL("jdbc:mysql://10.209.104.188:9999/cmsp?useUnicode=true&amp;characterEncoding=gbk");
+            .setConnectionURL("jdbc:mysql://10.209.104.188:9999/cmsp?useUnicode=true&amp;characterEncoding=UTF-8");
         dsDo.setUserName("garuda");
         dsDo.setPassWord("ali88");
         dsDo.setDriverClass("com.mysql.jdbc.Driver");

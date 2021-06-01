@@ -10,7 +10,8 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.junit.After;
 import org.junit.Before;
 
@@ -41,11 +42,11 @@ public class ZDSTest {
             "DataSource-Oracle", "DataSource-Mysql", "DataSource-MysqlChange",
             "DataSource-MysqlAPP"                                             };
 
-    public final static Logger                       logger                    = Logger
-                                                                                   .getLogger(ZDSTest.class);
+    public final static Logger                       logger                    = LoggerFactory
+                                                        .getLogger(ZDSTest.class);
 
     /**
-     * 
+     *
      * @param i= <br>1-DataSource-Oracle
      * <br>2-DataSource-Mysql
      * <br>3-DataSource-MysqlChange
