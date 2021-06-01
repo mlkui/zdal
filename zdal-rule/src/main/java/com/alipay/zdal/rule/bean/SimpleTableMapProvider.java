@@ -14,10 +14,10 @@ import com.alipay.zdal.rule.ruleengine.util.RuleUtils;
 
 /**
  * 提供通过拼装的方式来生成SimpleTableMap的方式
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  */
 public class SimpleTableMapProvider implements TableMapProvider {
 
@@ -99,7 +99,7 @@ public class SimpleTableMapProvider implements TableMapProvider {
         if (w != DEFAULT_INT) {
             suffix = RuleUtils.placeHolder(w, i);
         } else {
-            //如果不显式指定width，或指定为-1，则不补零，直接以数值为后缀				
+            //如果不显式指定width，或指定为-1，则不补零，直接以数值为后缀
             suffix = String.valueOf(i);
         }
         return suffix;
@@ -131,7 +131,7 @@ public class SimpleTableMapProvider implements TableMapProvider {
         return tableFactor;
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.rule.ruleengine.entities.convientobjectmaker.TableMapProvider#getTablesMap()
      */
     public Map<String, SharedElement> getTablesMap() {
@@ -140,7 +140,7 @@ public class SimpleTableMapProvider implements TableMapProvider {
         //		case NORMAL:
         //			// 如果是正常的情况下，那么应该是表名因子+"_"+最长数字位数那样长的尾缀
         //			// 类似 tab_001~tab_100
-        //			
+        //
         //			break;
         //		//custom的方式下，不需要添加默认的padding和width,直接退出case
         //		default:

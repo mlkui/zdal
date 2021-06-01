@@ -13,7 +13,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.lang.StringUtil;
 import com.alipay.zdal.common.sqljep.function.Comparative;
@@ -25,13 +26,13 @@ import com.alipay.zdal.rule.ruleengine.util.RuleUtils;
 
 /**
  * 结果集是一列数的规则
- * 
- * 
+ *
+ *
  */
 public abstract class CartesianProductBasedListResultRule extends ListAbstractResultRule {
 
-    private static final Logger log        = Logger
-                                               .getLogger(CartesianProductBasedListResultRule.class);
+    private static final Logger log        = LoggerFactory
+                                                        .getLogger(CartesianProductBasedListResultRule.class);
     Enumerator                  enumerator = new EnumeratorImp();
 
     /**
@@ -53,7 +54,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
 
     /**
      * 决定是否抛出runtimeException
-     * 
+     *
      * @param map
      */
     private void decideWhetherOrNotToThrowSpecEmptySetRuntimeException(Map<String, Field> map) {
@@ -77,7 +78,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
         return enumeratedMap;
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.rule.ruleengine.rule.ListAbstractResultRule#evalWithoutSourceTrace(java.util.Map, java.lang.String, java.util.Set)
      */
     public Set<String> evalWithoutSourceTrace(Map<String, Set<Object>> enumeratedMap,
@@ -186,16 +187,16 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
     /**
      * 方法的主要作用是如果分库时已经查到映射后数据，
      * 则使用映射后数据。
-     * 
+     *
      * 判别的标志是mappingKeys不为空。
-     * 
+     *
      * @param mappingTargetColumn
      * @param mappingKeys
      * @param set
      * @param enumeratedValues
      * @param samplingField
-     * 
-     * 
+     *
+     *
      */
     private void evalWithMappingKey(String mappingTargetColumn, Set<Object> mappingKeys,
                                     Set<String> set, Set<Object> enumeratedValues,
@@ -227,9 +228,9 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
         }
     }
 
-    /** 
+    /**
      * 真正的计算过程，将列->描点带入规则引擎进行计算，获取最终结果。
-     * 
+     *
      * @param enumeratedMap
      * @return 返回的map不会为null,但有可能为空的map，如果map不为空，则内部的子map必定不为空。最少会有一个值
      */
@@ -289,7 +290,7 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
 
     /**
      * 如果子规则需要在返回值为null或为空collections时抛出异常，则继承此类后将false变为true即可
-     * 
+     *
      * @return
      */
     protected boolean ruleRequireThrowRuntimeExceptionWhenSetIsEmpty() {
@@ -407,11 +408,11 @@ public abstract class CartesianProductBasedListResultRule extends ListAbstractRe
 
     /**
      * 根据一组参数，计算出一个结果
-     * 
+     *
      * @return 通过规则的结果可能在以下情况下为null:
      * 			映射规则原规则存在，但映射后的目标不存在，会返回null。
      *          其余时刻，会抛异常
-     * 
+     *
      */
     public abstract ResultAndMappingKey evalueateSamplingField(SamplingField samplingField);
 

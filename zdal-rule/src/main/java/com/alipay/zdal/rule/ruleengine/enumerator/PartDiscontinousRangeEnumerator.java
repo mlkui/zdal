@@ -16,7 +16,7 @@ public abstract class PartDiscontinousRangeEnumerator implements
 
     /**
      * 根据不同数据的最小单位将>变为>=
-     * 
+     *
      * @param to
      * @return
      */
@@ -24,7 +24,7 @@ public abstract class PartDiscontinousRangeEnumerator implements
 
     /**
      * 根据不同数据的最小单位将<变为<=
-     * 
+     *
      * @param to
      * @return
      */
@@ -32,7 +32,7 @@ public abstract class PartDiscontinousRangeEnumerator implements
 
     /**
      * 如果输入的范围大于range.size() * atomIncrementvalue的值，那么就可以做短路优化
-     * 
+     *
      * @param from
      *            只有<=情况下的form值
      * @param to

@@ -11,19 +11,20 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 一对多节点抽象。
- * 
+ *
  * 持有一个一对多的映射map,会根据输入的本节点所持有的规则链，
  * 以及运算结果，决定哪些节点是符合要求，然后计算并返回
- * 
+ *
  *
  */
 public abstract class ListSharedElement extends SharedElement {
 
-    protected static final Logger log = Logger.getLogger(ListSharedElement.class);
+    protected static final Logger log = LoggerFactory.getLogger(ListSharedElement.class);
 
     public enum DEFAULT_LIST_RESULT_STRAGETY {
         /**
@@ -56,20 +57,20 @@ public abstract class ListSharedElement extends SharedElement {
     /**
      * 子节点Map
      * 		如果直接以map形式指定则key会在init方法中被设置到子节点作为子节点的id
-     * 
+     *
      * 		如果以list形式指定，则下标会成为这个map的key,并在init方法中被设置到子节点作为id.
      */
     protected Map<String, ? extends SharedElement> subSharedElement = Collections.emptyMap();
 
     /**
      * 像LogicMap注册自己的函数。
-     * 
+     *
      * 拉平库表规则链，放在LogicTable里面,这样在matcher中就可以知道所有规则所需要的参数是否都具备了。
-     * 
+     *
      * 所谓matcher就是根据规则链里的规则所需要的参数，去sql中找寻与所要求参数相匹配的列名+参数。
      *
      * 放在一个context中在计算时会用到
-     * 
+     *
      * @param ruleSet
      */
     public void registeRule(Set<RuleChain> ruleSet) {
@@ -90,7 +91,7 @@ public abstract class ListSharedElement extends SharedElement {
 
     /**
      * 如果有子节点则注册子节点
-     * 
+     *
      * @param ruleSet
      */
     private void registeSubSharedElement(Set<RuleChain> ruleSet) {
@@ -105,7 +106,7 @@ public abstract class ListSharedElement extends SharedElement {
         this.subSharedElement = subSharedElement;
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.rule.ruleengine.entities.abstractentities.SharedElement#init()
      * 如果有databaseMapProvider =>初始化databaseMap
      */
@@ -142,11 +143,11 @@ public abstract class ListSharedElement extends SharedElement {
 
     /**
      * 初始化默认规则key的列表。
-     * 
+     *
      * 会按照既定策略初始化，这样如果规则运算中不能获得target 子规则的话
-     * 
+     *
      * 就会使用默认规则。
-     * 
+     *
      */
     protected void initDefaultSubSharedElementsListRule() {
         if (defaultListResultStragety == null) {

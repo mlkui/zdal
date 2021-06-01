@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.rule.groovy.GroovyListRuleEngine;
 import com.alipay.zdal.rule.ruleengine.entities.abstractentities.RuleChain;
@@ -17,14 +18,14 @@ import com.alipay.zdal.rule.ruleengine.util.RuleUtils;
 
 /**
  * 简单表规则，用于实现最基础的规则的集合，会将一些常用属性拉平，
- * 
+ *
  * 构造好以后变成运行时可以使用的运行时数据，然后进行运行。
- * 
+ *
  *
  */
 public class SimpleLogicTable extends LogicTable {
-    private static final Logger    log                       = Logger
-                                                                 .getLogger(SimpleLogicTable.class);
+    private static final Logger    log                       = LoggerFactory
+                                                        .getLogger(SimpleLogicTable.class);
 
     String                         databases;
 
@@ -41,7 +42,7 @@ public class SimpleLogicTable extends LogicTable {
 
     /**
      * Simple logic table的内部对象,用于记录需要传递给子类的表规则的信息。
-     * 
+     *
      *TODO: 不知道为什么支付宝的同志把这个东西去掉了。。
      */
     private SimpleTableMapProvider simpleTableMapProvider    = new SimpleTableMapProvider();
@@ -57,10 +58,10 @@ public class SimpleLogicTable extends LogicTable {
     /**
      * 当分库键和分表键都指定的情况下，
      * 自动生成所有规则，只要分库键和分表键有一个指定了。那么就需要自动生成规则。
-     * 
+     *
      * 自动生成规则会覆盖所有已经存在的规则。
      *
-     * 
+     *
      * @return 是否可以使用自动规则生成
      */
     protected boolean canUseAutoGenerationRule() {
@@ -195,11 +196,11 @@ public class SimpleLogicTable extends LogicTable {
         String getTableRule(String tableShardingKey, int tablesSize, int tableSizeForEachDatabase);
 
         /**获取分库规则
-         * 
+         *
          * @param tableShardingKey 分表键
          * @param tablesSize 表的总个数
          * @param tableSizeForEachDatabase 每个库的表的个数
-         * 
+         *
          * @return
          */
         String getDatabaseRule(String databaseShardingKey, int tablesSize,
@@ -232,15 +233,15 @@ public class SimpleLogicTable extends LogicTable {
 
     /**
      * 自动生成规则。
-     * 
+     *
      * 当指定了一个databaseKey或tableKey的时候触发。
-     * 
+     *
      * 自动生成一条规则。
-     * 
+     *
      * 然后如果没有通过外部来指定String规则的话。就会使用当前规则来替代外部规则。
-     * 
+     *
      * 如果有外部指定的规则，那么使用外部规则。
-     * 
+     *
      * 优先级最低的一种规则生成器。
      */
     protected void processAutoGenerationRule() {

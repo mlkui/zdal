@@ -10,7 +10,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.lang.StringUtil;
 import com.alipay.zdal.rule.bean.AdvancedParameter;
@@ -20,7 +21,7 @@ import com.alipay.zdal.rule.bean.AdvancedParameter;
  *
  */
 public abstract class AbstractRule {
-    private static final Logger      log    = Logger.getLogger(AbstractRule.class);
+    private static final Logger      log    = LoggerFactory.getLogger(AbstractRule.class);
     /**
      * 当前规则需要用到的参数
      */
@@ -37,11 +38,11 @@ public abstract class AbstractRule {
      * 通过分析库表结构规则智能计算叠加次数，并set到规则中，需要注意的是
      * 如果有多个值参与了一个计算式，这种分析是不准确的，这时候可以通过配置文件
      * 手动的优先设置针对每一个参与运算的参数的叠加次数。
-     * 
+     *
      * 现在还没启用，因为比较复杂
-     * 
+     *
      * @param cumulativeTimes
-     
+
     public void setCumulativeTimes(int cumulativeTimes){
     	for(KeyAndAtomIncValue keyAndAtomIncValue :parameters){
     		if(keyAndAtomIncValue.cumulativeTimes == null){
@@ -72,7 +73,7 @@ public abstract class AbstractRule {
 
     /**
      * spring注入带有默认自增字段的值,会将所有值变为小写
-     * 
+     *
      * @param parameters
      */
     public void setParameters(Set<String> parameters) {
@@ -122,7 +123,7 @@ public abstract class AbstractRule {
      * 1，表示原子自增数。
      * 7 表示y的变化范围
      * 具体请看设计文档
-     * 
+     *
      * @param paramToken
      * @return
      */
@@ -141,7 +142,7 @@ public abstract class AbstractRule {
                     /*
                      * 根据tokens获取自增数据
                      * 主要有两类，第一类是数字_date...
-                     * 第二类是 直接为数字的。 
+                     * 第二类是 直接为数字的。
                      */
                     Comparable<?> atomicIncreateValue = getIncreatementValueByString(paramTokens);
                     param.atomicIncreateValue = atomicIncreateValue;

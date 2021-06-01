@@ -9,15 +9,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.Constants;
 import com.alipay.zdal.common.DBType;
 import com.alipay.zdal.rule.LogicTableRule;
 
 public class ZdalRoot {
-    private static final Logger               log    = Logger
-                                                         .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
+    private static final Logger               log    = LoggerFactory
+                                                        .getLogger(Constants.CONFIG_LOG_NAME_LOGNAME);
     private DBType                            dbType = DBType.MYSQL;
     private Map<String/* key */, LogicTable> logicTableMap;
     private String                            defaultDBSelectorID;
@@ -52,7 +53,7 @@ public class ZdalRoot {
 
     /**
      * logicMap的key必须都显示的设置为小写
-     * 
+     *
      * @param logicTableMap
      */
     public void setLogicTableMap(Map<String, LogicTable> logicTableMap) {
@@ -68,7 +69,7 @@ public class ZdalRoot {
 
     /**
      * 需要注意这个init方法是和内部持有的类的init方法无关的，虽然可以在放在一个初始化链中
-     * 
+     *
      */
     public void init(String appDsName) {
         for (Entry<String, LogicTable> logicTableEntry : logicTableMap.entrySet()) {

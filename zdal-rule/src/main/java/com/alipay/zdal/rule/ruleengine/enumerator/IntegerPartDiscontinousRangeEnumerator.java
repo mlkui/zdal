@@ -75,7 +75,7 @@ public class IntegerPartDiscontinousRangeEnumerator extends PartDiscontinousRang
         }
     }
 
-    /** 
+    /**
      * @see com.alipay.zdal.rule.ruleengine.enumerator.PartDiscontinousRangeEnumerator#getAllPassableFields(com.alipay.zdal.common.sqljep.function.Comparative, java.lang.Integer, java.lang.Comparable)
      */
     @Override

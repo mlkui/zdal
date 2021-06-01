@@ -17,7 +17,8 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.rule.bean.AdvancedParameter;
 import com.alipay.zdal.rule.ruleengine.cartesianproductcalculator.SamplingField;
@@ -26,7 +27,7 @@ import com.alipay.zdal.rule.ruleengine.rule.CartesianProductBasedListResultRule;
 import com.alipay.zdal.rule.ruleengine.rule.ResultAndMappingKey;
 
 public class GroovyListRuleEngine extends CartesianProductBasedListResultRule {
-    private static final Logger logger               = Logger.getLogger(GroovyListRuleEngine.class);
+    private static final Logger logger               = LoggerFactory.getLogger(GroovyListRuleEngine.class);
     private Object              ruleObj;
     private Method              m_routingRuleMap;
     private static final String IMPORT_STATIC_METHOD = "import static com.alipay.zdal.rule.groovy.staticmethod.GroovyStaticMethod.*;";
@@ -142,7 +143,7 @@ public class GroovyListRuleEngine extends CartesianProductBasedListResultRule {
 
     /**
      * 调用目标方法
-     * 
+     *
      * @param args
      * @return
      */

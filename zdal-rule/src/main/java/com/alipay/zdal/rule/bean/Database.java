@@ -13,7 +13,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.rule.ruleengine.entities.abstractentities.ListSharedElement;
 import com.alipay.zdal.rule.ruleengine.entities.abstractentities.OneToManyEntry;
@@ -29,11 +30,11 @@ import com.alipay.zdal.rule.ruleengine.util.RuleUtils;
 
 /**
  * 一个数据库的抽象
- * 
- * 
+ *
+ *
  */
 public class Database extends ListSharedElement implements TablePropertiesSetter {
-    protected static final Logger        log = Logger.getLogger(Database.class);
+    protected static final Logger        log = LoggerFactory.getLogger(Database.class);
     // implements TableContainer,TableListResultRuleContainer
     private String                       dataSourceKey;
 
@@ -52,7 +53,7 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
 
     private TableMapProvider             tableMapProvider;
 
-    /** 
+    /**
      * @see com.alipay.zdal.rule.ruleengine.entities.abstractentities.ListSharedElement#init()
      * 这里主要是先初始化整个subTable，然后才能做相应的动作。
      */
@@ -82,15 +83,15 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
      * 或者虽然有规则，但是当前的sql条件中没有匹配到这些规则，分下面两种情况处理：
      *    a 如果Database有且只有一个表，那么无论默认规则为何都应该取出该表。这种情况主要出现在单库（单,多）表，或（单，多）库 单表的情况下。
      *    b 如果Database有多个表，那么应该使用默认选库策略（DEFAULT_LIST_RESULT_STRAGETY）。这种情况将策略设为DEFAULT_LIST_RESULT_STRAGETY.NONE比较安全;
-     *     
+     *
      * 2. 如果给定了规则
-     * 2.1）给了规则但Database层没有传递定位到本database时计算获得的列名->描点集合的map.那么表示前序数据和当前数据无关，直接使用当前数据+sql中匹配的值即可。 
+     * 2.1）给了规则但Database层没有传递定位到本database时计算获得的列名->描点集合的map.那么表示前序数据和当前数据无关，直接使用当前数据+sql中匹配的值即可。
      * 2.2）传递了定位到本database时的列名->描点的集合
      *   2.2.1）传递的描点集合中的key包含了从sql中获取的key，那么表示database和table的数据是会相互产生影响的。
      *     这个时候优先使用database中传入的 列名->结果集描点。
      *   2.2.2）传递的描点集合中的key不包含从sql中获取的key,那么表示database和table之间的数据无关
      *     ，直接使用table的数据进行计算。
-     * 
+     *
      * @param targetDB
      *            目标表对象，在这个方法内被包装
      * @param sourceTrace
@@ -240,13 +241,13 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
 
     /**
      * 将利用便捷方法生成的子元素map设置到当前节点的子元素map引用中。
-     * 
+     *
      * 如果当前子节点的子元素map引用为空则直接设置
-     * 
+     *
      * 如果当前子节点不为空,则表示业务通过spring的方式set了一个现有的map进来
-     * 
+     *
      * 这个map的优先级要比自动生成的map的优先级要高。
-     * 
+     *
      * @param beingConstructedMap
      */
     protected void putAutoConstructedMapIntoCurrentTagMap(
@@ -266,7 +267,7 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
 
     /**
      * 1个databse对应一个tables
-     * 
+     *
      * @param tables
      */
     public void setTables(Map<String, SharedElement> tablesMap) {
@@ -295,7 +296,7 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
 
     /**
      * 允许业务直接通过string->string的方式来指定数据
-     * 
+     *
      * @param tablesMapString
      */
     protected void setTablesMapString(Map<String/* 表的index */, String/* 表的实际表名 */> tablesMapString) {
@@ -322,7 +323,7 @@ public class Database extends ListSharedElement implements TablePropertiesSetter
     /**
      * 允许业务使用table1,table2,table3的方式来指定表名，key=数组下标。 同时也允许业务使用list.add("table1");
      * list.add("table2");... 的方式来指定表。Key=数组下标
-     * 
+     *
      * @param tablesString
      */
     protected void setTablesList(List<String> tablesString) {

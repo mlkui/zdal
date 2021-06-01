@@ -12,7 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.common.util.TableSuffixTypeEnum;
 import com.alipay.zdal.rule.config.beans.Preffix;
@@ -20,13 +21,13 @@ import com.alipay.zdal.rule.ruleengine.entities.abstractentities.SharedElement;
 
 /**
  * 根据用户配置的一段groove脚本返回一个List<string> 直接拼成一个map返回
- * 
- * 
+ *
+ *
  */
 public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
-    private static final Logger        log                 = Logger
-                                                               .getLogger(GroovyTableDatabaseMapProvider.class);
+    private static final Logger        log                 = LoggerFactory
+                                                        .getLogger(GroovyTableDatabaseMapProvider.class);
 
     private List<String>               tableNames;
     /**
@@ -72,7 +73,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
         /**
          * 获取库的总数
-         * 
+         *
          * @param dbNumber
          * @return
          */
@@ -91,7 +92,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
         /**
          * 获取表的总数
-         * 
+         *
          * @param dbNumber
          * @param tbNumber
          * @return
@@ -112,7 +113,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
     /**
      * 根据应用填写的groovy脚本来得到一个包含所有table的list
-     * 
+     *
      * @param expression
      * @return tables list
      * @throws Exception
@@ -226,7 +227,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
     /**
      * 根据配置中的groovy脚本来生成一个table map
-     * 
+     *
      * @return Map<String, SharedElement>
      */
     public Map<String, SharedElement> getTablesMap() {
@@ -344,7 +345,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
     /**
      * Setter method for property <tt>dbNumber</tt>.
-     * 
+     *
      * @param dbNumber
      *            value to be assigned to property dbNumber
      */
@@ -354,7 +355,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
     /**
      * Getter method for property <tt>dbNumber</tt>.
-     * 
+     *
      * @return property value of dbNumber
      */
     public int getDbNumber() {
@@ -371,7 +372,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
     /**
      * Setter method for property <tt>dbAndNumberRelation</tt>.
-     * 
+     *
      * @param dbAndNumberRelation
      *            value to be assigned to property dbAndNumberRelation
      */
@@ -381,7 +382,7 @@ public class GroovyTableDatabaseMapProvider extends SimpleTableMapProvider {
 
     /**
      * Getter method for property <tt>dbAndNumberRelation</tt>.
-     * 
+     *
      * @return property value of dbAndNumberRelation
      */
     public DBAndNumberRelation getDbAndNumberRelation() {
