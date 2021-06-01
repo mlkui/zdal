@@ -506,7 +506,7 @@ public class TxConnectionManager extends BaseConnectionManager2 {
             try {
                 getCcm().unregisterConnection(TxConnectionManager.this, ce.getConnectionHandle());
             } catch (Throwable t) {
-                log.warn(t);
+                log.warn(t.toString());
             }
 
             try {

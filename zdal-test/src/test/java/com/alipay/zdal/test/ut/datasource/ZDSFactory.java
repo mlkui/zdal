@@ -32,7 +32,7 @@ public class ZDSFactory {
         try {
 			localTxDataSourceDO_0.setEncPassword("-7cda29b2eef25d0e");
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
         localTxDataSourceDO_0.setExceptionSorterClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.OracleExceptionSorter");
         localTxDataSourceDO_0.setIdleTimeoutMinutes(30);
@@ -53,7 +53,7 @@ public class ZDSFactory {
         try {
 			zDataSources[0] = new ZDataSource(localTxDataSourceDO_0);
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
 
 
@@ -66,7 +66,7 @@ public class ZDSFactory {
         try {
 			localTxDataSourceDO_1.setEncPassword("-76079f94c1e11c89");
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
         localTxDataSourceDO_1.setExceptionSorterClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.MySQLExceptionSorter");
         localTxDataSourceDO_1.setIdleTimeoutMinutes(30);
@@ -87,7 +87,7 @@ public class ZDSFactory {
 try {
 			zDataSources[1] = new ZDataSource(localTxDataSourceDO_1);
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
 
         localTxDataSourceDO_2.setBackgroundValidation(false);
@@ -99,7 +99,7 @@ try {
         try {
 			localTxDataSourceDO_2.setEncPassword("-76079f94c1e11c89");
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
         localTxDataSourceDO_2.setExceptionSorterClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.MySQLExceptionSorter");
         localTxDataSourceDO_2.setIdleTimeoutMinutes(30);
@@ -120,7 +120,7 @@ try {
         try {
 			zDataSources[2] = new ZDataSource(localTxDataSourceDO_2);
 		} catch (Exception e){
-			logger.error(e);
+			logger.error(e.toString());
 		}
 
         localTxDataSourceDO_3.setBackgroundValidation(false);
@@ -132,7 +132,7 @@ try {
         try {
 			localTxDataSourceDO_3.setEncPassword("-76079f94c1e11c89");
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
         localTxDataSourceDO_3.setExceptionSorterClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.MySQLExceptionSorter");
         localTxDataSourceDO_3.setIdleTimeoutMinutes(30);
@@ -153,7 +153,7 @@ try {
         try {
 			zDataSources[3] = new ZDataSource(localTxDataSourceDO_3);
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
 
         localTxDataSourceDO_4.setBackgroundValidation(false);
@@ -165,7 +165,7 @@ try {
         try {
 			localTxDataSourceDO_4.setEncPassword("-76079f94c1e11c89");
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
         localTxDataSourceDO_4.setExceptionSorterClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.MySQLExceptionSorter");
         localTxDataSourceDO_4.setIdleTimeoutMinutes(30);
@@ -186,7 +186,7 @@ try {
         try {
 			zDataSources[4] = new ZDataSource(localTxDataSourceDO_4);
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
 
         localTxDataSourceDO_5.setBackgroundValidation(false);
@@ -198,7 +198,7 @@ try {
         try {
 			localTxDataSourceDO_5.setEncPassword("-7cda29b2eef25d0e");
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
         localTxDataSourceDO_5.setExceptionSorterClassName("com.alipay.zdatasource.resource.adapter.jdbc.vendor.OracleExceptionSorter");
         localTxDataSourceDO_5.setIdleTimeoutMinutes(30);
@@ -219,7 +219,7 @@ try {
         try {
 			zDataSources[5] = new ZDataSource(localTxDataSourceDO_5);
 		} catch (Exception e) {
-			logger.error(e);
+			logger.error(e.toString());
 		}
 	}
 
