@@ -63,7 +63,7 @@ public abstract class ListSharedElement extends SharedElement {
     protected Map<String, ? extends SharedElement> subSharedElement = Collections.emptyMap();
 
     /**
-     * 像LogicMap注册自己的函数。
+     * 向LogicMap注册自己的函数。
      *
      * 拉平库表规则链，放在LogicTable里面,这样在matcher中就可以知道所有规则所需要的参数是否都具备了。
      *
