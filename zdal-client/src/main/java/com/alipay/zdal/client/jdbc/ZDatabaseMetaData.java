@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.RowIdLifetime;
 import java.sql.SQLException;
 
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
+
 public class ZDatabaseMetaData implements DatabaseMetaData {
     public boolean allProceduresAreCallable() throws SQLException {
         return false;
@@ -710,6 +712,18 @@ public class ZDatabaseMetaData implements DatabaseMetaData {
                                         String functionNamePattern, String columnNamePattern)
                                                                                              throws SQLException {
         return null;
+    }
+
+    @Override
+    public ResultSet getPseudoColumns(String catalog, String schemaPattern, String tableNamePattern, String columnNamePattern) throws SQLException
+    {
+        throw new NotSupportException("getPseudoColumns");
+    }
+
+    @Override
+    public boolean generatedKeyAlwaysReturned() throws SQLException
+    {
+        throw new NotSupportException("generatedKeyAlwaysReturned");
     }
 
     @Override

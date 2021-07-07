@@ -48,6 +48,7 @@ import com.alipay.zdal.client.util.ThreadLocalMap;
 import com.alipay.zdal.common.Constants;
 import com.alipay.zdal.common.SqlType;
 import com.alipay.zdal.common.exception.checked.ZdalCheckedExcption;
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
 import com.alipay.zdal.common.exception.sqlexceptionwrapper.ZdalCommunicationException;
 import com.alipay.zdal.common.jdbc.sorter.ExceptionSorter;
 import com.alipay.zdal.common.lang.StringUtil;
@@ -62,7 +63,7 @@ import com.alipay.zdal.rule.ruleengine.exception.ZdalRuleCalculateException;
 import com.alipay.zdal.rule.ruleengine.rule.EmptySetRuntimeException;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: ZdalStatement.java, v 0.1 2014-1-6 下午01:19:26 Exp $
  */
@@ -127,7 +128,7 @@ public class ZdalStatement implements Statement {
      */
     protected int                  retryingTimes;
     /**
-     * fetchsize 默认为10 
+     * fetchsize 默认为10
      */
     private int                    fetchSize            = 10;
 
@@ -232,7 +233,7 @@ public class ZdalStatement implements Statement {
      * 替换SQL语句中虚拟表名为实际表名。 会 替换_tableName$ 替换_tableName_ 替换tableName.
      * 替换tableName(
      * 增加替换 _tableName, ,tableName, ,tableName_
-     * 
+     *
      * @param originalSql
      *            SQL语句
      * @param virtualName
@@ -259,7 +260,7 @@ public class ZdalStatement implements Statement {
 
         List<String> sqlPieces = globalCache.getTableNameReplacement(originalSql);
         if (sqlPieces == null) {
-            //替换   tableName$ 
+            //替换   tableName$
             Pattern pattern1 = Pattern.compile(new StringBuilder("\\s").append(virtualName).append(
                 "$").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces1 = new ArrayList<String>();
@@ -270,7 +271,7 @@ public class ZdalStatement implements Statement {
                 start1 = matcher1.end();
             }
             pieces1.add(originalSql.substring(start1));
-            //替换   tableName  
+            //替换   tableName
             Pattern pattern2 = Pattern.compile(new StringBuilder("\\s").append(virtualName).append(
                 "\\s").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces2 = new ArrayList<String>();
@@ -284,7 +285,7 @@ public class ZdalStatement implements Statement {
                 }
                 pieces2.add(piece.substring(start2 - 1 < 0 ? 0 : start2 - 1));
             }
-            //替换   tableName. 
+            //替换   tableName.
             Pattern pattern3 = Pattern.compile(new StringBuilder().append(virtualName)
                 .append("\\.").toString(), Pattern.CASE_INSENSITIVE);
             List<String> pieces3 = new ArrayList<String>();
@@ -381,7 +382,7 @@ public class ZdalStatement implements Statement {
         if (log.isDebugEnabled()) {
             log.debug("是否支持替换hint的逻辑表名：isHintSupport = " + this.isHintReplaceSupport);
         }
-        //替换  hint，格式不再进行限制 
+        //替换  hint，格式不再进行限制
         if (isHintReplaceSupport) {
             Pattern pattern8 = Pattern.compile(new StringBuilder("/\\s?\\*\\s?.*").append(
                 virtualName).append(".*\\s?\\*\\s?/").toString(), Pattern.CASE_INSENSITIVE);
@@ -413,7 +414,7 @@ public class ZdalStatement implements Statement {
                                                                                                   throws SQLException {
         SqlExecutionContext executionContext = null;
         try {
-            executionContext = getExecutionContext1(originalSql, parameters); //新规则 
+            executionContext = getExecutionContext1(originalSql, parameters); //新规则
         } catch (RuleRuntimeExceptionWrapper e) {
             //因为RUleRuntimeException也是个RuntimeException,所以排在后续runtimeException前面
             SQLException sqlException = e.getSqlException();
@@ -450,9 +451,9 @@ public class ZdalStatement implements Statement {
 
     /**
      * 获取新的Connection和他对应的Datasource
-     * 
+     *
      * datasource主要是用于在随机重试的时候排除已经挂掉的数据源
-     * 
+     *
      * 不提供重试
      * @param ds
      * @return
@@ -539,14 +540,14 @@ public class ZdalStatement implements Statement {
 
         /*
          * 查看sqlDispatcher是否为writeDispatcher.
-         * 
+         *
          * writeDispatcher主要处理：insert ,update ,select for update,事务中select这
          * 4种情况，都不需要读重试。
-         * 
+         *
          * 不为的情况有两种，第一种是内存中对象状态不一样，这种应该是readDispatcher。
          * 计算出的dispatcher不会为除了read和writeDispatcher以外的其他情况，
          * 由selectSqlDispatcher方法保证。
-         * 
+         *
          * 还有一种是writeDispatcher为null 这时候 ，又因为计算出的
          * dispatcher只可能为 read或write。所以也可以保证正确的结果。
          */
@@ -793,12 +794,12 @@ public class ZdalStatement implements Statement {
 
     /**
      * 如果重用连接 则重新设置autoCommit然后推送。
-     * 
+     *
      * 如果不重用连接，则从Datasource里面选择一个Datasource后建立连接
-     * 
+     *
      * 然后将链接放入parentConnection的可重用连接map里(getConnectionProxy.getAuctualConnections)
      * @param dbIndex
-     * @return 
+     * @return
      * @throws SQLException
      */
     protected void createConnection(DBSelector dbSelector, String dbIndex) throws SQLException {
@@ -848,9 +849,9 @@ public class ZdalStatement implements Statement {
 
     /**
      * 用当前连接建立statementd
-     * 
+     *
      * @param connection 当前正在用的connection,本来可以从map中取但因为效率上的考虑所以还是不这样做
-     * @param connections 
+     * @param connections
      * @param dbIndex
      * @param retringContext
      * @return
@@ -1617,7 +1618,7 @@ public class ZdalStatement implements Statement {
             setBatchDataBaseId(dbSelectorID);
             return;
         }
-        //如果在事务中，并且当前的dbId和缓存的dbId不同，即抛出异常；         
+        //如果在事务中，并且当前的dbId和缓存的dbId不同，即抛出异常；
         if (!isAutoCommit() && !dbSelectorID.equals(getBatchDataBaseId())) {
             throw new SQLException("batch操作只支持单库的事务,当前dbSelectorID=" + dbSelectorID + ",缓存的dbId="
                                    + getBatchDataBaseId());
@@ -1827,4 +1828,15 @@ public class ZdalStatement implements Statement {
         this.appDsName = appDsName;
     }
 
+    @Override
+    public void closeOnCompletion() throws SQLException
+    {
+        throw new NotSupportException("closeOnCompletion");
+    }
+
+    @Override
+    public boolean isCloseOnCompletion() throws SQLException
+    {
+        throw new NotSupportException("isCloseOnCompletion");
+    }
 }

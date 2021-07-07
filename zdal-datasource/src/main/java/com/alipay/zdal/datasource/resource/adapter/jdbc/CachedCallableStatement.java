@@ -23,6 +23,8 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Map;
 
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
+
 /**
  * A cache wrapper for java.sql.CallableStatement
  *
@@ -42,14 +44,14 @@ public class CachedCallableStatement extends CachedPreparedStatement implements 
         this.cs = ps;
     }
 
-    /** 
+    /**
      * @see java.sql.CallableStatement#wasNull()
      */
     public boolean wasNull() throws SQLException {
         return cs.wasNull();
     }
 
-    /** 
+    /**
      * @see java.sql.CallableStatement#getByte(int)
      */
     public byte getByte(int parameterIndex) throws SQLException {
@@ -474,6 +476,18 @@ public class CachedCallableStatement extends CachedPreparedStatement implements 
     }
 
     public void setNClob(String parameterName, Reader reader) throws SQLException {
+    }
+
+    @Override
+    public <T> T getObject(int parameterIndex, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
+    }
+
+    @Override
+    public <T> T getObject(String parameterName, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
     }
 
     public void setNClob(String parameterName, Reader reader, long length) throws SQLException {

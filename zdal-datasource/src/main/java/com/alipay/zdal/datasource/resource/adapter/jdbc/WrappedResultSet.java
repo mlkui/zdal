@@ -26,6 +26,8 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Map;
 
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
+
 /**
  * A wrapper for a result set
  *
@@ -61,7 +63,7 @@ public class WrappedResultSet implements ResultSet {
         this.resultSet = resultSet;
     }
 
-    /** 
+    /**
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
@@ -77,7 +79,7 @@ public class WrappedResultSet implements ResultSet {
         return false;
     }
 
-    /** 
+    /**
      * @see java.lang.Object#hashCode()
      */
     @Override
@@ -85,7 +87,7 @@ public class WrappedResultSet implements ResultSet {
         return resultSet.hashCode();
     }
 
-    /** 
+    /**
      * @see java.lang.Object#toString()
      */
     @Override
@@ -98,7 +100,7 @@ public class WrappedResultSet implements ResultSet {
         return resultSet;
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#absolute(int)
      */
     public boolean absolute(int row) throws SQLException {
@@ -110,7 +112,7 @@ public class WrappedResultSet implements ResultSet {
         }
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#afterLast()
      */
     public void afterLast() throws SQLException {
@@ -122,7 +124,7 @@ public class WrappedResultSet implements ResultSet {
         }
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#beforeFirst()
      */
     public void beforeFirst() throws SQLException {
@@ -134,7 +136,7 @@ public class WrappedResultSet implements ResultSet {
         }
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#cancelRowUpdates()
      */
     public void cancelRowUpdates() throws SQLException {
@@ -146,7 +148,7 @@ public class WrappedResultSet implements ResultSet {
         }
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#clearWarnings()
      */
     public void clearWarnings() throws SQLException {
@@ -158,7 +160,7 @@ public class WrappedResultSet implements ResultSet {
         }
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#close()
      */
     public void close() throws SQLException {
@@ -172,7 +174,7 @@ public class WrappedResultSet implements ResultSet {
         internalClose();
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#deleteRow()
      */
     public void deleteRow() throws SQLException {
@@ -184,7 +186,7 @@ public class WrappedResultSet implements ResultSet {
         }
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#findColumn(java.lang.String)
      */
     public int findColumn(String columnName) throws SQLException {
@@ -196,7 +198,7 @@ public class WrappedResultSet implements ResultSet {
         }
     }
 
-    /** 
+    /**
      * @see java.sql.ResultSet#first()
      */
     public boolean first() throws SQLException {
@@ -1553,6 +1555,18 @@ public class WrappedResultSet implements ResultSet {
     }
 
     public void updateNClob(String columnLabel, Reader reader) throws SQLException {
+    }
+
+    @Override
+    public <T> T getObject(int columnIndex, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
+    }
+
+    @Override
+    public <T> T getObject(String columnLabel, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
     }
 
     public void updateNClob(int columnIndex, Reader reader, long length) throws SQLException {

@@ -23,6 +23,8 @@ import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Map;
 
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
+
 /**
  * WrappedCallableStatement
  *
@@ -866,6 +868,18 @@ public class WrappedCallableStatement extends WrappedPreparedStatement implement
     }
 
     public void setNClob(String parameterName, Reader reader) throws SQLException {
+    }
+
+    @Override
+    public <T> T getObject(int parameterIndex, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
+    }
+
+    @Override
+    public <T> T getObject(String parameterName, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
     }
 
     public void setNClob(String parameterName, Reader reader, long length) throws SQLException {

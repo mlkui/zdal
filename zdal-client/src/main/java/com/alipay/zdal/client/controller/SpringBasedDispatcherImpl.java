@@ -37,11 +37,11 @@ import com.alipay.zdal.rule.ruleengine.entities.retvalue.TargetDB;
 
 /**
  * 主要负责root中拿到需要的信息。然后用matcher进行匹配。
- * 
+ *
  * 最后返回需要的结果
- * 
+ *
  * @author xiaoqing.zhouxq
- * 
+ *
  */
 public class SpringBasedDispatcherImpl implements SqlDispatcher {
     /**
@@ -61,7 +61,7 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
      */
     public final static OutputHandlerConsist consist = new OutputHandlerConsist();
 
-    /** 
+    /**
      * @see com.alipay.zdal.client.dispatcher.SqlDispatcher#getDBAndTables(java.lang.String, java.util.List)
      */
     public DispatcherResult getDBAndTables(String sql, List<Object> args)
@@ -93,11 +93,11 @@ public class SpringBasedDispatcherImpl implements SqlDispatcher {
 
     //TODO:以后考虑加一个sql的状态，就表名这条sql的执行属性，这样就不用所有地方都搞一次了
     //	private boolean validIsSingleDBandSingleTable(List<TargetDB> targetDB){
-    //		
+    //
     //	}
     /**
      * 根据匹配结果，进行最终给TStatement的结果的拼装,不同的matcher可以共用
-     * 
+     *
      * @param matcherResult
      * @return
      */

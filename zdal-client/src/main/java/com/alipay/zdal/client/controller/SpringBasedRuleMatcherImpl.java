@@ -30,7 +30,7 @@ public class SpringBasedRuleMatcherImpl implements Matcher {
         Map<String, Comparative> comparativeTable = new HashMap<String, Comparative>(2);
 
         Map<RuleChain, CalculationContextInternal/*待计算的结果*/> resultMap = new HashMap<RuleChain, CalculationContextInternal>(
-            ruleChainSet.size());
+                ruleChainSet.size());
 
         for (RuleChain ruleChain : ruleChainSet) {
 

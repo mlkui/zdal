@@ -23,16 +23,18 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.jdbc.ZdalStatement;
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
 
 public abstract class BaseTResultSet extends AbstractTResultSet {
     public BaseTResultSet(ZdalStatement statementProxy, List<ResultSet> resultSets) {
         super(statementProxy, resultSets);
     }
 
-    private static final Logger log            = Logger.getLogger(BaseTResultSet.class);
+    private static final Logger log            = LoggerFactory.getLogger(BaseTResultSet.class);
     private int                 fetchSize;
     private int                 fetchDirection = FETCH_FORWARD;
 
@@ -517,4 +519,16 @@ public abstract class BaseTResultSet extends AbstractTResultSet {
         return actualResultSets.get(currentIndex).wasNull();
     }
 
+
+    @Override
+    public <T> T getObject(int columnIndex, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
+    }
+
+    @Override
+    public <T> T getObject(String columnLabel, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
+    }
 }

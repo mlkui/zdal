@@ -14,14 +14,16 @@ import java.sql.SQLXML;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.alipay.zdal.client.jdbc.ZdalStatement;
 import com.alipay.zdal.client.util.ExceptionUtils;
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
 
 public abstract class AbstractTResultSet extends DummyTResultSet {
 
-    private static final Logger log    = Logger.getLogger(AbstractTResultSet.class);
+    private static final Logger log    = LoggerFactory.getLogger(AbstractTResultSet.class);
     protected List<ResultSet>   actualResultSets;
     protected ZdalStatement     statementProxy;
     protected boolean           closed = false;
@@ -37,7 +39,7 @@ public abstract class AbstractTResultSet extends DummyTResultSet {
      * TResultSet，调用关闭的方法，但因为TResultSet的close方法会回调
      * ZdalStatement里面用于创建iterator的Set<ResultSet>对象，并使用remove方法。
      * 这就会抛出一个concurrentModificationException。
-     * 
+     *
      * @param removeThis
      * @throws SQLException
      */
@@ -313,4 +315,15 @@ public abstract class AbstractTResultSet extends DummyTResultSet {
         return null;
     }
 
+    @Override
+    public <T> T getObject(int columnIndex, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
+    }
+
+    @Override
+    public <T> T getObject(String columnLabel, Class<T> type) throws SQLException
+    {
+        throw new NotSupportException("getObject");
+    }
 }

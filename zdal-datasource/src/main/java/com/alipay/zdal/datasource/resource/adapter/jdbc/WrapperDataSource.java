@@ -8,10 +8,13 @@ import java.io.PrintWriter;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
+import java.util.logging.Logger;
 
 import javax.naming.Reference;
 import javax.sql.DataSource;
 
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
 import com.alipay.zdal.datasource.ZDataSource;
 import com.alipay.zdal.datasource.client.util.ZConstants;
 import com.alipay.zdal.datasource.exception.ConnectionNotAvailableException;
@@ -70,6 +73,12 @@ public class WrapperDataSource implements Referenceable, DataSource, Serializabl
     public int getLoginTimeout() throws SQLException {
         // TODO: implement this javax.sql.DataSource method
         return 0;
+    }
+
+    @Override
+    public Logger getParentLogger() throws SQLFeatureNotSupportedException
+    {
+        throw new NotSupportException("getParentLogger");
     }
 
     public void setLoginTimeout(int param1) throws SQLException {

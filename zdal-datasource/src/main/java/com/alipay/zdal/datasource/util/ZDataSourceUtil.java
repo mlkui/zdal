@@ -184,7 +184,7 @@ public final class ZDataSourceUtil {
         try {
             DO.setEncPassword(ds.getEncPassword());
         } catch (Exception e1) {
-            logger.error(e1);
+            logger.error(e1.toString());
         }
         DO.setBackgroundValidation(ds.getBackgroundValidation());
         DO.setBackgroundValidationMinutes(ds.getBackGroundValidationMinutes());
