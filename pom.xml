@@ -16,14 +16,14 @@
 		<module>zdal-rule</module>
 		<module>zdal-datasource</module>
 		<module>zdal-test</module>
+		<!--<module>zdal-demo</module>-->
 	</modules>
 
 	<properties>
-		<project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
-
 		    <dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>zdal-client</artifactId>
@@ -53,20 +53,35 @@
 				<groupId>${project.groupId}</groupId>
 				<artifactId>zdal-test</artifactId>
 				<version>${project.version}</version>
-			</dependency>	
+			</dependency>
 
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring</artifactId>
 				<version>2.5.6</version>
 			</dependency>
-			
-			<!-- log4j for zdal to log-->
+
 			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.16</version>
-			</dependency>	
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.7.19</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>1.2.3</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>1.7.19</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>log4j-over-slf4j</artifactId>
+				<version>1.7.19</version>
+			</dependency>
+
 			<!-- zdal-rule-->
 			<dependency>
 				<groupId>org.codehaus.groovy</groupId>
@@ -80,10 +95,11 @@
 				<version>8.0.16</version>
 			</dependency>
 			<dependency>
-				<groupId>com.oracle</groupId>
-				<artifactId>ojdbc6</artifactId>
-				<version>11.2.0.3.0</version>
+				<groupId>com.oracle.ojdbc</groupId>
+				<artifactId>ojdbc8</artifactId>
+				<version>19.3.0.0</version>
 			</dependency>
+
 			<!-- test jars-->
 			<dependency>
 			  <groupId>commons-dbcp</groupId>
@@ -119,9 +135,9 @@
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
 			<configuration>
-			  <source>1.6</source>
-			  <target>1.6</target>
-			  <encoding>GBK</encoding>
+			  <source>1.8</source>
+			  <target>1.8</target>
+			  <encoding>UTF-8</encoding>
 			</configuration>
 		  </plugin>
 		  <plugin>
@@ -138,8 +154,8 @@
 			<artifactId>maven-site-plugin</artifactId>
 			<configuration>
 			  <locales>zh_CN</locales>
-			  <outputEncoding>GBK</outputEncoding>
-			  <inputEncoding>GBK</inputEncoding>
+			  <outputEncoding>UTF-8</outputEncoding>
+			  <inputEncoding>UTF-8</inputEncoding>
 			</configuration>
 		  </plugin>
 		  <plugin>
@@ -179,8 +195,8 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>2.5</version>
         <configuration>
-          <encoding>GBK</encoding>
-          <charset>GBK</charset>
+          <encoding>UTF-8</encoding>
+          <charset>UTF-8</charset>
         </configuration>
         <reportSets>
           <reportSet>
