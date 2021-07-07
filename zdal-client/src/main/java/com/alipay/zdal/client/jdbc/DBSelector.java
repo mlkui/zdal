@@ -20,14 +20,14 @@ import com.alipay.zdal.common.jdbc.sorter.ExceptionSorter;
  * 对等数据库选择器。
  * 在数据完全相同的一组库中选择一个库
  * 用于对HA/RAC情况,多个读库中取一个读的操作
- * 
+ *
  */
 public interface DBSelector {
 
     /**
      * @return 返回该Selector的标识
      */
-    String getId();
+       String getId();
 
     /**
      * added by fanzeng.
@@ -41,7 +41,7 @@ public interface DBSelector {
     /**
      * added by fanzeng.
      *在执行sql之前，获取之前设置的selectedDSName
-     *然后放在threadLocal里让业务方来取 
+     *然后放在threadLocal里让业务方来取
      */
     String getSelectedDSName();
 
@@ -55,14 +55,14 @@ public interface DBSelector {
 
     /**
      * 设置权重
-     * @param weightMap 
+     * @param weightMap
      *    key为权重键，由使用者和具体实现决定
      *    value为权重值
      */
     void setWeight(Map<String, Integer> weightMap);
 
     /**
-     * 设置数据库类型：目前只用来选择exceptionSorter 
+     * 设置数据库类型：目前只用来选择exceptionSorter
      */
     void setDbType(DBType dbType);
 
@@ -70,10 +70,10 @@ public interface DBSelector {
      * 以选择到的DataSource和传入的args，重试执行
      *    tryer.tryOnDataSource(DataSource ds, Object... args), 每次选择DataSource会排除上次重试失败的
      * 直到达到指定的重试次数，或期间抛出非数据库不可用异常
-     * 
+     *
      * 抛出异常后，以历次重试异常列表，和最初的args，调用
      *    tryer.onSQLException(List<SQLException> exceptions, Object... args)
-     * 
+     *
      * @param tryer
      * @param times
      * @param args
@@ -99,11 +99,11 @@ public interface DBSelector {
 
     //	/**
     //	 * 将当前数据源数组拷贝一份，然后新建一个新的随机选择数组
-    //	 * 
+    //	 *
     //	 * 如果返回为DBSelector表示内部还有可以进行选择的数据源。
-    //	 * 
+    //	 *
     //	 * 而如果返回null 则表示内部没有可进行选择的数据源
-    //	 * 
+    //	 *
     //	 * @param removedDataSource
     //	 * @return
     //	 */

@@ -26,7 +26,7 @@ public class ControllerUtils {
 
     /**
      * 创建执行计划
-     * 
+     *
      * 其中表的执行计划，如果有多个库里面的多个表的个数不同，那么按照表的数量最多的那个值为准。
      * 即：如db1~5，表的个数分别为0,0,0,0,1:那么返回的表执行计划为SINGLE
      * 若，表的个数分别为0,1,2,3,4,5：那么返回表的执行计划为MULTIPLE.
@@ -75,7 +75,7 @@ public class ControllerUtils {
     private static EXECUTE_PLAN buildTableExecutePlan(Set<String> tableSet,
                                                       EXECUTE_PLAN currentExecutePlan) {
         if (currentExecutePlan == null) {
-            currentExecutePlan = EXECUTE_PLAN.NONE;
+            currentExecutePlan = EXECUTE_PLAN.NONE;         //没用！
         }
         EXECUTE_PLAN tempExecutePlan = null;
         if (tableSet == null) {
@@ -99,10 +99,10 @@ public class ControllerUtils {
 
     /**
      * 创建反向输出相关的context，反向输出目前主要是解决以下问题
-     * 
+     *
      * :1.如果sql中带有了符合表名替换pattern的字段，并且不想被替换掉。
      * 2.如果sql中包含了跨表的limit m,n的操作，
-     * 
+     *
      * 其余的情况因为反向输出本身也会带来风险因此不进行反向。
      * @param args
      * @param dmlc

@@ -5,7 +5,7 @@
 package com.alipay.zdal.parser.sql.parser;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: LayoutCharacters.java, v 0.1 2012-11-17 下午3:53:34 Exp $
  */

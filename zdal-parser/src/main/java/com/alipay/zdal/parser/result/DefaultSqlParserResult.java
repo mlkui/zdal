@@ -29,7 +29,7 @@ import com.alipay.zdal.parser.visitor.OrderByEle;
 import com.alipay.zdal.parser.visitor.ZdalSchemaStatVisitor;
 
 /**
- * 
+ *
  * @author xiaoqing.zhouxq
  * @version $Id: AbstractSqlParserResult.java, v 0.1 2012-5-21 下午03:11:27 xiaoqing.zhouxq Exp $
  */
@@ -118,7 +118,7 @@ public abstract class DefaultSqlParserResult implements SqlParserResult, Compara
         return tableName;
     }
 
-    /**
+     /**
      * 获取ComparativeMap.
      * map的key 是列名 value是绑定变量后的{@link Comparative}
      * 如果是个不可赋值的变量，则不会返回。
