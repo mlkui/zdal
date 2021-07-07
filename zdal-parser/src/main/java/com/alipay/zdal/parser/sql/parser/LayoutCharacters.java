@@ -37,7 +37,7 @@ public interface LayoutCharacters {
     final static byte CR     = 0xD;
 
     /**
-     * QS_TODO 涓轰粈涔堜笉鏄?x0锛?br/>
+     * QS_TODO 为什么不�?x0�?br/>
      * End of input character. Used as a sentinel to denote the character one beyond the last defined character in a
      * source file.
      */
