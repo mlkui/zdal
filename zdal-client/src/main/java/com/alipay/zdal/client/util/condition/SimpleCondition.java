@@ -19,7 +19,7 @@ import com.alipay.zdal.parser.sqlobjecttree.ComparativeMapChoicer;
 import com.alipay.zdal.parser.visitor.OrderByEle;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: SimpleCondition.java, v 0.1 2014-1-6 下午05:16:45 Exp $
  */
@@ -51,7 +51,7 @@ public class SimpleCondition implements RuleRouteCondition, ComparativeMapChoice
     //		long currentTime = System.currentTimeMillis();
     //		Set<RuleChain> ruleChains = rule.getRuleChain();
     //		for(RuleChain ruleChain:ruleChains){
-    //			
+    //
     //		}
     //		TargetDBMetaData targetDBMetaData = provider.getDBAndTabs(virtualTableName, parameters);
     //		long elapsedTime = System.currentTimeMillis();
@@ -86,7 +86,7 @@ public class SimpleCondition implements RuleRouteCondition, ComparativeMapChoice
 
     /**
      * 设置虚拟表名
-     * 
+     *
      * @param virtualTableName
      *            虚拟表名
      */
@@ -103,7 +103,7 @@ public class SimpleCondition implements RuleRouteCondition, ComparativeMapChoice
 
     /**
      * 添加一个默认为=的参数对
-     * 
+     *
      * @param str
      *            参数项名字
      * @param comp
