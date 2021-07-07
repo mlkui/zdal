@@ -6,6 +6,7 @@ package com.alipay.zdal.client.jdbc;
 
 import com.alipay.zdal.common.SqlType;
 
+@Deprecated
 public class DefaultSqlExecuteEvent implements SqlExecuteEvent {
     private SqlType sqlType;
     private String  logicTableName;
