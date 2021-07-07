@@ -7,6 +7,7 @@ package com.alipay.zdal.client.jdbc;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,6 +38,7 @@ import com.alipay.zdal.common.Closable;
 import com.alipay.zdal.common.Constants;
 import com.alipay.zdal.common.DBType;
 import com.alipay.zdal.common.RuntimeConfigHolder;
+import com.alipay.zdal.common.exception.runtime.NotSupportException;
 import com.alipay.zdal.common.jdbc.sorter.DB2ExceptionSorter;
 import com.alipay.zdal.common.jdbc.sorter.MySQLExceptionSorter;
 import com.alipay.zdal.common.jdbc.sorter.OracleExceptionSorter;
@@ -61,7 +64,7 @@ import com.alipay.zdal.rule.config.beans.TableRule.ParseException;
 import com.alipay.zdal.rule.ruleengine.entities.abstractentities.ListSharedElement.DEFAULT_LIST_RESULT_STRAGETY;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: AbstractZdalDataSource.java, v 0.1 2013-1-30 上午09:56:01 Exp $
  */
@@ -91,7 +94,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     /**
      * 权重码以rwp分别代表读权重、写权重、读级别3项。不区分大小和顺序，后面可以跟一个数字。
      * 若字母不出现，对应项的值默认为0；若字母出现数字不出现，对应项的默认值见return说明
-     * 
+     *
      * @param weight
      *            格式
      * @return int[0] R后面的数字(默认10), int[1] W后面的数字(默认10), int[2] P后面的数字(默认0);
@@ -147,7 +150,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * com.alipay.zdal.client.config.ZdalConfigListener#resetWeight(java.util
      * .Map)
@@ -317,7 +320,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * 为load balance 设置dbType
-     * 
+     *
      * @param dbType
      */
     private void setDbTypeForDBSelector(DBType dbType) {
@@ -331,7 +334,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     }
 
     /**
-     * 
+     *
      * @return
      */
     private SimpleTableMapProvider getTableMapProvider(TableRule tableRule) {
@@ -482,7 +485,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * 获取 数据源
-     * 
+     *
      * @return
      */
     private DataSource getDataSourceObject(String dsName) {
@@ -503,7 +506,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
      * 对老式配置模式的支持：
      * 分库规则定位到的是一个dbgroup，dbgroup内又包含读库和写库，这时规则不分masterRule、slaveRule
      * ，只有一个oneRule
-     * 
+     *
      * 每个key对应dbgroup中，每个库可以有读写属性及权重，格式如下 <entry key="slave_0"
      * value="slaver_db1_a:RW    ,slaver_db1_b:R" /> <entry key="slave_1"
      * value="slaver_db2_a:R10W  ,slaver_db2_b:R20" /> <entry key="slave_2"
@@ -513,13 +516,13 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
      * key="slave_5" value="slaver_db6" /> * 对应的权重： slave_0=R10W10,R10W0
      * slave_1=R10W10,R20W0 slave_3=R10W20,R20W10 slave_4=R10W10,R10W10
      * slave_5=RW
-     * 
-     * 
+     *
+     *
      * 适配做法是
      * 将oneRule拆分成masterRule和slaveRule；将oneRule中的dbIndex分别在masterRule中加_w后缀
      * ，在slaveRule中加_r后缀 tabaleA: <property name="dbIndexes"
      * value="slave_0,slave_1,slave_2,slave_3" />
-     * 
+     *
      * master.tabaleA: <property name="dbIndexes"
      * value="slave_0_w,slave_1_w,slave_2_w,slave_3_w" /> slaver.tabaleA:
      * <property name="dbIndexes"
@@ -538,10 +541,10 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
      * --> <entry key="slave_4_r" value="slaver_db5_a:10,slaver_db5_b:10" /><!--
      * 主主 --> <entry key="slave_5_w" value="slaver_db6" /> <entry
      * key="slave_5_r" value="slaver_db6" />
-     * 
+     *
      * 权重推送： slave_1=R10W10,R20W0 |--> slave_1_w[10,0], slave_1_r[10,20] 变为：
      * slave_1=R10W10,R0,W0 |--> slave_1_w[10,0], slave_1_r[10,0]
-     * 
+     *
      * @param dataSourcePool
      * @return
      */
@@ -606,11 +609,11 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * 如果不仅一组，则用优先队列来存储数据源。 同一组内随机选取一个，不同组严格按优先级别来选取，只有高级别出错误才会向下选取低级别的数据源
-     * 
+     *
      * 只写rw时，pr=pw=0默认值，即大家都在同一组内，大家随便选取,只写p 时，pr=pw=p dbs =
      * slaver_db3_a:R10W10p10,slaver_db3_b:R20W0p5 对读和写都分别分级，pr pw dbs =
      * slaver_db3_a:R10W10pr10pw2,slaver_db3_b:R20W0pr5pw10
-     * 
+     *
      * @param databaseSources
      * @param dbIndex
      * @param dsSelectors
@@ -756,7 +759,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * reset zdatasource，failoverRule，readWriteRule,目前tair数据源不支持重建.
-     * 
+     *
      * @param zdalConfig
      */
     public void resetZdalDataSource(Map<String, String> keyWeights) {
@@ -795,7 +798,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * zdal reset rw weight
-     * 
+     *
      * @param p
      */
     private void resetDbWeight(Map<String, String> p) {
@@ -854,7 +857,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
     /**
      * added by fanzeng. changed by boya. 参数p格式如下 group_00=ds0:10,ds1:0
      * group_01=ds2:10,ds3:0 group_02=ds4:0,ds5:10 一组只有一个库的时候不用调整其权重，默认为10
-     * 
+     *
      * @param p
      *            推送过来的内容
      */
@@ -923,7 +926,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * added for zdal
-     * 
+     *
      * @param p
      * @return
      */
@@ -943,7 +946,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * zdataconsole中的配置信息转化成ZdataSource的配置信息 .
-     * 
+     *
      * @param parameter
      * @return
      */
@@ -980,7 +983,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * 数据源对connection的封装.
-     * 
+     *
      * @see javax.sql.DataSource#getConnection()
      */
     public Connection getConnection() throws SQLException {
@@ -1007,7 +1010,7 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     /**
      * 创建连接，将必要的参数设置到ZdalConnection里去，然后设置给 ZdalStatement 对象
-     * 
+     *
      * @param connection
      */
     private void buildTconnection(ZdalConnection connection) {
@@ -1108,6 +1111,13 @@ public abstract class AbstractZdalDataSource extends ZdalDataSourceConfig implem
 
     public Map<String, ? extends Object> getDataSourcePoolConfig() {
         return dataSourcePoolConfig;
+    }
+
+
+    @Override
+    public Logger getParentLogger() throws SQLFeatureNotSupportedException
+    {
+        throw new NotSupportException("getParentLogger");
     }
 
 }
