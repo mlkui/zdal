@@ -6,6 +6,7 @@ package com.alipay.zdal.client.jdbc;
 
 import com.alipay.zdal.common.SqlType;
 
+@Deprecated
 public interface SqlExecuteEvent {
     SqlType getSqlType();
 

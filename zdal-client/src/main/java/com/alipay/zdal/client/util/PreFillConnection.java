@@ -21,6 +21,7 @@ import com.alipay.zdal.datasource.ZDataSource;
  * @author 伯牙
  * @version $Id: PreFillConnection.java, v 0.1 2013-6-7 上午09:48:02 Exp $
  */
+@Deprecated
 public class PreFillConnection {
 
     private static final Logger logger             = LoggerFactory

@@ -17,10 +17,11 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 
+ *
  * @author 伯牙
  * @version $Id: UniqId.java, v 0.1 2014-1-6 下午05:15:47 Exp $
  */
+@Deprecated
 public class UniqId {
     private static char[]                  digits  = { '0', '1', '2', '3', '4', '5', '6', '7', '8',
             '9', 'a', 'b', 'c', 'd', 'e', 'f'     };
